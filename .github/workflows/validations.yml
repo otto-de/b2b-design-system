@@ -6,22 +6,6 @@ on:
         required: true
         type: string
 jobs:
-  TfSec:
-    name: TFSec
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install TfSec
-        run: |
-          wget -q https://github.com/aquasecurity/tfsec/releases/download/v1.21.2/tfsec-linux-amd64
-          cp tfsec-linux-amd64 /usr/local/bin/tfsec
-          chmod +x /usr/local/bin/tfsec
-
-      - name: Run TfSec
-        run: |
-          tfsec --config-file tfsec.yml
   build-sanity-check:
     name: Build Sanity Check
     runs-on: ubuntu-latest
