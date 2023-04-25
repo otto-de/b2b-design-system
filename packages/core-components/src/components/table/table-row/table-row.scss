@@ -1,0 +1,34 @@
+@use '../../../global/b2b-styles';
+
+:host {
+  border-bottom: 1px solid var(--b2b-color-grey-200);
+  display: table-row;
+}
+
+:host(.b2b-table-row-color-default) {
+  background-color: inherit;
+}
+
+:host(.b2b-table-row-color-selected) {
+  background-color: var(--b2b-color-table-selected-default);
+}
+
+:host(.b2b-table-row-color-group) {
+  background-color: var(--b2b-color-table-expand-default);
+}
+
+:host(.b2b-table-row-color-default:hover) {
+  background-color: inherit;
+}
+
+:host(.b2b-table-row-highlight:hover) {
+  background-color: var(--b2b-color-table-hover);
+}
+
+:host(.b2b-table-row-color-selected:hover) {
+  background-color: var(red);
+}
+
+:host(.b2b-table-row-color-group:hover) {
+  background-color: var(--b2b-color-table-expand-hover);
+}

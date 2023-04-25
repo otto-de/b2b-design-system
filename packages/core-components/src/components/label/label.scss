@@ -1,0 +1,34 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+.b2b-label {
+  display: inline-block;
+  font-family: var(--b2b-font-family-default);
+  font-size: var(--b2b-size-copy-75);
+  line-height: var(--b2b-size-copy-line-height-50);
+  border-radius: var(--b2b-size-30);
+  border: 1px solid var(--b2b-color-white-100);
+  padding: var(--b2b-size-1) var(--b2b-size-15);
+
+  &--neutral {
+    background-color: var(--b2b-color-grey-100);
+  }
+
+  &--info {
+    background-color: var(--b2b-color-info-50);
+  }
+
+  &--success {
+    color: var(--b2b-color-success-100);
+    background-color: var(--b2b-color-success-50);
+  }
+
+  &--warning {
+    background-color: var(--b2b-color-warning-50);
+  }
+
+  &--error {
+    color: var(--b2b-color-error-100);
+    background-color: var(--b2b-color-error-50);
+  }
+}

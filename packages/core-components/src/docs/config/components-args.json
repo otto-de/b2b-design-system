@@ -1,0 +1,2452 @@
+{
+  "b2b-alert": {
+    "customIcon": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not you want to use a custom icon. Per default, it is false."
+    },
+    "hasCloseButton": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Whether or not the alert has a close button. Per default it is true. Note that errors and small alerts cannot be closed."
+    },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the alert is currently open. Set to true to display the alert."
+    },
+    "size": {
+      "options": [
+        "large",
+        "small"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'small'"
+        }
+      },
+      "description": "The size of the alert. Per default it is large. If set to small, the alert will only have an icon."
+    },
+    "type": {
+      "options": [
+        "error",
+        "info",
+        "success",
+        "warning"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'info'"
+        }
+      },
+      "description": "The type of alert. Per default it is info."
+    }
+  },
+  "b2b-anchor": {
+    "download": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\ndefaults to the URL string, but can be changed by the user."
+    },
+    "href": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The URL or URL fragment the anchor points to. This is required."
+    },
+    "size": {
+      "options": [
+        "100",
+        "inherit"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'inherit'"
+        }
+      },
+      "description": "The size of the link. Per default, it is inherited from the parent element. If specified to 100, the font size is 14px."
+    },
+    "target": {
+      "options": [
+        "blank",
+        "parent",
+        "self",
+        "top"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'self'"
+        }
+      },
+      "description": "The target the URL will be opened into. The default is self."
+    }
+  },
+  "b2b-button": {
+    "active": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the button is currently active. Set to true when using the button to signify a permanent active state"
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the button is disabled."
+    },
+    "download": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\r\ndefaults to the URL string, but can be changed by the user."
+    },
+    "href": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "An optional anchor. If specified, the button will render an anchor element that can be use for navigation or download files"
+    },
+    "loading": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the button is currently loading. Set to true to hide text and display loading spinner instead"
+    },
+    "size": {
+      "options": [
+        "100",
+        "50"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'100'"
+        }
+      },
+      "description": "The size of the button, 100 is the default state"
+    },
+    "target": {
+      "options": [
+        "blank",
+        "self"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'self'"
+        }
+      },
+      "description": "The target of the button if it should behave like an anchor. Per default it is self."
+    },
+    "type": {
+      "options": [
+        "button",
+        "reset",
+        "submit"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'button'"
+        }
+      },
+      "description": "The button type. Matches native HTML types. The default type is 'button'."
+    },
+    "variant": {
+      "options": [
+        "primary",
+        "secondary"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'secondary'"
+        }
+      },
+      "description": "The button variant. If not specified, the button will be the secondary variant."
+    }
+  },
+  "b2b-checkbox": {
+    "checked": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the checkbox is checked. Default value is false and can be set to true if the checkbox should come pre-checked."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the checkbox is disabled. The default value is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The error message. It is undefined by default. If a string is passed in, it will render the checkbox with error styles."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the checkbox is rendered with error styles. Defaults to false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The checkbox label. This attribute is required."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the checkbox. Per default it is undefined. Use this to programmatically group checkboxes together by giving them the same name."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value of the checkbox. This is not the same as the checked property. It is only used when the checkbox participates in a checkbox group"
+    }
+  },
+  "b2b-checkbox-group": {
+    "alignment": {
+      "options": [
+        "horizontal",
+        "vertical"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'vertical'"
+        }
+      },
+      "description": "The alignment of the checkbox group. Per default it is vertical"
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the checkbox group as a whole is disabled. Default state is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The checkbox group error message. Is displayed when invalid is set to true."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The checkbox group hint text."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the checkbox group as a whole is invalid. Set to true to display a group error."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label for the checkbox group. This is optional."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    }
+  },
+  "b2b-dropdown": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the select as a whole is disabled. Per default it is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "An optional error message for the dropdown. This will only appear if invalid is set to true."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "An optional hint text for the dropdown."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the select is currently invalid. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The dropdown label."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the select. This is used to associate the label to the dropdown element. It is important for accessibility."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    }
+  },
+  "b2b-grid": {
+    "margin": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "24"
+        }
+      },
+      "description": "The inner padding of the grid container measured in px."
+    }
+  },
+  "b2b-grid-col": {
+    "span": {
+      "options": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. Up to single 12 columns fit in one row."
+    },
+    "textAlign": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of text placed inside of a column. Note that this will apply to all children."
+    }
+  },
+  "b2b-grid-row": {
+    "alignItems": {
+      "options": [
+        "center",
+        "flex-end",
+        "flex-start",
+        "stretch"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'stretch'"
+        }
+      },
+      "description": "Vertical alignment of columns. This requires the row to have a defined height."
+    },
+    "columnGap": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "24"
+        }
+      },
+      "description": "The spacing in between individual columns in px. The higher the gap, the smaller the columns will be."
+    },
+    "justify": {
+      "options": [
+        "center",
+        "end",
+        "space-around",
+        "space-between",
+        "space-evenly",
+        "start"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'start'"
+        }
+      },
+      "description": "Horizontal alignment of columns."
+    },
+    "rowGap": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "24"
+        }
+      },
+      "description": "The spacing between individual rows in px."
+    }
+  },
+  "b2b-headline": {
+    "align": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of the headline."
+    },
+    "noMargin": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the headline should have a margin. Per default, margins are enabled."
+    },
+    "size": {
+      "options": [
+        "100",
+        "200",
+        "400"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'400'"
+        }
+      },
+      "description": "Each variant has a different hierarchical order, where 1 is the highest level. 400 will render to `<h1>`, 200 to `<h2>` and 100 to `<h3>`"
+    }
+  },
+  "b2b-icon": {
+    "color": {
+      "options": [
+        "inherit",
+        "inverse",
+        "primary",
+        "secondary"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'inherit'"
+        }
+      },
+      "description": "The color of the icon"
+    },
+    "icon": {
+      "options": [
+        "b2b_icon-360-degree",
+        "b2b_icon-advice",
+        "b2b_icon-allergen-sulfur-dioxide-sulfite",
+        "b2b_icon-almond",
+        "b2b_icon-archive",
+        "b2b_icon-armchair",
+        "b2b_icon-arrow-down",
+        "b2b_icon-arrow-graph",
+        "b2b_icon-arrow-left",
+        "b2b_icon-arrow-right",
+        "b2b_icon-arrow-up",
+        "b2b_icon-assembly",
+        "b2b_icon-assortment",
+        "b2b_icon-attachment",
+        "b2b_icon-augmented-reality",
+        "b2b_icon-autonomous-team",
+        "b2b_icon-bank-details",
+        "b2b_icon-bar-graph-ascending",
+        "b2b_icon-bar-graph-axis",
+        "b2b_icon-barley",
+        "b2b_icon-basket-sale",
+        "b2b_icon-basket",
+        "b2b_icon-basketball",
+        "b2b_icon-bikini",
+        "b2b_icon-blogs",
+        "b2b_icon-brandshop",
+        "b2b_icon-brazil-nut",
+        "b2b_icon-browser-click",
+        "b2b_icon-browser-content",
+        "b2b_icon-browser-psm",
+        "b2b_icon-burger",
+        "b2b_icon-bus",
+        "b2b_icon-callback",
+        "b2b_icon-camera",
+        "b2b_icon-cashback",
+        "b2b_icon-cashew-nut",
+        "b2b_icon-catalogue",
+        "b2b_icon-categories",
+        "b2b_icon-celery",
+        "b2b_icon-certificate",
+        "b2b_icon-chair",
+        "b2b_icon-chat",
+        "b2b_icon-check-bold",
+        "b2b_icon-check",
+        "b2b_icon-chicken",
+        "b2b_icon-city",
+        "b2b_icon-clear",
+        "b2b_icon-close-bold",
+        "b2b_icon-close",
+        "b2b_icon-code-management",
+        "b2b_icon-contact-mail",
+        "b2b_icon-copy",
+        "b2b_icon-cow",
+        "b2b_icon-crab",
+        "b2b_icon-critique",
+        "b2b_icon-curtain",
+        "b2b_icon-cut-out",
+        "b2b_icon-dashboard",
+        "b2b_icon-deer",
+        "b2b_icon-delete",
+        "b2b_icon-delivery-24h",
+        "b2b_icon-delivery-desired-date-selection",
+        "b2b_icon-delivery-desired-date",
+        "b2b_icon-delivery-express",
+        "b2b_icon-delivery-flat",
+        "b2b_icon-delivery-on-hangers",
+        "b2b_icon-delivery-preferred-place",
+        "b2b_icon-desktop-phone-ads-click",
+        "b2b_icon-desktop-phone-ads",
+        "b2b_icon-desktop-phone",
+        "b2b_icon-desktop",
+        "b2b_icon-devices-monitor-laptop-tablet",
+        "b2b_icon-dish-feature-lactose-free",
+        "b2b_icon-dislike",
+        "b2b_icon-disposal",
+        "b2b_icon-document-sign",
+        "b2b_icon-downloads",
+        "b2b_icon-dress",
+        "b2b_icon-dungarees",
+        "b2b_icon-duration",
+        "b2b_icon-e-invoice",
+        "b2b_icon-edit-pad",
+        "b2b_icon-edit",
+        "b2b_icon-egg",
+        "b2b_icon-ellipsis",
+        "b2b_icon-email-verification-confirmed-safe",
+        "b2b_icon-email-verification-confirmed",
+        "b2b_icon-email-verification-sent-safe",
+        "b2b_icon-email-verification-sent",
+        "b2b_icon-empty-hint",
+        "b2b_icon-end-to-end",
+        "b2b_icon-error-article-image",
+        "b2b_icon-error",
+        "b2b_icon-euro",
+        "b2b_icon-event",
+        "b2b_icon-events",
+        "b2b_icon-expand",
+        "b2b_icon-faq",
+        "b2b_icon-feedback",
+        "b2b_icon-filter",
+        "b2b_icon-fish",
+        "b2b_icon-fitness",
+        "b2b_icon-flag-chequered",
+        "b2b_icon-flexible-work",
+        "b2b_icon-flip",
+        "b2b_icon-food-processor",
+        "b2b_icon-fullscreen",
+        "b2b_icon-gallery-view",
+        "b2b_icon-gamepad",
+        "b2b_icon-garlic",
+        "b2b_icon-gender-intersex",
+        "b2b_icon-globe",
+        "b2b_icon-gluten",
+        "b2b_icon-glutenfree",
+        "b2b_icon-handshake",
+        "b2b_icon-hashtag",
+        "b2b_icon-hazelnut",
+        "b2b_icon-hide",
+        "b2b_icon-high-heels",
+        "b2b_icon-home",
+        "b2b_icon-info-small",
+        "b2b_icon-info",
+        "b2b_icon-inplace-zoom-reverse",
+        "b2b_icon-inplace-zoom",
+        "b2b_icon-insurance",
+        "b2b_icon-kamut",
+        "b2b_icon-laptop-os",
+        "b2b_icon-laptop",
+        "b2b_icon-leaving-page",
+        "b2b_icon-light-bulb",
+        "b2b_icon-like-fingers",
+        "b2b_icon-like-product",
+        "b2b_icon-like",
+        "b2b_icon-line-graph",
+        "b2b_icon-list-view",
+        "b2b_icon-location",
+        "b2b_icon-lupine",
+        "b2b_icon-macadamia",
+        "b2b_icon-material-samples",
+        "b2b_icon-measurement",
+        "b2b_icon-megaphone",
+        "b2b_icon-menu",
+        "b2b_icon-mic",
+        "b2b_icon-milk",
+        "b2b_icon-minus",
+        "b2b_icon-module-operations",
+        "b2b_icon-money-coins",
+        "b2b_icon-money-document",
+        "b2b_icon-money-plus",
+        "b2b_icon-money-stack",
+        "b2b_icon-money",
+        "b2b_icon-move",
+        "b2b_icon-mustard",
+        "b2b_icon-nav",
+        "b2b_icon-new",
+        "b2b_icon-newsletter-sign-up",
+        "b2b_icon-notification",
+        "b2b_icon-nuts",
+        "b2b_icon-oat",
+        "b2b_icon-order-cancelled",
+        "b2b_icon-order-delivered",
+        "b2b_icon-order-form",
+        "b2b_icon-order-management",
+        "b2b_icon-order-misdirected",
+        "b2b_icon-order-on-road",
+        "b2b_icon-order-packed",
+        "b2b_icon-order-payment",
+        "b2b_icon-order-received",
+        "b2b_icon-order-return",
+        "b2b_icon-order-shipped",
+        "b2b_icon-order-state-unknown",
+        "b2b_icon-order-stored",
+        "b2b_icon-order",
+        "b2b_icon-otto-app",
+        "b2b_icon-otto-campus",
+        "b2b_icon-otto-company",
+        "b2b_icon-otto-laptop",
+        "b2b_icon-otto-logo",
+        "b2b_icon-otto-up-points",
+        "b2b_icon-otto-up",
+        "b2b_icon-paper-plane",
+        "b2b_icon-pause",
+        "b2b_icon-payment-credit-card",
+        "b2b_icon-payment-invoice",
+        "b2b_icon-payment-pause",
+        "b2b_icon-payment-plan-protection",
+        "b2b_icon-payment-plan",
+        "b2b_icon-pdf",
+        "b2b_icon-peanut",
+        "b2b_icon-pecan-nut",
+        "b2b_icon-pending",
+        "b2b_icon-person-access",
+        "b2b_icon-person-callcenter",
+        "b2b_icon-person-check",
+        "b2b_icon-person-colleagues",
+        "b2b_icon-person-community",
+        "b2b_icon-person-development",
+        "b2b_icon-person-female",
+        "b2b_icon-person-info",
+        "b2b_icon-person-male",
+        "b2b_icon-person-rating",
+        "b2b_icon-person-support",
+        "b2b_icon-person-switch",
+        "b2b_icon-person-workshop",
+        "b2b_icon-person",
+        "b2b_icon-phone-permission",
+        "b2b_icon-phone",
+        "b2b_icon-pig",
+        "b2b_icon-pin",
+        "b2b_icon-pinch-gesture",
+        "b2b_icon-pinch",
+        "b2b_icon-pistachio",
+        "b2b_icon-plant",
+        "b2b_icon-play-1",
+        "b2b_icon-play",
+        "b2b_icon-plus",
+        "b2b_icon-price-alert",
+        "b2b_icon-price-tag",
+        "b2b_icon-print",
+        "b2b_icon-puzzle",
+        "b2b_icon-qr-code",
+        "b2b_icon-question-hint",
+        "b2b_icon-question",
+        "b2b_icon-rating-empty",
+        "b2b_icon-rating-filled",
+        "b2b_icon-rating-half",
+        "b2b_icon-rating-order",
+        "b2b_icon-rating-payment",
+        "b2b_icon-remote-work",
+        "b2b_icon-repair",
+        "b2b_icon-reply",
+        "b2b_icon-retirement-provision",
+        "b2b_icon-rocket",
+        "b2b_icon-rye",
+        "b2b_icon-sabbatical",
+        "b2b_icon-sale",
+        "b2b_icon-save",
+        "b2b_icon-sea",
+        "b2b_icon-search-enter",
+        "b2b_icon-search",
+        "b2b_icon-seo",
+        "b2b_icon-service-info",
+        "b2b_icon-sesame",
+        "b2b_icon-settings",
+        "b2b_icon-share-ios",
+        "b2b_icon-share",
+        "b2b_icon-sheep",
+        "b2b_icon-shell",
+        "b2b_icon-shirt",
+        "b2b_icon-shopping-cart-euro",
+        "b2b_icon-shopping-cart",
+        "b2b_icon-show",
+        "b2b_icon-smiley-angry",
+        "b2b_icon-smiley-happy",
+        "b2b_icon-smiley-negative",
+        "b2b_icon-smiley-neutral",
+        "b2b_icon-smiley-positive",
+        "b2b_icon-sms-info",
+        "b2b_icon-sneaker",
+        "b2b_icon-sort-ascending",
+        "b2b_icon-sort-descending",
+        "b2b_icon-sort",
+        "b2b_icon-soy",
+        "b2b_icon-spelt",
+        "b2b_icon-stationary",
+        "b2b_icon-studies",
+        "b2b_icon-success",
+        "b2b_icon-sustainable-delivery",
+        "b2b_icon-sustainable-energy-efficient",
+        "b2b_icon-sustainable-production",
+        "b2b_icon-sustainable-recycling",
+        "b2b_icon-sustainable-resource",
+        "b2b_icon-swipe-gesture",
+        "b2b_icon-sync-device",
+        "b2b_icon-t-shirt",
+        "b2b_icon-tablet",
+        "b2b_icon-tableware",
+        "b2b_icon-target-group",
+        "b2b_icon-teddy",
+        "b2b_icon-test-result",
+        "b2b_icon-town",
+        "b2b_icon-trash",
+        "b2b_icon-trend-down",
+        "b2b_icon-trend-up",
+        "b2b_icon-trousers",
+        "b2b_icon-trusted",
+        "b2b_icon-unpin",
+        "b2b_icon-upload",
+        "b2b_icon-user-management",
+        "b2b_icon-vacation",
+        "b2b_icon-variant-content",
+        "b2b_icon-vegan",
+        "b2b_icon-vegetarian",
+        "b2b_icon-viewtoggle-tiles",
+        "b2b_icon-village",
+        "b2b_icon-volume-off",
+        "b2b_icon-volume-on",
+        "b2b_icon-voucher",
+        "b2b_icon-walnut",
+        "b2b_icon-warning",
+        "b2b_icon-warranty",
+        "b2b_icon-washing-machine",
+        "b2b_icon-whatsapp",
+        "b2b_icon-wheat",
+        "b2b_icon-wifi",
+        "b2b_icon-wishlist-active",
+        "b2b_icon-wishlist",
+        "b2b_icon-work-life",
+        "b2b_icon-workshop",
+        "b2b_icon-zoom-in",
+        "b2b_icon-zoom-out"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the icon"
+    },
+    "size": {
+      "options": [
+        "100",
+        "200",
+        "50"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'100'"
+        }
+      },
+      "description": "The size of the icon"
+    }
+  },
+  "b2b-input": {
+    "autofocus": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "When setting the autofocus to true, the input element will be focused when the page loads."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the input is disabled. Default is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The error message that is shown if the input is invalid."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The hint text that appears underneath the input field."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the input is currently invalid. If true, the input is rendered with error styles. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The input label."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the input. Use it to group label and input together and make it more accessible."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "A placeholder for the input field. Per default, it is null."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "type": {
+      "options": [
+        "email",
+        "number",
+        "password",
+        "search",
+        "tel",
+        "text",
+        "url"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'text'"
+        }
+      },
+      "description": "The type of the input. All native HTML types except date or month are supported. Default is text."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The default value of the input field. If defined, it will prefill the input."
+    }
+  },
+  "b2b-input-group": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the input group is disabled as a whole. Per default it is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "A group error text. It will only show if invalid is set to true."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The hint text that appears underneath the input group."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the input group is invalid and should be rendered with error styles as a whole. Per default it is false."
+    }
+  },
+  "b2b-input-label": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Will render the label with a disabled style. The default value is false."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    }
+  },
+  "b2b-input-list": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The input label."
+    },
+    "optionsList": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the input field."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The default value of the input field. If defined, it will prefill the input."
+    }
+  },
+  "b2b-input-list-option": {
+    "option": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The option name."
+    }
+  },
+  "b2b-label": {
+    "type": {
+      "options": [
+        "error",
+        "info",
+        "neutral",
+        "success",
+        "warning"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'neutral'"
+        }
+      },
+      "description": "The type of the label. Per default it is neutral."
+    }
+  },
+  "b2b-modal": {
+    "backdropDismiss": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "A boolean that indicates whether the modal can be dismissed by clicking\nin the backdrop outside the modal."
+    },
+    "escDismiss": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "A boolean to indicate whether the modal can be dismissed by pressing\nthe escape key on the keyboard"
+    },
+    "heading": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The title for the modal. This is required."
+    },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the modal is shown or not. Default is false"
+    },
+    "variant": {
+      "options": [
+        "default",
+        "large"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'default'"
+        }
+      },
+      "description": "The size of the modal. If not specified, will assume the default size"
+    }
+  },
+  "b2b-pagination": {
+    "activePage": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "1"
+        }
+      },
+      "description": "Use this property to set programmatically the active page"
+    },
+    "ariaLabelNextPage": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Go to next page'"
+        }
+      },
+      "description": "(optional) translation to 'Go to next page'"
+    },
+    "ariaLabelPreviousPage": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Go to previous page'"
+        }
+      },
+      "description": "(optional) translation to 'Go to previous page'"
+    },
+    "totalPages": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "1"
+        }
+      },
+      "description": "The total number of pages to calculate the length of pagination component"
+    }
+  },
+  "b2b-paragraph": {
+    "align": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of the text."
+    },
+    "size": {
+      "options": [
+        "100",
+        "50"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'100'"
+        }
+      },
+      "description": "The size of the text."
+    },
+    "weight": {
+      "options": [
+        "bold",
+        "normal"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'normal'"
+        }
+      },
+      "description": "The weight of the text."
+    }
+  },
+  "b2b-radio-button": {
+    "checked": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the radio button is currently checked. Per default it is false."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the radio button is currently disabled. Per default it is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "An error text. It will only show if invalid is set to true."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "A hint to give additional information on the radio button."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the radio button should be rendered with error styles. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the radio button. This is required"
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the radio button. Use it to group radio buttons together and assign the label to the input element for better accessibility. This is required."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value of the radio button. This will be emitted when the radio button is clicked."
+    }
+  },
+  "b2b-radio-group": {
+    "alignment": {
+      "options": [
+        "horizontal",
+        "vertical"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'vertical'"
+        }
+      },
+      "description": "The alignment of the radio group. Can be vertical or horizontal, per default it is vertical."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the radio group is disabled as a whole. Per default it is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "A group error text. It will only show if invalid is set to true."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "A group hint text."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the radio group is invalid and should be rendered with error styles as a whole. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The radio group label. This is optional."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The radio group name used to group them together programmatically. This is required."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    }
+  },
+  "b2b-required-separator": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Pflichtfeld'"
+        }
+      },
+      "description": "The required label. Per default it is the german 'Pflichtfeld', but can be altered."
+    }
+  },
+  "b2b-scrollable-container": {},
+  "b2b-search": {
+    "optionsList": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the input field."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The default value of the search input field. If defined, it will prefill the input."
+    }
+  },
+  "b2b-separator": {
+    "alignment": {
+      "options": [
+        "horizontal",
+        "vertical"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'horizontal'"
+        }
+      },
+      "description": "The alignment of the separator. Per default it is horizontal."
+    }
+  },
+  "b2b-spinner": {
+    "color": {
+      "options": [
+        "inverse",
+        "primary",
+        "secondary"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'primary'"
+        }
+      },
+      "description": "The color of the spinner."
+    },
+    "size": {
+      "options": [
+        "100",
+        "200",
+        "50"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'100'"
+        }
+      },
+      "description": "The size of the spinner."
+    }
+  },
+  "b2b-tab": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the tab is currently disabled. Per default it is false."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the tab has an error. Per default, it is false."
+    },
+    "selected": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the tab is currently selected. Per default it is false."
+    }
+  },
+  "b2b-tab-group": {
+    "useRouter": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Determines if the Tab Group will do it's own navigation. Per default, it will use internal navigation.\nSet it to true if you want to use external, route-based navigation."
+    }
+  },
+  "b2b-tab-panel": {},
+  "b2b-table": {
+    "size": {
+      "options": [
+        "equal",
+        "expand"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "TableSizes.EXPAND"
+        }
+      },
+      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns."
+    }
+  },
+  "b2b-table-cell": {
+    "align": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "ContentAlignment.LEFT"
+        }
+      },
+      "description": "Alignment of the content of the cell, by default is to the left. *"
+    },
+    "color": {
+      "options": [
+        "default",
+        "group",
+        "selected"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'default'"
+        }
+      },
+      "description": "Background color of the cell. This color selection does not have hover states, as it is handled from the row*"
+    },
+    "divider": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "adds a border to the right of the cell. *"
+    },
+    "size": {
+      "options": [
+        "equal",
+        "expand"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "TableSizes.EXPAND"
+        }
+      },
+      "description": "The size of the cell. Follows table size.\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\nOther sizes won't affect cell current implementation."
+    },
+    "textWrap": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Weather text should wrap or truncate.\nIt will only truncate when table size is equal\n*"
+    }
+  },
+  "b2b-table-header": {
+    "divider": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "adds a border to the right of the header. *"
+    },
+    "fixed": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "sets the header position to sticky. Use it when table is inside a scrollable container. *"
+    },
+    "sortDirection": {
+      "options": [
+        "ascending",
+        "descending",
+        "not-sorted"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this."
+    },
+    "sortId": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent."
+    }
+  },
+  "b2b-table-row": {
+    "color": {
+      "options": [
+        "default",
+        "group",
+        "selected"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'default'"
+        }
+      },
+      "description": "Background color of the row. Use it semantically. This color selection have hover states *"
+    },
+    "highlight": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Whether the row will be highlighted on mouse over *"
+    }
+  },
+  "b2b-table-rowgroup": {
+    "type": {
+      "options": [
+        "body",
+        "footer",
+        "header"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "TableRowgroupTypes.HEADER"
+        }
+      },
+      "description": "Rowgroup allows grouping rows by context: header, body or footer.\nHeader rows are by default not highlightable on mouse over."
+    }
+  },
+  "b2b-textarea": {
+    "autofocus": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the textarea should be automatically focused on page load. Per default it is false."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the textarea is disabled. Per default it is false."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "An optional error message that is displayed when the textarea is invalid. Per default it is undefined."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "An optional hint for the textarea. Per default it is undefined."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the textarea should be displayed with error styles. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The textarea label. This is optional."
+    },
+    "maxLength": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "The maximum input length. Characters entered after that will not be appended to the input value."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the textarea. This is used to programmatically group it into a form."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The textarea placeholder. It is optional and undefined by default."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "resize": {
+      "options": [
+        "horizontal",
+        "none",
+        "unset",
+        "vertical"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "If and how the textarea is resizable. Per default it is resizable in both directions."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The value of the textarea. Per default it is null."
+    }
+  },
+  "b2b-toggle-button": {
+    "checked": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the toggle button is currently checked. Per default it is false."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the toggle button is currently disabled. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the toggle button. This is required"
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the toggle button. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value of the toggle button. This will be emitted when the toggle button is clicked. This is required"
+    }
+  },
+  "b2b-toggle-group": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the toggle group is disabled as a whole. Per default it is false."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The toggle group name used to group them together programmatically. This is required."
+    }
+  },
+  "b2b-tooltip": {
+    "content": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The content of the tooltip. Should be a string. If you need custom content like a b2b-link, use the named slot content."
+    },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the tooltip is currently opened or not. When the trigger is set to custom, changing this prop will change the tooltip's visibility."
+    },
+    "position": {
+      "options": [
+        "bottom",
+        "left",
+        "right",
+        "top"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'right'"
+        }
+      },
+      "description": "Position of the tooltip."
+    },
+    "trigger": {
+      "options": [
+        "custom",
+        "focus",
+        "hover"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'hover'"
+        }
+      },
+      "description": "The trigger for the tooltip. Can be on hover, on focus or custom, i.e. for an onboarding sequence. Per default it is hover."
+    }
+  }
+}

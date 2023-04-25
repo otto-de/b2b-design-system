@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>B2B Design System</title>
+    <script type="module" src="/build/b2b-core-components.esm.js"></script>
+    <script nomodule src="/build/b2b-core-components.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://pattern-library.portal.otto.market/versions/latest/obc-components.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/b2b-core-components.css" />
+    <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+  </head>
+  <body data-theme="light">
+    <div class="content-container">
+      <b2b-headline size="200">Table Expand size</b2b-headline>
+      <b2b-paragraph>
+        Expand size will expand to 100% of parent size and cells will use as
+        much space as they need depending on content of header or data. Text
+        will always wrap in this size.
+      </b2b-paragraph>
+      <br />
+      <!--  Parent can control size of table when table has size: expand-->
+      <div style="width: 500px">
+        <b2b-table size="expand">
+          <b2b-table-rowgroup type="header">
+            <b2b-table-row>
+              <b2b-table-header divider>Title 1</b2b-table-header>
+              <b2b-table-header>Title 2</b2b-table-header>
+              <b2b-table-header>Title 3</b2b-table-header>
+              <b2b-table-header>Title 4</b2b-table-header>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body">
+            <b2b-table-row>
+              <b2b-table-cell divider><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell><b2b-button>Button</b2b-button></b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row>
+              <b2b-table-cell divider>data 1b</b2b-table-cell>
+              <b2b-table-cell text-wrap="false"
+                >Very long data text that wraps over to next
+                line</b2b-table-cell
+              >
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 4b</b2b-table-cell>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+        </b2b-table>
+      </div>
+      <br />
+      <b2b-headline size="200">Table Equal size</b2b-headline>
+
+      <b2b-paragraph>
+        Equal size also extends to parent width but will keep cell sizes
+        proportional no matter how long the content. Text can both wrap or be
+        truncated with text ellipsis.
+      </b2b-paragraph>
+      <br />
+      <!--  Parent can control size of table when table has size: expand-->
+      <div style="width: 500px">
+        <b2b-table size="equal">
+          <b2b-table-rowgroup type="header">
+            <b2b-table-row>
+              <b2b-table-header sort-direction="not-sorted"
+                >Title 1</b2b-table-header
+              >
+              <b2b-table-header sort-direction="descending"
+                >Title 2</b2b-table-header
+              >
+              <b2b-table-header sort-direction="ascending"
+                >Title 3</b2b-table-header
+              >
+              <b2b-table-header sort-direction="descending"
+                >Title 4</b2b-table-header
+              >
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body">
+            <b2b-table-row>
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell><b2b-button>Button</b2b-button></b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row>
+              <b2b-table-cell>data 1b</b2b-table-cell>
+              <b2b-table-cell text-wrap="false"
+                >Very long data text that wraps over to next
+                line</b2b-table-cell
+              >
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 4b</b2b-table-cell>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+        </b2b-table>
+      </div>
+
+      <h1>test</h1>
+      <b2b-table size="equal" id="test-table">
+        <b2b-table-rowgroup type="header">
+          <b2b-table-row>
+            <b2b-table-header
+              sort-direction="not-sorted"
+              initial-sorting="ascending"
+              >Title 1</b2b-table-header
+            >
+            <b2b-table-header>Title 2</b2b-table-header>
+            <b2b-table-header sort-direction="descending"
+              >Title 3</b2b-table-header
+            >
+          </b2b-table-row>
+        </b2b-table-rowgroup>
+        <b2b-table-rowgroup type="body">
+          <b2b-table-row>
+            <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+            <b2b-table-cell>data 2a</b2b-table-cell>
+            <b2b-table-cell>data 3a</b2b-table-cell>
+          </b2b-table-row>
+        </b2b-table-rowgroup>
+      </b2b-table>
+
+      <br />
+      <b2b-headline size="200">Scrollable Table</b2b-headline>
+      <b2b-scrollable-container style="width: 400px; height: 200px">
+        <b2b-table size="equal">
+          <b2b-table-rowgroup type="header">
+            <b2b-table-row>
+              <b2b-table-header fixed style="width: 120px"
+                >Title 1</b2b-table-header
+              >
+              <b2b-table-header fixed style="width: 120px"
+                >Title 2</b2b-table-header
+              >
+              <b2b-table-header fixed style="width: 120px"
+                >Title 3</b2b-table-header
+              >
+              <b2b-table-header fixed style="width: 120px"
+                >Title 4</b2b-table-header
+              >
+              <b2b-table-header fixed style="width: 120px"
+                >Title 4</b2b-table-header
+              >
+              <b2b-table-header fixed style="width: 120px"
+                >Title 4</b2b-table-header
+              >
+              <b2b-table-header fixed style="width: 120px"
+                >Title 4</b2b-table-header
+              >
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body">
+            <b2b-table-row>
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell><b2b-button>Button</b2b-button></b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row color="group">
+              <b2b-table-cell>data 1b</b2b-table-cell>
+              <b2b-table-cell text-wrap="false"
+                >Very long data text that wraps over to next
+                line</b2b-table-cell
+              >
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 4b</b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row>
+              <b2b-table-cell>data 1b</b2b-table-cell>
+              <b2b-table-cell text-wrap="false"
+                >Very long data text that wraps over to next
+                line</b2b-table-cell
+              >
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 4b</b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row color="group">
+              <b2b-table-cell>data 1b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell text-wrap="false"
+                >Very long data text that wraps over to next
+                line</b2b-table-cell
+              >
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 4b</b2b-table-cell>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+        </b2b-table>
+      </b2b-scrollable-container>
+    </div>
+
+    <div></div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Headline</b2b-headline>
+      <b2b-headline size="400"
+        >Headline 400 - This will render an h1 Heading</b2b-headline
+      >
+      <b2b-headline size="200"
+        >Headline 200 - This will render an h2 Heading</b2b-headline
+      >
+      <b2b-headline size="100"
+        >Headline 100 - This will render an h3 Heading</b2b-headline
+      >
+      <b2b-headline size="200" no-margin="true">No margin</b2b-headline>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Paragraph</b2b-headline>
+      <h3>Default - size 100</h3>
+      <b2b-paragraph
+        >Far far away, behind the word mountains, far from the countries Vokalia
+        and Consonantia, there live the blind texts. Separated they live in
+        Bookmarksgrove right at the coast of the Semantics, a large language
+        ocean.
+      </b2b-paragraph>
+      <h3>size 50</h3>
+      <b2b-paragraph size="50"
+        >Far far away, behind the word mountains, far from the countries Vokalia
+        and Consonantia, there live the blind texts. Separated they live in
+        Bookmarksgrove right at the coast of the Semantics, a large language
+        ocean.
+      </b2b-paragraph>
+      <h3>bold</h3>
+      <b2b-paragraph weight="bold"
+        >Far far away, behind the word mountains, far from the countries Vokalia
+        and Consonantia, there live the blind texts. Separated they live in
+        Bookmarksgrove right at the coast of the Semantics, a large language
+        ocean.
+      </b2b-paragraph>
+      <h3>center</h3>
+      <b2b-paragraph align="center"
+        >Far far away, behind the word mountains, far from the countries Vokalia
+        and Consonantia, there live the blind texts. Separated they live in
+        Bookmarksgrove right at the coast of the Semantics, a large language
+        ocean.
+      </b2b-paragraph>
+      <h3>right</h3>
+      <b2b-paragraph align="right"
+        >Far far away, behind the word mountains, far from the countries Vokalia
+        and Consonantia, there live the blind texts. Separated they live in
+        Bookmarksgrove right at the coast of the Semantics, a large language
+        ocean.
+      </b2b-paragraph>
+    </div>
+  </body>
+</html>

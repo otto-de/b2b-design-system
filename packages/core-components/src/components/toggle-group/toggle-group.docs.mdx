@@ -1,0 +1,61 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Toggle Button Group
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-toggle-button-group--story-010-default" />
+</Canvas>
+
+The Toggle Group can contain multiple individual `b2b-toggle-buttons`. They behave
+like a radio button group. When an individual button is selected, the group will emit
+the current value. The Toggle Group is most commonly used to switch between number of
+entries per page in a table. The toggle button group is fully accessible in the same
+way that regular radio groups are.
+
+**Individual toggle buttons must have a name, a label and a value. The name binds them to the toggle
+group, the label is the text displayed on the toggle button and the value is what is emitted
+when the button is selected.**
+
+<br />
+
+## Properties
+
+### Name
+
+The name of the toggle group. This is required because it is used to group individual
+toggle buttons together programmatically and aids accessiblity. In order to group
+toggle buttons together, use the same name on all of them.
+
+### Disabled
+
+This disables all toggle buttons in a group. It is also possible to disable single
+toggle buttons by setting their `disabled` prop individually:
+
+```html
+<b2b-toggle-button disabled="true"></b2b-toggle-button>
+```
+
+## Events
+
+### b2b-group-change
+
+This event is emitted whenever the current value of the toggle group changes.
+
+```typescript
+export interface ToggleButtonEventDetail {
+  value: any;
+}
+```
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

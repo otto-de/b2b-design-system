@@ -1,0 +1,31 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Required Separator
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-required-separator--story-010-default" />
+</Canvas>
+
+The B2B Required Separator is a form element that indicates that certaint form fields are required.
+You should use it in combination with B2B Input Components that have the `required="true"` property.
+
+<br />
+## Properties
+
+### Label
+
+The text displayed as an indicator that fields are required. Per default it is the German 'Pflichtfeld',
+but can be altered to fit users needs or to add i18n.
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Getting Started/SSR" />
+
+# Server Side Rendering (SSR)
+
+So far we have tested this builds with [Next.js](https://nextjs.org/). If you are using another SSR framework let us
+know if you are experiencing any issues.
+
+<br />
+
+## B2B React Components and Server Side Rendering
+
+Stencil provides features for both [Server Side Rendering](https://stenciljs.com/docs/hydrate-app) and [Static Site
+Generation](https://stenciljs.com/docs/static-site-generation). B2b components are packed as a commonjs-module which
+enables them to be directly imported and used on a NodeJS server without further modifications.
+
+This has been tested with React using [Next.js](https://nextjs.org/).
+
+If you use a different tool for SSR and try using any of our packages, let us know your experience.
+
+We could deliver an additional package named `hydrate-app` that comes with functionality to hydrate an
+existing document on the server before serving the document to a client. Similarly, `renderToString()` will hydrate
+existing HTML and return the results as a complete document that then can be served to the client. This will be
+considered if we find the need in the future.
+
+For an example implementation of this please refer to [this example repository](https://github.com/Ronaldo-Maciel/nextjs-stencil-ssr).
+
+<br />
+
+## Known Issues
+
+Due to NextJS utilizing [Webpack's HMR feature](https://webpack.js.org/concepts/hot-module-replacement/), it is
+possible that styles of imported components will not rerender correctly when other components are changed. This is caused by HMR / Fast Refresh causing the DOM / CSSOM to not be rerendered correctly.
+However, **reloading the page once in th browser renders the components correctly again**. Additionally, since HMR is a development-only feature, production builds will not be affected at all. If you're facing this issue and manually reloading pages seems unacceptable to you, disabling HMR in the webpack config should also resolve the issue, but might come with a performance penalty.

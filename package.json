@@ -1,0 +1,60 @@
+{
+  "name": "@otto-ec/b2b-design-system",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otto-ec/b2b-design-system.git"
+  },
+  "author": "Otto GmbH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otto-ec/b2b-design-system/issues"
+  },
+  "homepage": "https://github.com/otto-ec/b2b-design-system#readme",
+  "scripts": {
+    "deploy": "npm run deploy --workspace=@otto-ec/b2b-core-components",
+    "publish": "npm publish --workspace packages/",
+    "release": "semantic-release",
+    "build-tokens": "npm run build --workspace=@otto-ec/b2b-tokens",
+    "build-core-components": "npm run build --workspace=@otto-ec/b2b-core-components",
+    "build-react-components": "npm run build --workspace=@otto-ec/b2b-react-components",
+    "build": "npm-run-all build-tokens build-core-components build-react-components",
+    "lint": "npm run lint --workspace=@otto-ec/b2b-core-components",
+    "test": "npm run test --workspace=@otto-ec/b2b-core-components",
+    "prepare": "node scripts/prepare.mjs",
+    "preinstall": "npx force-resolutions"
+  },
+  "workspaces": [
+    "packages/tokens",
+    "packages/core-components",
+    "packages/react-components"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@npmcli/package-json": "^3.0.0",
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.7",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "husky": "^8.0.1",
+    "jest": "^27.5.1",
+    "npm-force-resolutions": "^0.0.10",
+    "npm-run-all": "^4.1.5",
+    "puppeteer": "^13.6.0",
+    "semantic-release": "^19.0.5"
+  },
+  "resolutions": {
+    "trim": "0.0.3",
+    "trim-newlines": "3.0.1",
+    "sass-graph": "4.0.1"
+  },
+  "engines": {
+    "npm": "^8.0.0",
+    "node": "^16.0.0"
+  }
+}

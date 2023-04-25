@@ -1,0 +1,22 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+.b2b-anchor {
+  font-family: var(--b2b-font-family-default);
+  color: var(--b2b-color-copy-default);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--b2b-color-red-100);
+    cursor: pointer;
+  }
+
+  &--100 {
+    font-size: var(--b2b-size-copy-100);
+  }
+
+  &--inherit {
+    font-size: inherit;
+  }
+}

@@ -1,0 +1,37 @@
+@use '../../global/b2b-styles';
+
+.b2b-paragraph {
+  font-family: var(--b2b-font-family-default);
+  color: var(--b2b-color-copy-default);
+  margin: 0 0 var(--b2b-size-30);
+
+  &.size-50 {
+    font-size: var(--b2b-size-copy-75);
+    line-height: var(--b2b-size-copy-line-height-75);
+  }
+
+  &.size-100 {
+    font-size: var(--b2b-size-copy-100);
+    line-height: var(--b2b-size-copy-line-height-100);
+  }
+
+  &.weight-normal {
+    font-weight: var(--b2b-font-weight-normal);
+  }
+
+  &.weight-bold {
+    font-weight: var(--b2b-font-weight-bold);
+  }
+
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+
+  &.align-center {
+    text-align: center;
+  }
+}

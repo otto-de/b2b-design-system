@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should gracefully fail if icon name is not found by not rendering icon and emitting a warning 1`] = `
+<b2b-icon>
+  <mock:shadow-root></mock:shadow-root>
+</b2b-icon>
+`;
+
+exports[`should render the icon with default values 1`] = `
+<b2b-icon>
+  <mock:shadow-root>
+    <div class="b2b-icon icon-100 inherit"></div>
+  </mock:shadow-root>
+</b2b-icon>
+`;

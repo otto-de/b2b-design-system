@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should apply an error style to the host element if an error is specified and the select is set to invalid 1`] = `
+<b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <select class="b2b-dropdown-select"></select>
+    <span>
+      This is a test error
+    </span>
+  </mock:shadow-root>
+</b2b-dropdown>
+`;
+
+exports[`should disable the dropdown 1`] = `
+<b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <select class="b2b-dropdown-select" disabled=""></select>
+  </mock:shadow-root>
+</b2b-dropdown>
+`;
+
+exports[`should render a hint if  invalid and disabled are true at the same time 1`] = `
+<b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="" invalid="">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <select class="b2b-dropdown-select" disabled=""></select>
+    <span>
+      this is a test hint
+    </span>
+  </mock:shadow-root>
+</b2b-dropdown>
+`;
+
+exports[`should render a hint if a hint string is specified 1`] = `
+<b2b-dropdown class="b2b-dropdown">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <select class="b2b-dropdown-select"></select>
+    <span>
+      This is a test hint
+    </span>
+  </mock:shadow-root>
+</b2b-dropdown>
+`;
+
+exports[`should render an error message if an error is specified and the select is set to invalid 1`] = `
+<b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <select class="b2b-dropdown-select"></select>
+    <span>
+      This is a test error
+    </span>
+  </mock:shadow-root>
+</b2b-dropdown>
+`;
+
+exports[`should render the dropdown 1`] = `
+<b2b-dropdown class="b2b-dropdown">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <select class="b2b-dropdown-select"></select>
+  </mock:shadow-root>
+</b2b-dropdown>
+`;
+
+exports[`should render the dropdown with options 1`] = `
+<b2b-dropdown class="b2b-dropdown">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <select class="b2b-dropdown-select">
+      <option>
+        An option
+      </option>
+    </select>
+  </mock:shadow-root>
+</b2b-dropdown>
+`;

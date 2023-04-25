@@ -1,0 +1,48 @@
+on:
+  workflow_call:
+    inputs:
+      node_version:
+        description: 'Node Version'
+        required: true
+        type: string
+jobs:
+  publish_artifacts:
+    name: Release and publish
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@otto-ec'
+
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./node_modules
+            ./packages/**/node_modules
+            ./examples/**/node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish Core Components
+        run: |
+          npm run release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# validate if commit message meets the project format (Angular convention)
+printf "Validating commit message \n\n"
+npx --no -- commitlint --edit "$1"
+printf "Commit message looks great! \n\n"

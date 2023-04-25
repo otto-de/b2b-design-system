@@ -1,0 +1,36 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Separator
+
+The separator component is used for the horizontal or vertical delimitation of content elements.
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-utilities-separator--story-010-horizontal" />
+</Canvas>
+
+## Properties
+
+<br />
+
+### Alignment
+
+**_Horizontal_** per default, the separator is horizontally aligned. It takes up the full width of it's parent element
+and is a block element.
+
+**_Vertical_** for vertically placed content, for example multiple paragraphs next to one another, the separator
+can be vertically aligned. It will take up the full height of it's parent element. It is recommended
+to use it with `display: flex;` on the parent as well, otherwise other block-level elements like paragraphs
+will not align correctly due to their nature.
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

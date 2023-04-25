@@ -1,0 +1,67 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Tab Group
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-tab-group--story-010-all-tabs" />
+</Canvas>
+
+The B2B Tab Group is used to display multiple tab and tab-panel elements together.
+They are linked by their position in the tab group, so make sure every tab's respective
+panel is located as it's next sibling.
+
+Any content can be placed inside a tab-panel, but we recommend wrapping the content
+with an element of specified height to prevent layout shifts during tab changes.
+
+## Properties
+
+### useRouter
+
+This is a boolean and indicates if the tab group should use internal navigation or not.
+It is false per default, meaning the tab group will allow navigation by clicking the tabs or
+pressing left and right arrow keys. If you want to use your own route-based navigation, e.g. for
+implementing guards or creating a history stack, set `use-router` to `true`.
+
+## Events
+
+### b2b-selected
+
+Emits whenever a new tab is selected.
+
+```typescript
+export interface TabChangeEventDetail {
+  previousTab: HTMLB2bTabElement;
+  nextTab: HTMLB2bTabElement;
+}
+```
+
+# Tab
+
+## Properties
+
+### Disabled
+
+Individual tabs can be disabled by setting their `disabled` property to `true`.
+Disabled tabs cannot be navigated to and their associated content will not be shown.
+
+### Invalid
+
+Individual tabs can be set to `invalid` if they should be rendered with error styles.
+
+### Selected
+
+Set `selected` to true to determine which tab should be open and have focus on component load. Also, it can be used to
+programmatically set the selected tab when `useRouter` is set to true.
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

@@ -1,0 +1,50 @@
+@use '../../global/b2b-styles';
+
+:host {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--b2b-font-family-default);
+    color: var(--b2b-color-headline-default);
+    margin: 0;
+  }
+
+  .b2b-headline {
+    &--400 {
+      font-size: var(--b2b-size-headline-400);
+      font-weight: var(--b2b-font-weight-thin);
+      line-height: var(--b2b-size-headline-line-height-400);
+      color: var(--b2b-color-headline-title);
+    }
+
+    &--200 {
+      font-size: var(--b2b-size-headline-200);
+      font-weight: var(--b2b-font-weight-normal);
+      line-height: var(--b2b-size-headline-line-height-200);
+      margin-bottom: var(--b2b-size-60);
+    }
+
+    &--100 {
+      font-size: var(--b2b-size-headline-100);
+      font-weight: var(--b2b-font-weight-bold);
+      line-height: var(--b2b-size-headline-line-height-100);
+      margin-bottom: var(--b2b-size-20);
+    }
+
+    &--no-margin {
+      margin-bottom: unset;
+    }
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--center {
+      text-align: center;
+    }
+  }
+}

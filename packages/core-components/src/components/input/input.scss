@@ -1,0 +1,111 @@
+@use '../../global/b2b-styles';
+
+:host(.b2b-input) {
+  --b2b-border-radius: var(--b2b-size-border-radius-100);
+  --b2b-border-right: 1px solid var(--b2b-color-grey-200);
+
+  display: block;
+  width: 100%;
+  min-width: var(--b2b-size-200);
+  font-family: var(--b2b-font-family-default);
+
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    height: var(--b2b-size-60);
+    border: 1px solid var(--b2b-color-grey-200);
+    border-right: var(--b2b-border-right);
+    border-radius: var(--b2b-border-radius);
+    padding: 5px var(--b2b-size-30) 5px;
+    background-color: var(--b2b-color-white-100);
+    color: var(--b2b-color-black-100);
+    position: relative;
+
+    &--focused {
+      outline: 2px solid Highlight;
+      outline: 2px solid -webkit-focus-ring-color;
+      outline-offset: -1px;
+      border-radius: var(--b2b-border-radius);
+      z-index: 9999;
+    }
+
+    &--disabled {
+      color: var(--b2b-color-grey-250);
+      background-color: var(--b2b-color-grey-25);
+
+      .native-input {
+        background-color: var(--b2b-color-grey-25);
+      }
+    }
+
+    .border {
+      border-left: 1px solid var(--b2b-color-grey-300);
+      height: 100%;
+      margin: 0 12px;
+    }
+
+    .native-input {
+      // needs font family as it gets overwritten by user agent if not defined directly
+      font-family: var(--b2b-font-family-default);
+      font-size: var(--b2b-size-copy-100);
+      line-height: var(--b2b-size-copy-line-height-100);
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      appearance: none;
+      height: auto;
+      flex: 1 1 auto;
+      width: 0;
+
+      &::placeholder {
+        color: var(--b2b-color-grey-300);
+      }
+    }
+  }
+
+  b2b-input-label {
+    display: block;
+    margin-bottom: var(--b2b-size-10);
+  }
+
+  span {
+    font-size: var(--b2b-size-copy-75);
+    line-height: var(--b2b-size-copy-line-height-75);
+    display: block;
+    margin-top: var(--b2b-size-10);
+    color: var(--b2b-color-grey-300);
+  }
+}
+
+:host(.b2b-input--error) {
+  .input-wrapper,
+  .native-input {
+    background-color: var(--b2b-color-error-50);
+    border: 1px solid var(--b2b-color-error-100);
+    border-right: var(--b2b-border-right);
+    border-color: var(--b2b-color-error-100);
+    color: var(--b2b-color-copy-default);
+
+    &::placeholder {
+      color: var(--b2b-color-copy-default);
+    }
+  }
+
+  .input-wrapper--focused {
+    outline: 2px solid var(--b2b-color-error-100);
+    outline-offset: -1px;
+  }
+
+  span {
+    color: var(--b2b-color-error-100);
+  }
+}
+
+::slotted(span) {
+  font-size: var(--b2b-size-copy-100);
+  cursor: default;
+  user-select: none;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}

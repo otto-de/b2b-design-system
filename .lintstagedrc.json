@@ -1,0 +1,3 @@
+{
+  "*.{ts,tsx,json,mdx,html}": "prettier --write packages/core-components/src"
+}

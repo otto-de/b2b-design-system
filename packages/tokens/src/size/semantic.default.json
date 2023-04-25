@@ -1,0 +1,69 @@
+{
+  "size": {
+    "icon": {
+      "50": { "value": "{size.40}" },
+      "100": { "value": "{size.60}" },
+      "200": { "value": "{size.80}" },
+      "400": { "value": "{size.120}" }
+    },
+    "space": {
+      "25": { "value": "{size.10}" },
+      "50": { "value": "{size.20}" },
+      "75": { "value": "{size.30}" },
+      "100": { "value": "{size.40}" },
+      "150": { "value": "{size.60}" },
+      "175": { "value": "{size.80}" },
+      "200": { "value": "{size.100}" },
+      "250": { "value": "{size.160}" },
+      "300": { "value": "{size.200}" }
+    },
+    "padding": {
+      "50": { "value": "{size.20}" },
+      "100": { "value": "{size.40}" },
+      "150": { "value": "{size.60}" },
+      "175": { "value": "{size.80}" }
+    },
+    "border": {
+      "width": {
+        "50": { "value": "{size.1}" },
+        "100": { "value": "{size.5}" },
+        "150": { "value": "{size.10}" }
+      },
+      "radius": {
+        "100": { "value": "{size.7}" }
+      },
+      "no-radius": {
+        "left": { "value": "0 {size.7} {size.7} 0" },
+        "right": { "value": "{size.7} 0 0 {size.7}" },
+        "top": { "value": "0 0 {size.7} {size.7}" },
+        "bottom": { "value": "{size.7} {size.7} 0 0" }
+      }
+    },
+    "copy": {
+      "50": { "value": "{size.25}" },
+      "75": { "value": "{size.30}" },
+      "100": { "value": "{size.35}" },
+      "125": { "value": "{size.40}" },
+      "200": { "value": "{size.45}" },
+      "300": { "value": "{size.60}" },
+      "line-height": {
+        "50": { "value": "{size.40}" },
+        "75": { "value": "{size.45}", "comment": "Will use 18px until design facelift" },
+        "100": { "value": "{size.53}", "comment": "Will use 21px until design facelift" },
+        "125": { "value": "{size.60}" },
+        "200": { "value": "{size.60}" },
+        "300": { "value": "{size.90}" }
+      }
+    },
+    "headline": {
+      "100": { "value": "{size.40}" },
+      "200": { "value": "{size.45}" },
+      "400": { "value": "{size.60}" },
+      "line-height": {
+        "100": { "value": "{size.40}" },
+        "200": { "value": "{size.45}" },
+        "400": { "value": "{size.60}" }
+      }
+    }
+  }
+}

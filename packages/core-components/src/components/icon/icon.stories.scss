@@ -1,0 +1,17 @@
+.icons-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    align-items: center;
+    text-align: center;
+
+    :first-child {
+      margin-bottom: 16px;
+    }
+  }
+}

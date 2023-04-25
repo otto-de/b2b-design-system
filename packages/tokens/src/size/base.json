@@ -1,0 +1,28 @@
+{
+  "size": {
+    "1": { "value": 0.0625, "comment": "1px" },
+    "5": { "value": 0.125, "comment": "2px" },
+    "7": { "value": 0.1875, "comment": "3px" },
+    "10": { "value": 0.25, "comment": "4px" },
+    "15": { "value": 0.375, "comment": "6px" },
+    "20": { "value": 0.5, "comment": "8px" },
+    "25": { "value": 0.625, "comment": "10px" },
+    "30": { "value": 0.75, "comment": "12px" },
+    "35": { "value": 0.875, "comment": "14px" },
+    "40": { "value": 1, "comment": "16px" },
+    "45": { "value": 1.125, "comment": "18px" },
+    "50": { "value": 1.25, "comment": "20px" },
+    "53": { "value": 1.3125, "comment": "21px" },
+    "55": { "value": 1.375, "comment": "22px" },
+    "60": { "value": 1.5, "comment": "24px" },
+    "70": { "value": 1.75, "comment": "28px" },
+    "80": { "value": 2, "comment": "32px" },
+    "90": { "value": 2.25, "comment": "36px" },
+    "100": { "value": 2.50, "comment": "40px" },
+    "120": { "value": 3, "comment": "48px" },
+    "140": { "value": 3.5, "comment": "56px" },
+    "150": { "value": 3.75, "comment": "60px" },
+    "160": { "value": 4, "comment": "64px" },
+    "200": { "value": 5, "comment": "80px" }
+  }
+}

@@ -1,0 +1,92 @@
+import { Meta, Source } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+<Meta title="Guidelines/Form Usage" />
+
+# Using B2B Form Components
+
+This guide aims to provide best practices for using our form components. More specifically,
+getting the component's value, validation, form events and form submission will be covered.
+For all of these topics, there are practical examples in [React](https://github.com/otto-ec/b2b-react-examples/blob/main/src/components/SignUpForm.tsx) and [Vue](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/components/signupform/SignUpForm.vue) to consider.
+
+## Form Component Values
+
+The B2B components are designed to build on top of native HTML form behavior. This mean that
+you can control the form's and it's children's state by setting the component's value. Similarly,
+when the user types something inside an input field or checks a checkbox, it's value will be emitted
+and can be processed further.
+
+## Form Component Events
+
+We're currently exposing three different custom events per component that are most relevant to reacting to form changes.
+On top of that, all event listeners available on a native `HTMLElement` are available on our components as well. Note that
+they are listening to the event on the top-most level and will not necessarily respond to events happening to nested elements
+specifically.
+
+### B2B Input
+
+The `b2b-input` event emits whenever a user types inside an input field, such as the search, the input or the textarea.
+
+```typescript
+interface InputChangeEvent {
+  value: string | undefined | null;
+}
+```
+
+### B2B Change
+
+The `b2b-change` event emits whenever a checkbox is checked or a radio button is clicked.
+
+```typescript
+interface RadioEventDetail<T = any> {
+  value: T;
+  checked: boolean;
+}
+```
+
+```typescript
+interface CheckboxEventDetail<T = any> {
+  value: T;
+  checked: boolean;
+}
+```
+
+### B2B Focus
+
+The `b2b-focus` emits whenever the element gets focused. It emits the native event.
+
+### B2B Blur
+
+The `b2b-blur` emits whenever the element loses focus. It emits the native event.
+
+## Form Validation
+
+### Inputs
+
+We recommend using the `b2b-blur` event to validate text inputs wherever possible. This prevents layout shifting as users are still typing
+and generally create a better user experience. We still provide the `b2b-input` for edge cases of this rule and to allow you to filter lists or outputs based on input though.
+
+### Radio Buttons and Checkboxes
+
+For elements like checkboxes and radio buttons we provide the `b2b-change` event for validation. It emits whenever the checkbox is clicked.
+
+## Using the FormData Object
+
+Creating a FormData object on submitting a form can be useful to send complex form contents to the server, because it can handle binary data such as files as well as text.
+The B2B Form Components all support using this object.
+
+The data can be accessed from the `<form>` event emitted by `onSubmit`.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    const handleSubmit = (event) => {
+      let myForm = new FormData(event.target);
+    }
+    // Vue
+    <form id="myForm" v-on:submit="handleSubmit">
+    // React
+    <form id="myForm" onSubmit="handleSubmit">
+  `}
+/>

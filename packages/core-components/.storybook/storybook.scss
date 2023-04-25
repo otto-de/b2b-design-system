@@ -1,0 +1,13 @@
+.docs-component-row {
+  display: flex;
+  > * {
+    margin-right: 16px;
+  }
+}
+.docs-component-col {
+  display: flex;
+  flex-direction: column;
+  > * {
+    margin-bottom: 8px !important;
+  }
+}

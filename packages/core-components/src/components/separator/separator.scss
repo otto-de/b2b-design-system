@@ -1,0 +1,17 @@
+@use '../../global/b2b-styles';
+
+:host {
+  .b2b-separator {
+    &--horizontal {
+      display: block;
+      border-top: solid 1px var(--b2b-color-grey-200);
+      width: 100%;
+    }
+
+    &--vertical {
+      display: inline-flex;
+      height: 100%;
+      border-left: solid 1px var(--b2b-color-grey-200);
+    }
+  }
+}

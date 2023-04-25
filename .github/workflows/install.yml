@@ -1,0 +1,32 @@
+on:
+  workflow_call:
+    inputs:
+      node_version:
+        description: 'Node Version'
+        required: true
+        type: string
+jobs:
+  install:
+    name: Install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+          #cache: 'npm'
+
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./node_modules
+            ./packages/**/node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        run: cd ./node_modules || npm ci

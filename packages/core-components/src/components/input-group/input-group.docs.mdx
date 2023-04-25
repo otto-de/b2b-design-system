@@ -1,0 +1,86 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Input Group Component
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-input-group--story-010-default" />
+</Canvas>
+
+The Input Group Component provides a visual wrapper to concatenate several form components together.
+
+**_ Important _** You can only use B2B Form Components inside of this wrapper, such as
+B2B Dropdowns, B2B Inputs or B2B Buttons. Other components such as B2B Textarea or non-B2B Components will not look good.
+
+## Slots
+
+The Input Group consists of multiple individual B2B Form Components. They are visually grouped together.
+Like other Form Group Components, such as Radio or Checkbox Group, they have a group error and a group hint,
+as well as a group-wide disabled state. The first and the last element in the group need to be placed in their
+respective slots.
+
+### Start
+
+This is the first element in the input group. It will have rounded corners on the left-hand side.
+
+```html
+<b2b-input slot="start" label="Search Term"></b2b-input>
+```
+
+### End
+
+This is the last element in the input group. It will have rounded corners on the right-hand side.
+
+```html
+<b2b-button slot="end" variant="primary"
+  ><b2b-icon icon="b2b_icon-search"></b2b-icon
+></b2b-button>
+```
+
+### Default
+
+All other content does not require a named slot and can be placed anywhere in the wrapper.
+Please note that a complex Input Group with three or more elements will rarely be used.
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-input-group--story-040-complex" />
+</Canvas>
+
+You can set labels on individual components as usual to indicate what the individual input field is for.
+
+## Properties
+
+### Hint
+
+A group hint text. This should indicate what the Input Group is about.
+
+Do note that the Input Group removes all individual hints from its children.
+
+### Error
+
+A group error message. It is recommended to specify this whenever you plan to validate input.
+It will only be shown when invalid is set to `true`.
+
+Do note that the Input Group removes all individual error messages from its children.
+
+### Invalid
+
+If set to true, all components inside of the Input Group will be rendered with error styles
+and an error message will be shown if specified.
+
+### Disabled
+
+If set to true, all components inside of the Input Group will be disabled and an error message
+will not be shown, even if the group is also marked as invalid.
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

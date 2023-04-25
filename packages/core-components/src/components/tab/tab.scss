@@ -1,0 +1,61 @@
+@use '../../global/b2b-styles';
+
+:host {
+  font-family: var(--b2b-font-family-default);
+  font-size: var(--b2b-size-35);
+  line-height: var(--b2b-size-copy-line-height-75);
+  position: relative;
+  padding: 0.5rem 0;
+  margin: 0;
+  margin-right: 0.1875rem;
+
+  .b2b-tab {
+    display: inline-block;
+    padding: 0.5rem 1.125rem;
+    margin: 0;
+    color: var(--b2b-color-black-100);
+    background-color: var(--b2b-color-grey-50);
+    border: 1px solid var(--b2b-color-grey-200);
+    border-bottom: 0;
+    border-top-left-radius: var(--b2b-size-7);
+    border-top-right-radius: var(--b2b-size-7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--b2b-color-grey-200);
+    }
+
+    &--selected,
+    &--selected:hover {
+      color: var(--b2b-color-white-100);
+      background-color: var(--b2b-color-black-50);
+      border-color: var(--b2b-color-black-50);
+    }
+
+    &--error {
+      border-color: var(--b2b-color-error-100);
+      background-color: var(--b2b-color-error-50);
+      color: var(--b2b-color-error-100);
+
+      &.b2b-tab--selected,
+      &:hover {
+        background-color: var(--b2b-color-error-100);
+        color: var(--b2b-color-white-100);
+
+        &:hover {
+          border-color: var(--b2b-color-error-100);
+        }
+      }
+    }
+
+    &--disabled,
+    &--disabled:hover {
+      user-select: none;
+      cursor: default;
+      color: var(--b2b-color-grey-250);
+      border-color: var(--b2b-color-grey-100);
+      background-color: var(--b2b-color-grey-50);
+    }
+  }
+}

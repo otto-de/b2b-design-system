@@ -1,0 +1,33 @@
+{
+  "name": "@otto-ec/b2b-react-components",
+  "version": "1.2.0-beta.25",
+  "description": "B2B React components wrapper",
+  "author": "Otto GmbH",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/otto-ec/b2b-design-system"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "npm run compile",
+    "clean": "rm -rf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p ."
+  },
+  "dependencies": {
+    "@otto-ec/b2b-core-components": "1.2.0-beta.25"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "@types/react": "^17.0.58",
+    "@types/react-dom": "^17.0.19",
+    "typescript": "^5.0.4"
+  }
+}

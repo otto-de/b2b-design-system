@@ -1,0 +1,59 @@
+// @stencil/decorators-context":"off" because is currently a bug https://github.com/ionic-team/stencil-eslint/issues/60
+
+{
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "extends": [
+    "plugin:@stencil-community/recommended",
+    "plugin:prettier/recommended",
+    "eslint-config-prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "@stencil-community/decorators-style": [
+      "error", {
+        "prop": "inline",
+        "state": "inline",
+        "element": "inline",
+        "event": "multiline",
+        "method": "multiline",
+        "watch": "multiline",
+        "listen": "multiline"
+      }],
+    "@stencil-community/prefer-vdom-listener": "off",
+    "@stencil-community/decorators-context":"off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine":"auto"
+      }
+    ],
+    "react/jsx-no-bind": [
+      1,
+      {
+        "ignoreDOMComponents":true,
+        "ignoreRefs": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**.stories.ts"],
+      "rules": {
+        "prettier/prettier": [
+          "warn",
+          {
+            "printWidth": 100
+          }
+        ]
+      }
+    }
+  ],
+  "env": {
+    "browser": true
+  }
+}

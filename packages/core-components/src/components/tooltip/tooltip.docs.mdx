@@ -1,0 +1,70 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Tooltip Component
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-tooltip--story-010-hover" />
+</Canvas>
+
+## Properties
+
+### Position
+
+The tooltip can be positioned relative to it's trigger element. Per default,
+it will be positioned on top of the trigger element. Other options are
+
+- Bottom
+- Left
+- Right
+
+It is advisable to position it so that the element will not be cut off by window
+bounds. Additionally, when wrapping a block-level element like a `<div>`, the tooltip
+will be positioned relative to the whole line. If you want a left or right aligned tooltip
+with a block-level element, please set it to `display: inline-block` to make sure it only uses
+the space it needs:
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-tooltip--story-090-block-element" />
+</Canvas>
+
+Additionally, the tooltip will try to fit it's content up to a maximum width
+of `20rem` or `320px`, then it will overflow to the next line.
+
+### Trigger
+
+The tooltip can be triggered by three different events:
+
+- hover
+- focus
+- custom event
+
+Per default, it will be triggered by hovering over the trigger element inside of the tooltip.
+
+When adding a focusable element inside the tooltip like an anchor or a button and setting the trigger
+to `focus`, the tooltip will appear whenever the element is focused, i.e. by tabbing to or pressing the button.
+
+If the tooltip needs to be triggered programmatically by a custom event, it is possible to use the tooltip's public methods described
+below.
+
+### Content
+
+The content of the tooltip that will be displayed inside of it. It can be either text or custom content like an anchor.
+If you need text only, you can use the `content` property on the element directly. If you need custom content, use the slot
+called `content`.
+
+```html
+<b2b-tooltip><b2b-icon slot="content"></b2b-icon></b2b-tooltip>
+```
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

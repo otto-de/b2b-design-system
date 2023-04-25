@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should align the checkboxes horizontally if set to horizontal 1`] = `
+<b2b-checkbox-group>
+  <mock:shadow-root>
+    <div class="b2b-checkbox-group b2b-checkbox-group--horizontal">
+      <b2b-input-label>
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-checkbox-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox-group>
+`;
+
+exports[`should not render a group hint if a hint string and an error are specified and the group is set to invalid 1`] = `
+<b2b-checkbox-group>
+  <mock:shadow-root>
+    <div class="b2b-checkbox-group b2b-checkbox-group--error b2b-checkbox-group--vertical">
+      <b2b-input-label>
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-checkbox-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+      <span>
+        this is a test error
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox-group>
+`;
+
+exports[`should render a group hint if a hint string is specified 1`] = `
+<b2b-checkbox-group>
+  <mock:shadow-root>
+    <div class="b2b-checkbox-group b2b-checkbox-group--vertical">
+      <b2b-input-label>
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-checkbox-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+      <span>
+        this is a test hint
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox-group>
+`;
+
+exports[`should render a hint if invalid and disabled are true at the same time 1`] = `
+<b2b-checkbox-group>
+  <mock:shadow-root>
+    <div class="b2b-checkbox-group b2b-checkbox-group--vertical">
+      <b2b-input-label>
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-checkbox-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+      <span>
+        this is a test hint
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox-group>
+`;
+
+exports[`should render the checkbox group and not show a hint or an error unless specified 1`] = `
+<b2b-checkbox-group>
+  <mock:shadow-root>
+    <div class="b2b-checkbox-group b2b-checkbox-group--vertical">
+      <b2b-input-label>
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-checkbox-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox-group>
+`;

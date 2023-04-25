@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should apply an error style to the host element if invalid is set to true 1`] = `
+<b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <div class="input-wrapper">
+      <slot name="start"></slot>
+      <input class="native-input" type="text">
+      <slot name="end"></slot>
+    </div>
+    <span>
+      This is a test error
+    </span>
+  </mock:shadow-root>
+</b2b-input>
+`;
+
+exports[`should render a hint if invalid and disabled are true at the same time 1`] = `
+<b2b-input class="b2b-input" disabled="" invalid="" type="text">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <div class="input-wrapper input-wrapper--disabled">
+      <slot name="start"></slot>
+      <input class="native-input" disabled="" type="text">
+      <slot name="end"></slot>
+    </div>
+    <span>
+      This is a test hint
+    </span>
+  </mock:shadow-root>
+</b2b-input>
+`;
+
+exports[`should render a hint message if a hint string is specified 1`] = `
+<b2b-input class="b2b-input" type="text">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <div class="input-wrapper">
+      <slot name="start"></slot>
+      <input class="native-input" type="text">
+      <slot name="end"></slot>
+    </div>
+    <span>
+      This is a test hint
+    </span>
+  </mock:shadow-root>
+</b2b-input>
+`;
+
+exports[`should render an error message if an error is specified and the input is set to invalid 1`] = `
+<b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <div class="input-wrapper">
+      <slot name="start"></slot>
+      <input class="native-input" type="text">
+      <slot name="end"></slot>
+    </div>
+    <span>
+      This is a test error
+    </span>
+  </mock:shadow-root>
+</b2b-input>
+`;
+
+exports[`should render the input 1`] = `
+<b2b-input class="b2b-input" type="text">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <div class="input-wrapper">
+      <slot name="start"></slot>
+      <input class="native-input" type="text">
+      <slot name="end"></slot>
+    </div>
+  </mock:shadow-root>
+</b2b-input>
+`;
+
+exports[`should render with a placeholder 1`] = `
+<b2b-input class="b2b-input" placeholder="test placeholder" type="text">
+  <mock:shadow-root>
+    <b2b-input-label>
+      test
+    </b2b-input-label>
+    <div class="input-wrapper">
+      <slot name="start"></slot>
+      <input class="native-input" placeholder="test placeholder" type="text">
+      <slot name="end"></slot>
+    </div>
+  </mock:shadow-root>
+</b2b-input>
+`;

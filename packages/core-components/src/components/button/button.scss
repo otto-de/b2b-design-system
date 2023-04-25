@@ -1,0 +1,186 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+:root,
+:host {
+  --b2b-border-radius: var(--b2b-size-border-radius-100);
+  --b2b-button-secondary-background-color: var(--b2b-color-grey-50);
+  --b2b-button-secondary-border-color: var(--b2b-color-grey-200);
+  --b2b-button-secondary-hover-background-color: var(--b2b-color-grey-150);
+  --b2b-border-right: 1px solid var(--b2b-button-secondary-border-color);
+
+  [data-theme='dark'] {
+    --b2b-button-secondary-background-color: var(--b2b-color-grey-300);
+    --b2b-button-secondary-border-color: var(--b2b-color-grey-400);
+    --b2b-button-secondary-hover-background-color: var(--b2b-color-grey-400);
+  }
+}
+
+:host {
+  button,
+  a {
+    align-items: center;
+    height: 2.25rem;
+    box-sizing: border-box;
+    display: inline-flex;
+    margin: 0;
+    padding: 0 var(--b2b-size-30);
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    font-family: var(--b2b-font-family-default);
+    font-size: var(--b2b-size-copy-100);
+    line-height: var(--b2b-size-copy-line-height-100);
+    transition: background-color 0.3s ease;
+    vertical-align: middle;
+    border: none;
+    border-radius: var(--b2b-border-radius);
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+
+    &.primary {
+      color: var(--b2b-color-white-100);
+      background-color: var(--b2b-color-red-100);
+      border: 1px solid var(--b2b-color-red-100);
+
+      &:hover {
+        background-color: var(--b2b-color-red-200);
+      }
+
+      &.loading::after {
+        border: 0.125rem solid rgba(#ffff, 0.5);
+        border-top: 0.125rem solid var(--b2b-color-red-100);
+      }
+    }
+
+    &.secondary {
+      color: var(--b2b-color-copy-default);
+      background-color: var(--b2b-button-secondary-background-color);
+      border: 1px solid var(--b2b-button-secondary-border-color);
+      border-right: var(--b2b-border-right);
+
+      &:hover {
+        background-color: var(--b2b-button-secondary-hover-background-color);
+      }
+
+      &.loading::after {
+        border: 0.125rem solid rgba(#333, 0.2);
+        border-top: 0.125rem solid var(--b2b-color-copy-default);
+      }
+    }
+
+    &:disabled,
+    &.disabled {
+      cursor: default;
+      pointer-events: none;
+      background-color: var(--b2b-color-grey-50);
+      border: 1px solid var(--b2b-color-grey-200);
+      border-right: var(--b2b-border-right);
+      color: var(--b2b-color-grey-250);
+
+      [slot='start'],
+      [slot='end'] {
+        fill: var(--b2b-color-grey-250);
+      }
+    }
+  }
+
+  button:focus,
+  a:focus {
+    z-index: 10;
+  }
+}
+
+:host(.loading) {
+  button,
+  a {
+    color: transparent;
+    position: relative;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &.primary::after,
+  &.primary:hover {
+    color: var(--b2b-color-white-100);
+  }
+
+  &.secondary::after,
+  &.secondary:hover {
+    color: var(--b2b-color-copy-default);
+  }
+
+  .button-spinner {
+    box-sizing: border-box;
+    display: inline;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.625rem;
+    margin-left: -0.625rem;
+  }
+
+  [slot='start'],
+  [slot='end'] {
+    visibility: hidden;
+  }
+}
+
+:host(.button-50) {
+  button,
+  a {
+    height: 1.875rem;
+    max-width: 100%;
+  }
+}
+
+:host(.button-100) {
+  button,
+  a {
+    height: 2.25rem;
+  }
+}
+
+:host(.button-active) {
+  button,
+  a {
+    background-color: var(--b2b-color-black-100);
+    color: var(--b2b-color-white-100);
+    border: 1px solid var(--b2b-button-secondary-border-color);
+    border-right: var(--b2b-border-right);
+
+    &:hover {
+      background-color: var(--b2b-color-black-100);
+    }
+  }
+}
+
+:host(.icon-only) {
+  button,
+  a {
+    padding: 0 var(--b2b-size-20);
+  }
+}
+
+::slotted(*[slot='start']) {
+  margin-right: var(--b2b-size-10);
+}
+
+::slotted(*[slot='end']) {
+  margin-left: var(--b2b-size-10);
+}
+
+/* stylelint-disable */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,231 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+# Search Component
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-search--story-010-search" />
+</Canvas>
+
+The search component allows you to capture the user input for searching and to display results based on that input.
+
+The component encapsulates styles and emmit the appropriate events to handle the search on your end.
+
+<br />
+
+## Properties
+
+### placeholder
+
+Used as the placeholder for the input field.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-search placeholder="search here"></b2b-search>
+  `}
+/>
+
+### optionsList
+
+Use to present a list of suggestions to the user. It is currently limited to cursor navigation but later we will
+implement keyboard navigation as well.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-search optionsList={myOptionsList}></b2b-search>
+  `}
+/>
+
+## Events
+
+The Search Component emits 3 events for handling of data
+
+<br />
+
+### OnB2BInput and the list of suggested options
+
+Listen to this event to be able to capture user text input and use it to provide early search recommendations.
+To present the list of suggestions to the user, you should pass a list of strings that will be displayed as
+suggestions using `optionsList`. Ideally the list will be filtered as the user keeps typing in the search
+input.
+
+This is completely optional, and you can use the search component just to capture the user search term input.
+
+<Source
+  language="jsx"
+  format={false}
+  code={dedent`
+  const onInput = event => {
+    // Read user input
+    const userInput = event.detail.value?.toLowerCase();
+    // update result list
+    if (userInput) {
+      // Filter results based on input
+      // Maybe here server request for suggestions
+      const filteredList = fruits.filter(fruit => fruit.toLowerCase().indexOf(userInput) > -1)
+      setResultList(filteredList)
+    } else {
+      setResultList([])
+    }
+  };
+  return (
+    <B2bSearch
+      onB2b-input={onInput}
+      optionsList={resultList}
+    ></B2bSearch>
+  )
+  `}
+/>
+
+### OnB2b-search
+
+This event will emit when the user clicks the search button. This is a custom event, and you can access the data by
+the event detail:
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+  const onSearch = event => {
+    const searchTerm = event.detail.searchTerm;
+  };
+  return (
+    <B2bSearch
+      onB2b-search={onSearch}
+    ></B2bSearch>
+  )
+  `}
+/>
+
+### OnB2b-option-selected
+
+This event will emit when the user clicks on an option from the list if results where provided.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+  const onOptionSelected = event => {
+    const selectedOption = event.detail.selectedOption;
+  };
+  return (
+    <B2bSearch
+      onB2b-option-selected={onOptionSelected}
+    ></B2bSearch>
+  )
+  `}
+/>
+
+### Using events in different frameworks
+
+Events have a slight different conventions in our supported frameworks, this is how you need to call the events on each:
+
+#### React
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <B2bSearch
+      onB2b-input={onInput}
+      onB2b-search={onSearch}
+      onB2b-option-selected={onOptionSelected}
+      optionsList={resultList}
+    ></B2bSearch>
+  `}
+/>
+
+#### Vue
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-search
+      v-on:b2b-input={onInput}
+      v-on:b2b-search={onSearch}
+      v-on:b2b-option-selected={onOptionSelected}
+      :optionsList.prop="resultList"
+    ></b2b-search>
+  `}
+/>
+
+## Examples
+
+You can follow our [React](https://github.com/otto-ec/b2b-react-examples/blob/main/src/components/SearchExample.tsx)
+and [Vue](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/components/search/Search.vue)
+code examples of a client implementation of filtering a list of results.
+You can always implement your own solution, which will likely fetch data from your services.
+
+<br />
+
+# Custom search component
+
+You can customise your custom search input fields by using the `b2b-input-group` and `b2b-input-list` components. When
+doing this you will need to handle the user interaction by listening to each component event. For example, listen
+when search is clicked and when user types. This is an example of a custom search component using `b2b-input-group`:
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-search--story-020-custom-search" />
+</Canvas>
+
+In this example we showcase the use of events from the `b2b-input-list` to get relevant user input for search,
+including `onB2b-input` and `onB2b-option-selected`. Please refer to the [b2b-input-group](?path=/docs/components-form-input-group--story-010-default) and [b2b-input-list](?path=/docs/components-form-input-list--story-010-input-list#input-list-component) components for more details:
+
+<Source
+  language="jsx"
+  format={false}
+  code={dedent`
+    const [inputValue, setInputValue] = '';
+    const [selectValue, setSelectValue] = '';
+    const [optionList, setOptionList] = '';
+    const onSearchClicked = () => {
+      // Server request for results
+      request(inputValue, selectValue)
+    };
+    const onInput = event => {
+      setInputValue(event.detail.value);
+    };
+    const onOptionSelected = event => {
+      setInputValue(event.detail.selectedOption);
+    };
+    const onSelect = event => {
+      setSelectValue(event.detail)
+    }
+    return (
+      <B2bInputGroup>
+        <B2bInputList
+          slot="start"
+          placeholder="search"
+          optionsList={optionList}
+          onB2b-input={onInput}
+          onB2b-option-selected={onOptionSelected}>
+        </B2bInputList>
+        <B2bDropdown onB2b-change={onSelect} invalid="" error="an error">
+          <option value="one">Option 1</option>
+          <option value="one">Option 2</option>
+        </B2bDropdown>
+        <B2bButton onClick={onSearchClicked} slot="end" variant="primary">
+          <B2bIcon icon="b2b_icon-search"></B2bIcon>
+        </B2bButton>
+      </B2bInputGroup>
+    )
+  `}
+/>
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

@@ -1,0 +1,43 @@
+@use '../../../global/b2b-styles';
+
+:host {
+  display: table-cell;
+  padding: 12px;
+  margin: 0;
+  font-family: var(--b2b-font-family-default);
+  font-size: var(--b2b-size-copy-100);
+  line-height: var(--b2b-size-copy-line-height-100);
+  border-bottom: 1px solid var(--b2b-color-grey-200);
+  white-space: normal;
+}
+
+:host(.b2b-table-cell--ellipsis) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:host(.b2b-table-cell--left) {
+  text-align: left;
+}
+
+:host(.b2b-table-cell--right) {
+  text-align: right;
+}
+
+:host(.b2b-table-cell--center) {
+  text-align: center;
+}
+
+:host(.b2b-table-cell--divider) {
+  border-right: 1px solid var(--b2b-color-grey-200);
+}
+
+// Color options
+:host(.b2b-table-cell-color-selected) {
+  background-color: var(--b2b-color-table-selected-default);
+}
+
+:host(.b2b-table-cell-color-group) {
+  background-color: var(--b2b-color-table-expand-default);
+}

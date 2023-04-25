@@ -1,0 +1,21 @@
+name: On Pull Request
+on:
+  pull_request:
+    types: [ opened, reopened, edited, synchronize ]
+    branches:
+      - main
+      - beta
+
+jobs:
+  install:
+    name: Install Dependencies
+    uses: ./.github/workflows/install.yml
+    with:
+      node_version: 16
+
+  validations:
+    name: Validations
+    needs: [ install ]
+    uses: ./.github/workflows/validations.yml
+    with:
+      node_version: 16

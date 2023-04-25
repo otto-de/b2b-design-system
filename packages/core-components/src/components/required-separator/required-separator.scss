@@ -1,0 +1,16 @@
+@use '../../global/b2b-styles';
+
+:host {
+  font-size: var(--b2b-size-copy-100);
+  font-family: var(--b2b-font-family-default);
+
+  .b2b-required-separator {
+    &--label {
+      margin-bottom: var(--b2b-size-20);
+    }
+
+    &--asterisk {
+      color: var(--b2b-color-red-100);
+    }
+  }
+}

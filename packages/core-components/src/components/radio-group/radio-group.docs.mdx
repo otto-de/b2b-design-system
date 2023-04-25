@@ -1,0 +1,74 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Radio Group
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-radio-group--story-010-default" />
+</Canvas>
+
+## Properties
+
+### Label
+
+The label for the whole radio group. It indicates what the options relate to. This field is recommended, but not required as it can
+be ignored in some use cases. For example, when the solution needs a label with a description block of text after it.
+
+Internally the component sets the aria property `aria-labelledby` to the `name` prop of this component. When using a
+custom label, remember to set that same name to the `id` of the label. For more information you can see [this link](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby).
+
+### Required
+
+Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
+validation, is just a style addition.
+
+### Name
+
+The name of the radio group. This is required to group all child radio buttons together and manage their state.
+
+### Disabled
+
+Whether or not the radio group as a whole is disabled. If not specified, it is set to false.
+If both `disabled` and `invalid` properties are set to true, `disabled` will take precedence and no
+error will be shown or error styles rendered.
+
+### Invalid
+
+Whether or not the radio group is rendered with error styles. Setting this will also render an
+error text if it is specified. The `disabled` property takes precedence over `invalid` regarding styling.
+
+### Hint
+
+A hint text that refers to all radio buttons in the radio group.
+Using radio button components in a group will set all individual hint texts to be undefined.
+
+### Error
+
+An error text for the radio group. It will be rendered instead of the hint text if it is specified.
+If no error text is specified, but the radio group is set to `invalid`, the hint text will
+not appear. The string will be set to undefined for the individual radio button component if it is used in a group.
+
+## Events
+
+### b2b-group-change
+
+Fires whenever the `checked` property of one of its radio children is changed.
+Emits a custom event called `RadioEventDetail` that contains the value of the currently active radio button.
+as well as it's current status.
+
+`RadioEventDetail<T = any> {
+  value: T;
+  checked: boolean;
+}`
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

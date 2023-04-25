@@ -1,0 +1,361 @@
+import { Story, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+
+# Table
+
+The table components can be use in a similar way than a normal html table. It encapsulates styles
+that give consistency to the look and feel of the table, and help developers with flexible display options.
+
+### Contents
+
+| Table components                          | Features                                          | Sizing                                         |
+| ----------------------------------------- | ------------------------------------------------- | ---------------------------------------------- |
+| [b2b-table](#b2b-table)                   | [Divider](#divider-property)                      | [Sizing - fixed cell width](#fixed-cell-width) |
+| [b2b-table-rowgroup](#b2b-table-rowgroup) | [Colored rows and cells](#colored-rows-and-cells) | [Sizing - fixed row height](#fixed-row-height) |
+| [b2b-table-row](#b2b-table-row)           | [Scrollable Table](#scrollable-table)             |                                                |
+| [b2b-table-header](#b2b-table-header)     | [Sorting Arrows](#sorting-arrows)                 |                                                |
+| [b2b-table-cell](#b2b-table-cell)         |                                                   |                                                |
+
+<br />
+
+## B2B Table components
+
+The components to use to build a table are `b2b-table`, `b2b-rowgroup`, `b2b-row`, `b2b-header`, `b2b-cell` and use
+a similar hierarchy than a html table:
+
+```html
+<b2b-table size='equal'>
+  <b2b-table-rowgroup type='header'>
+    <b2b-table-row>
+      <b2b-table-header>Title 1</b2b-table-header>
+    </b2b-table-row>
+  </b2b-table-rowgroup>
+  <b2b-table-rowgroup type='body'>
+    <b2b-table-row>
+      <b2b-table-cell>data<b2b-table-cell>
+    </b2b-table-row>
+  </b2b-table-rowgroup>
+</b2b-table>
+```
+
+<hr />
+
+### b2b-table
+
+Is the parent component and can control the size of the columns. Currently, it supports 2 sizes: `expand` and
+`equal`. Fixed sizes can be added directly to the row, header or cell components by using styles or css
+classes.
+
+#### expand
+
+Expand size will expand to 100% of parent size and columns will use as much space as they need depending on content of
+the headers or cell-data. Text will always wrap in this size.
+
+In this example, parent size is 400px.
+
+```html
+<div id="parent" style="width: 400px">
+  <b2b-table size="expand"> ... </b2b-table>
+</div>
+```
+
+<Story id="components-content-table--story-040-table-expand" />
+
+#### equal
+
+Equal size extends to parent width but will keep cell sizes proportional no matter how long the content.
+Text can both wrap or be truncated with text ellipsis (using the property `text-wrap=false` in the cell). In this
+example, parent size is 400px, and text is truncated.
+
+```html
+<div id="parent" style="width: 400px">
+  <b2b-table size="equal">
+    ...
+    <b2b-table-cell text-wrap="false">...</b2b-table-cell>
+  </b2b-table>
+</div>
+```
+
+<Story id="components-content-table--story-050-table-equal" />
+
+<br />
+<hr />
+
+### b2b-table-rowgroup
+
+Rowgroup will let you group rows based on context: `header`, `body` or `footer`.
+Header rows are by default not highlightable on mouse over.
+
+```html
+<b2b-table>
+  <b2b-table-rowgroup type="header">...</b2b-table-rowgroup>
+  <b2b-table-rowgroup type="body">...</b2b-table-rowgroup>
+  <b2b-table-rowgroup type="footer">...</b2b-table-rowgroup>
+</b2b-table>
+```
+
+<hr />
+
+### b2b-table-row
+
+Rows are the same as `<tr>` elements and implement that aria-role.
+
+#### highlight
+
+This property will make the row highlightable on mouse over. By default, it is true.
+
+```html
+<b2b-table>
+  <b2b-table-rowgroup>
+    <b2b-table-row highlight="true">...</b2b-table-row>
+  </b2b-table-rowgroup>
+</b2b-table>
+```
+
+<hr />
+
+### b2b-table-header
+
+This component is similar to the `<th>` element and implements the aria-role columnheader.
+Note: this new table design does not use the division between header and body.
+
+#### fixed
+
+Sets the header position to sticky. Use it when table is inside a `b2b-scrollable-container`.
+
+```html
+<b2b-table>
+  <b2b-table-rowgroup type="header">
+    <b2b-table-row>
+      <b2b-table-header>A Column Header</b2b-table-header>
+    </b2b-table-row>
+  </b2b-table-rowgroup>
+</b2b-table>
+```
+
+<hr />
+
+### b2b-table-cell
+
+This component is similar to the `<td>` element and implements the aria-role cell.
+
+#### textWrap
+
+Weather text should wrap or truncate. **It will only truncate when table size is `equal`**
+
+#### align
+
+Alignment of the content of the cell, by default is to the left.
+
+```html
+<b2b-table size="equal">
+  <b2b-table-rowgroup type="body">
+    <b2b-table-row>
+      <b2b-table-cell textWrap="false" align="right">Data</b2b-table-cell>
+    </b2b-table-row>
+  </b2b-table-rowgroup>
+</b2b-table>
+```
+
+<br />
+<hr />
+
+### Features
+
+#### divider property
+
+Adds a border to the right of the cell or header.
+
+```jsx
+// Vanilla and Vue
+<b2b-table-header divider>A Column Header</b2b-table-header>
+<b2b-table-cell divider textWrap="false" align="right">Data</b2b-table-cell>
+
+// React
+<B2bTableHeader divider={true}>A Column Header</B2bTableHeader>
+<B2bTableCell divider={true} textWrap="false" align="right">Data</B2bTableCell>
+```
+
+<Story id="components-content-table--story-080-table-with-dividers" />
+
+<br />
+<hr />
+
+#### Colored rows and cells
+
+You can select the background color of a row or a cell. The available colors are semantic and will be used for
+specific cases: selected and group (accordion). As per design we also won't be using a zebra pattern so please don't
+use alternate row colors unless otherwise briefed by design.
+
+```html
+<b2b-table-row color="selected"> ... </b2b-table-row>
+<b2b-table-cell color="selected"> ... </b2b-table-cell>
+```
+
+<Story id="components-content-table--story-090-table-color" />
+
+<br />
+<hr />
+
+#### Scrollable table
+
+If you are building a table that will expand beyond the screen size, you can use the `scrollable-container` as a
+parent for the table to achieve scrollable content, like so:
+
+```html
+<b2b-scrollable-container>
+  <b2b-table> ... </b2b-table>
+</b2b-scrollable-container>
+```
+
+<Story id="components-content-table--story-100-scrollable-table" />
+
+This table includes a `sticky` header by default.
+
+With bigger tables the columns will compress as small as the header text and this could be too small if the cell
+will contain longer texts. Because of this we recommend setting the size of the columns in the headings. Only
+length units (px, rem, vh, etc) will work but not percentage as there is no other width value those will be relative to.
+
+If you use the table size `expand`, please set `min-width`:
+
+```html
+<b2b-scrollable-container>
+  <b2b-table size="expand">
+    ...
+    <b2b-table-header style="min-width: 80px">...</b2b-table-header>
+    ...
+  </b2b-table>
+</b2b-scrollable-container>
+```
+
+If you use the table size `equal`, please set `width`:
+
+```html
+<b2b-scrollable-container>
+  <b2b-table size="equal">
+    ...
+    <b2b-table-header style="width: 80px">...</b2b-table-header>
+    ...
+  </b2b-table>
+</b2b-scrollable-container>
+```
+
+<br />
+<hr />
+
+### Sorting Arrows
+
+The table supports sorting interaction, this means we notify the consumer when the user is sorting a column, but the
+table won't be sorting the data provided, this needs to be handled by the consumer.
+
+Columns are not sortable by default. If you want to enable sorting on a column,
+set `sort-direction` to `not-sorted`, `ascending` or `descending` on the column header that you'd like to sort.
+If `sort-direction` is not set, then that column is considered not-sortable and won't display the sorting arrows.
+
+☝️ Only one header can be sorted at the time. The others should be defined as `not-sorted`.
+
+☝️ If your data comes pre-sorted, do not forget to set the individual column header to the respective sort order indicating
+to the user that the data is already sorted.
+
+If a column has an unsorted state, it will switch to `ascending` sort order on click or on tab and enter.
+If the user clicks or presses enter again, the sort order changes to `descending`. Once a column is sorted,
+it will only go back to its unsorted state automatically, when the user clicks on any other column.
+
+```html
+<b2b-table>
+  ...
+  <b2b-table-header sort-direction="descending">...</b2b-table-header>
+  <b2b-table-header sort-direction="not-sorted">...</b2b-table-header>
+  <b2b-table-header sort-direction="not-sorted">...</b2b-table-header>
+  <b2b-table-header>...</b2b-table-header> // This row won't show sorting arrows
+  ...
+</b2b-table>
+```
+
+#### Events
+
+When the user interacts with sorting, the `b2b-table` will emit a `b2b-sort-change` event that will contain
+information about the sorted header and the direction selected. You can provide the property `sort-id` to the
+`<b2b-table-header>` if you would like a specific id to be emitted with this event. If is not provided, the event
+will emit the header text content.
+
+Also, the `<b2b-table-header>` will emit a `b2b-change` that contains the detail of the sorting direction.
+
+_React Notation_
+
+```jsx
+onSortChange = (event) => event.detail //  { sortedColumn: 'My Header' sortDirection: 'ascending' }
+onChange = (event) => event.detail // 'ascending'
+
+<B2bTable onB2b-sort-change={onSortChange}>
+  <B2BTableHeader sortDirection="descending" sortId="myHeader" onB2b-change={onChange}>My Header</B2BTableHeader>
+</B2bSearch>
+```
+
+_Vue Notation_
+
+```jsx
+<b2b-table v-on:b2b-sort-change={onSortChange}>
+  <b2b-table-header
+    sort-direction="descending"
+    sort-id="myHeader"
+    v-on:b2b-change={onChange}>
+    My Header
+  </b2b-table-header>
+</b2b-table>
+```
+
+<br />
+<hr />
+
+### Sizing
+
+#### Fixed cell width
+
+In both cases when using `expand` or `equal` properties in the table, you can also set a fixed size for a particular
+column by adding it directly to the column header using style or class:
+
+<Story id="components-content-table--story-060-table-fixed-cell-size" />
+
+```html
+<b2b-table size="equal">
+  ...
+  <!--The first column uses 50% of the total size-->
+  <b2b-table-header style="width: 50%">Title 1</b2b-table-header>
+  ...
+</b2b-table>
+```
+
+In the same way, the cell can have a `max-width` property to make it more dynamic and avoid it expanding too much.
+
+```html
+<b2b-table size="equal">
+  ...
+  <b2b-table-header style="max-width: 150px">Title 1</b2b-table-header>
+  ...
+</b2b-table>
+```
+
+<hr />
+
+#### Fixed row height
+
+In both cases when using `expand` or `equal` properties in the table, you can also set a fixed height by adding it directly to the row using style or class:
+
+<Story id="components-content-table--story-070-table-fixed-row-height" />
+
+```html
+<b2b-table size="equal">
+  ...
+  <b2b-table-row style="height: 120px">...</b2b-table-row>
+  ...
+</b2b-table>
+```
+
+<hr />
+
+<br />
+<br />
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} controls={false} />

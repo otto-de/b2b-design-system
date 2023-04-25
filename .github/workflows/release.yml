@@ -1,0 +1,44 @@
+name: Release
+on:
+  workflow_dispatch:
+
+jobs:
+  install:
+    name: Install Dependencies
+    uses: ./.github/workflows/install.yml
+    with:
+      node_version: 16
+
+  validations:
+    name: Validations
+    needs: [ install ]
+    uses: ./.github/workflows/validations.yml
+    with:
+      node_version: 16
+
+  deploy_documentation_nonlive:
+    name: Deploy Documentation - Nonlive
+    needs: [ validations ]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: nonlive
+      image_tag: snapshot_${{ github.sha }}
+      node_version: 16
+
+  deploy_documentation_live:
+    name: Deploy Documentation - Live
+    needs: [ deploy_documentation_nonlive ]
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: live
+      image_tag: release_${{ github.sha }}
+      node_version: 16
+
+  publish_packages:
+    name: Publish Packages
+    needs: [ deploy_documentation_live ]
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+    uses: ./.github/workflows/publish.yml
+    with:
+      node_version: 16

@@ -1,0 +1,12 @@
+{
+  "font": {
+    "family": {
+      "default": { "value": "OttoSans, Arial, Helvetica, sans-serif" }
+    },
+    "weight": {
+      "thin": { "value": "100" },
+      "normal": { "value": "400" },
+      "bold": { "value": "700" }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "color": {
+    "background": {
+      "page": { "value": "{color.grey.25}" },
+      "box": { "value": "{color.white.100}" },
+      "card": { "value": "{color.white.100}" },
+      "overlay": { "value": "{color.black.100}" },
+      "overlay-transparent-80": { "value": "#22222280" },
+      "overlay-transparent-40": { "value": "#22222240" }
+    },
+    "border": {
+      "100": { "value": "{color.grey.200}" }
+    },
+    "copy": {
+      "default": { "value": "{color.black.100}" },
+      "secondary": { "value": "{color.grey.400}" },
+      "inverted": { "value": "{color.white.100}" },
+      "overlay": { "value": "{color.white.100}" }
+    },
+    "headline": {
+      "title": { "value": "{color.red.100}" },
+      "default": { "value": "{color.black.100}" },
+      "inverted": { "value": "{color.white.100}" }
+    },
+    "icon": {
+      "default": { "value": "{color.black.100}" },
+      "secondary": { "value": "{color.grey.400}" },
+      "inverted": { "value": "{color.white.100}" }
+    },
+    "table": {
+      "hover": { "value": "#E6F4FF" },
+      "selected": {
+        "default": { "value": "#CCE9FF" },
+        "hover": { "value": "#E6F4FF" }
+      },
+      "expand": {
+        "default": { "value": "{color.grey.25}" },
+        "hover": { "value": "#E6F4FF" }
+      }
+    }
+  }
+}

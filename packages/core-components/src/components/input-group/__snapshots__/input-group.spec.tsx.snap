@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`B2B Input Group should not render a group error if the group is invalid and disabled 1`] = `
+<b2b-input-group>
+  <mock:shadow-root>
+    <div class="b2b-input-wrapper">
+      <slot name="start"></slot>
+      <slot></slot>
+      <slot name="end"></slot>
+    </div>
+    <span class="b2b-input-wrapper-hint">
+      A group hint
+    </span>
+  </mock:shadow-root>
+  <b2b-input class="b2b-input" disabled="" type="text">
+    <mock:shadow-root>
+      <b2b-input-label>
+        Search Term
+      </b2b-input-label>
+      <div class="input-wrapper input-wrapper--disabled">
+        <slot name="start"></slot>
+        <input class="native-input" disabled="" type="text">
+        <slot name="end"></slot>
+      </div>
+    </mock:shadow-root>
+  </b2b-input>
+  <b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="">
+    <mock:shadow-root>
+      <select class="b2b-dropdown-select" disabled="">
+        <option value="data-1">
+          Data Set 1
+        </option>
+        <option value="data-2">
+          Data Set 2
+        </option>
+      </select>
+    </mock:shadow-root>
+  </b2b-dropdown>
+  <b2b-button class="button-100" disabled="">
+    <mock:shadow-root>
+      <button class="primary" disabled="" type="button">
+        <span>
+          <slot name="start"></slot>
+          <slot></slot>
+          <slot name="end"></slot>
+        </span>
+      </button>
+    </mock:shadow-root>
+    Search
+  </b2b-button>
+</b2b-input-group>
+`;
+
+exports[`B2B Input Group should render a group error if one is specified and the group is invalid 1`] = `
+<b2b-input-group>
+  <mock:shadow-root>
+    <div class="b2b-input-wrapper">
+      <slot name="start"></slot>
+      <slot></slot>
+      <slot name="end"></slot>
+    </div>
+    <span class="b2b-input-wrapper-hint b2b-input-wrapper-hint--error">
+      A group error
+    </span>
+  </mock:shadow-root>
+  <b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
+    <mock:shadow-root>
+      <b2b-input-label>
+        Search Term
+      </b2b-input-label>
+      <div class="input-wrapper">
+        <slot name="start"></slot>
+        <input class="native-input" type="text">
+        <slot name="end"></slot>
+      </div>
+    </mock:shadow-root>
+  </b2b-input>
+  <b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
+    <mock:shadow-root>
+      <select class="b2b-dropdown-select">
+        <option value="data-1">
+          Data Set 1
+        </option>
+        <option value="data-2">
+          Data Set 2
+        </option>
+      </select>
+    </mock:shadow-root>
+  </b2b-dropdown>
+  <b2b-button class="button-100">
+    <mock:shadow-root>
+      <button class="primary" type="button">
+        <span>
+          <slot name="start"></slot>
+          <slot></slot>
+          <slot name="end"></slot>
+        </span>
+      </button>
+    </mock:shadow-root>
+    Search
+  </b2b-button>
+</b2b-input-group>
+`;
+
+exports[`B2B Input Group should render a group hint if it is specified 1`] = `
+<b2b-input-group>
+  <mock:shadow-root>
+    <div class="b2b-input-wrapper">
+      <slot name="start"></slot>
+      <slot></slot>
+      <slot name="end"></slot>
+    </div>
+    <span class="b2b-input-wrapper-hint">
+      A group hint
+    </span>
+  </mock:shadow-root>
+  <b2b-input class="b2b-input" type="text">
+    <mock:shadow-root>
+      <b2b-input-label>
+        Search Term
+      </b2b-input-label>
+      <div class="input-wrapper">
+        <slot name="start"></slot>
+        <input class="native-input" type="text">
+        <slot name="end"></slot>
+      </div>
+    </mock:shadow-root>
+  </b2b-input>
+  <b2b-dropdown class="b2b-dropdown">
+    <mock:shadow-root>
+      <select class="b2b-dropdown-select">
+        <option value="data-1">
+          Data Set 1
+        </option>
+        <option value="data-2">
+          Data Set 2
+        </option>
+      </select>
+    </mock:shadow-root>
+  </b2b-dropdown>
+  <b2b-button class="button-100">
+    <mock:shadow-root>
+      <button class="primary" type="button">
+        <span>
+          <slot name="start"></slot>
+          <slot></slot>
+          <slot name="end"></slot>
+        </span>
+      </button>
+    </mock:shadow-root>
+    Search
+  </b2b-button>
+</b2b-input-group>
+`;
+
+exports[`B2B Input Group should render content wrapped in the input group 1`] = `
+<b2b-input-group>
+  <mock:shadow-root>
+    <div class="b2b-input-wrapper">
+      <slot name="start"></slot>
+      <slot></slot>
+      <slot name="end"></slot>
+    </div>
+  </mock:shadow-root>
+  <b2b-input class="b2b-input" type="text">
+    <mock:shadow-root>
+      <b2b-input-label>
+        Search Term
+      </b2b-input-label>
+      <div class="input-wrapper">
+        <slot name="start"></slot>
+        <input class="native-input" type="text">
+        <slot name="end"></slot>
+      </div>
+    </mock:shadow-root>
+  </b2b-input>
+  <b2b-dropdown class="b2b-dropdown">
+    <mock:shadow-root>
+      <select class="b2b-dropdown-select">
+        <option value="data-1">
+          Data Set 1
+        </option>
+        <option value="data-2">
+          Data Set 2
+        </option>
+      </select>
+    </mock:shadow-root>
+  </b2b-dropdown>
+  <b2b-button class="button-100">
+    <mock:shadow-root>
+      <button class="primary" type="button">
+        <span>
+          <slot name="start"></slot>
+          <slot></slot>
+          <slot name="end"></slot>
+        </span>
+      </button>
+    </mock:shadow-root>
+    Search
+  </b2b-button>
+</b2b-input-group>
+`;

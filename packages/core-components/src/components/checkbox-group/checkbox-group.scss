@@ -1,0 +1,54 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+:host {
+  --b2b-checkbox-margin-bottom: var(--b2b-size-10);
+}
+
+.b2b-checkbox-group {
+  font-family: var(--b2b-font-family-default);
+  font-size: var(--b2b-size-copy-100);
+
+  &-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-bottom: var(--b2b-size-3);
+  }
+
+  b2b-input-label {
+    display: block;
+    margin-bottom: var(--b2b-size-20);
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  span {
+    display: block;
+    font-size: var(--b2b-size-copy-75);
+    color: var(--b2b-color-grey-300);
+    line-height: var(--b2b-size-copy-line-height-75);
+  }
+
+  &--error {
+    span {
+      color: var(--b2b-color-error-100);
+    }
+  }
+
+  &--vertical {
+    .b2b-checkbox-group-options {
+      flex-direction: column;
+    }
+  }
+
+  &--horizontal {
+    .b2b-checkbox-group-options {
+      flex-direction: row;
+    }
+  }
+}

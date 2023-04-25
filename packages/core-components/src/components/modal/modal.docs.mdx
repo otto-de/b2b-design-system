@@ -1,0 +1,70 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Modal Component
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-status-feedback-modal--story-010-backdrop-dismiss" />
+</Canvas>
+
+A modal is a separate layer that lays above all other elements. It is used to display additional content without the user having to leave the page. If the user has to reconfirm his input before submitting a form, it is suitable to use a modal.
+
+<br />
+
+## Properties
+
+<ArgsTable story={PRIMARY_STORY} />
+
+### Variant
+
+The modal comes in two different variants - `default` will expand to a maximum width of 600px and `large`
+to 800px. The modal height is not limited. We recommend using the `large` variant if you have a lot of content.
+
+<br />
+
+## Slots
+
+While the headline property is required and will always be shown in the modal, other parts of the modal such as the body and footer
+content are optional.
+
+### Body Content
+
+This is the default slot for the modal. Anything placed between the component's tags will be located here by default. You can also
+nest other B2B components.
+
+### Footer Content
+
+The footer has two slots - `footer-left` and `footer-right` that control the alignment of content placed inside the footer.
+The left side could be used for footnotes, whereas the right footer MUST contain action buttons.
+
+<br />
+
+## Events
+
+### b2b-close
+
+Fires whenever the modal is closed through changing the `opened` property to false.
+
+### b2b-before-close
+
+Fires just before the `opened` property of the modal is changed to `false` and emits
+the closing trigger as a string:
+
+| Trigger      | Event Name     |
+| ------------ | -------------- |
+| Backdrop     | 'BACKDROP'     |
+| Escape Key   | 'ESCAPE_KEY'   |
+| Close Button | 'CLOSE_BUTTON' |
+
+<br />
+
+## Focus Trap
+
+The modal component uses a focus trap to improve accessibility. It traverses both light and shadow DOM
+of the entire document and sets the focus on the first element it finds as soon as the modal is opened.

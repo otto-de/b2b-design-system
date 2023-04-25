@@ -1,0 +1,100 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+# Input List Component
+
+_click the component to focus and display the list_
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-input-list--story-020-input-list-focused" />
+</Canvas>
+
+This component will receive a list of options to be presented to the user. It is not a dropdown, and it should be
+used as part of a search or filter component, or in any other use case where a list of results makes sense.
+
+<br />
+
+## Properties
+
+### label, placeholder
+
+Will be passed down as an input label and placeholder.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-input-list placeholder="search here"></b2b-input-list>
+  `}
+/>
+
+### optionsList
+
+Use to present a list of suggestions to the user. It is currently limited to cursor navigation, but later we will implement keyboard navigation as well.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-input-list optionsList={myOptionsList}></b2b-input-list>
+  `}
+/>
+
+## Events
+
+### OnB2b-option-selected
+
+This event will emit when the user clicks on an option from the list, if optionsList was provided.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+  const onOptionSelected = event => {
+    const selectedOption = event.detail.selectedOption;
+  };
+  return (
+    <B2bSearch
+      onB2b-option-selected={onOptionSelected}
+    />
+  )
+  `}
+/>
+
+## Custom Lists
+
+You can also provide your HTML for the list instead of an array of options. This allows you to display nested or individually styled lists.
+To do so, you can simply nest your custom list HTML in the input list component. **_Please do not supply an `optionsList` in this case. Additionally, keyboard navigation and option selection must be implemented
+by you as a consumer, because the component has no knowledge about the slotted list content it displays._**
+
+<Source
+  language="html"
+  format={false}
+  code={dedent`
+    <b2b-input-list>
+      <ul>
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>
+          Option 3
+          <ul>
+            <li>Option 3.1</li>
+            <li>Option 3.2</li>
+          </ul>
+        </li>
+    </b2b-input-list>
+  `}
+/>
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

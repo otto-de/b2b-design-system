@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>B2B Design System</title>
+    <script type="module" src="/build/b2b-core-components.esm.js"></script>
+    <script nomodule src="/build/b2b-core-components.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://pattern-library.portal.otto.market/versions/latest/obc-components.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/b2b-core-components.css" />
+    <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+  </head>
+
+  <body data-theme="light">
+    <div class="content-container">
+      <b2b-headline size="200">Spinner</b2b-headline>
+      <div class="white-container">
+        <b2b-spinner size="50"></b2b-spinner>
+        <b2b-spinner size="100"></b2b-spinner>
+        <b2b-spinner size="200"></b2b-spinner>
+      </div>
+      <div class="grey-container">
+        <b2b-spinner size="50" color="secondary"></b2b-spinner>
+        <b2b-spinner size="100" color="secondary"></b2b-spinner>
+        <b2b-spinner size="200" color="secondary"></b2b-spinner>
+      </div>
+      <div class="black-container">
+        <b2b-spinner size="50" color="inverse"></b2b-spinner>
+        <b2b-spinner size="100" color="inverse"></b2b-spinner>
+        <b2b-spinner size="200" color="inverse"></b2b-spinner>
+      </div>
+      <br />
+      <b2b-button loading="true">Loading</b2b-button>
+      <b2b-button variant="primary" loading="true">Loading</b2b-button>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Modal</b2b-headline>
+      <br />
+      <div class="variant-container">
+        <b2b-button id="modal-button">Open Modal</b2b-button>
+        <b2b-modal
+          id="the-modal"
+          opened="false"
+          variant="large"
+          heading="Test"
+          close-button-label="Close"
+          save-button-label="Save"
+          backdrop-dismiss
+          esc-dismiss="false">
+          <div>This is a test modal</div>
+          <b2b-paragraph slot="footer-left">* Mandatory</b2b-paragraph>
+          <b2b-button id="modal-close-button" slot="footer-right"
+            >Close</b2b-button
+          >
+          <b2b-button slot="footer-right" variant="primary">Save</b2b-button>
+        </b2b-modal>
+        <script>
+          const openButton = document.getElementById('modal-button');
+          const closeButton = document.getElementById('modal-close-button');
+          const modal = document.getElementById('the-modal');
+          openButton.addEventListener('click', () => {
+            modal.opened = true;
+          });
+          closeButton.addEventListener('click', () => {
+            modal.opened = false;
+          });
+        </script>
+      </div>
+    </div>
+
+    <div class="content-container" style="background-color: grey">
+      <b2b-headline size="200">Label</b2b-headline>
+      <br />
+      <b2b-label type="neutral">Neutral</b2b-label>
+      <b2b-label type="info">Info</b2b-label>
+      <b2b-label type="success">Success</b2b-label>
+      <b2b-label type="warning">Warning</b2b-label>
+      <b2b-label type="error">Error</b2b-label>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Alert</b2b-headline>
+      <b2b-alert opened has-close-button="false"></b2b-alert>
+      <b2b-alert opened custom-icon
+        ><b2b-icon icon="b2b_icon-menu"></b2b-icon
+      ></b2b-alert>
+      <b2b-alert type="success" has-close-button="true" opened size="large"
+        ><strong>Hello </strong>This is a success alert.</b2b-alert
+      >
+      <b2b-alert type="warning" has-close-button="true" opened size="large"
+        >This is a warning alert.</b2b-alert
+      >
+      <b2b-alert type="error" has-close-button="true" opened size="large"
+        >This is an error alert.</b2b-alert
+      >
+      <b2b-alert opened size="large"
+        >This is an info alert with a really long text that will go on forever
+        because why not? Let's see how line breaks look on this one
+        too.</b2b-alert
+      >
+    </div>
+  </body>
+</html>

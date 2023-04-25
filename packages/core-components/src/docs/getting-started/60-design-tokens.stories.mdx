@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="Getting Started/Design Tokens Installation" />
+
+# B2B Design Tokens
+
+Design Tokens are centralised css variables that we use for building our components.
+
+For more information please read our <LinkTo kind="Guidelines/Design Tokens">Design Tokens Guidelines</LinkTo>
+
+<br />
+
+## How to use tokens
+
+<br />
+
+### 1. Installation
+
+You can use B2B Design Tokens by installing the package [b2b-tokens](https://github.com/otto-ec/b2b-design-system/packages/1292770) \*
+
+```bash
+npm install @otto-ec/b2b-tokens
+```
+
+_\*This is currently hosted in GitHub packages withing the Otto organisation, therefore it requires an authentication
+token to be able to install. Follow [this guide](?path=/story/getting-started-package-installation--page)
+if you haven't configured this yet._
+
+### 2. SCSS usage
+
+You can import the css variables directly from the node package with the `@import` rule:
+
+```css
+@import '~@otto-ec/b2b-tokens/build/css/default.css';
+
+.myStyle {
+  background-color: var(--b2b-color-red-200);
+}
+```
+
+## CDN
+
+You can find our tokens in this CDN `https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css`
+Importing them in your index headline will globally define them.
+
+```html
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css" />
+</head>
+```

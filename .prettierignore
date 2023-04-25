@@ -1,0 +1,8 @@
+
+# Ignore generated files:
+*.md
+packages/core-components/src/components.d.ts
+packages/core-components/src/components/icon/types.ts
+packages/core-components/src/components/table/types.ts
+packages/core-components/src/docs/config/components-args.json
+packages/react-components/src/*

@@ -1,0 +1,27 @@
+{
+  "color": {
+    "background": {
+      "box": { "value": "{color.black.50}" },
+      "card": { "value": "{color.black.50}" },
+      "page": { "value": "{color.grey.100}" }
+    },
+    "border": {
+      "100": { "value": "{color.white.100}" }
+    },
+    "copy": {
+      "default": { "value": "{color.white.100}" },
+      "secondary": { "value": "{color.grey.100}" },
+      "inverted": { "value": "{color.black.100}" }
+    },
+    "headline": {
+      "title": { "value": "{color.red.50}" },
+      "default": { "value": "{color.white.100}" },
+      "inverted": { "value": "{color.black.100}" }
+    },
+    "icon": {
+      "default": { "value": "{color.white.100}" },
+      "secondary": { "value": "{color.grey.400}" },
+      "inverted": { "value": "{color.black.100}" }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>B2B Design System</title>
+    <script type="module" src="/build/b2b-core-components.esm.js"></script>
+    <script nomodule src="/build/b2b-core-components.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://pattern-library.portal.otto.market/versions/latest/obc-components.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/b2b-core-components.css" />
+    <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+  </head>
+  <body data-theme="light">
+    <div class="content-container">
+      <b2b-headline size="200">B2B Icons</b2b-headline>
+      <b2b-icon icon="b2b_icon-advice" size="200"></b2b-icon>
+      <b2b-icon icon="b2b_icon-zoom-out" size="100"></b2b-icon>
+      <b2b-icon icon="b2b_icon-warranty" size="50"></b2b-icon>
+      <b2b-headline size="100" no-margin="true">Variants</b2b-headline>
+      <div class="variant-container">
+        <div class="icon-container">
+          <h4>Primary</h4>
+          <b2b-icon icon="b2b_icon-edit" size="50"></b2b-icon>
+          <b2b-icon icon="b2b_icon-edit" size="100"></b2b-icon>
+          <b2b-icon icon="b2b_icon-edit" size="200"></b2b-icon>
+        </div>
+        <div class="icon-container">
+          <h4>Primary</h4>
+          <b2b-icon icon="b2b_icon-arrow-up" size="50"></b2b-icon>
+          <b2b-icon icon="b2b_icon-arrow-down" size="100"></b2b-icon>
+          <b2b-icon icon="b2b_icon-arrow-up" size="200"></b2b-icon>
+        </div>
+        <div class="icon-container">
+          <h4>Secondary</h4>
+          <b2b-icon icon="b2b_icon-edit" size="50" color="secondary"></b2b-icon>
+          <b2b-icon
+            icon="b2b_icon-edit"
+            size="100"
+            color="secondary"></b2b-icon>
+          <b2b-icon
+            icon="b2b_icon-edit"
+            size="200"
+            color="secondary"></b2b-icon>
+        </div>
+        <div class="icon-container">
+          <h4>Inverse</h4>
+          <div class="dark-container">
+            <b2b-icon icon="b2b_icon-edit" size="50" color="inverse"></b2b-icon>
+            <b2b-icon
+              icon="b2b_icon-edit"
+              size="100"
+              color="inverse"></b2b-icon>
+            <b2b-icon
+              icon="b2b_icon-edit"
+              size="200"
+              color="inverse"></b2b-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

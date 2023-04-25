@@ -1,0 +1,60 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+.b2b-radio-group {
+  font-family: var(--b2b-font-family-default);
+
+  &-options {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  b2b-input-label {
+    display: block;
+    margin-bottom: var(--b2b-size-15);
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  span {
+    display: block;
+    font-size: var(--b2b-size-copy-75);
+    color: var(--b2b-color-grey-300);
+    line-height: var(--b2b-size-copy-line-height-75);
+    margin-top: 1px;
+  }
+
+  &--error {
+    span {
+      color: var(--b2b-color-error-100);
+    }
+  }
+
+  &--vertical {
+    .b2b-radio-group-options {
+      flex-direction: column;
+    }
+
+    .b2b-radio {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--horizontal {
+    .b2b-radio-group-options {
+      flex-direction: row;
+    }
+
+    .b2b-radio {
+      margin-bottom: 0;
+    }
+  }
+}

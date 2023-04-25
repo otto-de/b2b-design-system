@@ -1,0 +1,114 @@
+@use '../../global/b2b-styles';
+
+.b2b-tooltip {
+  &--trigger {
+    position: relative;
+  }
+
+  &--visible {
+    &.b2b-tooltip--content,
+    &.b2b-tooltip--content::before {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 100ms;
+    }
+  }
+
+  &--content {
+    background-color: var(--b2b-color-black-100);
+    white-space: pre-wrap;
+    color: var(--b2b-color-white-100);
+    padding: var(--b2b-size-15) var(--b2b-size-30) var(--b2b-size-20);
+    border-radius: var(--b2b-size-7);
+    position: absolute;
+    line-height: var(--b2b-size-copy-line-height-75);
+    font-size: var(--b2b-size-copy-75);
+    box-sizing: border-box;
+    text-align: start;
+    width: max-content;
+    max-width: 20rem;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000001;
+    transition: opacity 0.4s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1000001;
+      background: 0 0;
+      border-width: calc(0.75rem / 2);
+      border-style: solid;
+      border-color: transparent;
+      border-top-color: var(--b2b-color-black-100);
+      visibility: hidden;
+      transition: opacity 0.4s ease;
+    }
+  }
+
+  &--left {
+    .b2b-tooltip--content {
+      right: calc(100% + 8px);
+      top: 50%;
+      bottom: auto;
+      left: auto;
+      transform: translateY(-50%);
+
+      &::before {
+        top: calc(50% - 0.375rem);
+        transform: rotate(270deg);
+        left: 100%;
+        margin-right: -0.75rem;
+      }
+    }
+  }
+
+  &--right {
+    .b2b-tooltip--content {
+      right: auto;
+      top: 50%;
+      bottom: auto;
+      left: calc(100% + 8px);
+      transform: translateY(-50%);
+
+      &::before {
+        top: calc(50% - 0.375rem);
+        transform: rotate(90deg);
+        margin-left: -0.75rem;
+        right: 100%;
+      }
+    }
+  }
+
+  &--bottom {
+    .b2b-tooltip--content {
+      right: auto;
+      top: calc(150% + 0.375rem);
+      bottom: auto;
+      left: 50%;
+      transform: translateX(-50%) translateY(-0.5rem);
+
+      &::before {
+        left: calc(50% - 0.375rem);
+        margin-top: -0.7rem;
+        transform: rotate(180deg) translateY(0.35rem);
+      }
+    }
+  }
+
+  &--top {
+    .b2b-tooltip--content {
+      right: auto;
+      top: auto;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-0.5rem);
+
+      &::before {
+        left: calc(50% - 0.375rem);
+        margin-bottom: -0.75rem;
+        top: 100%;
+      }
+    }
+  }
+}

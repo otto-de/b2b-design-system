@@ -1,0 +1,9 @@
+---
+exclude:
+  - aws-vpc-no-public-egress-sgr #CRITICAL
+  - aws-iam-no-policy-wildcards # permissions are being corrected
+  - aws-ecr-enforce-immutable-repository #HIGH
+  - aws-elb-alb-not-public #HIGH
+  - aws-s3-specify-public-access-block #MEDIUM
+  - aws-ecr-repository-customer-key #LOW
+  - aws-cloudwatch-log-group-customer-key #LOW

@@ -1,0 +1,37 @@
+name: On Push
+on:
+  push:
+    branches:
+      - main
+      - beta
+
+jobs:
+  install:
+    name: Install Dependencies
+    uses: ./.github/workflows/install.yml
+    with:
+      node_version: 16
+
+  validations:
+    name: Validations
+    needs: [ install ]
+    uses: ./.github/workflows/validations.yml
+    with:
+      node_version: 16
+
+  visual_tests:
+    name: Visual Regression Tests
+    needs: [ validations ]
+    uses: ./.github/workflows/visual-test.yml
+    with:
+      node_version: 16
+
+  deploy_docker_image:
+    name: Deploy Docker Image
+    needs: [ visual_tests ]
+    uses: ./.github/workflows/docker-image.yml
+    with:
+      node_version: 16
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}

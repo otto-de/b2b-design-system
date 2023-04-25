@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>B2B Design System</title>
+    <script type="module" src="/build/b2b-core-components.esm.js"></script>
+    <script nomodule src="/build/b2b-core-components.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://pattern-library.portal.otto.market/versions/latest/obc-components.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/b2b-core-components.css" />
+    <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+  </head>
+
+  <body data-theme="light">
+    <div class="content-container">
+      <b2b-headline size="200">Input list</b2b-headline>
+      <div style="width: 40%">
+        <b2b-input-list id="i-list" placeholder="search here"></b2b-input-list>
+        <script>
+          const inputListEl = document.getElementById('i-list');
+          inputListEl.optionsList = [
+            'result1',
+            'result2',
+            'result3',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+          ];
+        </script>
+      </div>
+
+      <b2b-headline size="200">Search</b2b-headline>
+      <div style="width: 40%">
+        <b2b-search placeholder="search with slot here"
+          ><ul>
+            <li>
+              Item 1
+              <ul>
+                <li>Item 1.1</li>
+                <li>Item 1.2</li>
+                <li>Item 1.3</li>
+                <li>Item 1.4</li>
+                <li>Item 1.5</li>
+              </ul>
+            </li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+          </ul></b2b-search
+        >
+        <b2b-search id="search-bar" placeholder="search here"></b2b-search>
+        <script>
+          const searchElement = document.getElementById('search-bar');
+          searchElement.optionsList = [
+            'result1',
+            'result2',
+            'result3',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+          ];
+        </script>
+      </div>
+
+      <div style="width: 80%">
+        <b2b-headline size="200">Input Group & input list</b2b-headline>
+        <b2b-input-group error="group error" hint="A group hint">
+          <b2b-dropdown slot="start" invalid error="an error">
+            <option value="one">Some longer text</option>
+            <option value="one">$</option>
+          </b2b-dropdown>
+          <b2b-button variant="primary">
+            <b2b-icon icon="b2b_icon-search"></b2b-icon>
+          </b2b-button>
+          <b2b-input-list
+            slot="end"
+            label="Search group"
+            id="list-example"></b2b-input-list>
+        </b2b-input-group>
+        <script>
+          const groupList = document.getElementById('list-example');
+          groupList.optionsList = [
+            'result1',
+            'result2',
+            'result3',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+            'result4',
+          ];
+        </script>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Input Group</b2b-headline>
+      <b2b-input-group error="group error" hint="A group hint">
+        <b2b-input slot="start" label="Search Term"></b2b-input>
+        <b2b-dropdown label="Data Set" invalid error="an error">
+          <option value="one">Some longer text</option>
+          <option value="one">$</option>
+        </b2b-dropdown>
+        <b2b-input label="Another input" invalid error="an error"></b2b-input>
+        <b2b-dropdown>
+          <option value="one">€</option>
+          <option value="one">$</option>
+        </b2b-dropdown>
+        <b2b-button slot="end" variant="primary">
+          <b2b-icon icon="b2b_icon-search"></b2b-icon>
+        </b2b-button>
+      </b2b-input-group>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline>Required Separator</b2b-headline>
+      <b2b-input label="Name"></b2b-input>
+      <b2b-required-separator></b2b-required-separator>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Form Submission</b2b-headline>
+      <div class="variant-container">
+        <form id="test-form">
+          <b2b-dropdown
+            name="b2b-options"
+            label="Classic Select"
+            hint="I am a hint"
+            error="I am an error">
+            <option selected value="option-1">Option 1</option>
+            <option value="option-2">Option 2</option>
+          </b2b-dropdown>
+          <b2b-input label="shadow input" name="b2b-input"></b2b-input>
+          <b2b-button type="submit">b2b submit form</b2b-button>
+          <button type="submit">submit</button>
+        </form>
+        <script>
+          // Add a listener to inspect form
+          const myForm = document.querySelector('#test-form');
+          const logFormData = () => {
+            const formData = new FormData(myForm);
+            for (const pair of formData.entries()) {
+              console.log(pair[0] + ', ' + pair[1]);
+            }
+          };
+          const submitCallback = e => {
+            e.preventDefault();
+            console.log('submit event:', e);
+            logFormData();
+          };
+          const dataCallback = e => {
+            console.log('formdata event:', e);
+          };
+          myForm.addEventListener('submit', submitCallback);
+          myForm.addEventListener('formdata', dataCallback);
+        </script>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Text Area</b2b-headline>
+      <b2b-textarea
+        label="Classic Textarea"
+        placeholder="Input"
+        hint="Hint"
+        error="Error"
+        required></b2b-textarea>
+      <b2b-textarea
+        label="Autofocus Textarea"
+        autofocus
+        placeholder="Input"
+        hint="Hint"
+        error="Error"></b2b-textarea>
+      <b2b-textarea
+        label="Disabled Textarea"
+        disabled
+        placeholder="Input"
+        hint="Hint"
+        error="Error"></b2b-textarea>
+      <b2b-textarea
+        label="Invalid Textarea"
+        resize="vertical"
+        invalid
+        placeholder="Input"
+        hint="Hint"
+        error="Error"></b2b-textarea>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Input</b2b-headline>
+      <b2b-input
+        required
+        placeholder="placeholder"
+        hint="This is a hint for a prefilled input"
+        label="Label"
+        name="myInput"
+        value="I have a value!"
+        ><b2b-icon icon="b2b_icon-search" slot="end"></b2b-icon
+      ></b2b-input>
+      <b2b-input
+        placeholder="placeholder"
+        hint="This is a hint for a prefilled input"
+        label="Label"
+        value="I have a value!"
+        ><i slot="start" class="obc_icon-info"></i
+        ><span slot="end">I am a suffix</span></b2b-input
+      >
+      <b2b-input
+        placeholder="placeholder"
+        hint="This is a hint for a prefilled input"
+        label="Label"
+        value="I have a value!"
+        ><span slot="start">I am a prefix</span
+        ><i slot="end" class="obc_icon-info"></i
+      ></b2b-input>
+      <b2b-input
+        placeholder="placeholder"
+        hint="This is a hint for a password input"
+        type="password"
+        label="Label"></b2b-input>
+      <b2b-input
+        hint="this is a hint for a disabled input"
+        placeholder="placeholder"
+        disabled="true"
+        label="Label"></b2b-input>
+      <b2b-input
+        error="This is an error message"
+        invalid
+        hint="This is not visible"
+        placeholder="placeholder"
+        label="Label"></b2b-input>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Dropdown</b2b-headline>
+      <b2b-dropdown
+        label="Classic Select"
+        hint="I am a hint"
+        error="I am an error"
+        required>
+        <option selected value="option-1">Option 1</option>
+        <option value="option-2">Option 2</option>
+      </b2b-dropdown>
+
+      <b2b-dropdown
+        label="Classic Select"
+        disabled
+        hint="I am a hint"
+        error="I am an error">
+        <option selected>Option 1</option>
+        <option>Option 2</option>
+      </b2b-dropdown>
+
+      <b2b-dropdown
+        label="Classic Select"
+        invalid
+        hint="I am a hint"
+        error="I am an error">
+        <option selected>Option 1</option>
+        <option disabled>Option 2</option>
+      </b2b-dropdown>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Checkbox</b2b-headline>
+      <b2b-input
+        placeholder="placeholder"
+        hint="This is a hint for a password input"
+        type="password"
+        label="Label"></b2b-input>
+      <b2b-checkbox label="Checkbox"></b2b-checkbox>
+      <b2b-input
+        placeholder="placeholder"
+        hint="This is a hint for a password input"
+        type="password"
+        label="Label"></b2b-input>
+      <b2b-checkbox label="Checkbox disabled" disabled="true"></b2b-checkbox>
+      <b2b-checkbox
+        label="Checkbox selected disabled"
+        checked="checked"
+        disabled="true"
+        required></b2b-checkbox>
+      <b2b-checkbox
+        label="Checkbox selected with a hint"
+        checked="checked"
+        hint="I am a hint"></b2b-checkbox>
+      <b2b-checkbox
+        label="Checkbox with an error"
+        error="I am an error"
+        invalid
+        hint="I am a hint"></b2b-checkbox>
+      <b2b-checkbox
+        label="Checkbox with a very long label. Checkbox with a very long label. Checkbox with a very long label. Checkbox with a very long label."></b2b-checkbox>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Checkbox Group</b2b-headline>
+      <form action="">
+        <b2b-checkbox-group
+          alignment="vertical"
+          label="This is a Checkbox Group"
+          hint="You can check any of these boxes"
+          error="This is not right"
+          invalid
+          required>
+          <b2b-checkbox label="One" value="one"></b2b-checkbox>
+          <b2b-checkbox label="Two" value="two"></b2b-checkbox>
+          <b2b-checkbox label="Three" value="three"></b2b-checkbox>
+        </b2b-checkbox-group>
+      </form>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Radio</b2b-headline>
+      <b2b-radio-group
+        hint="This is a hint"
+        error="This is an error"
+        label="This is a Radio Group"
+        alignment="horizontal"
+        required>
+        <b2b-radio-button
+          label="Test 1"
+          id="yes"
+          value="one"
+          name="group-1"></b2b-radio-button>
+        <b2b-radio-button
+          label="Test 2"
+          id="no"
+          value="two"
+          name="group-1"></b2b-radio-button>
+      </b2b-radio-group>
+      <br />
+      <b2b-radio-group
+        hint="This is a hint"
+        error="This is an error"
+        invalid
+        label="This is a Radio Group"
+        alignment="vertical">
+        <b2b-radio-button
+          label="Test 1"
+          value="one"
+          name="group2"
+          checked></b2b-radio-button>
+        <b2b-radio-button
+          label="Test 2"
+          value="two"
+          name="group2"></b2b-radio-button>
+      </b2b-radio-group>
+      <b2b-radio-button
+        label="Singular radio"
+        value="single"
+        name="singular"
+        hint="This is a lonely button"
+        error="This is a lonely error"
+        required></b2b-radio-button>
+      <b2b-radio-button
+        label="Singular radio disabled"
+        value="single"
+        name="singular"
+        disabled></b2b-radio-button>
+    </div>
+  </body>
+</html>

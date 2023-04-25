@@ -1,0 +1,21 @@
+{
+  "name": "@otto-ec/b2b-tokens",
+  "version": "1.2.0-beta.25",
+  "description": "B2B Design Tokens",
+  "author": "Otto GmbH",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/otto-ec/b2b-design-system"
+  },
+  "files": [
+    "build/"
+  ],
+  "scripts": {
+    "build": "node ./build.js"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21",
+    "style-dictionary": "^3.7.2"
+  }
+}

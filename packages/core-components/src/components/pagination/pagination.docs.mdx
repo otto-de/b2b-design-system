@@ -1,0 +1,74 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+# Pagination Component
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-pagination--story-010-pagination" />
+</Canvas>
+
+The pagination component will provide a navigation element that will capture the user selection of pages.
+The component will render a maximum of 5 pages buttons and will add a DOTS `...` element when the total number of
+pages is higher than 5.
+
+The component emits a `b2b-page-change` event with the information of the user page selection.
+
+<br />
+
+## Properties
+
+### totalPages
+
+This is the total number of pages, where the component will put this total always as the last button.
+
+### activePage
+
+Optional property that can be used to programmatically select an active page. It will start at 1 by default.
+
+<br />
+
+## Events
+
+### b2b-page-change
+
+The `b2b-page-change` event will emit a `PageChangeEventDetail` with the following information. The direction will be
+included only when user clicks on the `back` or `next` buttons.
+
+<Source
+  language="js"
+  format={false}
+  code={dedent`
+    PageChangeEventDetail {
+  lastSelectedPage: number;
+  currentPage: number;
+  direction?: PaginationEventDirection;
+}
+  `}
+/>
+
+#### React
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <B2bPagination onB2b-page-change={onPageChange}></B2bPagination>
+  `}
+/>
+
+#### Vue
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-pagination v-on:b2b-page-change={this.onPageChange}></b2b-pagination>
+  `}
+/>

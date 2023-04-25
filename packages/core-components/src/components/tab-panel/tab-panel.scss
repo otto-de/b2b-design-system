@@ -1,0 +1,7 @@
+@use '../../global/b2b-styles';
+
+:host {
+  .b2b-tab-panel {
+    margin-top: var(--b2b-size-40);
+  }
+}

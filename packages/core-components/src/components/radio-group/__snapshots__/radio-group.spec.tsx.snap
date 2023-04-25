@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a group error if a hint string and an error are specified and the group is set to invalid 1`] = `
+<b2b-radio-group invalid="">
+  <mock:shadow-root>
+    <div class="b2b-radio-group b2b-radio-group--error b2b-radio-group--vertical">
+      <b2b-input-label id="radio-test">
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-radio-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+      <span>
+        this is a test error
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-radio-group>
+`;
+
+exports[`should render a group hint if a hint string is specified 1`] = `
+<b2b-radio-group>
+  <mock:shadow-root>
+    <div class="b2b-radio-group b2b-radio-group--vertical">
+      <b2b-input-label id="radio-test">
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-radio-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+      <span>
+        this is a test hint
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-radio-group>
+`;
+
+exports[`should render the checkbox group and not show a hint or an error unless specified 1`] = `
+<b2b-radio-group>
+  <mock:shadow-root>
+    <div class="b2b-radio-group b2b-radio-group--vertical">
+      <b2b-input-label id="radio-test">
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-radio-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+    </div>
+  </mock:shadow-root>
+</b2b-radio-group>
+`;
+
+exports[`should switch to horizontal alignment if specified 1`] = `
+<b2b-radio-group>
+  <mock:shadow-root>
+    <div class="b2b-radio-group b2b-radio-group--horizontal">
+      <b2b-input-label id="radio-test">
+        test
+      </b2b-input-label>
+      <fieldset>
+        <div class="b2b-radio-group-options">
+          <slot></slot>
+        </div>
+      </fieldset>
+    </div>
+  </mock:shadow-root>
+</b2b-radio-group>
+`;

@@ -1,0 +1,76 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Headline Component
+
+This component can be used to render headings. It is a wrapper around the html `<h>` tag.
+
+### Example:
+
+<Canvas withSource="open" withToolbar={false}>
+  <Story id="components-content-headline--story-010-default" />
+</Canvas>
+
+NOTE: All attributes are optional. The component can simply be used like this without specifying any attributes. By
+default, it will render to size 400:
+
+<Source code={`<b2b-headline>This is a Headline</b2b-headline>`} />
+
+## Size
+
+There are three different sizes available for the headline pattern. Each size has a different hierarchical order,
+where 1 is the highest level.
+
+<br />
+
+#### 400 will render to `<h1>` tag.
+
+Size 400 can be used inside an `.obc_title-container` div because it does not have any margin-bottom.
+
+<Canvas withSource="closed" withToolbar={false}>
+  <Story id="components-content-headline--story-010-default" />
+</Canvas>
+
+#### 200 will render to `<h2>` tag.
+
+Note: Size 200 has a default margin bottom.
+
+<Canvas withSource="closed" withToolbar={false}>
+  <Story id="components-content-headline--story-030-size-200" />
+</Canvas>
+
+#### 100 will render to `<h3>` tag.
+
+Note: Size 100 has a default margin bottom.
+
+<Canvas withSource="closed" withToolbar={false}>
+  <Story id="components-content-headline--story-040-size-100" />
+</Canvas>
+
+## Align
+
+#### Center aligned text
+
+The headline component can also use an `align` attribute in case you need to change the text alignment to center or right.
+
+<Canvas withSource="closed" withToolbar={false}>
+  <Story id="components-content-headline--story-050-center" />
+</Canvas>
+
+#### Right aligned text
+
+<Canvas withSource="closed" withToolbar={false}>
+  <Story id="components-content-headline--story-060-right" />
+</Canvas>
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

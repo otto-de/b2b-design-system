@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should apply an error style if it is marked as invalid. 1`] = `
+<b2b-checkbox>
+  <mock:shadow-root>
+    <div class="b2b-checkbox b2b-checkbox--error">
+      <div class="b2b-checkbox-items">
+        <svg class="b2b-checkbox-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z"></path>
+        </svg>
+        <input class="b2b-checkbox-input" type="checkbox">
+        <b2b-input-label>
+          test
+        </b2b-input-label>
+      </div>
+      <span>
+        this is an error
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox>
+`;
+
+exports[`should disable the checkbox 1`] = `
+<b2b-checkbox disabled="">
+  <mock:shadow-root>
+    <div class="b2b-checkbox b2b-checkbox--disabled">
+      <div class="b2b-checkbox-items">
+        <svg class="b2b-checkbox-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z"></path>
+        </svg>
+        <input class="b2b-checkbox-input" disabled="" type="checkbox">
+        <b2b-input-label disabled="">
+          test
+        </b2b-input-label>
+      </div>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox>
+`;
+
+exports[`should render a hint if  invalid and disabled are true at the same time 1`] = `
+<b2b-checkbox disabled="">
+  <mock:shadow-root>
+    <div class="b2b-checkbox b2b-checkbox--disabled">
+      <div class="b2b-checkbox-items">
+        <svg class="b2b-checkbox-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z"></path>
+        </svg>
+        <input class="b2b-checkbox-input" disabled="" type="checkbox">
+        <b2b-input-label disabled="">
+          test
+        </b2b-input-label>
+      </div>
+      <span>
+        this is a test hint
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox>
+`;
+
+exports[`should render a hint message if a hint string is specified 1`] = `
+<b2b-checkbox>
+  <mock:shadow-root>
+    <div class="b2b-checkbox">
+      <div class="b2b-checkbox-items">
+        <svg class="b2b-checkbox-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z"></path>
+        </svg>
+        <input class="b2b-checkbox-input" type="checkbox">
+        <b2b-input-label>
+          test
+        </b2b-input-label>
+      </div>
+      <span>
+        this is a hint
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox>
+`;
+
+exports[`should render an error message if an error is specified and it is marked as invalid 1`] = `
+<b2b-checkbox>
+  <mock:shadow-root>
+    <div class="b2b-checkbox b2b-checkbox--error">
+      <div class="b2b-checkbox-items">
+        <svg class="b2b-checkbox-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z"></path>
+        </svg>
+        <input class="b2b-checkbox-input" type="checkbox">
+        <b2b-input-label>
+          test
+        </b2b-input-label>
+      </div>
+      <span>
+        this is an error
+      </span>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox>
+`;
+
+exports[`should render the checkbox 1`] = `
+<b2b-checkbox>
+  <mock:shadow-root>
+    <div class="b2b-checkbox">
+      <div class="b2b-checkbox-items">
+        <svg class="b2b-checkbox-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z"></path>
+        </svg>
+        <input class="b2b-checkbox-input" type="checkbox">
+        <b2b-input-label>
+          test
+        </b2b-input-label>
+      </div>
+    </div>
+  </mock:shadow-root>
+</b2b-checkbox>
+`;

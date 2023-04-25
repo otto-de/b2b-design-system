@@ -1,0 +1,93 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Textarea Component
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-textarea--story-060-all-args" />
+</Canvas>
+
+## Attributes
+
+### Label
+
+This field is recommended, but not required as it can be ignored in some use cases. For example, when the solution
+needs a label with a description block of text after it.
+
+Internally the component sets the aria property `aria-labelledby` to the `name` prop of this component. When using a
+custom label, remember to set that same name to the `id` of the label. For more information you can see [this link](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby).
+
+### Placeholder
+
+You can specify a `placeholder` string to be shown before the user enters the textarea element and starts typing.
+It is not specified by default.
+
+### Disabled
+
+A boolean indicating whether or not the textarea element is `disabled` or `read-only`. The default value is `false`.
+
+### Hint
+
+An optional hint to be shown underneath the textarea field. It is not specified by default and will therefore not be rendered.
+If there is an `error`, the hint will not be rendered until the `error` attribute is set to `undefined` or an
+empty string again.
+
+### Error
+
+An optional error string to be shown underneath the textarea field. If specified, it will render the textarea
+field with error styles and replace the `hint` text.
+
+Per default, it is undefined and will take the error message as a string as an argument. Once the user
+corrects their textarea, you can set it to undefined or to an empty string again.
+
+### Autofocus
+
+A `boolean` indicating whether or not the textarea element should be focused on page load.
+Per default it is set to `false`.
+
+### Resize
+
+This attribute determines whether the user can resize the textarea by dragging the lower right hand corner. Per default, it is not
+specified and allows resizing both vertically and horizontally. Setting it to `none` disables resizing, `unset` will reset it to an
+inherited property and `vertical` or `horizontal` allow resizing in one direction only.
+
+## Name
+
+The name of the form field. Use this when the textarea is used in a native form field. When a `FormData` object is created and the `value`
+is appended, the `name` property should be included.
+
+## Max Length
+
+The maximum length of the textarea input. Use this to limit user input.
+
+## Events
+
+The textarea component supports several different events that emit their respective native counterparts (e.g. a b2bFocus event will emit a FocusEvent).
+**Per default, we recommend to use the b2bBlur event for validation.**
+To see the Event Emitters in action and for usage examples in Vue and React, please refer to [our example repository](https://github.com/otto-ec/b2b-design-system/tree/beta/examples).
+
+### b2bInput
+
+Emits whenever the input is changed, i.e. after every keypress. It will emit all changes to the input,
+which enables granular input validation and will immediately update the error state.
+
+### b2bFocus
+
+Emits whenever the textarea element has focus.
+
+### b2bBlur
+
+Emits whenever the textarea element loses focus. Use this event to validate input only after
+the user leaves the textarea field. **This is the recommended event to hook into when doing input validation as it
+prevents layout shifts. Unless you have a good use case for character-by-character validation, please use this event.**
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

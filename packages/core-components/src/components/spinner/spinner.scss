@@ -1,0 +1,49 @@
+@use '../../global/b2b-styles';
+
+.b2b-spinner {
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: inline-block;
+  animation: 1s linear infinite spin;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &--color-primary {
+    border: var(--b2b-size-10) solid var(--b2b-color-grey-100);
+    border-top: var(--b2b-size-10) solid var(--b2b-color-grey-300);
+  }
+
+  &--color-inverse {
+    border: var(--b2b-size-10) solid rgba(#fff, 0.5);
+    border-top: var(--b2b-size-10) solid var(--b2b-color-white-100);
+  }
+
+  &--color-secondary {
+    border: var(--b2b-size-10) solid var(--b2b-color-grey-200);
+    border-top: var(--b2b-size-10) solid var(--b2b-color-grey-400);
+  }
+
+  &--size-50 {
+    width: var(--b2b-size-50);
+    height: var(--b2b-size-50);
+    border-width: var(--b2b-size-7);
+  }
+
+  &--size-100 {
+    width: var(--b2b-size-90);
+    height: var(--b2b-size-90);
+  }
+
+  &--size-200 {
+    width: var(--b2b-size-150);
+    height: var(--b2b-size-150);
+  }
+}

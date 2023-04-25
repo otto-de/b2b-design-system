@@ -1,0 +1,83 @@
+@use '../../global/b2b-styles';
+
+:host(.b2b-dropdown) {
+  --b2b-border-radius: var(--b2b-size-border-radius-100);
+  --b2b-border-right: 1px solid var(--b2b-color-grey-200);
+
+  display: block;
+  width: 100%;
+  min-width: fit-content;
+  font-family: var(--b2b-font-family-default);
+  font-size: var(--b2b-size-copy-100);
+
+  .b2b-dropdown-select {
+    font-family: var(--b2b-font-family-default);
+    font-size: var(--b2b-size-copy-100);
+    appearance: none;
+    background-color: var(--b2b-color-white-100);
+    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M27.748 12.017l-11.333 9.01a.666.666 0 0 1-.829 0l-11.333-9a.665.665 0 1 1 .829-1.044l10.919 8.671 10.919-8.68a.663.663 0 0 1 .936.107.667.667 0 0 1-.107.937z"/></svg>');
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    width: 100%;
+    min-width: fit-content;
+    border: 1px solid var(--b2b-color-grey-200);
+    border-right: var(--b2b-border-right);
+    border-radius: var(--b2b-border-radius);
+    padding: 7px 11px 6px;
+    padding-right: calc(1.75rem + 6px);
+    height: var(--b2b-size-90);
+    line-height: var(--b2b-size-copy-line-height-100);
+    box-sizing: border-box;
+    position: relative;
+
+    &:focus-visible {
+      outline: 2px solid Highlight;
+      outline: 2px solid -webkit-focus-ring-color;
+      border-radius: var(--b2b-border-radius);
+      outline-offset: -1px;
+      z-index: 9999;
+    }
+  }
+
+  b2b-input-label {
+    display: block;
+    margin-bottom: var(--b2b-size-10);
+  }
+
+  span {
+    display: block;
+    color: var(--b2b-color-grey-300);
+    margin-top: var(--b2b-size-10);
+    font-size: var(--b2b-size-copy-75);
+    line-height: var(--b2b-size-copy-line-height-75);
+  }
+}
+
+:host(.b2b-dropdown--error) {
+  .b2b-dropdown-select {
+    background-color: var(--b2b-color-error-50);
+    border: 1px solid var(--b2b-color-error-100);
+    border-right: var(--b2b-border-right);
+    border-color: var(--b2b-color-error-100);
+
+    &:focus {
+      outline: 2px solid var(--b2b-color-error-100);
+      outline-offset: -1px;
+    }
+  }
+
+  span {
+    color: var(--b2b-color-error-100);
+  }
+}
+
+:host(.b2b-dropdown--disabled) {
+  .b2b-dropdown-select {
+    background-image: none;
+    background-color: var(--b2b-color-grey-25);
+    color: var(--b2b-color-grey-250);
+    border-color: var(--b2b-color-grey-200);
+    opacity: 1;
+  }
+}

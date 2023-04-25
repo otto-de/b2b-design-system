@@ -1,0 +1,84 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+import figmaImage from './figma_tokens.png';
+import figmaFonts from './figma_fonts.png';
+
+<Meta title="Guidelines/Design Tokens" />
+
+# Design Tokens
+
+<br />
+
+## What is a Design Token and why is it important
+
+Design Tokens are centralized [css variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) that we use for building our components.
+Teams can also directly use the same tokens to centralize their styles and get any updates from future design refresh decisions.
+
+Design Tokens help us to maintain a consistent look and feel of our products even where no components are used. Redesigns can be carried out through the design system alone.
+
+<br />
+
+## When to use Design Tokens
+
+If there is a component available in the B2B Design System please use that.
+
+If you have to newly build something always try to use Design Tokens to define at least colors and fonts.
+
+☝️Refer to the design briefing and talk to your UX designer if it is unclear which token to use.
+
+<br />
+
+## What Design Tokens are there
+
+The B2B Design System provides tokens for:
+
+- colors
+- font family
+- font weight
+- font & icon size
+- line-height
+- spacings, paddings and borders
+
+<br />
+
+## Basic Tokens vs. Semantic Tokens
+
+There are two types of tokens:
+
+`Basic tokens` are context agnostic. `Semantic tokens` are aliases for basic tokens for a special use case, like the
+background-color of a content-box or the color for standard text.
+
+☝️Only use `basic tokens` if there is no `semantic token` available for your use case.
+
+<br />
+
+## Where to spot a Design Token in the Design Briefing?
+
+You can identify a color design token in the Inspect Mod
+code of Figma.
+
+<div style={{ display: 'flex' }}>
+  <img src={figmaImage} width={540} />
+</div>
+
+☝️As Figma is not really helpful to the designer to choose the right semantic token color, please take a second to check if there is a matching semantic color, if you are presented with a basic color
+
+☝️Figma won't show you the tokens for font size, family, weight, line-height, borders, paddings and margins. Please try to translate this yourself. Especially font weight, size and line-height are important.
+
+<img src={figmaFonts} width={170} />
+
+☝️Keep in mind: Most standard <LinkTo kind="Components/Content/Paragraph" story="Default">fonts</LinkTo> and <LinkTo
+kind="Components/Content/Headline" story="Default Headline 400">headlines</LinkTo> are available through the
+components and don't have to be rebuilt with Design Tokens.
+
+<br />
+
+## Are you missing a Design Token?
+
+If a color or another design token is not available in the B2B design system please contact your UX designer to discuss if this should be added to the system or if this is a "one off". If you don't have a designer assigned, you can contact the B2B design system team.
+
+<br />
+
+## How to install Design Tokens
+
+Please look into our <LinkTo kind="Getting Started/Design Tokens Installation">installation guide</LinkTo>.

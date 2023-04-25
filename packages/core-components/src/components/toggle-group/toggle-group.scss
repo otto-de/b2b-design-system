@@ -1,0 +1,50 @@
+@use '../../global/b2b-styles';
+
+.b2b-toggle-group {
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+  }
+}
+
+/* this is a workaround to force purgecss to include the overwrites of
+     the variables --b2b-border-right and --b2b-border-radius
+  */
+.purge-css-include-variables {
+  border-radius: var(--b2b-border-radius);
+  border-right: var(--b2b-border-right);
+  border-left: var(--b2b-border-left);
+}
+
+/* purgecss start ignore */
+::slotted(b2b-toggle-button) {
+  --b2b-border-radius: 0;
+  --b2b-border-right: 0;
+}
+
+::slotted(b2b-toggle-button:first-child) {
+  --b2b-border-radius: var(--b2b-size-border-no-radius-right);
+}
+
+::slotted(b2b-toggle-button:last-child) {
+  --b2b-border-right: 1px solid var(--b2b-color-grey-200);
+  --b2b-border-radius: var(--b2b-size-border-no-radius-left);
+}
+
+::slotted(b2b-toggle-button[disabled]) {
+  --b2b-border-left: 1px solid var(--b2b-color-grey-200);
+}
+
+::slotted(b2b-toggle-button[disabled]:first-child) {
+  --b2b-border-left: 1px solid var(--b2b-color-grey-100);
+}
+
+.b2b-toggle-group-disabled {
+  ::slotted(b2b-toggle-button[disabled]) {
+    --b2b-border-left: 1px solid var(--b2b-color-grey-100);
+  }
+}
+
+/* purgecss end ignore */

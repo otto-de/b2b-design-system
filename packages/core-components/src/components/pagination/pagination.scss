@@ -1,0 +1,44 @@
+@use '../../global/b2b-styles';
+
+.b2b-pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  li:first-child:not(.b2b-pagination--first-item) {
+    margin-right: var(--b2b-size-15);
+  }
+
+  li:last-child:not(.b2b-pagination--last-item) {
+    margin-left: var(--b2b-size-15);
+  }
+
+  li.b2b-pagination--item b2b-button {
+    --b2b-border-radius: 0;
+    --b2b-border-right: 0;
+  }
+
+  // first page button
+  li.b2b-pagination--first-item b2b-button {
+    --b2b-border-radius: var(--b2b-size-border-no-radius-right);
+  }
+
+  // last page button
+  li.b2b-pagination--last-item b2b-button {
+    --b2b-border-right: 1px solid var(--b2b-button-secondary-border-color);
+    --b2b-border-radius: var(--b2b-size-border-no-radius-left);
+  }
+
+  /* this is a workaround to force purgecss to include the overwrites of
+     the variables --b2b-border-right and --b2b-border-radius
+  */
+  .purge-css-include-variables {
+    border-radius: var(--b2b-border-radius);
+    border-right: var(--b2b-border-right);
+  }
+}

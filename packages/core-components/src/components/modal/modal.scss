@@ -1,0 +1,113 @@
+@use '../../global/b2b-styles';
+
+:root,
+:host {
+  --b2b-component-modal-large-max-width: 800px;
+  --b2b-component-modal-large-min-width: 360px;
+  --b2b-component-modal-default-max-width: 600px;
+  --b2b-component-modal-default-min-width: 360px;
+}
+
+:host {
+  .b2b-modal {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    display: none;
+    position: fixed;
+    background-color: var(--b2b-color-background-overlay-transparent-80);
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+
+    &--open {
+      display: flex;
+    }
+
+    &--backdrop {
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+
+  .b2b-modal-dialog {
+    z-index: 1;
+    position: relative;
+    min-width: var(--b2b-component-modal-default-min-width);
+    max-width: var(--b2b-component-modal-default-max-width);
+    padding: calc(var(--b2b-size-space-75) * 1.5)
+      calc(var(--b2b-size-space-150)) calc(var(--b2b-size-space-150));
+    background-color: var(--b2b-color-background-box);
+    box-shadow: 0 3px 8px 0 var(--b2b-color-background-overlay-transparent-40);
+    margin: auto;
+
+    &--header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--b2b-size-space-75);
+    }
+
+    &--close {
+      cursor: pointer;
+      padding: 0;
+      background: transparent;
+      border: none;
+
+      .b2b-icon {
+        transition: all 0.3s ease;
+      }
+    }
+
+    &--footer {
+      display: flex;
+      padding-top: calc(var(--b2b-size-space-75) * 2);
+      margin-top: calc(var(--b2b-size-space-75) * 2);
+      border-top: var(--b2b-size-1) solid var(--b2b-color-border-100);
+
+      &-left {
+        display: flex;
+        flex: 1;
+        justify-content: flex-start;
+      }
+
+      &-right {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+      }
+    }
+
+    &--large {
+      max-width: var(--b2b-component-modal-large-max-width);
+    }
+  }
+
+  @media only screen and (max-width: var(--b2b-component-modal-large-max-width)) {
+    .b2b-modal-dialog {
+      &--large {
+        left: 0;
+        width: auto;
+        max-width: var(--b2b-component-modal-large-max-width);
+      }
+    }
+  }
+
+  @media only screen and (max-width: var(--b2b-component-modal-default-max-width)) {
+    .b2b-modal-dialog {
+      left: 0;
+      width: auto;
+      max-width: var(--b2b-component-modal-default-max-width);
+    }
+  }
+}
+
+::slotted(b2b-button[slot='footer-right']) {
+  margin-left: var(--b2b-size-space-75);
+}

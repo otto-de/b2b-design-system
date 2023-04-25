@@ -1,0 +1,46 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Label
+
+The label can be used to display information about an object, such as the status or category of an object.
+The label contains only a single word to describe the status of an object. Multiple words are used only when a complex condition needs to be described. The status is described in the past tense. For example "Requested" instead of "Request".
+
+## Properties
+
+<br />
+
+### Type
+
+**_Default:_** For uncritical status updates that need not be very noticeable.
+
+<Story id="components-status-feedback-label--story-010-neutral" />
+
+**_Error:_** For critical issues that require the user's attention and possible actions. This label variant should be
+used sparingly.
+
+<Story id="components-status-feedback-label--story-050-error" />
+
+**_Warning:_** For topics that require the user's attention but the issue is not critical.
+
+<Story id="components-status-feedback-label--story-040-warning" />
+
+**_Info:_** For attributes with an informative character, such as "Inquired" for a service or "Submitted" for a briefing.
+
+<Story id="components-status-feedback-label--story-020-info" />
+
+**_Success:_** For successful or completed status if it is important for the user to achieve it. For example, if the user has successfully set up a brand shop briefing, it will be marked "Completed". For closed states that are not that important, a neutral label can also be used. For example, "Completed" on a service booking. The success label can also be used for the active state of objects. For example, a service that can be either "Active" or "Inactive".
+
+<Story id="components-status-feedback-label--story-030-success" />
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

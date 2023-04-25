@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>B2B Design System</title>
+    <script type="module" src="/build/b2b-core-components.esm.js"></script>
+    <script nomodule src="/build/b2b-core-components.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://pattern-library.portal.otto.market/versions/latest/obc-components.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/b2b-core-components.css" />
+    <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+  </head>
+  <body data-theme="light">
+    <div class="content-container">
+      <b2b-headline size="200">Pagination</b2b-headline>
+      <b2b-pagination total-pages="10" active-page="5"></b2b-pagination>
+    </div>
+
+    <div class="content-container">
+      <script>
+        function logEvent(ev) {
+          ev.preventDefault;
+          console.log(ev.target.nodeName + ' was clicked');
+        }
+      </script>
+      <b2b-headline>Form Buttons</b2b-headline>
+      <form id="myForm">
+        <b2b-grid>
+          <b2b-grid-row>
+            <b2b-grid-col span="6">
+              <b2b-input label="First Name"></b2b-input>
+            </b2b-grid-col>
+            <b2b-grid-col span="6">
+              <b2b-input label="Last Name"></b2b-input>
+            </b2b-grid-col>
+          </b2b-grid-row>
+          <b2b-grid-row>
+            <b2b-grid-col span="6">
+              <b2b-button
+                type="submit"
+                variant="primary"
+                onClick="logEvent(event)"
+                >Submit</b2b-button
+              >
+              <b2b-button onClick="logEvent(event)">Something Else</b2b-button>
+            </b2b-grid-col>
+          </b2b-grid-row>
+        </b2b-grid>
+      </form>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Button</b2b-headline>
+      <b2b-headline size="100" no-margin="true">Primary</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" size="100">Primary</b2b-button>
+        <b2b-button variant="primary" size="50">Primary 50</b2b-button>
+        <b2b-button variant="primary" size="100">
+          <b2b-icon slot="start" icon="b2b_icon-check" size="100"></b2b-icon>
+          Primary with Icon
+          <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
+        </b2b-button>
+        <b2b-button variant="primary" size="100">
+          <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
+          <span>Primary with Icon</span>
+        </b2b-button>
+        <b2b-button href="https://www.otto.de" target="blank" disabled>
+          <b2b-icon slot="start" icon="b2b_icon-info" size="100"></b2b-icon>
+          Button with anchor
+        </b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true"
+        >b2b Icon component</b2b-headline
+      >
+      <div class="component-wrapper">
+        <b2b-button variant="primary" size="100">
+          <b2b-icon slot="start" icon="b2b_icon-info" size="100"></b2b-icon>
+          Primary with Icon
+        </b2b-button>
+        <b2b-button variant="primary" size="100" loading>
+          <b2b-icon slot="end" icon="b2b_icon-info" size="100"></b2b-icon>
+          <span>Primary with Icon</span>
+        </b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Pali icons</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" size="100">
+          <i slot="start" class="obc_icon-info"></i>
+          Primary with Icon
+        </b2b-button>
+        <b2b-button variant="primary" size="100">
+          <span>Primary with Icon</span>
+          <i slot="end" class="obc_icon-info"></i>
+        </b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Secondary</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="secondary" size="100">Secondary</b2b-button>
+        <b2b-button variant="secondary" size="50">Secondary 50</b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Loading state</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" loading="true" size="100"
+          >Save</b2b-button
+        >
+        <b2b-button variant="secondary" loading="true" size="100"
+          >Save</b2b-button
+        >
+        <b2b-button variant="primary" loading="true" disabled="true" size="100"
+          >Save Disabled</b2b-button
+        >
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Disabled</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" disabled="true" size="100"
+          >Disabled primary</b2b-button
+        >
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Active</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="secondary" size="100" active="true"
+          >Secondary</b2b-button
+        >
+        <b2b-button variant="secondary" size="50" active="true"
+          >Secondary 50</b2b-button
+        >
+      </div>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="400">Tab</b2b-headline>
+      <b2b-tab-group>
+        <b2b-tab name="First Tab" slot="tab">Unselected Tab</b2b-tab>
+        <b2b-tab-panel name="First Tab" slot="panel"
+          ><div class="panel-styles">
+            <b2b-paragraph
+              >Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts. Separated
+              they live in Bookmarksgrove right at the coast of the Semantics, a
+              large language ocean.
+            </b2b-paragraph>
+          </div></b2b-tab-panel
+        >
+        <b2b-tab name="Second Tab" slot="tab">Selected Tab</b2b-tab>
+        <b2b-tab-panel name="Second Tab" slot="panel"
+          ><div class="panel-styles">Selected Panel here</div></b2b-tab-panel
+        >
+        <b2b-tab name="Disabled Tab" disabled slot="tab">Disabled Tab</b2b-tab>
+        <b2b-tab-panel name="Disabled Tab" slot="panel"
+          ><div class="panel-styles">Disabled Panel</div></b2b-tab-panel
+        >
+        <b2b-tab name="Error Tab" invalid slot="tab">Error Tab</b2b-tab>
+        <b2b-tab-panel name="Error Tab" slot="panel"
+          ><div class="panel-styles">
+            <b2b-input-group error="group error" invalid hint="A group hint">
+              <b2b-input slot="start" label="Search Term"></b2b-input>
+              <b2b-dropdown label="Data Set" invalid error="an error">
+                <option value="one">Some longer text</option>
+                <option value="one">$</option>
+              </b2b-dropdown>
+              <b2b-input
+                label="Another input"
+                invalid
+                error="an error"></b2b-input>
+              <b2b-dropdown>
+                <option value="one">€</option>
+                <option value="one">$</option>
+              </b2b-dropdown>
+              <b2b-button slot="end" variant="primary"
+                ><b2b-icon icon="b2b_icon-search"></b2b-icon
+              ></b2b-button>
+            </b2b-input-group></div
+        ></b2b-tab-panel>
+      </b2b-tab-group>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Button</b2b-headline>
+      <b2b-headline size="100" no-margin="true">Primary</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" size="100">Primary</b2b-button>
+        <b2b-button variant="primary" size="50">Primary 50</b2b-button>
+        <b2b-button variant="primary" size="100">
+          <b2b-icon slot="start" icon="b2b_icon-check" size="100"></b2b-icon>
+          Primary with Icon
+          <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
+        </b2b-button>
+        <b2b-button variant="primary" size="100">
+          <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
+          <span>Primary with Icon</span>
+        </b2b-button>
+        <b2b-button href="https://www.otto.de" target="blank" disabled>
+          <b2b-icon slot="start" icon="b2b_icon-info" size="100"></b2b-icon>
+          Button with anchor
+        </b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true"
+        >b2b Icon component</b2b-headline
+      >
+      <div class="component-wrapper">
+        <b2b-button variant="primary" size="100">
+          <b2b-icon slot="start" icon="b2b_icon-info" size="100"></b2b-icon>
+          Primary with Icon
+        </b2b-button>
+        <b2b-button variant="primary" size="100" loading>
+          <b2b-icon slot="end" icon="b2b_icon-info" size="100"></b2b-icon>
+          <span>Primary with Icon</span>
+        </b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Pali icons</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" size="100">
+          <i slot="start" class="obc_icon-info"></i>
+          Primary with Icon
+        </b2b-button>
+        <b2b-button variant="primary" size="100">
+          <span>Primary with Icon</span>
+          <i slot="end" class="obc_icon-info"></i>
+        </b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Secondary</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="secondary" size="100">Secondary</b2b-button>
+        <b2b-button variant="secondary" size="50">Secondary 50</b2b-button>
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Loading state</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" loading="true" size="100"
+          >Save</b2b-button
+        >
+        <b2b-button variant="secondary" loading="true" size="100"
+          >Save</b2b-button
+        >
+        <b2b-button variant="primary" loading="true" disabled="true" size="100"
+          >Save Disabled</b2b-button
+        >
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Disabled</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="primary" disabled="true" size="100"
+          >Disabled primary</b2b-button
+        >
+      </div>
+
+      <b2b-headline size="100" no-margin="true">Active</b2b-headline>
+      <div class="component-wrapper">
+        <b2b-button variant="secondary" size="100" active="true"
+          >Secondary</b2b-button
+        >
+        <b2b-button variant="secondary" size="50" active="true"
+          >Secondary 50</b2b-button
+        >
+      </div>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline>Tooltip</b2b-headline>
+      <b2b-paragraph
+        >This is a
+        <b2b-tooltip
+          content="This is a tooltip with a very long text to make sure maximum width is not exceeded"
+          position="right"
+          >tooltip with long text.</b2b-tooltip
+        ></b2b-paragraph
+      >
+      <br />
+      <b2b-paragraph
+        >This is a
+        <b2b-tooltip content="I am a tooltip" position="left"
+          >left-aligned tooltip.</b2b-tooltip
+        ></b2b-paragraph
+      >
+      <br />
+      <b2b-paragraph
+        >This is a
+        <b2b-tooltip
+          content="Zum Beispiel, weil Produkte angeboten werden, die unter das ElektroG fallen und die Summe der Versandflächen für Elektro- und Elektronikgeräte 400m2 oder größer ist."
+          position="top"
+          >top-aligned tooltip.</b2b-tooltip
+        ></b2b-paragraph
+      >
+      <br />
+      <b2b-tooltip
+        content="I am a tooltip"
+        position="right"
+        style="display: inline-block"
+        ><div style="width: 300px"><b2b-input></b2b-input></div
+      ></b2b-tooltip>
+      <br />
+      <b2b-tooltip content="I am a tooltip" position="top" trigger="focus"
+        ><b2b-button>Tooltip Button</b2b-button></b2b-tooltip
+      >
+      <b2b-paragraph
+        >This is a tooltip icon.<b2b-tooltip
+          content="I am a tooltip"
+          position="top"
+          ><b2b-icon icon="b2b_icon-info" size="50"></b2b-icon></b2b-tooltip
+      ></b2b-paragraph>
+
+      <b2b-paragraph
+        >This is a
+        <b2b-tooltip
+          content="This is a tooltip with a very long text to make sure maximum width is not exceeded Topping halvah cake sugar plum marzipan jelly marshmallow lemon drops. Bonbon brownie powder sesame snaps fruitcake caramels toffee. Brownie pie cotton candy sesame snaps wafer sugar plum candy marzipan oat cake.Topping halvah cake sugar plum marzipan jelly marshmallow lemon drops. Bonbon brownie powder sesame snaps fruitcake caramels toffee. Brownie pie cotton candy sesame snaps wafer sugar plum candy marzipan oat cake.Topping halvah cake sugar plum marzipan jelly marshmallow lemon drops. Bonbon brownie powder sesame snaps fruitcake caramels toffee. Brownie pie cotton candy sesame snaps wafer sugar plum candy marzipan oat cake."
+          position="top"
+          opened="false"
+          >tooltip with long text.
+        </b2b-tooltip></b2b-paragraph
+      >
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Anchor</b2b-headline>
+      <b2b-anchor href="https://www.otto.de">Anchor Default</b2b-anchor>
+      <b2b-anchor href="https://www.otto.de" size="100"
+        >Anchor Size 100</b2b-anchor
+      >
+      <b2b-anchor href="https://www.otto.de" target="blank"
+        >Anchor target blank</b2b-anchor
+      >
+      <b2b-anchor
+        href="https://pattern-library.portal.otto.market/static/assets/icons/b2b_icon-check-bold.svg"
+        download="b2b_icon-edit.svg">
+        Download Icon
+      </b2b-anchor>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Toggle Button</b2b-headline>
+      <b2b-headline size="100" no-margin="true"
+        >Enabled Toggle Group</b2b-headline
+      >
+      <b2b-toggle-group name="enabled-toggle-group" id="toggle-group-1">
+        <b2b-toggle-button
+          name="enabled-toggle-group"
+          label="Selected"
+          checked="true"
+          value="1"></b2b-toggle-button>
+        <b2b-toggle-button
+          name="enabled-toggle-group"
+          label="Unselected"
+          value="2"></b2b-toggle-button>
+        <b2b-toggle-button
+          name="enabled-toggle-group"
+          label="Disabled"
+          disabled="true"
+          value="3"></b2b-toggle-button>
+      </b2b-toggle-group>
+      <b2b-headline size="100" no-margin="true"
+        >Disabled Toggle Group</b2b-headline
+      >
+      <b2b-toggle-group
+        name="disabled-toggle-group"
+        id="toggle-group-2"
+        disabled>
+        <b2b-toggle-button
+          name="disabled-toggle-group"
+          label="Selected"
+          checked="checked"
+          value="1"></b2b-toggle-button>
+        <b2b-toggle-button
+          name="disabled-toggle-group"
+          label="Unselected"
+          value="2"></b2b-toggle-button>
+        <b2b-toggle-button
+          name="disabled-toggle-group"
+          label="Disabled"
+          value="3"></b2b-toggle-button>
+      </b2b-toggle-group>
+    </div>
+  </body>
+</html>

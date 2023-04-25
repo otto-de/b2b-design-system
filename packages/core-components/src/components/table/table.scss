@@ -1,0 +1,15 @@
+@use '../../global/b2b-styles';
+
+:host {
+  text-align: left;
+  display: table;
+}
+
+:host(.b2b-table--expand) {
+  width: 100%;
+}
+
+:host(.b2b-table--equal) {
+  width: 100%;
+  table-layout: fixed;
+}
