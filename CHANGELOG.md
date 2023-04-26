@@ -12,6 +12,13 @@
 
 * open source design system mvp ([478ebc6](https://github.com/otto-de/b2b-design-system/commit/478ebc671b3f4bde0f2fb0f8261966a36a0a6fb3))
 
+# 1.0.0 (2023-04-26)
+
+
+### Features
+
+* open source design system mvp ([478ebc6](https://github.com/otto-de/b2b-design-system/commit/478ebc671b3f4bde0f2fb0f8261966a36a0a6fb3))
+
 # [1.2.0-beta.25](https://github.com/otto-ec/b2b-design-system/compare/v1.2.0-beta.24...v1.2.0-beta.25) (2023-04-19)
 
 
