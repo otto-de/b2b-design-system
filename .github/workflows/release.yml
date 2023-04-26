@@ -23,3 +23,5 @@ jobs:
     uses: ./.github/workflows/publish.yml
     with:
       node_version: 16
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
