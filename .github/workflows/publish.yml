@@ -27,14 +27,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           scope: '@otto-de'
 
-      - name: Cache dependencies
+      - name: Use Cache dependencies
         id: node-modules-cache
         uses: actions/cache@v3
         with:
           path: |
             ./node_modules
             ./packages/**/node_modules
-            ./examples/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Build

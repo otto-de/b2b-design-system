@@ -1,55 +1,55 @@
-version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    labels:
-      - "dependencies"
-    schedule:
-      interval: "daily"
-    versioning-strategy: increase
-    commit-message:
-      prefix: "chore: "
-
-  - package-ecosystem: "npm"
-    directory: "/packages/core-components"
-    labels:
-      - "dependencies"
-    schedule:
-      interval: "daily"
-    versioning-strategy: increase
-    commit-message:
-      prefix: "chore: "
-    ignore:
-      # @stencil/eslint-plugin does not support eslint 8. Follow-up issue https://github.com/ionic-team/stencil-eslint/issues/68
-      # they don't seem to maintain this package so we should think about removing @stencil/eslint-plugin
-      - dependency-name: "eslint"
-        versions: [ "8.x" ]
-      # Stencil does not support jest 28 nor 29. Follow-up issue https://github.com/ionic-team/stencil/issues/3348
-      - dependency-name: "jest"
-        versions: [ "28.x", "29.x" ]
-      - dependency-name: "jest-cli"
-        versions: [ "28.x", "29.x" ]
-      - dependency-name: "@types/jest"
-        versions: [ "28.x", "29.x" ]
-      - dependency-name: "ts-jest"
-        versions: [ "28.x", "29.x" ]
-
-  - package-ecosystem: "npm"
-    directory: "/packages/react-components"
-    labels:
-      - "dependencies"
-    schedule:
-      interval: "daily"
-    versioning-strategy: increase
-    commit-message:
-      prefix: "chore: "
-
-  - package-ecosystem: "npm"
-    directory: "/packages/tokens"
-    labels:
-      - "dependencies"
-    schedule:
-      interval: "daily"
-    versioning-strategy: increase
-    commit-message:
-      prefix: "chore: "
+#version: 2
+#updates:
+#  - package-ecosystem: "npm"
+#    directory: "/"
+#    labels:
+#      - "dependencies"
+#    schedule:
+#      interval: "daily"
+#    versioning-strategy: increase
+#    commit-message:
+#      prefix: "chore: "
+#
+#  - package-ecosystem: "npm"
+#    directory: "/packages/core-components"
+#    labels:
+#      - "dependencies"
+#    schedule:
+#      interval: "daily"
+#    versioning-strategy: increase
+#    commit-message:
+#      prefix: "chore: "
+#    ignore:
+#      # @stencil/eslint-plugin does not support eslint 8. Follow-up issue https://github.com/ionic-team/stencil-eslint/issues/68
+#      # they don't seem to maintain this package so we should think about removing @stencil/eslint-plugin
+#      - dependency-name: "eslint"
+#        versions: [ "8.x" ]
+#      # Stencil does not support jest 28 nor 29. Follow-up issue https://github.com/ionic-team/stencil/issues/3348
+#      - dependency-name: "jest"
+#        versions: [ "28.x", "29.x" ]
+#      - dependency-name: "jest-cli"
+#        versions: [ "28.x", "29.x" ]
+#      - dependency-name: "@types/jest"
+#        versions: [ "28.x", "29.x" ]
+#      - dependency-name: "ts-jest"
+#        versions: [ "28.x", "29.x" ]
+#
+#  - package-ecosystem: "npm"
+#    directory: "/packages/react-components"
+#    labels:
+#      - "dependencies"
+#    schedule:
+#      interval: "daily"
+#    versioning-strategy: increase
+#    commit-message:
+#      prefix: "chore: "
+#
+#  - package-ecosystem: "npm"
+#    directory: "/packages/tokens"
+#    labels:
+#      - "dependencies"
+#    schedule:
+#      interval: "daily"
+#    versioning-strategy: increase
+#    commit-message:
+#      prefix: "chore: "
