@@ -1,0 +1,6 @@
+{
+  "name": "@otto-de/b2b-core-components/hydrate",
+  "description": "B2bCoreComponents component hydration app.",
+  "main": "index.js",
+  "types": "index.d.ts"
+}
