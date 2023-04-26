@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import allTokens from '@otto-ec/b2b-tokens/build/js/default.json';
+import allTokens from '@otto-de/b2b-tokens/build/js/default.json';
 import './styles.css';
 import fontDocs from './font.docs.mdx';
 

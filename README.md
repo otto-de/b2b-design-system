@@ -30,7 +30,7 @@ of [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces#using-wor
 ### @otto-de/b2b-react-components
 [b2b-react-components]() - React wrapper library, exposes first class React components. Wrapper is created by Stencil.
 
-### @otto-ec/b2b-tokens
+### @otto-de/b2b-tokens
 [b2b-tokens]() - These are atomic design decisions that can be used to 
 centrally change the styles of our components. For more information about Design Tokens read  [here](https://specifyapp.com/blog/introduction-to-design-tokens).
 

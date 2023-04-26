@@ -1,27 +1,27 @@
 {
-  "name": "@otto-ec/b2b-design-system",
+  "name": "@otto-de/b2b-design-system",
   "version": "0.0.1",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/otto-ec/b2b-design-system.git"
+    "url": "git+https://github.com/otto-de/b2b-design-system.git"
   },
   "author": "Otto GmbH",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/otto-ec/b2b-design-system/issues"
+    "url": "https://github.com/otto-de/b2b-design-system/issues"
   },
-  "homepage": "https://github.com/otto-ec/b2b-design-system#readme",
+  "homepage": "https://github.com/otto-de/b2b-design-system#readme",
   "scripts": {
-    "deploy": "npm run deploy --workspace=@otto-ec/b2b-core-components",
+    "deploy": "npm run deploy --workspace=@otto-de/b2b-core-components",
     "publish": "npm publish --workspace packages/",
     "release": "semantic-release",
-    "build-tokens": "npm run build --workspace=@otto-ec/b2b-tokens",
-    "build-core-components": "npm run build --workspace=@otto-ec/b2b-core-components",
-    "build-react-components": "npm run build --workspace=@otto-ec/b2b-react-components",
+    "build-tokens": "npm run build --workspace=@otto-de/b2b-tokens",
+    "build-core-components": "npm run build --workspace=@otto-de/b2b-core-components",
+    "build-react-components": "npm run build --workspace=@otto-de/b2b-react-components",
     "build": "npm-run-all build-tokens build-core-components build-react-components",
-    "lint": "npm run lint --workspace=@otto-ec/b2b-core-components",
-    "test": "npm run test --workspace=@otto-ec/b2b-core-components",
+    "lint": "npm run lint --workspace=@otto-de/b2b-core-components",
+    "test": "npm run test --workspace=@otto-de/b2b-core-components",
     "prepare": "node scripts/prepare.mjs",
     "preinstall": "npx force-resolutions"
   },

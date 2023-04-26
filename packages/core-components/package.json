@@ -1,12 +1,15 @@
 {
-  "name": "@otto-ec/b2b-core-components",
+  "name": "@otto-de/b2b-core-components",
   "version": "1.2.0-beta.25",
   "description": "Core components defined with Stencil",
   "author": "Otto GmbH",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/otto-ec/b2b-design-system"
+    "url": "https://github.com/otto-de/b2b-design-system"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -34,7 +37,7 @@
     "build:storybook": "build-storybook -o docs-build/design-system"
   },
   "dependencies": {
-    "@otto-ec/b2b-tokens": "1.2.0-beta.25",
+    "@otto-de/b2b-tokens": "1.2.0-beta.25",
     "@stencil-community/eslint-plugin": "^0.5.0",
     "@stencil/core": "^3.0.1"
   },

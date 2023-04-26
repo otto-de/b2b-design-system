@@ -1,12 +1,15 @@
 {
-  "name": "@otto-ec/b2b-tokens",
+  "name": "@otto-de/b2b-tokens",
   "version": "1.2.0-beta.25",
   "description": "B2B Design Tokens",
   "author": "Otto GmbH",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/otto-ec/b2b-design-system"
+    "url": "https://github.com/otto-de/b2b-design-system"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "build/"

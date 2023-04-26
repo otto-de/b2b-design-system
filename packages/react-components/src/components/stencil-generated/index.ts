@@ -3,9 +3,9 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from '@otto-ec/b2b-core-components';
+import type { JSX } from '@otto-de/b2b-core-components';
 
-import { defineCustomElements } from '@otto-ec/b2b-core-components/loader';
+import { defineCustomElements } from '@otto-de/b2b-core-components/loader';
 
 defineCustomElements();
 export const B2bAlert = /*@__PURE__*/createReactComponent<JSX.B2bAlert, HTMLB2bAlertElement>('b2b-alert');

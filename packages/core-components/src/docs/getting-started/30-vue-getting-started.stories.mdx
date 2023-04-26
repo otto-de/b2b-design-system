@@ -21,7 +21,7 @@ In this guide you can find:
 You can use web components in Vue by installing the package [b2b-core-components](https://github.com/otto-ec/b2b-design-system/packages/1267319) \*
 
 ```
-npm install @otto-ec/b2b-core-components
+npm install @otto-de/b2b-core-components
 ```
 
 _\*This is currently hosted in GitHub packages withing the Otto organisation, therefore it requires an authentication
@@ -38,7 +38,7 @@ do a very simple configuration in your project to make them available:
 **1.** In your `main.ts/.js` file, please copy the following configuration.
 
 ```ts
-import { defineCustomElements } from '@otto-ec/b2b-core-components/loader';
+import { defineCustomElements } from '@otto-de/b2b-core-components/loader';
 
 defineCustomElements(window).catch(err => console.log('Log your error', err));
 ```
@@ -67,7 +67,7 @@ export default defineConfig({
 In your `main.ts/.js` file, please copy the following configuration.
 
 ```ts
-import { defineCustomElements } from '@otto-ec/b2b-core-components/loader';
+import { defineCustomElements } from '@otto-de/b2b-core-components/loader';
 
 defineCustomElements(window).catch(err => console.log('Log your error', err));
 

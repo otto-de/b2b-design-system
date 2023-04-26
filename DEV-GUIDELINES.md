@@ -17,7 +17,7 @@ of [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces#using-wor
 
 - @otto-de/b2b-core-components
 - @otto-de/b2b-react-components
-- @otto-ec/b2b-tokens
+- @otto-de/b2b-tokens
 
 Currently, we use [Stencil](https://stenciljs.com/docs/introduction) to create our web components and output bundles.
 We expose a native web components package for Vue consumers and a React wrapper for React consumers, mainly because 

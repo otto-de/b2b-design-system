@@ -22,7 +22,7 @@ export const config: Config = {
     // Typings for output targets were changed in Stencil 3, this doesn't affect builds or functionality of the react lib
     // @ts-ignore
     reactOutputTarget({
-      componentCorePackage: '@otto-ec/b2b-core-components',
+      componentCorePackage: '@otto-de/b2b-core-components',
       proxiesFile:
         '../react-components/src/components/stencil-generated/index.ts',
       includeDefineCustomElements: true,

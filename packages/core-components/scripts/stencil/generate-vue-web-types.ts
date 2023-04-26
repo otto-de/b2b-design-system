@@ -73,7 +73,7 @@ const generateVueWebTypes = (docsData: JsonDocs) => {
       'description': component.docs,
       'source': {
         module:
-          '@otto-ec/b2b-core-components' +
+          '@otto-de/b2b-core-components' +
           component.filePath
             .replace('./src/', '/dist/types/')
             .replace('.tsx', '.d.ts'),
@@ -90,7 +90,7 @@ const generateVueWebTypes = (docsData: JsonDocs) => {
   const webTypes = {
     '$schema': 'http://json.schemastore.org/web-types',
     'framework': 'vue',
-    'name': '@otto-ec/b2b-core-components',
+    'name': '@otto-de/b2b-core-components',
     'version': require('../../package.json').version,
     'js-types-syntax': 'typescript',
     'description-markup': 'markdown',
