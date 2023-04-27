@@ -18,6 +18,18 @@ jobs:
     outputs:
       PAGES_URL: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Log
+        run: |
+          echo "commit:" "$commit"
+          echo "isChore:" "$isChore"
+          echo "isCi:" "$isCi"
+          echo "shouldRun:" "$shouldRun"
+        env:
+          commit: ${{ github.event.head_commit.message }}
+          isChore: ${{ !contains(github.event.head_commit.message, 'chore') }}
+          isCi: ${{ !contains(github.event.head_commit.message, 'ci') }}
+          shouldRun: ${{ !contains(github.event.head_commit.message, 'chore') || !contains(github.event.head_commit.message, 'ci')}}
+
       - name: Checkout
         uses: actions/checkout@v3
 
