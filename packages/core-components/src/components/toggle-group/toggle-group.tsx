@@ -59,6 +59,11 @@ export class B2BToggleGroup {
     }
   };
 
+  private setFirstActiveOnInit = () => {
+    let nodes = this.getChildNodes();
+    nodes[0].checked = true;
+  };
+
   private getChildNodes = (): HTMLB2bToggleButtonElement[] => {
     return Array.from(
       this.host.querySelectorAll(`b2b-toggle-button`),
@@ -66,6 +71,7 @@ export class B2BToggleGroup {
   };
 
   componentDidLoad() {
+    this.setFirstActiveOnInit();
     if (this.disabled) {
       this.toggleAllDisabled();
     }
