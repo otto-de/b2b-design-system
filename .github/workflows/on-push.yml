@@ -5,6 +5,10 @@ on:
       - main
       - beta
 
+env:
+  isChoreCommit: ${{ startsWith(github.event.head_commit.message, 'chore') }}
+  isCiCommit: ${{ startsWith(github.event.head_commit.message, 'ci') }}
+
 jobs:
   install:
     name: Install Dependencies
@@ -22,6 +26,7 @@ jobs:
   visual_tests:
     name: Visual Regression Tests
     needs: [ validations ]
+    if: ${{ !env.isChoreCommit || !env.isCiCommit }}
     uses: ./.github/workflows/visual-test.yml
     with:
       node_version: 16
@@ -29,6 +34,7 @@ jobs:
   deploy_docker_image:
     name: Deploy Docker Image
     needs: [ visual_tests ]
+    if: ${{ !env.isChoreCommit || !env.isCiCommit }}
     uses: ./.github/workflows/docker-image.yml
     with:
       node_version: 16
