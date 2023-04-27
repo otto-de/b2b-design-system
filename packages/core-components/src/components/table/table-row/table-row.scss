@@ -21,14 +21,29 @@
   background-color: inherit;
 }
 
+/* purgecss start ignore */
 :host(.b2b-table-row-highlight:hover) {
   background-color: var(--b2b-color-table-hover);
+
+  ::slotted(*) {
+    --b2b-table-cell-text-expand-bg: var(--b2b-color-table-hover);
+  }
 }
 
 :host(.b2b-table-row-color-selected:hover) {
-  background-color: var(red);
+  background-color: var(--b2b-color-red-100);
+
+  ::slotted(*) {
+    --b2b-table-cell-text-expand-bg: var(--b2b-color-red-100);
+  }
 }
 
 :host(.b2b-table-row-color-group:hover) {
   background-color: var(--b2b-color-table-expand-hover);
+
+  ::slotted(*) {
+    --b2b-table-cell-text-expand-bg: var(--b2b-color-table-expand-hover);
+  }
 }
+
+/* purgecss end ignore */

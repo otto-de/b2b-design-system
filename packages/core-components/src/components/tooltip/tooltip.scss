@@ -48,10 +48,7 @@
 
   &--left {
     .b2b-tooltip--content {
-      right: calc(100% + 8px);
-      top: 50%;
-      bottom: auto;
-      left: auto;
+      inset: 50% calc(100% + 8px) auto auto;
       transform: translateY(-50%);
 
       &::before {
@@ -65,10 +62,7 @@
 
   &--right {
     .b2b-tooltip--content {
-      right: auto;
-      top: 50%;
-      bottom: auto;
-      left: calc(100% + 8px);
+      inset: 50% auto auto calc(100% + 8px);
       transform: translateY(-50%);
 
       &::before {
@@ -82,10 +76,7 @@
 
   &--bottom {
     .b2b-tooltip--content {
-      right: auto;
-      top: calc(150% + 0.375rem);
-      bottom: auto;
-      left: 50%;
+      inset: calc(150% + 0.375rem) auto auto 50%;
       transform: translateX(-50%) translateY(-0.5rem);
 
       &::before {
@@ -98,10 +89,7 @@
 
   &--top {
     .b2b-tooltip--content {
-      right: auto;
-      top: auto;
-      bottom: 100%;
-      left: 50%;
+      inset: auto auto 100% 50%;
       transform: translateX(-50%) translateY(-0.5rem);
 
       &::before {

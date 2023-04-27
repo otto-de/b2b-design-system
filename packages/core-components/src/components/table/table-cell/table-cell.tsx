@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Host, Prop, Element, State } from '@stencil/core';
 import { ContentAlignment, TableSizes } from '../types';
 import { B2BTableColourOptions } from '../table-row/table-row';
 
@@ -8,6 +8,7 @@ import { B2BTableColourOptions } from '../table-row/table-row';
   shadow: true,
 })
 export class TableCellComponent {
+  @Element() host: HTMLB2bTableCellElement;
   /** Weather text should wrap or truncate.
    * It will only truncate when table size is equal
    * **/
@@ -27,14 +28,40 @@ export class TableCellComponent {
   /** Background color of the cell. This color selection does not have hover states, as it is handled from the row**/
   @Prop() color: B2BTableColourOptions = 'default';
 
+  @State() useTextEllipsis = false;
+
+  private expandTextHoverWaitTime = 600;
+  private expandTextHoverTimeoutId;
+
+  componentWillRender() {
+    this.useTextEllipsis = !this.textWrap && this.size === TableSizes.EQUAL;
+  }
+
+  private addExpandStyles = () => {
+    this.expandTextHoverTimeoutId = setTimeout(() => {
+      const contentLength = this.host.innerText.length;
+      const children = this.host.children.length;
+      if (this.useTextEllipsis && contentLength > 25 && children === 0) {
+        this.host.style.width = `calc(${this.host.offsetWidth}px - 24px)`;
+        this.host.classList.add('b2b-table-cell--expand-text');
+      }
+    }, this.expandTextHoverWaitTime);
+  };
+
+  private removeExpandStyles = () => {
+    this.expandTextHoverTimeoutId &&
+      clearTimeout(this.expandTextHoverTimeoutId);
+    this.host.classList.remove('b2b-table-cell--expand-text');
+  };
+
   render() {
-    // TODO: test
-    const useTextEllipsis = !this.textWrap && this.size === TableSizes.EQUAL;
     return (
       <Host
+        onMouseEnter={this.addExpandStyles}
+        onMouseLeave={this.removeExpandStyles}
         class={{
           'b2b-table-cell': true,
-          ['b2b-table-cell--ellipsis']: useTextEllipsis,
+          ['b2b-table-cell--ellipsis']: this.useTextEllipsis,
           ['b2b-table-cell--' + this.align]: true,
           ['b2b-table-cell--divider']: this.divider,
           [`b2b-table-cell-color-${this.color}`]: true,

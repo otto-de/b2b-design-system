@@ -138,13 +138,9 @@ Sets the header position to sticky. Use it when table is inside a `b2b-scrollabl
 
 This component is similar to the `<td>` element and implements the aria-role cell.
 
-#### textWrap
+#### horizontal align
 
-Weather text should wrap or truncate. **It will only truncate when table size is `equal`**
-
-#### align
-
-Alignment of the content of the cell, by default is to the left.
+Alignment of the content of the cell, by default is to the `left`, and can also be set to `right` or `center`.
 
 ```html
 <b2b-table size="equal">
@@ -155,6 +151,15 @@ Alignment of the content of the cell, by default is to the left.
   </b2b-table-rowgroup>
 </b2b-table>
 ```
+
+#### textWrap
+
+Will truncate the text if set to `true`, and ** table size is `equal`**.
+
+Truncated text will expand when user hovers over the cell after a short timeout. This will allow the user to copy
+the text or read it in full. You can try by hovering over the truncated text in this example:
+
+<Story id="components-content-table--story-050-table-equal" />
 
 <br />
 <hr />

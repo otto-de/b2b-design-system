@@ -1,6 +1,8 @@
 @use '../../../global/b2b-styles';
 
 :host {
+  --b2b-table-cell-text-expand-bg: var(--b2b-color-white-100);
+
   display: table-cell;
   padding: 12px;
   margin: 0;
@@ -15,6 +17,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  position: relative;
+}
+
+:host(.b2b-table-cell--expand-text) {
+  position: absolute;
+  white-space: normal;
+  background-color: var(--b2b-table-cell-text-expand-bg);
+  border: 1px solid var(--b2b-color-grey-200);
+  border-top: none;
+  z-index: 2000;
+  min-width: 100px;
 }
 
 :host(.b2b-table-cell--left) {
