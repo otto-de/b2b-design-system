@@ -56,30 +56,31 @@
 
     &--close {
       cursor: pointer;
-      padding: 0;
       background: transparent;
+      padding: 0;
       border: none;
 
       .b2b-icon {
         transition: all 0.3s ease;
+
+        --b2b-icon-cursor: pointer;
       }
     }
 
     &--footer {
       display: flex;
+      justify-content: space-between;
       padding-top: calc(var(--b2b-size-space-75) * 2);
       margin-top: calc(var(--b2b-size-space-75) * 2);
       border-top: var(--b2b-size-1) solid var(--b2b-color-border-100);
 
       &-left {
         display: flex;
-        flex: 1;
         justify-content: flex-start;
       }
 
       &-right {
         display: flex;
-        flex: 1;
         justify-content: flex-end;
       }
     }
