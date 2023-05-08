@@ -69,19 +69,19 @@
       <br />
       <!--  Parent can control size of table when table has size: expand-->
       <div style="width: 500px">
-        <b2b-table size="equal">
+        <b2b-table size="equal" resize>
           <b2b-table-rowgroup type="header">
             <b2b-table-row>
-              <b2b-table-header sort-direction="not-sorted"
+              <b2b-table-header sort-direction="not-sorted" divider
                 >Title 1</b2b-table-header
               >
-              <b2b-table-header sort-direction="descending"
+              <b2b-table-header sort-direction="not-sorted" divider
                 >Title 2</b2b-table-header
               >
-              <b2b-table-header sort-direction="ascending"
+              <b2b-table-header sort-direction="not-sorted" divider
                 >Title 3</b2b-table-header
               >
-              <b2b-table-header sort-direction="descending"
+              <b2b-table-header sort-direction="not-sorted" divider
                 >Title 4</b2b-table-header
               >
             </b2b-table-row>
@@ -106,7 +106,6 @@
         </b2b-table>
       </div>
 
-      <h1>test</h1>
       <b2b-table size="equal" id="test-table">
         <b2b-table-rowgroup type="header">
           <b2b-table-row>
@@ -116,9 +115,7 @@
               >Title 1</b2b-table-header
             >
             <b2b-table-header>Title 2</b2b-table-header>
-            <b2b-table-header sort-direction="descending"
-              >Title 3</b2b-table-header
-            >
+            <b2b-table-header>Title 3</b2b-table-header>
           </b2b-table-row>
         </b2b-table-rowgroup>
         <b2b-table-rowgroup type="body">
