@@ -11,6 +11,7 @@ In this guide you can find:
 - [Vue Installation and usage](#vue-installation-and-usage)
 - [How to use b2b-core-components in Vue 3](#how-to-use-b2b-core-components-in-vue-3)
 - [How to use b2b-core-components in Vue 2](#how-to-use-b2b-core-components-in-vue-2)
+- [How to use b2b-core-components in Nuxt 2](#how-to-use-b2b-core-components-in-nuxt-2)
 - [About Web Components 'slots'](#about-web-components-slots)
 - [V-Model Support](#v-model-support)
 
@@ -81,6 +82,30 @@ Vue.config.ignoredElements = [/^b2b/];
 
 <br />
 
+## How to use b2b-core-components in Nuxt 2
+
+Register JavaScript Plugin within /plugin folder: b2bDesignSystem.client.js
+```js
+import { defineCustomElements } from '@otto-ec/b2b-core-components/loader'
+import Vue from 'vue'
+
+export default (context, inject) => {
+defineCustomElements(window).catch(err => console.log('Log your error', err));
+  Vue.config.ignoredElements = [/^b2b/]
+}
+```
+
+Add this to the nuxt.config.js/ts
+
+```ts
+export default {
+  // ...yourConfig,
+  plugins: [
+    { src: '~/plugins/b2bDesignSystem.client.js', mode: 'client' }
+  ]
+}
+
+```
 ## About Web Components `slots`
 
 Vue exposes a slot attribute that is currently used as `v-slot`, and a normal eslint setup might warn against the usage
