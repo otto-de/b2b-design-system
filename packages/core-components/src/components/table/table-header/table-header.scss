@@ -23,7 +23,8 @@
     cursor: col-resize;
     user-select: none;
 
-    &:hover, &.resizing {
+    &:hover,
+    &.resizing {
       border-right: 2px solid var(--b2b-color-grey-300);
     }
   }
