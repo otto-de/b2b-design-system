@@ -6,6 +6,7 @@ import {
   Source,
   Canvas,
 } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
 
 # Toggle Button Group
 
@@ -54,7 +55,65 @@ export interface ToggleButtonEventDetail {
 }
 ```
 
-## Attributes
+# Singular Toggle Button
+
+The `b2b-toggle-button` element must be a child of `b2b-toggle-group`. It encapsulates a radio button, so it
+behaves in the same way. Any element can be programmatically selected by using the `checked` attribute.
+
+## Properties
+
+<Source
+  language="html"
+  format={false}
+  code={dedent`
+    <b2b-toggle-button value="abcd" label="ABCD" name="toggle-group-1"></b2b-toggle-button>
+  `}
+/>
+
+### Label
+
+The `label` of the toggle button. This is a required property. It is not the same as the `value`, which
+is not shown to the user, but identifies the button within the group.
+
+### Name
+
+This is used to programmatically group toggle buttons together. It is required to control the state of a toggle button
+group.
+This is especially important for accessibility as the name groups label and toggle button together, making them
+easier to navigate for screen readers.
+
+### Checked
+
+Whether or not the radio button is currently checked. It is initially unchecked if the property is not specified.
+☝️ The group will check on render the first element if the consumer hasn't set any element as checked.
+
+### Disabled
+
+Whether or not the radio button is disabled. If not specified, it will not be disabled.
+
+### Value
+
+The radio button value. It does not have to be the same as the radio button label. When the radio button is checked,
+the value gets emitted alongside the radio button's current status.
+
+## Events
+
+Both events fire whenever the `checked` property of the radio button component changes.
+
+### change
+
+Emits a native change event. This is configured to work with `v-model` from Vue.
+
+### b2b-change
+
+Emits a custom event called `ToggleButtonEventDetail` that contains the value of the radio button and whether or not the
+radio button is currently checked.
+
+`ToggleButtonEventDetail<T = any> {
+value: T;
+}`
+
+## Attributes for Toggle Group
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

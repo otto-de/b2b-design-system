@@ -6,8 +6,8 @@ describe('b2b-toggle-group', () => {
     page = await newE2EPage();
     await page.setContent(
       `<b2b-toggle-group name="toggle-group-1">
-            <b2b-toggle-button name="toggle-group-1" value="1" label="One"></b2b-toggle-button>
-            <b2b-toggle-button name="toggle-group-1" value="2" label="Two"></b2b-toggle-button>
+          <b2b-toggle-button name="toggle-group-1" value="1" label="One"></b2b-toggle-button>
+          <b2b-toggle-button name="toggle-group-1" value="2" label="Two"></b2b-toggle-button>
         </b2b-toggle-group>`,
     );
   });
@@ -54,5 +54,25 @@ describe('b2b-toggle-group', () => {
     const checked = await element.getProperty('checked');
 
     expect(checked).toBe(true);
+  });
+
+  it('should select first element if none other is pre-selected ', async () => {
+    const firstButton = await page.find('b2b-toggle-button');
+    const isSelected = await firstButton.getProperty('checked');
+    expect(isSelected).toBe(true);
+  });
+
+  it('should not select first element if any element is pre-selected ', async () => {
+    page = await newE2EPage();
+    await page.setContent(
+      `<b2b-toggle-group name="toggle-group-1">
+          <b2b-toggle-button name="toggle-group-1" value="1" label="One"></b2b-toggle-button>
+          <b2b-toggle-button checked name="toggle-group-1" value="2" label="Two"></b2b-toggle-button>
+        </b2b-toggle-group>`,
+    );
+    const firstButton = await page.find('b2b-toggle-button');
+
+    const isSelected = await firstButton.getProperty('checked');
+    expect(isSelected).toBe(false);
   });
 });

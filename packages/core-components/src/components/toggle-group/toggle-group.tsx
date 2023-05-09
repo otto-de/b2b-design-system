@@ -71,7 +71,11 @@ export class B2BToggleGroup {
   };
 
   componentDidLoad() {
-    this.setFirstActiveOnInit();
+    const toggleButtons = this.getChildNodes();
+    const isAnySelected = toggleButtons.some(toggle => toggle.checked);
+    if (!isAnySelected) {
+      this.setFirstActiveOnInit();
+    }
     if (this.disabled) {
       this.toggleAllDisabled();
     }
