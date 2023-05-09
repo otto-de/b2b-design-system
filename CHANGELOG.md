@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/otto-de/b2b-design-system/compare/v1.0.0...v1.0.1) (2023-05-09)
+
+
+### Bug Fixes
+
+* **Modal:** footer buttons + close icon visual improvements ([9b1f3bc](https://github.com/otto-de/b2b-design-system/commit/9b1f3bc5ae4ac5e7cacb8f3cee192ca59ecc38cd))
+
 # 1.0.0 (2023-04-26)
 
 
