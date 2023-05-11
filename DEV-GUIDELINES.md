@@ -110,8 +110,7 @@ available commits:
 
 ## Creating new components
 
-For creating new components we suggest getting familiar with the [Stencil documentation]() and be inspired by the 
-components we have already provided. 
+For creating new components we suggest getting familiar with the [Stencil documentation](https://stenciljs.com/docs/introduction) and be inspired by the components we have already provided. 
 
 ### Local development
 
@@ -213,7 +212,7 @@ If the differences where expected run:
 
 ## Modifying or creating new tokens
 
-Find more information about tokens in the [readme]()
+Find more information about tokens in the [readme](https://github.com/otto-de/b2b-design-system/blob/main/packages/tokens/README.md)
 
 ### Tokens documentation
 The tokens build generates a `.json` file that we are reading in our Storybook token stories to try to automate 

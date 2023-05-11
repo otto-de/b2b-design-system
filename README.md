@@ -25,20 +25,20 @@ This project is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) that makes 
 of [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces#using-workspaces) containing the source code of the 3 packages we distribute:
 
 ### @otto-de/b2b-core-components
-[b2b-core-components]() - Core web components, can be used with Vue.
+[b2b-core-components](https://www.npmjs.com/package/@otto-de/b2b-core-components) - Core web components, can be used with Vue.
 
 ### @otto-de/b2b-react-components
-[b2b-react-components]() - React wrapper library, exposes first class React components. Wrapper is created by Stencil.
+[b2b-react-components](https://www.npmjs.com/package/@otto-de/b2b-react-components) - React wrapper library, exposes first class React components. Wrapper is created by Stencil.
 
 ### @otto-de/b2b-tokens
-[b2b-tokens]() - These are atomic design decisions that can be used to 
+[b2b-tokens](https://www.npmjs.com/package/@otto-de/b2b-tokens) - These are atomic design decisions that can be used to 
 centrally change the styles of our components. For more information about Design Tokens read  [here](https://specifyapp.com/blog/introduction-to-design-tokens).
 
 ## Contributing
 
 ### Development
 
-To start developing please follow the [dev-guidelines]() to learn more about the tools we use and how to commit. 
+To start developing please follow the [dev-guidelines](https://github.com/otto-de/b2b-design-system/blob/main/DEV-GUIDELINES.md) to learn more about the tools we use and how to commit. 
 
 ### Community contributions
 We will soon publish our contribution guidelines.  In the meantime please feel 

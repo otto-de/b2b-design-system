@@ -20,6 +20,8 @@ updates:
     commit-message:
       prefix: "chore: "
     ignore:
+      - dependency-name: "@storybook/*"
+        versions: [ "7.x" ]
       # Stencil does not support jest 28 nor 29. Follow-up issue https://github.com/ionic-team/stencil/issues/3348
       - dependency-name: "jest"
         versions: [ "28.x", "29.x" ]
