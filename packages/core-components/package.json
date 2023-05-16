@@ -33,9 +33,11 @@
     "lint": "eslint \"src/**/*{.ts,.tsx}\" && stylelint \"src/**/*{.scss,.css}\"",
     "lint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix && stylelint \"src/**/*{.scss,.css}\" --fix",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
-    "copy-md-files": "copyfiles --flat ../../DEV-GUIDELINES.md src/docs/guidelines",
+    "copy-md-changelog": "copyfiles --flat ../../CHANGELOG.md src/docs/getting-started",
+    "copy-md-guidelines": "copyfiles --flat ../../DEV-GUIDELINES.md src/docs/guidelines",
+    "copy-md-files": "npm run copy-md-changelog && npm run copy-md-guidelines",
     "storybook": "npm run copy-md-files && start-storybook -p 6006",
-    "build:storybook": "build-storybook -o docs-build/design-system"
+    "build:storybook": "npm run copy-md-files && build-storybook -o docs-build/design-system"
   },
   "dependencies": {
     "@otto-de/b2b-tokens": "1.1.0",

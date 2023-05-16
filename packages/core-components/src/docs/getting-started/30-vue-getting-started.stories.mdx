@@ -19,17 +19,13 @@ In this guide you can find:
 
 ## Vue Installation and usage
 
-You can use web components in Vue by installing the package [b2b-core-components](https://www.npmjs.com/package/@otto-de/b2b-core-components) \*
+You can use web components in Vue by installing the package [b2b-core-components](https://www.npmjs.com/package/@otto-de/b2b-core-components)
 
 ```
 npm install @otto-de/b2b-core-components
 ```
 
-_\*This is currently hosted in GitHub packages withing the Otto organisation, therefore it requires an authentication
-token to be able to install. Follow [this guide](?path=/story/getting-started-package-installation--page)
-if you haven't configured this yet._
-
-The distribution of this package exposes web-components that are natively supported by Vue, but we still need to
+The distribution of this package exposes web-components that are natively supported by Vue, but you still need to
 do a very simple configuration in your project to make them available:
 
 <br />
@@ -132,10 +128,13 @@ The `v-model` directive for two-way data binding is currently compatible with al
 
 To learn more about v-model, we recommend following [this guide](https://vuejs.org/guide/essentials/forms.html).
 We have published some examples of our components with the V-Model notation. You can find them in our [example
-repository](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/App.vue).
+repository](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/App.vue) (only available internally for now,
+sorry).
 
 If you encounter a problem with this directive, let us know by [opening an issue](https://github.com/otto-ec/b2b-design-system/issues) in GitHub, and also consider using an
 extended `v-on` directive such as:
+
+### event handling example
 
 <Source
   language="tsx"
@@ -148,5 +147,18 @@ extended `v-on` directive such as:
   `}
 />
 
-For more information, please have a look at the full code in our [extended notation example](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/components/input/InputEventNotation.vue) and [v-model example](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/components/input/InputVModelNotation.vue) or
-check out the open issue on GitHub [here](https://github.com/vuejs/vue/issues/7830).
+### v-model example
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+     data() {
+      return {
+        value: '',
+      };
+    }
+    ...
+    <b2b-input v-model="value"></b2b-input>
+  `}
+/>
