@@ -5,14 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { CheckboxEventDetail, InputChangeEvent, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 import { ContentAlignment, TableRowgroupTypes, TableSizes, TableSortDirections } from "./components/table/types";
 import { B2BTableColourOptions } from "./components/table/table-row/table-row";
 import { B2BTableColourOptions as B2BTableColourOptions1 } from "./components/table/table-row/table-row";
-export { CheckboxEventDetail, InputChangeEvent, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
@@ -291,6 +291,10 @@ export namespace Components {
           * When setting the autofocus to true, the input element will be focused when the page loads.
          */
         "autofocus": boolean;
+        /**
+          * Simulate the native behavior of type="search" to emit an empty string when the input is cleared
+         */
+        "clearInput": () => Promise<void>;
         /**
           * Whether or not the input is disabled. Default is false.
          */
@@ -795,6 +799,10 @@ export interface B2bDropdownCustomEvent<T> extends CustomEvent<T> {
 export interface B2bInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bInputElement;
+}
+export interface B2bInputListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bInputListElement;
 }
 export interface B2bInputListOptionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1545,6 +1553,7 @@ declare namespace LocalJSX {
           * The input label.
          */
         "label"?: string;
+        "onB2b-clear"?: (event: B2bInputListCustomEvent<InputClear>) => void;
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
