@@ -210,6 +210,32 @@ If the differences where expected run:
 ./do visual-tests-update
 ```
 
+#### Making changes to the docker image
+
+To test changes to the docker image that contains the Storybook docs and CDN locally, you'll need to create a production build of Storybook first.
+
+In the core-components folder, run:
+```shell
+npm run build:storybook
+```
+
+Afterwards, you can rebuild the docker image with your changes by running:
+```shell
+docker build -f Dockerfile -t b2bds-docs .
+```
+Now, start a container with the image by using:
+```shell
+docker run -it -p 80:80 b2bds-docs
+```
+
+Now you can navigate to the following:
+| Path name                                                          | Description                                                                                          |
+|--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| /design-system                                                     | The Storybook app containing the docs.                                                               |
+| /health                                                            | A simple health check for the ELB in AWS.                                                            |
+| /design-system/dist/b2b-core-components/b2b-core-components.css    | The distribution of our tokens.                                                                      |
+| /design-system/dist/b2b-core-components/b2b-core-components.esm.js | The entry file for our components. Additional components will be lazy-loaded on demand by this file. |
+
 ## Modifying or creating new tokens
 
 Find more information about tokens in the [readme](https://github.com/otto-de/b2b-design-system/blob/main/packages/tokens/README.md)

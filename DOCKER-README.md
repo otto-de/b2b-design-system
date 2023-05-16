@@ -17,3 +17,9 @@ You can find our documentation released in [this link](https://internal.otto.mar
 docker pull ottoopensource/b2bds-docs:<docker tag>
 ```
 
+### Start the image locally
+
+```shell script
+docker run -it -p 80:80 ottoopensource/b2bds-docs
+```
+When you open the specified url to the Storybook app currently running, make sure to append `/design-system` to the path to access the docs.

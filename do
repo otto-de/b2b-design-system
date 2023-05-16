@@ -25,11 +25,13 @@ task_cmd_test_visual_build_docker_image() {
 
 task_cmd_test_visual_run_tests() {
   #Needs storybook running on the host machine
+  #Needs access to host storage for snapshot comparison, hence the -v flag and host dir
   docker run -it -v $(pwd):/b2b --network="host" test-docker
 }
 
 task_cmd_test_visual_update_tests() {
   #Needs storybook running on the host machine
+  #Needs access to host storage for snapshot comparison, hence the -v flag and host dir
   docker run -it -v $(pwd):/b2b --network="host" test-docker -- --updateSnapshot
 }
 
