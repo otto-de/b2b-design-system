@@ -33,7 +33,8 @@
     "lint": "eslint \"src/**/*{.ts,.tsx}\" && stylelint \"src/**/*{.scss,.css}\"",
     "lint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix && stylelint \"src/**/*{.scss,.css}\" --fix",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
-    "storybook": "start-storybook -p 6006",
+    "copy-md-files": "copyfiles --flat ../../DEV-GUIDELINES.md src/docs/guidelines",
+    "storybook": "npm run copy-md-files && start-storybook -p 6006",
     "build:storybook": "build-storybook -o docs-build/design-system"
   },
   "dependencies": {
@@ -62,6 +63,7 @@
     "@types/jest": "^27.5.2",
     "@types/mdx": "^2.0.4",
     "@types/postcss-import": "^14.0.0",
+    "copyfiles": "^2.4.1",
     "css-loader": "^6.7.3",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
