@@ -71,18 +71,19 @@ export class B2bRadioButtonComponent {
   };
 
   private onClick = () => {
+    if (this.disabled || this.checked) {
+      return;
+    }
     this.checked = true;
     this.uncheckSiblings();
-    if (this.checked) {
-      this.b2bChange.emit({
-        checked: this.checked,
-        value: this.value,
-      });
-      // Dispatches the native change event because it is not propagated beyond the shadow boundary
-      // globalThis to target the lib.dom Event and not Stencil Event
-      const changeEvent = new globalThis.Event('change');
-      this.host.dispatchEvent(changeEvent);
-    }
+    this.b2bChange.emit({
+      checked: this.checked,
+      value: this.value,
+    });
+    // Dispatches the native change event because it is not propagated beyond the shadow boundary
+    // globalThis to target the lib.dom Event and not Stencil Event
+    const changeEvent = new globalThis.Event('change');
+    this.host.dispatchEvent(changeEvent);
   };
 
   private uncheckSiblings = () => {
