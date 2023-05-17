@@ -88,6 +88,13 @@ export class InputComponent {
     this.focusableElement.focus();
   }
 
+  /** Simulate the native behavior of type="search" to emit an empty string when the input is cleared */
+  @Method()
+  async clearInput() {
+    this.value = '';
+    this.b2bInput.emit({ value: '' });
+  }
+
   connectedCallback() {
     const form = this.hostElement.closest('form');
     if (form != null) {

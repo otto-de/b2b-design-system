@@ -314,4 +314,20 @@ describe('B2B-InputList', () => {
     inputValue = await input.getAttribute('value');
     expect(inputValue).toBe('');
   });
+
+  it('should emit clear event when the clear icon is clicked', async () => {
+    const onInputEventSpy = await page.spyOnEvent('b2b-clear');
+
+    let input = await page.find('b2b-input-list >>> b2b-input');
+
+    await input.click();
+    await input.press('8');
+    await page.waitForChanges();
+
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    closeIcon.click();
+    await page.waitForChanges();
+
+    expect(onInputEventSpy).toHaveReceivedEvent();
+  });
 });

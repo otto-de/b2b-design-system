@@ -38,6 +38,16 @@ Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53
 
 ## Methods
 
+### `clearInput() => Promise<void>`
+
+Simulate the native behavior of type="search" to emit an empty string when the input is cleared
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setFocus() => Promise<void>`
 
 Manually set focus to the element

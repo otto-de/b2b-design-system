@@ -7,7 +7,10 @@ import {
   Element,
   Listen,
   Host,
+  Event,
+  EventEmitter,
 } from '@stencil/core';
+import { InputClear } from '../../utils/interfaces/form.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -39,6 +42,9 @@ export class InputListComponent {
 
   /** The default value of the input field. If defined, it will prefill the input. */
   @Prop({ mutable: true, reflect: true }) value: string = null;
+
+  @Event({ eventName: 'b2b-clear' })
+  b2bClear: EventEmitter<InputClear>;
 
   // @State() value: string = '';
   @State() hasOptionList = this.optionsList.length > 0;
@@ -163,26 +169,23 @@ export class InputListComponent {
     });
   };
 
-  private resetInput = (event: any) => {
+  private resetInput = async (event: any) => {
+    const inputElement = this.hostElement.shadowRoot.querySelector(
+      'b2b-input',
+    ) as HTMLB2bInputElement;
     if (event.type === 'keydown' && event.key === 'Enter') {
-      this.value = '';
       /** Manually reset focus after blur to match mousedown behavior */
-      (
-        this.hostElement.shadowRoot.querySelector(
-          'b2b-input',
-        ) as HTMLB2bInputElement
-      ).setFocus();
+      await inputElement.setFocus();
     } else if (event.type === 'mousedown') {
       /** Manual blurring to prevent browser focus stack & component state mismatch */
       event.preventDefault();
       event.stopPropagation();
-      (
-        this.hostElement.shadowRoot.querySelector(
-          'b2b-input',
-        ) as HTMLB2bInputElement
-      ).setFocus();
-      this.value = '';
+      await inputElement.setFocus();
     }
+    this.value = '';
+    this.b2bClear.emit();
+    // Called to trigger an Input Event
+    await inputElement.clearInput();
     return;
   };
 
