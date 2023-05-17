@@ -214,9 +214,19 @@ If the differences where expected run:
 
 To test changes to the docker image that contains the Storybook docs and CDN locally, you'll need to create a production build of Storybook first.
 
+First, create a build of all components in the root folder:
+```shell
+npm run build
+```
+
 In the core-components folder, run:
 ```shell
 npm run build:storybook
+```
+
+Copy the distribution to the storybook build folder:
+```shell
+cp -r dist docs-build/design-system
 ```
 
 Afterwards, you can rebuild the docker image with your changes by running:
@@ -229,11 +239,12 @@ docker run -it -p 80:80 b2bds-docs
 ```
 
 Now you can navigate to the following:
-| Path name                                                          | Description                                                                                          |
+
+| Path name | Description |
 |--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| /design-system                                                     | The Storybook app containing the docs.                                                               |
-| /health                                                            | A simple health check for the ELB in AWS.                                                            |
-| /design-system/dist/b2b-core-components/b2b-core-components.css    | The distribution of our tokens.                                                                      |
+| /design-system                                                     | The Storybook app containing the docs.|
+| /health                                                            | A simple health check for the ELB in AWS.|
+| /design-system/dist/b2b-core-components/b2b-core-components.css    | The distribution of our tokens.|
 | /design-system/dist/b2b-core-components/b2b-core-components.esm.js | The entry file for our components. Additional components will be lazy-loaded on demand by this file. |
 
 ## Modifying or creating new tokens
@@ -247,3 +258,21 @@ rendering the tokens tables. You can find this stories in `core-components/src/d
 ## ADRs
 
 If you wonder why some tools are in place, you can find our technical decision records in the `ADRs` directory.
+
+## Contribution Checklist
+
+If you are currently or looking to start developing components for the B2B Design System, here's a quick check list to go over when you have finished a story to make sure you're all set to submit a PR:
+
+- [ ] *Component*:
+  - all `@Prop()`, `@Event()` and `@State()`decorators are commented
+  - all `*.tsx` files related to the component have an appropriate component tag that relates to the file name
+- [ ] *Styles*:
+  - all components have a `<component-name>.scss` file associated in the `@Component()` decorator 
+- [ ] *Tests*:
+  - the component has at least an e2e test that covers all relevant interaction as well as edge cases
+  - the component ideally has a snapshot test that shows changes in component structure
+- [ ] *Docs*:
+  - the component has a `<component-name>.stories.tsx` file that contains stories of all relevant states (also for screenshot testing)
+  - the component has a `<component-name>.docs.msx` file that contains usage guidelines and code examples
+- [ ] *Visual Regression Tests*:
+  - the component has screenshot tests for all stories / states
