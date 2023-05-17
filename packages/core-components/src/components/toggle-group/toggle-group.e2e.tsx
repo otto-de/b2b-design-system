@@ -18,7 +18,7 @@ describe('b2b-toggle-group', () => {
   });
 
   it('should emit an event when a button is checked', async () => {
-    const firstButton = await page.find({ text: 'One' });
+    const firstButton = await page.find({ text: 'Two' });
     const changeSpy = await page.spyOnEvent('b2b-group-change');
 
     await firstButton.click();
@@ -26,7 +26,18 @@ describe('b2b-toggle-group', () => {
     await page.waitForChanges();
 
     expect(changeSpy).toHaveReceivedEvent();
-    expect(changeSpy).toHaveReceivedEventDetail({ value: '1' });
+    expect(changeSpy).toHaveReceivedEventDetail({ value: '2' });
+  });
+
+  it('should not emit an event when the checked button is already selected', async () => {
+    const firstButton = await page.find({ text: 'Two' });
+    const changeSpy = await page.spyOnEvent('b2b-group-change');
+
+    await firstButton.click();
+    await firstButton.click();
+
+    await page.waitForChanges();
+    expect(changeSpy).toHaveReceivedEventTimes(1);
   });
 
   it('should not select any buttons if the group is disabled', async () => {

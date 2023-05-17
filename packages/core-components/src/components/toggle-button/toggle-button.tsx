@@ -38,7 +38,7 @@ export class B2bToggleButtonComponent {
 
   private onClick = (ev: Event) => {
     ev.preventDefault();
-    if (this.disabled) {
+    if (this.disabled || this.checked) {
       return;
     }
     this.checked = true;

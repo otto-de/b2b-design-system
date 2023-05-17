@@ -49,4 +49,15 @@ describe('b2b-toggle-button', () => {
 
     expect(spy).not.toHaveReceivedEvent();
   });
+
+  it('should not emit when a button is already selected', async () => {
+    const element = await page.find('b2b-toggle-button');
+    const spy = await page.spyOnEvent('b2b-change');
+
+    await element.click();
+    await element.click();
+    await page.waitForChanges();
+
+    expect(spy).toHaveReceivedEventTimes(1);
+  });
 });
