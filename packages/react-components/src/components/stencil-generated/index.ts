@@ -35,6 +35,7 @@ export const B2bScrollableContainer = /*@__PURE__*/createReactComponent<JSX.B2bS
 export const B2bSearch = /*@__PURE__*/createReactComponent<JSX.B2bSearch, HTMLB2bSearchElement>('b2b-search');
 export const B2bSeparator = /*@__PURE__*/createReactComponent<JSX.B2bSeparator, HTMLB2bSeparatorElement>('b2b-separator');
 export const B2bSpinner = /*@__PURE__*/createReactComponent<JSX.B2bSpinner, HTMLB2bSpinnerElement>('b2b-spinner');
+export const B2bStepper = /*@__PURE__*/createReactComponent<JSX.B2bStepper, HTMLB2bStepperElement>('b2b-stepper');
 export const B2bTab = /*@__PURE__*/createReactComponent<JSX.B2bTab, HTMLB2bTabElement>('b2b-tab');
 export const B2bTabGroup = /*@__PURE__*/createReactComponent<JSX.B2bTabGroup, HTMLB2bTabGroupElement>('b2b-tab-group');
 export const B2bTabPanel = /*@__PURE__*/createReactComponent<JSX.B2bTabPanel, HTMLB2bTabPanelElement>('b2b-tab-panel');

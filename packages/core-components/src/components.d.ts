@@ -584,6 +584,10 @@ export namespace Components {
          */
         "size": '50' | '100' | '200';
     }
+    interface B2bStepper {
+        "stepIndex": number;
+        "steps": string[];
+    }
     interface B2bTab {
         /**
           * Whether or not the tab is currently disabled. Per default it is false.
@@ -1039,6 +1043,12 @@ declare global {
         prototype: HTMLB2bSpinnerElement;
         new (): HTMLB2bSpinnerElement;
     };
+    interface HTMLB2bStepperElement extends Components.B2bStepper, HTMLStencilElement {
+    }
+    var HTMLB2bStepperElement: {
+        prototype: HTMLB2bStepperElement;
+        new (): HTMLB2bStepperElement;
+    };
     interface HTMLB2bTabElement extends Components.B2bTab, HTMLStencilElement {
     }
     var HTMLB2bTabElement: {
@@ -1147,6 +1157,7 @@ declare global {
         "b2b-search": HTMLB2bSearchElement;
         "b2b-separator": HTMLB2bSeparatorElement;
         "b2b-spinner": HTMLB2bSpinnerElement;
+        "b2b-stepper": HTMLB2bStepperElement;
         "b2b-tab": HTMLB2bTabElement;
         "b2b-tab-group": HTMLB2bTabGroupElement;
         "b2b-tab-panel": HTMLB2bTabPanelElement;
@@ -1795,6 +1806,10 @@ declare namespace LocalJSX {
          */
         "size"?: '50' | '100' | '200';
     }
+    interface B2bStepper {
+        "stepIndex"?: number;
+        "steps"?: string[];
+    }
     interface B2bTab {
         /**
           * Whether or not the tab is currently disabled. Per default it is false.
@@ -2054,6 +2069,7 @@ declare namespace LocalJSX {
         "b2b-search": B2bSearch;
         "b2b-separator": B2bSeparator;
         "b2b-spinner": B2bSpinner;
+        "b2b-stepper": B2bStepper;
         "b2b-tab": B2bTab;
         "b2b-tab-group": B2bTabGroup;
         "b2b-tab-panel": B2bTabPanel;
@@ -2119,6 +2135,7 @@ declare module "@stencil/core" {
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-70
              */
             "b2b-spinner": LocalJSX.B2bSpinner & JSXBase.HTMLAttributes<HTMLB2bSpinnerElement>;
+            "b2b-stepper": LocalJSX.B2bStepper & JSXBase.HTMLAttributes<HTMLB2bStepperElement>;
             "b2b-tab": LocalJSX.B2bTab & JSXBase.HTMLAttributes<HTMLB2bTabElement>;
             "b2b-tab-group": LocalJSX.B2bTabGroup & JSXBase.HTMLAttributes<HTMLB2bTabGroupElement>;
             "b2b-tab-panel": LocalJSX.B2bTabPanel & JSXBase.HTMLAttributes<HTMLB2bTabPanelElement>;

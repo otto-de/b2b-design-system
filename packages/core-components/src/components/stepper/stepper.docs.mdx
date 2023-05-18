@@ -1,0 +1,41 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+# Stepper Component
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-stepper--story-010-stepper" />
+</Canvas>
+
+The stepper component will provide an element that will let you set the current step while navigating.
+
+<br />
+
+## Properties
+
+### steps
+
+Property to provide names of the steps as an simple list of strings
+
+### stepIndex
+
+Property to highlight the current step
+
+<br />
+
+#### Vue
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-stepper :steps="['Step1', 'Step2']" :stepIndex="1"></b2b-stepper>
+  `}
+/>
