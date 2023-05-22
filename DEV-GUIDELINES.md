@@ -273,6 +273,6 @@ If you are currently or looking to start developing components for the B2B Desig
   - the component ideally has a snapshot test that shows changes in component structure
 - [ ] *Docs*:
   - the component has a `<component-name>.stories.tsx` file that contains stories of all relevant states (also for screenshot testing)
-  - the component has a `<component-name>.docs.msx` file that contains usage guidelines and code examples
+  - the component has a `<component-name>.docs.mdx` file that contains usage guidelines and code examples
 - [ ] *Visual Regression Tests*:
   - the component has screenshot tests for all stories / states

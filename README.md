@@ -34,13 +34,11 @@ of [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces#using-wor
 [b2b-tokens](https://www.npmjs.com/package/@otto-de/b2b-tokens) - These are atomic design decisions that can be used to 
 centrally change the styles of our components. For more information about Design Tokens read  [here](https://specifyapp.com/blog/introduction-to-design-tokens).
 
-## Contributing
-
-### Development
+## Development and Contributions
 
 To start developing please follow the [dev-guidelines](https://github.com/otto-de/b2b-design-system/blob/main/DEV-GUIDELINES.md) to learn more about the tools we use and how to commit. 
 
-### Community contributions
-We will soon publish our contribution guidelines.  In the meantime please feel 
-free to submit a Pull Request or open a discussion or [issue](https://github.com/otto-de/b2b-design-system/issues) if 
+If you want to contribute by developing a component or fixing a bug, our dev-guidelines provide you with insights on how to develop and test a new component, add tokens, write documentation and create visual regression tests. You can refer to [this checklist](https://github.com/otto-de/b2b-design-system/blob/main/DEV-GUIDELINES.md#contribution-checklist) to make sure you've got everything covered. Once you're happy with your work, you can submit a Pull Request. 
+
+You can always open a discussion or [issue](https://github.com/otto-de/b2b-design-system/issues) if 
 you have any improvement or suggestions.
