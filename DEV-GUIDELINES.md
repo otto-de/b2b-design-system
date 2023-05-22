@@ -243,7 +243,7 @@ Now you can navigate to the following:
 | Path name | Description |
 |--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | /design-system                                                     | The Storybook app containing the docs.|
-| /health                                                            | A simple health check for the ELB in AWS.|
+| /health                                                            | A simple health check.|
 | /design-system/dist/b2b-core-components/b2b-core-components.css    | The distribution of our tokens.|
 | /design-system/dist/b2b-core-components/b2b-core-components.esm.js | The entry file for our components. Additional components will be lazy-loaded on demand by this file. |
 
