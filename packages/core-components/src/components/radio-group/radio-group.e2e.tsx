@@ -43,7 +43,7 @@ describe('B2B-Radio-Group', () => {
   });
 
   it('should emit a custom event when a radio button is checked', async () => {
-    const element = await page.find('b2b-radio-button >>> div > input');
+    const element = await page.find('b2b-radio-button');
     expect(element).not.toBeNull;
 
     const b2bGroupChange = await page.spyOnEvent('b2b-group-change');
@@ -54,6 +54,17 @@ describe('B2B-Radio-Group', () => {
     await page.waitForChanges();
 
     expect(b2bGroupChange).toHaveReceivedEvent();
+  });
+
+  it('should not emit an event when the checked radio is already selected', async () => {
+    const firstRadio = await page.find({ text: 'one' });
+    const changeSpy = await page.spyOnEvent('b2b-group-change');
+
+    await firstRadio.click();
+    await firstRadio.click();
+    await page.waitForChanges();
+
+    expect(changeSpy).toHaveReceivedEventTimes(1);
   });
 
   it('should disable all radio when the property is specified', async () => {

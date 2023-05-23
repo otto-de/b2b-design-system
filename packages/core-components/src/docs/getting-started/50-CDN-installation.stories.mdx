@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Getting Started/CDN installation" />
+
+# How to install B2B Components from CDN
+
+For vanilla JS or Vue projects, you can also consume our components from our CDN by adding the imports in your root
+html.
+
+This import will lazy load any components you use, meaning, Vue will only bundle the components in use, and
+not the whole library.
+
+```html
+<link
+  rel="stylesheet"
+  href="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css" />
+<script
+  type="module"
+  src="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.esm.js"></script>
+```
