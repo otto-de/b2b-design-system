@@ -27,6 +27,7 @@ For our Design Tokens we use [Style Dictionary](https://amzn.github.io/style-dic
 for theming and will support mobile outputs if that is needed in the future.
 
 ## Installation
+You can clone this repository and work in a branch from where to create a PR. If you are internal at Otto, please reach out to us to get a ticket number. If not you can name your branch as the feature you are building.
 
 In the root directory run:
 
