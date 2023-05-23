@@ -1,5 +1,6 @@
 # Development Guidelines
 
+- [Contributions Overview](#contributions-overview)
 - [Technical Overview](#technical-overview)
 - [Installation](#installation)
 - [Committing code](#committing-code)
@@ -10,6 +11,10 @@
 - [Modifying or creating new design tokens](#modifying-or-creating-new-tokens)
 - [ADRs](#adrs)
 
+## Contributions Overview
+If you are part of an Otto team, please reach out to us to get a ticket number and add you as a collaborator, so you can work from a branch and push directly. We generally name our branches with the ticket ID.
+
+If you are an external contributor, please first create an issue in GitHub to find a great task you can contribute to. If is a simple change, feel free to make a PR from a fork of this repo.
 
 ## Technical Overview
 This project is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) that makes use
@@ -27,7 +32,6 @@ For our Design Tokens we use [Style Dictionary](https://amzn.github.io/style-dic
 for theming and will support mobile outputs if that is needed in the future.
 
 ## Installation
-
 In the root directory run:
 
 ```
