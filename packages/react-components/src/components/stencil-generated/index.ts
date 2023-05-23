@@ -11,6 +11,7 @@ defineCustomElements();
 export const B2bAlert = /*@__PURE__*/createReactComponent<JSX.B2bAlert, HTMLB2bAlertElement>('b2b-alert');
 export const B2bAnchor = /*@__PURE__*/createReactComponent<JSX.B2bAnchor, HTMLB2bAnchorElement>('b2b-anchor');
 export const B2bButton = /*@__PURE__*/createReactComponent<JSX.B2bButton, HTMLB2bButtonElement>('b2b-button');
+export const B2bCard = /*@__PURE__*/createReactComponent<JSX.B2bCard, HTMLB2bCardElement>('b2b-card');
 export const B2bCheckbox = /*@__PURE__*/createReactComponent<JSX.B2bCheckbox, HTMLB2bCheckboxElement>('b2b-checkbox');
 export const B2bCheckboxGroup = /*@__PURE__*/createReactComponent<JSX.B2bCheckboxGroup, HTMLB2bCheckboxGroupElement>('b2b-checkbox-group');
 export const B2bDropdown = /*@__PURE__*/createReactComponent<JSX.B2bDropdown, HTMLB2bDropdownElement>('b2b-dropdown');

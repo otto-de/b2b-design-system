@@ -102,6 +102,20 @@ export namespace Components {
          */
         "variant": 'primary' | 'secondary';
     }
+    interface B2bCard {
+        /**
+          * Disables the card. Per default, it is false
+         */
+        "disabled": boolean;
+        /**
+          * An optional href in case the card is used to redirect on click.
+         */
+        "href"?: string;
+        /**
+          * The target of the card if used with an href. Blank per default.
+         */
+        "target"?: 'blank' | 'self';
+    }
     interface B2bCheckbox {
         /**
           * Whether or not the checkbox is checked. Default value is false and can be set to true if the checkbox should come pre-checked.
@@ -784,6 +798,10 @@ export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bAlertElement;
 }
+export interface B2bCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bCardElement;
+}
 export interface B2bCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCheckboxElement;
@@ -874,6 +892,12 @@ declare global {
     var HTMLB2bButtonElement: {
         prototype: HTMLB2bButtonElement;
         new (): HTMLB2bButtonElement;
+    };
+    interface HTMLB2bCardElement extends Components.B2bCard, HTMLStencilElement {
+    }
+    var HTMLB2bCardElement: {
+        prototype: HTMLB2bCardElement;
+        new (): HTMLB2bCardElement;
     };
     interface HTMLB2bCheckboxElement extends Components.B2bCheckbox, HTMLStencilElement {
     }
@@ -1123,6 +1147,7 @@ declare global {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
         "b2b-button": HTMLB2bButtonElement;
+        "b2b-card": HTMLB2bCardElement;
         "b2b-checkbox": HTMLB2bCheckboxElement;
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
         "b2b-dropdown": HTMLB2bDropdownElement;
@@ -1243,6 +1268,24 @@ declare namespace LocalJSX {
           * The button variant. If not specified, the button will be the secondary variant.
          */
         "variant"?: 'primary' | 'secondary';
+    }
+    interface B2bCard {
+        /**
+          * Disables the card. Per default, it is false
+         */
+        "disabled"?: boolean;
+        /**
+          * An optional href in case the card is used to redirect on click.
+         */
+        "href"?: string;
+        /**
+          * Emits whenever the card is clicked on or enter is pressed while the card has focus.
+         */
+        "onB2b-selected"?: (event: B2bCardCustomEvent<void>) => void;
+        /**
+          * The target of the card if used with an href. Blank per default.
+         */
+        "target"?: 'blank' | 'self';
     }
     interface B2bCheckbox {
         /**
@@ -2030,6 +2073,7 @@ declare namespace LocalJSX {
         "b2b-alert": B2bAlert;
         "b2b-anchor": B2bAnchor;
         "b2b-button": B2bButton;
+        "b2b-card": B2bCard;
         "b2b-checkbox": B2bCheckbox;
         "b2b-checkbox-group": B2bCheckboxGroup;
         "b2b-dropdown": B2bDropdown;
@@ -2075,6 +2119,7 @@ declare module "@stencil/core" {
             "b2b-alert": LocalJSX.B2bAlert & JSXBase.HTMLAttributes<HTMLB2bAlertElement>;
             "b2b-anchor": LocalJSX.B2bAnchor & JSXBase.HTMLAttributes<HTMLB2bAnchorElement>;
             "b2b-button": LocalJSX.B2bButton & JSXBase.HTMLAttributes<HTMLB2bButtonElement>;
+            "b2b-card": LocalJSX.B2bCard & JSXBase.HTMLAttributes<HTMLB2bCardElement>;
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
             "b2b-dropdown": LocalJSX.B2bDropdown & JSXBase.HTMLAttributes<HTMLB2bDropdownElement>;

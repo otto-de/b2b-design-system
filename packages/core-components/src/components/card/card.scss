@@ -1,0 +1,47 @@
+@use '../../global/b2b-styles';
+
+:host {
+  width: 100%;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: var(--b2b-size-5) var(--b2b-size-5) 5px rgba(#0000, 0.15);
+  padding: var(--b2b-size-45) var(--b2b-size-60) var(--b2b-size-60);
+  background: var(--b2b-color-white-100);
+  border: var(--b2b-size-1) solid var(--b2b-color-grey-100);
+  border-radius: var(--b2b-size-25);
+  position: relative;
+
+  a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+:host(.b2b-card:hover),
+:host(.b2b-card:focus) {
+  box-shadow: 5px 5px var(--b2b-size-15) rgba(#0000, 0.15);
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+:host(.b2b-card--disabled) {
+  pointer-events: none;
+  background: var(--b2b-color-grey-25);
+  color: var(--b2b-color-grey-400);
+
+  .b2b-card--disabled-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--b2b-color-grey-25);
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+  }
+}
