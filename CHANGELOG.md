@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/otto-de/b2b-design-system/compare/v1.1.0...v1.2.0) (2023-05-25)
+
+
+### Bug Fixes
+
+* **Radio:** [B2BDS-190] only emit change event when new value selected ([4714c6b](https://github.com/otto-de/b2b-design-system/commit/4714c6be52911312b9a6e0a3b557d3698c455613))
+* **Toggle:** [B2BDS-190] only emit change event when new value selected ([3fcdf52](https://github.com/otto-de/b2b-design-system/commit/3fcdf529ef8d26e2db53c32c3269553bdd68de80))
+
+
+### Features
+
+* **docs:** [B2BDS-188] add updates to documentation ([6af5385](https://github.com/otto-de/b2b-design-system/commit/6af53854e91be81407d9bfe44449a4fde15ecba8))
+
 # [1.1.0](https://github.com/otto-de/b2b-design-system/compare/v1.0.1...v1.1.0) (2023-05-16)
 
 
