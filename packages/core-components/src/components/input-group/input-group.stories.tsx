@@ -11,26 +11,26 @@ const Template: Story = ({
   additionalSlot,
 }) => {
   return additionalSlot
-    ? html`<div style="width: 480px">
+    ? html` <div style="width: 380px">
         <b2b-input-group
           invalid="${invalid}"
           disabled="${disabled}"
           error="${error}"
           hint="${hint}">
           <b2b-input slot="start" label="Search Term"></b2b-input>
-          <b2b-dropdown>
+          <b2b-dropdown style="width: 90px;">
             <option value="one">€</option>
             <option value="two">$</option>
           </b2b-dropdown>
-          <b2b-button slot="end" variant="primary"
-            ><b2b-icon icon="b2b_icon-search"></b2b-icon
-          ></b2b-button>
+          <b2b-button slot="end" variant="primary">
+            <b2b-icon icon="b2b_icon-search"></b2b-icon>
+          </b2b-button>
         </b2b-input-group>
       </div>`
-    : html`<div style="width: 480px">
+    : html`<div style="width: 280px">
         <b2b-input-group invalid="${invalid}" disabled="${disabled}" error="${error}" hint="${hint}">
           <b2b-input slot="start" label="Search Term"></b2b-input>
-          <b2b-dropdown slot="end">
+          <b2b-dropdown slot="end" style="width: fit-content;">
             <option value="one">€</option>
             <option value="two">$</option>
           </b2b-dropdown>

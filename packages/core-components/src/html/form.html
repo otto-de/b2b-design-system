@@ -17,6 +17,11 @@
       type="text/css"
       href="/build/b2b-core-components.css" />
     <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+    <style>
+      .form-element-width {
+        width: 550px;
+      }
+    </style>
   </head>
 
   <body data-theme="light">
@@ -395,6 +400,33 @@
         value="single"
         name="singular"
         disabled></b2b-radio-button>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Width test</b2b-headline>
+      <b2b-input-group
+        error="group error"
+        hint="A group hint"
+        class="form-element-width">
+        <b2b-dropdown
+          slot="start"
+          invalid
+          error="an error"
+          style="width: fit-content">
+          <option value="one">Some longer text</option>
+          <option value="one">$</option>
+        </b2b-dropdown>
+        <b2b-button variant="primary">
+          <b2b-icon icon="b2b_icon-search"></b2b-icon>
+        </b2b-button>
+        <b2b-input-list slot="end" id="list-example"></b2b-input-list>
+      </b2b-input-group>
+      <b2b-textarea label="textarea" class="form-element-width"></b2b-textarea>
+      <b2b-input label="input" class="form-element-width"></b2b-input>
+      <b2b-dropdown label="dropdown" class="form-element-width"></b2b-dropdown>
+      <b2b-input-list
+        label="input-list"
+        class="form-element-width"></b2b-input-list>
     </div>
   </body>
 </html>
