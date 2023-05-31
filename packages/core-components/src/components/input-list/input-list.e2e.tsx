@@ -11,11 +11,40 @@ describe('B2B-InputList', () => {
     await page.waitForChanges();
   };
 
+  const typeInput = async (key: string = '8') => {
+    let input = await page.find('b2b-input-list >>> b2b-input');
+    // focus on input element, focus method did not work
+    await input.click();
+    await input.press(key);
+    await page.waitForChanges();
+  };
+
   beforeEach(async () => {
     page = await newE2EPage();
     await page.setContent(`
       <b2b-input-list placeholder='some text'></b2b-input-list>
     `);
+  });
+
+  it('should register input text when enabled', async () => {
+    const inputList = await page.find('b2b-input-list');
+
+    await typeInput('8');
+
+    let inputValue = inputList.getAttribute('value');
+    expect(inputValue).toBe('8');
+  });
+
+  it('should not receive input text when disabled', async () => {
+    const inputList = await page.find('b2b-input-list');
+
+    inputList.setAttribute('disabled', true);
+    await page.waitForChanges();
+
+    await typeInput();
+
+    let inputValue = inputList.getAttribute('value');
+    expect(inputValue).toBe(null);
   });
 
   it('should not show search list when input is not focused', async () => {
@@ -27,7 +56,7 @@ describe('B2B-InputList', () => {
   });
 
   it('should not show search list when no list is provided', async () => {
-    const input = await page.find('b2b-input-list >>> b2b-input >>> input');
+    const input = await page.find('b2b-input-list >>> b2b-input');
     await input.click();
 
     const searchListResults = await page.find({ text: optionsList[0] });
@@ -57,11 +86,7 @@ describe('B2B-InputList', () => {
   it('should show search list when input is focused, the input has value and list is provided in props', async () => {
     await setOptionsList();
 
-    const input = await page.find('b2b-input-list');
-    // focus on input element, focus method did not work
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     const searchListResults = await page.find({ text: optionsList[0] });
     expect(await searchListResults.isVisible()).toBe(true);
@@ -71,11 +96,7 @@ describe('B2B-InputList', () => {
     const optionSelectedEventSpy = await page.spyOnEvent('b2b-option-selected');
 
     await setOptionsList();
-
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     // Click first option on the list
     const option = await page.find({ text: optionsList[0] });
@@ -90,12 +111,7 @@ describe('B2B-InputList', () => {
 
   it('should hide results when one option is selected', async () => {
     await setOptionsList();
-
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    // focus on input element, focus method did not work
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     // Click first option on the list
     const option = await page.find({ text: optionsList[0] });
@@ -108,12 +124,9 @@ describe('B2B-InputList', () => {
 
   it('should fill up input value with option selected', async () => {
     await setOptionsList();
+    await typeInput('8');
 
     const input = await page.find('b2b-input-list >>> b2b-input');
-    // focus on input element, focus method did not work
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
 
     let inputValue = await input.getProperty('value');
     expect(inputValue).toBe('8');
@@ -128,12 +141,7 @@ describe('B2B-InputList', () => {
 
   it('should navigate with the arrow keys', async () => {
     await setOptionsList();
-
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    // focus on input element, focus method did not work
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     await page.keyboard.press('ArrowDown');
     page.waitForChanges();
@@ -156,11 +164,7 @@ describe('B2B-InputList', () => {
 
   it('should navigate to the first option if the home key is pressed', async () => {
     await setOptionsList();
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    // focus on input element, focus method did not work
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     await page.keyboard.press('ArrowDown');
     page.waitForChanges();
@@ -183,11 +187,7 @@ describe('B2B-InputList', () => {
 
   it('should navigate to the last option if the end key is pressed', async () => {
     await setOptionsList();
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    // focus on input element, focus method did not work
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     await page.keyboard.press('ArrowDown');
     await page.waitForChanges();
@@ -208,11 +208,7 @@ describe('B2B-InputList', () => {
 
   it('should not navigate with any other key than up, down, end or home', async () => {
     await setOptionsList();
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    // focus on input element, focus method did not work
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     await page.keyboard.press('A');
     await page.waitForChanges();
@@ -225,7 +221,6 @@ describe('B2B-InputList', () => {
 
   it('should not navigate when the input is not visible', async () => {
     await setOptionsList();
-
     await page.waitForChanges();
 
     await page.keyboard.press('ArrowDown');
@@ -238,13 +233,8 @@ describe('B2B-InputList', () => {
 
   it('should emit an option when it is focused and the enter key is pressed', async () => {
     const optionSelectedEventSpy = await page.spyOnEvent('b2b-option-selected');
-
     await setOptionsList();
-
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     await page.keyboard.press('ArrowDown');
     await page.waitForChanges();
@@ -259,11 +249,7 @@ describe('B2B-InputList', () => {
 
   it('should close the input list when the escape key is pressed', async () => {
     await setOptionsList();
-
-    const input = await page.find('b2b-input-list >>> b2b-input');
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Escape');
@@ -276,11 +262,7 @@ describe('B2B-InputList', () => {
 
   it('should show the close icon when the input has text', async () => {
     await setOptionsList();
-    const input = await page.find('b2b-input-list >>> b2b-input');
-
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
 
@@ -297,12 +279,9 @@ describe('B2B-InputList', () => {
 
   it('should clear the input when the clear icon is clicked', async () => {
     await setOptionsList();
+    await typeInput('8');
+
     let input = await page.find('b2b-input-list >>> b2b-input');
-
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
-
     let inputValue = await input.getAttribute('value');
     expect(inputValue).toBe('8');
 
@@ -317,12 +296,7 @@ describe('B2B-InputList', () => {
 
   it('should emit clear event when the clear icon is clicked', async () => {
     const onInputEventSpy = await page.spyOnEvent('b2b-clear');
-
-    let input = await page.find('b2b-input-list >>> b2b-input');
-
-    await input.click();
-    await input.press('8');
-    await page.waitForChanges();
+    await typeInput();
 
     const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
     closeIcon.click();

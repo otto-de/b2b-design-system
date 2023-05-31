@@ -43,6 +43,10 @@ export class InputListComponent {
   /** The default value of the input field. If defined, it will prefill the input. */
   @Prop({ mutable: true, reflect: true }) value: string = null;
 
+  /** Whether or not the input is disabled. Default is false. */
+  @Prop({ reflect: true }) disabled: boolean = false;
+
+  /** Emits when the user clicks the clear button. */
   @Event({ eventName: 'b2b-clear' })
   b2bClear: EventEmitter<InputClear>;
 
@@ -211,6 +215,7 @@ export class InputListComponent {
             type="text"
             label={this.label}
             value={this.value}
+            disabled={this.disabled}
             onb2b-input={this.handleInput}
             placeholder={this.placeholder}
             required={this.required}>

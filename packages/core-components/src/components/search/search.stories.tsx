@@ -6,7 +6,7 @@ import dedent from 'ts-dedent';
 import searchDocs from './search.docs.mdx';
 import fruits from './stories.data.json';
 
-const Template: Story = ({ placeholder, optionsList }) => {
+const Template: Story = ({ placeholder, optionsList, disabled }) => {
   const [_, updateArgs] = useArgs();
   const onInput = event => {
     // Read user input
@@ -28,6 +28,7 @@ const Template: Story = ({ placeholder, optionsList }) => {
     <b2b-search
       contenteditable
       data-testid="search-element"
+      disabled=${disabled}
       placeholder="${placeholder}"
       .optionsList=${optionsList}
       @b2b-input=${onInput}></b2b-search>
@@ -37,6 +38,7 @@ const Template: Story = ({ placeholder, optionsList }) => {
 const defaultArgs = {
   placeholder: 'Search here',
   optionsList: [],
+  disabled: false,
 };
 
 export const story010Search = Template.bind({});
@@ -57,6 +59,13 @@ story010Search.parameters = {
   },
 };
 
+export const story020SearchDisabled = Template.bind({});
+story020SearchDisabled.storyName = 'Disabled';
+story020SearchDisabled.args = {
+  placeholder: 'Input List Component',
+  disabled: true,
+};
+
 const CustomSearchTemplate: Story = ({ placeholder, optionsList }) => {
   return html`<div style="width: 500px; height: 130px;">
     <b2b-input-group>
@@ -74,9 +83,9 @@ const CustomSearchTemplate: Story = ({ placeholder, optionsList }) => {
     </b2b-input-group>
   </div>`;
 };
-export const story020CustomSearch = CustomSearchTemplate.bind({});
-story020CustomSearch.storyName = 'Custom Search';
-story020CustomSearch.args = {
+export const story030CustomSearch = CustomSearchTemplate.bind({});
+story030CustomSearch.storyName = 'Custom Search';
+story030CustomSearch.args = {
   placeholder: 'Input List Component',
   optionsList: ['result A', 'result B'],
 };

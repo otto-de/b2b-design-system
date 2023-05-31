@@ -10,6 +10,29 @@ describe('B2B-Input', () => {
     `);
   });
 
+  it('should register input text when enabled', async () => {
+    const inputElement = await page.find('b2b-input');
+
+    const nativeInput = await page.find('b2b-input >>> input');
+    await nativeInput.type('a value');
+
+    let inputValue = inputElement.getAttribute('value');
+    expect(inputValue).toBe('a value');
+  });
+
+  it('should not receive input text when disabled', async () => {
+    const inputElement = await page.find('b2b-input');
+
+    inputElement.setAttribute('disabled', true);
+    await page.waitForChanges();
+
+    const nativeInput = await page.find('b2b-input >>> input');
+    await nativeInput.type('a value');
+
+    let inputValue = inputElement.getAttribute('value');
+    expect(inputValue).toBe(null);
+  });
+
   it('should clear input when cleared called', async () => {
     const inputElement = await page.find('b2b-input');
 

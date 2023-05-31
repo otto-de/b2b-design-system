@@ -26,6 +26,9 @@ export class SearchComponent {
   /** The default value of the search input field. If defined, it will prefill the input. */
   @Prop({ mutable: true, reflect: true }) value: string = null;
 
+  /** Whether or not the input is disabled. Default is false. */
+  @Prop({ reflect: true }) disabled: boolean = false;
+
   /** Emits whenever the user clicks the search button. Will emit the search string. */
   @Event({ eventName: 'b2b-search' })
   b2bSearch: EventEmitter<SearchClickEventDetail>;
@@ -47,7 +50,7 @@ export class SearchComponent {
   render() {
     return (
       <Host>
-        <b2b-input-group>
+        <b2b-input-group disabled={this.disabled}>
           <b2b-input-list
             slot="start"
             value={this.value}

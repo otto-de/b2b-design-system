@@ -9,6 +9,7 @@
 
 | Property      | Attribute     | Description                                                                                                                                 | Type       | Default     |
 | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------- |
+| `disabled`    | `disabled`    | Whether or not the input is disabled. Default is false.                                                                                     | `boolean`  | `false`     |
 | `optionsList` | --            | The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. | `string[]` | `[]`        |
 | `placeholder` | `placeholder` | The placeholder shown in the input field.                                                                                                   | `string`   | `undefined` |
 | `value`       | `value`       | The default value of the search input field. If defined, it will prefill the input.                                                         | `string`   | `null`      |
