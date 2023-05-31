@@ -18,9 +18,24 @@
       type="text/css"
       href="/build/b2b-core-components.css" />
     <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+    <style>
+      .portal_header {
+        background-color: #fff;
+        border-bottom: 1px solid #c4c4c4;
+        box-sizing: border-box;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        height: 60px;
+      }
+    </style>
   </head>
 
   <body data-theme="light">
+    <div class="portal_header">A HEADER</div>
+
     <div class="content-container">
       <b2b-headline size="200">Spinner</b2b-headline>
       <div class="white-container">

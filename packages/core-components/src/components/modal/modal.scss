@@ -14,7 +14,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
     display: none;
     position: fixed;
     background-color: var(--b2b-color-background-overlay-transparent-80);
@@ -60,10 +60,15 @@
       padding: 0;
       border: none;
 
-      .b2b-icon {
+      b2b-icon {
         transition: all 0.3s ease;
 
         --b2b-icon-cursor: pointer;
+      }
+
+      /* this is a workaround to force purgecss to include the overwrites of the variable --b2b-icon-cursor */
+      .purge-css-include-variables {
+        cursor: var(--b2b-icon-cursor)
       }
     }
 
