@@ -654,6 +654,18 @@ export namespace Components {
     }
     interface B2bTableRow {
         /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionChild": boolean;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionHeader": boolean;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionParent": boolean;
+        /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
         "color": B2BTableColourOptions1;
@@ -663,6 +675,10 @@ export namespace Components {
         "highlight": boolean;
     }
     interface B2bTableRowgroup {
+        /**
+          * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
+         */
+        "accordion": boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -843,6 +859,10 @@ export interface B2bTableCustomEvent<T> extends CustomEvent<T> {
 export interface B2bTableHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bTableHeaderElement;
+}
+export interface B2bTableRowCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bTableRowElement;
 }
 export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1881,6 +1901,18 @@ declare namespace LocalJSX {
     }
     interface B2bTableRow {
         /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionChild"?: boolean;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionHeader"?: boolean;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionParent"?: boolean;
+        /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
         "color"?: B2BTableColourOptions1;
@@ -1888,8 +1920,16 @@ declare namespace LocalJSX {
           * Whether the row will be highlighted on mouse over *
          */
         "highlight"?: boolean;
+        /**
+          * Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown.
+         */
+        "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
     }
     interface B2bTableRowgroup {
+        /**
+          * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
+         */
+        "accordion"?: boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */

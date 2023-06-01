@@ -3,6 +3,22 @@
 :host {
   border-bottom: 1px solid var(--b2b-color-grey-200);
   display: table-row;
+
+  .b2b-table-row--accordion-icon {
+    b2b-icon {
+      --b2b-icon-cursor: pointer;
+    }
+    
+    &-closed {
+      transform: rotate(0);
+      transition: transform .2s ease-in-out;
+    }
+  
+    &-open { 
+      transform: rotate(90deg);
+      transition: transform .2s ease-in-out;
+    }
+  }
 }
 
 :host(.b2b-table-row-color-default) {
@@ -19,6 +35,10 @@
 
 :host(.b2b-table-row-color-default:hover) {
   background-color: inherit;
+}
+
+:host(.b2b-table-row--accordion-parent) {
+  background-color: var(--b2b-color-grey-100);
 }
 
 /* purgecss start ignore */

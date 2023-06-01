@@ -29,25 +29,48 @@
       </b2b-paragraph>
       <br />
       <!--  Parent can control size of table when table has size: expand-->
-      <div style="width: 500px">
+      <div style="width: 700px">
         <b2b-table size="expand">
-          <b2b-table-rowgroup type="header">
+          <b2b-table-rowgroup type="header" accordion>
             <b2b-table-row>
-              <b2b-table-header divider>Title 1</b2b-table-header>
+              <b2b-table-header>Title 1</b2b-table-header>
               <b2b-table-header>Title 2</b2b-table-header>
               <b2b-table-header>Title 3</b2b-table-header>
               <b2b-table-header>Title 4</b2b-table-header>
             </b2b-table-row>
           </b2b-table-rowgroup>
-          <b2b-table-rowgroup type="body">
+          <b2b-table-rowgroup type="body" accordion>
             <b2b-table-row>
-              <b2b-table-cell divider><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
               <b2b-table-cell>data 2a</b2b-table-cell>
               <b2b-table-cell>data 3a</b2b-table-cell>
               <b2b-table-cell><b2b-button>Button</b2b-button></b2b-table-cell>
             </b2b-table-row>
             <b2b-table-row>
-              <b2b-table-cell divider>data 1b</b2b-table-cell>
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell><b2b-button>Button</b2b-button></b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row>
+              <b2b-table-cell>data 1b</b2b-table-cell>
+              <b2b-table-cell text-wrap="true"
+                >Very long data text that wraps over to next
+                line</b2b-table-cell
+              >
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 4b</b2b-table-cell>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body" accordion>
+            <b2b-table-row>
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell><b2b-button>Button</b2b-button></b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row>
+              <b2b-table-cell>data 1b</b2b-table-cell>
               <b2b-table-cell text-wrap="false"
                 >Very long data text that wraps over to next
                 line</b2b-table-cell
@@ -75,10 +98,10 @@
               <b2b-table-header sort-direction="not-sorted"
                 >Title 1</b2b-table-header
               >
-              <b2b-table-header sort-direction="descending"
+              <b2b-table-header sort-direction="not-sorted"
                 >Title 2</b2b-table-header
               >
-              <b2b-table-header sort-direction="ascending"
+              <b2b-table-header sort-direction="not-sorted"
                 >Title 3</b2b-table-header
               >
               <b2b-table-header sort-direction="descending"
