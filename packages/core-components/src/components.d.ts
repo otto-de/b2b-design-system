@@ -9,16 +9,12 @@ import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventD
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { ContentAlignment, TableRowgroupTypes, TableSizes, TableSortDirections } from "./components/table/types";
-import { B2BTableColourOptions } from "./components/table/table-row/table-row";
-import { B2BTableColourOptions as B2BTableColourOptions1 } from "./components/table/table-row/table-row";
+import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
 export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { ContentAlignment, TableRowgroupTypes, TableSizes, TableSortDirections } from "./components/table/types";
-export { B2BTableColourOptions } from "./components/table/table-row/table-row";
-export { B2BTableColourOptions as B2BTableColourOptions1 } from "./components/table/table-row/table-row";
+export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
 export namespace Components {
     interface B2bAlert {
         /**
@@ -620,7 +616,7 @@ export namespace Components {
         /**
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
-        "color": B2BTableColourOptions;
+        "color": TableColourOptions;
         /**
           * adds a border to the right of the cell. *
          */
@@ -654,25 +650,17 @@ export namespace Components {
     }
     interface B2bTableRow {
         /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
-        "accordionChild": boolean;
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
-        "accordionHeader": boolean;
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
-        "accordionParent": boolean;
-        /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
-        "color": B2BTableColourOptions1;
+        "color": TableColourOptions;
         /**
           * Whether the row will be highlighted on mouse over *
          */
         "highlight": boolean;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "type": TableRowTypes;
     }
     interface B2bTableRowgroup {
         /**
@@ -1863,7 +1851,7 @@ declare namespace LocalJSX {
         /**
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
-        "color"?: B2BTableColourOptions;
+        "color"?: TableColourOptions;
         /**
           * adds a border to the right of the cell. *
          */
@@ -1901,21 +1889,9 @@ declare namespace LocalJSX {
     }
     interface B2bTableRow {
         /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
-        "accordionChild"?: boolean;
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
-        "accordionHeader"?: boolean;
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
-        "accordionParent"?: boolean;
-        /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
-        "color"?: B2BTableColourOptions1;
+        "color"?: TableColourOptions;
         /**
           * Whether the row will be highlighted on mouse over *
          */
@@ -1924,6 +1900,10 @@ declare namespace LocalJSX {
           * Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown.
          */
         "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "type"?: TableRowTypes;
     }
     interface B2bTableRowgroup {
         /**

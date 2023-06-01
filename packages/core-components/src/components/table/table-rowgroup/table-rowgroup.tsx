@@ -45,15 +45,15 @@ export class TableRowgroupComponent {
   private addControlColumn = () => {
     const children = this.getRemainingRows();
     children.forEach(child => {
-      child.setAttribute('accordion-child', 'true');
+      child.setAttribute('type', 'child');
     });
 
     const firstRow = this.getFirstRow();
 
     if (this.type === 'header') {
-      firstRow.setAttribute('accordion-header', 'true');
+      firstRow.setAttribute('type', 'header');
     } else {
-      firstRow.setAttribute('accordion-parent', 'true');
+      firstRow.setAttribute('type', 'parent');
     }
   };
 

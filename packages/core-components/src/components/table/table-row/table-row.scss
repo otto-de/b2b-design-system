@@ -5,18 +5,19 @@
   display: table-row;
 
   .b2b-table-row--accordion-icon {
+    transform: rotate(0);
+    transition: transform 0.2s ease-in-out;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+
     b2b-icon {
       --b2b-icon-cursor: pointer;
     }
-    
-    &-closed {
-      transform: rotate(0);
-      transition: transform .2s ease-in-out;
-    }
-  
-    &-open { 
+
+    &-open {
       transform: rotate(90deg);
-      transition: transform .2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
     }
   }
 }
@@ -38,7 +39,7 @@
 }
 
 :host(.b2b-table-row--accordion-parent) {
-  background-color: var(--b2b-color-grey-100);
+  background-color: var(--b2b-color-grey-50);
 }
 
 /* purgecss start ignore */

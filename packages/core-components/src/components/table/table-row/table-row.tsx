@@ -7,8 +7,7 @@ import {
   EventEmitter,
   State,
 } from '@stencil/core';
-
-export type B2BTableColourOptions = 'default' | 'selected' | 'group';
+import { TableRowTypes, TableColourOptions } from '../types';
 
 @Component({
   tag: 'b2b-table-row',
@@ -20,16 +19,10 @@ export class TableRowComponent {
   @Prop() highlight: boolean = true;
 
   /** Background color of the row. Use it semantically. This color selection have hover states **/
-  @Prop() color: B2BTableColourOptions = 'default';
+  @Prop() color: TableColourOptions = 'default';
 
   /** Determined by the parent rowgroup for accordion rowgroups. Do not set manually. */
-  @Prop() accordionParent = false;
-
-  /** Determined by the parent rowgroup for accordion rowgroups. Do not set manually. */
-  @Prop() accordionChild = false;
-
-  /** Determined by the parent rowgroup for accordion rowgroups. Do not set manually. */
-  @Prop() accordionHeader = false;
+  @Prop() type: TableRowTypes;
 
   /** Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown. */
   @Event({ eventName: 'b2b-open' })
@@ -47,25 +40,27 @@ export class TableRowComponent {
       <Host
         class={{
           'b2b-table-row': true,
-          'b2b-table-row--accordion-parent': this.accordionParent,
+          'b2b-table-row--accordion-parent': this.type === TableRowTypes.PARENT,
           ['b2b-table-row-highlight']: this.highlight,
           [`b2b-table-row-color-${this.color}`]: true,
         }}
         role="row">
-        {this.accordionParent && (
-          <b2b-table-cell onClick={this.toggleOpen}>
-            <div
+        {this.type === 'parent' && (
+          <b2b-table-cell>
+            <button
+              onClick={this.toggleOpen}
               class={{
                 'b2b-table-row--accordion-icon': true,
-                'b2b-table-row--accordion-icon-closed': !this.isOpen,
                 'b2b-table-row--accordion-icon-open': this.isOpen,
               }}>
               <b2b-icon icon="b2b_icon-arrow-right"></b2b-icon>
-            </div>
+            </button>
           </b2b-table-cell>
         )}
-        {this.accordionChild && <b2b-table-cell></b2b-table-cell>}
-        {this.accordionHeader && <b2b-table-header></b2b-table-header>}
+        {this.type === TableRowTypes.CHILD && <b2b-table-cell></b2b-table-cell>}
+        {this.type === TableRowTypes.HEADER && (
+          <b2b-table-header></b2b-table-header>
+        )}
         <slot></slot>
       </Host>
     );
