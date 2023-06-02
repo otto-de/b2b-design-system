@@ -2047,7 +2047,7 @@
           "summary": "true"
         }
       },
-      "description": "Weather text should wrap or truncate.\r\nIt will only truncate when table size is equal\r\n*"
+      "description": "Whether text should wrap or truncate.\r\nIt will only truncate when table size is equal\r\n*"
     }
   },
   "b2b-table-header": {

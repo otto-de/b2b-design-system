@@ -626,7 +626,7 @@ export namespace Components {
          */
         "size": TableSizes;
         /**
-          * Weather text should wrap or truncate. It will only truncate when table size is equal *
+          * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap": boolean;
     }
@@ -1861,7 +1861,7 @@ declare namespace LocalJSX {
          */
         "size"?: TableSizes;
         /**
-          * Weather text should wrap or truncate. It will only truncate when table size is equal *
+          * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap"?: boolean;
     }
