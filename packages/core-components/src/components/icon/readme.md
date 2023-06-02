@@ -22,6 +22,7 @@
  - [b2b-input-list](../input-list)
  - [b2b-modal](../modal)
  - [b2b-search](../search)
+ - [b2b-table-row](../table/table-row)
 
 ### Graph
 ```mermaid
@@ -30,6 +31,7 @@ graph TD;
   b2b-input-list --> b2b-icon
   b2b-modal --> b2b-icon
   b2b-search --> b2b-icon
+  b2b-table-row --> b2b-icon
   style b2b-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

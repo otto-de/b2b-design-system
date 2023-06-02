@@ -16,6 +16,19 @@
 | `textWrap` | `text-wrap` | Weather text should wrap or truncate. It will only truncate when table size is equal *                                                                                          | `boolean`                            | `true`                  |
 
 
+## Dependencies
+
+### Used by
+
+ - [b2b-table-row](../table-row)
+
+### Graph
+```mermaid
+graph TD;
+  b2b-table-row --> b2b-table-cell
+  style b2b-table-cell fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

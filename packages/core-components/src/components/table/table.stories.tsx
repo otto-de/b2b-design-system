@@ -279,6 +279,73 @@ story110Sorting.args = {
 };
 story110Sorting.storyName = 'Table with Sorting';
 
+const TemplateAccordion: Story = ({
+  data,
+  firstColumnWidth,
+  size,
+  textWrap,
+  align,
+  highlight,
+  withDividers,
+  color,
+}) => {
+  return html`
+    <div>
+      <b2b-table size="${size}">
+        <b2b-table-rowgroup type="header" accordion>
+          <b2b-table-row>
+            ${data.columns.map((columnName, index) => {
+              return html` <b2b-table-header
+                ?divider=${withDividers && index !== data.columns.length - 1}
+                style=${index === 0 ? `width: ${firstColumnWidth}` : ''}
+                >${columnName}</b2b-table-header
+              >`;
+            })}
+          </b2b-table-row>
+        </b2b-table-rowgroup>
+        <b2b-table-rowgroup type="body" accordion>
+          ${data.rows.map((row, index) => {
+            return html`<b2b-table-row
+              highlight="${highlight}"
+              color=${index === 0 ? color : 'default'}>
+              ${row.map(
+                data =>
+                  html`<b2b-table-cell
+                    ?divider=${withDividers}
+                    align="${align}"
+                    text-wrap="${textWrap}"
+                    >${data}</b2b-table-cell
+                  >`,
+              )}
+            </b2b-table-row>`;
+          })}
+        </b2b-table-rowgroup>
+        <b2b-table-rowgroup type="body" accordion>
+          ${data.rows.map((row, index) => {
+            return html`<b2b-table-row
+              highlight="${highlight}"
+              color=${index === 0 ? color : 'default'}>
+              ${row.map(
+                data =>
+                  html`<b2b-table-cell
+                    ?divider=${withDividers}
+                    align="${align}"
+                    text-wrap="${textWrap}"
+                    >${data}</b2b-table-cell
+                  >`,
+              )}
+            </b2b-table-row>`;
+          })}
+        </b2b-table-rowgroup>
+      </b2b-table>
+    </div>
+  `;
+};
+
+export const story120Accordion = TemplateAccordion.bind({});
+story120Accordion.args = { ...defaultArgs, data: sampleData };
+story120Accordion.storyName = 'Accordion Table';
+
 const tableArgs = getArgTypes('b2b-table');
 const rowGroupArgs = getArgTypes('b2b-table-rowgroup');
 const rowArgs = getArgTypes('b2b-table-row');

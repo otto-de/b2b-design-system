@@ -8,7 +8,7 @@ import { ContentAlignment, TableSizes, TableColourOptions } from '../types';
 })
 export class TableCellComponent {
   @Element() host: HTMLB2bTableCellElement;
-  /** Weather text should wrap or truncate.
+  /** Whether text should wrap or truncate.
    * It will only truncate when table size is equal
    * **/
   @Prop({ reflect: true }) textWrap: boolean = true;

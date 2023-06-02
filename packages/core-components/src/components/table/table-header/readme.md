@@ -22,6 +22,19 @@
 | `b2b-change` | Emits whenever the sort direction changes. | `CustomEvent<"ascending" \| "descending" \| "not-sorted">` |
 
 
+## Dependencies
+
+### Used by
+
+ - [b2b-table-row](../table-row)
+
+### Graph
+```mermaid
+graph TD;
+  b2b-table-row --> b2b-table-header
+  style b2b-table-header fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
