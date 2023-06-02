@@ -45,7 +45,7 @@ export class TableRowComponent {
           [`b2b-table-row-color-${this.color}`]: true,
         }}
         role="row">
-        {this.type === 'parent' && (
+        {this.type === TableRowTypes.PARENT && (
           <b2b-table-cell>
             <button
               onClick={this.toggleOpen}
