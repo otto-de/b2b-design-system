@@ -22,7 +22,7 @@ jobs:
   visual_tests:
     name: Visual Regression Tests
     needs: [ validations ]
-    if: ${{ !contains(github.event.head_commit.message, 'chore') && !contains(github.event.head_commit.message, 'ci')}}
+    if: ${{ !contains(github.event.head_commit.message, 'chore') || !contains(github.event.head_commit.message, 'ci')}}
     uses: ./.github/workflows/visual-test.yml
     with:
       node_version: 16
@@ -30,7 +30,7 @@ jobs:
   deploy_docker_image:
     name: Deploy Docker Image
     needs: [ visual_tests ]
-    if: ${{ !startsWith(github.event.head_commit.message, 'chore') && !startsWith(github.event.head_commit.message, 'ci')}}
+    if: ${{ !startsWith(github.event.head_commit.message, 'chore') || !startsWith(github.event.head_commit.message, 'ci')}}
     uses: ./.github/workflows/docker-image.yml
     with:
       node_version: 16
