@@ -663,6 +663,10 @@ export namespace Components {
         "highlight": boolean;
         "toggleAccordion": (isOpen: any) => Promise<void>;
         /**
+          * Will toggle the accordion opened or closed.
+         */
+        "toggleAccordion": (isOpen: any) => Promise<void>;
+        /**
           * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
          */
         "type": TableRowTypes;

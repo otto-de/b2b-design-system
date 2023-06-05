@@ -25,7 +25,7 @@
 
 ### `toggleAccordion(isOpen: any) => Promise<void>`
 
-
+Will toggle the accordion opened or closed.
 
 #### Returns
 
