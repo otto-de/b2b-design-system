@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/otto-de/b2b-design-system/compare/v1.2.0...v1.3.0) (2023-06-05)
+
+
+### Bug Fixes
+
+* [SCOUT] fix logic to skip on-push steps ([94d548a](https://github.com/otto-de/b2b-design-system/commit/94d548a330f1a0a53ce9bfb00bb5870ee2b68c35))
+* **Modal:** [B2BDS-196] increase z-index value and fix close icon cursor ([5a13ea7](https://github.com/otto-de/b2b-design-system/commit/5a13ea7a14f7a13ed7972ff87620b7198c14533c))
+
+
+### Features
+
+* **core:** [B2BDS-180] add card component ([d34b9d4](https://github.com/otto-de/b2b-design-system/commit/d34b9d4e06da834ced771fadbe6ddf7dddd54550))
+* **docs:** add documentation for width of form components ([46dce21](https://github.com/otto-de/b2b-design-system/commit/46dce21cd3568f0de70b9382987a28819b92c97f))
+* **Search:** [B2BDS-193] add disable prop to Search and InputList ([1a51a83](https://github.com/otto-de/b2b-design-system/commit/1a51a83f1f90bd335b35c42bd1d1ea45fa6c9e87))
+* **Table:** [B2BDS-165] accordion rows ([b27affc](https://github.com/otto-de/b2b-design-system/commit/b27affcc323df71e1d9e47b9a2bb874eeef86ad9))
+
 # [1.2.0](https://github.com/otto-de/b2b-design-system/compare/v1.1.0...v1.2.0) (2023-05-25)
 
 
