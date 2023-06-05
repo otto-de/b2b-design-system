@@ -177,7 +177,7 @@
         },
         "defaultValue": {}
       },
-      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\r\ndefaults to the URL string, but can be changed by the user."
+      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\ndefaults to the URL string, but can be changed by the user."
     },
     "href": {
       "table": {
@@ -296,7 +296,9 @@
         "type": {
           "summary": "string"
         },
-        "defaultValue": {}
+        "defaultValue": {
+          "summary": "''"
+        }
       },
       "description": "An optional href in case the card is used to redirect on click."
     },
@@ -2032,7 +2034,7 @@
           "summary": "TableSizes.EXPAND"
         }
       },
-      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns."
+      "description": "The size of the table. Both will expand to 100% of parent size.\nExpand cells will use as much space as content needs and text will wrap.\nEqual will keep all column sizes proportional to the number of columns."
     }
   },
   "b2b-table-cell": {
@@ -2104,7 +2106,7 @@
           "summary": "TableSizes.EXPAND"
         }
       },
-      "description": "The size of the cell. Follows table size.\r\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\r\nOther sizes won't affect cell current implementation."
+      "description": "The size of the cell. Follows table size.\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\nOther sizes won't affect cell current implementation."
     },
     "textWrap": {
       "control": {
@@ -2118,7 +2120,7 @@
           "summary": "true"
         }
       },
-      "description": "Weather text should wrap or truncate.\r\nIt will only truncate when table size is equal\r\n*"
+      "description": "Weather text should wrap or truncate.\nIt will only truncate when table size is equal\n*"
     }
   },
   "b2b-table-header": {

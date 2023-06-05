@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                     | Type                | Default     |
-| ---------- | ---------- | --------------------------------------------------------------- | ------------------- | ----------- |
-| `disabled` | `disabled` | Disables the card. Per default, it is false                     | `boolean`           | `false`     |
-| `href`     | `href`     | An optional href in case the card is used to redirect on click. | `string`            | `undefined` |
-| `target`   | `target`   | The target of the card if used with an href. Blank per default. | `"blank" \| "self"` | `'blank'`   |
+| Property   | Attribute  | Description                                                     | Type                | Default   |
+| ---------- | ---------- | --------------------------------------------------------------- | ------------------- | --------- |
+| `disabled` | `disabled` | Disables the card. Per default, it is false                     | `boolean`           | `false`   |
+| `href`     | `href`     | An optional href in case the card is used to redirect on click. | `string`            | `''`      |
+| `target`   | `target`   | The target of the card if used with an href. Blank per default. | `"blank" \| "self"` | `'blank'` |
 
 
 ## Events
