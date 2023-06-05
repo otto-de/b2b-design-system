@@ -5,6 +5,7 @@ import {
   Prop,
   Event,
   EventEmitter,
+  Method,
   State,
 } from '@stencil/core';
 import { TableRowTypes, TableColourOptions } from '../types';
@@ -35,14 +36,21 @@ export class TableRowComponent {
     this.b2bOpen.emit(this.isOpen);
   };
 
+  /** Will toggle the accordion opened or closed. */
+  @Method()
+  async toggleAccordion(isOpen) {
+    this.isOpen = isOpen;
+    this.b2bOpen.emit(isOpen);
+  }
+
   render() {
     return (
       <Host
         class={{
           'b2b-table-row': true,
-          'b2b-table-row--accordion-parent': this.type === TableRowTypes.PARENT,
-          ['b2b-table-row-highlight']: this.highlight,
-          [`b2b-table-row-color-${this.color}`]: true,
+          'b2b-table-row__accordion-parent': this.type === TableRowTypes.PARENT,
+          ['b2b-table-row--highlight']: this.highlight,
+          [`b2b-table-row--color-${this.color}`]: true,
         }}
         role="row">
         {this.type === TableRowTypes.PARENT && (
@@ -50,8 +58,8 @@ export class TableRowComponent {
             <button
               onClick={this.toggleOpen}
               class={{
-                'b2b-table-row--accordion-icon': true,
-                'b2b-table-row--accordion-icon-open': this.isOpen,
+                'b2b-table-row__accordion-icon': true,
+                'b2b-table-row__accordion-icon--open': this.isOpen,
               }}>
               <b2b-icon icon="b2b_icon-arrow-right" clickable={true}></b2b-icon>
             </button>

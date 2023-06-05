@@ -276,6 +276,42 @@ it will only go back to its unsorted state automatically, when the user clicks o
 </b2b-table>
 ```
 
+#### Events
+
+When the user interacts with sorting, the `b2b-table` will emit a `b2b-sort-change` event that will contain
+information about the sorted header and the direction selected. You can provide the property `sort-id` to the
+`<b2b-table-header>` if you would like a specific id to be emitted with this event. If is not provided, the event
+will emit the header text content.
+
+Also, the `<b2b-table-header>` will emit a `b2b-change` that contains the detail of the sorting direction.
+
+_React Notation_
+
+```jsx
+onSortChange = (event) => event.detail //  { sortedColumn: 'My Header' sortDirection: 'ascending' }
+onChange = (event) => event.detail // 'ascending'
+
+<B2bTable onB2b-sort-change={onSortChange}>
+  <B2BTableHeader sortDirection="descending" sortId="myHeader" onB2b-change={onChange}>My Header</B2BTableHeader>
+</B2bSearch>
+```
+
+_Vue Notation_
+
+```jsx
+<b2b-table v-on:b2b-sort-change={onSortChange}>
+  <b2b-table-header
+    sort-direction="descending"
+    sort-id="myHeader"
+    v-on:b2b-change={onChange}>
+    My Header
+  </b2b-table-header>
+</b2b-table>
+```
+
+<br />
+<hr />
+
 ### Accordion
 
 If you have complex or nested data, you can use accordion rows to better represent your data structure.
@@ -312,37 +348,12 @@ A table with accordion rows might look like this:
 </b2b-table>
 ```
 
-#### Events
-
-When the user interacts with sorting, the `b2b-table` will emit a `b2b-sort-change` event that will contain
-information about the sorted header and the direction selected. You can provide the property `sort-id` to the
-`<b2b-table-header>` if you would like a specific id to be emitted with this event. If is not provided, the event
-will emit the header text content.
-
-Also, the `<b2b-table-header>` will emit a `b2b-change` that contains the detail of the sorting direction.
-
-_React Notation_
+The accordion can render opened by passing the property `opened` to the rowgroup:
 
 ```jsx
-onSortChange = (event) => event.detail //  { sortedColumn: 'My Header' sortDirection: 'ascending' }
-onChange = (event) => event.detail // 'ascending'
-
-<B2bTable onB2b-sort-change={onSortChange}>
-  <B2BTableHeader sortDirection="descending" sortId="myHeader" onB2b-change={onChange}>My Header</B2BTableHeader>
-</B2bSearch>
-```
-
-_Vue Notation_
-
-```jsx
-<b2b-table v-on:b2b-sort-change={onSortChange}>
-  <b2b-table-header
-    sort-direction="descending"
-    sort-id="myHeader"
-    v-on:b2b-change={onChange}>
-    My Header
-  </b2b-table-header>
-</b2b-table>
+<b2b-table-rowgroup type="body" accordion opened>
+  <b2b-table-row> ... </b2b-table-row>
+</b2b-table-rowgroup>
 ```
 
 <br />

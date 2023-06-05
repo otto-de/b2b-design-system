@@ -661,6 +661,7 @@ export namespace Components {
           * Whether the row will be highlighted on mouse over *
          */
         "highlight": boolean;
+        "toggleAccordion": (isOpen: any) => Promise<void>;
         /**
           * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
          */
@@ -671,6 +672,10 @@ export namespace Components {
           * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
          */
         "accordion": boolean;
+        /**
+          * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
+         */
+        "opened": boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -1918,6 +1923,10 @@ declare namespace LocalJSX {
           * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
          */
         "accordion"?: boolean;
+        /**
+          * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
+         */
+        "opened"?: boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */

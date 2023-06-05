@@ -18,6 +18,11 @@ export class TableRowgroupComponent {
    */
   @Prop() accordion = false;
 
+  /** Only use when accordion property is true.
+   * Will render the accordion opened if set to true. By default, is false.
+   */
+  @Prop({ reflect: true }) opened: boolean = false;
+
   @Listen('b2b-open')
   handleOpenChange(event: any) {
     this.toggleChildRowVisibility(event.detail);
@@ -44,17 +49,25 @@ export class TableRowgroupComponent {
 
   private addAccordionControlColumn = () => {
     const children = this.getRemainingRows();
-    children.forEach(child => {
-      child.setAttribute('type', 'child');
-    });
+    children &&
+      children.forEach(child => {
+        child.setAttribute('type', 'child');
+      });
 
     const firstRow = this.getFirstRow();
 
     if (this.type === 'header') {
-      firstRow.setAttribute('type', 'header');
+      firstRow && firstRow.setAttribute('type', 'header');
     } else {
-      firstRow.setAttribute('type', 'parent');
+      firstRow && firstRow.setAttribute('type', 'parent');
     }
+  };
+
+  private toggleInitialVisibility = () => {
+    const firstRow = this.getFirstRow();
+    (async () => {
+      firstRow && (await firstRow.toggleAccordion(this.opened));
+    })();
   };
 
   private toggleChildRowVisibility = (isOpen: boolean) => {
@@ -74,7 +87,7 @@ export class TableRowgroupComponent {
   componentWillLoad() {
     if (this.accordion) {
       this.addAccordionControlColumn();
-      this.toggleChildRowVisibility(false);
+      this.toggleInitialVisibility();
     }
   }
 

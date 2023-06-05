@@ -21,6 +21,19 @@
 | `b2b-open` | Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown. | `CustomEvent<boolean>` |
 
 
+## Methods
+
+### `toggleAccordion(isOpen: any) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

@@ -320,7 +320,7 @@ const TemplateAccordion: Story = ({
             </b2b-table-row>`;
           })}
         </b2b-table-rowgroup>
-        <b2b-table-rowgroup type="body" accordion>
+        <b2b-table-rowgroup type="body" accordion opened>
           ${data.rows.map((row, index) => {
             return html`<b2b-table-row
               highlight="${highlight}"
@@ -401,7 +401,7 @@ argsTableData.data = {
 
 export default {
   title: 'Components/Content/Table',
-  argTypes: { ...argsTableData, sortDirection: false },
+  argTypes: { ...argsTableData, sortDirection: false, type: false },
   viewmode: 'docs',
   parameters: {
     controls: { expanded: true },

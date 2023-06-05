@@ -2187,6 +2187,20 @@
       },
       "description": "Renders the rowgroup as an accordion. Both header and body must have accordion set to true.\nOne table can contain multiple rowgroups of type body, each of which represents an accordion row with children."
     },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Only use when accordion property is true.\nWill render the accordion opened if set to true. By default, is false."
+    },
     "type": {
       "options": [
         "body",
