@@ -10,6 +10,7 @@ const Template: Story = ({
   placeholder,
   optionsList,
   customMarkup,
+  disabled,
 }) => {
   return html`<div style="height: 130px; width: 300px">
     <b2b-input-list
@@ -17,6 +18,7 @@ const Template: Story = ({
       label="${label}"
       required="${required}"
       placeholder="${placeholder}"
+      disabled="${disabled}"
       .optionsList=${optionsList}
       >${customMarkup}</b2b-input-list
     >
@@ -28,6 +30,7 @@ const defaultArgs = {
   required: false,
   placeholder: 'Search here',
   optionsList: ['option1', 'option2', 'option3'],
+  disabled: false,
 };
 
 export const story010InputList = Template.bind({});
@@ -37,6 +40,10 @@ story010InputList.storyName = 'Input List';
 export const story020InputListFocused = Template.bind({});
 story020InputListFocused.args = { ...defaultArgs };
 story020InputListFocused.storyName = 'Focused';
+
+export const story025InputListDisabled = Template.bind({});
+story025InputListDisabled.args = { ...defaultArgs, disabled: true };
+story025InputListDisabled.storyName = 'Disabled';
 
 export const story030CustomList = Template.bind({});
 const list = html`<ul>

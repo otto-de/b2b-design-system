@@ -1355,6 +1355,20 @@
     }
   },
   "b2b-input-list": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the input is disabled. Default is false."
+    },
     "label": {
       "table": {
         "type": {
@@ -1834,6 +1848,20 @@
   },
   "b2b-scrollable-container": {},
   "b2b-search": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the input is disabled. Default is false."
+    },
     "optionsList": {
       "table": {
         "type": {

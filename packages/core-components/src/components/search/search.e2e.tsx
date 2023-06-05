@@ -11,11 +11,40 @@ describe('B2B-Search', () => {
     await page.waitForChanges();
   };
 
+  const typeInput = async (key: string = '8') => {
+    let input = await page.find('b2b-search >>> b2b-input-list');
+    // focus on input element, focus method did not work
+    await input.click();
+    await input.press(key);
+    await page.waitForChanges();
+  };
+
   beforeEach(async () => {
     page = await newE2EPage();
     await page.setContent(`
       <b2b-search placeholder='search here'></b2b-search>
     `);
+  });
+
+  it('should register input text when enabled', async () => {
+    const search = await page.find('b2b-search');
+
+    await typeInput('8');
+
+    let inputValue = search.getAttribute('value');
+    expect(inputValue).toBe('8');
+  });
+
+  it('should not receive input text when disabled', async () => {
+    const search = await page.find('b2b-search');
+
+    search.setAttribute('disabled', true);
+    await page.waitForChanges();
+
+    await typeInput();
+
+    let inputValue = search.getAttribute('value');
+    expect(inputValue).toBe(null);
   });
 
   it('should emit search event when clicking search button', async () => {

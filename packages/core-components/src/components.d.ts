@@ -390,6 +390,10 @@ export namespace Components {
     }
     interface B2bInputList {
         /**
+          * Whether or not the input is disabled. Default is false.
+         */
+        "disabled": boolean;
+        /**
           * The input label.
          */
         "label": string;
@@ -565,6 +569,10 @@ export namespace Components {
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
+        /**
+          * Whether or not the input is disabled. Default is false.
+         */
+        "disabled": boolean;
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
@@ -1593,9 +1601,16 @@ declare namespace LocalJSX {
     }
     interface B2bInputList {
         /**
+          * Whether or not the input is disabled. Default is false.
+         */
+        "disabled"?: boolean;
+        /**
           * The input label.
          */
         "label"?: string;
+        /**
+          * Emits when the user clicks the clear button.
+         */
         "onB2b-clear"?: (event: B2bInputListCustomEvent<InputClear>) => void;
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
@@ -1801,6 +1816,10 @@ declare namespace LocalJSX {
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
+        /**
+          * Whether or not the input is disabled. Default is false.
+         */
+        "disabled"?: boolean;
         /**
           * Emits whenever the user clicks the search button. Will emit the search string.
          */
