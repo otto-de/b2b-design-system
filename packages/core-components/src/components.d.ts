@@ -266,6 +266,10 @@ export namespace Components {
     }
     interface B2bIcon {
         /**
+          * Will display a pointer cursor when hovering the icon
+         */
+        "clickable": boolean;
+        /**
           * The color of the icon
          */
         "color": 'primary' | 'secondary' | 'inverse' | 'inherit';
@@ -1447,6 +1451,10 @@ declare namespace LocalJSX {
         "size"?: '400' | '200' | '100';
     }
     interface B2bIcon {
+        /**
+          * Will display a pointer cursor when hovering the icon
+         */
+        "clickable"?: boolean;
         /**
           * The color of the icon
          */

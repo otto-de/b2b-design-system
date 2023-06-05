@@ -53,7 +53,7 @@ export class TableRowComponent {
                 'b2b-table-row--accordion-icon': true,
                 'b2b-table-row--accordion-icon-open': this.isOpen,
               }}>
-              <b2b-icon icon="b2b_icon-arrow-right"></b2b-icon>
+              <b2b-icon icon="b2b_icon-arrow-right" clickable={true}></b2b-icon>
             </button>
           </b2b-table-cell>
         )}

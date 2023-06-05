@@ -11,10 +11,6 @@
     background-color: transparent;
     border: none;
 
-    b2b-icon {
-      --b2b-icon-cursor: pointer;
-    }
-
     &-open {
       transform: rotate(90deg);
       transition: transform 0.2s ease-in-out;

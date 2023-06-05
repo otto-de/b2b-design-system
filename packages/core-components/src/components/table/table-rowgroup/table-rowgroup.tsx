@@ -42,7 +42,7 @@ export class TableRowgroupComponent {
     }
   }
 
-  private addControlColumn = () => {
+  private addAccordionControlColumn = () => {
     const children = this.getRemainingRows();
     children.forEach(child => {
       child.setAttribute('type', 'child');
@@ -73,7 +73,7 @@ export class TableRowgroupComponent {
 
   componentWillLoad() {
     if (this.accordion) {
-      this.addControlColumn();
+      this.addAccordionControlColumn();
       this.toggleChildRowVisibility(false);
     }
   }

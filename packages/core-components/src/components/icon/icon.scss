@@ -10,6 +10,10 @@
     line-height: var(--b2b-icon-line-height);
     cursor: var(--b2b-icon-cursor);
 
+    &--clickable {
+      cursor: pointer;
+    }
+
     &.icon-50 {
       width: var(--b2b-size-40);
       height: var(--b2b-size-40);

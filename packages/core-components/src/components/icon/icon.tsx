@@ -18,6 +18,9 @@ export class B2bIcon {
   /** The size of the icon */
   @Prop() size: '50' | '100' | '200' = '100';
 
+  /** Will display a pointer cursor when hovering the icon */
+  @Prop() clickable: boolean = false;
+
   @State() private pathData: string = null;
 
   connectedCallback() {
@@ -37,6 +40,7 @@ export class B2bIcon {
             'b2b-icon': true,
             [`icon-${this.size}`]: true,
             [this.color]: true,
+            'b2b-icon--clickable': this.clickable,
           }}
           innerHTML={this.pathData}></div>
       </Host>

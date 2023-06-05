@@ -25,7 +25,7 @@ export const TableSortDirections = {
   ASC: 'ascending',
   DESC: 'descending',
 } as const;
-export type TableSortDirections = 
+export type TableSortDirections =
   (typeof TableSortDirections)[keyof typeof TableSortDirections];
 
 export const TableRowTypes = {
@@ -36,4 +36,4 @@ export const TableRowTypes = {
 export type TableRowTypes =
   (typeof TableRowTypes)[keyof typeof TableRowTypes];
 
-  export type TableColourOptions = 'default' | 'selected' | 'group';
+export type TableColourOptions = 'default' | 'selected' | 'group';
