@@ -1,4 +1,4 @@
-import { Meta, Source } from '@storybook/addon-docs';
+import { Meta, Source, Canvas, Story } from '@storybook/addon-docs';
 import dedent from 'ts-dedent';
 
 <Meta title="Guidelines/Form Usage" />
@@ -9,6 +9,8 @@ This guide aims to provide best practices for using our form components. More sp
 getting the component's value, validation, form events and form submission will be covered.
 For all of these topics, there are practical examples in [React](https://github.com/otto-ec/b2b-react-examples/blob/main/src/components/SignUpForm.tsx) and [Vue](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/components/signupform/SignUpForm.vue) to consider.
 
+<br />
+
 ## Form Component Values
 
 The B2B components are designed to build on top of native HTML form behavior. This mean that
@@ -16,12 +18,20 @@ you can control the form's and it's children's state by setting the component's 
 when the user types something inside an input field or checks a checkbox, it's value will be emitted
 and can be processed further.
 
+<br />
+
 ## Form Component Events
 
 We're currently exposing three different custom events per component that are most relevant to reacting to form changes.
 On top of that, all event listeners available on a native `HTMLElement` are available on our components as well. Note that
 they are listening to the event on the top-most level and will not necessarily respond to events happening to nested elements
 specifically.
+
+☝️ We support Vue `v-model` for `b2b-input`, `b2b-checkbox`, `b2b-radio`, `b2b-textarea` and `b2b-input-list` components. You can
+find more in [this
+guide](?path=/docs/getting-started-vue--page#v-model-support).
+
+<br />
 
 ### B2B Input
 
@@ -59,6 +69,28 @@ The `b2b-focus` emits whenever the element gets focused. It emits the native eve
 
 The `b2b-blur` emits whenever the element loses focus. It emits the native event.
 
+<br />
+
+## Form Elements width
+
+All our form elements are defined with a width of a `100%`, which makes them expand as big as their container.
+
+The width of any form component can be changed:
+
+- directly on the component by adding an inline style
+- directly on the component by adding a css class that defines the width
+- wrapping the component(s) in a parent like a form or div, that define the width
+
+Here is an example of different types of width used. Here we have a parent `div` that defines the width by inline
+styles and a `dropdown` component that uses `fit-content` so that it does not expand based on available space but
+content.
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-form-input-group--story-010-default" />
+</Canvas>
+
+<br />
+
 ## Form Validation
 
 ### Inputs
@@ -69,6 +101,8 @@ and generally create a better user experience. We still provide the `b2b-input` 
 ### Radio Buttons and Checkboxes
 
 For elements like checkboxes and radio buttons we provide the `b2b-change` event for validation. It emits whenever the checkbox is clicked.
+
+<br />
 
 ## Using the FormData Object
 

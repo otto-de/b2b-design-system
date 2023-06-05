@@ -126,10 +126,31 @@ For mor information you can follow [this link](https://stackoverflow.com/questio
 The `v-model` directive for two-way data binding is currently compatible with all our form components but the
 `b2b-drowpdown`, for which we recommend using the `v-on` directive.
 
+For `v-model` to work please add the type of input to the component as well specially in the case of the radio and
+checkbox:
+
+```jsx
+<b2b-radio-button
+  type="radio"
+  label="One"
+  value="one"
+  name="group2"
+  v-model="selectedValue"></b2b-radio-button>
+```
+
+```jsx
+<b2b-checkbox
+  type="checkbox"
+  label="Single Checkbox"
+  v-model="toggle"
+  true-value="yes"
+  false-value="no"
+  v-on:change="this.logChange"></b2b-checkbox>
+```
+
 To learn more about v-model, we recommend following [this guide](https://vuejs.org/guide/essentials/forms.html).
-We have published some examples of our components with the V-Model notation. You can find them in our [example
-repository](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/App.vue) (only available internally for now,
-sorry).
+We have published some examples of our components with the V-Model VModelNotation (look for VModelNotation naming)
+notation. You can find them in our [example repository](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/App.vue) (only available internally for now, sorry).
 
 If you encounter a problem with this directive, let us know by [opening an issue](https://github.com/otto-ec/b2b-design-system/issues) in GitHub, and also consider using an
 extended `v-on` directive such as:
