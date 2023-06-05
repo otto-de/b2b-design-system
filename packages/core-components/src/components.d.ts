@@ -661,7 +661,6 @@ export namespace Components {
           * Whether the row will be highlighted on mouse over *
          */
         "highlight": boolean;
-        "toggleAccordion": (isOpen: any) => Promise<void>;
         /**
           * Will toggle the accordion opened or closed.
          */
