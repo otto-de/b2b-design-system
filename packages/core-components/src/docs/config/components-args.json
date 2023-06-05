@@ -774,6 +774,20 @@
     }
   },
   "b2b-icon": {
+    "clickable": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Will display a pointer cursor when hovering the icon"
+    },
     "color": {
       "options": [
         "inherit",
@@ -2120,7 +2134,7 @@
           "summary": "true"
         }
       },
-      "description": "Weather text should wrap or truncate.\nIt will only truncate when table size is equal\n*"
+      "description": "Whether text should wrap or truncate.\nIt will only truncate when table size is equal\n*"
     }
   },
   "b2b-table-header": {
@@ -2212,9 +2226,54 @@
         }
       },
       "description": "Whether the row will be highlighted on mouse over *"
+    },
+    "type": {
+      "options": [
+        "child",
+        "header",
+        "parent"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Determined by the parent rowgroup for accordion rowgroups. Do not set manually."
     }
   },
   "b2b-table-rowgroup": {
+    "accordion": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Renders the rowgroup as an accordion. Both header and body must have accordion set to true.\nOne table can contain multiple rowgroups of type body, each of which represents an accordion row with children."
+    },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Only use when accordion property is true.\nWill render the accordion opened if set to true. By default, is false."
+    },
     "type": {
       "options": [
         "body",

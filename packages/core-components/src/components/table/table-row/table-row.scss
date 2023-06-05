@@ -3,26 +3,43 @@
 :host {
   border-bottom: 1px solid var(--b2b-color-grey-200);
   display: table-row;
+
+  .b2b-table-row__accordion-icon {
+    transform: rotate(0);
+    transition: transform 0.2s ease-in-out;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+
+    &--open {
+      transform: rotate(90deg);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
 }
 
-:host(.b2b-table-row-color-default) {
+:host(.b2b-table-row--color-default) {
   background-color: inherit;
 }
 
-:host(.b2b-table-row-color-selected) {
+:host(.b2b-table-row--color-selected) {
   background-color: var(--b2b-color-table-selected-default);
 }
 
-:host(.b2b-table-row-color-group) {
+:host(.b2b-table-row--color-group) {
   background-color: var(--b2b-color-table-expand-default);
 }
 
-:host(.b2b-table-row-color-default:hover) {
+:host(.b2b-table-row--color-default:hover) {
   background-color: inherit;
 }
 
+:host(.b2b-table-row__accordion-parent) {
+  background-color: var(--b2b-color-grey-50);
+}
+
 /* purgecss start ignore */
-:host(.b2b-table-row-highlight:hover) {
+:host(.b2b-table-row--highlight:hover) {
   background-color: var(--b2b-color-table-hover);
 
   ::slotted(*) {
@@ -30,7 +47,7 @@
   }
 }
 
-:host(.b2b-table-row-color-selected:hover) {
+:host(.b2b-table-row--color-selected:hover) {
   background-color: var(--b2b-color-red-100);
 
   ::slotted(*) {
@@ -38,7 +55,7 @@
   }
 }
 
-:host(.b2b-table-row-color-group:hover) {
+:host(.b2b-table-row--color-group:hover) {
   background-color: var(--b2b-color-table-expand-hover);
 
   ::slotted(*) {

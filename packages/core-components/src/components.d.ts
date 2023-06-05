@@ -9,16 +9,12 @@ import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventD
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { ContentAlignment, TableRowgroupTypes, TableSizes, TableSortDirections } from "./components/table/types";
-import { B2BTableColourOptions } from "./components/table/table-row/table-row";
-import { B2BTableColourOptions as B2BTableColourOptions1 } from "./components/table/table-row/table-row";
+import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
 export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { ContentAlignment, TableRowgroupTypes, TableSizes, TableSortDirections } from "./components/table/types";
-export { B2BTableColourOptions } from "./components/table/table-row/table-row";
-export { B2BTableColourOptions as B2BTableColourOptions1 } from "./components/table/table-row/table-row";
+export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
 export namespace Components {
     interface B2bAlert {
         /**
@@ -283,6 +279,10 @@ export namespace Components {
         "size": '400' | '200' | '100';
     }
     interface B2bIcon {
+        /**
+          * Will display a pointer cursor when hovering the icon
+         */
+        "clickable": boolean;
         /**
           * The color of the icon
          */
@@ -642,7 +642,7 @@ export namespace Components {
         /**
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
-        "color": B2BTableColourOptions;
+        "color": TableColourOptions;
         /**
           * adds a border to the right of the cell. *
          */
@@ -652,7 +652,7 @@ export namespace Components {
          */
         "size": TableSizes;
         /**
-          * Weather text should wrap or truncate. It will only truncate when table size is equal *
+          * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap": boolean;
     }
@@ -678,13 +678,29 @@ export namespace Components {
         /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
-        "color": B2BTableColourOptions1;
+        "color": TableColourOptions;
         /**
           * Whether the row will be highlighted on mouse over *
          */
         "highlight": boolean;
+        /**
+          * Will toggle the accordion opened or closed.
+         */
+        "toggleAccordion": (isOpen: any) => Promise<void>;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "type": TableRowTypes;
     }
     interface B2bTableRowgroup {
+        /**
+          * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
+         */
+        "accordion": boolean;
+        /**
+          * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
+         */
+        "opened": boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -869,6 +885,10 @@ export interface B2bTableCustomEvent<T> extends CustomEvent<T> {
 export interface B2bTableHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bTableHeaderElement;
+}
+export interface B2bTableRowCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bTableRowElement;
 }
 export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1491,6 +1511,10 @@ declare namespace LocalJSX {
     }
     interface B2bIcon {
         /**
+          * Will display a pointer cursor when hovering the icon
+         */
+        "clickable"?: boolean;
+        /**
           * The color of the icon
          */
         "color"?: 'primary' | 'secondary' | 'inverse' | 'inherit';
@@ -1905,7 +1929,7 @@ declare namespace LocalJSX {
         /**
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
-        "color"?: B2BTableColourOptions;
+        "color"?: TableColourOptions;
         /**
           * adds a border to the right of the cell. *
          */
@@ -1915,7 +1939,7 @@ declare namespace LocalJSX {
          */
         "size"?: TableSizes;
         /**
-          * Weather text should wrap or truncate. It will only truncate when table size is equal *
+          * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap"?: boolean;
     }
@@ -1945,13 +1969,29 @@ declare namespace LocalJSX {
         /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
-        "color"?: B2BTableColourOptions1;
+        "color"?: TableColourOptions;
         /**
           * Whether the row will be highlighted on mouse over *
          */
         "highlight"?: boolean;
+        /**
+          * Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown.
+         */
+        "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
+        /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "type"?: TableRowTypes;
     }
     interface B2bTableRowgroup {
+        /**
+          * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
+         */
+        "accordion"?: boolean;
+        /**
+          * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
+         */
+        "opened"?: boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */

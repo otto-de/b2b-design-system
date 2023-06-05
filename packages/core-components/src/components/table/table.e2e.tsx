@@ -24,6 +24,26 @@ describe('B2B-Table', () => {
     `);
   });
 
+  const tableWithAccordion = `
+    <b2b-table size="expand">
+      <b2b-table-rowgroup type="header" accordion>
+        <b2b-table-row id="test-header">
+          <b2b-table-header>Title 1</b2b-table-header>
+          <b2b-table-header>Title 2</b2b-table-header>
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+      <b2b-table-rowgroup type="body" accordion>
+        <b2b-table-row id="test-parent">
+          <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+          <b2b-table-cell>data 2a</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row id="test-child">
+          <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+          <b2b-table-cell>data 2a</b2b-table-cell>
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+    </b2b-table>`;
+
   it('should render the table component', async () => {
     const element = await page.find('b2b-table');
     expect(element).not.toBeNull;
@@ -171,5 +191,131 @@ describe('B2B-Table', () => {
       sortedColumn: 'title3',
       sortDirection: 'ascending',
     });
+  });
+
+  it('should render the first row of a rowgroup as an accordion parent if accordion is true on a rowgroup and the rowgroup type is body', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithAccordion);
+    const firstRow = await page.find('#test-parent');
+    const type = await firstRow.getProperty('type');
+
+    expect(type).toEqualText('parent');
+  });
+
+  it('should render all rows as accordion children when they are in the same rowgroup of type body in which accordion is true', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithAccordion);
+    const firstRow = await page.find('#test-child');
+    const type = await firstRow.getProperty('type');
+
+    expect(type).toEqualText('child');
+  });
+
+  it('should add an extra column for controls if accordion is true on a rowgroup', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithAccordion);
+    const header = await page.find('#test-header >>> b2b-table-header');
+
+    expect(header).toEqualText('');
+
+    const parent = await page.find('#test-parent >>> b2b-table-cell');
+    const parentControl = await parent.find('button');
+    expect(parentControl).toBeDefined;
+  });
+
+  it('should show children accordion rows if the arrow is clicked in a parent accordion row', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithAccordion);
+
+    const parent = await page.find('#test-parent >>> b2b-table-cell');
+    const parentControl = await parent.find('button');
+
+    const child = await page.find('#test-child');
+    const styleBefore = await child.getComputedStyle();
+
+    expect(styleBefore['visibility']).toEqual('collapse');
+
+    await parentControl.click();
+    await page.waitForChanges();
+
+    const styleAfter = await child.getComputedStyle();
+
+    expect(styleAfter['visibility']).toEqual('visible');
+  });
+
+  it('should show children accordion rows if the arrow is focused and enter is pressed in a parent accordion row', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithAccordion);
+
+    const child = await page.find('#test-child');
+    const styleBefore = await child.getComputedStyle();
+
+    expect(styleBefore['visibility']).toEqual('collapse');
+
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Enter');
+    await page.waitForChanges();
+
+    const styleAfter = await child.getComputedStyle();
+
+    expect(styleAfter['visibility']).toEqual('visible');
+  });
+
+  it('should hide children accordion rows if the arrow is pressed again', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithAccordion);
+
+    const parent = await page.find('#test-parent >>> b2b-table-cell');
+    const parentControl = await parent.find('button');
+
+    const child = await page.find('#test-child');
+    const styleBefore = await child.getComputedStyle();
+
+    expect(styleBefore['visibility']).toEqual('collapse');
+
+    await parentControl.click();
+    await page.waitForChanges();
+    await parentControl.click();
+    await page.waitForChanges();
+
+    const styleAfter = await child.getComputedStyle();
+
+    expect(styleAfter['visibility']).toEqual('collapse');
+  });
+
+  it('should render accordion opened if prop set to true', async () => {
+    page = await newE2EPage();
+    await page.setContent(`<b2b-table size="expand">
+      <b2b-table-rowgroup type="header" accordion>
+        <b2b-table-row id="test-header">
+          <b2b-table-header>Title 1</b2b-table-header>
+          <b2b-table-header>Title 2</b2b-table-header>
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+      <b2b-table-rowgroup type="body" accordion opened>
+        <b2b-table-row id="test-parent">
+          <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+          <b2b-table-cell>data 2a</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row id="test-child">
+          <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+          <b2b-table-cell>data 2a</b2b-table-cell>
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+    </b2b-table>`);
+    const child = await page.find('#test-child');
+
+    const toggleIconClass = await page.evaluate(() => {
+      const parentRow = document.querySelector('#test-parent');
+      const toggleIcon = parentRow.shadowRoot.querySelector(
+        'b2b-table-cell button',
+      );
+      return toggleIcon.className;
+    });
+
+    expect(toggleIconClass).toContain('b2b-table-row__accordion-icon--open');
+
+    const childInitialStyle = await child.getComputedStyle();
+    expect(childInitialStyle['visibility']).toEqual('visible');
   });
 });

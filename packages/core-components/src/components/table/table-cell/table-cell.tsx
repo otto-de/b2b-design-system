@@ -1,6 +1,5 @@
 import { Component, h, Host, Prop, Element, State } from '@stencil/core';
-import { ContentAlignment, TableSizes } from '../types';
-import { B2BTableColourOptions } from '../table-row/table-row';
+import { ContentAlignment, TableSizes, TableColourOptions } from '../types';
 
 @Component({
   tag: 'b2b-table-cell',
@@ -9,7 +8,7 @@ import { B2BTableColourOptions } from '../table-row/table-row';
 })
 export class TableCellComponent {
   @Element() host: HTMLB2bTableCellElement;
-  /** Weather text should wrap or truncate.
+  /** Whether text should wrap or truncate.
    * It will only truncate when table size is equal
    * **/
   @Prop({ reflect: true }) textWrap: boolean = true;
@@ -26,7 +25,7 @@ export class TableCellComponent {
   @Prop() divider: boolean = false;
 
   /** Background color of the cell. This color selection does not have hover states, as it is handled from the row**/
-  @Prop() color: B2BTableColourOptions = 'default';
+  @Prop() color: TableColourOptions = 'default';
 
   @State() useTextEllipsis = false;
 

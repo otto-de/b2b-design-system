@@ -13,7 +13,7 @@ that give consistency to the look and feel of the table, and help developers wit
 | [b2b-table-rowgroup](#b2b-table-rowgroup) | [Colored rows and cells](#colored-rows-and-cells) | [Sizing - fixed row height](#fixed-row-height) |
 | [b2b-table-row](#b2b-table-row)           | [Scrollable Table](#scrollable-table)             |                                                |
 | [b2b-table-header](#b2b-table-header)     | [Sorting Arrows](#sorting-arrows)                 |                                                |
-| [b2b-table-cell](#b2b-table-cell)         |                                                   |                                                |
+| [b2b-table-cell](#b2b-table-cell)         | [Accordion](#accordion)                           |                                                |
 
 <br />
 
@@ -307,6 +307,53 @@ _Vue Notation_
     My Header
   </b2b-table-header>
 </b2b-table>
+```
+
+<br />
+<hr />
+
+### Accordion
+
+If you have complex or nested data, you can use accordion rows to better represent your data structure.
+The table will take each first row of a given `<b2b-table-rowgroup type="body">` and add a control arrow in the first column, making
+it the parent or top-level row. All subsequent rows in the same rowgroup are considered children and will be hidden initially.
+By clicking on the arrow, the accordion expands and children will be shown.
+
+☝️ To use the accordion, simply add `accordion` on the rowgroup you wish to display as nested. _Don't forget to set it on your header row as well!_
+
+☝️ You will need to add a new `rowgroup` of `type="body"` _for each accordion_ you want to show. This preserves the HTML-like table structure.
+
+A table with accordion rows might look like this:
+
+```html
+<b2b-table>
+  <b2b-table-rowgroup type="header" accordion>
+    <b2b-table-row>
+      <b2b-table-header>Title 1</b2b-table-header>
+      <b2b-table-header>Title 2</b2b-table-header>
+    </b2b-table-row>
+  </b2b-table-rowgroup>
+  <b2b-table-rowgroup type="body" accordion>
+    <b2b-table-row>
+      <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+      <b2b-table-cell>data 2a</b2b-table-cell>
+    </b2b-table-row>
+  </b2b-table-rowgroup>
+  <b2b-table-rowgroup type="body" accordion>
+    <b2b-table-row>
+      <b2b-table-cell><p>data 1b</p></b2b-table-cell>
+      <b2b-table-cell>data 2b</b2b-table-cell>
+    </b2b-table-row>
+  </b2b-table-rowgroup>
+</b2b-table>
+```
+
+The accordion can render opened by passing the property `opened` to the rowgroup:
+
+```jsx
+<b2b-table-rowgroup type="body" accordion opened>
+  <b2b-table-row> ... </b2b-table-row>
+</b2b-table-rowgroup>
 ```
 
 <br />
