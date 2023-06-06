@@ -68,7 +68,7 @@
     "copyfiles": "^2.4.1",
     "css-loader": "^6.7.3",
     "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.7.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
