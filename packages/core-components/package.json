@@ -58,7 +58,7 @@
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/test-runner": "^0.9.4",
+    "@storybook/test-runner": "^0.10.0",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.5.16",
     "@storybook/web-components": "^6.5.16",
