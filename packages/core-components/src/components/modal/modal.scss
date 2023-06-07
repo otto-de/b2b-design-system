@@ -68,7 +68,7 @@
 
       /* this is a workaround to force purgecss to include the overwrites of the variable --b2b-icon-cursor */
       .purge-css-include-variables {
-        cursor: var(--b2b-icon-cursor)
+        cursor: var(--b2b-icon-cursor);
       }
     }
 
