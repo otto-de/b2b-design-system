@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/otto-de/b2b-design-system/compare/v1.3.1...v1.3.2) (2023-06-07)
+
+
+### Bug Fixes
+
+* trigger a new release ([f3cdd24](https://github.com/otto-de/b2b-design-system/commit/f3cdd24633382dc429902071e3c52197d14e1a17))
+
 # [1.2.0](https://github.com/otto-de/b2b-design-system/compare/v1.1.0...v1.2.0) (2023-05-25)
 
 
