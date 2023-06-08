@@ -34,10 +34,6 @@
   background-color: inherit;
 }
 
-:host(.b2b-table-row__accordion-parent) {
-  background-color: var(--b2b-color-grey-50);
-}
-
 /* purgecss start ignore */
 :host(.b2b-table-row--highlight:hover) {
   background-color: var(--b2b-color-table-hover);
@@ -61,6 +57,13 @@
   ::slotted(*) {
     --b2b-table-cell-text-expand-bg: var(--b2b-color-table-expand-hover);
   }
+}
+
+.b2b-table-header--control-cell {
+  /* For equal width the control cell will automatically grow.
+  We should fix the size and this size
+   */
+  max-width: 44px;
 }
 
 /* purgecss end ignore */

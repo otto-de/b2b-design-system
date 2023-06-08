@@ -36,4 +36,9 @@ export const TableRowTypes = {
 export type TableRowTypes =
   (typeof TableRowTypes)[keyof typeof TableRowTypes];
 
+export const TableColourOptions = {
+  DEFAULT: 'default',
+  SELECTED: 'selected',
+  GROUP: 'group'
+} as const;
 export type TableColourOptions = 'default' | 'selected' | 'group';

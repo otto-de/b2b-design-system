@@ -26,7 +26,6 @@ const Template: Story = ({ placeholder, optionsList, disabled }) => {
   // it also works when the component has the word 'input' in its name
   return html`<div style="width: 300px; display: block">
     <b2b-search
-      contenteditable
       data-testid="search-element"
       disabled=${disabled}
       placeholder="${placeholder}"

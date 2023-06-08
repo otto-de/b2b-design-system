@@ -1,3 +1,10 @@
+## [1.3.3-beta.1](https://github.com/otto-de/b2b-design-system/compare/v1.3.2...v1.3.3-beta.1) (2023-06-08)
+
+
+### Bug Fixes
+
+* implement feedback from design sign off ([8e64a07](https://github.com/otto-de/b2b-design-system/commit/8e64a07604e455edb8789d66abd05e4f8ce38db2))
+
 ## [1.3.2](https://github.com/otto-de/b2b-design-system/compare/v1.3.1...v1.3.2) (2023-06-07)
 
 

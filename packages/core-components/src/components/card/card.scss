@@ -26,8 +26,14 @@
 :host(.b2b-card:hover),
 :host(.b2b-card:focus) {
   box-shadow: 5px 5px var(--b2b-size-15) rgba(#0000, 0.15);
-  outline: none;
   transition: box-shadow 0.2s ease-in-out;
+  outline: none;
+}
+
+:host(.b2b-card:focus) {
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: -1px;
+  z-index: 9999;
 }
 
 :host(.b2b-card--disabled) {
