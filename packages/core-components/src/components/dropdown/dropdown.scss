@@ -74,7 +74,7 @@
 
 :host(.b2b-dropdown--disabled) {
   .b2b-dropdown-select {
-    background-image: none;
+    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" fill="grey" viewBox="0 0 32 32"><path d="M27.748 12.017l-11.333 9.01a.666.666 0 0 1-.829 0l-11.333-9a.665.665 0 1 1 .829-1.044l10.919 8.671 10.919-8.68a.663.663 0 0 1 .936.107.667.667 0 0 1-.107.937z"/></svg>');
     background-color: var(--b2b-color-grey-25);
     color: var(--b2b-color-grey-250);
     border-color: var(--b2b-color-grey-200);

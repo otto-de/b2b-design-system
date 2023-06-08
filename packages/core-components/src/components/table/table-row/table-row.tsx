@@ -7,8 +7,9 @@ import {
   EventEmitter,
   Method,
   State,
+  Element,
 } from '@stencil/core';
-import { TableRowTypes, TableColourOptions } from '../types';
+import { TableRowTypes, TableColourOptions, TableSizes } from '../types';
 
 @Component({
   tag: 'b2b-table-row',
@@ -16,6 +17,8 @@ import { TableRowTypes, TableColourOptions } from '../types';
   shadow: true,
 })
 export class TableRowComponent {
+  @Element() hostElement: HTMLB2bTableRowElement;
+
   /** Whether the row will be highlighted on mouse over **/
   @Prop() highlight: boolean = true;
 
@@ -43,14 +46,35 @@ export class TableRowComponent {
     this.b2bOpen.emit(isOpen);
   }
 
+  private getRowColor = () => {
+    if (this.type === TableRowTypes.PARENT) return TableColourOptions.GROUP;
+    return this.color;
+  };
+
+  private getParentTableSize = () => {
+    const parentTable = this.hostElement.closest('b2b-table');
+    return parentTable.getAttribute('size');
+  };
+
+  // This is needed for table size equal, so that control cell size remains as big
+  // as the elements it contains. Feel free to improve this
+  private getRowWidthForEqualSize = () => {
+    const accordionIconSize = '24px';
+    if (this.getParentTableSize() === TableSizes.EQUAL) {
+      return accordionIconSize;
+      // TODO: in B2BDS-166 selectable row - if table is selectable return size of checkbox
+      // TODO: in B2BDS-166 selectable row -if cell is selectable and accordion return size of both
+    }
+  };
+
   render() {
+    console.log(this.getRowWidthForEqualSize());
     return (
       <Host
         class={{
           'b2b-table-row': true,
-          'b2b-table-row__accordion-parent': this.type === TableRowTypes.PARENT,
           ['b2b-table-row--highlight']: this.highlight,
-          [`b2b-table-row--color-${this.color}`]: true,
+          [`b2b-table-row--color-${this.getRowColor()}`]: true,
         }}
         role="row">
         {this.type === TableRowTypes.PARENT && (
@@ -67,7 +91,10 @@ export class TableRowComponent {
         )}
         {this.type === TableRowTypes.CHILD && <b2b-table-cell></b2b-table-cell>}
         {this.type === TableRowTypes.HEADER && (
-          <b2b-table-header></b2b-table-header>
+          <b2b-table-header
+            style={{
+              ['width']: this.getRowWidthForEqualSize(),
+            }}></b2b-table-header>
         )}
         <slot></slot>
       </Host>
