@@ -827,6 +827,16 @@ export namespace Components {
          */
         "trigger": 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizardIcon {
+        /**
+          * The state of the step
+         */
+        "state": 'completed' | 'pending' | 'disabled';
+        /**
+          * The step number
+         */
+        "step": '1' | '2' | '3' | '4' | '5' | '6';
+    }
 }
 export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1187,6 +1197,12 @@ declare global {
         prototype: HTMLB2bTooltipElement;
         new (): HTMLB2bTooltipElement;
     };
+    interface HTMLB2bWizardIconElement extends Components.B2bWizardIcon, HTMLStencilElement {
+    }
+    var HTMLB2bWizardIconElement: {
+        prototype: HTMLB2bWizardIconElement;
+        new (): HTMLB2bWizardIconElement;
+    };
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
@@ -1229,6 +1245,7 @@ declare global {
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
+        "b2b-wizard-icon": HTMLB2bWizardIconElement;
     }
 }
 declare namespace LocalJSX {
@@ -2155,6 +2172,16 @@ declare namespace LocalJSX {
          */
         "trigger"?: 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizardIcon {
+        /**
+          * The state of the step
+         */
+        "state"?: 'completed' | 'pending' | 'disabled';
+        /**
+          * The step number
+         */
+        "step"?: '1' | '2' | '3' | '4' | '5' | '6';
+    }
     interface IntrinsicElements {
         "b2b-alert": B2bAlert;
         "b2b-anchor": B2bAnchor;
@@ -2197,6 +2224,7 @@ declare namespace LocalJSX {
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-group": B2bToggleGroup;
         "b2b-tooltip": B2bTooltip;
+        "b2b-wizard-icon": B2bWizardIcon;
     }
 }
 export { LocalJSX as JSX };
@@ -2272,6 +2300,7 @@ declare module "@stencil/core" {
              * a specific trigger.
              */
             "b2b-tooltip": LocalJSX.B2bTooltip & JSXBase.HTMLAttributes<HTMLB2bTooltipElement>;
+            "b2b-wizard-icon": LocalJSX.B2bWizardIcon & JSXBase.HTMLAttributes<HTMLB2bWizardIconElement>;
         }
     }
 }

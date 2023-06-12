@@ -49,7 +49,6 @@ const sizeTokens = html`
             <td colspan="3" class="token-type">${type}</td>
           </tr>
           ${tokens.map(token => {
-            console.log(token.value);
             const valueInPixels = parseFloat(token.value) * 16 + 'px';
             return tokenRow(token, valueInPixels);
           })}

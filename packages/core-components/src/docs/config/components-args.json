@@ -2604,5 +2604,46 @@
       },
       "description": "The trigger for the tooltip. Can be on hover, on focus or custom, i.e. for an onboarding sequence. Per default it is hover."
     }
+  },
+  "b2b-wizard-icon": {
+    "state": {
+      "options": [
+        "completed",
+        "disabled",
+        "pending"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'pending'"
+        }
+      },
+      "description": "The state of the step"
+    },
+    "step": {
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The step number"
+    }
   }
 }

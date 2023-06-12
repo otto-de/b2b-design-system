@@ -33,7 +33,7 @@ story020Text.args = {
   contentColor: 'white',
   textContent: '1',
 };
-story020Text.storyName = 'Icon Content';
+story020Text.storyName = 'Text Content';
 
 const controls = {};
 const searchArgs = getArgTypes('b2b-rounded-icon', controls);
