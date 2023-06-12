@@ -14,7 +14,6 @@
   "homepage": "https://github.com/otto-de/b2b-design-system#readme",
   "scripts": {
     "deploy": "npm run deploy --workspace=@otto-de/b2b-core-components",
-    "publish": "npm publish --workspace packages/",
     "release": "semantic-release",
     "build-tokens": "npm run build --workspace=@otto-de/b2b-tokens",
     "build-core-components": "npm run build --workspace=@otto-de/b2b-core-components",

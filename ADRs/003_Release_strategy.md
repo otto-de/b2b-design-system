@@ -4,6 +4,8 @@
 
 Date: 28.03.2022
 
+Updated: 12.06.2023
+
 ### Status
 
 accepted
@@ -39,13 +41,16 @@ In the file release.config.js we can configure semantic-release to do the follow
 5. Publish on our GitHub repo the [release notes](https://github.com/otto-ec/b2b-design-system/releases) 
    (@semantic-release/github) 
 
-### Development Options
+### Release types
 
-1. Until we reach base maturity in our product, we will release to branch beta, which will create releases in the 
-   format `x.x.x-beta`. Once we have priority 1 components ready, we can merge beta to main and then just continue 
-   with normal feature branches 
-2. Not using `beta` branch. We run the risk reaching early big release numbers as we could potentially be 
-   making many breaking changes.
+As we have released a stable version of the library, our release strategy works as follows:
+
+- Any releases run from branch `main` will publish a stable version of the npm package with format `vx.x.x` and tag 
+  `latest`.
+- Any releases run from `beta` will publish a pre-release version of the npm package with format `vx.x.x-beta.n` and 
+  tag `beta`. Where `n` will increase for any new beta release on that `x` version. 
+
+- Beta can be merged into `main` once this pre-release has been tested and approved. Then a new Release should be triggered from `main` to publish a stable release.
 
 ## Decision
 We are using a GitHub workflow `release.yml` that is triggered manually from GH Actions ui, by choosing from 
