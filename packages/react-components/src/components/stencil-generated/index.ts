@@ -32,6 +32,7 @@ export const B2bParagraph = /*@__PURE__*/createReactComponent<JSX.B2bParagraph, 
 export const B2bRadioButton = /*@__PURE__*/createReactComponent<JSX.B2bRadioButton, HTMLB2bRadioButtonElement>('b2b-radio-button');
 export const B2bRadioGroup = /*@__PURE__*/createReactComponent<JSX.B2bRadioGroup, HTMLB2bRadioGroupElement>('b2b-radio-group');
 export const B2bRequiredSeparator = /*@__PURE__*/createReactComponent<JSX.B2bRequiredSeparator, HTMLB2bRequiredSeparatorElement>('b2b-required-separator');
+export const B2bRoundedIcon = /*@__PURE__*/createReactComponent<JSX.B2bRoundedIcon, HTMLB2bRoundedIconElement>('b2b-rounded-icon');
 export const B2bScrollableContainer = /*@__PURE__*/createReactComponent<JSX.B2bScrollableContainer, HTMLB2bScrollableContainerElement>('b2b-scrollable-container');
 export const B2bSearch = /*@__PURE__*/createReactComponent<JSX.B2bSearch, HTMLB2bSearchElement>('b2b-search');
 export const B2bSeparator = /*@__PURE__*/createReactComponent<JSX.B2bSeparator, HTMLB2bSeparatorElement>('b2b-separator');

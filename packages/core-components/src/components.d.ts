@@ -566,6 +566,16 @@ export namespace Components {
          */
         "label": string;
     }
+    interface B2bRoundedIcon {
+        /**
+          * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "color": string;
+        /**
+          * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "contentColor": string;
+    }
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
@@ -1063,6 +1073,12 @@ declare global {
         prototype: HTMLB2bRequiredSeparatorElement;
         new (): HTMLB2bRequiredSeparatorElement;
     };
+    interface HTMLB2bRoundedIconElement extends Components.B2bRoundedIcon, HTMLStencilElement {
+    }
+    var HTMLB2bRoundedIconElement: {
+        prototype: HTMLB2bRoundedIconElement;
+        new (): HTMLB2bRoundedIconElement;
+    };
     interface HTMLB2bScrollableContainerElement extends Components.B2bScrollableContainer, HTMLStencilElement {
     }
     var HTMLB2bScrollableContainerElement: {
@@ -1196,6 +1212,7 @@ declare global {
         "b2b-radio-button": HTMLB2bRadioButtonElement;
         "b2b-radio-group": HTMLB2bRadioGroupElement;
         "b2b-required-separator": HTMLB2bRequiredSeparatorElement;
+        "b2b-rounded-icon": HTMLB2bRoundedIconElement;
         "b2b-scrollable-container": HTMLB2bScrollableContainerElement;
         "b2b-search": HTMLB2bSearchElement;
         "b2b-separator": HTMLB2bSeparatorElement;
@@ -1837,6 +1854,16 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
+    interface B2bRoundedIcon {
+        /**
+          * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "color"?: string;
+        /**
+          * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "contentColor"?: string;
+    }
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
@@ -2153,6 +2180,7 @@ declare namespace LocalJSX {
         "b2b-radio-button": B2bRadioButton;
         "b2b-radio-group": B2bRadioGroup;
         "b2b-required-separator": B2bRequiredSeparator;
+        "b2b-rounded-icon": B2bRoundedIcon;
         "b2b-scrollable-container": B2bScrollableContainer;
         "b2b-search": B2bSearch;
         "b2b-separator": B2bSeparator;
@@ -2215,6 +2243,7 @@ declare module "@stencil/core" {
             "b2b-radio-button": LocalJSX.B2bRadioButton & JSXBase.HTMLAttributes<HTMLB2bRadioButtonElement>;
             "b2b-radio-group": LocalJSX.B2bRadioGroup & JSXBase.HTMLAttributes<HTMLB2bRadioGroupElement>;
             "b2b-required-separator": LocalJSX.B2bRequiredSeparator & JSXBase.HTMLAttributes<HTMLB2bRequiredSeparatorElement>;
+            "b2b-rounded-icon": LocalJSX.B2bRoundedIcon & JSXBase.HTMLAttributes<HTMLB2bRoundedIconElement>;
             "b2b-scrollable-container": LocalJSX.B2bScrollableContainer & JSXBase.HTMLAttributes<HTMLB2bScrollableContainerElement>;
             "b2b-search": LocalJSX.B2bSearch & JSXBase.HTMLAttributes<HTMLB2bSearchElement>;
             "b2b-separator": LocalJSX.B2bSeparator & JSXBase.HTMLAttributes<HTMLB2bSeparatorElement>;
