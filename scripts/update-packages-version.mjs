@@ -39,7 +39,7 @@ const updatePackagesVersion = async (nextReleaseVersion) => {
   const packageJson = await PackageJson.load("./")
   const workspaces = packageJson.content.workspaces
 
-  await workspaces.map(async workspace => {
+  workspaces.map(async workspace => {
     const workspacePackageJson = await PackageJson.load(workspace)
 
     console.log(`\nWorkspace ${workspacePackageJson.content.name}:`)
