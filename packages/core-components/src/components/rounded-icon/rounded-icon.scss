@@ -1,0 +1,19 @@
+@use '../../global/b2b-styles';
+
+.b2b-rounded-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  padding: 6px;
+  border-radius: 100%;
+}
+
+::slotted(*[slot='text']) {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: var(--b2b-size-copy-125);
+  line-height: var(--b2b-size-copy-line-height-100);
+}

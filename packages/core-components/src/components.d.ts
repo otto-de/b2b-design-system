@@ -566,6 +566,16 @@ export namespace Components {
          */
         "label": string;
     }
+    interface B2bRoundedIcon {
+        /**
+          * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "color": string;
+        /**
+          * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "contentColor": string;
+    }
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
@@ -817,6 +827,16 @@ export namespace Components {
          */
         "trigger": 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizardIcon {
+        /**
+          * The state of the step
+         */
+        "state": 'completed' | 'pending' | 'disabled';
+        /**
+          * The step number
+         */
+        "step": '1' | '2' | '3' | '4' | '5' | '6';
+    }
 }
 export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1063,6 +1083,12 @@ declare global {
         prototype: HTMLB2bRequiredSeparatorElement;
         new (): HTMLB2bRequiredSeparatorElement;
     };
+    interface HTMLB2bRoundedIconElement extends Components.B2bRoundedIcon, HTMLStencilElement {
+    }
+    var HTMLB2bRoundedIconElement: {
+        prototype: HTMLB2bRoundedIconElement;
+        new (): HTMLB2bRoundedIconElement;
+    };
     interface HTMLB2bScrollableContainerElement extends Components.B2bScrollableContainer, HTMLStencilElement {
     }
     var HTMLB2bScrollableContainerElement: {
@@ -1171,6 +1197,12 @@ declare global {
         prototype: HTMLB2bTooltipElement;
         new (): HTMLB2bTooltipElement;
     };
+    interface HTMLB2bWizardIconElement extends Components.B2bWizardIcon, HTMLStencilElement {
+    }
+    var HTMLB2bWizardIconElement: {
+        prototype: HTMLB2bWizardIconElement;
+        new (): HTMLB2bWizardIconElement;
+    };
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
@@ -1196,6 +1228,7 @@ declare global {
         "b2b-radio-button": HTMLB2bRadioButtonElement;
         "b2b-radio-group": HTMLB2bRadioGroupElement;
         "b2b-required-separator": HTMLB2bRequiredSeparatorElement;
+        "b2b-rounded-icon": HTMLB2bRoundedIconElement;
         "b2b-scrollable-container": HTMLB2bScrollableContainerElement;
         "b2b-search": HTMLB2bSearchElement;
         "b2b-separator": HTMLB2bSeparatorElement;
@@ -1212,6 +1245,7 @@ declare global {
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
+        "b2b-wizard-icon": HTMLB2bWizardIconElement;
     }
 }
 declare namespace LocalJSX {
@@ -1837,6 +1871,16 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
+    interface B2bRoundedIcon {
+        /**
+          * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "color"?: string;
+        /**
+          * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "contentColor"?: string;
+    }
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
@@ -2128,6 +2172,16 @@ declare namespace LocalJSX {
          */
         "trigger"?: 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizardIcon {
+        /**
+          * The state of the step
+         */
+        "state"?: 'completed' | 'pending' | 'disabled';
+        /**
+          * The step number
+         */
+        "step"?: '1' | '2' | '3' | '4' | '5' | '6';
+    }
     interface IntrinsicElements {
         "b2b-alert": B2bAlert;
         "b2b-anchor": B2bAnchor;
@@ -2153,6 +2207,7 @@ declare namespace LocalJSX {
         "b2b-radio-button": B2bRadioButton;
         "b2b-radio-group": B2bRadioGroup;
         "b2b-required-separator": B2bRequiredSeparator;
+        "b2b-rounded-icon": B2bRoundedIcon;
         "b2b-scrollable-container": B2bScrollableContainer;
         "b2b-search": B2bSearch;
         "b2b-separator": B2bSeparator;
@@ -2169,6 +2224,7 @@ declare namespace LocalJSX {
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-group": B2bToggleGroup;
         "b2b-tooltip": B2bTooltip;
+        "b2b-wizard-icon": B2bWizardIcon;
     }
 }
 export { LocalJSX as JSX };
@@ -2215,6 +2271,7 @@ declare module "@stencil/core" {
             "b2b-radio-button": LocalJSX.B2bRadioButton & JSXBase.HTMLAttributes<HTMLB2bRadioButtonElement>;
             "b2b-radio-group": LocalJSX.B2bRadioGroup & JSXBase.HTMLAttributes<HTMLB2bRadioGroupElement>;
             "b2b-required-separator": LocalJSX.B2bRequiredSeparator & JSXBase.HTMLAttributes<HTMLB2bRequiredSeparatorElement>;
+            "b2b-rounded-icon": LocalJSX.B2bRoundedIcon & JSXBase.HTMLAttributes<HTMLB2bRoundedIconElement>;
             "b2b-scrollable-container": LocalJSX.B2bScrollableContainer & JSXBase.HTMLAttributes<HTMLB2bScrollableContainerElement>;
             "b2b-search": LocalJSX.B2bSearch & JSXBase.HTMLAttributes<HTMLB2bSearchElement>;
             "b2b-separator": LocalJSX.B2bSeparator & JSXBase.HTMLAttributes<HTMLB2bSeparatorElement>;
@@ -2243,6 +2300,7 @@ declare module "@stencil/core" {
              * a specific trigger.
              */
             "b2b-tooltip": LocalJSX.B2bTooltip & JSXBase.HTMLAttributes<HTMLB2bTooltipElement>;
+            "b2b-wizard-icon": LocalJSX.B2bWizardIcon & JSXBase.HTMLAttributes<HTMLB2bWizardIconElement>;
         }
     }
 }

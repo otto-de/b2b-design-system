@@ -1862,6 +1862,30 @@
       "description": "The required label. Per default it is the german 'Pflichtfeld', but can be altered."
     }
   },
+  "b2b-rounded-icon": {
+    "color": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'var(--b2b-color-info-50)'"
+        }
+      },
+      "description": "The color of the circle around the icon or text.\nUse any type including hex, rgb or css custom properties\nas long as you pass it as a string"
+    },
+    "contentColor": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'var(--b2b-color-copy-default)'"
+        }
+      },
+      "description": "The color of the text or icon within the circle.\nUse any type including hex, rgb or css custom properties\nas long as you pass it as a string"
+    }
+  },
   "b2b-scrollable-container": {},
   "b2b-search": {
     "disabled": {
@@ -2579,6 +2603,47 @@
         }
       },
       "description": "The trigger for the tooltip. Can be on hover, on focus or custom, i.e. for an onboarding sequence. Per default it is hover."
+    }
+  },
+  "b2b-wizard-icon": {
+    "state": {
+      "options": [
+        "completed",
+        "disabled",
+        "pending"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'pending'"
+        }
+      },
+      "description": "The state of the step"
+    },
+    "step": {
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The step number"
     }
   }
 }

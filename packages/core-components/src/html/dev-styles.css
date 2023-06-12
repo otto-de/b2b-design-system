@@ -3,7 +3,8 @@ body {
   padding: 2rem;
 }
 
-.content-container {
+.content-container,
+.inline-content-container {
   background-color: #fff;
   border: 0.0625rem solid #c4c4c4;
   padding: 2rem;
@@ -13,6 +14,14 @@ body {
 .content-container > * {
   margin-bottom: 1rem;
   display: block;
+}
+
+.inline-container {
+  display: inline-flex;
+}
+
+.inline-container * {
+  margin-right: 1rem;
 }
 
 .component-wrapper {
