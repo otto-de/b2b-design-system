@@ -11,6 +11,13 @@
 * **Rounded-Icon:** [B2BDS-181] add rounded-icon component ([ad3d7f3](https://github.com/otto-de/b2b-design-system/commit/ad3d7f3a3b43c426aa4fef9552c9f1b2368726a3))
 * **Wizard-Icon:** [B2BDS-181] add wizard-icon component ([da99cd2](https://github.com/otto-de/b2b-design-system/commit/da99cd24e877b2786608586b504c4a929be2bf0c))
 
+## [1.3.3](https://github.com/otto-de/b2b-design-system/compare/v1.3.2...v1.3.3) (2023-06-08)
+
+
+### Bug Fixes
+
+* implement feedback from design sign off ([8e64a07](https://github.com/otto-de/b2b-design-system/commit/8e64a07604e455edb8789d66abd05e4f8ce38db2))
+
 ## [1.3.3-beta.1](https://github.com/otto-de/b2b-design-system/compare/v1.3.2...v1.3.3-beta.1) (2023-06-08)
 
 
