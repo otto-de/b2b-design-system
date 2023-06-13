@@ -21,7 +21,7 @@ module.exports = {
     [
       '@semantic-release/exec',
       {
-        "publishCmd": "node ./scripts/publish.sh ${branch.name}",
+        "publishCmd": "./scripts/publish.sh ${branch.name}",
       }
     ],
     [
