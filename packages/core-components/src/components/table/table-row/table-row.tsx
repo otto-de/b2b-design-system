@@ -68,7 +68,6 @@ export class TableRowComponent {
   };
 
   render() {
-    console.log(this.getRowWidthForEqualSize());
     return (
       <Host
         class={{

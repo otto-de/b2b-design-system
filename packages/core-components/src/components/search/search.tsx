@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Element,
   State,
+  Listen,
 } from '@stencil/core';
 import { SearchClickEventDetail } from '../../utils/interfaces/form.interface';
 
@@ -38,6 +39,13 @@ export class SearchComponent {
   private onSearchClicked = () => {
     this.b2bSearch.emit({ searchTerm: this.value });
   };
+
+  @Listen('keydown')
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.b2bSearch.emit({ searchTerm: this.value });
+    }
+  }
 
   private onInput = event => {
     this.value = event.detail.value;
