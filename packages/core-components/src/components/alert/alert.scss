@@ -46,9 +46,12 @@
 
   &-content {
     display: flex;
+    align-items: center;
+    flex: 2;
     gap: var(--b2b-size-30);
 
     p {
+      width: 100%;
       margin: 0;
       padding: var(--b2b-size-5) 0 var(--b2b-size-1) 0;
     }
