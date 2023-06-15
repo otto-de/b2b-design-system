@@ -1863,6 +1863,15 @@
     }
   },
   "b2b-rounded-icon": {
+    "borderColor": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The color of the border of the circle around the icon or text.\nUse any type including hex, rgb or css custom properties\nas long as you pass it as a string"
+    },
     "color": {
       "table": {
         "type": {
@@ -2605,10 +2614,78 @@
       "description": "The trigger for the tooltip. Can be on hover, on focus or custom, i.e. for an onboarding sequence. Per default it is hover."
     }
   },
+  "b2b-wizard": {
+    "activeStep": {
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'1'"
+        }
+      },
+      "description": "The current active step"
+    },
+    "checkIcon": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
+    },
+    "custom": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "By default, is false, where the wizard will handle steps states.\nIf set to true, steps state must be handled manually."
+    }
+  },
   "b2b-wizard-icon": {
+    "checkIcon": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
+    },
     "state": {
       "options": [
         "completed",
+        "default",
         "disabled",
         "pending"
       ],
@@ -2620,7 +2697,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "'pending'"
+          "summary": "WizardStatus.PENDING"
         }
       },
       "description": "The state of the step"
@@ -2644,6 +2721,75 @@
         "defaultValue": {}
       },
       "description": "The step number"
+    }
+  },
+  "b2b-wizard-step": {
+    "checkIcon": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Step'"
+        }
+      },
+      "description": "The label of the step"
+    },
+    "state": {
+      "options": [
+        "completed",
+        "default",
+        "disabled",
+        "pending"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'pending'"
+        }
+      },
+      "description": "Use when wizard has property custom true. The state of the step"
+    },
+    "step": {
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'1'"
+        }
+      },
+      "description": "Use when wizard has property custom true. The step number"
     }
   }
 }

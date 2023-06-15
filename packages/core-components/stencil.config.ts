@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 import { reactOutputTarget } from '@stencil/react-output-target';
 import generateStorybookArgs from './scripts/stencil/generate-storybook-args';
 import { postcss } from '@stencil/postcss';
+// @ts-ignore
 import postImport from 'postcss-import';
 import * as Path from 'path';
 import purgeCSSExtensionPlugin from './plugins/purgeCssExtensionPlugin';

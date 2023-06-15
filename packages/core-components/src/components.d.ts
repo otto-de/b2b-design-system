@@ -10,11 +10,13 @@ import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
+import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
+export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export namespace Components {
     interface B2bAlert {
         /**
@@ -568,6 +570,10 @@ export namespace Components {
     }
     interface B2bRoundedIcon {
         /**
+          * The color of the border of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "borderColor": string;
+        /**
           * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
          */
         "color": string;
@@ -827,15 +833,51 @@ export namespace Components {
          */
         "trigger": 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizard {
+        /**
+          * The current active step
+         */
+        "activeStep": WizardSteps | '0';
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon": boolean;
+        /**
+          * By default, is false, where the wizard will handle steps states. If set to true, steps state must be handled manually.
+         */
+        "custom": boolean;
+    }
     interface B2bWizardIcon {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon": boolean;
         /**
           * The state of the step
          */
-        "state": 'completed' | 'pending' | 'disabled';
+        "state": WizardStatus;
         /**
           * The step number
          */
-        "step": '1' | '2' | '3' | '4' | '5' | '6';
+        "step": WizardSteps;
+    }
+    interface B2bWizardStep {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon": boolean;
+        /**
+          * The label of the step
+         */
+        "label": string;
+        /**
+          * Use when wizard has property custom true. The state of the step
+         */
+        "state": WizardStatus;
+        /**
+          * Use when wizard has property custom true. The step number
+         */
+        "step": WizardSteps;
     }
 }
 export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
@@ -1197,11 +1239,23 @@ declare global {
         prototype: HTMLB2bTooltipElement;
         new (): HTMLB2bTooltipElement;
     };
+    interface HTMLB2bWizardElement extends Components.B2bWizard, HTMLStencilElement {
+    }
+    var HTMLB2bWizardElement: {
+        prototype: HTMLB2bWizardElement;
+        new (): HTMLB2bWizardElement;
+    };
     interface HTMLB2bWizardIconElement extends Components.B2bWizardIcon, HTMLStencilElement {
     }
     var HTMLB2bWizardIconElement: {
         prototype: HTMLB2bWizardIconElement;
         new (): HTMLB2bWizardIconElement;
+    };
+    interface HTMLB2bWizardStepElement extends Components.B2bWizardStep, HTMLStencilElement {
+    }
+    var HTMLB2bWizardStepElement: {
+        prototype: HTMLB2bWizardStepElement;
+        new (): HTMLB2bWizardStepElement;
     };
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
@@ -1245,7 +1299,9 @@ declare global {
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
+        "b2b-wizard": HTMLB2bWizardElement;
         "b2b-wizard-icon": HTMLB2bWizardIconElement;
+        "b2b-wizard-step": HTMLB2bWizardStepElement;
     }
 }
 declare namespace LocalJSX {
@@ -1873,6 +1929,10 @@ declare namespace LocalJSX {
     }
     interface B2bRoundedIcon {
         /**
+          * The color of the border of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "borderColor"?: string;
+        /**
           * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
          */
         "color"?: string;
@@ -2172,15 +2232,51 @@ declare namespace LocalJSX {
          */
         "trigger"?: 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizard {
+        /**
+          * The current active step
+         */
+        "activeStep"?: WizardSteps | '0';
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon"?: boolean;
+        /**
+          * By default, is false, where the wizard will handle steps states. If set to true, steps state must be handled manually.
+         */
+        "custom"?: boolean;
+    }
     interface B2bWizardIcon {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon"?: boolean;
         /**
           * The state of the step
          */
-        "state"?: 'completed' | 'pending' | 'disabled';
+        "state"?: WizardStatus;
         /**
           * The step number
          */
-        "step"?: '1' | '2' | '3' | '4' | '5' | '6';
+        "step"?: WizardSteps;
+    }
+    interface B2bWizardStep {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon"?: boolean;
+        /**
+          * The label of the step
+         */
+        "label"?: string;
+        /**
+          * Use when wizard has property custom true. The state of the step
+         */
+        "state"?: WizardStatus;
+        /**
+          * Use when wizard has property custom true. The step number
+         */
+        "step"?: WizardSteps;
     }
     interface IntrinsicElements {
         "b2b-alert": B2bAlert;
@@ -2224,7 +2320,9 @@ declare namespace LocalJSX {
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-group": B2bToggleGroup;
         "b2b-tooltip": B2bTooltip;
+        "b2b-wizard": B2bWizard;
         "b2b-wizard-icon": B2bWizardIcon;
+        "b2b-wizard-step": B2bWizardStep;
     }
 }
 export { LocalJSX as JSX };
@@ -2300,7 +2398,9 @@ declare module "@stencil/core" {
              * a specific trigger.
              */
             "b2b-tooltip": LocalJSX.B2bTooltip & JSXBase.HTMLAttributes<HTMLB2bTooltipElement>;
+            "b2b-wizard": LocalJSX.B2bWizard & JSXBase.HTMLAttributes<HTMLB2bWizardElement>;
             "b2b-wizard-icon": LocalJSX.B2bWizardIcon & JSXBase.HTMLAttributes<HTMLB2bWizardIconElement>;
+            "b2b-wizard-step": LocalJSX.B2bWizardStep & JSXBase.HTMLAttributes<HTMLB2bWizardStepElement>;
         }
     }
 }

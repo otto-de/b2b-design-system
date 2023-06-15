@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host } from '@stencil/core';
+import { WizardStatus, WizardSteps } from '../../utils/types/wizard.types';
 
 @Component({
   tag: 'b2b-wizard-icon',
@@ -7,10 +8,14 @@ import { Component, Prop, h, Host } from '@stencil/core';
 })
 export class WizardIconComponent {
   /** The step number */
-  @Prop() step: '1' | '2' | '3' | '4' | '5' | '6';
+  @Prop() step: WizardSteps;
 
   /** The state of the step */
-  @Prop() state: 'completed' | 'pending' | 'disabled' = 'pending';
+  @Prop() state: WizardStatus = WizardStatus.PENDING;
+
+  /** Defaults to true. It will show a checkmark icon when a step is completed.
+   * Set as false to show the step number */
+  @Prop() checkIcon: boolean = true;
 
   render() {
     return (
@@ -19,22 +24,36 @@ export class WizardIconComponent {
           class={{
             'b2b-wizard-icon': true,
           }}>
-          {this.state === 'completed' && (
+          {this.state === WizardStatus.COMPLETED && (
             <b2b-rounded-icon
               color="var(--b2b-color-success-50)"
               content-color="var(--b2b-color-success-100)">
-              <b2b-icon slot="icon" icon="b2b_icon-check"></b2b-icon>
+              {this.checkIcon ? (
+                <b2b-icon slot="icon" icon="b2b_icon-check"></b2b-icon>
+              ) : (
+                <span slot="text">{this.step}</span>
+              )}
             </b2b-rounded-icon>
           )}
-          {this.state === 'pending' && (
-            <b2b-rounded-icon color="black" content-color="white">
+          {this.state === WizardStatus.PENDING && (
+            <b2b-rounded-icon
+              color="var(--b2b-color-icon-default)"
+              content-color="var(--b2b-color-icon-inverted)">
               <span slot="text">{this.step}</span>
             </b2b-rounded-icon>
           )}
-          {this.state === 'disabled' && (
+          {this.state === WizardStatus.DISABLED && (
             <b2b-rounded-icon
               color="var(--b2b-color-grey-50)"
               content-color="var(--b2b-color-grey-300)">
+              <span slot="text">{this.step}</span>
+            </b2b-rounded-icon>
+          )}
+          {this.state === WizardStatus.DEFAULT && (
+            <b2b-rounded-icon
+              color="var(--b2b-color-icon-inverted)"
+              border-color="var(--b2b-color-icon-secondary)"
+              content-color="var(--b2b-color-icon-secondary)">
               <span slot="text">{this.step}</span>
             </b2b-rounded-icon>
           )}

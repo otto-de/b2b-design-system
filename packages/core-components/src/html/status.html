@@ -37,6 +37,18 @@
     <div class="portal_header">PORTAL HEADER</div>
 
     <div class="content-container">
+      <b2b-headline size="200">Wizard</b2b-headline>
+      <b2b-wizard active-step="3" check-icon="true">
+        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
+        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
+        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
+        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
+        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
+        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
+      </b2b-wizard>
+    </div>
+
+    <div class="content-container">
       <b2b-headline size="200">Rounded Icon</b2b-headline>
       <div class="inline-container">
         <b2b-rounded-icon
@@ -145,6 +157,13 @@
         because why not? Let's see how line breaks look on this one
         too.</b2b-alert
       >
+
+      <b2b-alert type="warning" has-close-button="true" opened size="large">
+        <div>
+          <span>this is a text</span>
+          <b2b-button>Hello</b2b-button>
+        </div>
+      </b2b-alert>
     </div>
   </body>
 </html>
