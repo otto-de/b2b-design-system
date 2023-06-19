@@ -2,7 +2,11 @@ import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 import tableDocs from './table.docs.mdx';
-import { ContentAlignment, TableRowgroupTypes, TableSizes } from './types';
+import {
+  ContentAlignment,
+  TableRowgroupTypes,
+  TableSizes,
+} from '../../utils/types/table.types';
 import {
   sampleData,
   smallSampleData,

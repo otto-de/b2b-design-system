@@ -8,12 +8,12 @@ describe('B2B-Wizard', () => {
     custom = false,
     activeStep = 3,
   ) => `<b2b-wizard active-step='${activeStep}' custom='${custom}'>
-        <b2b-wizard-step label='This is the text'></b2b-wizard-step>
-        <b2b-wizard-step label='This is the text'></b2b-wizard-step>
-        <b2b-wizard-step label='This is the text'></b2b-wizard-step>
-        <b2b-wizard-step label='This is the text'></b2b-wizard-step>
-        <b2b-wizard-step label='This is the text'></b2b-wizard-step>
-        <b2b-wizard-step label='This is the text'></b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
     </b2b-wizard>`;
 
   beforeEach(async () => {
@@ -42,7 +42,7 @@ describe('B2B-Wizard', () => {
     const activeStep = steps[2];
 
     const stepState = await activeStep.getProperty('state');
-    expect(stepState).toBe(WizardStatus.PENDING);
+    expect(stepState).toBe(WizardStatus.ACTIVE);
   });
 
   it('should render incomplete steps with default state', async () => {
@@ -62,7 +62,7 @@ describe('B2B-Wizard', () => {
     await Promise.all(
       incompleteSteps.map(async step => {
         const stepState = await step.getProperty('state');
-        expect(stepState).toBe(WizardStatus.COMPLETED);
+        expect(stepState).toBe(WizardStatus.COMPLETE);
       }),
     );
   });
@@ -77,7 +77,7 @@ describe('B2B-Wizard', () => {
         const stepNumber = await step.getProperty('step');
         expect(stepNumber).toBe('1');
         const stepState = await step.getProperty('state');
-        expect(stepState).toBe(WizardStatus.PENDING);
+        expect(stepState).toBe(WizardStatus.ACTIVE);
       }),
     );
   });
@@ -90,31 +90,32 @@ describe('B2B-Wizard', () => {
     await Promise.all(
       steps.map(async step => {
         const stepState = await step.getProperty('state');
-        expect(stepState).toBe(WizardStatus.COMPLETED);
+        expect(stepState).toBe(WizardStatus.COMPLETE);
       }),
     );
   });
 
-  it('should emitting a warning if rendering more than 6 steps', async () => {
+  it('should be emitting a warning if rendering more than 6 steps', async () => {
     global.console.warn = jest.fn();
 
     page = await newE2EPage();
     await page.setContent(
       `<b2b-wizard>
-        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
-        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
-        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
-        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
-        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
-        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
-        <b2b-wizard-step label="This is the text"></b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
+          <b2b-wizard-step>This is the text</b2b-wizard-step>
       </b2b-wizard>`,
     );
 
     expect(console.warn).toBeCalled();
   });
 
-  it('should emitting an error if active-step is higher than total steps', async () => {
+  it('should be emitting an error if active-step is higher than total steps', async () => {
     global.console.error = jest.fn();
 
     page = await newE2EPage();

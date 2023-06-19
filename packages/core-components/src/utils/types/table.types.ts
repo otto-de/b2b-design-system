@@ -31,14 +31,13 @@ export type TableSortDirections =
 export const TableRowTypes = {
   PARENT: 'parent',
   CHILD: 'child',
-  HEADER: 'header'
+  HEADER: 'header',
 } as const;
-export type TableRowTypes =
-  (typeof TableRowTypes)[keyof typeof TableRowTypes];
+export type TableRowTypes = (typeof TableRowTypes)[keyof typeof TableRowTypes];
 
 export const TableColourOptions = {
   DEFAULT: 'default',
   SELECTED: 'selected',
-  GROUP: 'group'
+  GROUP: 'group',
 } as const;
 export type TableColourOptions = 'default' | 'selected' | 'group';

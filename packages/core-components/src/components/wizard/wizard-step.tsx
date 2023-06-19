@@ -7,11 +7,8 @@ import { WizardSteps, WizardStatus } from '../../utils/types/wizard.types';
   shadow: true,
 })
 export class WizardStepComponent {
-  /** The label of the step */
-  @Prop() label: string = 'Step';
-
   /** Use when wizard has property custom true. The state of the step */
-  @Prop() state: WizardStatus = 'pending';
+  @Prop() state: WizardStatus = 'active';
 
   /** Use when wizard has property custom true. The step number */
   @Prop() step: WizardSteps = '1';
@@ -34,7 +31,7 @@ export class WizardStepComponent {
               'b2b_wizard__step-label--default':
                 this.state === WizardStatus.DEFAULT,
             }}>
-            {this.label}
+            <slot></slot>
           </div>
         </div>
       </Host>

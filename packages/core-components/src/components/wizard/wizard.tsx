@@ -54,9 +54,9 @@ export class WizardComponent {
   private getStepState = (step: number) => {
     const currentStep = Number(this.activeStep);
     if (currentStep == step) {
-      return WizardStatus.PENDING;
+      return WizardStatus.ACTIVE;
     } else if (step < currentStep || currentStep === 0) {
-      return WizardStatus.COMPLETED;
+      return WizardStatus.COMPLETE;
     } else {
       return WizardStatus.DEFAULT;
     }

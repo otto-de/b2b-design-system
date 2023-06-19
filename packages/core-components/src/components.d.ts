@@ -9,13 +9,13 @@ import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventD
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
+import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
+export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export namespace Components {
     interface B2bAlert {
@@ -866,10 +866,6 @@ export namespace Components {
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon": boolean;
-        /**
-          * The label of the step
-         */
-        "label": string;
         /**
           * Use when wizard has property custom true. The state of the step
          */
@@ -2265,10 +2261,6 @@ declare namespace LocalJSX {
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon"?: boolean;
-        /**
-          * The label of the step
-         */
-        "label"?: string;
         /**
           * Use when wizard has property custom true. The state of the step
          */
