@@ -8,7 +8,7 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { TableSizes, TableSortDirections } from './types';
+import { TableSizes, TableSortDirections } from '../../utils/types/table.types';
 import { ColumnSortChangeEventDetail } from '../../utils/interfaces/interaction.interface';
 
 @Component({

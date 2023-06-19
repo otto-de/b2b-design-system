@@ -9,7 +9,11 @@ import {
   State,
   Element,
 } from '@stencil/core';
-import { TableRowTypes, TableColourOptions, TableSizes } from '../types';
+import {
+  TableRowTypes,
+  TableColourOptions,
+  TableSizes,
+} from '../../../utils/types/table.types';
 
 @Component({
   tag: 'b2b-table-row',

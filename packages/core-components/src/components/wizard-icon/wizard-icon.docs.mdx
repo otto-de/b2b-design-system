@@ -1,4 +1,9 @@
-import { ArgsTable, PRIMARY_STORY, Primary } from '@storybook/addon-docs';
+import {
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Story,
+} from '@storybook/addon-docs';
 
 # Wizard Icon Component
 
@@ -11,11 +16,20 @@ of the icon in the context of the wizard.
 
 ### state
 
-Currently, the icon could have 3 different states: `completed`, `pending` and `disabled`
+Currently, we support this states states: `default`, `completed`, `pending` and `disabled`
+
+<Story id="components-status-feedback-wizard--story-020-wizard-states" />
 
 ### step
 
 From 1 to 6, the step number of the icon
+
+### checkIcon
+
+Defaults to true. It will show a checkmark icon when a step is completed.
+If set to false, it will show the step number.
+
+<Story id="components-status-feedback-wizard-icon--story-010-completed" />
 
 <br />
 

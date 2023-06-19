@@ -11,6 +11,11 @@ export class RoundedIconComponent {
    * as long as you pass it as a string */
   @Prop() color: string = 'var(--b2b-color-info-50)';
 
+  /** The color of the border of the circle around the icon or text.
+   * Use any type including hex, rgb or css custom properties
+   * as long as you pass it as a string */
+  @Prop() borderColor: string;
+
   /** The color of the text or icon within the circle.
    * Use any type including hex, rgb or css custom properties
    * as long as you pass it as a string */
@@ -22,6 +27,7 @@ export class RoundedIconComponent {
         <div
           style={{
             ['background-color']: this.color,
+            ['border']: `1px solid ${this.borderColor || this.color}`,
           }}
           class={{
             'b2b-rounded-icon': true,

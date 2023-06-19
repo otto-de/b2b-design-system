@@ -1,5 +1,5 @@
 import { Component, h, Element, Host, Prop, Listen } from '@stencil/core';
-import { TableRowgroupTypes } from '../types';
+import { TableRowgroupTypes } from '../../../utils/types/table.types';
 
 @Component({
   tag: 'b2b-table-rowgroup',

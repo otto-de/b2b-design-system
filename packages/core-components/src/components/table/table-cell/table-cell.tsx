@@ -1,5 +1,9 @@
 import { Component, h, Host, Prop, Element, State } from '@stencil/core';
-import { ContentAlignment, TableSizes, TableColourOptions } from '../types';
+import {
+  ContentAlignment,
+  TableSizes,
+  TableColourOptions,
+} from '../../../utils/types/table.types';
 
 @Component({
   tag: 'b2b-table-cell',

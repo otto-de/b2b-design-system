@@ -8,7 +8,7 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { TableSortDirections } from '../types';
+import { TableSortDirections } from '../../../utils/types/table.types';
 
 @Component({
   tag: 'b2b-table-header',
