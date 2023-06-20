@@ -9,6 +9,6 @@ describe('B2B Tab Panel', () => {
 
   it('should render the tab panel', async () => {
     const element = await page.find('b2b-tab-panel');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 });

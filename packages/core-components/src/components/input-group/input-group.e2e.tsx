@@ -22,7 +22,7 @@ describe('B2B Input Group', () => {
 
   it('should render the input group component', async () => {
     const element = await page.find('b2b-input-group');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should disable the input group component', async () => {

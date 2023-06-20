@@ -9,7 +9,7 @@ describe('B2B Tab', () => {
 
   it('should render the tab component', async () => {
     const element = await page.find('b2b-tab');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should emit when selected changes', async () => {
@@ -42,6 +42,6 @@ describe('B2B Tab', () => {
     const focus = await page.evaluate(() => {
       return document.activeElement.ariaSelected;
     });
-    expect(focus).not.toBeNull;
+    expect(focus).not.toBeNull();
   });
 });

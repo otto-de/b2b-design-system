@@ -30,7 +30,7 @@ describe('B2B Tab Group', () => {
 
   it('should render the tab group', async () => {
     const element = await page.find('b2b-tab-group');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should select the first tab by default', async () => {
