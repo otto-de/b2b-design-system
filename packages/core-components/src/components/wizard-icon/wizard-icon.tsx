@@ -11,7 +11,7 @@ export class WizardIconComponent {
   @Prop() step: WizardSteps;
 
   /** The state of the step */
-  @Prop() state: WizardStatus = WizardStatus.ACTIVE;
+  @Prop() state: WizardStatus = WizardStatus.PENDING;
 
   /** Defaults to true. It will show a checkmark icon when a step is completed.
    * Set as false to show the step number */
@@ -24,7 +24,7 @@ export class WizardIconComponent {
           class={{
             'b2b-wizard-icon': true,
           }}>
-          {this.state === WizardStatus.COMPLETE && (
+          {this.state === WizardStatus.COMPLETED && (
             <b2b-rounded-icon
               color="var(--b2b-color-success-50)"
               content-color="var(--b2b-color-success-100)">
@@ -35,7 +35,7 @@ export class WizardIconComponent {
               )}
             </b2b-rounded-icon>
           )}
-          {this.state === WizardStatus.ACTIVE && (
+          {this.state === WizardStatus.PENDING && (
             <b2b-rounded-icon
               color="var(--b2b-color-icon-default)"
               content-color="var(--b2b-color-icon-inverted)">

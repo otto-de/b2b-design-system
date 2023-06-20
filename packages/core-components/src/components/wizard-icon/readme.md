@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                                                    | Type                                                | Default               |
-| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------- |
-| `checkIcon` | `check-icon` | Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number | `boolean`                                           | `true`                |
-| `state`     | `state`      | The state of the step                                                                                          | `"active" \| "complete" \| "default" \| "disabled"` | `WizardStatus.ACTIVE` |
-| `step`      | `step`       | The step number                                                                                                | `"1" \| "2" \| "3" \| "4" \| "5" \| "6"`            | `undefined`           |
+| Property    | Attribute    | Description                                                                                                    | Type                                                  | Default                |
+| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------- |
+| `checkIcon` | `check-icon` | Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number | `boolean`                                             | `true`                 |
+| `state`     | `state`      | The state of the step                                                                                          | `"completed" \| "default" \| "disabled" \| "pending"` | `WizardStatus.PENDING` |
+| `step`      | `step`       | The step number                                                                                                | `"1" \| "2" \| "3" \| "4" \| "5" \| "6"`              | `undefined`            |
 
 
 ## Dependencies

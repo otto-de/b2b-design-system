@@ -8,7 +8,7 @@ import { WizardSteps, WizardStatus } from '../../utils/types/wizard.types';
 })
 export class WizardStepComponent {
   /** Use when wizard has property custom true. The state of the step */
-  @Prop() state: WizardStatus = 'active';
+  @Prop() state: WizardStatus = 'pending';
 
   /** Use when wizard has property custom true. The step number */
   @Prop() step: WizardSteps = '1';
