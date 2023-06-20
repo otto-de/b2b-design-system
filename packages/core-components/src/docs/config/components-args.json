@@ -2684,10 +2684,10 @@
     },
     "state": {
       "options": [
-        "active",
-        "complete",
+        "completed",
         "default",
-        "disabled"
+        "disabled",
+        "pending"
       ],
       "control": {
         "type": "radio"
@@ -2697,7 +2697,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "WizardStatus.ACTIVE"
+          "summary": "WizardStatus.PENDING"
         }
       },
       "description": "The state of the step"
@@ -2740,10 +2740,10 @@
     },
     "state": {
       "options": [
-        "active",
-        "complete",
+        "completed",
         "default",
-        "disabled"
+        "disabled",
+        "pending"
       ],
       "control": {
         "type": "radio"
@@ -2753,7 +2753,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "'active'"
+          "summary": "'pending'"
         }
       },
       "description": "Use when wizard has property custom true. The state of the step"

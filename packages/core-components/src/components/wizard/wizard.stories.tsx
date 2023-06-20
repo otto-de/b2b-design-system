@@ -19,13 +19,13 @@ story010Wizard.storyName = 'Default';
 const StatesTemplate: Story = ({ step }) => {
   return html`
     <b2b-wizard-step step="${step}" state="default">Default</b2b-wizard-step>
-    <b2b-wizard-step step="${step}" state="complete"
-      >Complete with icon</b2b-wizard-step
+    <b2b-wizard-step step="${step}" state="completed"
+      >Completed with icon</b2b-wizard-step
     >
-    <b2b-wizard-step step="${step}" state="complete" check-icon="false"
-      >Complete with number</b2b-wizard-step
+    <b2b-wizard-step step="${step}" state="completed" check-icon="false"
+      >Completed with number</b2b-wizard-step
     >
-    <b2b-wizard-step step="${step}" state="active">Active</b2b-wizard-step>
+    <b2b-wizard-step step="${step}" state="pending">Pending</b2b-wizard-step>
     <b2b-wizard-step step="${step}" state="disabled">Disabled</b2b-wizard-step>
   `;
 };

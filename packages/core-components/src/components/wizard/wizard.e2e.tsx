@@ -42,7 +42,7 @@ describe('B2B-Wizard', () => {
     const activeStep = steps[2];
 
     const stepState = await activeStep.getProperty('state');
-    expect(stepState).toBe(WizardStatus.ACTIVE);
+    expect(stepState).toBe(WizardStatus.PENDING);
   });
 
   it('should render incomplete steps with default state', async () => {
@@ -62,7 +62,7 @@ describe('B2B-Wizard', () => {
     await Promise.all(
       incompleteSteps.map(async step => {
         const stepState = await step.getProperty('state');
-        expect(stepState).toBe(WizardStatus.COMPLETE);
+        expect(stepState).toBe(WizardStatus.COMPLETED);
       }),
     );
   });
@@ -77,7 +77,7 @@ describe('B2B-Wizard', () => {
         const stepNumber = await step.getProperty('step');
         expect(stepNumber).toBe('1');
         const stepState = await step.getProperty('state');
-        expect(stepState).toBe(WizardStatus.ACTIVE);
+        expect(stepState).toBe(WizardStatus.PENDING);
       }),
     );
   });
@@ -90,7 +90,7 @@ describe('B2B-Wizard', () => {
     await Promise.all(
       steps.map(async step => {
         const stepState = await step.getProperty('state');
-        expect(stepState).toBe(WizardStatus.COMPLETE);
+        expect(stepState).toBe(WizardStatus.COMPLETED);
       }),
     );
   });
