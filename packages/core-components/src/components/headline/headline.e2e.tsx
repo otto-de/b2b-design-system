@@ -9,7 +9,7 @@ describe('B2B-Headline', () => {
 
   it('should render headline component', async () => {
     const element = await page.find('b2b-headline');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
     expect(element).toEqualText('Headline');
   });
 });

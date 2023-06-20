@@ -10,7 +10,7 @@ describe('B2B-Textarea', () => {
   it('should render the textarea component', async () => {
     const element = await page.find('b2b-textarea');
 
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should render the label', async () => {

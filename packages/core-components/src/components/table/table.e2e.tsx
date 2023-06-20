@@ -46,7 +46,7 @@ describe('B2B-Table', () => {
 
   it('should render the table component', async () => {
     const element = await page.find('b2b-table');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should set cell sizes according to table size', async () => {
@@ -98,14 +98,16 @@ describe('B2B-Table', () => {
 
   it('should show a descending sorting button when a column header is hovered or focused', async () => {
     const headerCol = await page.find({ text: 'Title 1' });
-    const sortArrow = await headerCol.find('svg');
+    const sortArrow = await page.find('b2b-table-header >>> svg');
     const ariaState = await headerCol.getAttribute('aria-sort');
-    expect(sortArrow).toBeNull;
+    expect(await sortArrow.isVisible()).toBe(false);
     expect(ariaState).toEqualText('other');
 
     await headerCol.hover();
 
-    expect(sortArrow).not.toBeNull;
+    await page.waitForChanges();
+
+    expect(await sortArrow.isVisible()).toBe(true);
   });
 
   it('should emit the sort direction when a column header is clicked', async () => {

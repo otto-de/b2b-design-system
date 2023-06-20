@@ -9,7 +9,7 @@ describe('B2B-Paragraph', () => {
 
   it('should render paragraph component', async () => {
     const element = await page.find('b2b-paragraph');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
     expect(element).toEqualText('Paragraph');
   });
 });

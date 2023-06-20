@@ -9,7 +9,7 @@ describe('B2B-Button', () => {
 
   it('should render the button component', async () => {
     const element = await page.find('b2b-button');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should display text', async () => {

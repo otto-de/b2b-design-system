@@ -9,6 +9,6 @@ describe('B2B-Spinner', () => {
 
   it('should render spinner component', async () => {
     const element = await page.find('b2b-spinner');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 });

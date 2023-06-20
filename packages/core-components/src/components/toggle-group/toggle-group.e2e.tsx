@@ -14,7 +14,7 @@ describe('b2b-toggle-group', () => {
 
   it('should render the toggle group', async () => {
     const element = await page.find('b2b-toggle-group');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should emit an event when a button is checked', async () => {

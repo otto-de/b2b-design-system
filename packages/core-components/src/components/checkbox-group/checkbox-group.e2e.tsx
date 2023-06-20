@@ -13,7 +13,7 @@ describe('B2B-Checkbox-Group', () => {
 
   it('should render the checkbox group component', async () => {
     const element = await page.find('b2b-checkbox-group');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should have all checkboxes unchecked by default and check a checkbox', async () => {

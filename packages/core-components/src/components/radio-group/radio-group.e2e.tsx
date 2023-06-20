@@ -14,7 +14,7 @@ describe('B2B-Radio-Group', () => {
 
   it('should render the radio group component', async () => {
     const element = await page.find('b2b-radio-group');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should have all radio buttons unchecked by default and check a radio button', async () => {
@@ -30,10 +30,9 @@ describe('B2B-Radio-Group', () => {
 
   it('should receive a custom event', async () => {
     const element = await page.find('b2b-radio-button >>> div > input');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
 
     const b2bChange = await page.spyOnEvent('b2b-change');
-    expect(b2bChange).not.toBeNull;
 
     await element.click();
 
@@ -44,10 +43,9 @@ describe('B2B-Radio-Group', () => {
 
   it('should emit a custom event when a radio button is checked', async () => {
     const element = await page.find('b2b-radio-button');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
 
     const b2bGroupChange = await page.spyOnEvent('b2b-group-change');
-    expect(b2bGroupChange).not.toBeNull;
 
     await element.click();
 

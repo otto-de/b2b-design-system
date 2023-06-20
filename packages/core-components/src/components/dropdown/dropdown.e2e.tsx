@@ -14,7 +14,7 @@ describe('B2B-Dropdown', () => {
 
   it('should render the dropdown component', async () => {
     const element = await page.find('b2b-dropdown');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should receive a custom event when an option is selected', async () => {

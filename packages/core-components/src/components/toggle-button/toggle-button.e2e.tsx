@@ -10,7 +10,7 @@ describe('b2b-toggle-button', () => {
   });
   it('renders', async () => {
     const element = await page.find('b2b-toggle-button');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('checks the button when selected', async () => {
