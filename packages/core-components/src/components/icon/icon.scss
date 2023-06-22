@@ -14,34 +14,34 @@
       cursor: pointer;
     }
 
-    &.icon-50 {
+    &.b2b-icon--50 {
       width: var(--b2b-size-40);
       height: var(--b2b-size-40);
     }
 
-    &.icon-100 {
+    &.b2b-icon--100 {
       width: var(--b2b-size-60);
       height: var(--b2b-size-60);
     }
 
-    &.icon-200 {
+    &.b2b-icon--200 {
       width: var(--b2b-size-80);
       height: var(--b2b-size-80);
     }
 
-    &.primary {
+    &.b2b-icon--primary {
       fill: var(--b2b-color-black-100);
     }
 
-    &.secondary {
+    &.b2b-icon--secondary {
       fill: var(--b2b-color-grey-200);
     }
 
-    &.inverse {
+    &.b2b-icon--inverse {
       fill: var(--b2b-color-white-100);
     }
 
-    &.inherit {
+    &.b2b-icon--inherit {
       fill: currentcolor;
     }
   }

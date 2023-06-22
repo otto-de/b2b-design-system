@@ -127,9 +127,9 @@ export class PaginationComponent {
 
   private getItemClass(navItem) {
     return {
-      'b2b-pagination--first-item': navItem === this.firstPageIndex,
-      'b2b-pagination--last-item': navItem === this.totalPages,
-      'b2b-pagination--item': true,
+      'b2b-pagination__first-item': navItem === this.firstPageIndex,
+      'b2b-pagination__last-item': navItem === this.totalPages,
+      'b2b-pagination__item': true,
     };
   }
 

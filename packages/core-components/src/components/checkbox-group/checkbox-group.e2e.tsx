@@ -24,7 +24,7 @@ describe('B2B-Checkbox-Group', () => {
 
     await page.waitForChanges();
 
-    expect(element).toHaveClass('b2b-checkbox-checked');
+    expect(element).toHaveClass('b2b-checkbox--checked');
   });
 
   it('should receive a custom event', async () => {
