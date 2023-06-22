@@ -13,12 +13,12 @@
   margin-bottom: var(--b2b-checkbox-margin-bottom);
   margin-right: var(--b2b-size-60);
 
-  &-items {
+  &__items {
     display: flex;
     justify-content: flex-start;
   }
 
-  &-icon {
+  &__icon {
     position: absolute;
     fill: var(--b2b-color-white-100);
     display: none;
@@ -29,7 +29,7 @@
     z-index: 1000;
   }
 
-  &-input {
+  &__input {
     margin: 2px 6px 3px 0;
     appearance: none;
     background-color: var(--b2b-color-white-100);
@@ -43,12 +43,12 @@
     flex-shrink: 0;
   }
 
-  &-checked {
-    .b2b-checkbox-icon {
+  &--checked {
+    .b2b-checkbox__icon {
       display: inline-block;
     }
 
-    .b2b-checkbox-input {
+    .b2b-checkbox__input {
       border-color: var(--b2b-color-black-100);
       background-color: var(--b2b-color-black-100);
     }
@@ -69,7 +69,7 @@
   }
 
   &--error {
-    .b2b-checkbox-input {
+    .b2b-checkbox__input {
       background-color: var(--b2b-color-error-50);
       border: 1px solid var(--b2b-color-error-100);
     }
@@ -79,8 +79,8 @@
     }
 
     /* When an input is both checked AND has an error */
-    &.b2b-checkbox-checked {
-      .b2b-checkbox-input {
+    &.b2b-checkbox--checked {
+      .b2b-checkbox__input {
         background-color: var(--b2b-color-error-100);
         border-color: var(--b2b-color-error-100);
       }
@@ -90,7 +90,7 @@
   &--disabled {
     pointer-events: none;
 
-    .b2b-checkbox-input {
+    .b2b-checkbox__input {
       background-color: var(--b2b-color-grey-25);
       border-color: var(--b2b-color-grey-300);
     }
@@ -99,8 +99,8 @@
 
 // not sure how to create this selector in scss. disabling stylelint as it does not like bem --
 /* stylelint-disable selector-class-pattern */
-.b2b-checkbox.b2b-checkbox--disabled.b2b-checkbox-checked {
-  .b2b-checkbox-input {
+.b2b-checkbox.b2b-checkbox--disabled.b2b-checkbox--checked {
+  .b2b-checkbox__input {
     background-color: var(--b2b-color-grey-300);
     border-color: var(--b2b-color-grey-300);
   }

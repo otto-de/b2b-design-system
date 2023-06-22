@@ -39,7 +39,7 @@ describe('b2b-modal', () => {
     const closeContent = await page.evaluate(() => {
       return document.activeElement.shadowRoot.activeElement.className;
     });
-    expect(closeContent).toBe('b2b-modal-dialog--close');
+    expect(closeContent).toBe('b2b-modal__dialog__close');
   });
 
   it('verify focus trap', async () => {
@@ -55,14 +55,14 @@ describe('b2b-modal', () => {
     let closeContent = await page.evaluate(() => {
       return document.activeElement.shadowRoot.activeElement.className;
     });
-    expect(closeContent).toBe('b2b-modal-dialog--close');
+    expect(closeContent).toBe('b2b-modal__dialog__close');
 
     await page.keyboard.press('Tab');
 
     closeContent = await page.evaluate(() => {
       return document.activeElement.shadowRoot.activeElement.className;
     });
-    expect(closeContent).toBe('b2b-modal-dialog--close');
+    expect(closeContent).toBe('b2b-modal__dialog__close');
   });
 
   it('verify close hover', async () => {
@@ -148,7 +148,7 @@ describe('b2b-modal', () => {
         document
           .querySelector('b2b-modal')
           .shadowRoot.querySelector(
-            'div > div.b2b-modal--backdrop',
+            'div > div.b2b-modal__backdrop',
           ) as HTMLElement
       ).click();
     });
@@ -172,7 +172,7 @@ describe('b2b-modal', () => {
         document
           .querySelector('b2b-modal')
           .shadowRoot.querySelector(
-            'div > div.b2b-modal--backdrop',
+            'div > div.b2b-modal__backdrop',
           ) as HTMLElement
       ).click();
     });

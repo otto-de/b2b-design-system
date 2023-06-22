@@ -88,8 +88,8 @@ export class B2BInputGroup {
         {(this.hint || (this.invalid && !this.disabled)) && (
           <span
             class={{
-              'b2b-input-wrapper-hint': true,
-              'b2b-input-wrapper-hint--error': this.invalid && !this.disabled,
+              'b2b-input-wrapper__hint': true,
+              'b2b-input-wrapper__hint--error': this.invalid && !this.disabled,
             }}>
             {this.invalid && !this.disabled ? this.error : this.hint}
           </span>

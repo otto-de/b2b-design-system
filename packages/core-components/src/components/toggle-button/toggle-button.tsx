@@ -77,8 +77,8 @@ export class B2bToggleButtonComponent {
           <input
             tabindex={0}
             class={{
-              'b2b-toggle-button-input': true,
-              'b2b-toggle-button-input--disabled': this.disabled,
+              'b2b-toggle-button__input': true,
+              'b2b-toggle-button__input--disabled': this.disabled,
             }}
             aria-labelledby={this.name}
             type="radio"
@@ -91,9 +91,9 @@ export class B2bToggleButtonComponent {
             id={this.name}
             tabindex={-1}
             class={{
-              'b2b-toggle-button-label': true,
-              'b2b-toggle-button-label--disabled': this.disabled,
-              'b2b-toggle-button-label--checked':
+              'b2b-toggle-button__label': true,
+              'b2b-toggle-button__label--disabled': this.disabled,
+              'b2b-toggle-button__label--checked':
                 this.checked && !this.disabled,
             }}>
             {this.label}
