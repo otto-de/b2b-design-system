@@ -44,8 +44,8 @@ export class WizardIconComponent {
           )}
           {this.state === WizardStatus.DISABLED && (
             <b2b-rounded-icon
-              color="var(--b2b-color-grey-50)"
-              content-color="var(--b2b-color-grey-300)">
+              color="var(--b2b-color-grey-100)"
+              content-color="var(--b2b-color-grey-400)">
               <span slot="text">{this.step}</span>
             </b2b-rounded-icon>
           )}
