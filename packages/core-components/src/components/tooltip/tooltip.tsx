@@ -90,12 +90,12 @@ export class B2BTooltipComponent {
         <span
           class={{
             [`b2b-tooltip--${this.position}`]: true,
-            'b2b-tooltip--trigger': true,
+            'b2b-tooltip__trigger': true,
           }}>
           <slot></slot>
           <div
             class={{
-              'b2b-tooltip--content': true,
+              'b2b-tooltip__content': true,
               'b2b-tooltip--visible': this.opened,
             }}>
             <slot name="content">{this.content}</slot>

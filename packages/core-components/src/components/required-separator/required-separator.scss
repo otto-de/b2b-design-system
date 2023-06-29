@@ -5,11 +5,11 @@
   font-family: var(--b2b-font-family-default);
 
   .b2b-required-separator {
-    &--label {
+    &__label {
       margin-bottom: var(--b2b-size-20);
     }
 
-    &--asterisk {
+    &__asterisk {
       color: var(--b2b-color-red-100);
     }
   }

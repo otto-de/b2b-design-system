@@ -26,7 +26,7 @@
       display: flex;
     }
 
-    &--backdrop {
+    &__backdrop {
       top: 0;
       left: 0;
       z-index: 0;
@@ -36,7 +36,7 @@
     }
   }
 
-  .b2b-modal-dialog {
+  .b2b-modal__dialog {
     z-index: 1;
     position: relative;
     min-width: var(--b2b-component-modal-default-min-width);
@@ -47,14 +47,14 @@
     box-shadow: 0 3px 8px 0 var(--b2b-color-background-overlay-transparent-40);
     margin: auto;
 
-    &--header {
+    &__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: var(--b2b-size-space-75);
     }
 
-    &--close {
+    &__close {
       cursor: pointer;
       background: transparent;
       padding: 0;
@@ -62,17 +62,10 @@
 
       b2b-icon {
         transition: all 0.3s ease;
-
-        --b2b-icon-cursor: pointer;
-      }
-
-      /* this is a workaround to force purgecss to include the overwrites of the variable --b2b-icon-cursor */
-      .purge-css-include-variables {
-        cursor: var(--b2b-icon-cursor);
       }
     }
 
-    &--footer {
+    &__footer {
       display: flex;
       justify-content: space-between;
       padding-top: calc(var(--b2b-size-space-75) * 2);
@@ -96,7 +89,7 @@
   }
 
   @media only screen and (max-width: var(--b2b-component-modal-large-max-width)) {
-    .b2b-modal-dialog {
+    .b2b-modal__dialog {
       &--large {
         left: 0;
         width: auto;
@@ -106,7 +99,7 @@
   }
 
   @media only screen and (max-width: var(--b2b-component-modal-default-max-width)) {
-    .b2b-modal-dialog {
+    .b2b-modal__dialog {
       left: 0;
       width: auto;
       max-width: var(--b2b-component-modal-default-max-width);

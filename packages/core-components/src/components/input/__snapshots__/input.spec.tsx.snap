@@ -6,9 +6,9 @@ exports[`should apply an error style to the host element if invalid is set to tr
     <b2b-input-label>
       test
     </b2b-input-label>
-    <div class="input-wrapper">
+    <div class="b2b-input__wrapper">
       <slot name="start"></slot>
-      <input class="native-input" type="text">
+      <input class="b2b-input__native-input" type="text">
       <slot name="end"></slot>
     </div>
     <span>
@@ -24,9 +24,9 @@ exports[`should render a hint if invalid and disabled are true at the same time 
     <b2b-input-label>
       test
     </b2b-input-label>
-    <div class="input-wrapper input-wrapper--disabled">
+    <div class="b2b-input__wrapper b2b-input__wrapper--disabled">
       <slot name="start"></slot>
-      <input class="native-input" disabled="" type="text">
+      <input class="b2b-input__native-input" disabled="" type="text">
       <slot name="end"></slot>
     </div>
     <span>
@@ -42,9 +42,9 @@ exports[`should render a hint message if a hint string is specified 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <div class="input-wrapper">
+    <div class="b2b-input__wrapper">
       <slot name="start"></slot>
-      <input class="native-input" type="text">
+      <input class="b2b-input__native-input" type="text">
       <slot name="end"></slot>
     </div>
     <span>
@@ -60,9 +60,9 @@ exports[`should render an error message if an error is specified and the input i
     <b2b-input-label>
       test
     </b2b-input-label>
-    <div class="input-wrapper">
+    <div class="b2b-input__wrapper">
       <slot name="start"></slot>
-      <input class="native-input" type="text">
+      <input class="b2b-input__native-input" type="text">
       <slot name="end"></slot>
     </div>
     <span>
@@ -78,9 +78,9 @@ exports[`should render the input 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <div class="input-wrapper">
+    <div class="b2b-input__wrapper">
       <slot name="start"></slot>
-      <input class="native-input" type="text">
+      <input class="b2b-input__native-input" type="text">
       <slot name="end"></slot>
     </div>
   </mock:shadow-root>
@@ -93,9 +93,9 @@ exports[`should render with a placeholder 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <div class="input-wrapper">
+    <div class="b2b-input__wrapper">
       <slot name="start"></slot>
-      <input class="native-input" placeholder="test placeholder" type="text">
+      <input class="b2b-input__native-input" placeholder="test placeholder" type="text">
       <slot name="end"></slot>
     </div>
   </mock:shadow-root>

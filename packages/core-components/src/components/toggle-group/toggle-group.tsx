@@ -87,7 +87,7 @@ export class B2BToggleGroup {
         <div
           class={{
             'b2b-toggle-group': true,
-            'b2b-toggle-group-disabled': this.disabled,
+            'b2b-toggle-group--disabled': this.disabled,
           }}>
           <fieldset>
             <slot></slot>

@@ -41,7 +41,7 @@
   --b2b-border-left: 1px solid var(--b2b-color-grey-100);
 }
 
-.b2b-toggle-group-disabled {
+.b2b-toggle-group--disabled {
   ::slotted(b2b-toggle-button[disabled]) {
     --b2b-border-left: 1px solid var(--b2b-color-grey-100);
   }

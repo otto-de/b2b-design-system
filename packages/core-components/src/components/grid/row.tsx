@@ -37,8 +37,7 @@ export class B2bGridRowComponent {
           ['display']: 'flex',
           ['flex-wrap']: 'wrap',
           ['box-sizing']: 'border-box',
-        }}
-        class="b2b-grid--row">
+        }}>
         <slot></slot>
       </Host>
     );

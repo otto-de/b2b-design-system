@@ -8,7 +8,7 @@ describe('B2B-Pagination', () => {
 
   const getItem = (page, itemText) => {
     const allItemElements = page.root.shadowRoot.querySelectorAll(
-      'li.b2b-pagination--item b2b-button',
+      'li.b2b-pagination__item b2b-button',
     );
     const allItems: AnyHTMLElement[] = Array.from(allItemElements);
     return allItems.find(item => item.textContent === itemText);
@@ -69,7 +69,7 @@ describe('B2B-Pagination', () => {
     await page.waitForChanges();
 
     const lastItemNPosition = 2;
-    const lastItemSelector = `li.b2b-pagination--item:nth-last-of-type(${lastItemNPosition})`;
+    const lastItemSelector = `li.b2b-pagination__item:nth-last-of-type(${lastItemNPosition})`;
     const lastItem = page.root.shadowRoot.querySelector(lastItemSelector);
     expect(lastItem.textContent).toBe('10');
   });
@@ -82,7 +82,7 @@ describe('B2B-Pagination', () => {
 
     await page.waitForChanges();
 
-    const secondToLastItemSelector = `li.b2b-pagination--item:nth-last-of-type(3)`;
+    const secondToLastItemSelector = `li.b2b-pagination__item:nth-last-of-type(3)`;
     const lastItem = page.root.shadowRoot.querySelector(
       secondToLastItemSelector,
     );
@@ -97,7 +97,7 @@ describe('B2B-Pagination', () => {
 
     await page.waitForChanges();
 
-    const secondItemSelector = `li.b2b-pagination--item:nth-of-type(3)`;
+    const secondItemSelector = `li.b2b-pagination__item:nth-of-type(3)`;
     const secondItem = page.root.shadowRoot.querySelector(secondItemSelector);
     expect(secondItem.textContent).toBe(PaginationConstants.DOTS);
   });
@@ -110,11 +110,11 @@ describe('B2B-Pagination', () => {
 
     await page.waitForChanges();
 
-    const secondItemSelector = `li.b2b-pagination--item:nth-of-type(3)`;
+    const secondItemSelector = `li.b2b-pagination__item:nth-of-type(3)`;
     const secondItem = page.root.shadowRoot.querySelector(secondItemSelector);
     expect(secondItem.textContent).toBe(PaginationConstants.DOTS);
 
-    const secondToLastItemSelector = `li.b2b-pagination--item:nth-last-of-type(3)`;
+    const secondToLastItemSelector = `li.b2b-pagination__item:nth-last-of-type(3)`;
     const lastItem = page.root.shadowRoot.querySelector(
       secondToLastItemSelector,
     );
@@ -129,11 +129,11 @@ describe('B2B-Pagination', () => {
 
     await page.waitForChanges();
 
-    const secondItemSelector = `li.b2b-pagination--item:nth-of-type(3)`;
+    const secondItemSelector = `li.b2b-pagination__item:nth-of-type(3)`;
     const secondItem = page.root.shadowRoot.querySelector(secondItemSelector);
     expect(secondItem.textContent).toBe('2');
 
-    const secondToLastItemSelector = `li.b2b-pagination--item:nth-last-of-type(3)`;
+    const secondToLastItemSelector = `li.b2b-pagination__item:nth-last-of-type(3)`;
     const lastItem = page.root.shadowRoot.querySelector(
       secondToLastItemSelector,
     );

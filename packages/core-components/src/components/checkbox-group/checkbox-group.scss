@@ -9,7 +9,7 @@
   font-family: var(--b2b-font-family-default);
   font-size: var(--b2b-size-copy-100);
 
-  &-options {
+  &__options {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
@@ -41,13 +41,13 @@
   }
 
   &--vertical {
-    .b2b-checkbox-group-options {
+    .b2b-checkbox-group__options {
       flex-direction: column;
     }
   }
 
   &--horizontal {
-    .b2b-checkbox-group-options {
+    .b2b-checkbox-group__options {
       flex-direction: row;
     }
   }

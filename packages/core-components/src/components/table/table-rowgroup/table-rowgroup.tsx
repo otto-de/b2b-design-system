@@ -99,7 +99,7 @@ export class TableRowgroupComponent {
     return (
       <Host
         class={{
-          ['b2b-table-rowgroup--' + this.type]: true,
+          ['b2b-table-rowgroup__' + this.type]: true,
         }}
         role="rowgroup">
         <slot></slot>

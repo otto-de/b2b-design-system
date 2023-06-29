@@ -55,7 +55,7 @@ describe('B2B-Alert', () => {
     await page.setContent(`<b2b-alert opened size="large">test</b2b-alert>`);
 
     const alert = await page.find('b2b-alert >>> div');
-    const element = await page.find('b2b-alert >>> div.b2b-alert-close-icon');
+    const element = await page.find('b2b-alert >>> div.b2b-alert__close-icon');
 
     expect(element).not.toBeNull();
 
@@ -63,7 +63,7 @@ describe('B2B-Alert', () => {
       (
         document
           .querySelector('b2b-alert')
-          .shadowRoot.querySelector('.b2b-alert-close-icon') as HTMLElement
+          .shadowRoot.querySelector('.b2b-alert__close-icon') as HTMLElement
       ).click();
     });
 
@@ -78,7 +78,7 @@ describe('B2B-Alert', () => {
       `<b2b-alert opened size="large" type="error">test</b2b-alert>`,
     );
 
-    const element = await page.find('b2b-alert >>> div.b2b-alert-close-icon');
+    const element = await page.find('b2b-alert >>> div.b2b-alert__close-icon');
 
     expect(element).toBeNull();
   });
@@ -87,7 +87,7 @@ describe('B2B-Alert', () => {
     const page = await newE2EPage();
     await page.setContent(`<b2b-alert opened>test</b2b-alert>`);
 
-    const element = await page.find('b2b-alert >>> div.b2b-alert-close-icon');
+    const element = await page.find('b2b-alert >>> div.b2b-alert__close-icon');
 
     expect(element).toBeNull();
   });

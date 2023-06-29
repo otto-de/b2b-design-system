@@ -106,17 +106,17 @@ export class CheckboxComponent {
             'b2b-checkbox': true,
             'b2b-checkbox--error': this.invalid && !this.disabled,
             'b2b-checkbox--disabled': this.disabled,
-            'b2b-checkbox-checked': this.checked,
+            'b2b-checkbox--checked': this.checked,
           }}>
           <div class="b2b-checkbox-items">
             <svg
-              class="b2b-checkbox-icon"
+              class="b2b-checkbox__icon"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32">
               <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z" />
             </svg>
             <input
-              class="b2b-checkbox-input"
+              class="b2b-checkbox__input"
               aria-labelledby={this.name}
               type="checkbox"
               name={this.name}

@@ -9,7 +9,7 @@ exports[`should gracefully fail if icon name is not found by not rendering icon 
 exports[`should render the icon with default values 1`] = `
 <b2b-icon>
   <mock:shadow-root>
-    <div class="b2b-icon icon-100 inherit"></div>
+    <div class="b2b-icon b2b-icon--100 b2b-icon--inherit"></div>
   </mock:shadow-root>
 </b2b-icon>
 `;

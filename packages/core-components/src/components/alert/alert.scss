@@ -13,7 +13,7 @@
   &--info {
     background-color: var(--b2b-color-info-50);
 
-    &-icon {
+    &__icon {
       color: var(--b2b-color-info-100);
     }
   }
@@ -30,12 +30,12 @@
   &--success {
     background-color: var(--b2b-color-success-50);
 
-    &-icon {
+    &__icon {
       color: var(--b2b-color-success-100);
     }
   }
 
-  &-close-icon {
+  &__close-icon {
     padding-top: var(--b2b-size-7);
     width: var(--b2b-size-30);
     height: var(--b2b-size-35);
@@ -44,7 +44,7 @@
     flex-shrink: 0;
   }
 
-  &-content {
+  &__content {
     display: flex;
     align-items: center;
     flex: 2;

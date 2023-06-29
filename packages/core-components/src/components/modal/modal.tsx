@@ -157,34 +157,35 @@ export class ModalComponent {
             tabIndex={0}></div>
           <div
             class={{
-              'b2b-modal-dialog': true,
-              [`b2b-modal-dialog--${this.variant}`]: true,
+              'b2b-modal__dialog': true,
+              [`b2b-modal__dialog--${this.variant}`]: true,
             }}>
-            <div class="b2b-modal-dialog--header">
+            <div class="b2b-modal__dialog__header">
               <b2b-headline align="center" size="200" noMargin={true}>
                 {this.heading}
               </b2b-headline>
               <button
                 type="button"
-                class="b2b-modal-dialog--close"
+                class="b2b-modal__dialog__close"
                 onMouseEnter={this.toggleIconHover}
                 onMouseLeave={this.toggleIconHover}
                 onClick={this.handleClickDismiss}
                 ref={el => (this.closeButton = el)}>
                 <b2b-icon
+                  clickable
                   icon="b2b_icon-close"
                   color={this.iconHover ? 'primary' : 'secondary'}></b2b-icon>
               </button>
             </div>
-            <div class="b2b-modal-dialog--body">
+            <div class="b2b-modal__dialog__body">
               <slot></slot>
             </div>
 
-            <div class="b2b-modal-dialog--footer">
-              <div class="b2b-modal-dialog--footer-left">
+            <div class="b2b-modal__dialog__footer">
+              <div class="b2b-modal__dialog__footer-left">
                 <slot name="footer-left"></slot>
               </div>
-              <div class="b2b-modal-dialog--footer-right">
+              <div class="b2b-modal__dialog__footer-right">
                 <slot name="footer-right"></slot>
               </div>
             </div>
@@ -194,7 +195,7 @@ export class ModalComponent {
             onFocus={this.handleBottomFocus}
             tabIndex={0}></div>
           <div
-            class="b2b-modal--backdrop"
+            class="b2b-modal__backdrop"
             onClick={this.handleBackdropDismiss}></div>
         </div>
       </Host>

@@ -9,7 +9,7 @@
   min-width: var(--b2b-size-200);
   font-family: var(--b2b-font-family-default);
 
-  .input-wrapper {
+  .b2b-input__wrapper {
     display: flex;
     align-items: center;
     height: var(--b2b-size-60);
@@ -33,7 +33,7 @@
       color: var(--b2b-color-grey-250);
       background-color: var(--b2b-color-grey-25);
 
-      .native-input {
+      .b2b-input__native-input {
         background-color: var(--b2b-color-grey-25);
       }
     }
@@ -44,7 +44,7 @@
       margin: 0 12px;
     }
 
-    .native-input {
+    .b2b-input__native-input {
       // needs font family as it gets overwritten by user agent if not defined directly
       font-family: var(--b2b-font-family-default);
       font-size: var(--b2b-size-copy-100);
@@ -78,8 +78,8 @@
 }
 
 :host(.b2b-input--error) {
-  .input-wrapper,
-  .native-input {
+  .b2b-input__wrapper,
+  .b2b-input__native-input {
     background-color: var(--b2b-color-error-50);
     border: 1px solid var(--b2b-color-error-100);
     border-right: var(--b2b-border-right);
@@ -91,7 +91,7 @@
     }
   }
 
-  .input-wrapper--focused {
+  .b2b-input__input-wrapper--focused {
     outline: 2px solid var(--b2b-color-error-100);
     outline-offset: -1px;
   }

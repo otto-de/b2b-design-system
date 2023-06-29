@@ -11,7 +11,7 @@
   margin: 0;
 
   .b2b-toggle-button {
-    &-input {
+    &__input {
       border: 0;
       clip: rect(0, 0, 0, 0);
       height: 1px;
@@ -20,7 +20,7 @@
       width: 1px;
     }
 
-    &-label {
+    &__label {
       display: inline-block;
       position: relative;
       box-sizing: border-box;
@@ -41,25 +41,25 @@
       }
     }
 
-    &-input:focus + label {
+    &__input:focus + label {
       outline: 2px solid -webkit-focus-ring-color;
       z-index: 1;
       transition: none;
     }
 
-    &-input--disabled:focus + label {
+    &__input--disabled:focus + label {
       outline: none;
     }
 
-    &-label--checked,
-    &-label--checked:hover {
+    &__label--checked,
+    &__label--checked:hover {
       color: var(--b2b-color-white-100);
       background-color: var(--b2b-color-black-50);
       border-color: var(--b2b-color-black-50);
     }
 
-    &-label--disabled,
-    &-label--disabled:hover {
+    &__label--disabled,
+    &__label--disabled:hover {
       pointer-events: none;
       color: var(--b2b-color-grey-250);
       border-color: var(--b2b-color-grey-100);

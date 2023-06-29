@@ -1,20 +1,20 @@
 @use '../../global/b2b-styles';
 
 .b2b-tooltip {
-  &--trigger {
+  &__trigger {
     position: relative;
   }
 
   &--visible {
-    &.b2b-tooltip--content,
-    &.b2b-tooltip--content::before {
+    &.b2b-tooltip__content,
+    &.b2b-tooltip__content::before {
       opacity: 1;
       visibility: visible;
       transition-delay: 100ms;
     }
   }
 
-  &--content {
+  &__content {
     background-color: var(--b2b-color-black-100);
     white-space: pre-wrap;
     color: var(--b2b-color-white-100);
@@ -47,7 +47,7 @@
   }
 
   &--left {
-    .b2b-tooltip--content {
+    .b2b-tooltip__content {
       inset: 50% calc(100% + 8px) auto auto;
       transform: translateY(-50%);
 
@@ -61,7 +61,7 @@
   }
 
   &--right {
-    .b2b-tooltip--content {
+    .b2b-tooltip__content {
       inset: 50% auto auto calc(100% + 8px);
       transform: translateY(-50%);
 
@@ -75,7 +75,7 @@
   }
 
   &--bottom {
-    .b2b-tooltip--content {
+    .b2b-tooltip__content {
       inset: calc(150% + 0.375rem) auto auto 50%;
       transform: translateX(-50%) translateY(-0.5rem);
 
@@ -88,7 +88,7 @@
   }
 
   &--top {
-    .b2b-tooltip--content {
+    .b2b-tooltip__content {
       inset: auto auto 100% 50%;
       transform: translateX(-50%) translateY(-0.5rem);
 

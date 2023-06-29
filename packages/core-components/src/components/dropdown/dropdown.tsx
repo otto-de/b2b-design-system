@@ -103,7 +103,7 @@ export class DropdownComponent {
           </b2b-input-label>
         )}
         <select
-          class="b2b-dropdown-select"
+          class="b2b-dropdown__select"
           aria-labelledby={this.name}
           name={this.name}
           disabled={this.disabled}

@@ -10,7 +10,7 @@
   font-family: var(--b2b-font-family-default);
   font-size: var(--b2b-size-copy-100);
 
-  .b2b-dropdown-select {
+  .b2b-dropdown__select {
     font-family: var(--b2b-font-family-default);
     font-size: var(--b2b-size-copy-100);
     appearance: none;
@@ -55,7 +55,7 @@
 }
 
 :host(.b2b-dropdown--error) {
-  .b2b-dropdown-select {
+  .b2b-dropdown__select {
     background-color: var(--b2b-color-error-50);
     border: 1px solid var(--b2b-color-error-100);
     border-right: var(--b2b-border-right);
@@ -73,7 +73,7 @@
 }
 
 :host(.b2b-dropdown--disabled) {
-  .b2b-dropdown-select {
+  .b2b-dropdown__select {
     background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" fill="grey" viewBox="0 0 32 32"><path d="M27.748 12.017l-11.333 9.01a.666.666 0 0 1-.829 0l-11.333-9a.665.665 0 1 1 .829-1.044l10.919 8.671 10.919-8.68a.663.663 0 0 1 .936.107.667.667 0 0 1-.107.937z"/></svg>');
     background-color: var(--b2b-color-grey-25);
     color: var(--b2b-color-grey-250);

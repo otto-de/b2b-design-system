@@ -38,8 +38,8 @@ export class B2bIcon {
         <div
           class={{
             'b2b-icon': true,
-            [`icon-${this.size}`]: true,
-            [this.color]: true,
+            [`b2b-icon--${this.size}`]: true,
+            [`b2b-icon--${this.color}`]: true,
             'b2b-icon--clickable': this.clickable,
           }}
           innerHTML={this.pathData}></div>
