@@ -16,7 +16,7 @@ describe('B2B Input Group', () => {
           <option value="one">€</option>
           <option value="one">$</option>
         </b2b-dropdown>
-        <b2b-button slot="end" variant="primary"><b2b-icon icon="b2b_icon-search"></b2b-icon></b2b-button>
+        <b2b-button slot="end" variant="primary" disabled><b2b-icon icon="b2b_icon-search"></b2b-icon></b2b-button>
       </b2b-input-group>`);
   });
 
@@ -34,6 +34,24 @@ describe('B2B Input Group', () => {
     await page.waitForChanges();
 
     expect(element).toHaveAttribute('disabled');
+  });
+
+  it('should disable individual elements of the group and keep their state when the group is dis- and enabled', async () => {
+    let button = await page.find('b2b-button');
+    expect(await button.getProperty('disabled')).toBe(true);
+
+    let group = await page.find('b2b-input-group');
+
+    await group.setProperty('disabled', true);
+    await page.waitForChanges();
+
+    expect(await group.getProperty('disabled')).toBe(true);
+
+    await group.setProperty('disabled', false);
+    await page.waitForChanges();
+
+    expect(await group.getProperty('disabled')).toBe(false);
+    expect(await button.getProperty('disabled')).toBe(true);
   });
 
   it('should render a group hint if one is specified', async () => {
