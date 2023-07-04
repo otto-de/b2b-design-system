@@ -1,8 +1,6 @@
 @use 'sass:color';
 @use '../../global/b2b-styles';
 
-
-
 :host {
   .obc_breadcrumb-nav {
     position: sticky;
@@ -10,39 +8,34 @@
     z-index: 99;
     display: flex;
     flex-flow: row nowrap;
-    padding: .75rem 0;
+    padding: 0.75rem 0;
     margin-top: -24px;
     margin-bottom: 1.125rem;
     background-color: #f6f6f6;
-    border-bottom: 1px solid #c4c4c4
+    border-bottom: 1px solid #c4c4c4;
   }
 }
 
 .obc_breadcrumb-nav__item {
   font-size: 16px;
   line-height: 24px;
-  font-size: 1rem;
   line-height: 1.5rem;
   line-height: 2.25em;
   display: inline-flex;
-  color: #777
+  color: #777;
 }
 
 .obc_breadcrumb-nav__item a {
   cursor: pointer;
   color: #777;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .obc_breadcrumb-nav__item a:hover {
-  color: #d4021d
+  color: #d4021d;
 }
 
 .obc_breadcrumb-nav__item-after {
   color: #777;
   margin: 0 calc(0.75rem / 2);
-}
-
-.obc_breadcrumb-nav__item:last-child:after {
-  display: none
 }
