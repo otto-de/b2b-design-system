@@ -1,0 +1,19 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Breadcrumb Component
+
+The Breadcrumb Component is used to display a breadcrumb trail for the user to navigate through the application. It is used in conjunction with the Breadcrumb Item Component.
+
+## Default Arguments
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-breadcrumb--story-010-default" />
+</Canvas>
+
+The b2b-breadcrumb-item has an optional href attribute that can be used to make the breadcrumb item a link. If the href attribute is not specified, the breadcrumb item will be a span.

@@ -58,6 +58,18 @@ export namespace Components {
          */
         "target": 'self' | 'blank' | 'parent' | 'top';
     }
+    interface B2bBreadcrumb {
+    }
+    interface B2bBreadcrumbItem {
+        /**
+          * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
+         */
+        "href": string;
+        /**
+          * If set to true, the last symbol in the breadcrumb will be skipped
+         */
+        "isLast": boolean;
+    }
     interface B2bButton {
         /**
           * Whether the button is currently active. Set to true when using the button to signify a permanent active state
@@ -973,6 +985,18 @@ declare global {
         prototype: HTMLB2bAnchorElement;
         new (): HTMLB2bAnchorElement;
     };
+    interface HTMLB2bBreadcrumbElement extends Components.B2bBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLB2bBreadcrumbElement: {
+        prototype: HTMLB2bBreadcrumbElement;
+        new (): HTMLB2bBreadcrumbElement;
+    };
+    interface HTMLB2bBreadcrumbItemElement extends Components.B2bBreadcrumbItem, HTMLStencilElement {
+    }
+    var HTMLB2bBreadcrumbItemElement: {
+        prototype: HTMLB2bBreadcrumbItemElement;
+        new (): HTMLB2bBreadcrumbItemElement;
+    };
     interface HTMLB2bButtonElement extends Components.B2bButton, HTMLStencilElement {
     }
     var HTMLB2bButtonElement: {
@@ -1256,6 +1280,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
+        "b2b-breadcrumb": HTMLB2bBreadcrumbElement;
+        "b2b-breadcrumb-item": HTMLB2bBreadcrumbItemElement;
         "b2b-button": HTMLB2bButtonElement;
         "b2b-card": HTMLB2bCardElement;
         "b2b-checkbox": HTMLB2bCheckboxElement;
@@ -1344,6 +1370,18 @@ declare namespace LocalJSX {
           * The target the URL will be opened into. The default is self.
          */
         "target"?: 'self' | 'blank' | 'parent' | 'top';
+    }
+    interface B2bBreadcrumb {
+    }
+    interface B2bBreadcrumbItem {
+        /**
+          * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
+         */
+        "href"?: string;
+        /**
+          * If set to true, the last symbol in the breadcrumb will be skipped
+         */
+        "isLast"?: boolean;
     }
     interface B2bButton {
         /**
@@ -2273,6 +2311,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "b2b-alert": B2bAlert;
         "b2b-anchor": B2bAnchor;
+        "b2b-breadcrumb": B2bBreadcrumb;
+        "b2b-breadcrumb-item": B2bBreadcrumbItem;
         "b2b-button": B2bButton;
         "b2b-card": B2bCard;
         "b2b-checkbox": B2bCheckbox;
@@ -2323,6 +2363,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "b2b-alert": LocalJSX.B2bAlert & JSXBase.HTMLAttributes<HTMLB2bAlertElement>;
             "b2b-anchor": LocalJSX.B2bAnchor & JSXBase.HTMLAttributes<HTMLB2bAnchorElement>;
+            "b2b-breadcrumb": LocalJSX.B2bBreadcrumb & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbElement>;
+            "b2b-breadcrumb-item": LocalJSX.B2bBreadcrumbItem & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbItemElement>;
             "b2b-button": LocalJSX.B2bButton & JSXBase.HTMLAttributes<HTMLB2bButtonElement>;
             "b2b-card": LocalJSX.B2bCard & JSXBase.HTMLAttributes<HTMLB2bCardElement>;
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
