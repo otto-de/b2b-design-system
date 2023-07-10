@@ -11,18 +11,18 @@
   font-size: var(--b2b-size-copy-100);
   width: fit-content;
   margin-bottom: var(--b2b-checkbox-margin-bottom);
-  margin-right: var(--b2b-size-60);
 
   &-items {
     display: flex;
     justify-content: flex-start;
+    position: relative;
   }
 
   &-icon {
     position: absolute;
     fill: var(--b2b-color-white-100);
     display: none;
-    margin-top: 3px;
+    margin-top: var(--b2b-size-7);
     margin-left: var(--b2b-size-1);
     width: var(--b2b-size-35);
     height: var(--b2b-size-35);
@@ -30,7 +30,7 @@
   }
 
   &-input {
-    margin: 2px 6px 3px 0;
+    margin: 2px 6px 0 0;
     appearance: none;
     background-color: var(--b2b-color-white-100);
     border: 1px solid var(--b2b-color-grey-400);
@@ -93,6 +93,31 @@
     .b2b-checkbox-input {
       background-color: var(--b2b-color-grey-25);
       border-color: var(--b2b-color-grey-300);
+    }
+  }
+
+  &--standalone {
+    margin: 0;
+    display: inline;
+
+    .b2b-checkbox-input {
+      margin: 0;
+    }
+
+    .b2b-checkbox-icon {
+      margin-top: var(--b2b-size-1);
+    }
+  }
+
+  &--indeterminate {
+    .b2b-checkbox-input {
+      border-color: var(--b2b-color-black-100);
+      background-color: var(--b2b-color-black-100);
+    }
+    .b2b-checkbox-icon {
+      margin-top: var(--b2b-size-1);
+      margin-left: var(--b2b-size-5);
+      display: inline-block;
     }
   }
 }
