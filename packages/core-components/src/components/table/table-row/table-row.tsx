@@ -45,7 +45,7 @@ export class TableRowComponent {
   /** If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all. */
   @Prop() indeterminate = false;
 
-  /** If a selectable row is currently checked. Per default, it is undefined. */
+  /** If a selectable row is currently checked. Per default, it is false. */
   @Prop({ mutable: true }) checked = false;
 
   /** Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown. */

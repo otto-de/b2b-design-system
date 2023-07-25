@@ -52,7 +52,7 @@ export class TableRowgroupComponent {
   @Prop({ reflect: true }) opened: boolean = false;
 
   /** Emits when the rowgroup as a whole is selected. */
-  @Event({ eventName: 'b2b-group-select-change' })
+  @Event({ eventName: 'b2b-group-selected' })
   b2bSelect: EventEmitter<TableAccordionSelectedEventDetail>;
 
   @State() selectedValues = [];

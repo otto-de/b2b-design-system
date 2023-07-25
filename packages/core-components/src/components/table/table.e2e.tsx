@@ -454,7 +454,7 @@ describe('B2B-Table', () => {
   it('should emit the currently selected values in an accordion when a row of that accordion is selected or unselected', async () => {
     page = await newE2EPage();
     await page.setContent(tableWithSelection);
-    const selectSpy = await page.spyOnEvent('b2b-group-select-change');
+    const selectSpy = await page.spyOnEvent('b2b-group-selected');
 
     const secondRow = await page.find('#test-parent >>> b2b-checkbox');
     await secondRow.click();

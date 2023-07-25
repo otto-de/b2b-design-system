@@ -14,6 +14,7 @@ that give consistency to the look and feel of the table, and help developers wit
 | [b2b-table-row](#b2b-table-row)           | [Scrollable Table](#scrollable-table)             |                                                |
 | [b2b-table-header](#b2b-table-header)     | [Sorting Arrows](#sorting-arrows)                 |                                                |
 | [b2b-table-cell](#b2b-table-cell)         | [Accordion](#accordion)                           |                                                |
+|                                           | [Selectable Rows](#selectable-rows)               |                                                |
 
 <br />
 
@@ -358,6 +359,98 @@ The accordion can render opened by passing the property `opened` to the rowgroup
 
 <br />
 <hr />
+
+### Selectable Rows
+
+You can add checkboxes to your table to make rows selectable on click. This works boths for accordion tables and regular tables.
+
+☝️ Every rowgroup in the table needs the attribute `selectable` to render the checkboxes. Do not forget the header rowgroup!
+
+☝️ Every row in a rowgroup that is selectable needs a `value` property. It will be emitted when the checkbox is clicked, similar to the regular checkbox.
+
+☝️ If you're using accordion rows in your table, the `value` of the first row of an accordion rowgroup should be describing the accordion group.
+For example, if your accordion shows peaches and plums, the `value` of the first row could be something like fruits.
+Note that the header row does _not_ need a `value`.
+
+```jsx
+<b2b-table-rowgroup type="header" selectable>
+  <b2b-table-row> ... </b2b-table-row>
+</b2b-table-rowgroup>
+<b2b-table-rowgroup type="body" selectable accordion>
+  <b2b-table-row value="fruits"> ... </b2b-table-row>
+  <b2b-table-row value="peaches"> ... </b2b-table-row>
+  <b2b-table-row value="plums"> ... </b2b-table-row>
+</b2b-table-rowgroup>
+```
+
+#### Events
+
+_b2b-row-selected_
+
+This event emits whenever a row is selected or unselected. It emits the value of the row alongside its current status.
+It is best used when you don't have nested data in a simple table.
+
+_React Notation_
+
+```jsx
+onRowSelected = (event) => event.detail //  { checked: false, value: 'peaches' }
+
+<B2bTable>
+  ...
+    <B2BTableRow onB2b-row-selected={onRowSelected} value="peaches"> ... </B2BTableRow>
+  ...
+</B2bSearch>
+```
+
+_Vue Notation_
+
+```jsx
+<b2b-table>
+  ...
+  <b2b-table-row v-on:b2b-row-selected={onRowSelected} value="peaches">
+    ...
+  </b2b-table-row>
+  ...
+</b2b-table>
+```
+
+_b2b-group-selected_
+
+This event is emitted whenever the values in a rowgroup change (e.g. in an accordion).
+It emits the associated group and an array of values currently selected in that group.
+
+☝️ You should only subscribe to it if you have nested data in an accordion.
+
+_React Notation_
+
+```jsx
+onGroupSelected = (event) => event.detail //  { group: 'fruits', values: ['peaches'] }
+
+<B2bTable>
+  ...
+  <B2bTableRowGroup onB2b-group-selected={onGroupSelected} accordion selectable>
+    <B2BTableRow value="fruits"> ... </B2BTableRow>
+    <B2BTableRow value="peaches"> ... </B2BTableRow>
+  </B2bTableRowGroup>
+  ...
+</B2bSearch>
+```
+
+_Vue Notation_
+
+```jsx
+<b2b-table>
+  ...
+  <b2b-table-rowgroup
+    v-on:b2b-group-selected={onGroupSelected}
+    accordion
+    selectable>
+    <b2b-table-row value="fruits">...</b2b-table-row>
+    <b2b-table-row value="peaches">...</b2b-table-row>
+  </b2b-table-rowgroup>
+  ...
+</b2b-table>
+```
 
 ### Sizing
 
