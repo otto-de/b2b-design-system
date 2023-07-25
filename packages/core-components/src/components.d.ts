@@ -9,13 +9,17 @@ import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventD
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { ContentAlignment, TableAccordionRowTypes, TableCheckboxTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
+import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { ContentAlignment, TableAccordionRowTypes, TableCheckboxTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
+export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export namespace Components {
     interface B2bAlert {
@@ -132,13 +136,17 @@ export namespace Components {
          */
         "hint"?: string;
         /**
+          * If used in combination with other checkboxes, this state indicates that some checkboxes are checked, but not all. Per default, it is false.
+         */
+        "indeterminate": boolean;
+        /**
           * Whether or not the checkbox is rendered with error styles. Defaults to false.
          */
         "invalid"?: boolean;
         /**
           * The checkbox label. This attribute is required.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The name of the checkbox. Per default it is undefined. Use this to programmatically group checkboxes together by giving them the same name.
          */
@@ -147,6 +155,10 @@ export namespace Components {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required": boolean;
+        /**
+          * If true, renders a standalone inline checkbox with no label and hint/error.
+         */
+        "standalone": boolean;
         /**
           * The value of the checkbox. This is not the same as the checked property. It is only used when the checkbox participates in a checkbox group
          */
@@ -692,6 +704,18 @@ export namespace Components {
     }
     interface B2bTableRow {
         /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionType": TableAccordionRowTypes;
+        /**
+          * Determined by the parent rowgroup for selectable rowgroups. Do not set manually.
+         */
+        "checkboxType": TableCheckboxTypes;
+        /**
+          * If a selectable row is currently checked. Per default, it is undefined.
+         */
+        "checked": boolean;
+        /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
         "color": TableColourOptions;
@@ -700,13 +724,17 @@ export namespace Components {
          */
         "highlight": boolean;
         /**
+          * If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all.
+         */
+        "indeterminate": boolean;
+        /**
           * Will toggle the accordion opened or closed.
          */
-        "toggleAccordion": (isOpen: any) => Promise<void>;
+        "toggleAccordion": (isOpen: boolean) => Promise<void>;
         /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+          * The unique identifier for a selectable row. It is emitted when the row is selected.
          */
-        "type": TableRowTypes;
+        "value"?: string;
     }
     interface B2bTableRowgroup {
         /**
@@ -717,6 +745,10 @@ export namespace Components {
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened": boolean;
+        /**
+          * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
+         */
+        "selectable": boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -947,6 +979,10 @@ export interface B2bTableHeaderCustomEvent<T> extends CustomEvent<T> {
 export interface B2bTableRowCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bTableRowElement;
+}
+export interface B2bTableRowgroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bTableRowgroupElement;
 }
 export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1419,13 +1455,17 @@ declare namespace LocalJSX {
          */
         "hint"?: string;
         /**
+          * If used in combination with other checkboxes, this state indicates that some checkboxes are checked, but not all. Per default, it is false.
+         */
+        "indeterminate"?: boolean;
+        /**
           * Whether or not the checkbox is rendered with error styles. Defaults to false.
          */
         "invalid"?: boolean;
         /**
           * The checkbox label. This attribute is required.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The name of the checkbox. Per default it is undefined. Use this to programmatically group checkboxes together by giving them the same name.
          */
@@ -1446,6 +1486,10 @@ declare namespace LocalJSX {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required"?: boolean;
+        /**
+          * If true, renders a standalone inline checkbox with no label and hint/error.
+         */
+        "standalone"?: boolean;
         /**
           * The value of the checkbox. This is not the same as the checked property. It is only used when the checkbox participates in a checkbox group
          */
@@ -2067,6 +2111,18 @@ declare namespace LocalJSX {
     }
     interface B2bTableRow {
         /**
+          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+         */
+        "accordionType"?: TableAccordionRowTypes;
+        /**
+          * Determined by the parent rowgroup for selectable rowgroups. Do not set manually.
+         */
+        "checkboxType"?: TableCheckboxTypes;
+        /**
+          * If a selectable row is currently checked. Per default, it is undefined.
+         */
+        "checked"?: boolean;
+        /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
         "color"?: TableColourOptions;
@@ -2075,13 +2131,21 @@ declare namespace LocalJSX {
          */
         "highlight"?: boolean;
         /**
+          * If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all.
+         */
+        "indeterminate"?: boolean;
+        /**
           * Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown.
          */
         "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
         /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+          * Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status.
          */
-        "type"?: TableRowTypes;
+        "onB2b-row-selected"?: (event: B2bTableRowCustomEvent<CheckboxEventDetail1>) => void;
+        /**
+          * The unique identifier for a selectable row. It is emitted when the row is selected.
+         */
+        "value"?: string;
     }
     interface B2bTableRowgroup {
         /**
@@ -2089,9 +2153,17 @@ declare namespace LocalJSX {
          */
         "accordion"?: boolean;
         /**
+          * Emits when the rowgroup as a whole is selected.
+         */
+        "onB2b-group-select-change"?: (event: B2bTableRowgroupCustomEvent<TableAccordionSelectedEventDetail>) => void;
+        /**
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened"?: boolean;
+        /**
+          * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
+         */
+        "selectable"?: boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
