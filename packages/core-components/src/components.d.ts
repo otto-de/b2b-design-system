@@ -712,7 +712,7 @@ export namespace Components {
          */
         "checkboxType": TableCheckboxTypes;
         /**
-          * If a selectable row is currently checked. Per default, it is undefined.
+          * If a selectable row is currently checked. Per default, it is false.
          */
         "checked": boolean;
         /**
@@ -2119,7 +2119,7 @@ declare namespace LocalJSX {
          */
         "checkboxType"?: TableCheckboxTypes;
         /**
-          * If a selectable row is currently checked. Per default, it is undefined.
+          * If a selectable row is currently checked. Per default, it is false.
          */
         "checked"?: boolean;
         /**
@@ -2155,7 +2155,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the rowgroup as a whole is selected.
          */
-        "onB2b-group-select-change"?: (event: B2bTableRowgroupCustomEvent<TableAccordionSelectedEventDetail>) => void;
+        "onB2b-group-selected"?: (event: B2bTableRowgroupCustomEvent<TableAccordionSelectedEventDetail>) => void;
         /**
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
