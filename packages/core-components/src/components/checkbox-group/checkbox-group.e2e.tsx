@@ -7,6 +7,7 @@ describe('B2B-Checkbox-Group', () => {
     await page.setContent(`
             <b2b-checkbox-group label="test label">
                 <b2b-checkbox label="one" value="one" error="test" hint="test"></b2b-checkbox>
+                <b2b-checkbox id="disabled-checkbox" label="two" value="two" error="test" hint="test" disabled></b2b-checkbox>
             </b2b-checkbox-group>
         `);
   });
@@ -87,5 +88,23 @@ describe('B2B-Checkbox-Group', () => {
 
     expect(hint).not.toBeDefined;
     expect(error).not.toBeDefined;
+  });
+
+  it('should disable individual elements of the group and keep their state when the group is dis- and enabled', async () => {
+    let checkbox = await page.find('#disabled-checkbox');
+    expect(await checkbox.getProperty('disabled')).toBe(true);
+
+    let group = await page.find('b2b-checkbox-group');
+
+    await group.setProperty('disabled', true);
+    await page.waitForChanges();
+
+    expect(await group.getProperty('disabled')).toBe(true);
+
+    await group.setProperty('disabled', false);
+    await page.waitForChanges();
+
+    expect(await group.getProperty('disabled')).toBe(false);
+    expect(await checkbox.getProperty('disabled')).toBe(true);
   });
 });
