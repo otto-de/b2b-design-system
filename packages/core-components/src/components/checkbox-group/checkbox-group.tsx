@@ -8,7 +8,6 @@ import {
   EventEmitter,
   Watch,
   Element,
-  State,
 } from '@stencil/core';
 import { CheckboxEventDetail } from '../../utils/interfaces/form.interface';
 
@@ -45,9 +44,6 @@ export class CheckboxGroupComponent {
   @Event({ eventName: 'b2b-group-change' })
   b2bGroupChange!: EventEmitter<CheckboxEventDetail>;
 
-  /** We keep track of the initial disabled state in case individual children are disabled, group is disabled and re-enabled. */
-  @State() initialDisabled = [];
-
   @Listen('b2b-change')
   handleCheckboxChange(ev: CustomEvent<CheckboxEventDetail>) {
     this.b2bGroupChange.emit({
@@ -78,8 +74,8 @@ export class CheckboxGroupComponent {
         node.disabled = true;
       });
     } else {
-      nodes.forEach((node, index) => {
-        node.disabled = this.initialDisabled[index];
+      nodes.forEach(node => {
+        node.groupDisabled = this.disabled;
       });
     }
   };
@@ -98,14 +94,6 @@ export class CheckboxGroupComponent {
     }
   };
 
-  private getInitialState = () => {
-    const nodes = this.getChildNodes();
-
-    nodes.forEach(node => {
-      this.initialDisabled.push(node.disabled);
-    });
-  };
-
   private removeChildText = () => {
     let nodes = this.getChildNodes();
 
@@ -114,12 +102,6 @@ export class CheckboxGroupComponent {
       node.hint = undefined;
     });
   };
-
-  componentWillLoad() {
-    if (!this.disabled) {
-      this.getInitialState();
-    }
-  }
 
   componentDidLoad() {
     this.toggleAllError();

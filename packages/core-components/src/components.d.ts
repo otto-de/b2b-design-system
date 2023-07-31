@@ -127,6 +127,7 @@ export namespace Components {
           * The error message. It is undefined by default. If a string is passed in, it will render the checkbox with error styles.
          */
         "error"?: string;
+        "groupDisabled": boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
@@ -1414,6 +1415,7 @@ declare namespace LocalJSX {
           * The error message. It is undefined by default. If a string is passed in, it will render the checkbox with error styles.
          */
         "error"?: string;
+        "groupDisabled"?: boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
