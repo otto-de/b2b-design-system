@@ -18,4 +18,4 @@ jobs:
     needs: [ install ]
     uses: ./.github/workflows/validations.yml
     with:
-      node_version: 16
+      node_version: 18
