@@ -11,7 +11,7 @@ jobs:
     name: Install Dependencies
     uses: ./.github/workflows/install.yml
     with:
-      node_version: 16
+      node_version: 18
 
   validations:
     name: Validations
