@@ -10,14 +10,14 @@ jobs:
     name: Install Dependencies
     uses: ./.github/workflows/install.yml
     with:
-      node_version: 16
+      node_version: 18
 
   validations:
     name: Validations
     needs: [ install ]
     uses: ./.github/workflows/validations.yml
     with:
-      node_version: 16
+      node_version: 18
 
   visual_tests:
     name: Visual Regression Tests
@@ -25,7 +25,7 @@ jobs:
     if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
     uses: ./.github/workflows/visual-test.yml
     with:
-      node_version: 16
+      node_version: 18
 
   deploy_docker_image:
     name: Deploy Docker Image
@@ -33,7 +33,7 @@ jobs:
     if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
     uses: ./.github/workflows/docker-image.yml
     with:
-      node_version: 16
+      node_version: 18
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
