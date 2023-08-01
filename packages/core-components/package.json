@@ -15,7 +15,7 @@
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/components.d.ts",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/b2b-core-components/b2b-core-components.esm.js",
@@ -42,7 +42,7 @@
   "dependencies": {
     "@otto-de/b2b-tokens": "1.5.0",
     "@stencil-community/eslint-plugin": "^0.5.0",
-    "@stencil/core": "^3.0.1"
+    "@stencil/core": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
