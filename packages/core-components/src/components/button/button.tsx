@@ -44,6 +44,9 @@ export class ButtonComponent {
    * defaults to the URL string, but can be changed by the user. */
   @Prop() download?: string;
 
+  /** @internal Whether the parent input group is disabled. Per default, it is false. */
+  @Prop() groupDisabled = false;
+
   private focusableElement: HTMLElement;
 
   /** Manually set focus to button element */
@@ -117,7 +120,10 @@ export class ButtonComponent {
             href={this.href}
             target={`_${this.target}`}
             download={this.download}
-            class={{ disabled: this.disabled, [this.variant]: true }}
+            class={{
+              disabled: this.disabled || this.groupDisabled,
+              [this.variant]: true,
+            }}
             ref={el => (this.focusableElement = el)}>
             <span>
               <slot name="start"></slot>
@@ -129,7 +135,7 @@ export class ButtonComponent {
         ) : (
           <button
             class={{ [this.variant]: true }}
-            disabled={this.disabled}
+            disabled={this.disabled || this.groupDisabled}
             type={this.type}
             ref={el => (this.focusableElement = el)}>
             <span>

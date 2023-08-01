@@ -46,6 +46,9 @@ export class InputListComponent {
   /** Whether or not the input is disabled. Default is false. */
   @Prop({ reflect: true }) disabled: boolean = false;
 
+  /** @internal Whether the parent input group is disabled. Per default, it is false. */
+  @Prop() groupDisabled = false;
+
   /** Emits when the user clicks the clear button. */
   @Event({ eventName: 'b2b-clear' })
   b2bClear: EventEmitter<InputClear>;
@@ -215,7 +218,7 @@ export class InputListComponent {
             type="text"
             label={this.label}
             value={this.value}
-            disabled={this.disabled}
+            disabled={this.disabled || this.groupDisabled}
             onb2b-input={this.handleInput}
             placeholder={this.placeholder}
             required={this.required}>
