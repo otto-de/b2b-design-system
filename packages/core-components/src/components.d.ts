@@ -707,9 +707,6 @@ export namespace Components {
           * Will toggle the accordion opened or closed.
          */
         "toggleAccordion": (isOpen: any) => Promise<void>;
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
         "type": TableRowTypes;
     }
     interface B2bTableRowgroup {
@@ -2086,9 +2083,6 @@ declare namespace LocalJSX {
           * Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown.
          */
         "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
         "type"?: TableRowTypes;
     }
     interface B2bTableRowgroup {

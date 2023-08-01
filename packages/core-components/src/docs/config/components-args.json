@@ -2259,23 +2259,6 @@
         }
       },
       "description": "Whether the row will be highlighted on mouse over *"
-    },
-    "type": {
-      "options": [
-        "child",
-        "header",
-        "parent"
-      ],
-      "control": {
-        "type": "radio"
-      },
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {}
-      },
-      "description": "Determined by the parent rowgroup for accordion rowgroups. Do not set manually."
     }
   },
   "b2b-table-rowgroup": {
