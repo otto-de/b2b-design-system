@@ -707,9 +707,6 @@ export namespace Components {
         "sortId"?: string;
     }
     interface B2bTableRow {
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
         "accordionType": TableAccordionRowTypes;
         /**
           * If a selectable row is currently checked. Per default, it is false.
@@ -2115,9 +2112,6 @@ declare namespace LocalJSX {
         "sortId"?: string;
     }
     interface B2bTableRow {
-        /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
-         */
         "accordionType"?: TableAccordionRowTypes;
         /**
           * If a selectable row is currently checked. Per default, it is false.

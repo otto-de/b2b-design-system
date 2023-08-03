@@ -7,14 +7,13 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                                                                     | Type                                 | Default     |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
-| `accordionType` | `accordion-type` | Determined by the parent rowgroup for accordion rowgroups. Do not set manually.                                                 | `"child" \| "header" \| "parent"`    | `undefined` |
-| `checked`       | `checked`        | If a selectable row is currently checked. Per default, it is false.                                                             | `boolean`                            | `false`     |
-| `color`         | `color`          | Background color of the row. Use it semantically. This color selection have hover states *                                      | `"default" \| "group" \| "selected"` | `'default'` |
-| `highlight`     | `highlight`      | Whether the row will be highlighted on mouse over *                                                                             | `boolean`                            | `true`      |
-| `indeterminate` | `indeterminate`  | If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all. | `boolean`                            | `false`     |
-| `value`         | `value`          | The unique identifier for a selectable row. It is emitted when the row is selected.                                             | `string`                             | `undefined` |
+| Property        | Attribute       | Description                                                                                                                     | Type                                 | Default     |
+| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| `checked`       | `checked`       | If a selectable row is currently checked. Per default, it is false.                                                             | `boolean`                            | `false`     |
+| `color`         | `color`         | Background color of the row. Use it semantically. This color selection have hover states *                                      | `"default" \| "group" \| "selected"` | `'default'` |
+| `highlight`     | `highlight`     | Whether the row will be highlighted on mouse over *                                                                             | `boolean`                            | `true`      |
+| `indeterminate` | `indeterminate` | If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all. | `boolean`                            | `false`     |
+| `value`         | `value`         | The unique identifier for a selectable row. It is emitted when the row is selected.                                             | `string`                             | `undefined` |
 
 
 ## Events
