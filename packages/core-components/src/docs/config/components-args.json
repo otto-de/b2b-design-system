@@ -2270,22 +2270,6 @@
       },
       "description": "Determined by the parent rowgroup for accordion rowgroups. Do not set manually."
     },
-    "checkboxType": {
-      "options": [
-        "header",
-        "row"
-      ],
-      "control": {
-        "type": "radio"
-      },
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {}
-      },
-      "description": "Determined by the parent rowgroup for selectable rowgroups. Do not set manually."
-    },
     "checked": {
       "control": {
         "type": "boolean"
@@ -2298,7 +2282,7 @@
           "summary": "false"
         }
       },
-      "description": "If a selectable row is currently checked. Per default, it is undefined."
+      "description": "If a selectable row is currently checked. Per default, it is false."
     },
     "color": {
       "options": [

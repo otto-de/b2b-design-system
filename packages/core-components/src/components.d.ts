@@ -9,7 +9,7 @@ import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventD
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { ContentAlignment, TableAccordionRowTypes, TableCheckboxTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
@@ -17,7 +17,7 @@ export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventD
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { ContentAlignment, TableAccordionRowTypes, TableCheckboxTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
@@ -708,10 +708,6 @@ export namespace Components {
          */
         "accordionType": TableAccordionRowTypes;
         /**
-          * Determined by the parent rowgroup for selectable rowgroups. Do not set manually.
-         */
-        "checkboxType": TableCheckboxTypes;
-        /**
           * If a selectable row is currently checked. Per default, it is false.
          */
         "checked": boolean;
@@ -727,6 +723,7 @@ export namespace Components {
           * If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all.
          */
         "indeterminate": boolean;
+        "selectable": boolean;
         /**
           * Will toggle the accordion opened or closed.
          */
@@ -2115,10 +2112,6 @@ declare namespace LocalJSX {
          */
         "accordionType"?: TableAccordionRowTypes;
         /**
-          * Determined by the parent rowgroup for selectable rowgroups. Do not set manually.
-         */
-        "checkboxType"?: TableCheckboxTypes;
-        /**
           * If a selectable row is currently checked. Per default, it is false.
          */
         "checked"?: boolean;
@@ -2142,6 +2135,7 @@ declare namespace LocalJSX {
           * Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status.
          */
         "onB2b-row-selected"?: (event: B2bTableRowCustomEvent<CheckboxEventDetail1>) => void;
+        "selectable"?: boolean;
         /**
           * The unique identifier for a selectable row. It is emitted when the row is selected.
          */

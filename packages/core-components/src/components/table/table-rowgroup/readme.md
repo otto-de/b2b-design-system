@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event                     | Description                                     | Type                                             |
-| ------------------------- | ----------------------------------------------- | ------------------------------------------------ |
-| `b2b-group-select-change` | Emits when the rowgroup as a whole is selected. | `CustomEvent<TableAccordionSelectedEventDetail>` |
+| Event                | Description                                     | Type                                             |
+| -------------------- | ----------------------------------------------- | ------------------------------------------------ |
+| `b2b-group-selected` | Emits when the rowgroup as a whole is selected. | `CustomEvent<TableAccordionSelectedEventDetail>` |
 
 
 ----------------------------------------------

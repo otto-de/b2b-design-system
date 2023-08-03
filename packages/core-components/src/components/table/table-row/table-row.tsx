@@ -8,10 +8,10 @@ import {
   Method,
   State,
   Element,
+  Listen,
 } from '@stencil/core';
 import {
   TableAccordionRowTypes,
-  TableCheckboxTypes,
   TableColourOptions,
 } from '../../../utils/types/table.types';
 import {
@@ -36,8 +36,8 @@ export class TableRowComponent {
   /** Determined by the parent rowgroup for accordion rowgroups. Do not set manually. */
   @Prop() accordionType: TableAccordionRowTypes;
 
-  /** Determined by the parent rowgroup for selectable rowgroups. Do not set manually. */
-  @Prop() checkboxType: TableCheckboxTypes;
+  /** @internal Whether the parent rowgroup is selectable. */
+  @Prop() selectable: boolean;
 
   /** The unique identifier for a selectable row. It is emitted when the row is selected. */
   @Prop() value?: string;
@@ -58,20 +58,16 @@ export class TableRowComponent {
 
   @State() isOpen = false;
 
-  private toggleOpen = () => {
-    this.isOpen = !this.isOpen;
-    this.b2bOpen.emit(this.isOpen);
-  };
-
-  private toggleSelected = (
-    event: B2bCheckboxCustomEvent<CheckboxEventDetail>,
-  ) => {
-    this.checked = event.detail.checked;
-    this.b2bSelected.emit({
-      checked: event.detail.checked,
-      value: event.detail.value,
-    });
-  };
+  @Listen('b2b-change')
+  toggleSelected(event: B2bCheckboxCustomEvent<CheckboxEventDetail>) {
+    if (this.selectable) {
+      this.checked = event.detail.checked;
+      this.b2bSelected.emit({
+        checked: event.detail.checked,
+        value: event.detail.value ?? 'header',
+      });
+    }
+  }
 
   /** Will toggle the accordion opened or closed. */
   @Method()
@@ -79,6 +75,23 @@ export class TableRowComponent {
     this.isOpen = isOpen;
     this.b2bOpen.emit(isOpen);
   }
+
+  componentWillLoad() {
+    if (
+      this.selectable &&
+      !Boolean(this.value) &&
+      this.getParentRowGroup().type !== 'header'
+    ) {
+      console.warn(
+        'You need to associate a value with the row as a unique identifier.',
+      );
+    }
+  }
+
+  private toggleOpen = () => {
+    this.isOpen = !this.isOpen;
+    this.b2bOpen.emit(this.isOpen);
+  };
 
   private getRowColor = () => {
     if (this.accordionType === TableAccordionRowTypes.PARENT)
@@ -89,14 +102,53 @@ export class TableRowComponent {
   private getRowWidth = () => {
     const accordionIconSize = '24px';
     const checkboxSize = '16px';
+
     if (Boolean(this.accordionType)) {
       return accordionIconSize;
-    } else if (Boolean(this.checkboxType)) {
+    } else if (Boolean(this.selectable)) {
       return checkboxSize;
-    } else if (Boolean(this.accordionType && this.checkboxType)) {
+    } else if (Boolean(this.accordionType && this.selectable)) {
       return accordionIconSize + checkboxSize;
     } else {
       return;
+    }
+  };
+
+  private shouldAddCheckbox = () => {
+    let checkbox = this.hostElement.querySelector('b2b-checkbox');
+    return this.selectable && !Boolean(checkbox);
+  };
+
+  private getParentRowGroup = () => {
+    return this.hostElement.closest('b2b-table-rowgroup');
+  };
+
+  private getCheckbox = () => {
+    let parent = this.getParentRowGroup();
+    if (this.shouldAddCheckbox()) {
+      if (parent.type === 'header') {
+        return (
+          <b2b-table-header
+            style={{
+              ['width']: this.getRowWidth(),
+            }}>
+            <b2b-checkbox
+              standalone
+              checked={this.checked}
+              indeterminate={this.indeterminate}></b2b-checkbox>
+          </b2b-table-header>
+        );
+      } else {
+        return (
+          <b2b-table-cell>
+            <b2b-checkbox
+              standalone
+              checked={this.checked}
+              value={this.value}
+              indeterminate={this.indeterminate}></b2b-checkbox>
+          </b2b-table-cell>
+        );
+      }
     }
   };
 
@@ -131,41 +183,6 @@ export class TableRowComponent {
     }
   };
 
-  private getCheckBoxColumns = () => {
-    if (this.checkboxType != undefined) {
-      switch (this.checkboxType) {
-        case TableCheckboxTypes.HEADER:
-          return (
-            <b2b-table-header
-              style={{
-                ['width']: this.getRowWidth(),
-              }}>
-              <b2b-checkbox
-                standalone
-                checked={this.checked}
-                indeterminate={this.indeterminate}
-                onB2b-change={event =>
-                  this.toggleSelected(event)
-                }></b2b-checkbox>
-            </b2b-table-header>
-          );
-        case TableCheckboxTypes.ROW:
-          return (
-            <b2b-table-cell>
-              <b2b-checkbox
-                standalone
-                checked={this.checked}
-                value={this.value}
-                indeterminate={this.indeterminate}
-                onB2b-change={event =>
-                  this.toggleSelected(event)
-                }></b2b-checkbox>
-            </b2b-table-cell>
-          );
-      }
-    }
-  };
-
   render() {
     return (
       <Host
@@ -176,7 +193,7 @@ export class TableRowComponent {
         }}
         role="row">
         {this.getAccordionColumns()}
-        {this.getCheckBoxColumns()}
+        {this.getCheckbox()}
         <slot></slot>
       </Host>
     );

@@ -11,7 +11,6 @@ import {
 } from '@stencil/core';
 import {
   TableAccordionRowTypes,
-  TableCheckboxTypes,
   TableRowgroupTypes,
 } from '../../../utils/types/table.types';
 import {
@@ -89,12 +88,12 @@ export class TableRowgroupComponent {
     }
     if (this.accordion) {
       updateCheckboxState(getRemainingRows(this.host), getFirstRow(this.host));
+      this.b2bSelect.emit({
+        group: parentValue,
+        values: this.selectedValues,
+      });
     }
     updateCheckboxState(getRemainingRows(table), getFirstRow(table));
-    this.b2bSelect.emit({
-      group: parentValue,
-      values: this.selectedValues,
-    });
   }
 
   private toggleSelectAll = (
@@ -146,13 +145,7 @@ export class TableRowgroupComponent {
 
   private addCheckboxColumn = () => {
     const children = getAllRows(this.host);
-    if (this.type === TableRowgroupTypes.HEADER) {
-      children[0].checkboxType = TableCheckboxTypes.HEADER;
-    } else {
-      children.forEach(child => {
-        child.checkboxType = TableCheckboxTypes.ROW;
-      });
-    }
+    children.forEach(child => (child.selectable = true));
   };
 
   private toggleInitialVisibility = () => {

@@ -366,6 +366,8 @@ You can add checkboxes to your table to make rows selectable on click. This work
 
 ☝️ Every rowgroup in the table needs the attribute `selectable` to render the checkboxes. Do not forget the header rowgroup!
 
+☝️ **_If you need to manage the state of the checkboxes yourself, do not set `selectable` on the rowgroups. You can simply add cells in your rows._**
+
 ☝️ Every row in a rowgroup that is selectable needs a `value` property. It will be emitted when the checkbox is clicked, similar to the regular checkbox.
 
 ☝️ If you're using accordion rows in your table, the `value` of the first row of an accordion rowgroup should be describing the accordion group.
@@ -416,10 +418,8 @@ _Vue Notation_
 
 _b2b-group-selected_
 
-This event is emitted whenever the values in a rowgroup change (e.g. in an accordion).
+This event is emitted whenever the values in an accordion group change.
 It emits the associated group and an array of values currently selected in that group.
-
-☝️ You should only subscribe to it if you have nested data in an accordion.
 
 _React Notation_
 

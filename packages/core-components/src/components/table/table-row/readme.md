@@ -10,8 +10,7 @@
 | Property        | Attribute        | Description                                                                                                                     | Type                                 | Default     |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
 | `accordionType` | `accordion-type` | Determined by the parent rowgroup for accordion rowgroups. Do not set manually.                                                 | `"child" \| "header" \| "parent"`    | `undefined` |
-| `checkboxType`  | `checkbox-type`  | Determined by the parent rowgroup for selectable rowgroups. Do not set manually.                                                | `"header" \| "row"`                  | `undefined` |
-| `checked`       | `checked`        | If a selectable row is currently checked. Per default, it is undefined.                                                         | `boolean`                            | `false`     |
+| `checked`       | `checked`        | If a selectable row is currently checked. Per default, it is false.                                                             | `boolean`                            | `false`     |
 | `color`         | `color`          | Background color of the row. Use it semantically. This color selection have hover states *                                      | `"default" \| "group" \| "selected"` | `'default'` |
 | `highlight`     | `highlight`      | Whether the row will be highlighted on mouse over *                                                                             | `boolean`                            | `true`      |
 | `indeterminate` | `indeterminate`  | If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all. | `boolean`                            | `false`     |
@@ -44,17 +43,17 @@ Type: `Promise<void>`
 ### Depends on
 
 - [b2b-table-header](../table-header)
+- [b2b-checkbox](../../checkbox)
 - [b2b-table-cell](../table-cell)
 - [b2b-icon](../../icon)
-- [b2b-checkbox](../../checkbox)
 
 ### Graph
 ```mermaid
 graph TD;
   b2b-table-row --> b2b-table-header
+  b2b-table-row --> b2b-checkbox
   b2b-table-row --> b2b-table-cell
   b2b-table-row --> b2b-icon
-  b2b-table-row --> b2b-checkbox
   b2b-checkbox --> b2b-input-label
   style b2b-table-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
