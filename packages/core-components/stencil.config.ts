@@ -31,6 +31,7 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      isPrimaryPackageOutputTarget: true,
     },
     {
       type: 'dist-custom-elements',
@@ -51,8 +52,9 @@ export const config: Config = {
       file: 'dist/custom-elements.json',
     },
   ],
+  validatePrimaryPackageOutputTarget: true,
   extras: {
-    experimentalImportInjection: true,
+    enableImportInjection: true,
   },
   watchIgnoredRegex: /.*.\.docs.*|.*.\.stories.*/,
   plugins: [

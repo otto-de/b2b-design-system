@@ -33,7 +33,7 @@ export class TableRowComponent {
   /** Background color of the row. Use it semantically. This color selection have hover states **/
   @Prop() color: TableColourOptions = 'default';
 
-  /** Determined by the parent rowgroup for accordion rowgroups. Do not set manually. */
+  /** @internal Determined by the parent rowgroup for accordion rowgroups. */
   @Prop() accordionType: TableAccordionRowTypes;
 
   /** @internal Whether the parent rowgroup is selectable. */

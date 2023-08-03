@@ -75,7 +75,7 @@ export class CheckboxGroupComponent {
       });
     } else {
       nodes.forEach(node => {
-        node.disabled = false;
+        node.groupDisabled = this.disabled;
       });
     }
   };
@@ -105,8 +105,10 @@ export class CheckboxGroupComponent {
 
   componentDidLoad() {
     this.toggleAllError();
-    this.toggleAllDisabled();
     this.removeChildText();
+    if (this.disabled) {
+      this.toggleAllDisabled();
+    }
   }
 
   render() {

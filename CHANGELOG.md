@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/otto-de/b2b-design-system/compare/v1.4.0...v1.5.0) (2023-07-03)
+
+
+### Bug Fixes
+
+* **Input Group:** [B2BDS-201] individual elements can be disabled now ([e700ace](https://github.com/otto-de/b2b-design-system/commit/e700aceb1e1bb837e0716bd53df072022e5e152d))
+* **Search:** emit search event with enter key press ([14e36ac](https://github.com/otto-de/b2b-design-system/commit/14e36aca0c49e779fa787009faffefd4adbe7cba))
+
+
+### Features
+
+* **Wizard:** implements wizard component ([21c0a53](https://github.com/otto-de/b2b-design-system/commit/21c0a530cfe2312a0162a85e5d6455c8ff4146ea))
+
 # [1.4.0](https://github.com/otto-de/b2b-design-system/compare/v1.3.3...v1.4.0) (2023-06-13)
 
 

@@ -50,6 +50,9 @@ export class CheckboxComponent {
   /** If true, renders a standalone inline checkbox with no label and hint/error. */
   @Prop() standalone: boolean = false;
 
+  /** @internal whether the parent checkbox-group is disabled. */
+  @Prop() groupDisabled = false;
+
   /** Emits whenever the checkbox receives focus. */
   @Event({ eventName: 'b2b-focus' })
   b2bFocus: EventEmitter<FocusEvent>;
@@ -141,7 +144,7 @@ export class CheckboxComponent {
           class={{
             'b2b-checkbox': true,
             'b2b-checkbox--error': this.invalid && !this.disabled,
-            'b2b-checkbox--disabled': this.disabled,
+            'b2b-checkbox--disabled': this.disabled || this.groupDisabled,
             'b2b-checkbox-checked': this.checked,
             'b2b-checkbox--standalone': this.standalone,
             'b2b-checkbox--indeterminate': this.indeterminate,
@@ -156,7 +159,7 @@ export class CheckboxComponent {
               id={this.name}
               value={this.value}
               checked={this.checked}
-              disabled={this.disabled}
+              disabled={this.disabled || this.groupDisabled}
               onFocus={this.onFocus}
               onBlur={this.onBlur}
             />

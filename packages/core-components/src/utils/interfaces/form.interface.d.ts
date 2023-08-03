@@ -27,6 +27,7 @@ export interface HTMLB2bFormElement {
   invalid?: boolean;
   disabled?: boolean;
   hint?: string;
+  groupDisabled?: boolean;
 }
 
 export interface ToggleButtonEventDetail<T = any> {

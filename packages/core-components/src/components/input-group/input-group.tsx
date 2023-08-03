@@ -34,7 +34,9 @@ export class B2BInputGroup {
   connectedCallback() {
     this.removeText();
     this.toggleAllError();
-    this.toggleAllDisabled();
+    if (this.disabled) {
+      this.toggleAllDisabled();
+    }
   }
 
   private removeText = () => {
@@ -69,7 +71,7 @@ export class B2BInputGroup {
       });
     } else {
       nodes.forEach(node => {
-        node.disabled = false;
+        node.groupDisabled = this.disabled;
       });
     }
   };

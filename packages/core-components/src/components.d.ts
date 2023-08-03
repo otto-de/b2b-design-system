@@ -75,6 +75,7 @@ export namespace Components {
           * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
          */
         "download"?: string;
+        "groupDisabled": boolean;
         /**
           * An optional anchor. If specified, the button will render an anchor element that can be use for navigation or download files
          */
@@ -131,6 +132,7 @@ export namespace Components {
           * The error message. It is undefined by default. If a string is passed in, it will render the checkbox with error styles.
          */
         "error"?: string;
+        "groupDisabled": boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
@@ -331,6 +333,7 @@ export namespace Components {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        "groupDisabled": boolean;
         /**
           * The hint text that appears underneath the input field.
          */
@@ -407,6 +410,7 @@ export namespace Components {
           * Whether or not the input is disabled. Default is false.
          */
         "disabled": boolean;
+        "groupDisabled": boolean;
         /**
           * The input label.
          */
@@ -1391,6 +1395,7 @@ declare namespace LocalJSX {
           * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
          */
         "download"?: string;
+        "groupDisabled"?: boolean;
         /**
           * An optional anchor. If specified, the button will render an anchor element that can be use for navigation or download files
          */
@@ -1447,6 +1452,7 @@ declare namespace LocalJSX {
           * The error message. It is undefined by default. If a string is passed in, it will render the checkbox with error styles.
          */
         "error"?: string;
+        "groupDisabled"?: boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
@@ -1671,6 +1677,7 @@ declare namespace LocalJSX {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        "groupDisabled"?: boolean;
         /**
           * The hint text that appears underneath the input field.
          */
@@ -1755,6 +1762,7 @@ declare namespace LocalJSX {
           * Whether or not the input is disabled. Default is false.
          */
         "disabled"?: boolean;
+        "groupDisabled"?: boolean;
         /**
           * The input label.
          */

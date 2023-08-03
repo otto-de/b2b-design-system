@@ -32,13 +32,13 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.6.5",
-    "@npmcli/package-json": "^3.0.0",
+    "@npmcli/package-json": "^3.1.1",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.7",
-    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/npm": "^9.0.2",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "husky": "^8.0.1",
     "jest": "^27.5.1",
@@ -53,7 +53,7 @@
     "sass-graph": "4.0.1"
   },
   "engines": {
-    "npm": "^8.0.0",
-    "node": "^16.0.0"
+    "npm": "^9.0.0",
+    "node": "^18.17.0"
   }
 }
