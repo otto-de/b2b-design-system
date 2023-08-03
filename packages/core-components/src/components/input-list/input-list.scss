@@ -14,26 +14,26 @@
     --b2b-border-radius: var(--b2b-size-border-no-radius-bottom);
   }
 
-  &.b2b-group-input-start b2b-input {
+  &.b2b-group-input__start b2b-input {
     --b2b-border-radius: inherit;
     --b2b-border-right: inherit;
   }
 
-  &.b2b-group-input-start.b2b-input-list__options-on b2b-input {
+  &.b2b-group-input__start.b2b-input-list__options-on b2b-input {
     --b2b-border-radius: var(--b2b-size-border-radius-100) 0 0 0;
   }
 
-  &.b2b-group-input-middle b2b-input {
+  &.b2b-group-input__middle b2b-input {
     --b2b-border-radius: inherit;
     --b2b-border-right: inherit;
   }
 
-  &.b2b-group-input-end b2b-input {
+  &.b2b-group-input__end b2b-input {
     --b2b-border-radius: inherit;
     --b2b-border-right: inherit;
   }
 
-  &.b2b-group-input-end.b2b-input-list__options-on b2b-input {
+  &.b2b-group-input__end.b2b-input-list__options-on b2b-input {
     --b2b-border-radius: 0 var(--b2b-size-border-radius-100) 0 0;
   }
 

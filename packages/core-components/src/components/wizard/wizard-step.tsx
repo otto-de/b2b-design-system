@@ -27,8 +27,8 @@ export class WizardStepComponent {
             checkIcon={this.checkIcon}></b2b-wizard-icon>
           <div
             class={{
-              'b2b_wizard__step-label': true,
-              'b2b_wizard__step-label--default':
+              'b2b_wizard__step__label': true,
+              'b2b_wizard__step__label--default':
                 this.state === WizardStatus.DEFAULT,
             }}>
             <slot></slot>

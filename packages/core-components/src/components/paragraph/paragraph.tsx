@@ -24,9 +24,9 @@ export class ParagraphComponent {
       <p
         class={{
           'b2b-paragraph': true,
-          ['size-' + this.size]: true,
-          ['weight-' + this.weight]: true,
-          ['align-' + this.align]: true,
+          ['b2b-paragraph--size-' + this.size]: true,
+          ['b2b-paragraph--weight-' + this.weight]: true,
+          ['b2b-paragraph--align-' + this.align]: true,
         }}>
         <slot></slot>
       </p>
