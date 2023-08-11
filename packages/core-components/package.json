@@ -51,7 +51,7 @@
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/sass": "^3.0.0",
     "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-docs": "^6.5.16",
+    "@storybook/addon-docs": "^7.2.3",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
