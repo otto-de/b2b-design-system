@@ -19,6 +19,7 @@ describe('B2B-Wizard', () => {
   beforeEach(async () => {
     page = await newE2EPage();
     await page.setContent(b2bWizardRender());
+    await page.waitForChanges();
   });
 
   it('should render wizard component', async () => {
