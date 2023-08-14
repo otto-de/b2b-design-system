@@ -28,7 +28,7 @@
     "@otto-de/b2b-core-components": "1.5.0"
   },
   "devDependencies": {
-    "@types/node": "^18.17.1",
+    "@types/node": "^20.5.0",
     "@types/react": "^17.0.62",
     "@types/react-dom": "^17.0.20",
     "typescript": "^5.1.6"
