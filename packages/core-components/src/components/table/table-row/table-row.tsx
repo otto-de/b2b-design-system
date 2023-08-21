@@ -8,12 +8,16 @@ import {
   Method,
   State,
   Element,
+  Listen,
 } from '@stencil/core';
 import {
-  TableRowTypes,
+  TableAccordionRowTypes,
   TableColourOptions,
-  TableSizes,
 } from '../../../utils/types/table.types';
+import {
+  B2bCheckboxCustomEvent,
+  CheckboxEventDetail,
+} from '../../../components';
 
 @Component({
   tag: 'b2b-table-row',
@@ -29,45 +33,153 @@ export class TableRowComponent {
   /** Background color of the row. Use it semantically. This color selection have hover states **/
   @Prop() color: TableColourOptions = 'default';
 
-  /** @internal Determined by the parent rowgroup for accordion rowgroups. Do not set manually. */
-  @Prop() type: TableRowTypes;
+  /** @internal Determined by the parent rowgroup for accordion rowgroups. */
+  @Prop() accordionType: TableAccordionRowTypes;
+
+  /** @internal Whether the parent rowgroup is selectable. */
+  @Prop() selectable: boolean;
+
+  /** The unique identifier for a selectable row. It is emitted when the row is selected. */
+  @Prop() value?: string;
+
+  /** If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all. */
+  @Prop() indeterminate = false;
+
+  /** If a selectable row is currently checked. Per default, it is false. */
+  @Prop({ mutable: true }) checked = false;
 
   /** Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown. */
   @Event({ eventName: 'b2b-open' })
   b2bOpen: EventEmitter<boolean>;
 
+  /** Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status. */
+  @Event({ eventName: 'b2b-row-selected' })
+  b2bSelected: EventEmitter<CheckboxEventDetail>;
+
   @State() isOpen = false;
+
+  @Listen('b2b-change')
+  toggleSelected(event: B2bCheckboxCustomEvent<CheckboxEventDetail>) {
+    if (this.selectable) {
+      this.checked = event.detail.checked;
+      this.b2bSelected.emit({
+        checked: event.detail.checked,
+        value: event.detail.value ?? 'header',
+      });
+    }
+  }
+
+  /** Will toggle the accordion opened or closed. */
+  @Method()
+  async toggleAccordion(isOpen: boolean) {
+    this.isOpen = isOpen;
+    this.b2bOpen.emit(isOpen);
+  }
+
+  componentWillLoad() {
+    if (
+      this.selectable &&
+      !Boolean(this.value) &&
+      this.getParentRowGroup().type !== 'header'
+    ) {
+      console.warn(
+        'You need to associate a value with the row as a unique identifier.',
+      );
+    }
+  }
 
   private toggleOpen = () => {
     this.isOpen = !this.isOpen;
     this.b2bOpen.emit(this.isOpen);
   };
 
-  /** Will toggle the accordion opened or closed. */
-  @Method()
-  async toggleAccordion(isOpen) {
-    this.isOpen = isOpen;
-    this.b2bOpen.emit(isOpen);
-  }
-
   private getRowColor = () => {
-    if (this.type === TableRowTypes.PARENT) return TableColourOptions.GROUP;
+    if (this.accordionType === TableAccordionRowTypes.PARENT)
+      return TableColourOptions.GROUP;
     return this.color;
   };
 
-  private getParentTableSize = () => {
-    const parentTable = this.hostElement.closest('b2b-table');
-    return parentTable.getAttribute('size');
+  private getRowWidth = () => {
+    const accordionIconSize = '24px';
+    const checkboxSize = '16px';
+
+    if (Boolean(this.accordionType)) {
+      return accordionIconSize;
+    } else if (Boolean(this.selectable)) {
+      return checkboxSize;
+    } else if (Boolean(this.accordionType && this.selectable)) {
+      return accordionIconSize + checkboxSize;
+    } else {
+      return;
+    }
   };
 
-  // This is needed for table size equal, so that control cell size remains as big
-  // as the elements it contains. Feel free to improve this
-  private getRowWidthForEqualSize = () => {
-    const accordionIconSize = '24px';
-    if (this.getParentTableSize() === TableSizes.EQUAL) {
-      return accordionIconSize;
-      // TODO: in B2BDS-166 selectable row - if table is selectable return size of checkbox
-      // TODO: in B2BDS-166 selectable row -if cell is selectable and accordion return size of both
+  private shouldAddCheckbox = () => {
+    let checkbox = this.hostElement.querySelector('b2b-checkbox');
+    return this.selectable && !Boolean(checkbox);
+  };
+
+  private getParentRowGroup = () => {
+    return this.hostElement.closest('b2b-table-rowgroup');
+  };
+
+  private getCheckbox = () => {
+    let parent = this.getParentRowGroup();
+    if (this.shouldAddCheckbox()) {
+      if (parent.type === 'header') {
+        return (
+          <b2b-table-header
+            style={{
+              ['width']: this.getRowWidth(),
+            }}>
+            <b2b-checkbox
+              standalone
+              checked={this.checked}
+              indeterminate={this.indeterminate}></b2b-checkbox>
+          </b2b-table-header>
+        );
+      } else {
+        return (
+          <b2b-table-cell>
+            <b2b-checkbox
+              standalone
+              checked={this.checked}
+              value={this.value}
+              indeterminate={this.indeterminate}></b2b-checkbox>
+          </b2b-table-cell>
+        );
+      }
+    }
+  };
+
+  private getAccordionColumns = () => {
+    if (this.accordionType != undefined) {
+      switch (this.accordionType) {
+        case TableAccordionRowTypes.HEADER:
+          return (
+            <b2b-table-header
+              style={{
+                ['width']: this.getRowWidth(),
+              }}></b2b-table-header>
+          );
+        case TableAccordionRowTypes.PARENT:
+          return (
+            <b2b-table-cell>
+              <button
+                onClick={this.toggleOpen}
+                class={{
+                  'b2b-table-row__accordion-icon': true,
+                  'b2b-table-row__accordion-icon--open': this.isOpen,
+                }}>
+                <b2b-icon
+                  icon="b2b_icon-arrow-right"
+                  clickable={true}></b2b-icon>
+              </button>
+            </b2b-table-cell>
+          );
+        case TableAccordionRowTypes.CHILD:
+          return <b2b-table-cell></b2b-table-cell>;
+      }
     }
   };
 
@@ -80,25 +192,8 @@ export class TableRowComponent {
           [`b2b-table-row--color-${this.getRowColor()}`]: true,
         }}
         role="row">
-        {this.type === TableRowTypes.PARENT && (
-          <b2b-table-cell>
-            <button
-              onClick={this.toggleOpen}
-              class={{
-                'b2b-table-row__accordion-icon': true,
-                'b2b-table-row__accordion-icon--open': this.isOpen,
-              }}>
-              <b2b-icon icon="b2b_icon-arrow-right" clickable={true}></b2b-icon>
-            </button>
-          </b2b-table-cell>
-        )}
-        {this.type === TableRowTypes.CHILD && <b2b-table-cell></b2b-table-cell>}
-        {this.type === TableRowTypes.HEADER && (
-          <b2b-table-header
-            style={{
-              ['width']: this.getRowWidthForEqualSize(),
-            }}></b2b-table-header>
-        )}
+        {this.getAccordionColumns()}
+        {this.getCheckbox()}
         <slot></slot>
       </Host>
     );

@@ -26,4 +26,22 @@ describe('b2b-checkbox', () => {
 
     expect(element).toHaveClass('b2b-checkbox--checked');
   });
+
+  it('can be indeterminate and will change to checked once clicked', async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      '<b2b-checkbox label="test" indeterminate></b2b-checkbox>',
+    );
+
+    const container = await page.find('b2b-checkbox');
+    const element = await page.find('b2b-checkbox >>> .b2b-checkbox');
+
+    expect(element).toHaveClass('b2b-checkbox--indeterminate');
+
+    await container.click();
+
+    await page.waitForChanges();
+
+    expect(element).toHaveClass('b2b-checkbox--checked');
+  });
 });
