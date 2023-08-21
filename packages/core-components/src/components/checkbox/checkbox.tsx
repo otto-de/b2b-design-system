@@ -117,7 +117,7 @@ export class CheckboxComponent {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 11 1"
-          class="b2b-checkbox-icon">
+          class="b2b-checkbox__icon">
           <path
             d="M8.5 0H0.5C0.223633 0 0 0.223633 0 0.5C0 0.776367 0.223633 1 0.5 1H8.5C8.77637 1 9 0.776367 9 0.5C9 0.223633 8.77637 0 8.5 0Z"
             fill="white"
@@ -128,7 +128,7 @@ export class CheckboxComponent {
     if (this.checked) {
       return (
         <svg
-          class="b2b-checkbox-icon"
+          class="b2b-checkbox__icon"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32">
           <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z" />
