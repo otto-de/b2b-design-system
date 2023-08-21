@@ -145,14 +145,14 @@ export class CheckboxComponent {
             'b2b-checkbox': true,
             'b2b-checkbox--error': this.invalid && !this.disabled,
             'b2b-checkbox--disabled': this.disabled || this.groupDisabled,
-            'b2b-checkbox-checked': this.checked,
+            'b2b-checkbox--checked': this.checked,
             'b2b-checkbox--standalone': this.standalone,
             'b2b-checkbox--indeterminate': this.indeterminate,
           }}>
           <div class="b2b-checkbox-items">
             {this.renderIcon()}
             <input
-              class="b2b-checkbox-input"
+              class="b2b-checkbox__input"
               aria-labelledby={this.name}
               type="checkbox"
               name={this.name}

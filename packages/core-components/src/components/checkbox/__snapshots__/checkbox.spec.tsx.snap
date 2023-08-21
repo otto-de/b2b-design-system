@@ -5,7 +5,7 @@ exports[`should apply an error style if it is marked as invalid. 1`] = `
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--error">
       <div class="b2b-checkbox-items">
-        <input class="b2b-checkbox-input" type="checkbox">
+        <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           test
         </b2b-input-label>
@@ -23,7 +23,7 @@ exports[`should disable the checkbox 1`] = `
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--disabled">
       <div class="b2b-checkbox-items">
-        <input class="b2b-checkbox-input" disabled="" type="checkbox">
+        <input class="b2b-checkbox__input" disabled="" type="checkbox">
         <b2b-input-label disabled="">
           test
         </b2b-input-label>
@@ -38,7 +38,7 @@ exports[`should render a hint if  invalid and disabled are true at the same time
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--disabled">
       <div class="b2b-checkbox-items">
-        <input class="b2b-checkbox-input" disabled="" type="checkbox">
+        <input class="b2b-checkbox__input" disabled="" type="checkbox">
         <b2b-input-label disabled="">
           test
         </b2b-input-label>
@@ -56,7 +56,7 @@ exports[`should render a hint message if a hint string is specified 1`] = `
   <mock:shadow-root>
     <div class="b2b-checkbox">
       <div class="b2b-checkbox-items">
-        <input class="b2b-checkbox-input" type="checkbox">
+        <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           test
         </b2b-input-label>
@@ -74,7 +74,7 @@ exports[`should render an error message if an error is specified and it is marke
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--error">
       <div class="b2b-checkbox-items">
-        <input class="b2b-checkbox-input" type="checkbox">
+        <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           test
         </b2b-input-label>
@@ -92,7 +92,7 @@ exports[`should render the checkbox 1`] = `
   <mock:shadow-root>
     <div class="b2b-checkbox">
       <div class="b2b-checkbox-items">
-        <input class="b2b-checkbox-input" type="checkbox">
+        <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           test
         </b2b-input-label>

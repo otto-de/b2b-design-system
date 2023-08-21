@@ -18,13 +18,13 @@ describe('b2b-checkbox', () => {
     const container = await page.find('b2b-checkbox');
     const element = await page.find('b2b-checkbox >>> .b2b-checkbox');
 
-    expect(element).not.toHaveClass('b2b-checkbox-checked');
+    expect(element).not.toHaveClass('b2b-checkbox--checked');
 
     await container.click();
 
     await page.waitForChanges();
 
-    expect(element).toHaveClass('b2b-checkbox-checked');
+    expect(element).toHaveClass('b2b-checkbox--checked');
   });
 
   it('can be indeterminate and will change to checked once clicked', async () => {
@@ -42,6 +42,6 @@ describe('b2b-checkbox', () => {
 
     await page.waitForChanges();
 
-    expect(element).toHaveClass('b2b-checkbox-checked');
+    expect(element).toHaveClass('b2b-checkbox--checked');
   });
 });

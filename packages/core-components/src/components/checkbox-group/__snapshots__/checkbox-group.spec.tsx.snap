@@ -8,7 +8,7 @@ exports[`should align the checkboxes horizontally if set to horizontal 1`] = `
         test
       </b2b-input-label>
       <fieldset>
-        <div class="b2b-checkbox-group-options">
+        <div class="b2b-checkbox-group__options">
           <slot></slot>
         </div>
       </fieldset>
@@ -25,7 +25,7 @@ exports[`should not render a group hint if a hint string and an error are specif
         test
       </b2b-input-label>
       <fieldset>
-        <div class="b2b-checkbox-group-options">
+        <div class="b2b-checkbox-group__options">
           <slot></slot>
         </div>
       </fieldset>
@@ -45,7 +45,7 @@ exports[`should render a group hint if a hint string is specified 1`] = `
         test
       </b2b-input-label>
       <fieldset>
-        <div class="b2b-checkbox-group-options">
+        <div class="b2b-checkbox-group__options">
           <slot></slot>
         </div>
       </fieldset>
@@ -65,7 +65,7 @@ exports[`should render a hint if invalid and disabled are true at the same time 
         test
       </b2b-input-label>
       <fieldset>
-        <div class="b2b-checkbox-group-options">
+        <div class="b2b-checkbox-group__options">
           <slot></slot>
         </div>
       </fieldset>
@@ -85,7 +85,7 @@ exports[`should render the checkbox group and not show a hint or an error unless
         test
       </b2b-input-label>
       <fieldset>
-        <div class="b2b-checkbox-group-options">
+        <div class="b2b-checkbox-group__options">
           <slot></slot>
         </div>
       </fieldset>
