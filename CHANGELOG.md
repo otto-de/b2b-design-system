@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/otto-de/b2b-design-system/compare/v1.6.0...v1.6.1) (2023-08-22)
+
+
+### Bug Fixes
+
+* **Table:** table sorting arrows now display correctly again ([4074cca](https://github.com/otto-de/b2b-design-system/commit/4074cca4d2d16e3b7153edde89a924a33b588a5e))
+
 # [1.6.0](https://github.com/otto-de/b2b-design-system/compare/v1.5.0...v1.6.0) (2023-08-22)
 
 
