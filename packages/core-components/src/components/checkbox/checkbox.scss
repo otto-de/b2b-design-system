@@ -99,25 +99,31 @@
   &--standalone {
     margin: 0;
 
-    .b2b-checkbox-input {
+    .b2b-checkbox__input {
       margin: 0;
     }
 
-    .b2b-checkbox-icon {
+    .b2b-checkbox__icon {
       margin-top: var(--b2b-size-1);
     }
   }
 
   &--indeterminate {
-    .b2b-checkbox-input {
+    .b2b-checkbox__input {
       border-color: var(--b2b-color-black-100);
       background-color: var(--b2b-color-black-100);
     }
 
-    .b2b-checkbox-icon {
-      margin-top: var(--b2b-size-1);
+    .b2b-checkbox__icon {
+      margin-top: var(--b2b-size-5);
       margin-left: var(--b2b-size-5);
       display: inline-block;
+    }
+  }
+
+  &--indeterminate.b2b-checkbox--standalone {
+    .b2b-checkbox__icon {
+      margin-top: var(--b2b-size-1);
     }
   }
 }
