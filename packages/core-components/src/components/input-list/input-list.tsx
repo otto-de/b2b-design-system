@@ -146,7 +146,7 @@ export class InputListComponent {
     const parentNodeName = this.hostElement.parentNode.nodeName;
     if (parentNodeName === 'B2B-INPUT-GROUP') {
       const slotName = this.hostElement.assignedSlot?.name || 'middle';
-      return `b2b-group-input-${slotName}`;
+      return `b2b-group-input__${slotName}`;
     }
   };
 
