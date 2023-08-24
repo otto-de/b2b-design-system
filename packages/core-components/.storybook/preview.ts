@@ -6,6 +6,9 @@ import './storybook.scss';
 
 const preview: Preview = {
   parameters: {
+    docs: {
+      toc: true,
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

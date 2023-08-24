@@ -24,9 +24,9 @@ You can use the grid component to help in crafting layouts following design brie
 This grid is not responsive, so when using it in containers of limited sizes, try to use less columns so that they
 won't wrap because there won't be enough space.
 
-## Properties
+### Grid Properties
 
-### Margin
+#### Margin
 
 The overall margin of the grid, i.e. the padding the grid will have towards surrounding elements.
 If not specified, it defaults to 24px. Since it is of type number, you do not need to supply the `px` at the end.
@@ -43,9 +43,9 @@ The maximum number of columns that are displayed in the same row is 12 for singl
 Columns with a `span` greater than one count towards the maximum equal to their `span` width.
 All additional columns will overflow to the next line.
 
-## Properties
+### Row Properties
 
-### Column Gap
+#### Column Gap
 
 The gap between each column of a given row. Per default it is 24px wide. You do not need to supply the `px` at the end.
 Please note that if you're writing vanilla HTML, you need to use kebap-case instead of the original camelCase.
@@ -57,7 +57,7 @@ Please note that if you're writing vanilla HTML, you need to use kebap-case inst
         <b2b-grid-row column-gap="24"></b2b-grid-row>
     </b2b-grid>`}></Source>
 
-### Row Gap
+#### Row Gap
 
 The gap between a given row and the previouss / next row. Per default it is 24px wide. You do not need to supply the `px` at the end.
 Please note that if you're writing vanilla HTML, you need to use kebap-case instead of the original camelCase.
@@ -69,7 +69,7 @@ Please note that if you're writing vanilla HTML, you need to use kebap-case inst
         <b2b-grid-row row-gap="24"></b2b-grid-row>
     </b2b-grid>`}></Source>
 
-### Align Items
+#### Align Items
 
 Vertical alignment of columns within a given row. Use it if you have column content that has different heights.
 Please note that this only works if the content blocks have a set height or some content that determines their height.
@@ -82,7 +82,7 @@ If the height is not set, per default the items will stretch to be the same heig
         <b2b-grid-row align-items="center"></b2b-grid-row>
     </b2b-grid>`}></Source>
 
-### Justify
+#### Justify
 
 The justification of columns within a given row similar to flexbox horizontal content distribution.
 If you have less than 12 columns (or the sum of spans for columns with a width greater than 1 span is less than 12),
@@ -99,9 +99,9 @@ setting the `justify` property will align your columns horizontally. Per default
 
 A maximum of 12 individual columns can be used inside one row. They hold the content of the grid system.
 
-## Properties
+### Column Properties
 
-### Span
+#### Span
 
 The width of the column by amount of individual columns and gaps it is supposed to span, up to 12 columns for just one large column.
 For example, two columns each with a `span="6"` will create a row with two large columns.
@@ -118,7 +118,7 @@ If you put multiple columns in a row that don't have a specified span, they will
         </b2b-grid-row>
     </b2b-grid>`}></Source>
 
-### Text Align
+#### Text Align
 
 If there is any text content inside the column, the `text-align` property determines it's orientation. Per default all text is left-aligned.
 
@@ -131,7 +131,7 @@ If there is any text content inside the column, the `text-align` property determ
         </b2b-grid-row>
     </b2b-grid>`}></Source>
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

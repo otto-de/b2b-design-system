@@ -5,7 +5,12 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as SeparatorStories from './separator.stories';
+
+<Meta of={SeparatorStories} />
 
 # Separator
 
@@ -15,11 +20,11 @@ The separator component is used for the horizontal or vertical delimitation of c
   <Story id="components-utilities-separator--story-010-horizontal" />
 </Canvas>
 
-## Properties
+### Properties
 
 <br />
 
-### Alignment
+#### Alignment
 
 **_Horizontal_** per default, the separator is horizontally aligned. It takes up the full width of it's parent element
 and is a block element.
@@ -29,7 +34,7 @@ can be vertically aligned. It will take up the full height of it's parent elemen
 to use it with `display: flex;` on the parent as well, otherwise other block-level elements like paragraphs
 will not align correctly due to their nature.
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

@@ -22,14 +22,14 @@ The Input Group Component provides a visual wrapper to concatenate several form 
 **_ Important _** You can only use B2B Form Components inside of this wrapper, such as
 B2B Dropdowns, B2B Inputs or B2B Buttons. Other components such as B2B Textarea or non-B2B Components will not look good.
 
-## Slots
+### Slots
 
 The Input Group consists of multiple individual B2B Form Components. They are visually grouped together.
 Like other Form Group Components, such as Radio or Checkbox Group, they have a group error and a group hint,
 as well as a group-wide disabled state. The first and the last element in the group need to be placed in their
 respective slots.
 
-### Start
+#### Start
 
 This is the first element in the input group. It will have rounded corners on the left-hand side.
 
@@ -37,7 +37,7 @@ This is the first element in the input group. It will have rounded corners on th
 <b2b-input slot="start" label="Search Term"></b2b-input>
 ```
 
-### End
+#### End
 
 This is the last element in the input group. It will have rounded corners on the right-hand side.
 
@@ -47,7 +47,7 @@ This is the last element in the input group. It will have rounded corners on the
 ></b2b-button>
 ```
 
-### Default
+#### Default
 
 All other content does not require a named slot and can be placed anywhere in the wrapper.
 Please note that a complex Input Group with three or more elements will rarely be used.
@@ -58,39 +58,39 @@ Please note that a complex Input Group with three or more elements will rarely b
 
 You can set labels on individual components as usual to indicate what the individual input field is for.
 
-## Properties
+### Properties
 
-### Hint
+#### Hint
 
 A group hint text. This should indicate what the Input Group is about.
 
 Do note that the Input Group removes all individual hints from its children.
 
-### Error
+#### Error
 
 A group error message. It is recommended to specify this whenever you plan to validate input.
 It will only be shown when invalid is set to `true`.
 
 Do note that the Input Group removes all individual error messages from its children.
 
-### Invalid
+#### Invalid
 
 If set to true, all components inside the Input Group will be rendered with error styles
 and an error message will be shown if specified.
 
-### Disabled
+#### Disabled
 
 If set to true, all components inside the Input Group will be disabled and an error message
 will not be shown, even if the group is also marked as invalid.
 
-## Form Elements width
+### Form Elements Width
 
 You can change the width of our form elements by directly applying the desired width to the component. Follow
 this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-width) if you want to know more.
 
 <br />
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

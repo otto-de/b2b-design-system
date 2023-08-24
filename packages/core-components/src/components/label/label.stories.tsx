@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import docs from './label.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({ type }) => {
@@ -37,9 +36,4 @@ export default {
   title: 'Components/Status & Feedback/Label',
   argTypes: argTypes,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: docs,
-    },
-  },
 } as Meta;

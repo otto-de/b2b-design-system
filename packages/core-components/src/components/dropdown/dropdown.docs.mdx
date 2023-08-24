@@ -24,9 +24,9 @@ It is possible to disable individual options. When giving one option the selecte
 shown as a placeholder on page load. If none of the options has a selected attribute, by default the
 last option will be shown as a placeholder.
 
-## Properties
+### Properties
 
-### Label
+#### Label
 
 The dropdown label. It indicates what the options relate to. This field is recommended, but not required as it can
 be ignored in some use cases. For example, when the solution needs a label with a description block of text after it.
@@ -34,62 +34,62 @@ be ignored in some use cases. For example, when the solution needs a label with 
 Internally the component sets the aria property `aria-labelledby` to the `name` prop of this component. When using a
 custom label, remember to set that same name to the `id` of the label. For more information you can see [this link](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby).
 
-### Required
+#### Required
 
 Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
 validation, is just a style addition.
 
-### Name
+#### Name
 
 The dropdown name that connects the select element to the label. This is important for accessibility.
 
-### Disabled
+#### Disabled
 
 Whether or not the dropdown is disabled as a whole. Per default it is false. If it is set to true, the
 arrow icon disappears and no interaction is possible.
 
-### Invalid
+#### Invalid
 
 Whether or not the dropdown is invalid. Setting this to true will render the dropdown with error styles and
 show an error message if it is specified. If disabled and invalid are true at the same time, the dropdown
 will be rendered as disabled.
 
-### Hint
+#### Hint
 
 A hint that can contain additional information for the user. It is optional.
 
-### Error
+#### Error
 
 An error message that is shown if the dropdown is set to invalid. It will not show if the dropdown is
 invalid and disabled at the same time. It is optional.
 
-## Events
+### Events
 
 The dropdown emits events similar to the radio group.
 
-### b2b-change
+#### b2b-change
 
 This event emits the value of the chosen option each time an option element is selected either via
 mouse or via keyboard.
 
-### b2b-focus
+#### b2b-focus
 
 This event emits a focus event whenever the dropdown is focused.
 
-### b2b-blur
+#### b2b-blur
 
 This event emits a focus event whenever the dropdown loses focus.
 
 <br />
 
-## Form Elements width
+### Form Elements width
 
 You can change the width of our form elements by directly applying the desired width to the component. Follow
 this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-width) if you want to know more.
 
 <br />
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

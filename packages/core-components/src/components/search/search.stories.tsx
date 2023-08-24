@@ -3,7 +3,6 @@ import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 import { useArgs } from '@storybook/preview-api';
 import dedent from 'ts-dedent';
-import searchDocs from './search.docs.mdx';
 import fruits from './stories.data.json';
 
 const Template: Story = ({ placeholder, optionsList, disabled }) => {
@@ -103,9 +102,4 @@ export default {
   title: 'Components/Form/Search',
   argTypes: { ...searchArgs },
   viewmode: 'docs',
-  parameters: {
-    docs: {
-      page: searchDocs,
-    },
-  },
 } as Meta;

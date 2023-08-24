@@ -4,31 +4,36 @@ import {
   PRIMARY_STORY,
   Primary,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as SpinnerStories from './spinner.stories';
+
+<Meta of={SpinnerStories} />
 
 # Spinner
 
 The spinner is a circular loading indicator that indicates that page content is being loaded.
 
-## Properties
+### Properties
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-status-feedback-spinner--story-010-default" />
 </Canvas>
 
-### Color
+#### Color
 
 There are different colors that can be used depending on what background the spinner is placed. While the default variant
 is best used on a white background, the inverted variant should be placed on darker backgrounds. The secondary option
 is showing a stronger color and therefore can be used both in light and dark contexts.
 
-### Size
+#### Size
 
 The spinner comes in three different sizes that can be adjusted according to the context it is used in.
 The size 50 represents a spinner of size 20 x 20px. Size 100, which is the default, is of size 36 x 36px. The largest
 size 200 represents a size of 60 x 60px.
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

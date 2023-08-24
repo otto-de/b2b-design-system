@@ -5,8 +5,14 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
 import dedent from 'ts-dedent';
+
+import * as PaginationStories from './pagination.stories';
+
+<Meta of={PaginationStories} />
 
 # Pagination Component
 
@@ -22,21 +28,21 @@ The component emits a `b2b-page-change` event with the information of the user p
 
 <br />
 
-## Properties
+### Properties
 
-### totalPages
+#### totalPages
 
 This is the total number of pages, where the component will put this total always as the last button.
 
-### activePage
+#### activePage
 
 Optional property that can be used to programmatically select an active page. It will start at 1 by default.
 
 <br />
 
-## Events
+### Events
 
-### b2b-page-change
+#### b2b-page-change
 
 The `b2b-page-change` event will emit a `PageChangeEventDetail` with the following information. The direction will be
 included only when user clicks on the `back` or `next` buttons.
@@ -53,7 +59,7 @@ included only when user clicks on the `back` or `next` buttons.
   `}
 />
 
-#### React
+##### React
 
 <Source
   language="tsx"
@@ -63,7 +69,7 @@ included only when user clicks on the `back` or `next` buttons.
   `}
 />
 
-#### Vue
+##### Vue
 
 <Source
   language="tsx"

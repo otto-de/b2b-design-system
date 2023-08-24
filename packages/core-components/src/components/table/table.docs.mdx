@@ -1,23 +1,23 @@
-import { Story, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Canvas,
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Meta,
+} from '@storybook/blocks';
+
+import * as TableStories from './table.stories';
+
+<Meta of={TableStories} />
 
 # Table
 
 The table components can be use in a similar way than a normal html table. It encapsulates styles
 that give consistency to the look and feel of the table, and help developers with flexible display options.
 
-### Contents
-
-| Table components                          | Features                                          | Sizing                                         |
-| ----------------------------------------- | ------------------------------------------------- | ---------------------------------------------- |
-| [b2b-table](#b2b-table)                   | [Divider](#divider-property)                      | [Sizing - fixed cell width](#fixed-cell-width) |
-| [b2b-table-rowgroup](#b2b-table-rowgroup) | [Colored rows and cells](#colored-rows-and-cells) | [Sizing - fixed row height](#fixed-row-height) |
-| [b2b-table-row](#b2b-table-row)           | [Scrollable Table](#scrollable-table)             |                                                |
-| [b2b-table-header](#b2b-table-header)     | [Sorting Arrows](#sorting-arrows)                 |                                                |
-| [b2b-table-cell](#b2b-table-cell)         | [Accordion](#accordion)                           |                                                |
-
 <br />
 
-## B2B Table components
+### Components
 
 The components to use to build a table are `b2b-table`, `b2b-rowgroup`, `b2b-row`, `b2b-header`, `b2b-cell` and use
 a similar hierarchy than a html table:
@@ -39,13 +39,13 @@ a similar hierarchy than a html table:
 
 <hr />
 
-### b2b-table
+#### b2b-table
 
 Is the parent component and can control the size of the columns. Currently, it supports 2 sizes: `expand` and
 `equal`. Fixed sizes can be added directly to the row, header or cell components by using styles or css
 classes.
 
-#### expand
+##### expand
 
 Expand size will expand to 100% of parent size and columns will use as much space as they need depending on content of
 the headers or cell-data. Text will always wrap in this size.
@@ -60,7 +60,7 @@ In this example, parent size is 400px.
 
 <Story id="components-content-table--story-040-table-expand" />
 
-#### equal
+##### equal
 
 Equal size extends to parent width but will keep cell sizes proportional no matter how long the content.
 Text can both wrap or be truncated with text ellipsis (using the property `text-wrap=false` in the cell). In this
@@ -75,12 +75,12 @@ example, parent size is 400px, and text is truncated.
 </div>
 ```
 
-<Story id="components-content-table--story-050-table-equal" />
+<Canvas of={TableStories.SizeEqual} />
 
 <br />
 <hr />
 
-### b2b-table-rowgroup
+#### b2b-table-rowgroup
 
 Rowgroup will let you group rows based on context: `header`, `body` or `footer`.
 Header rows are by default not highlightable on mouse over.
@@ -95,11 +95,11 @@ Header rows are by default not highlightable on mouse over.
 
 <hr />
 
-### b2b-table-row
+#### b2b-table-row
 
 Rows are the same as `<tr>` elements and implement that aria-role.
 
-#### highlight
+##### highlight
 
 This property will make the row highlightable on mouse over. By default, it is true.
 
@@ -113,12 +113,12 @@ This property will make the row highlightable on mouse over. By default, it is t
 
 <hr />
 
-### b2b-table-header
+#### b2b-table-header
 
 This component is similar to the `<th>` element and implements the aria-role columnheader.
 Note: this new table design does not use the division between header and body.
 
-#### fixed
+##### fixed
 
 Sets the header position to sticky. Use it when table is inside a `b2b-scrollable-container`.
 
@@ -134,11 +134,11 @@ Sets the header position to sticky. Use it when table is inside a `b2b-scrollabl
 
 <hr />
 
-### b2b-table-cell
+#### b2b-table-cell
 
 This component is similar to the `<td>` element and implements the aria-role cell.
 
-#### horizontal align
+##### horizontal align
 
 Alignment of the content of the cell, by default is to the `left`, and can also be set to `right` or `center`.
 
@@ -152,7 +152,7 @@ Alignment of the content of the cell, by default is to the `left`, and can also 
 </b2b-table>
 ```
 
-#### textWrap
+##### textWrap
 
 Will truncate the text if set to `true`, and ** table size is `equal`**.
 
@@ -276,7 +276,7 @@ it will only go back to its unsorted state automatically, when the user clicks o
 </b2b-table>
 ```
 
-#### Events
+##### Events
 
 When the user interacts with sorting, the `b2b-table` will emit a `b2b-sort-change` event that will contain
 information about the sorted header and the direction selected. You can provide the property `sort-id` to the
@@ -312,7 +312,7 @@ _Vue Notation_
 <br />
 <hr />
 
-### Accordion
+#### Accordion
 
 If you have complex or nested data, you can use accordion rows to better represent your data structure.
 The table will take each first row of a given `<b2b-table-rowgroup type="body">` and add a control arrow in the first column, making
@@ -408,6 +408,6 @@ In both cases when using `expand` or `equal` properties in the table, you can al
 <br />
 <br />
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} controls={false} />

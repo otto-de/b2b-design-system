@@ -5,8 +5,14 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
 import dedent from 'ts-dedent';
+
+import * as SearchStories from './search.stories';
+
+<Meta of={SearchStories} />
 
 # Search Component
 
@@ -20,9 +26,9 @@ The component encapsulates styles and emmit the appropriate events to handle the
 
 <br />
 
-## Properties
+### Properties
 
-### placeholder
+#### placeholder
 
 Used as the placeholder for the input field.
 
@@ -34,7 +40,7 @@ Used as the placeholder for the input field.
   `}
 />
 
-### optionsList
+#### optionsList
 
 Use to present a list of suggestions to the user. It is currently limited to cursor navigation but later we will
 implement keyboard navigation as well.
@@ -47,19 +53,19 @@ implement keyboard navigation as well.
   `}
 />
 
-### disabled
+#### disabled
 
 A boolean to indicate if the search element is `disabled`. The default value is `false`.
 
 <br />
 
-## Events
+### Events
 
 The Search Component emits 3 events for handling of data
 
 <br />
 
-### OnB2BInput and the list of suggested options
+#### b2b-input and the list of suggested options
 
 Listen to this event to be able to capture user text input and use it to provide early search recommendations.
 To present the list of suggestions to the user, you should pass a list of strings that will be displayed as
@@ -94,7 +100,7 @@ This is completely optional, and you can use the search component just to captur
   `}
 />
 
-### OnB2b-search
+#### b2b-search
 
 This event will emit when the user clicks the search button. This is a custom event, and you can access the data by
 the event detail:
@@ -114,7 +120,7 @@ the event detail:
   `}
 />
 
-### OnB2b-option-selected
+#### b2b-option-selected
 
 This event will emit when the user clicks on an option from the list if results where provided.
 
@@ -133,11 +139,11 @@ This event will emit when the user clicks on an option from the list if results 
   `}
 />
 
-### Using events in different frameworks
+#### Using events in different frameworks
 
 Events have a slight different conventions in our supported frameworks, this is how you need to call the events on each:
 
-#### React
+##### React
 
 <Source
   language="tsx"
@@ -152,7 +158,7 @@ Events have a slight different conventions in our supported frameworks, this is 
   `}
 />
 
-#### Vue
+##### Vue
 
 <Source
   language="tsx"
@@ -167,7 +173,7 @@ Events have a slight different conventions in our supported frameworks, this is 
   `}
 />
 
-## Examples
+### Examples
 
 You can follow our [React](https://github.com/otto-ec/b2b-react-examples/blob/main/src/components/SearchExample.tsx)
 and [Vue](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/components/search/Search.vue)
@@ -230,14 +236,14 @@ including `onB2b-input` and `onB2b-option-selected`. Please refer to the [b2b-in
   `}
 />
 
-## Form Elements width
+### Form Elements Width
 
 You can change the width of our form elements by directly applying the desired width to the component. Follow
 this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-width) if you want to know more.
 
 <br />
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

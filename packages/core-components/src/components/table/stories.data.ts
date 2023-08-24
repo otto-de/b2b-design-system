@@ -7,25 +7,25 @@ export const sampleData = {
       'Name A',
       'Content 1',
       'Content 1',
-      html` <b2b-button>Action</b2b-button>`,
+      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
     ],
     [
       'Name B',
       'Content 2',
       'Content 2',
-      html` <b2b-button>Action</b2b-button>`,
+      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
     ],
     [
       'Name C',
       'Content 3',
       'Content 3',
-      html` <b2b-button>Action</b2b-button>`,
+      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
     ],
     [
       'Name D',
       'Content 4',
       'Very, very, long, long data text that wraps over to next line',
-      html` <b2b-button>Action</b2b-button>`,
+      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
     ],
   ],
 };
@@ -33,7 +33,7 @@ export const sampleData = {
 export const smallSampleData = {
   columns: ['Column 1', 'Column 2', 'Column 3'],
   rows: [
-    ['Name A', 'Content 1', html` <b2b-button>Action</b2b-button>`],
+    ['Name A', 'Content 1', html`unsafeHTML(<b2b-button>Action</b2b-button>)`],
     [
       'Name D',
       'Very long data text that wraps over to next line, Very long data text that wraps over to next line',

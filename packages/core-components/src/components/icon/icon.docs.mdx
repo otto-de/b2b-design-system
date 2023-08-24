@@ -18,7 +18,9 @@ import * as IconStories from './icon.stories';
   <Story id="components-assets-icon--story-010-primary" />
 </Canvas>
 
-## Name
+### Properties
+
+#### Name
 
 The name of the icon. Each name is prefixed with b2b.
 
@@ -26,7 +28,7 @@ You can find [here](#icon-list) the full list of supported icons.
 
 <br />
 
-## Color
+#### Color
 
 The color of the icon. There are four different variants to ensure
 good contrast with different background colors. Per default the icon
@@ -34,7 +36,7 @@ will inherit the color of the parent element. When using the icon
 in a standalone context and the color of the parent is not defined, we recommend
 using one of the variants below.
 
-### Primary
+##### Primary
 
 Use the primary version for light backgrounds.
 
@@ -42,7 +44,7 @@ Use the primary version for light backgrounds.
   <Story id="components-assets-icon--story-010-primary" />
 </Canvas>
 
-### Secondary
+##### Secondary
 
 Use the secondary version for icons that indicate secondary actions.
 
@@ -50,7 +52,7 @@ Use the secondary version for icons that indicate secondary actions.
   <Story id="components-assets-icon--story-020-secondary" />
 </Canvas>
 
-### Inverse
+#### Inverse
 
 Use the inverse version for dark backgrounds only.
 
@@ -62,7 +64,7 @@ Use the inverse version for dark backgrounds only.
   <Story id="components-assets-icon--story-030-inverse" />
 </Canvas>
 
-### Inherit
+##### Inherit
 
 Inherit will allow you to specify any color for the icon by first defining the parent `color` property.
 
@@ -70,12 +72,12 @@ Inherit will allow you to specify any color for the icon by first defining the p
   <Story id="components-assets-icon--story-035-inherit" />
 </Canvas>
 
-## Size
+#### Size
 
 The icon comes in three different sizes that can be adjusted according
 to the context the icon is used in.
 
-### 50
+##### 50
 
 The smallest icon size at 16 x 16px. Can be used in a small button or label.
 
@@ -83,7 +85,7 @@ The smallest icon size at 16 x 16px. Can be used in a small button or label.
   <Story id="components-assets-icon--story-040-size-50" />
 </Canvas>
 
-### 100
+##### 100
 
 This is the standard size of the icon, 24 x 24px. If not otherwise specified, this is the default.
 
@@ -91,16 +93,16 @@ This is the standard size of the icon, 24 x 24px. If not otherwise specified, th
   <Story id="components-assets-icon--story-050-size-100" />
 </Canvas>
 
-### 200
+##### 200
 
 This is a big icon with a size of 32 x 32px. It should not be used within
 a button or menu.
 
-## clickable
+#### clickable
 
 Will display a pointer cursor when hovering over the icon.
 
-## Custom Properties
+### Custom Properties
 
 The properties below are CSS variables that we expose in our component. You can set your own value by overwriting the respective variables
 in your styles:
@@ -109,20 +111,30 @@ in your styles:
 --b2b-icon-line-height: 1rem;
 ```
 
-| Variable Name          | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| --b2b-icon-line-height | The icon line height. Per default it will inherit the current line height set on the parent element. |
+<table>
+  <tr>
+    <td>Variable Name</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>--b2b-icon-line-height</td>
+    <td>
+      The icon line height. Per default it will inherit the current line height
+      set on the parent element.
+    </td>
+  </tr>
+</table>
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-assets-icon--story-060-size-200" />
 </Canvas>
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />
 
-## Icon List
+### Icon List
 
 <Story id="components-assets-icon--story-070-all-icons" />

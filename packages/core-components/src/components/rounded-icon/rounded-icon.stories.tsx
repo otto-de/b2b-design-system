@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import RoundedIconDocs from './rounded-icon.docs.mdx';
 
 const TemplateIcon: Story = ({ color, contentColor, iconName }) => {
   return html`<div>
@@ -44,8 +43,5 @@ export default {
   viewmode: 'docs',
   parameters: {
     controls: { expanded: true },
-    docs: {
-      page: RoundedIconDocs,
-    },
   },
 } as Meta;

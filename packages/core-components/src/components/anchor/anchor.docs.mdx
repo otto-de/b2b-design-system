@@ -16,7 +16,7 @@ import * as AnchorStories from './anchor.stories';
 The anchor pattern provides the visual formatting of links, which also includes the hover effect with adjustment of the mouse pointer.
 The default anchor is underlined and turns red when being hovered. The font size and text color depend on the parent element and can vary according to the basic colors.
 
-## Default Arguments
+### Default Arguments
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-interaction-anchor--story-010-default" />
@@ -26,7 +26,9 @@ The only required argument to the link component is the `href` attribute, all ot
 If not specified, `download` is set to null, so that a default anchor is not downloadable.
 The default `target` attribute is `self`, the default `size` is inherited from the anchor's parent element.
 
-## Size
+### Properties
+
+#### Size
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-interaction-anchor--story-020-size-100" />
@@ -35,7 +37,7 @@ The default `target` attribute is `self`, the default `size` is inherited from t
 If not specified, the size of the anchor component is inherited from the parent element.
 Alternatively, it can be set to `size="100"` which defines the font size as 14px.
 
-## Target
+#### Target
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-interaction-anchor--story-030-target-blank" />
@@ -44,14 +46,14 @@ Alternatively, it can be set to `size="100"` which defines the font size as 14px
 The default target of the anchor component is self, which will open the target in the same window and add another entry to the navigation stack.
 If specified to blank, the target will open in another tab instead.
 
-### IFrame Support
+#### IFrame Support
 
 The anchor component also supports two other `target` types - parent and top, that are exclusively used in the context of IFrames.
 If specified to `parent` the target will open in the IFrame that it is used in.
 
 If specified to `top`, the target will open in the IFrame that is closest to the document root.
 
-## Attributes
+### Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:
