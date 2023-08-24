@@ -14,7 +14,6 @@
   "homepage": "https://github.com/otto-de/b2b-design-system#readme",
   "scripts": {
     "deploy": "npm run deploy --workspace=@otto-de/b2b-core-components",
-    "publish": "npm publish --workspace packages/",
     "release": "semantic-release",
     "build-tokens": "npm run build --workspace=@otto-de/b2b-tokens",
     "build-core-components": "npm run build --workspace=@otto-de/b2b-core-components",
@@ -33,18 +32,19 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.6.5",
-    "@npmcli/package-json": "^3.0.0",
+    "@npmcli/package-json": "^3.1.1",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.7",
-    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/npm": "^9.0.2",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "husky": "^8.0.1",
     "jest": "^27.5.1",
     "npm-force-resolutions": "^0.0.10",
     "npm-run-all": "^4.1.5",
+    "puppeteer": "^13.6.0",
     "semantic-release": "^19.0.5"
   },
   "resolutions": {
@@ -53,7 +53,7 @@
     "sass-graph": "4.0.1"
   },
   "engines": {
-    "npm": "^8.0.0",
-    "node": "^16.0.0"
+    "npm": "^9.0.0",
+    "node": "^18.17.0"
   }
 }

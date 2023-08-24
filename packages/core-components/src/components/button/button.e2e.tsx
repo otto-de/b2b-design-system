@@ -9,7 +9,7 @@ describe('B2B-Button', () => {
 
   it('should render the button component', async () => {
     const element = await page.find('b2b-button');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should display text', async () => {
@@ -75,7 +75,7 @@ describe('B2B-Button', () => {
   </b2b-button>`);
 
     const button = await page.find('b2b-button');
-    expect(button).toHaveClass('icon-only');
+    expect(button).toHaveClass('b2b-button--icon-only');
   });
 
   it('should not reduce padding on the button if there is text', async () => {
@@ -86,7 +86,7 @@ describe('B2B-Button', () => {
   </b2b-button>`);
 
     const button = await page.find('b2b-button');
-    expect(button).not.toHaveClass('icon-only');
+    expect(button).not.toHaveClass('b2b-button--icon-only');
   });
 
   it('should not submit a form when the button is not of type submit', async () => {

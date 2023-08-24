@@ -63,6 +63,9 @@ export class InputComponent {
   /** When setting the autofocus to true, the input element will be focused when the page loads. */
   @Prop() autofocus = false;
 
+  /** @internal Whether the parent input group is disabled. Per default, it is false. */
+  @Prop() groupDisabled = false;
+
   /** Emits whenever the input receives focus. */
   @Event({ eventName: 'b2b-focus' })
   b2bFocus: EventEmitter<FocusEvent>;
@@ -165,20 +168,20 @@ export class InputComponent {
         )}
         <div
           class={{
-            'input-wrapper': true,
-            'input-wrapper--focused': this.hasFocus,
-            'input-wrapper--disabled': this.disabled,
+            'b2b-input__wrapper': true,
+            'b2b-input__wrapper--focused': this.hasFocus,
+            'b2b-input__wrapper--disabled': this.disabled || this.groupDisabled,
           }}>
           <slot name="start"></slot>
           {this.hasTextPrefix && <div class="border"></div>}
           <input
-            class="native-input"
+            class="b2b-input__native-input"
             aria-labelledby={this.name}
             type={this.type}
             placeholder={this.placeholder}
             value={this.value}
             name={this.name}
-            disabled={this.disabled}
+            disabled={this.disabled || this.groupDisabled}
             autoFocus={this.autofocus}
             onFocus={this.onFocus}
             onBlur={this.onBlur}

@@ -40,16 +40,21 @@
       }
     },
     "copy": {
-      "50": { "value": "{size.25}" },
-      "75": { "value": "{size.30}" },
+      "50": { "value": "{size.30}" },
       "100": { "value": "{size.35}" },
       "125": { "value": "{size.40}" },
       "200": { "value": "{size.45}" },
       "300": { "value": "{size.60}" },
       "line-height": {
         "50": { "value": "{size.40}" },
-        "75": { "value": "{size.45}", "comment": "Will use 18px until design facelift" },
-        "100": { "value": "{size.53}", "comment": "Will use 21px until design facelift" },
+        "75": {
+          "value": "{size.45}",
+          "comment": "Will use 18px until design facelift"
+        },
+        "100": {
+          "value": "{size.53}",
+          "comment": "Will use 21px until design facelift"
+        },
         "125": { "value": "{size.60}" },
         "200": { "value": "{size.60}" },
         "300": { "value": "{size.90}" }

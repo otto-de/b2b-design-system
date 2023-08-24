@@ -12,12 +12,12 @@ describe('B2B Grid', () => {
     );
 
     const grid = await page.find('b2b-grid');
-    expect(grid).not.toBeNull;
+    expect(grid).not.toBeNull();
 
-    const row = await page.find('b2b-grid >>> b2b-grid-row');
-    expect(row).not.toBeNull;
+    const row = await page.find('b2b-grid-row');
+    expect(row).not.toBeNull();
 
-    const col = await page.find('b2b-grid >>> b2b-grid-row >>> b2b-grid-col');
-    expect(col).not.toBeNull;
+    const col = await page.find('b2b-grid-col');
+    expect(col).not.toBeNull();
   });
 });

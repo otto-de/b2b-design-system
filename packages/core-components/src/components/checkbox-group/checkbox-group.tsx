@@ -75,7 +75,7 @@ export class CheckboxGroupComponent {
       });
     } else {
       nodes.forEach(node => {
-        node.disabled = false;
+        node.groupDisabled = this.disabled;
       });
     }
   };
@@ -105,8 +105,10 @@ export class CheckboxGroupComponent {
 
   componentDidLoad() {
     this.toggleAllError();
-    this.toggleAllDisabled();
     this.removeChildText();
+    if (this.disabled) {
+      this.toggleAllDisabled();
+    }
   }
 
   render() {
@@ -124,7 +126,7 @@ export class CheckboxGroupComponent {
             </b2b-input-label>
           )}
           <fieldset>
-            <div class="b2b-checkbox-group-options">
+            <div class="b2b-checkbox-group__options">
               <slot></slot>
             </div>
           </fieldset>

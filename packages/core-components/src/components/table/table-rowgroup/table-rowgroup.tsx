@@ -1,5 +1,29 @@
-import { Component, h, Element, Host, Prop, Listen } from '@stencil/core';
-import { TableRowgroupTypes } from '../types';
+import {
+  Component,
+  h,
+  Element,
+  Host,
+  Prop,
+  Listen,
+  State,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
+import {
+  TableAccordionRowTypes,
+  TableRowgroupTypes,
+} from '../../../utils/types/table.types';
+import {
+  B2bCheckboxCustomEvent,
+  CheckboxEventDetail,
+} from '../../../components';
+import {
+  updateCheckboxState,
+  getFirstRow,
+  getAllRows,
+  getRemainingRows,
+} from '../utils';
+import { TableAccordionSelectedEventDetail } from '../../../utils/interfaces/content.interface';
 
 @Component({
   tag: 'b2b-table-rowgroup',
@@ -18,60 +42,121 @@ export class TableRowgroupComponent {
    */
   @Prop() accordion = false;
 
+  /** If the rows in the rowgroup can be selected via checkmark. Per default, it is false. */
+  @Prop() selectable = false;
+
   /** Only use when accordion property is true.
    * Will render the accordion opened if set to true. By default, is false.
    */
   @Prop({ reflect: true }) opened: boolean = false;
+
+  /** Emits when the rowgroup as a whole is selected. */
+  @Event({ eventName: 'b2b-group-selected' })
+  b2bSelect: EventEmitter<TableAccordionSelectedEventDetail>;
+
+  @State() selectedValues = [];
+
+  @State() indeterminate = false;
 
   @Listen('b2b-open')
   handleOpenChange(event: any) {
     this.toggleChildRowVisibility(event.detail);
   }
 
-  private getFirstRow = () => {
-    const firstRow = this.host.querySelector('b2b-table-row');
-    if (firstRow != null) {
-      return firstRow as HTMLB2bTableRowElement;
+  @Listen('b2b-row-selected')
+  handleSelectedChange(event: any) {
+    const target = event.target;
+    const table = this.host.closest('b2b-table');
+    const parentValue = getFirstRow(this.host).value ?? 'header';
+    if (
+      this.accordion &&
+      target.accordionType === TableAccordionRowTypes.PARENT
+    ) {
+      const children = getRemainingRows(this.host);
+      this.toggleSelectAll(event, children);
+    } else if (this.type === TableRowgroupTypes.HEADER) {
+      const children = getRemainingRows(table);
+      this.toggleSelectAll(event, children);
+    } else {
+      if (event.target.checked) {
+        this.selectedValues = [event.target.value, ...this.selectedValues];
+      } else {
+        this.selectedValues = this.selectedValues.filter(
+          el => el !== event.target.value,
+        );
+      }
     }
+    if (this.accordion) {
+      updateCheckboxState(getRemainingRows(this.host), getFirstRow(this.host));
+      this.b2bSelect.emit({
+        group: parentValue,
+        values: this.selectedValues,
+      });
+    }
+    updateCheckboxState(getRemainingRows(table), getFirstRow(table));
+  }
+
+  private toggleSelectAll = (
+    event: any,
+    children: HTMLB2bTableRowElement[],
+  ) => {
+    this.toggleList(children, event);
+    const rows = children.filter(
+      child => child.accordionType !== TableAccordionRowTypes.PARENT,
+    );
+    this.selectedValues = [...rows]
+      .filter(child => child.checked)
+      .map(child => child.value);
   };
 
-  private getRemainingRows = () => {
-    const children = Array.from(this.host.querySelectorAll('b2b-table-row'));
-    return Array.from(children.slice(1));
+  private toggleList = (
+    list: HTMLB2bTableRowElement[],
+    event: B2bCheckboxCustomEvent<CheckboxEventDetail>,
+  ) => {
+    list.forEach(
+      child => (
+        (child.checked = event.detail.checked), (child.indeterminate = false)
+      ),
+    );
   };
 
   private makeHeaderRowNotSelectable() {
-    const firstRow = this.getFirstRow();
+    const firstRow = getFirstRow(this.host);
     if (this.type === TableRowgroupTypes.HEADER) {
       firstRow.setAttribute('highlight', 'false');
     }
   }
 
   private addAccordionControlColumn = () => {
-    const children = this.getRemainingRows();
+    const firstRow = getFirstRow(this.host);
+
+    if (this.type === TableRowgroupTypes.HEADER) {
+      firstRow && (firstRow.accordionType = TableAccordionRowTypes.HEADER);
+    } else {
+      firstRow && (firstRow.accordionType = TableAccordionRowTypes.PARENT);
+    }
+
+    const children = getRemainingRows(this.host);
     children &&
       children.forEach(child => {
-        child.setAttribute('type', 'child');
+        child.accordionType = TableAccordionRowTypes.CHILD;
       });
+  };
 
-    const firstRow = this.getFirstRow();
-
-    if (this.type === 'header') {
-      firstRow && firstRow.setAttribute('type', 'header');
-    } else {
-      firstRow && firstRow.setAttribute('type', 'parent');
-    }
+  private addCheckboxColumn = () => {
+    const children = getAllRows(this.host);
+    children.forEach(child => (child.selectable = true));
   };
 
   private toggleInitialVisibility = () => {
-    const firstRow = this.getFirstRow();
+    const firstRow = getFirstRow(this.host);
     (async () => {
       firstRow && (await firstRow.toggleAccordion(this.opened));
     })();
   };
 
   private toggleChildRowVisibility = (isOpen: boolean) => {
-    const children = this.getRemainingRows();
+    const children = getRemainingRows(this.host);
 
     if (isOpen) {
       children.forEach(child => {
@@ -89,6 +174,10 @@ export class TableRowgroupComponent {
       this.addAccordionControlColumn();
       this.toggleInitialVisibility();
     }
+
+    if (this.selectable) {
+      this.addCheckboxColumn();
+    }
   }
 
   componentDidRender() {
@@ -99,7 +188,7 @@ export class TableRowgroupComponent {
     return (
       <Host
         class={{
-          ['b2b-table-rowgroup--' + this.type]: true,
+          ['b2b-table-rowgroup__' + this.type]: true,
         }}
         role="rowgroup">
         <slot></slot>

@@ -72,6 +72,7 @@
             <li>Item 5</li>
           </ul></b2b-search
         >
+        <br />
         <b2b-search id="search-bar" placeholder="search here"></b2b-search>
         <script>
           const searchElement = document.getElementById('search-bar');
@@ -103,8 +104,8 @@
             <option value="one">Some longer text</option>
             <option value="one">$</option>
           </b2b-dropdown>
-          <b2b-button variant="primary">
-            <b2b-icon icon="b2b_icon-search"></b2b-icon>
+          <b2b-button variant="primary" disabled="true">
+            <b2b-icon icon="b2b_icon-search" clickable></b2b-icon>
           </b2b-button>
           <b2b-input-list
             slot="end"
@@ -133,6 +134,11 @@
           ];
         </script>
       </div>
+
+      <b2b-headline size="200">Search Disabled</b2b-headline>
+      <div style="width: 40%">
+        <b2b-search placeholder="search disabled" disabled></b2b-search>
+      </div>
     </div>
 
     <div class="content-container">
@@ -149,7 +155,7 @@
           <option value="one">$</option>
         </b2b-dropdown>
         <b2b-button slot="end" variant="primary">
-          <b2b-icon icon="b2b_icon-search"></b2b-icon>
+          <b2b-icon icon="b2b_icon-search" clickable></b2b-icon>
         </b2b-button>
       </b2b-input-group>
     </div>
@@ -158,45 +164,6 @@
       <b2b-headline>Required Separator</b2b-headline>
       <b2b-input label="Name"></b2b-input>
       <b2b-required-separator></b2b-required-separator>
-    </div>
-
-    <div class="content-container">
-      <b2b-headline size="200">Form Submission</b2b-headline>
-      <div class="variant-container">
-        <form id="test-form">
-          <b2b-dropdown
-            name="b2b-options"
-            label="Classic Select"
-            hint="I am a hint"
-            error="I am an error">
-            <option selected value="option-1">Option 1</option>
-            <option value="option-2">Option 2</option>
-          </b2b-dropdown>
-          <b2b-input label="shadow input" name="b2b-input"></b2b-input>
-          <b2b-button type="submit">b2b submit form</b2b-button>
-          <button type="submit">submit</button>
-        </form>
-        <script>
-          // Add a listener to inspect form
-          const myForm = document.querySelector('#test-form');
-          const logFormData = () => {
-            const formData = new FormData(myForm);
-            for (const pair of formData.entries()) {
-              console.log(pair[0] + ', ' + pair[1]);
-            }
-          };
-          const submitCallback = e => {
-            e.preventDefault();
-            console.log('submit event:', e);
-            logFormData();
-          };
-          const dataCallback = e => {
-            console.log('formdata event:', e);
-          };
-          myForm.addEventListener('submit', submitCallback);
-          myForm.addEventListener('formdata', dataCallback);
-        </script>
-      </div>
     </div>
 
     <div class="content-container">
@@ -237,7 +204,7 @@
         label="Label"
         name="myInput"
         value="I have a value!"
-        ><b2b-icon icon="b2b_icon-search" slot="end"></b2b-icon
+        ><b2b-icon icon="b2b_icon-search" slot="end" clickable></b2b-icon
       ></b2b-input>
       <b2b-input
         placeholder="placeholder"
@@ -305,17 +272,6 @@
 
     <div class="content-container">
       <b2b-headline size="200">Checkbox</b2b-headline>
-      <b2b-input
-        placeholder="placeholder"
-        hint="This is a hint for a password input"
-        type="password"
-        label="Label"></b2b-input>
-      <b2b-checkbox label="Checkbox"></b2b-checkbox>
-      <b2b-input
-        placeholder="placeholder"
-        hint="This is a hint for a password input"
-        type="password"
-        label="Label"></b2b-input>
       <b2b-checkbox label="Checkbox disabled" disabled="true"></b2b-checkbox>
       <b2b-checkbox
         label="Checkbox selected disabled"
@@ -343,9 +299,8 @@
           label="This is a Checkbox Group"
           hint="You can check any of these boxes"
           error="This is not right"
-          invalid
           required>
-          <b2b-checkbox label="One" value="one"></b2b-checkbox>
+          <b2b-checkbox label="One" value="one" disabled></b2b-checkbox>
           <b2b-checkbox label="Two" value="two"></b2b-checkbox>
           <b2b-checkbox label="Three" value="three"></b2b-checkbox>
         </b2b-checkbox-group>
@@ -400,34 +355,6 @@
         value="single"
         name="singular"
         disabled></b2b-radio-button>
-    </div>
-
-    <div class="content-container">
-      <b2b-headline size="200">Width test</b2b-headline>
-      <b2b-input-group
-        error="group error"
-        hint="A group hint"
-        class="form-element-width">
-        <b2b-dropdown
-          slot="start"
-          invalid
-          error="an error"
-          style="width: fit-content">
-          <option value="one">Some longer text</option>
-          <option value="one">$</option>
-        </b2b-dropdown>
-        <b2b-button variant="primary">
-          <b2b-icon icon="b2b_icon-search"></b2b-icon>
-        </b2b-button>
-        <b2b-input-list slot="end" id="list-example"></b2b-input-list>
-      </b2b-input-group>
-      <b2b-textarea label="textarea" class="form-element-width"></b2b-textarea>
-      <b2b-input label="input" class="form-element-width"></b2b-input>
-      <b2b-dropdown label="dropdown" class="form-element-width"></b2b-dropdown>
-      <b2b-input-list
-        label="input-list"
-        class="form-element-width"></b2b-input-list>
-      <b2b-search label="search" class="form-element-width"></b2b-search>
     </div>
   </body>
 </html>

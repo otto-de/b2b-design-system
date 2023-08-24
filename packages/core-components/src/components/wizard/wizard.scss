@@ -1,0 +1,36 @@
+@use '../../global/b2b-styles';
+
+:host {
+  .b2b_wizard {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.b2b_wizard__step {
+  display: flex;
+  align-items: center;
+  gap: var(--b2b-size-space-50);
+  padding: var(--b2b-size-space-50) 0;
+
+  &__label--default {
+    color: var(--b2b-color-icon-secondary);
+  }
+}
+
+/* purgecss start ignore */
+::slotted(b2b-wizard-step:not(:last-of-type)) {
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: ' ';
+    flex-grow: 1;
+    height: 1px;
+    min-width: var(--b2b-size-space-175);
+    margin: 0 var(--b2b-size-space-75) 0 var(--b2b-size-space-75);
+    background: var(--b2b-color-icon-default);
+  }
+}
+
+/* purgecss end ignore */

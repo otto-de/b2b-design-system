@@ -18,23 +18,42 @@
       type="text/css"
       href="/build/b2b-core-components.css" />
     <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
-    <style>
-      .portal_header {
-        background-color: #fff;
-        border-bottom: 1px solid #c4c4c4;
-        box-sizing: border-box;
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 999;
-        height: 60px;
-      }
-    </style>
   </head>
 
   <body data-theme="light">
-    <div class="portal_header">A HEADER</div>
+    <div class="content-container">
+      <b2b-headline size="200">Wizard</b2b-headline>
+      <b2b-wizard active-step="3" check-icon>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+        <b2b-wizard-step>This is the text</b2b-wizard-step>
+      </b2b-wizard>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Rounded Icon</b2b-headline>
+      <div class="inline-container">
+        <b2b-rounded-icon
+          color="var(--b2b-color-success-50)"
+          content-color="var(--b2b-color-success-100)">
+          <b2b-icon slot="icon" icon="b2b_icon-check"></b2b-icon>
+        </b2b-rounded-icon>
+        <b2b-rounded-icon color="black" content-color="white">
+          <span slot="text">2</span>
+        </b2b-rounded-icon>
+      </div>
+      <br />
+      <br />
+      <b2b-headline size="200">Wizard Icon</b2b-headline>
+      <div class="inline-container">
+        <b2b-wizard-icon state="completed" step="1"></b2b-wizard-icon>
+        <b2b-wizard-icon state="pending" step="2"></b2b-wizard-icon>
+        <b2b-wizard-icon state="disabled" step="3"></b2b-wizard-icon>
+      </div>
+    </div>
 
     <div class="content-container">
       <b2b-headline size="200">Spinner</b2b-headline>
@@ -123,6 +142,13 @@
         because why not? Let's see how line breaks look on this one
         too.</b2b-alert
       >
+
+      <b2b-alert type="warning" has-close-button="true" opened size="large">
+        <div>
+          <span>this is a text</span>
+          <b2b-button>Hello</b2b-button>
+        </div>
+      </b2b-alert>
     </div>
   </body>
 </html>

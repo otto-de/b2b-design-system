@@ -1,6 +1,11 @@
 import componentsArgs from './components-args.json';
 import { replacePropControls } from './replace-prop-controls';
 
+/* Default controls can be changed by passing a controls object like so:
+  { 'attribute-name': 'control-type' }
+  example: { 'steps': 'select' }
+  For all the control types see https://storybook.js.org/docs/react/essentials/controls#annotation
+ */
 export const getArgTypes = (componentTag: string, controls?: any) => {
   const componentDocs = componentsArgs[componentTag];
   return replacePropControls(componentDocs, controls);

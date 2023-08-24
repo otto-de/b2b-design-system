@@ -12,7 +12,7 @@
   border-top: 1px solid var(--b2b-color-grey-200);
   border-bottom: 2px solid var(--b2b-color-grey-300);
 
-  .b2b-table-header--heading {
+  .b2b-table-header__heading {
     cursor: pointer;
     user-select: none;
     display: flex;
@@ -23,50 +23,50 @@
     &:focus-visible {
       outline: none;
 
-      .b2b-table-header--sort {
+      .b2b-table-header__sort {
         fill: var(--b2b-color-grey-300);
 
-        &-not-sorted {
+        &--not-sorted {
           visibility: visible;
         }
 
-        &-descending {
+        &--descending {
           transform: initial;
           transition: transform 0.4s ease;
         }
 
-        &-ascending {
+        &--ascending {
           transform: rotate(180deg);
           transition: transform 0.4s ease;
         }
       }
     }
 
-    &.b2b-table-header--sort-active,
-    .b2b-table-header--sort-active:hover {
-      .b2b-table-header--sort {
+    &.b2b-table-header__sort--active,
+    .b2b-table-header__sort--active:hover {
+      .b2b-table-header__sort {
         fill: var(--b2b-color-black-100);
 
-        &-descending {
+        &--descending {
           transform: rotate(180deg);
         }
 
-        &-ascending {
+        &--ascending {
           transform: initial;
         }
       }
     }
   }
 
-  .b2b-table-header--sort {
+  .b2b-table-header__sort {
     height: var(--b2b-size-icon-100);
     fill: var(--b2b-color-black-100);
 
-    &-not-sorted {
+    &--not-sorted {
       visibility: hidden;
     }
 
-    &-descending {
+    &--descending {
       transform: rotate(180deg);
     }
   }

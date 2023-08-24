@@ -9,12 +9,18 @@ import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventD
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
+import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
+import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
+import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./components/table/types";
+export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
+export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
+export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export namespace Components {
     interface B2bAlert {
         /**
@@ -69,6 +75,7 @@ export namespace Components {
           * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
          */
         "download"?: string;
+        "groupDisabled": boolean;
         /**
           * An optional anchor. If specified, the button will render an anchor element that can be use for navigation or download files
          */
@@ -125,10 +132,15 @@ export namespace Components {
           * The error message. It is undefined by default. If a string is passed in, it will render the checkbox with error styles.
          */
         "error"?: string;
+        "groupDisabled": boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
         "hint"?: string;
+        /**
+          * If used in combination with other checkboxes, this state indicates that some checkboxes are checked, but not all. Per default, it is false.
+         */
+        "indeterminate": boolean;
         /**
           * Whether or not the checkbox is rendered with error styles. Defaults to false.
          */
@@ -136,7 +148,7 @@ export namespace Components {
         /**
           * The checkbox label. This attribute is required.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The name of the checkbox. Per default it is undefined. Use this to programmatically group checkboxes together by giving them the same name.
          */
@@ -145,6 +157,10 @@ export namespace Components {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required": boolean;
+        /**
+          * If true, renders a standalone inline checkbox with no label and hint/error.
+         */
+        "standalone": boolean;
         /**
           * The value of the checkbox. This is not the same as the checked property. It is only used when the checkbox participates in a checkbox group
          */
@@ -317,6 +333,7 @@ export namespace Components {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        "groupDisabled": boolean;
         /**
           * The hint text that appears underneath the input field.
          */
@@ -393,6 +410,7 @@ export namespace Components {
           * Whether or not the input is disabled. Default is false.
          */
         "disabled": boolean;
+        "groupDisabled": boolean;
         /**
           * The input label.
          */
@@ -566,6 +584,20 @@ export namespace Components {
          */
         "label": string;
     }
+    interface B2bRoundedIcon {
+        /**
+          * The color of the border of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "borderColor": string;
+        /**
+          * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "color": string;
+        /**
+          * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "contentColor": string;
+    }
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
@@ -675,6 +707,11 @@ export namespace Components {
         "sortId"?: string;
     }
     interface B2bTableRow {
+        "accordionType": TableAccordionRowTypes;
+        /**
+          * If a selectable row is currently checked. Per default, it is false.
+         */
+        "checked": boolean;
         /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
@@ -684,13 +721,18 @@ export namespace Components {
          */
         "highlight": boolean;
         /**
+          * If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all.
+         */
+        "indeterminate": boolean;
+        "selectable": boolean;
+        /**
           * Will toggle the accordion opened or closed.
          */
-        "toggleAccordion": (isOpen: any) => Promise<void>;
+        "toggleAccordion": (isOpen: boolean) => Promise<void>;
         /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+          * The unique identifier for a selectable row. It is emitted when the row is selected.
          */
-        "type": TableRowTypes;
+        "value"?: string;
     }
     interface B2bTableRowgroup {
         /**
@@ -701,6 +743,10 @@ export namespace Components {
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened": boolean;
+        /**
+          * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
+         */
+        "selectable": boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -817,6 +863,48 @@ export namespace Components {
          */
         "trigger": 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizard {
+        /**
+          * The current active step
+         */
+        "activeStep": WizardSteps | '0';
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon": boolean;
+        /**
+          * By default, is false, where the wizard will handle steps states. If set to true, steps state must be handled manually.
+         */
+        "custom": boolean;
+    }
+    interface B2bWizardIcon {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon": boolean;
+        /**
+          * The state of the step
+         */
+        "state": WizardStatus;
+        /**
+          * The step number
+         */
+        "step": WizardSteps;
+    }
+    interface B2bWizardStep {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon": boolean;
+        /**
+          * Use when wizard has property custom true. The state of the step
+         */
+        "state": WizardStatus;
+        /**
+          * Use when wizard has property custom true. The step number
+         */
+        "step": WizardSteps;
+    }
 }
 export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -889,6 +977,10 @@ export interface B2bTableHeaderCustomEvent<T> extends CustomEvent<T> {
 export interface B2bTableRowCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bTableRowElement;
+}
+export interface B2bTableRowgroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bTableRowgroupElement;
 }
 export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1063,6 +1155,12 @@ declare global {
         prototype: HTMLB2bRequiredSeparatorElement;
         new (): HTMLB2bRequiredSeparatorElement;
     };
+    interface HTMLB2bRoundedIconElement extends Components.B2bRoundedIcon, HTMLStencilElement {
+    }
+    var HTMLB2bRoundedIconElement: {
+        prototype: HTMLB2bRoundedIconElement;
+        new (): HTMLB2bRoundedIconElement;
+    };
     interface HTMLB2bScrollableContainerElement extends Components.B2bScrollableContainer, HTMLStencilElement {
     }
     var HTMLB2bScrollableContainerElement: {
@@ -1171,6 +1269,24 @@ declare global {
         prototype: HTMLB2bTooltipElement;
         new (): HTMLB2bTooltipElement;
     };
+    interface HTMLB2bWizardElement extends Components.B2bWizard, HTMLStencilElement {
+    }
+    var HTMLB2bWizardElement: {
+        prototype: HTMLB2bWizardElement;
+        new (): HTMLB2bWizardElement;
+    };
+    interface HTMLB2bWizardIconElement extends Components.B2bWizardIcon, HTMLStencilElement {
+    }
+    var HTMLB2bWizardIconElement: {
+        prototype: HTMLB2bWizardIconElement;
+        new (): HTMLB2bWizardIconElement;
+    };
+    interface HTMLB2bWizardStepElement extends Components.B2bWizardStep, HTMLStencilElement {
+    }
+    var HTMLB2bWizardStepElement: {
+        prototype: HTMLB2bWizardStepElement;
+        new (): HTMLB2bWizardStepElement;
+    };
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
@@ -1196,6 +1312,7 @@ declare global {
         "b2b-radio-button": HTMLB2bRadioButtonElement;
         "b2b-radio-group": HTMLB2bRadioGroupElement;
         "b2b-required-separator": HTMLB2bRequiredSeparatorElement;
+        "b2b-rounded-icon": HTMLB2bRoundedIconElement;
         "b2b-scrollable-container": HTMLB2bScrollableContainerElement;
         "b2b-search": HTMLB2bSearchElement;
         "b2b-separator": HTMLB2bSeparatorElement;
@@ -1212,6 +1329,9 @@ declare global {
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
+        "b2b-wizard": HTMLB2bWizardElement;
+        "b2b-wizard-icon": HTMLB2bWizardIconElement;
+        "b2b-wizard-step": HTMLB2bWizardStepElement;
     }
 }
 declare namespace LocalJSX {
@@ -1272,6 +1392,7 @@ declare namespace LocalJSX {
           * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
          */
         "download"?: string;
+        "groupDisabled"?: boolean;
         /**
           * An optional anchor. If specified, the button will render an anchor element that can be use for navigation or download files
          */
@@ -1328,10 +1449,15 @@ declare namespace LocalJSX {
           * The error message. It is undefined by default. If a string is passed in, it will render the checkbox with error styles.
          */
         "error"?: string;
+        "groupDisabled"?: boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
         "hint"?: string;
+        /**
+          * If used in combination with other checkboxes, this state indicates that some checkboxes are checked, but not all. Per default, it is false.
+         */
+        "indeterminate"?: boolean;
         /**
           * Whether or not the checkbox is rendered with error styles. Defaults to false.
          */
@@ -1339,7 +1465,7 @@ declare namespace LocalJSX {
         /**
           * The checkbox label. This attribute is required.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The name of the checkbox. Per default it is undefined. Use this to programmatically group checkboxes together by giving them the same name.
          */
@@ -1360,6 +1486,10 @@ declare namespace LocalJSX {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required"?: boolean;
+        /**
+          * If true, renders a standalone inline checkbox with no label and hint/error.
+         */
+        "standalone"?: boolean;
         /**
           * The value of the checkbox. This is not the same as the checked property. It is only used when the checkbox participates in a checkbox group
          */
@@ -1544,6 +1674,7 @@ declare namespace LocalJSX {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        "groupDisabled"?: boolean;
         /**
           * The hint text that appears underneath the input field.
          */
@@ -1628,6 +1759,7 @@ declare namespace LocalJSX {
           * Whether or not the input is disabled. Default is false.
          */
         "disabled"?: boolean;
+        "groupDisabled"?: boolean;
         /**
           * The input label.
          */
@@ -1837,6 +1969,20 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
+    interface B2bRoundedIcon {
+        /**
+          * The color of the border of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "borderColor"?: string;
+        /**
+          * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "color"?: string;
+        /**
+          * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
+         */
+        "contentColor"?: string;
+    }
     interface B2bScrollableContainer {
     }
     interface B2bSearch {
@@ -1966,6 +2112,11 @@ declare namespace LocalJSX {
         "sortId"?: string;
     }
     interface B2bTableRow {
+        "accordionType"?: TableAccordionRowTypes;
+        /**
+          * If a selectable row is currently checked. Per default, it is false.
+         */
+        "checked"?: boolean;
         /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
@@ -1975,13 +2126,22 @@ declare namespace LocalJSX {
          */
         "highlight"?: boolean;
         /**
+          * If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all.
+         */
+        "indeterminate"?: boolean;
+        /**
           * Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown.
          */
         "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
         /**
-          * Determined by the parent rowgroup for accordion rowgroups. Do not set manually.
+          * Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status.
          */
-        "type"?: TableRowTypes;
+        "onB2b-row-selected"?: (event: B2bTableRowCustomEvent<CheckboxEventDetail1>) => void;
+        "selectable"?: boolean;
+        /**
+          * The unique identifier for a selectable row. It is emitted when the row is selected.
+         */
+        "value"?: string;
     }
     interface B2bTableRowgroup {
         /**
@@ -1989,9 +2149,17 @@ declare namespace LocalJSX {
          */
         "accordion"?: boolean;
         /**
+          * Emits when the rowgroup as a whole is selected.
+         */
+        "onB2b-group-selected"?: (event: B2bTableRowgroupCustomEvent<TableAccordionSelectedEventDetail>) => void;
+        /**
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened"?: boolean;
+        /**
+          * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
+         */
+        "selectable"?: boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -2128,6 +2296,48 @@ declare namespace LocalJSX {
          */
         "trigger"?: 'hover' | 'focus' | 'custom';
     }
+    interface B2bWizard {
+        /**
+          * The current active step
+         */
+        "activeStep"?: WizardSteps | '0';
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon"?: boolean;
+        /**
+          * By default, is false, where the wizard will handle steps states. If set to true, steps state must be handled manually.
+         */
+        "custom"?: boolean;
+    }
+    interface B2bWizardIcon {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon"?: boolean;
+        /**
+          * The state of the step
+         */
+        "state"?: WizardStatus;
+        /**
+          * The step number
+         */
+        "step"?: WizardSteps;
+    }
+    interface B2bWizardStep {
+        /**
+          * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
+         */
+        "checkIcon"?: boolean;
+        /**
+          * Use when wizard has property custom true. The state of the step
+         */
+        "state"?: WizardStatus;
+        /**
+          * Use when wizard has property custom true. The step number
+         */
+        "step"?: WizardSteps;
+    }
     interface IntrinsicElements {
         "b2b-alert": B2bAlert;
         "b2b-anchor": B2bAnchor;
@@ -2153,6 +2363,7 @@ declare namespace LocalJSX {
         "b2b-radio-button": B2bRadioButton;
         "b2b-radio-group": B2bRadioGroup;
         "b2b-required-separator": B2bRequiredSeparator;
+        "b2b-rounded-icon": B2bRoundedIcon;
         "b2b-scrollable-container": B2bScrollableContainer;
         "b2b-search": B2bSearch;
         "b2b-separator": B2bSeparator;
@@ -2169,6 +2380,9 @@ declare namespace LocalJSX {
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-group": B2bToggleGroup;
         "b2b-tooltip": B2bTooltip;
+        "b2b-wizard": B2bWizard;
+        "b2b-wizard-icon": B2bWizardIcon;
+        "b2b-wizard-step": B2bWizardStep;
     }
 }
 export { LocalJSX as JSX };
@@ -2215,6 +2429,7 @@ declare module "@stencil/core" {
             "b2b-radio-button": LocalJSX.B2bRadioButton & JSXBase.HTMLAttributes<HTMLB2bRadioButtonElement>;
             "b2b-radio-group": LocalJSX.B2bRadioGroup & JSXBase.HTMLAttributes<HTMLB2bRadioGroupElement>;
             "b2b-required-separator": LocalJSX.B2bRequiredSeparator & JSXBase.HTMLAttributes<HTMLB2bRequiredSeparatorElement>;
+            "b2b-rounded-icon": LocalJSX.B2bRoundedIcon & JSXBase.HTMLAttributes<HTMLB2bRoundedIconElement>;
             "b2b-scrollable-container": LocalJSX.B2bScrollableContainer & JSXBase.HTMLAttributes<HTMLB2bScrollableContainerElement>;
             "b2b-search": LocalJSX.B2bSearch & JSXBase.HTMLAttributes<HTMLB2bSearchElement>;
             "b2b-separator": LocalJSX.B2bSeparator & JSXBase.HTMLAttributes<HTMLB2bSeparatorElement>;
@@ -2243,6 +2458,9 @@ declare module "@stencil/core" {
              * a specific trigger.
              */
             "b2b-tooltip": LocalJSX.B2bTooltip & JSXBase.HTMLAttributes<HTMLB2bTooltipElement>;
+            "b2b-wizard": LocalJSX.B2bWizard & JSXBase.HTMLAttributes<HTMLB2bWizardElement>;
+            "b2b-wizard-icon": LocalJSX.B2bWizardIcon & JSXBase.HTMLAttributes<HTMLB2bWizardIconElement>;
+            "b2b-wizard-step": LocalJSX.B2bWizardStep & JSXBase.HTMLAttributes<HTMLB2bWizardStepElement>;
         }
     }
 }

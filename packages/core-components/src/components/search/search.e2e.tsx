@@ -75,6 +75,25 @@ describe('B2B-Search', () => {
     });
   });
 
+  it('should emit search event on enter press', async () => {
+    const searchString = 'some search value';
+    const searchEventSpy = await page.spyOnEvent('b2b-search');
+    const searchInputEventSpy = await page.spyOnEvent('b2b-input');
+
+    const input = await page.find('b2b-search >>> b2b-input-list');
+    await input.triggerEvent('b2b-input', { detail: { value: searchString } });
+
+    await page.waitForChanges();
+
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Enter');
+
+    expect(searchInputEventSpy).toHaveReceivedEvent();
+    expect(searchEventSpy).toHaveReceivedEventDetail({
+      searchTerm: searchString,
+    });
+  });
+
   it('should emit input event when typing on input', async () => {
     const searchString = 'some search value';
     const inputEventSpy = await page.spyOnEvent('b2b-input');

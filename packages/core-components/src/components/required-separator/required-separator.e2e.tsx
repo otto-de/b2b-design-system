@@ -8,7 +8,7 @@ describe('B2B Required Separator', () => {
     await page.setContent(`<b2b-required-separator></b2b-required-separator>`);
 
     const element = await page.find('b2b-required-separator');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('should change the label', async () => {

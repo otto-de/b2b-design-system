@@ -8,9 +8,8 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { TableSizes, TableSortDirections } from './types';
+import { TableSizes, TableSortDirections } from '../../utils/types/table.types';
 import { ColumnSortChangeEventDetail } from '../../utils/interfaces/interaction.interface';
-
 @Component({
   tag: 'b2b-table',
   styleUrl: 'table.scss',
@@ -27,6 +26,16 @@ export class TableComponent {
   /** Emits whenever the sort direction of any column in the table changes. */
   @Event({ eventName: 'b2b-sort-change' })
   b2bSortChange: EventEmitter<ColumnSortChangeEventDetail>;
+
+  @Listen('b2b-change')
+  onColumnSelected(event) {
+    if (event.target.nodeName === 'B2B-TABLE-HEADER') {
+      this.b2bSortChange.emit({
+        sortedColumn: event.target.sortId || event.target.textContent.trim(),
+        sortDirection: event.detail,
+      });
+    }
+  }
 
   private setCellSize() {
     const allCells = this.host.querySelectorAll('b2b-table-cell');
@@ -59,16 +68,6 @@ export class TableComponent {
         `<b2b-table> warning: Only one header can be sorted at the time. The others should be defined as 'not-sorted'. This issue was found in this table element:`,
       );
       console.log(this.host);
-    }
-  }
-
-  @Listen('b2b-change')
-  onColumnSelected(event) {
-    if (event.target.nodeName === 'B2B-TABLE-HEADER') {
-      this.b2bSortChange.emit({
-        sortedColumn: event.target.sortId || event.target.textContent.trim(),
-        sortDirection: event.detail,
-      });
     }
   }
 

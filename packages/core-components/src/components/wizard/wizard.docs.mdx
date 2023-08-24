@@ -1,0 +1,114 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+# Wizard and Wizard-Step Components
+
+The Wizard component will provide an element that will let you set the current step while navigating.
+The `b2b-wizard` can wrap up to 6 `b2b-wizard-step` components.
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-status-feedback-wizard--story-010-wizard" />
+</Canvas>
+
+## Wizard Properties
+
+<br />
+
+### activeStep
+
+Sets the current active step. This will automatically render completed and pending styles for each step. But this can
+also be handled directly by the consumer. See the `custom` property for more details.
+
+Use `active-step='0'` to show all steps completed. If using any number higher than the total amount of steps you
+will see an error log in the console.
+
+### checkIcon
+
+Defaults to true. It will show a checkmark icon when a step is completed.
+If set to false, it will show the step number.
+
+<Story id="components-status-feedback-wizard-icon--story-010-completed" />
+
+### custom
+
+The Wizard provides two modes: `default` and `custom`.
+
+In default mode the wizard will handle steps states automatically, you just need to tell it what is the current
+active step:
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-wizard active-step='2'>
+      <b2b-wizard-step label='This is step 1'></b2b-wizard-step>
+      <b2b-wizard-step label='This is step 2'></b2b-wizard-step>
+      <b2b-wizard-step label='This is step 2'></b2b-wizard-step>
+    </b2b-wizard>
+  `}
+/>
+
+For custom mode, you can handle the steps state. This can be used for advance state handling. For example, when
+pending steps should have a different style than the default, or specific disable or error states in the future.
+Keep in mind that for `custom` mode, the `active-step` property has no effect. Also you will have to provide the
+`step` number as well.
+
+<Source
+  language="tsx"
+  format={false}
+  code={dedent`
+    <b2b-wizard custom>
+      <b2b-wizard-step state='completed' step='1' label='This is step 1'></b2b-wizard-step>
+      <b2b-wizard-step state='pending' step='2' label='This is step 2'></b2b-wizard-step>
+      <b2b-wizard-step state='disabled' step='3' label='This is step 2'></b2b-wizard-step>
+    </b2b-wizard>
+  `}
+/>
+
+<br />
+
+## Wizard-Step Properties
+
+<br />
+
+### label
+
+The text that will display for each step. Note that the `b2b-wizard-step` does not provide any slots. Use only the
+label prop to pass text and not as children.
+
+### step
+
+The step number. For the default Wizard, this prop is automatically set by the parent of the steps. When using
+Wizard `custom` mode, it needs to be set from the `b2b-wizard-step`
+
+### checkIcon
+
+Defaults to true. It will show a checkmark icon when a step is completed.
+If set to false, it will show the step number. This property can be set directly from the `b2b-wizard` even when
+using `custom` mode.
+
+<Story id="components-status-feedback-wizard-icon--story-010-completed" />
+
+### state
+
+For the default Wizard, this prop is automatically set by the parent of the steps. When using Wizard `custom` mode,
+it needs to be set from the `b2b-wizard-step`. We support the following states:
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-status-feedback-wizard--story-020-wizard-states" />
+</Canvas>
+
+<br />
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

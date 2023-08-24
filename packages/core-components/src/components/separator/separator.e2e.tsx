@@ -8,7 +8,7 @@ describe('B2B-Separator', () => {
     await page.setContent(`<b2b-separator></b2b-separator>`);
 
     const element = await page.find('b2b-separator');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
   });
 
   it('displays a vertical separator', async () => {

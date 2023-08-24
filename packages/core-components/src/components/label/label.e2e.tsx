@@ -9,7 +9,7 @@ describe('B2B-Label', () => {
 
   it('should render the label component', async () => {
     const element = await page.find('b2b-label');
-    expect(element).not.toBeNull;
+    expect(element).not.toBeNull();
     expect(element).toEqualText('Neutral');
   });
 

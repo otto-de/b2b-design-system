@@ -14,14 +14,14 @@ jobs:
     needs: [ install ]
     uses: ./.github/workflows/validations.yml
     with:
-      node_version: 16
+      node_version: 18
 
   publish_packages:
     name: Publish Packages
     needs: [ validations ]
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/beta'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
     uses: ./.github/workflows/publish.yml
     with:
-      node_version: 16
+      node_version: 18
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
