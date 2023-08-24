@@ -20,8 +20,7 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/b2b-core-components/b2b-core-components.esm.js",
   "files": [
-    "dist/",
-    "loader/"
+    "dist/"
   ],
   "scripts": {
     "build": "npm run build:icons && stencil build --docs",
@@ -36,13 +35,13 @@
     "copy-md-changelog": "copyfiles --flat ../../CHANGELOG.md src/docs/getting-started",
     "copy-md-guidelines": "copyfiles --flat ../../DEV-GUIDELINES.md src/docs/guidelines",
     "copy-md-files": "npm run copy-md-changelog && npm run copy-md-guidelines",
-    "storybook": "npm run copy-md-files && start-storybook -p 6006",
-    "build:storybook": "npm run copy-md-files && build-storybook -o docs-build/design-system"
+    "storybook": "npm run copy-md-files && storybook dev -p 6006",
+    "build:storybook": "npm run copy-md-files && storybook build -o docs-build/design-system"
   },
   "dependencies": {
     "@otto-de/b2b-tokens": "1.5.0",
     "@stencil-community/eslint-plugin": "^0.5.0",
-    "@stencil/core": "^4.0.3"
+    "@stencil/core": "^3.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -50,18 +49,18 @@
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/sass": "^3.0.0",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-docs": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-interactions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-webpack5": "^6.5.16",
-    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/addon-actions": "^7.2.1",
+    "@storybook/addon-docs": "^7.2.1",
+    "@storybook/addon-essentials": "^7.2.1",
+    "@storybook/addon-interactions": "^7.2.1",
+    "@storybook/addon-links": "^7.2.1",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/test-runner": "^0.9.4",
-    "@storybook/testing-library": "^0.0.13",
-    "@storybook/theming": "^6.5.16",
-    "@storybook/web-components": "^6.5.16",
+    "@storybook/preview-api": "^7.2.1",
+    "@storybook/test-runner": "^0.13.0",
+    "@storybook/testing-library": "^0.2.0",
+    "@storybook/theming": "^7.2.1",
+    "@storybook/web-components": "^7.2.1",
+    "@storybook/web-components-vite": "^7.2.1",
     "@types/jest": "^27.5.2",
     "@types/mdx": "^2.0.5",
     "@types/postcss-import": "^14.0.0",
@@ -76,8 +75,11 @@
     "lint-staged": "^13.2.0",
     "postcss-import": "^15.1.0",
     "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.57.1",
     "sass-loader": "^13.3.0",
+    "storybook": "next",
     "style-loader": "^3.3.2",
     "stylelint": "^15.6.3",
     "stylelint-config-standard": "^33.0.0",

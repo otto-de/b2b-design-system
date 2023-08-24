@@ -11,7 +11,7 @@ import {
   JsonDocsComponent,
   JsonDocsProp,
 } from '@stencil/core/internal/stencil-public-docs';
-import { ArgTypes, InputType } from '@storybook/csf/dist/story';
+import type { ArgTypes, InputType } from '@storybook/csf/dist';
 
 const hasOptions = prop => prop.values.length > 1;
 const isBoolean = prop => prop.type === 'boolean';

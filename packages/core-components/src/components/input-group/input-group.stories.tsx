@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import inputGroupDocs from './input-group.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({
@@ -73,9 +72,4 @@ export default {
     },
   },
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: inputGroupDocs,
-    },
-  },
 } as Meta;

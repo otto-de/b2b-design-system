@@ -2,15 +2,9 @@ const debugStories = ['checkbox'].map(
   storyName => `../src/**/${storyName}.stories.tsx`,
 );
 
-const stories = [
-  '../src/**/*.stories.mdx',
-  '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-];
+const stories = ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'];
 
-module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
+const config = {
   stories: [...stories],
   // test-runner work around, uncomment this line to run only tests in specific components:
   // stories: [...debugStories],
@@ -20,10 +14,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    {
-      name: "@storybook/addon-docs",
-      options: { transcludeMarkdown: true },
-    },
   ],
-  framework: '@storybook/web-components',
+  framework: '@storybook/web-components-vite',
 };
+export default config;

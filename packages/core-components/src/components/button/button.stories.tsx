@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import buttonDocs from './button.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({
@@ -89,7 +88,7 @@ story050IconEnd.args = {
 story050IconEnd.storyName = 'Button With Icon End';
 
 export const story055IconStartPali = Template.bind({});
-const iconStartPaliContent = html`<i class="obc_icon-check obc_mr-1"></i> Icon
+const iconStartPaliContent = `<i class="obc_icon-check obc_mr-1"></i> Icon
   Button`;
 story055IconStartPali.args = {
   ...defaultArgs,
@@ -141,9 +140,4 @@ export default {
     },
   },
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: buttonDocs,
-    },
-  },
 } as Meta;

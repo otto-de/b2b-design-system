@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import cardDocs from './card.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({ disabled, href, target }) => {
@@ -46,9 +45,4 @@ export default {
     ...cardArgs,
   },
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: cardDocs,
-    },
-  },
 } as Meta;

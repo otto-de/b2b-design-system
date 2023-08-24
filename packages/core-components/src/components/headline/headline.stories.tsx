@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import docs from './headline.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const template: Story = ({ size, align, slot }) => {
@@ -49,9 +48,4 @@ export default {
   title: 'Components/Content/Headline',
   argTypes: argTypes,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: docs,
-    },
-  },
 } as Meta;

@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import inputDocs from './input.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({
@@ -138,9 +137,4 @@ export default {
     },
   },
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: inputDocs,
-    },
-  },
 } as Meta;

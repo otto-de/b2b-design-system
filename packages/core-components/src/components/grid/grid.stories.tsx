@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
-import gridDocs from './grid.docs.mdx';
 
 const Template: Story = ({
   margin,
@@ -251,8 +250,5 @@ export default {
   viewmode: 'docs',
   parameters: {
     controls: { expanded: true },
-    docs: {
-      page: gridDocs,
-    },
   },
 } as Meta;

@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import iconDocs from './icon.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 import { iconTypes } from './types';
 import './icon.stories.scss';
@@ -82,9 +81,4 @@ export default {
   title: 'Components/Assets/Icon',
   argTypes: iconArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: iconDocs,
-    },
-  },
 } as Meta;

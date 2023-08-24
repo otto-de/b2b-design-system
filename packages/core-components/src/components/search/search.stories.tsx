@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import dedent from 'ts-dedent';
 import searchDocs from './search.docs.mdx';
 import fruits from './stories.data.json';

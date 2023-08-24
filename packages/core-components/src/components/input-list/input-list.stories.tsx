@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import inputListDocs from './input-list.docs.mdx';
 import { userEvent } from '@storybook/testing-library';
 
 const Template: Story = ({
@@ -82,8 +81,5 @@ export default {
   viewmode: 'docs',
   parameters: {
     controls: { expanded: true },
-    docs: {
-      page: inputListDocs,
-    },
   },
 } as Meta;
