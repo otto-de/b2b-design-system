@@ -292,11 +292,12 @@ const TemplateAccordion: Story = ({
   highlight,
   withDividers,
   color,
+  selectable,
 }) => {
   return html`
     <div>
       <b2b-table size="${size}">
-        <b2b-table-rowgroup type="header" accordion>
+        <b2b-table-rowgroup type="header" accordion selectable="${selectable}">
           <b2b-table-row>
             ${data.columns.map((columnName, index) => {
               return html` <b2b-table-header
@@ -307,11 +308,12 @@ const TemplateAccordion: Story = ({
             })}
           </b2b-table-row>
         </b2b-table-rowgroup>
-        <b2b-table-rowgroup type="body" accordion>
+        <b2b-table-rowgroup type="body" accordion selectable="${selectable}">
           ${data.rows.map((row, index) => {
             return html`<b2b-table-row
               highlight="${highlight}"
-              color=${index === 0 ? color : 'default'}>
+              color=${index === 0 ? color : 'default'}
+              value="${row[0]}">
               ${row.map(
                 data =>
                   html`<b2b-table-cell
@@ -324,11 +326,16 @@ const TemplateAccordion: Story = ({
             </b2b-table-row>`;
           })}
         </b2b-table-rowgroup>
-        <b2b-table-rowgroup type="body" accordion opened>
+        <b2b-table-rowgroup
+          type="body"
+          accordion
+          opened
+          selectable="${selectable}">
           ${data.rows.map((row, index) => {
             return html`<b2b-table-row
               highlight="${highlight}"
-              color=${index === 0 ? color : 'default'}>
+              color=${index === 0 ? color : 'default'}
+              value="${row[0]}">
               ${row.map(
                 data =>
                   html`<b2b-table-cell
@@ -347,8 +354,20 @@ const TemplateAccordion: Story = ({
 };
 
 export const story120Accordion = TemplateAccordion.bind({});
-story120Accordion.args = { ...defaultArgs, data: sampleData };
+story120Accordion.args = {
+  ...defaultArgs,
+  data: sampleData,
+  selectable: false,
+};
 story120Accordion.storyName = 'Accordion Table';
+
+export const story130Selectable = TemplateAccordion.bind({});
+story130Selectable.args = {
+  ...defaultArgs,
+  data: sampleData,
+  selectable: true,
+};
+story130Selectable.storyName = 'Selectable Table';
 
 const tableArgs = getArgTypes('b2b-table');
 const rowGroupArgs = getArgTypes('b2b-table-rowgroup');

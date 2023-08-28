@@ -44,6 +44,9 @@ export class ButtonComponent {
    * defaults to the URL string, but can be changed by the user. */
   @Prop() download?: string;
 
+  /** @internal Whether the parent input group is disabled. Per default, it is false. */
+  @Prop() groupDisabled = false;
+
   private focusableElement: HTMLElement;
 
   /** Manually set focus to button element */
@@ -97,7 +100,7 @@ export class ButtonComponent {
   protected spinner() {
     const spinnerColor = this.variant === 'primary' ? 'inverse' : 'secondary';
     return (
-      <div class="button-spinner">
+      <div class="b2b-button__spinner">
         <b2b-spinner color={spinnerColor} size="50"></b2b-spinner>
       </div>
     );
@@ -107,17 +110,20 @@ export class ButtonComponent {
     return (
       <Host
         class={{
-          loading: this.canLoad(),
-          [`button-${this.size}`]: true,
-          [`button-active`]: this.active,
-          [`icon-only`]: this.checkIcon(),
+          [`b2b-button--loading`]: this.canLoad(),
+          [`b2b-button--${this.size}`]: true,
+          [`b2b-button--active`]: this.active,
+          [`b2b-button--icon-only`]: this.checkIcon(),
         }}>
         {this.href !== undefined ? (
           <a
             href={this.href}
             target={`_${this.target}`}
             download={this.download}
-            class={{ disabled: this.disabled, [this.variant]: true }}
+            class={{
+              disabled: this.disabled || this.groupDisabled,
+              [`b2b-button--${this.variant}`]: true,
+            }}
             ref={el => (this.focusableElement = el)}>
             <span>
               <slot name="start"></slot>
@@ -128,8 +134,8 @@ export class ButtonComponent {
           </a>
         ) : (
           <button
-            class={{ [this.variant]: true }}
-            disabled={this.disabled}
+            disabled={this.disabled || this.groupDisabled}
+            class={{ [`b2b-button--${this.variant}`]: true }}
             type={this.type}
             ref={el => (this.focusableElement = el)}>
             <span>

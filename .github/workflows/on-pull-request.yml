@@ -11,11 +11,16 @@ jobs:
     name: Install Dependencies
     uses: ./.github/workflows/install.yml
     with:
-      node_version: 16
+      node_version: 18
 
   validations:
     name: Validations
     needs: [ install ]
     uses: ./.github/workflows/validations.yml
     with:
-      node_version: 16
+      node_version: 18
+  
+  dependabot-automerge:
+    name: Dependabot Automerge
+    needs: [ install, validations ]
+    uses: ./.github/workflows/dependabot-auto-merge.yml

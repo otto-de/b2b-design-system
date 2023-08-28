@@ -368,6 +368,18 @@
       },
       "description": "The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint."
     },
+    "indeterminate": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {}
+      },
+      "description": "If used in combination with other checkboxes, this state indicates that some checkboxes are checked, but not all. Per default, it is false."
+    },
     "invalid": {
       "control": {
         "type": "boolean"
@@ -413,6 +425,20 @@
         }
       },
       "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "standalone": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "If true, renders a standalone inline checkbox with no label and hint/error."
     },
     "value": {
       "table": {
@@ -2227,6 +2253,20 @@
     }
   },
   "b2b-table-row": {
+    "checked": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "If a selectable row is currently checked. Per default, it is false."
+    },
     "color": {
       "options": [
         "default",
@@ -2260,22 +2300,28 @@
       },
       "description": "Whether the row will be highlighted on mouse over *"
     },
-    "type": {
-      "options": [
-        "child",
-        "header",
-        "parent"
-      ],
+    "indeterminate": {
       "control": {
-        "type": "radio"
+        "type": "boolean"
       },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all."
+    },
+    "value": {
       "table": {
         "type": {
           "summary": "string"
         },
         "defaultValue": {}
       },
-      "description": "Determined by the parent rowgroup for accordion rowgroups. Do not set manually."
+      "description": "The unique identifier for a selectable row. It is emitted when the row is selected."
     }
   },
   "b2b-table-rowgroup": {
@@ -2306,6 +2352,20 @@
         }
       },
       "description": "Only use when accordion property is true.\r\nWill render the accordion opened if set to true. By default, is false."
+    },
+    "selectable": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "If the rows in the rowgroup can be selected via checkmark. Per default, it is false."
     },
     "type": {
       "options": [

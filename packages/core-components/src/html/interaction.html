@@ -25,13 +25,13 @@
       <b2b-pagination total-pages="10" active-page="5"></b2b-pagination>
     </div>
 
+    <script>
+      function logEvent(ev) {
+        console.log(ev.target.nodeName + ' was clicked');
+        ev.preventDefault();
+      }
+    </script>
     <div class="content-container">
-      <script>
-        function logEvent(ev) {
-          ev.preventDefault;
-          console.log(ev.target.nodeName + ' was clicked');
-        }
-      </script>
       <b2b-headline>Form Buttons</b2b-headline>
       <form id="myForm">
         <b2b-grid>
@@ -283,6 +283,13 @@
       <div class="component-wrapper">
         <b2b-button variant="primary" disabled="true" size="100"
           >Disabled primary</b2b-button
+        >
+        <b2b-button
+          variant="primary"
+          disabled="true"
+          size="100"
+          href="https://www.otto.de"
+          >Disabled primary with href</b2b-button
         >
       </div>
 

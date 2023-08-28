@@ -44,6 +44,30 @@ describe('B2B-Table', () => {
       </b2b-table-rowgroup>
     </b2b-table>`;
 
+  const tableWithSelection = `
+    <b2b-table size="expand">
+      <b2b-table-rowgroup type="header" accordion selectable>
+        <b2b-table-row id="test-header">
+          <b2b-table-header>Title 1</b2b-table-header>
+          <b2b-table-header>Title 2</b2b-table-header>
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+      <b2b-table-rowgroup type="body" accordion selectable opened>
+        <b2b-table-row id="test-parent" value="peaches">
+          <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+          <b2b-table-cell>data 2a</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row id="test-child" value="cherries">
+          <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+          <b2b-table-cell>data 2a</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row id="second-child" value="plums">
+        <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+        <b2b-table-cell>data 2a</b2b-table-cell>
+      </b2b-table-row>
+      </b2b-table-rowgroup>
+    </b2b-table>`;
+
   it('should render the table component', async () => {
     const element = await page.find('b2b-table');
     expect(element).not.toBeNull();
@@ -199,7 +223,7 @@ describe('B2B-Table', () => {
     page = await newE2EPage();
     await page.setContent(tableWithAccordion);
     const firstRow = await page.find('#test-parent');
-    const type = await firstRow.getProperty('type');
+    const type = await firstRow.getProperty('accordionType');
 
     expect(type).toEqualText('parent');
   });
@@ -208,7 +232,7 @@ describe('B2B-Table', () => {
     page = await newE2EPage();
     await page.setContent(tableWithAccordion);
     const firstRow = await page.find('#test-child');
-    const type = await firstRow.getProperty('type');
+    const type = await firstRow.getProperty('accordionType');
 
     expect(type).toEqualText('child');
   });
@@ -319,5 +343,139 @@ describe('B2B-Table', () => {
 
     const childInitialStyle = await child.getComputedStyle();
     expect(childInitialStyle['visibility']).toEqual('visible');
+  });
+
+  it('should render a checkbox column when selectable is set to true on a rowgroup', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithSelection);
+
+    const headerCheckbox = await page.find('#test-header >>> b2b-checkbox');
+    expect(headerCheckbox).not.toBeNull();
+
+    const rowCheckbox = await page.find('#test-parent >>> b2b-checkbox');
+    expect(rowCheckbox).not.toBeNull();
+  });
+
+  it('should toggle all rows when the header row is clicked', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithSelection);
+
+    const headerCheckbox = await page.find('#test-header >>> b2b-checkbox');
+    await headerCheckbox.click();
+
+    const firstRow = await page.find('#test-parent');
+    const secondRow = await page.find('#test-child');
+    const thirdRow = await page.find('#second-child');
+
+    expect(await firstRow.getProperty('checked')).toBe(true);
+    expect(await secondRow.getProperty('checked')).toBe(true);
+    expect(await thirdRow.getProperty('checked')).toBe(true);
+
+    await headerCheckbox.click();
+
+    expect(await firstRow.getProperty('checked')).toBe(false);
+    expect(await secondRow.getProperty('checked')).toBe(false);
+    expect(await thirdRow.getProperty('checked')).toBe(false);
+  });
+
+  it('should toggle all children rows of a parent accordion row if the parent is selected', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithSelection);
+
+    const firstRow = await page.find('#test-parent >>> b2b-checkbox');
+    expect(firstRow).not.toBeNull();
+    await firstRow.click();
+
+    const secondRow = await page.find('#test-child');
+
+    expect(await secondRow.getProperty('checked')).toBe(true);
+
+    await firstRow.click();
+
+    expect(await secondRow.getProperty('checked')).toBe(false);
+  });
+
+  it('should display an indeterminate checkbox if some rows are checked', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithSelection);
+
+    const checkbox = await page.find('#test-child >>> b2b-checkbox');
+    expect(checkbox).not.toBeNull();
+    await checkbox.click();
+
+    const secondRow = await page.find('#test-child');
+
+    expect(await secondRow.getProperty('checked')).toBe(true);
+
+    const header = await page.find('#test-header');
+    expect(await header.getProperty('indeterminate')).toBe(true);
+  });
+
+  it('should display an indeterminate checkbox in the parent row of an accordion if not all children are checked', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithSelection);
+
+    const secondRow = await page.find('#test-child >>> b2b-checkbox');
+    await secondRow.click();
+
+    expect(await secondRow.getProperty('checked')).toBe(true);
+
+    const firstRow = await page.find('#test-parent >>> b2b-checkbox');
+    expect(await firstRow.getProperty('indeterminate')).toBe(true);
+  });
+
+  it('should emit the currently selected values when a row is selected or unselected', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithSelection);
+    const selectSpy = await page.spyOnEvent('b2b-row-selected');
+
+    const secondRow = await page.find('#test-child >>> b2b-checkbox');
+    await secondRow.click();
+
+    await page.waitForChanges();
+
+    expect(selectSpy).toHaveReceivedEvent();
+    expect(selectSpy).toHaveReceivedEventDetail({
+      checked: true,
+      value: 'cherries',
+    });
+
+    await secondRow.click();
+
+    await page.waitForChanges();
+
+    expect(selectSpy).toHaveReceivedEvent();
+    expect(selectSpy).toHaveReceivedEventDetail({
+      checked: false,
+      value: 'cherries',
+    });
+  });
+
+  it('should emit the currently selected values in an accordion when a row of that accordion is selected or unselected', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithSelection);
+    const selectSpy = await page.spyOnEvent('b2b-group-selected');
+
+    const secondRow = await page.find('#test-parent >>> b2b-checkbox');
+    await secondRow.click();
+
+    await page.waitForChanges();
+
+    expect(selectSpy).toHaveReceivedEvent();
+    expect(selectSpy).toHaveReceivedEventDetail({
+      group: 'peaches',
+      values: ['cherries', 'plums'],
+    });
+
+    const thirdRow = await page.find('#second-child >>> b2b-checkbox');
+    await thirdRow.click();
+
+    await page.waitForChanges();
+
+    expect(selectSpy).toHaveReceivedEvent();
+    expect(selectSpy).toHaveReceivedEventDetail({
+      group: 'peaches',
+      values: ['cherries'],
+    });
   });
 });

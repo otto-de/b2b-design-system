@@ -11,8 +11,8 @@ export class B2BRequiredSeparator {
   render() {
     return (
       <Host>
-        <div class="b2b-required-separator--label">
-          <span class="b2b-required-separator--asterisk">* </span>
+        <div class="b2b-required-separator__label">
+          <span class="b2b-required-separator__asterisk">* </span>
           <span>{this.label}</span>
         </div>
         <b2b-separator></b2b-separator>

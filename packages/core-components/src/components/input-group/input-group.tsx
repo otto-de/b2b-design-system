@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Prop, Watch, State } from '@stencil/core';
+import { Component, h, Host, Element, Prop, Watch } from '@stencil/core';
 import { HTMLB2bFormElement } from '../../utils/interfaces/form.interface';
 
 @Component({
@@ -21,9 +21,6 @@ export class B2BInputGroup {
   /** The hint text that appears underneath the input group. */
   @Prop() hint?: string;
 
-  /** We keep track of the initial disabled state in case individual children are disabled, group is disabled and re-enabled. */
-  @State() initialDisabled = [];
-
   @Watch('invalid')
   protected invalidChanged() {
     this.toggleAllError();
@@ -41,20 +38,6 @@ export class B2BInputGroup {
       this.toggleAllDisabled();
     }
   }
-
-  componentWillLoad() {
-    if (!this.disabled) {
-      this.getInitialState();
-    }
-  }
-
-  private getInitialState = () => {
-    const nodes = this.getChildNodes();
-
-    nodes.forEach(node => {
-      this.initialDisabled.push(node.disabled);
-    });
-  };
 
   private removeText = () => {
     const nodes = this.getChildNodes();
@@ -87,8 +70,8 @@ export class B2BInputGroup {
         node.disabled = true;
       });
     } else {
-      nodes.forEach((node, index) => {
-        node.disabled = this.initialDisabled[index];
+      nodes.forEach(node => {
+        node.groupDisabled = this.disabled;
       });
     }
   };
@@ -107,8 +90,8 @@ export class B2BInputGroup {
         {(this.hint || (this.invalid && !this.disabled)) && (
           <span
             class={{
-              'b2b-input-wrapper-hint': true,
-              'b2b-input-wrapper-hint--error': this.invalid && !this.disabled,
+              'b2b-input-wrapper__hint': true,
+              'b2b-input-wrapper__hint--error': this.invalid && !this.disabled,
             }}>
             {this.invalid && !this.disabled ? this.error : this.hint}
           </span>
