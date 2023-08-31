@@ -1,10 +1,4 @@
-import {
-  Canvas,
-  Story,
-  ArgsTable,
-  PRIMARY_STORY,
-  Meta,
-} from '@storybook/blocks';
+import { Canvas, ArgsTable, PRIMARY_STORY, Meta } from '@storybook/blocks';
 
 import * as TableStories from './table.stories';
 
@@ -17,7 +11,7 @@ that give consistency to the look and feel of the table, and help developers wit
 
 <br />
 
-### Components
+## Components
 
 The components to use to build a table are `b2b-table`, `b2b-rowgroup`, `b2b-row`, `b2b-header`, `b2b-cell` and use
 a similar hierarchy than a html table:
@@ -39,13 +33,13 @@ a similar hierarchy than a html table:
 
 <hr />
 
-#### b2b-table
+### b2b-table
 
 Is the parent component and can control the size of the columns. Currently, it supports 2 sizes: `expand` and
 `equal`. Fixed sizes can be added directly to the row, header or cell components by using styles or css
 classes.
 
-##### expand
+#### expand
 
 Expand size will expand to 100% of parent size and columns will use as much space as they need depending on content of
 the headers or cell-data. Text will always wrap in this size.
@@ -58,9 +52,9 @@ In this example, parent size is 400px.
 </div>
 ```
 
-<Story id="components-content-table--story-040-table-expand" />
+<Canvas of={TableStories.SizeExpand} />
 
-##### equal
+#### equal
 
 Equal size extends to parent width but will keep cell sizes proportional no matter how long the content.
 Text can both wrap or be truncated with text ellipsis (using the property `text-wrap=false` in the cell). In this
@@ -80,7 +74,7 @@ example, parent size is 400px, and text is truncated.
 <br />
 <hr />
 
-#### b2b-table-rowgroup
+### b2b-table-rowgroup
 
 Rowgroup will let you group rows based on context: `header`, `body` or `footer`.
 Header rows are by default not highlightable on mouse over.
@@ -95,11 +89,11 @@ Header rows are by default not highlightable on mouse over.
 
 <hr />
 
-#### b2b-table-row
+### b2b-table-row
 
 Rows are the same as `<tr>` elements and implement that aria-role.
 
-##### highlight
+#### highlight
 
 This property will make the row highlightable on mouse over. By default, it is true.
 
@@ -113,12 +107,12 @@ This property will make the row highlightable on mouse over. By default, it is t
 
 <hr />
 
-#### b2b-table-header
+### b2b-table-header
 
 This component is similar to the `<th>` element and implements the aria-role columnheader.
 Note: this new table design does not use the division between header and body.
 
-##### fixed
+#### fixed
 
 Sets the header position to sticky. Use it when table is inside a `b2b-scrollable-container`.
 
@@ -134,11 +128,11 @@ Sets the header position to sticky. Use it when table is inside a `b2b-scrollabl
 
 <hr />
 
-#### b2b-table-cell
+### b2b-table-cell
 
 This component is similar to the `<td>` element and implements the aria-role cell.
 
-##### horizontal align
+#### horizontal align
 
 Alignment of the content of the cell, by default is to the `left`, and can also be set to `right` or `center`.
 
@@ -152,21 +146,21 @@ Alignment of the content of the cell, by default is to the `left`, and can also 
 </b2b-table>
 ```
 
-##### textWrap
+#### textWrap
 
 Will truncate the text if set to `true`, and ** table size is `equal`**.
 
 Truncated text will expand when user hovers over the cell after a short timeout. This will allow the user to copy
 the text or read it in full. You can try by hovering over the truncated text in this example:
 
-<Story id="components-content-table--story-050-table-equal" />
+<Canvas of={TableStories.SmallTableExpand} />
 
 <br />
 <hr />
 
-### Features
+## Features
 
-#### divider property
+### divider property
 
 Adds a border to the right of the cell or header.
 
@@ -180,12 +174,12 @@ Adds a border to the right of the cell or header.
 <B2bTableCell divider={true} textWrap="false" align="right">Data</B2bTableCell>
 ```
 
-<Story id="components-content-table--story-080-table-with-dividers" />
+<Canvas of={TableStories.WithDividers} />
 
 <br />
 <hr />
 
-#### Colored rows and cells
+### Colored rows and cells
 
 You can select the background color of a row or a cell. The available colors are semantic and will be used for
 specific cases: selected and group (accordion). As per design we also won't be using a zebra pattern so please don't
@@ -196,12 +190,12 @@ use alternate row colors unless otherwise briefed by design.
 <b2b-table-cell color="selected"> ... </b2b-table-cell>
 ```
 
-<Story id="components-content-table--story-090-table-color" />
+<Canvas of={TableStories.ColoredRow} />
 
 <br />
 <hr />
 
-#### Scrollable table
+### Scrollable table
 
 If you are building a table that will expand beyond the screen size, you can use the `scrollable-container` as a
 parent for the table to achieve scrollable content, like so:
@@ -212,7 +206,7 @@ parent for the table to achieve scrollable content, like so:
 </b2b-scrollable-container>
 ```
 
-<Story id="components-content-table--story-100-scrollable-table" />
+<Canvas of={TableStories.ScrollableTable} />
 
 This table includes a `sticky` header by default.
 
@@ -276,7 +270,7 @@ it will only go back to its unsorted state automatically, when the user clicks o
 </b2b-table>
 ```
 
-##### Events
+## Events
 
 When the user interacts with sorting, the `b2b-table` will emit a `b2b-sort-change` event that will contain
 information about the sorted header and the direction selected. You can provide the property `sort-id` to the
@@ -312,7 +306,7 @@ _Vue Notation_
 <br />
 <hr />
 
-#### Accordion
+### Accordion
 
 If you have complex or nested data, you can use accordion rows to better represent your data structure.
 The table will take each first row of a given `<b2b-table-rowgroup type="body">` and add a control arrow in the first column, making
@@ -359,14 +353,14 @@ The accordion can render opened by passing the property `opened` to the rowgroup
 <br />
 <hr />
 
-### Sizing
+## Sizing
 
-#### Fixed cell width
+### Fixed cell width
 
 In both cases when using `expand` or `equal` properties in the table, you can also set a fixed size for a particular
 column by adding it directly to the column header using style or class:
 
-<Story id="components-content-table--story-060-table-fixed-cell-size" />
+<Canvas of={TableStories.FixedCellSize} />
 
 ```html
 <b2b-table size="equal">
@@ -389,11 +383,11 @@ In the same way, the cell can have a `max-width` property to make it more dynami
 
 <hr />
 
-#### Fixed row height
+### Fixed row height
 
 In both cases when using `expand` or `equal` properties in the table, you can also set a fixed height by adding it directly to the row using style or class:
 
-<Story id="components-content-table--story-070-table-fixed-row-height" />
+<Canvas of={TableStories.FixedRowHeight} />
 
 ```html
 <b2b-table size="equal">
@@ -408,6 +402,6 @@ In both cases when using `expand` or `equal` properties in the table, you can al
 <br />
 <br />
 
-### Attributes
+## Attributes
 
-<ArgsTable story={PRIMARY_STORY} controls={false} />
+<ArgsTable story={PRIMARY_STORY} />

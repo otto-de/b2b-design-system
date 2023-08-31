@@ -10,10 +10,11 @@ const config = {
   // stories: [...debugStories],
   features: { buildStoriesJson: true },
   addons: [
+    '@storybook/addon-essentials',
     '@storybook/preset-scss',
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-mdx-gfm',
   ],
   framework: '@storybook/web-components-vite',
 };

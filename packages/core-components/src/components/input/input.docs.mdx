@@ -23,21 +23,21 @@ If you want to add text, please use a `<span>` tag as this will automatically ad
 
 Note that it is not necessary to use B2B Icons, the slots work with any icon.
 
-#### Start
+### Start
 
 You can add an icon or prefixed text here like so:
 
 <Canvas of={InputStories.Prefix} sourceState="shown" />
 
-#### End
+### End
 
 You can add an icon or a suffix like so:
 
 <Canvas of={InputStories.IconEnd} sourceState="shown" />
 
-### Properties
+## Properties
 
-#### Label
+### Label
 
 This field is recommended, but not required as it can be ignored in some use cases. For example, when the solution
 needs a label with a description block of text after it.
@@ -45,12 +45,12 @@ needs a label with a description block of text after it.
 Internally the component sets the aria property `aria-labelledby` to the `name` prop of this component. When using a
 custom label, remember to set that same name to the `id` of the label. For more information you can see [this link](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby).
 
-#### Required
+### Required
 
 Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
 validation, is just a style addition.
 
-#### Type
+### Type
 
 The `type` of the input, matching the corresponding native HTML attribute of `type`. The default value is `text`.
 Other attributes supported are
@@ -64,22 +64,22 @@ Other attributes supported are
 The component **does not** support `date` or `month` types as we encourage you to use the Datepicker
 Component if you need to work with dates or time.
 
-#### Placeholder
+### Placeholder
 
 You can specify a `placeholder` string to be shown before the user enters the input element and starts typing.
 It is not specified by default.
 
-#### Disabled
+### Disabled
 
 A boolean indicating whether or not the input element is `disabled` or `read-only`. The default value is `false`.
 
-#### Hint
+### Hint
 
 An optional hint to be shown underneath the input field. It is not specified by default and will therefore not be rendered.
 If there is an `error`, the hint will not be rendered until the `error` attribute is set to `undefined` or an
 empty string again.
 
-#### Error
+### Error
 
 An optional error string to be shown underneath the input field. If specified, it will render the input
 field with error styles and replace the `hint` text.
@@ -87,27 +87,27 @@ field with error styles and replace the `hint` text.
 Per default, it is undefined and will take the error message as a string as an argument. Once the user
 corrects their input, you can set it to undefined or to an empty string again.
 
-#### Autofocus
+### Autofocus
 
 A `boolean` indicating whether or not the input element should be focused on page load.
 Per default it is set to `false`.
 
-### Events
+## Events
 
 The input component supports several different events that emit their respective native counterparts (e.g. a b2bFocus event will emit a FocusEvent).
 **Per default, we recommend to use the b2bBlur event for validation.**
 To see the Event Emitters in action and for usage examples in Vue and React, please refer to [our example repository](https://github.com/otto-ec/b2b-design-system/tree/beta/examples).
 
-#### b2b-input
+### b2b-input
 
 Emits whenever the input is changed, i.e. after every keypress. It will emit all changes to the input,
 which enables granular input validation and will immediately update the error state.
 
-#### b2b-focus
+### b2b-focus
 
 Emits whenever the input element has focus.
 
-#### b2b-blur
+### b2b-blur
 
 Emits whenever the input element loses focus. Use this event to validate input only after
 the user leaves the input field. **This is the recommended event to hook into when doing input validation as it
@@ -122,7 +122,7 @@ this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-wi
 
 <br />
 
-### Attributes
+## Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

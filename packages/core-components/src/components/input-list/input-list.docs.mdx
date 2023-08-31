@@ -18,18 +18,16 @@ import * as InputListStories from './input-list.stories';
 
 _click the component and type to display the list_
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-form-input-list--story-020-input-list-focused" />
-</Canvas>
+<Canvas of={InputListStories.InputList} />
 
 This component will receive a list of options to be presented to the user. It is not a dropdown, and it should be
 used as part of a search or filter component, or in any other use case where a list of results makes sense.
 
 <br />
 
-### Properties
+## Properties
 
-#### label, placeholder
+### label, placeholder
 
 Will be passed down as an input label and placeholder.
 
@@ -41,7 +39,7 @@ Will be passed down as an input label and placeholder.
   `}
 />
 
-#### optionsList
+### optionsList
 
 Use to present a list of suggestions to the user. It is currently limited to cursor navigation, but later we will implement keyboard navigation as well.
 
@@ -53,18 +51,18 @@ Use to present a list of suggestions to the user. It is currently limited to cur
   `}
 />
 
-#### disabled
+### disabled
 
 A boolean to indicate if the element is `disabled`. The default value is `false`.
 
 <br />
 
-### Events
+## Events
 
 The input list is a wrapper of the `b2b-input` component, so the events from the input component will be emitted as
 well. You can find this documentation in this [link](?path=/docs/components-form-input--story-010-default#events).
 
-#### b2b-option-selected
+### b2b-option-selected
 
 This event will emit when the user clicks on an option from the list, if optionsList was provided.
 
@@ -81,7 +79,7 @@ This event will emit when the user clicks on an option from the list, if options
   `}
 />
 
-#### b2b-clear
+### b2b-clear
 
 This event will emit when the clear `X` button is triggered either by mouse or keyboard interaction.
 
@@ -132,7 +130,7 @@ this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-wi
 
 <br />
 
-### Attributes
+## Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

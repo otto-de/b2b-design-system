@@ -18,63 +18,63 @@ import * as CheckboxStories from './checkbox.stories';
   <Story id="components-form-checkbox--story-010-default" />
 </Canvas>
 
-### Properties
+## Properties
 
-#### Label
+### Label
 
 The label of the checkbox which appears on the right hand side next to it. This is the only
 required property. It is not the same as the checkbox value, which indicates its programmatical
 value.
 
-#### Required
+### Required
 
 Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
 validation, is just a style addition.
 
-#### Checked
+### Checked
 
 Whether or not the checkbox is currently checked. It is initially unchecked if the property is not specified.
 
-#### Disabled
+### Disabled
 
 Whether or not the checkbox is disabled. If not specified, it will not be disabled.
 
-#### Invalid
+### Invalid
 
 Whether or not the checkbox is invalid. The default value is false and setting it to true will render the
 checkbox with an error style.
 
-#### Hint
+### Hint
 
 A hint text that shows additional information to the user. Per default it is undefined.
 
-#### Error
+### Error
 
 An error hint text that is displayed instead of the hint text if the `invalid` property is set to true.
 Setting the error string alone is not sufficient to display an error, the `invalid` property also needs to be `true`.
 We recommend always setting the error string if there is a possibility that the checkbox will become `invalid`.
 
-#### Name
+### Name
 
 This can be used to programmatically group checkboxes together. This is especially important for accessibility
 as the name groups label and checkbox together, making them easier to navigate for screen readers.
 
-#### Value
+### Value
 
 The checkbox value. It does not have to be the same as the checkbox label. When the checkbox is checked or unchecked,
 the value gets emitted alongside the checkboxes current status.
 
-### Events
+## Events
 
-#### b2b-focus
+### b2b-focus
 
 Fires whenever the checkbox comes into focus.
 
-#### b2b-blur
+### b2b-blur
 
 Fires whenever the checkbox loses focus.
 
-#### b2b-change
+### b2b-change
 
 Fires whenever the `checked` property of the checkbox component changes. Emits a custom event
 called `CheckboxEventDetail` that contains the value of the checkbox and whether or not the
@@ -85,7 +85,7 @@ checkbox is currently checked.
   checked: boolean;
 }`
 
-### Attributes
+## Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

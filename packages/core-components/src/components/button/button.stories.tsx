@@ -29,18 +29,18 @@ export default meta;
 
 type Story = StoryObj;
 
-export const Secondary: Story = {
-  args: {
-    ...meta.args,
-    label: 'Secondary',
-  },
-};
-
 export const Primary: Story = {
   args: {
     ...meta.args,
     variant: 'primary',
     label: 'Primary',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    ...meta.args,
+    label: 'Secondary',
   },
 };
 

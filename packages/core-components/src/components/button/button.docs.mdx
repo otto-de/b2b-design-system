@@ -20,26 +20,26 @@ NOTE: All attributes are optional. The component can simply be used like this wi
 
 <Source code={`<b2b-button>My Button</b2b-button>`} />
 
-### Properties
+## Properties
 
-#### Variant
+### Variant
 
 The button pattern is available in two variants:
 
-#### Secondary - default variant
+### Secondary - default variant
 
 The Secondary button can be used for isolated actions, such as "Edit" or "Export". This is the default variant if
 attributes are not specified.
 
 <Canvas of={ButtonStories.Secondary} />
 
-#### Primary
+### Primary
 
 The Primary button is used for important primary actions, e.g. "Save", "Create new briefing" or "Create new service".
 
 <Canvas of={ButtonStories.Primary} />
 
-#### Loading
+### Loading
 
 You can use a loading state to show to the user that the action is processing. When set to true, the button label
 will be replaced by a loading indicator. If the button is disabled while loading is set to true, it will
@@ -47,30 +47,30 @@ render the button as disabled only, i.e. the disabled state will always take pre
 
 <Canvas of={ButtonStories.Loading} />
 
-#### Disabled
+### Disabled
 
 The button can be disabled and it would render opaque and unclickable. <strong>Please note that as a design decision,
 both primary and secondary buttons will use the color grey when disabled. </strong>
 
 <Canvas of={ButtonStories.Disabled} />
 
-#### Href
+### Href
 
 This property specifies if the button should contain a clickable link. By default, it is undefined, which renders the button
 as a HTMLButton element. If a string is specified, the button will be rendered as a HTMLAnchorElement that has the exact look and feel
 as the button.
 
-#### Target
+### Target
 
 If the `href` property is specified, `target` defines whether the link should be opened in the same or in a different tab. By default, it will
 open in the same tab.
 
-#### Download
+### Download
 
 If the `href` property is specified, defining this string will cause the browser to download the specified URL instead of navigating to it. By
 defining `download`, the default name of the downloadable file will be changed to the specified string.
 
-### Icons
+## Icons
 
 In order to emphasize particularly important primary actions, a suitable icon should be used in addition to the text.
 For example, a plus icon for "Create new service".
@@ -93,7 +93,7 @@ without using the slot space.
 
 <Canvas of={ButtonStories.IconOnly} />
 
-### Attributes
+## Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

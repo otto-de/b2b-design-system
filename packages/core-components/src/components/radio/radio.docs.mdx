@@ -13,67 +13,67 @@ import * as RadioStories from './radio.stories';
 
 # Singular Radio Button
 
-### Properties
+## Properties
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-form-radio-button--story-010-default" />
 </Canvas>
 
-#### Label
+### Label
 
 The label of the radio button which appears on the right hand side next to it. This is a
 required property. It is not the same as the radio button value, which indicates its programmatical
 value.
 
-#### Required
+### Required
 
 Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
 validation, is just a style addition.
 
-#### Checked
+### Checked
 
 Whether or not the radio button is currently checked. It is initially unchecked if the property is not specified.
 
-#### Disabled
+### Disabled
 
 Whether or not the radio button is disabled. If not specified, it will not be disabled.
 
-#### Invalid
+### Invalid
 
 Whether or not the radio button is invalid. The default value is false and setting it to true will render the
 radio button with an error style.
 
-#### Hint
+### Hint
 
 A hint text that shows additional information to the user. Per default it is undefined.
 
-#### Error
+### Error
 
 An error hint text that is displayed instead of the hint text if the `invalid` property is set to true.
 Setting the error string alone is not sufficient to display an error, the `invalid` property also needs to be `true`.
 We recommend always setting the error string if there is a possibility that the radio button will become `invalid`.
 
-#### Name
+### Name
 
 This is used to programmatically group radio buttons together. It is required to control the state of a radio button group.
 This is especially important for accessibility as the name groups label and radio button together, making them easier to navigate for screen readers.
 
-#### Value
+### Value
 
 The radio button value. It does not have to be the same as the radio button label. When the radio button is checked,
 the value gets emitted alongside the radio button's current status.
 
-### Events
+## Events
 
-#### b2b-focus
+### b2b-focus
 
 Fires whenever the radio button comes into focus.
 
-#### b2b-blur
+### b2b-blur
 
 Fires whenever the radio button loses focus.
 
-#### b2b-change
+### b2b-change
 
 Fires whenever the `checked` property of the radio button component changes. Emits a custom event
 called `RadioEventDetail` that contains the value of the radio button and whether or not the
@@ -84,7 +84,7 @@ radio button is currently checked.
   checked: boolean;
 }`
 
-### Attributes
+## Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

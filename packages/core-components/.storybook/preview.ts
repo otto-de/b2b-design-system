@@ -7,7 +7,7 @@ import './storybook.scss';
 const preview: Preview = {
   parameters: {
     docs: {
-      toc: true,
+      toc: { ignoreSelector: 'h3', headingSelector: 'h2' },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {

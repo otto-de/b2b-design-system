@@ -1,6 +1,8 @@
 import { Meta, Source, Description } from '@storybook/addon-docs';
-import Devguidelines from './DEV-GUIDELINES.md';
+import { Markdown } from '@storybook/blocks';
+
+import Devguidelines from './DEV-GUIDELINES.md?raw';
 
 <Meta title="Guidelines/Contribution" />
 
-<Devguidelines />
+<Markdown>{Devguidelines}</Markdown>

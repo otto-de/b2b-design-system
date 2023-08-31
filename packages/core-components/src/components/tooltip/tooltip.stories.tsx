@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import tooltipDocs from './tooltip.docs.mdx';
 import { getArgTypes, hideAllControls } from '../../docs/config/utils';
 import { useArgs } from '@storybook/preview-api';
 import dedent from 'ts-dedent';
@@ -137,9 +136,4 @@ export default {
     buttons: { table: { disable: true } },
   },
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: tooltipDocs,
-    },
-  },
 } as Meta;

@@ -1,5 +1,5 @@
 import { Canvas, Meta, Story, Markdown } from '@storybook/addon-docs';
-import Changelog from './CHANGELOG.md';
+import Changelog from './CHANGELOG.md?raw';
 
 <Meta title="Updates" />
 
@@ -7,7 +7,7 @@ import Changelog from './CHANGELOG.md';
 
 <br />
 
-## B2B DESIGN SYSTEM going open source & released our first stable release!
+## Open Source
 
 We are happy to announce that we have migrated our system and packages successfully.
 From now on, you would be able to install our libraries directly from npm without the need for authentication.
@@ -43,6 +43,6 @@ to `otto-de`.
 <br />
 <br />
 
-# Changelog
+## Changelog
 
-<Changelog />
+<Markdown>{Changelog}</Markdown>

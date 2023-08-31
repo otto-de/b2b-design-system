@@ -22,11 +22,11 @@ A modal is a separate layer that lays above all other elements. It is used to di
 
 <br />
 
-### Properties
+## Properties
 
 <ArgsTable story={PRIMARY_STORY} />
 
-#### Variant
+### Variant
 
 The modal comes in two different variants - `default` will expand to a maximum width of 600px and `large`
 to 800px. The modal height is not limited. We recommend using the `large` variant if you have a lot of content.
@@ -38,25 +38,25 @@ to 800px. The modal height is not limited. We recommend using the `large` varian
 While the headline property is required and will always be shown in the modal, other parts of the modal such as the body and footer
 content are optional.
 
-#### Body Content
+### Body Content
 
 This is the default slot for the modal. Anything placed between the component's tags will be located here by default. You can also
 nest other B2B components.
 
-#### Footer Content
+### Footer Content
 
 The footer has two slots - `footer-left` and `footer-right` that control the alignment of content placed inside the footer.
 The left side could be used for footnotes, whereas the right footer MUST contain action buttons.
 
 <br />
 
-### Events
+## Events
 
-#### b2b-close
+### b2b-close
 
 Fires whenever the modal is closed through changing the `opened` property to false.
 
-#### b2b-before-close
+### b2b-before-close
 
 Fires just before the `opened` property of the modal is changed to `false` and emits
 the closing trigger as a string:

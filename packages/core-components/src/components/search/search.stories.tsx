@@ -100,6 +100,10 @@ searchArgs.optionsList = {
 
 export default {
   title: 'Components/Form/Search',
-  argTypes: { ...searchArgs },
+  argTypes: {
+    ...searchArgs,
+    optionsList: { table: { disable: true } },
+    value: { table: { disable: true } },
+  },
   viewmode: 'docs',
 } as Meta;

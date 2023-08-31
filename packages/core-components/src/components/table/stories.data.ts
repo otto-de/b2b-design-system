@@ -1,31 +1,13 @@
-import { html } from 'lit-html';
-
 export const sampleData = {
   columns: ['Name', 'Column 1', 'Column 2', 'Column 3'],
   rows: [
-    [
-      'Name A',
-      'Content 1',
-      'Content 1',
-      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
-    ],
-    [
-      'Name B',
-      'Content 2',
-      'Content 2',
-      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
-    ],
-    [
-      'Name C',
-      'Content 3',
-      'Content 3',
-      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
-    ],
+    ['Name A', 'Content 1', 'Content 1'],
+    ['Name B', 'Content 2', 'Content 2'],
+    ['Name C', 'Content 3', 'Content 3'],
     [
       'Name D',
       'Content 4',
       'Very, very, long, long data text that wraps over to next line',
-      html`unsafeHTML(<b2b-button>Action</b2b-button>)`,
     ],
   ],
 };
@@ -33,11 +15,10 @@ export const sampleData = {
 export const smallSampleData = {
   columns: ['Column 1', 'Column 2', 'Column 3'],
   rows: [
-    ['Name A', 'Content 1', html`unsafeHTML(<b2b-button>Action</b2b-button>)`],
+    ['Name A', 'Content 1'],
     [
       'Name D',
       'Very long data text that wraps over to next line, Very long data text that wraps over to next line',
-      html` <b2b-button>Action</b2b-button>`,
     ],
   ],
 };
@@ -58,7 +39,6 @@ export const longSampleData = {
       'Name A',
       'Content 1',
       'Content 1',
-      html` <b2b-button>Action</b2b-button>`,
       'Content 1',
       'Content 1',
       'Content 1',
@@ -68,7 +48,6 @@ export const longSampleData = {
       'Name B',
       'Content 2',
       'Content 2',
-      html` <b2b-button>Action</b2b-button>`,
       'Content 2',
       'Content 2',
       'Content 2',
@@ -78,7 +57,6 @@ export const longSampleData = {
       'Name C',
       'Content 3',
       'Content 3',
-      html` <b2b-button>Action</b2b-button>`,
       'Content 3',
       'Content 3',
       'Content 3',
@@ -88,7 +66,6 @@ export const longSampleData = {
       'Name D',
       'Content 4',
       'Very, very, long, long data text that wraps over to next line',
-      html` <b2b-button>Action</b2b-button>`,
       'Content 4',
       'Content 4',
       'Content 4',

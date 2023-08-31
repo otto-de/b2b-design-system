@@ -15,7 +15,7 @@ import * as AlertStories from './alert.stories';
 The alert allows the user to see contextual feedback and information.
 There are the following alert variants:
 
-#### Type
+### Type
 
 **_Info:_** For attributes with an informative character, such as "Inquired" for a service or "Submitted" for a briefing.
 
@@ -36,23 +36,23 @@ used sparingly.
 
 **_There is the possibility of including a "closing-X" in the alert, by which the message can be hidden. The "closing-X" cannot be used for error alerts._**
 
-### Properties
+## Properties
 
-#### Size
+### Size
 
 The Alert Component comes in two sizes. The default is `small`, which renders only an icon and no text. Any slotted text will not be displayed. The close icon will also not be shown on the small alert.
 The large Alert Component comes with customizable text and an optional close icon. Please note that the first word or sentence of the alert is normally bold, but can be customized as well.
 
-#### Close Button
+### Close Button
 
 Per default, all large alerts except the error alert have a close button. By setting `hasCloseButton` to false, you can remove it.
 
-#### Custom Icon
+### Custom Icon
 
 A small Alert Component can also have a custom icon. If you're using B2B or PaLi icons, they will be displayed in the same color as the large alert icons
 that come with the different alert types.
 
-### Attributes
+## Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:
