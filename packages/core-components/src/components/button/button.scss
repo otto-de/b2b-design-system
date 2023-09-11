@@ -76,7 +76,8 @@
       }
     }
 
-    &:disabled, &.disabled {
+    &:disabled,
+    &.disabled {
       cursor: default;
       pointer-events: none;
       background-color: var(--b2b-color-grey-50);
