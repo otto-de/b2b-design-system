@@ -1,20 +1,25 @@
 # Use playwright image as a base
 FROM mcr.microsoft.com/playwright:v1.34.0-jammy as playwright
 
-# Set the working directory inside the container
 WORKDIR /b2b
 
 
-COPY . .
+COPY ./packages /b2b/packages
+COPY ./package.json /b2b/package.json
+COPY ./scripts /b2b/scripts
 
-RUN npm uninstall puppeteer
 
+# Install chromium-browser
+RUN apt-get update && \
+    apt-get install -y chromium-browser && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+
+
+WORKDIR /b2b
+RUN npm i
 
 WORKDIR /b2b/packages/core-components
-RUN npm install
+RUN npm run build
 
-# Install top-level dependencies
-WORKDIR /b2b
-RUN npm install
-
-RUN npx playwright install

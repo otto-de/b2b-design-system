@@ -1,0 +1,24 @@
+.DS_Store
+Thumbs.db
+node_modules/
+**/dist/
+**/build/
+
+# VS-CODE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+#JETBRAINS
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+# Authomatically ignores what it needs to ignore
+/.idea/
