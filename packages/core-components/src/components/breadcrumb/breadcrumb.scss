@@ -8,9 +8,8 @@
     flex-flow: row nowrap;
     padding: 0.75rem 0;
     margin-bottom: 1.125rem;
-    background-color: var(--b2b-color-grey-25);
-    border-bottom: var(--b2b-size-border-width-50) solid var(--b2b-color-grey-200);
-    cursor: pointer;
+    border-bottom: var(--b2b-size-border-width-50) solid
+      var(--b2b-color-grey-200);
 
     &__item {
       font-size: var(--b2b-size-copy-125);
@@ -27,6 +26,14 @@
       &:hover,
       a:hover {
         color: var(--b2b-color-red-100);
+      }
+
+      &--active {
+        &:hover, 
+        a:hover {
+          cursor: default;
+          color: var(--b2b-color-grey-400);
+        }
       }
     }
   }

@@ -9,16 +9,22 @@ export class BreadCrumbItemComponent {
   /** If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked. */
   @Prop() href: string = null;
 
+  /** If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state. */
+  @Prop() active = false;
+
   /** Emits whenever a breadcrumb item is clicked and no href is specified */
   @Event({ eventName: 'b2b-selected' })
   b2bChange: EventEmitter<void>;
 
   private onClick = () => {
+    if (this.active || this.href != null) {
+      return;
+    }
     this.b2bChange.emit();
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
-    if (event.key != 'enter') {
+    if (event.key != 'enter' || this.active) {
       return;
     }
     this.b2bChange.emit();
@@ -30,7 +36,11 @@ export class BreadCrumbItemComponent {
         onClick={this.onClick}
         onKeyDown={this.onKeyDown}
         tabindex={Boolean(this.href) ? null : 0}>
-        <span class="b2b-breadcrumb-nav__item">
+        <span
+          class={{
+            'b2b-breadcrumb-nav__item': true,
+            'b2b-breadcrumb-nav__item--active': this.active,
+          }}>
           {this.href != null ? (
             <a href={this.href}>
               <slot></slot>

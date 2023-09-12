@@ -66,6 +66,10 @@ export namespace Components {
     }
     interface B2bBreadcrumbItem {
         /**
+          * If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state.
+         */
+        "active": boolean;
+        /**
           * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
          */
         "href": string;
@@ -1408,6 +1412,10 @@ declare namespace LocalJSX {
     interface B2bBreadcrumb {
     }
     interface B2bBreadcrumbItem {
+        /**
+          * If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state.
+         */
+        "active"?: boolean;
         /**
           * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
          */
