@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                   | Type      | Default     |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`       | `disabled`         | Whether the chip is disabled.                                                 | `boolean` | `false`     |
-| `hasCloseButton` | `has-close-button` | Whether or not the chip component has a close button. Per default it is true. | `boolean` | `true`      |
-| `label`          | `label`            | The text content of the chip.                                                 | `string`  | `undefined` |
-| `value`          | `value`            | It is only used when the chip component participates in a group               | `any`     | `undefined` |
+| Property             | Attribute          | Description                                                                   | Type      | Default     |
+| -------------------- | ------------------ | ----------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`           | `disabled`         | Whether the chip is disabled.                                                 | `boolean` | `false`     |
+| `hasCloseButton`     | `has-close-button` | Whether or not the chip component has a close button. Per default it is true. | `boolean` | `true`      |
+| `label` _(required)_ | `label`            | The text content of the chip.                                                 | `string`  | `undefined` |
+| `value`              | `value`            | It is only used when the chip component participates in a group               | `any`     | `undefined` |
 
 
 ## Events

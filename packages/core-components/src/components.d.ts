@@ -200,11 +200,11 @@ export namespace Components {
         /**
           * Whether the chip is disabled.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * Whether or not the chip component has a close button. Per default it is true.
          */
-        "hasCloseButton"?: boolean;
+        "hasCloseButton": boolean;
         /**
           * The text content of the chip.
          */
@@ -1570,7 +1570,7 @@ declare namespace LocalJSX {
         /**
           * The text content of the chip.
          */
-        "label"?: string;
+        "label": string;
         /**
           * This even will be triggered when the chip element is closed
          */

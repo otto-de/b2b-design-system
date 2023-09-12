@@ -1,12 +1,4 @@
-import {
-  Component,
-  Prop,
-  h,
-  Host,
-  Event,
-  EventEmitter,
-  Element,
-} from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface';
 
 @Component({
@@ -14,31 +6,25 @@ import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface'
   styleUrl: 'chip.scss',
   shadow: true,
 })
-export class ChipComponent {
-  @Element() hostElement: HTMLB2bChipComponentElement;
-  /**
-   * The text content of the chip.
-   */
-  @Prop() label: string;
-  /**
-   * Whether the chip is disabled.
-   */
-  @Prop() disabled?: boolean = false;
+export class B2bChipComponent {
+  /** The text content of the chip. */
+  @Prop() label!: string;
+
+  /** Whether the chip is disabled. */
+  @Prop() disabled: boolean = false;
 
   /** Whether or not the chip component has a close button. Per default it is true. */
-  @Prop() hasCloseButton?: boolean = true;
+  @Prop() hasCloseButton: boolean = true;
 
   /** It is only used when the chip component participates in a group */
   @Prop({ reflect: true }) value?: any;
 
-  /**
-   * This even will be triggered when the chip element is closed
-   */
+  /** This even will be triggered when the chip element is closed */
   @Event({ eventName: 'b2b-close' })
   b2bClose: EventEmitter<ChipComponentEventDetail>;
 
-  private close(ev: Event) {
-    ev.preventDefault();
+  private onClick(ev: Event) {
+    console.log('clicked ', ev.target);
     this.b2bClose.emit({ value: this.value });
   }
 
@@ -67,7 +53,7 @@ export class ChipComponent {
                 'b2b-chip__clearIcon': true,
                 'b2b-chip--disabled__clearIcon': this.disabled,
               }}
-              onClick={this.close}>
+              onClick={this.onClick}>
               {this.clearIcon}
             </span>
           )}
