@@ -1,4 +1,4 @@
-import { Component, Prop, Host, h } from '@stencil/core';
+import { Component, Prop, Host, h, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'b2b-breadcrumb-item',
@@ -6,17 +6,31 @@ import { Component, Prop, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class BreadCrumbItemComponent {
-  /** If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file
-   * defaults to the URL string, but can be changed by the user. */
+  /** If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked. */
   @Prop() href: string = null;
 
-  /**If set to true, the last symbol in the breadcrumb will be skipped */
-  @Prop() isLast: boolean = false;
+  /** Emits whenever a breadcrumb item is clicked and no href is specified */
+  @Event({ eventName: 'b2b-selected' })
+  b2bChange: EventEmitter<void>;
+
+  private onClick = () => {
+    this.b2bChange.emit();
+  };
+
+  private onKeyDown = (event: KeyboardEvent) => {
+    if (event.key != 'enter') {
+      return;
+    }
+    this.b2bChange.emit();
+  };
 
   render() {
     return (
-      <Host>
-        <span class="obc_breadcrumb-nav__item">
+      <Host
+        onClick={this.onClick}
+        onKeyDown={this.onKeyDown}
+        tabindex={Boolean(this.href) ? null : 0}>
+        <span class="b2b-breadcrumb-nav__item">
           {this.href != null ? (
             <a href={this.href}>
               <slot></slot>
@@ -24,7 +38,6 @@ export class BreadCrumbItemComponent {
           ) : (
             <slot></slot>
           )}
-          {!this.isLast && <div class="obc_breadcrumb-nav__item-after">»</div>}
         </span>
       </Host>
     );

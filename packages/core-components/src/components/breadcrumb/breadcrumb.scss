@@ -2,40 +2,38 @@
 @use '../../global/b2b-styles';
 
 :host {
-  .obc_breadcrumb-nav {
-    position: sticky;
-    top: 3.75rem;
+  .b2b-breadcrumb-nav {
     z-index: 99;
     display: flex;
     flex-flow: row nowrap;
     padding: 0.75rem 0;
-    margin-top: -24px;
     margin-bottom: 1.125rem;
-    background-color: #f6f6f6;
-    border-bottom: 1px solid #c4c4c4;
+    background-color: var(--b2b-color-grey-25);
+    border-bottom: var(--b2b-size-border-width-50) solid var(--b2b-color-grey-200);
+    cursor: pointer;
+
+    &__item {
+      font-size: var(--b2b-size-copy-125);
+      line-height: var(--b2b-size-copy-line-height-125);
+      display: inline-flex;
+      color: var(--b2b-color-grey-400);
+
+      & a {
+        cursor: pointer;
+        color: var(--b2b-color-grey-400);
+        text-decoration: none;
+      }
+
+      &:hover,
+      a:hover {
+        color: var(--b2b-color-red-100);
+      }
+    }
   }
 }
 
-.obc_breadcrumb-nav__item {
-  font-size: 16px;
-  line-height: 24px;
-  line-height: 1.5rem;
-  line-height: 2.25em;
-  display: inline-flex;
-  color: #777;
-}
-
-.obc_breadcrumb-nav__item a {
-  cursor: pointer;
-  color: #777;
-  text-decoration: none;
-}
-
-.obc_breadcrumb-nav__item a:hover {
-  color: #d4021d;
-}
-
-.obc_breadcrumb-nav__item-after {
-  color: #777;
+::slotted(*:not(:last-child))::after {
+  content: '»';
+  color: var(--b2b-color-grey-400);
   margin: 0 calc(0.75rem / 2);
 }

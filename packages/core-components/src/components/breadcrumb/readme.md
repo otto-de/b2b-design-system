@@ -7,10 +7,16 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                                                                           | Type      | Default |
-| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `href`   | `href`    | If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user. | `string`  | `null`  |
-| `isLast` | `is-last` | If set to true, the last symbol in the breadcrumb will be skipped                                                                                                                     | `boolean` | `false` |
+| Property | Attribute | Description                                                                                                                | Type     | Default |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| `href`   | `href`    | If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked. | `string` | `null`  |
+
+
+## Events
+
+| Event          | Description                                                          | Type                |
+| -------------- | -------------------------------------------------------------------- | ------------------- |
+| `b2b-selected` | Emits whenever a breadcrumb item is clicked and no href is specified | `CustomEvent<void>` |
 
 
 ----------------------------------------------

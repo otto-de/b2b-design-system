@@ -66,13 +66,9 @@ export namespace Components {
     }
     interface B2bBreadcrumbItem {
         /**
-          * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
+          * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
          */
         "href": string;
-        /**
-          * If set to true, the last symbol in the breadcrumb will be skipped
-         */
-        "isLast": boolean;
     }
     interface B2bButton {
         /**
@@ -922,6 +918,10 @@ export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bAlertElement;
 }
+export interface B2bBreadcrumbItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bBreadcrumbItemElement;
+}
 export interface B2bCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCardElement;
@@ -1409,13 +1409,13 @@ declare namespace LocalJSX {
     }
     interface B2bBreadcrumbItem {
         /**
-          * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
+          * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
          */
         "href"?: string;
         /**
-          * If set to true, the last symbol in the breadcrumb will be skipped
+          * Emits whenever a breadcrumb item is clicked and no href is specified
          */
-        "isLast"?: boolean;
+        "onB2b-selected"?: (event: B2bBreadcrumbItemCustomEvent<void>) => void;
     }
     interface B2bButton {
         /**

@@ -3,22 +3,27 @@ import { html } from 'lit-html';
 import breadcrumbDocs from './breadcrumb.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({}) => {
+const Template: Story = ({ href }) => {
   return html` <b2b-breadcrumb>
-    <b2b-breadcrumb-item href="https://www.otto.de">Start</b2b-breadcrumb-item>
+    <b2b-breadcrumb-item href="${href}">Start</b2b-breadcrumb-item>
     <b2b-breadcrumb-item>Weiter</b2b-breadcrumb-item>
     <b2b-breadcrumb-item>Ende</b2b-breadcrumb-item>
   </b2b-breadcrumb>`;
 };
 
+const defaultArgs = {
+  href: 'https://www.otto.de',
+};
+
 export const story010Default = Template.bind({});
+story010Default.args = { ...defaultArgs };
 story010Default.storyName = 'Default Breadcrumb';
 
-const anchorArgs = getArgTypes('b2b-breadcrumb');
+const breadcrumbArgs = getArgTypes('b2b-breadcrumb');
 
 export default {
   title: 'Components/Interaction/Breadcrumb',
-  argTypes: anchorArgs,
+  argTypes: breadcrumbArgs,
   viewMode: 'docs',
   parameters: {
     docs: {

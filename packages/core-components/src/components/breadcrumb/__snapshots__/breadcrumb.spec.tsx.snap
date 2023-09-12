@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the breadcrumb component with default values 1`] = `
+<b2b-breadcrumb>
+  <mock:shadow-root>
+    <div class="b2b-breadcrumb-nav">
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+  <b2b-breadcrumb-item>
+    <mock:shadow-root>
+      <span class="b2b-breadcrumb-nav__item">
+        <a href="https://www.otto.de">
+          <slot></slot>
+        </a>
+      </span>
+    </mock:shadow-root>
+    First
+  </b2b-breadcrumb-item>
+  <b2b-breadcrumb-item tabindex="0">
+    <mock:shadow-root>
+      <span class="b2b-breadcrumb-nav__item">
+        <slot></slot>
+      </span>
+    </mock:shadow-root>
+    Second
+  </b2b-breadcrumb-item>
+</b2b-breadcrumb>
+`;
