@@ -109,6 +109,14 @@ const suffix = html`<span slot="start">Registration Number</span
 story090PrefixSuffix.args = { ...defaultArgs, iconMarkup: suffix };
 story090PrefixSuffix.storyName = 'Input with Prefix and Icon';
 
+export const story100Suffix = Template.bind({});
+const prefixSuffixWithIcon = html`<span slot="end">Registration Number</span>`;
+story100Suffix.args = {
+  ...defaultArgs,
+  iconMarkup: prefixSuffixWithIcon,
+};
+story100Suffix.storyName = 'Input with Suffix';
+
 export const story070AllArgs = Template.bind({});
 story070AllArgs.args = {
   ...defaultArgs,
