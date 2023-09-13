@@ -127,6 +127,15 @@ story080Anchor.args = {
 };
 story080Anchor.storyName = 'Anchor Button';
 
+export const story090DisabledAnchor = Template.bind({});
+story090DisabledAnchor.args = {
+  ...defaultArgs,
+  href: 'https://www.otto.de',
+  disabled: true,
+  content: 'Disabled Anchor Button',
+};
+story090DisabledAnchor.storyName = 'Disabled Anchor Button';
+
 const controls = {
   variant: 'radio',
 };

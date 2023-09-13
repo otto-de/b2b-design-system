@@ -107,8 +107,8 @@ export class TableHeaderComponent {
           <div
             tabIndex={0}
             class={{
-              'b2b-table-header--heading': true,
-              'b2b-table-header--sort-active': this.active,
+              'b2b-table-header__heading': true,
+              'b2b-table-header__sort--active': this.active,
             }}
             onClick={this.changeSortDirection}
             onKeyDown={this.changeSortDirection}
@@ -117,8 +117,8 @@ export class TableHeaderComponent {
             <slot></slot>
             <span
               class={{
-                'b2b-table-header--sort': true,
-                [`b2b-table-header--sort-${this.sortDirection}`]: true,
+                'b2b-table-header__sort': true,
+                [`b2b-table-header__sort--${this.sortDirection}`]: true,
               }}>
               {this.sortIcon}
             </span>

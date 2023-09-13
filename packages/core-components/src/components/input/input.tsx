@@ -168,14 +168,14 @@ export class InputComponent {
         )}
         <div
           class={{
-            'input-wrapper': true,
-            'input-wrapper--focused': this.hasFocus,
-            'input-wrapper--disabled': this.disabled || this.groupDisabled,
+            'b2b-input__wrapper': true,
+            'b2b-input__wrapper--focused': this.hasFocus,
+            'b2b-input__wrapper--disabled': this.disabled || this.groupDisabled,
           }}>
           <slot name="start"></slot>
           {this.hasTextPrefix && <div class="border"></div>}
           <input
-            class="native-input"
+            class="b2b-input__native-input"
             aria-labelledby={this.name}
             type={this.type}
             placeholder={this.placeholder}
