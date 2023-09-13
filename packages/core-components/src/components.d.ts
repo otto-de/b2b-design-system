@@ -206,7 +206,7 @@ export namespace Components {
          */
         "hasCloseButton": boolean;
         /**
-          * The text content of the chip.
+          * The text content of the chip. It is required.
          */
         "label": string;
         /**
@@ -1568,11 +1568,11 @@ declare namespace LocalJSX {
          */
         "hasCloseButton"?: boolean;
         /**
-          * The text content of the chip.
+          * The text content of the chip. It is required.
          */
         "label": string;
         /**
-          * This even will be triggered when the chip element is closed
+          * This event will be triggered when the chip element is closed
          */
         "onB2b-close"?: (event: B2bChipComponentCustomEvent<ChipComponentEventDetail>) => void;
         /**

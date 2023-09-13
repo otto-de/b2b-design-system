@@ -587,6 +587,17 @@
       "description": "It is only used when the chip component participates in a group"
     }
   },
+  "b2b-chip-component-2": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The chip label"
+    }
+  },
   "b2b-dropdown": {
     "disabled": {
       "control": {

@@ -7,7 +7,7 @@ import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface'
   shadow: true,
 })
 export class B2bChipComponent {
-  /** The text content of the chip. */
+  /** The text content of the chip. It is required. */
   @Prop() label!: string;
 
   /** Whether the chip is disabled. */
@@ -19,14 +19,16 @@ export class B2bChipComponent {
   /** It is only used when the chip component participates in a group */
   @Prop({ reflect: true }) value?: any;
 
-  /** This even will be triggered when the chip element is closed */
+  /** This event will be triggered when the chip element is closed */
   @Event({ eventName: 'b2b-close' })
   b2bClose: EventEmitter<ChipComponentEventDetail>;
 
-  private onClick(ev: Event) {
-    console.log('clicked ', ev.target);
+  private onClick = () => {
+    if (this.disabled) {
+      return;
+    }
     this.b2bClose.emit({ value: this.value });
-  }
+  };
 
   private clearIcon = (
     <svg
