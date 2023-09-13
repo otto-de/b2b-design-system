@@ -5,18 +5,18 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
+export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
@@ -73,6 +73,10 @@ export namespace Components {
           * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
          */
         "href": string;
+        /**
+          * The value associated with the current page. It is required, must be unique and can be a page title, an id or something similar.
+         */
+        "value": any;
     }
     interface B2bButton {
         /**
@@ -922,6 +926,10 @@ export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bAlertElement;
 }
+export interface B2bBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bBreadcrumbElement;
+}
 export interface B2bBreadcrumbItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bBreadcrumbItemElement;
@@ -1410,6 +1418,10 @@ declare namespace LocalJSX {
         "target"?: 'self' | 'blank' | 'parent' | 'top';
     }
     interface B2bBreadcrumb {
+        /**
+          * Emits the value of the currently selected item whenever an item is selected.
+         */
+        "onB2b-selected"?: (event: B2bBreadcrumbCustomEvent<BreadCrumbChangeEventDetail>) => void;
     }
     interface B2bBreadcrumbItem {
         /**
@@ -1420,10 +1432,11 @@ declare namespace LocalJSX {
           * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
          */
         "href"?: string;
+        "onB2b-change"?: (event: B2bBreadcrumbItemCustomEvent<BreadCrumbChangeEventDetail>) => void;
         /**
-          * Emits whenever a breadcrumb item is clicked and no href is specified
+          * The value associated with the current page. It is required, must be unique and can be a page title, an id or something similar.
          */
-        "onB2b-selected"?: (event: B2bBreadcrumbItemCustomEvent<void>) => void;
+        "value": any;
     }
     interface B2bButton {
         /**

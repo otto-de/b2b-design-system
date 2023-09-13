@@ -15,3 +15,7 @@ export interface ColumnSortChangeEventDetail {
   sortedColumn: string;
   sortDirection: string;
 }
+
+export interface BreadCrumbChangeEventDetail<T = any> {
+  value: T;
+}

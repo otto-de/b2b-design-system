@@ -143,6 +143,20 @@
   },
   "b2b-breadcrumb": {},
   "b2b-breadcrumb-item": {
+    "active": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state."
+    },
     "href": {
       "table": {
         "type": {

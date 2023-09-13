@@ -3,16 +3,17 @@ import { html } from 'lit-html';
 import breadcrumbDocs from './breadcrumb.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ href }) => {
+const Template: Story = ({ href, active }) => {
   return html` <b2b-breadcrumb>
     <b2b-breadcrumb-item href="${href}">Start</b2b-breadcrumb-item>
     <b2b-breadcrumb-item>Weiter</b2b-breadcrumb-item>
-    <b2b-breadcrumb-item>Ende</b2b-breadcrumb-item>
+    <b2b-breadcrumb-item active="${active}">Ende</b2b-breadcrumb-item>
   </b2b-breadcrumb>`;
 };
 
 const defaultArgs = {
   href: 'https://www.otto.de',
+  active: true,
 };
 
 export const story010Default = Template.bind({});

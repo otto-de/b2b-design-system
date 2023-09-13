@@ -1,4 +1,5 @@
 import { Component, Prop, Host, h, Event, EventEmitter } from '@stencil/core';
+import { BreadCrumbChangeEventDetail } from '../../utils/interfaces/interaction.interface';
 
 @Component({
   tag: 'b2b-breadcrumb-item',
@@ -9,18 +10,22 @@ export class BreadCrumbItemComponent {
   /** If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked. */
   @Prop() href: string = null;
 
-  /** If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state. */
-  @Prop() active = false;
+  /** The value associated with the current page. It is required, must be unique and can be a page title, an id or something similar. */
+  @Prop() value!: any;
 
-  /** Emits whenever a breadcrumb item is clicked and no href is specified */
-  @Event({ eventName: 'b2b-selected' })
-  b2bChange: EventEmitter<void>;
+  /** If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state.*/
+  @Prop({ mutable: true }) active = false;
+
+  /** @internal Emits whenever a breadcrumb item is clicked and no href is specified */
+  @Event({ eventName: 'b2b-change' })
+  b2bChange: EventEmitter<BreadCrumbChangeEventDetail>;
 
   private onClick = () => {
     if (this.active || this.href != null) {
       return;
     }
-    this.b2bChange.emit();
+    this.b2bChange.emit(this.value);
+    this.active = true;
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -28,6 +33,7 @@ export class BreadCrumbItemComponent {
       return;
     }
     this.b2bChange.emit();
+    this.active = true;
   };
 
   render() {

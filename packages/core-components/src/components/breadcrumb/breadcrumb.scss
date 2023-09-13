@@ -7,6 +7,7 @@
     display: flex;
     flex-flow: row nowrap;
     padding: 0.75rem 0;
+    height: var(--b2b-size-90);
     margin-bottom: 1.125rem;
     border-bottom: var(--b2b-size-border-width-50) solid
       var(--b2b-color-grey-200);
@@ -16,9 +17,9 @@
       line-height: var(--b2b-size-copy-line-height-125);
       display: inline-flex;
       color: var(--b2b-color-grey-400);
+      cursor: pointer;
 
       & a {
-        cursor: pointer;
         color: var(--b2b-color-grey-400);
         text-decoration: none;
       }
@@ -29,7 +30,7 @@
       }
 
       &--active {
-        &:hover, 
+        &:hover,
         a:hover {
           cursor: default;
           color: var(--b2b-color-grey-400);
