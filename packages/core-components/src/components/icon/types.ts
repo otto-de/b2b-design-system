@@ -92,6 +92,7 @@ export const iconTypes = [
  "b2b_icon-empty-hint",
  "b2b_icon-end-to-end",
  "b2b_icon-error-article-image",
+ "b2b_icon-error-hint",
  "b2b_icon-error",
  "b2b_icon-euro",
  "b2b_icon-event",

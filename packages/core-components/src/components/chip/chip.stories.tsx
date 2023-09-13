@@ -37,8 +37,7 @@ story030WithoutButton.args = {
 };
 story030WithoutButton.storyName = 'Without Button';
 
-const controls = {};
-const chipComponentArgs = getArgTypes('b2b-chip-component', controls);
+const chipComponentArgs = getArgTypes('b2b-chip-component');
 
 export default {
   title: 'Components/Interaction/Chip',

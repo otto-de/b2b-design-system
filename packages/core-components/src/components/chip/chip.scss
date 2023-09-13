@@ -8,9 +8,11 @@
   background-color: var(--b2b-color-grey-50);
   border-radius: var(--b2b-size-50);
   padding: var(--b2b-size-10) var(--b2b-size-25);
-  line-height: var(--b2b-size-53);
+  line-height: var(--b2b-size-copy-line-height-100);
+  height: var(--b2b-size-70);
   display: flex;
   align-items: center;
+  cursor: default;
 
   &__label {
     margin-right: var(--b2b-size-10);
@@ -19,7 +21,12 @@
   &__clearIcon {
     display: flex;
     fill: var(--b2b-color-icon-default);
-    font-weight: bold;
+    height: var(--b2b-size-copy-line-height-100);
+    width: var(--b2b-size-50);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: rotate(180deg);
   }
 }
 
