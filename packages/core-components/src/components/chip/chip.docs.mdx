@@ -1,0 +1,55 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+} from '@storybook/addon-docs';
+
+# Singular Checkbox
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-chip-component--story-010-default" />
+</Canvas>
+
+## Properties
+
+### Label
+
+The label of the chip which appears on the component. This is the only
+required property.
+
+### Required
+
+Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
+validation, is just a style addition.
+
+### Disabled
+
+Whether or not the chip is disabled. If not specified, it will not be disabled.
+
+### Value
+
+The chip value. It does not have to be the same as the chip label. When the chip is closed,
+the value gets emitted
+
+### Close Button
+
+Per default, all large alerts except the error alert have a close button. By setting `hasCloseButton` to false, you can remove it.
+
+## Events
+
+### b2b-close
+
+Fires whenever the chip is closed by clicking on the clear button.
+
+`ChipComponentEventDetail<T = any> {
+  value: T;
+}`
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
