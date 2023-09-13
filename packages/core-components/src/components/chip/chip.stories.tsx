@@ -8,7 +8,7 @@ const Template: Story = ({ label, disabled, value, hasCloseButton }) => {
     label="${label}"
     disabled="${disabled}"
     value="${value}"
-    has-close-button="${hasCloseButton}"></b2b-chip-component>`;
+    hasCloseButton="${hasCloseButton}"></b2b-chip-component>`;
 };
 
 const defaultArgs = {

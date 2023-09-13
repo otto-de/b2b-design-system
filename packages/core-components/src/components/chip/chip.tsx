@@ -37,13 +37,10 @@ export class ChipComponent {
   @Event({ eventName: 'b2b-close' })
   b2bClose: EventEmitter<ChipComponentEventDetail>;
 
-  private onClick = (ev: MouseEvent) => {
+  private close(ev: Event) {
     ev.preventDefault();
-    if (this.disabled) {
-      return;
-    }
     this.b2bClose.emit({ value: this.value });
-  };
+  }
 
   private clearIcon = (
     <svg
@@ -70,7 +67,7 @@ export class ChipComponent {
                 'b2b-chip__clearIcon': true,
                 'b2b-chip--disabled__clearIcon': this.disabled,
               }}
-              onClick={this.onClick}>
+              onClick={this.close}>
               {this.clearIcon}
             </span>
           )}
