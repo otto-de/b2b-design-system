@@ -10,6 +10,25 @@ Visit [npm](https://www.npmjs.com/search?q=%40otto-de) and install our core comp
 npm i @otto-de/b2b-core-components @otto-de/b2b-tokens
 ```
 
+To use the components, you need to load a CSS file and some JavaScript. The CSS file includes the fonts and the design tokens. In this case, there is no need to install the tokens package again.
+
+## Plain HTML
+
+```html
+<link
+  rel="stylesheet"
+  href="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css" />
+<script
+  type="module"
+  src="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.esm.js"></script>
+```
+
+## With a bundler or ES modules
+
+```js
+import '~@otto-de/b2b-core-components/dist/b2b-core-components/b2b-core-components.css';
+```
+
 For a more detailed guide of installation and usage please follow one of our framework guidelines:
 
 [Getting started with React](?path=/docs/getting-started-react--page)
