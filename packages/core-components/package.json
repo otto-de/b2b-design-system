@@ -63,7 +63,7 @@
     "@storybook/theming": "^6.5.16",
     "@storybook/web-components": "^6.5.16",
     "@types/jest": "^27.5.2",
-    "@types/mdx": "^2.0.5",
+    "@types/mdx": "^2.0.7",
     "@types/postcss-import": "^14.0.0",
     "copyfiles": "^2.4.1",
     "css-loader": "^6.8.1",
