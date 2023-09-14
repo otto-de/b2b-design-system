@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import paginationDocs from './pagination.docs.mdx';
 
 const Template: Story = ({ totalPages, activePage }) => {
   return html`<b2b-pagination
@@ -35,8 +34,5 @@ export default {
   viewmode: 'docs',
   parameters: {
     controls: { expanded: true },
-    docs: {
-      page: paginationDocs,
-    },
   },
 } as Meta;

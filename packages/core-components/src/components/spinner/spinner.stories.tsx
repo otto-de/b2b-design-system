@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
-import spinnerDocs from './spinner.docs.mdx';
 import { html } from 'lit-html';
 
 const Template: Story = ({ size, color }) => {
@@ -44,9 +43,4 @@ export default {
   title: 'Components/Status & Feedback/Spinner',
   argTypes: spinnerArgs,
   viewmode: 'docs',
-  parameters: {
-    docs: {
-      page: spinnerDocs,
-    },
-  },
 } as Meta;

@@ -2,7 +2,6 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import allTokens from '@otto-de/b2b-tokens/build/js/default.json';
 import './styles.css';
-import fontDocs from './font.docs.mdx';
 
 const tokenRow = (token, size?) => {
   return html`
@@ -77,12 +76,8 @@ export const story010FontTokens = FontTokens.bind({});
 story010FontTokens.storyName = 'Font';
 
 export default {
-  title: 'DesignTokens/Font',
-  viewMode: 'docs',
+  title: 'Design Tokens/Font',
   parameters: {
-    docs: {
-      page: fontDocs,
-    },
     options: {
       showPanel: false, // hides addons panel
     },

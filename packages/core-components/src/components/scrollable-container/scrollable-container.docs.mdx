@@ -5,7 +5,12 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as ScrollableContainerStories from './scrollable-container.stories';
+
+<Meta of={ScrollableContainerStories} />
 
 # Scrollable Container
 
@@ -21,7 +26,7 @@ require the text wo wrap.
 </b2b-scrollable-container>
 ```
 
-## Horizontal scroll
+### Horizontal scroll
 
 In this example the text will inherit the `nowrap` property of the container, therefore is just one long line,
 triggering the horizontal scroll on the container.
@@ -30,7 +35,7 @@ triggering the horizontal scroll on the container.
   <Story id="components-content-scrollable-container--story-010-horizontal-scroll" />
 </Canvas>
 
-## Vertical scroll
+### Vertical scroll
 
 In this example we set the white-space of the text to normal so that it will wrap, also causing it to be vertically
 a long paragraph, triggering the vertical scroll on the container.

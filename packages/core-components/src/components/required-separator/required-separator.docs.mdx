@@ -5,7 +5,12 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as RequiredSeparatorStories from './required-separator.stories';
+
+<Meta of={RequiredSeparatorStories} />
 
 # Required Separator
 
@@ -17,6 +22,7 @@ The B2B Required Separator is a form element that indicates that certaint form f
 You should use it in combination with B2B Input Components that have the `required="true"` property.
 
 <br />
+
 ## Properties
 
 ### Label

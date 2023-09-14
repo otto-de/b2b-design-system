@@ -4,7 +4,12 @@ import {
   PRIMARY_STORY,
   Primary,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as InputGroupStories from './input-group.stories';
+
+<Meta of={InputGroupStories} />
 
 # Input Group Component
 
@@ -17,7 +22,7 @@ The Input Group Component provides a visual wrapper to concatenate several form 
 **_ Important _** You can only use B2B Form Components inside of this wrapper, such as
 B2B Dropdowns, B2B Inputs or B2B Buttons. Other components such as B2B Textarea or non-B2B Components will not look good.
 
-## Slots
+### Slots
 
 The Input Group consists of multiple individual B2B Form Components. They are visually grouped together.
 Like other Form Group Components, such as Radio or Checkbox Group, they have a group error and a group hint,
@@ -78,7 +83,7 @@ and an error message will be shown if specified.
 If set to true, all components inside the Input Group will be disabled and an error message
 will not be shown, even if the group is also marked as invalid.
 
-## Form Elements width
+### Form Elements Width
 
 You can change the width of our form elements by directly applying the desired width to the component. Follow
 this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-width) if you want to know more.

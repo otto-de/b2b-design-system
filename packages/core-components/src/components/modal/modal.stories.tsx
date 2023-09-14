@@ -1,9 +1,8 @@
 import { Meta, Story } from '@storybook/web-components';
 import { screen } from '@storybook/testing-library';
 import { getArgTypes } from '../../docs/config/utils';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import { html } from 'lit-html';
-import modalDocs from './modal.docs.mdx';
 
 const Template: Story = ({
   opened,
@@ -105,9 +104,4 @@ export default {
   title: 'Components/Status & Feedback/Modal',
   argTypes: modalArgs,
   viewmode: 'docs',
-  parameters: {
-    docs: {
-      page: modalDocs,
-    },
-  },
 } as Meta;

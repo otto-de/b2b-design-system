@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import docs from './separator.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({ alignment }) => {
@@ -42,9 +41,4 @@ export default {
   title: 'Components/Utilities/Separator',
   argTypes: argTypes,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: docs,
-    },
-  },
 } as Meta;

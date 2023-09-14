@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
-import textareaDocs from './textarea.docs.mdx';
 
 const Template: Story = ({
   label,
@@ -96,9 +95,4 @@ export default {
   title: 'Components/Form/Textarea',
   argTypes: textareaArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: textareaDocs,
-    },
-  },
 } as Meta;

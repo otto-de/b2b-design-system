@@ -1,0 +1,140 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Getting Started/Package installation" />
+
+# Package Installation
+
+## npm
+
+Visit [npm](https://www.npmjs.com/search?q=%40otto-de) and install our core components directly by running for example:
+
+```
+npm i @otto-de/b2b-core-components @otto-de/b2b-tokens
+```
+
+To use the components, you need to load a CSS file and some JavaScript. The CSS file includes the fonts and the design tokens. In this case, there is no need to install the tokens package again.
+
+## Plain HTML
+
+```html
+<link
+  rel="stylesheet"
+  href="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css" />
+<script
+  type="module"
+  src="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.esm.js"></script>
+```
+
+## With a bundler or ES modules
+
+```js
+import '~@otto-de/b2b-core-components/dist/b2b-core-components/b2b-core-components.css';
+```
+
+For a more detailed guide of installation and usage please follow one of our framework guidelines:
+
+[Getting started with React](?path=/docs/getting-started-react--page)
+
+[Getting started with Vue](?path=/docs/getting-started-vue--page)
+
+---
+
+<br />
+<br />
+
+## GitHub Packages
+
+The B2B Design System provides its npm packages through GitHub packages under the @otto-de organisation.
+
+GitHub packages requires an authentication token to be present in your local environment and pipelines
+to be able to install the package.
+
+In this guide you can find:
+
+- [Configure token for local development](#configure-token-for-local-development)
+- [Configure token for CI](#configure-token-for-local-development)
+- [Generate Personal Access Token](#generate-personal-access-token-pat)
+- [External links](#for-more-information-you-can-read)
+
+<br />
+
+## Configure token for local development
+
+For local development you can log in to npm on the command line or generate a GitHub Personal Access Token (PAT)
+from your GitHub account following [these steps](#generate-personal-access-token-pat).
+
+We recommend adding the token as an env variable in your system:
+
+```
+export GITHUB_TOKEN=<TOKEN>
+```
+
+Once you have a token, you can configure access in two ways:
+
+option 1: Add the token to your per-user `~/.npmrc` file.
+
+option 2: Create an `.npmrc` file in the root of the project.
+
+In both cases, include the following lines:
+
+```
+@otto-ec:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+This is in detailed explained in [Authenticating to GitHub Packages guide](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages)
+
+<br />
+
+## Configure token for CI
+
+These steps are needed both if using GitHub actions or other ci environments.
+
+To authenticate with GitHub packages you will need to use a PAT (Personal Access Token). For ci usage it is
+recommended to use a Functional User token. If your team hasn't created a `GitHub Technical Functional User (FKT)`
+yet, you can follow [this guide](https://confluence.otto.de/x/P4aTFg) to do so.
+
+If you already have a `FKT` for your team, you can follow the [these steps](#generate-personal-access-token-pat) for
+the technical user and get the token to be used in the env variables in your ci.
+
+Create an `.npmrc` file in the root of the project, if you haven't done so yet.
+
+```
+@otto-ec:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+### Using GitHub Actions
+
+To configure GitHub actions, you can add the token as a secret env variable, and add it to your npm install step in
+your workflow file, for example:
+
+```
+- name: Install dependencies
+  run: npm ci
+  env:
+    GITHUB_TOKEN: ${{secrets.TEAM_PACKAGE_TOKEN}}
+```
+
+## Generate Personal Access Token (PAT)
+
+**1.** Go to your _GitHub profile > settings > developer settings_.
+
+Under _Personal access tokens_, create a new token and name it according to your needs. Select `read:packages`
+scope and hit `generate token`.
+
+_Be sure to copy the token and save it somewhere only accessible to you as you won't see it again._
+
+If you want to use an existing token, just add the permissions: `read:packages`
+
+**2.** Select `configure SSO` and authorize Otto organization. Follow the steps displayed.
+
+<br />
+
+### For more information, you can read:
+
+[Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+[Authenticating to GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages)
+
+[Installing an npm package](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)

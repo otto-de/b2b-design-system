@@ -5,13 +5,18 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as ParagraphStories from './paragraph.stories';
+
+<Meta of={ParagraphStories} />
 
 # Paragraph Component
 
 This component can be used to render running text. Its a wrapper around the `<p>` tag.
 
-### Example:
+### Example
 
 <Canvas withSource="open" withToolbar={false}>
   <Story id="components-content-paragraph--story-010-default" />
@@ -21,23 +26,25 @@ NOTE: All attributes are optional. The component can simply be used like this wi
 
 <Source code={`<b2b-paragraph>Simple Paragraph</b2b-paragraph>`} />
 
-## Customisations
+## Properties
 
 <br />
 
-#### Bold text
+### Weight
 
 <Canvas withSource="closed" withToolbar={false}>
   <Story id="components-content-paragraph--story-020-bold" />
 </Canvas>
 
-#### Small text
+### Size
 
 Can be used for hints and asterisk texts, among others.
 
 <Canvas withSource="closed" withToolbar={false}>
   <Story id="components-content-paragraph--story-030-small" />
 </Canvas>
+
+### Align
 
 #### Center aligned text
 

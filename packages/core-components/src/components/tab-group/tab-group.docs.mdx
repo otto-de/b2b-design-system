@@ -5,7 +5,12 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as TabGroupStories from './tab-group.stories';
+
+<Meta of={TabGroupStories} />
 
 # Tab Group
 
@@ -44,7 +49,7 @@ export interface TabChangeEventDetail {
 
 # Tab
 
-## Properties
+## Tab - Properties
 
 ### Disabled
 

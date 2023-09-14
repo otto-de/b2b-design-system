@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import allTokens from '@otto-de/b2b-tokens/build/js/default.json';
-import sizeDocs from './size.docs.mdx';
 
 const tokenRow = token => {
   const valueInPixels = parseFloat(token.value) * 16 + 'px';
@@ -61,12 +60,9 @@ export const story010SizeTokens = SizeTokens.bind({});
 story010SizeTokens.storyName = 'Size';
 
 export default {
-  title: 'DesignTokens/Size',
+  title: 'Design Tokens/Size',
   viewMode: 'docs',
   parameters: {
-    docs: {
-      page: sizeDocs,
-    },
     options: {
       showPanel: false, // hides addons panel
     },

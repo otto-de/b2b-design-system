@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import toggleDocs from './toggle-group.docs.mdx';
 
 const Template: Story = ({ name, disabled, singleDisabled }) => {
   return html`
@@ -51,9 +50,4 @@ export default {
   title: 'Components/Interaction/Toggle Button Group',
   argTypes: toggleGroupArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: toggleDocs,
-    },
-  },
 } as Meta;
