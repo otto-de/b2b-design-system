@@ -137,3 +137,20 @@ export const Anchor: Story = {
     Go to otto.de
   </b2b-button>`,
 };
+
+export const DisabledAnchor: Story = {
+  args: {
+    ...meta.args,
+    disabled: true,
+  },
+  render: ({ ...args }) => html`<b2b-button
+    variant="${args.variant}"
+    size="${args.size}"
+    disabled="${args.disabled}"
+    loading="${args.loading}"
+    href="www.otto.de"
+    target="blank"
+    type="${args.type}">
+    Go to otto.de
+  </b2b-button>`,
+};

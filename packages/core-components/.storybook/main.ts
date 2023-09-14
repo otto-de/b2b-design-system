@@ -16,6 +16,6 @@ const config = {
     '@storybook/addon-interactions',
     '@storybook/addon-mdx-gfm',
   ],
-  framework: '@storybook/web-components-vite',
+  framework: '@storybook/web-components-webpack5',
 };
 export default config;

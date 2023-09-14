@@ -343,3 +343,65 @@ export const AccordionTable: Story = {
     </b2b-table>
   </div>`,
 };
+
+export const Selectable: Story = {
+  args: {
+    ...meta.args,
+  },
+  render: ({ ...args }) => html`<div>
+    <b2b-table size="${args.size}">
+      <b2b-table-rowgroup type="header" accordion selectable>
+        <b2b-table-row>
+          ${args.data.columns.map((columnName, index) => {
+            return html` <b2b-table-header
+              ?divider=${args.withDividers &&
+              index !== args.data.columns.length - 1}
+              style=${index === 0 ? `width: ${args.firstColumnWidth}` : ''}
+              >${columnName}</b2b-table-header
+            >`;
+          })}
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+      <b2b-table-rowgroup type="body" accordion selectable>
+        ${args.data.rows.map((row, index) => {
+          return html`<b2b-table-row
+            highlight="${args.highlight}"
+            color=${index === 0 ? args.color : 'default'}>
+            ${row.map(
+              data =>
+                html`<b2b-table-cell
+                  ?divider=${args.withDividers}
+                  align="${args.align}"
+                  text-wrap="${args.textWrap}"
+                  >${data}</b2b-table-cell
+                >`,
+            )}
+            <b2b-table-cell
+              ><b2b-button size="50">Action</b2b-button></b2b-table-cell
+            >
+          </b2b-table-row>`;
+        })}
+      </b2b-table-rowgroup>
+      <b2b-table-rowgroup type="body" accordion opened selectable>
+        ${args.data.rows.map((row, index) => {
+          return html`<b2b-table-row
+            highlight="${args.highlight}"
+            color=${index === 0 ? args.color : 'default'}>
+            ${row.map(
+              data =>
+                html`<b2b-table-cell
+                  ?divider=${args.withDividers}
+                  align="${args.align}"
+                  text-wrap="${args.textWrap}"
+                  >${data}</b2b-table-cell
+                >`,
+            )}
+            <b2b-table-cell
+              ><b2b-button size="50">Action</b2b-button></b2b-table-cell
+            >
+          </b2b-table-row>`;
+        })}
+      </b2b-table-rowgroup>
+    </b2b-table>
+  </div>`,
+};
