@@ -1,0 +1,41 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+.b2b-chip {
+  font-family: var(--b2b-font-family-default);
+  font-size: var(--b2b-size-copy-100);
+  width: fit-content;
+  background-color: var(--b2b-color-grey-50);
+  border-radius: var(--b2b-size-50);
+  padding: var(--b2b-size-10) var(--b2b-size-25);
+  line-height: var(--b2b-size-copy-line-height-100);
+  height: var(--b2b-size-70);
+  display: flex;
+  align-items: center;
+  cursor: default;
+
+  &__label {
+    margin-right: var(--b2b-size-10);
+  }
+
+  &__clearIcon {
+    display: flex;
+    fill: var(--b2b-color-icon-default);
+    height: var(--b2b-size-copy-line-height-100);
+    width: var(--b2b-size-50);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: rotate(180deg);
+  }
+}
+
+.b2b-chip--disabled {
+  pointer-events: none;
+  background: var(--b2b-color-grey-25);
+  color: var(--b2b-color-grey-400);
+
+  &__clearIcon {
+    fill: var(--b2b-color-grey-400);
+  }
+}

@@ -29,6 +29,25 @@ The distribution of this package exposes web-components that are natively suppor
 do a very simple configuration in your project to make them available:
 
 <br />
+To use the components, you need to load a CSS file and some JavaScript. The CSS file
+includes the fonts and the design tokens.
+
+## Plain HTML
+
+```html
+<link
+  rel="stylesheet"
+  href="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css" />
+<script
+  type="module"
+  src="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.esm.js"></script>
+```
+
+## With a bundler or ES modules
+
+```js
+import '~@otto-de/b2b-core-components/dist/b2b-core-components/b2b-core-components.css';
+```
 
 ## Vue 3
 

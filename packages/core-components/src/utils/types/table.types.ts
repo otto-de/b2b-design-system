@@ -28,12 +28,20 @@ export const TableSortDirections = {
 export type TableSortDirections =
   (typeof TableSortDirections)[keyof typeof TableSortDirections];
 
-export const TableRowTypes = {
+export const TableAccordionRowTypes = {
   PARENT: 'parent',
   CHILD: 'child',
   HEADER: 'header',
 } as const;
-export type TableRowTypes = (typeof TableRowTypes)[keyof typeof TableRowTypes];
+export type TableAccordionRowTypes =
+  (typeof TableAccordionRowTypes)[keyof typeof TableAccordionRowTypes];
+
+export const TableCheckboxTypes = {
+  HEADER: 'header',
+  ROW: 'row',
+} as const;
+export type TableCheckboxTypes =
+  (typeof TableCheckboxTypes)[keyof typeof TableCheckboxTypes];
 
 export const TableColourOptions = {
   DEFAULT: 'default',

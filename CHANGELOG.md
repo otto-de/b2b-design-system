@@ -1,3 +1,25 @@
+## [1.6.1](https://github.com/otto-de/b2b-design-system/compare/v1.6.0...v1.6.1) (2023-08-22)
+
+
+### Bug Fixes
+
+* **Table:** table sorting arrows now display correctly again ([4074cca](https://github.com/otto-de/b2b-design-system/commit/4074cca4d2d16e3b7153edde89a924a33b588a5e))
+
+# [1.6.0](https://github.com/otto-de/b2b-design-system/compare/v1.5.0...v1.6.0) (2023-08-22)
+
+
+### Bug Fixes
+
+* **Checkbox Group:** [B2BDS-205] group disabled state now reliable ([4a0dbcb](https://github.com/otto-de/b2b-design-system/commit/4a0dbcbf6d23b7a4c3bf64670b78d2493188d560))
+* **Input Group:** individual elements now correctly disabled in rerenders ([453ca16](https://github.com/otto-de/b2b-design-system/commit/453ca163373c0f652ee4f59e3ebd28975ff97314))
+
+
+### Features
+
+* **Checkbox Group:** [B2BDS-205] individual checkboxes in a group can be disabled ([cecc895](https://github.com/otto-de/b2b-design-system/commit/cecc895a1132c906ff7cde04ae7d45418e7ca3c3))
+* **Checkbox:** [B2BDS-166] indeterminate state for checkbox ([3f3b2ba](https://github.com/otto-de/b2b-design-system/commit/3f3b2bae7f1382911fdb6a194a145138d9524c5d))
+* **Table:** [B2BDS-166] selectable rows ([f8248d9](https://github.com/otto-de/b2b-design-system/commit/f8248d9d61d0bbc865ee765a998f7ee78f939e88))
+
 # [1.5.0](https://github.com/otto-de/b2b-design-system/compare/v1.4.0...v1.5.0) (2023-07-03)
 
 

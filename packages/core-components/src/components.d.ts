@@ -5,17 +5,21 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
+import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableRowTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
+export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export namespace Components {
     interface B2bAlert {
@@ -134,13 +138,17 @@ export namespace Components {
          */
         "hint"?: string;
         /**
+          * If used in combination with other checkboxes, this state indicates that some checkboxes are checked, but not all. Per default, it is false.
+         */
+        "indeterminate": boolean;
+        /**
           * Whether or not the checkbox is rendered with error styles. Defaults to false.
          */
         "invalid"?: boolean;
         /**
           * The checkbox label. This attribute is required.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The name of the checkbox. Per default it is undefined. Use this to programmatically group checkboxes together by giving them the same name.
          */
@@ -149,6 +157,10 @@ export namespace Components {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required": boolean;
+        /**
+          * If true, renders a standalone inline checkbox with no label and hint/error.
+         */
+        "standalone": boolean;
         /**
           * The value of the checkbox. This is not the same as the checked property. It is only used when the checkbox participates in a checkbox group
          */
@@ -183,6 +195,24 @@ export namespace Components {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required": boolean;
+    }
+    interface B2bChipComponent {
+        /**
+          * Whether the chip is disabled.
+         */
+        "disabled": boolean;
+        /**
+          * Whether or not the chip component has a close button. Per default it is true.
+         */
+        "hasCloseButton": boolean;
+        /**
+          * The text content of the chip. It is required.
+         */
+        "label": string;
+        /**
+          * It is only used when the chip component participates in a group
+         */
+        "value"?: any;
     }
     interface B2bDropdown {
         /**
@@ -695,6 +725,11 @@ export namespace Components {
         "sortId"?: string;
     }
     interface B2bTableRow {
+        "accordionType": TableAccordionRowTypes;
+        /**
+          * If a selectable row is currently checked. Per default, it is false.
+         */
+        "checked": boolean;
         /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
@@ -704,10 +739,18 @@ export namespace Components {
          */
         "highlight": boolean;
         /**
+          * If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all.
+         */
+        "indeterminate": boolean;
+        "selectable": boolean;
+        /**
           * Will toggle the accordion opened or closed.
          */
-        "toggleAccordion": (isOpen: any) => Promise<void>;
-        "type": TableRowTypes;
+        "toggleAccordion": (isOpen: boolean) => Promise<void>;
+        /**
+          * The unique identifier for a selectable row. It is emitted when the row is selected.
+         */
+        "value"?: string;
     }
     interface B2bTableRowgroup {
         /**
@@ -718,6 +761,10 @@ export namespace Components {
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened": boolean;
+        /**
+          * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
+         */
+        "selectable": boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -893,6 +940,10 @@ export interface B2bCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCheckboxGroupElement;
 }
+export interface B2bChipComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bChipComponentElement;
+}
 export interface B2bDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bDropdownElement;
@@ -949,6 +1000,10 @@ export interface B2bTableRowCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bTableRowElement;
 }
+export interface B2bTableRowgroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bTableRowgroupElement;
+}
 export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bTextareaElement;
@@ -997,6 +1052,12 @@ declare global {
     var HTMLB2bCheckboxGroupElement: {
         prototype: HTMLB2bCheckboxGroupElement;
         new (): HTMLB2bCheckboxGroupElement;
+    };
+    interface HTMLB2bChipComponentElement extends Components.B2bChipComponent, HTMLStencilElement {
+    }
+    var HTMLB2bChipComponentElement: {
+        prototype: HTMLB2bChipComponentElement;
+        new (): HTMLB2bChipComponentElement;
     };
     interface HTMLB2bDropdownElement extends Components.B2bDropdown, HTMLStencilElement {
     }
@@ -1261,6 +1322,7 @@ declare global {
         "b2b-card": HTMLB2bCardElement;
         "b2b-checkbox": HTMLB2bCheckboxElement;
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
+        "b2b-chip-component": HTMLB2bChipComponentElement;
         "b2b-dropdown": HTMLB2bDropdownElement;
         "b2b-grid": HTMLB2bGridElement;
         "b2b-grid-col": HTMLB2bGridColElement;
@@ -1422,13 +1484,17 @@ declare namespace LocalJSX {
          */
         "hint"?: string;
         /**
+          * If used in combination with other checkboxes, this state indicates that some checkboxes are checked, but not all. Per default, it is false.
+         */
+        "indeterminate"?: boolean;
+        /**
           * Whether or not the checkbox is rendered with error styles. Defaults to false.
          */
         "invalid"?: boolean;
         /**
           * The checkbox label. This attribute is required.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The name of the checkbox. Per default it is undefined. Use this to programmatically group checkboxes together by giving them the same name.
          */
@@ -1449,6 +1515,10 @@ declare namespace LocalJSX {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required"?: boolean;
+        /**
+          * If true, renders a standalone inline checkbox with no label and hint/error.
+         */
+        "standalone"?: boolean;
         /**
           * The value of the checkbox. This is not the same as the checked property. It is only used when the checkbox participates in a checkbox group
          */
@@ -1487,6 +1557,28 @@ declare namespace LocalJSX {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required"?: boolean;
+    }
+    interface B2bChipComponent {
+        /**
+          * Whether the chip is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether or not the chip component has a close button. Per default it is true.
+         */
+        "hasCloseButton"?: boolean;
+        /**
+          * The text content of the chip. It is required.
+         */
+        "label": string;
+        /**
+          * This event will be triggered when the chip element is closed
+         */
+        "onB2b-close"?: (event: B2bChipComponentCustomEvent<ChipComponentEventDetail>) => void;
+        /**
+          * It is only used when the chip component participates in a group
+         */
+        "value"?: any;
     }
     interface B2bDropdown {
         /**
@@ -2071,6 +2163,11 @@ declare namespace LocalJSX {
         "sortId"?: string;
     }
     interface B2bTableRow {
+        "accordionType"?: TableAccordionRowTypes;
+        /**
+          * If a selectable row is currently checked. Per default, it is false.
+         */
+        "checked"?: boolean;
         /**
           * Background color of the row. Use it semantically. This color selection have hover states *
          */
@@ -2080,10 +2177,22 @@ declare namespace LocalJSX {
          */
         "highlight"?: boolean;
         /**
+          * If a selectable row is a parent for an accordion, it becomes indeterminate when some of it's children are checked, but not all.
+         */
+        "indeterminate"?: boolean;
+        /**
           * Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown.
          */
         "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
-        "type"?: TableRowTypes;
+        /**
+          * Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status.
+         */
+        "onB2b-row-selected"?: (event: B2bTableRowCustomEvent<CheckboxEventDetail1>) => void;
+        "selectable"?: boolean;
+        /**
+          * The unique identifier for a selectable row. It is emitted when the row is selected.
+         */
+        "value"?: string;
     }
     interface B2bTableRowgroup {
         /**
@@ -2091,9 +2200,17 @@ declare namespace LocalJSX {
          */
         "accordion"?: boolean;
         /**
+          * Emits when the rowgroup as a whole is selected.
+         */
+        "onB2b-group-selected"?: (event: B2bTableRowgroupCustomEvent<TableAccordionSelectedEventDetail>) => void;
+        /**
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened"?: boolean;
+        /**
+          * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
+         */
+        "selectable"?: boolean;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -2279,6 +2396,7 @@ declare namespace LocalJSX {
         "b2b-card": B2bCard;
         "b2b-checkbox": B2bCheckbox;
         "b2b-checkbox-group": B2bCheckboxGroup;
+        "b2b-chip-component": B2bChipComponent;
         "b2b-dropdown": B2bDropdown;
         "b2b-grid": B2bGrid;
         "b2b-grid-col": B2bGridCol;
@@ -2329,6 +2447,7 @@ declare module "@stencil/core" {
             "b2b-card": LocalJSX.B2bCard & JSXBase.HTMLAttributes<HTMLB2bCardElement>;
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
+            "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
             "b2b-dropdown": LocalJSX.B2bDropdown & JSXBase.HTMLAttributes<HTMLB2bDropdownElement>;
             "b2b-grid": LocalJSX.B2bGrid & JSXBase.HTMLAttributes<HTMLB2bGridElement>;
             "b2b-grid-col": LocalJSX.B2bGridCol & JSXBase.HTMLAttributes<HTMLB2bGridColElement>;

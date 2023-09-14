@@ -33,3 +33,6 @@ export interface HTMLB2bFormElement {
 export interface ToggleButtonEventDetail<T = any> {
   value: T;
 }
+export interface ChipComponentEventDetail<T = any> {
+  value: T;
+}
