@@ -21,7 +21,9 @@ services:
     build:
       context: .
       dockerfile: test.Dockerfile
+    volumes:
+      - ./packages/core-components/__snapshots__:/b2b/packages/core-components/__snapshots__
     depends_on:
       storybook:
         condition: service_healthy
-    command: npx test-storybook --verbose --url http://storybook:6006 --config-dir packages/core-components/.storybook
+    command: npx test-storybook --verbose --url http://storybook:6006
