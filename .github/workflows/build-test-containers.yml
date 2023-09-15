@@ -1,5 +1,5 @@
 on:
-  workflow-call:
+  workflow_call:
     inputs:
       node_version:
         description: 'Node Version'
