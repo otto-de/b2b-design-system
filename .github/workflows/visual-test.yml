@@ -6,28 +6,22 @@ on:
         required: true
         type: string
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
-  run_visual_tests:
-    name: Visual Regression Tests
+  docker-compose:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
-    outputs:
-      PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
+      
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
 
-      - name: Use cached dependencies
+      - name: Use Cache dependencies
         id: node-modules-cache
         uses: actions/cache@v3
         with:
@@ -36,31 +30,9 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
-      - name: Build
-        run: |
-          npm run build
-          cd packages/core-components && npm run build:storybook
-
-      # DEPLOY TO GITHUB PAGES
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'packages/core-components/docs-build/design-system'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
-
-      # VISUAL REGRESSION TESTS
-      - name: Run visual regression tests
-        run: |
-          npx playwright install
-          cd packages/core-components
-          npx test-storybook --url ${{ steps.deployment.outputs.page_url }}
-
+      - name: Start Containers
+        run: docker-compose up --abort-on-container-exit --build
+      
       - name: Upload visual test results
         if: failure()
         uses: actions/upload-artifact@v3
