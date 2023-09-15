@@ -33,6 +33,10 @@ jobs:
       - name: Start Containers
         run: docker-compose up --build
       
+      - name: Stop containers
+        if: always()
+        run: docker-compose down
+      
       - name: Upload visual test results
         if: failure()
         uses: actions/upload-artifact@v3
@@ -40,7 +44,3 @@ jobs:
           name: visual-regression-differences
           path: ./packages/core-components/__snapshots__/__diff_output__
           retention-days: 10
-      
-      - name: Stop containers
-        if: always()
-        run: docker-compose -f down
