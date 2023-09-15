@@ -7,7 +7,7 @@ WORKDIR /b2b
 COPY ./packages /b2b/packages
 COPY ./package.json /b2b/package.json
 COPY ./scripts /b2b/scripts
-COPY ./DEV_GUIDELINES.md /b2b
+COPY ./DEV-GUIDELINES.md /b2b
 COPY ./CHANGELOG.md /b2b
 
 
