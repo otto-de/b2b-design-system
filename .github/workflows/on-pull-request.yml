@@ -20,6 +20,13 @@ jobs:
     with:
       node_version: 18
   
+  docker-tests:
+    name: Visual Regression Tests with Docker Compose
+    needs: [ validations ]
+    uses: ./.github/workflows/build-test-containers.yml
+    with:
+      node_version: 18
+  
   dependabot-automerge:
     name: Dependabot Automerge
     needs: [ install, validations ]
