@@ -31,7 +31,7 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Start Containers
-        run: docker-compose up --exit-code-from b2b-design-system_run-tests_1 --build
+        run: docker-compose up --abort-on-container-exit --build
       
       - name: Stop containers
         if: always()
