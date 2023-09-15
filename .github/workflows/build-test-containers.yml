@@ -40,3 +40,7 @@ jobs:
           name: visual-regression-differences
           path: ./packages/core-components/__snapshots__/__diff_output__
           retention-days: 10
+      
+      - name: Stop containers
+        if: always()
+        run: docker-compose -f down
