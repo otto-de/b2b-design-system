@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import inputCheckboxDocs from './checkbox.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({
@@ -90,9 +89,4 @@ export default {
   title: 'Components/Form/Checkbox',
   argTypes: inputCheckboxArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: inputCheckboxDocs,
-    },
-  },
 } as Meta;

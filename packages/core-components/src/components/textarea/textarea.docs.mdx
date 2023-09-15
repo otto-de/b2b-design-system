@@ -4,7 +4,12 @@ import {
   PRIMARY_STORY,
   Primary,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as TextareaStories from './textarea.stories';
+
+<Meta of={TextareaStories} />
 
 # Textarea Component
 
@@ -12,7 +17,7 @@ import {
   <Story id="components-form-textarea--story-060-all-args" />
 </Canvas>
 
-## Attributes
+## Properties
 
 ### Label
 
@@ -56,12 +61,12 @@ This attribute determines whether the user can resize the textarea by dragging t
 specified and allows resizing both vertically and horizontally. Setting it to `none` disables resizing, `unset` will reset it to an
 inherited property and `vertical` or `horizontal` allow resizing in one direction only.
 
-## Name
+### Name
 
 The name of the form field. Use this when the textarea is used in a native form field. When a `FormData` object is created and the `value`
 is appended, the `name` property should be included.
 
-## Max Length
+### Max Length
 
 The maximum length of the textarea input. Use this to limit user input.
 
@@ -88,7 +93,7 @@ prevents layout shifts. Unless you have a good use case for character-by-charact
 
 <br />
 
-## Form Elements width
+### Form Elements width
 
 You can change the width of our form elements by directly applying the desired width to the component. Follow
 this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-width) if you want to know more.

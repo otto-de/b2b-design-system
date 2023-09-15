@@ -5,9 +5,14 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
 
-# Singular Checkbox
+import * as ChipStories from './chip.stories';
+
+<Meta of={ChipStories} />
+
+# Chip Component
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-interaction-chip-component--story-010-default" />
@@ -20,11 +25,6 @@ import {
 The label of the chip which appears on the component. This is the only
 required property.
 
-### Required
-
-Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
-validation, is just a style addition.
-
 ### Disabled
 
 Whether or not the chip is disabled. If not specified, it will not be disabled.
@@ -36,7 +36,7 @@ the value gets emitted
 
 ### Close Button
 
-Per default, all large alerts except the error alert have a close button. By setting `hasCloseButton` to false, you can remove it.
+Per default, the chip has a close button. By setting `hasCloseButton` to false, you can remove it.
 
 ## Events
 

@@ -5,7 +5,12 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as ModalStories from './modal.stories';
+
+<Meta of={ModalStories} />
 
 # Modal Component
 
@@ -28,7 +33,7 @@ to 800px. The modal height is not limited. We recommend using the `large` varian
 
 <br />
 
-## Slots
+### Slots
 
 While the headline property is required and will always be shown in the modal, other parts of the modal such as the body and footer
 content are optional.
@@ -56,15 +61,28 @@ Fires whenever the modal is closed through changing the `opened` property to fal
 Fires just before the `opened` property of the modal is changed to `false` and emits
 the closing trigger as a string:
 
-| Trigger      | Event Name     |
-| ------------ | -------------- |
-| Backdrop     | 'BACKDROP'     |
-| Escape Key   | 'ESCAPE_KEY'   |
-| Close Button | 'CLOSE_BUTTON' |
+<table>
+  <tr>
+    <td>Trigger</td>
+    <td>Event Name</td>
+  </tr>
+  <tr>
+    <td>Backdrop</td>
+    <td>&#39;BACKDROP&#39;</td>
+  </tr>
+  <tr>
+    <td>Escape Key</td>
+    <td>&#39;ESCAPE_KEY&#39;</td>
+  </tr>
+  <tr>
+    <td>Close Button</td>
+    <td>&#39;CLOSE_BUTTON&#39;</td>
+  </tr>
+</table>
 
 <br />
 
-## Focus Trap
+### Focus Trap
 
 The modal component uses a focus trap to improve accessibility. It traverses both light and shadow DOM
 of the entire document and sets the focus on the first element it finds as soon as the modal is opened.

@@ -5,14 +5,22 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
 import dedent from 'ts-dedent';
+
+import * as RoundedIconStories from './rounded-icon.stories';
+
+<Meta of={RoundedIconStories} />
 
 # Rounded Icon Component
 
 The rounded icon is meant to contain either any b2b-icon or a text that must be one character long.
 
-### Icon content
+### Slots
+
+### Icon Content
 
 To display an icon as content, use the `slot='icon'` as an attribute of `b2b-icon` as you can see in this example:
 

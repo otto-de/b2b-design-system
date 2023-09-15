@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import chipComponentDocs from './chip.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({ label, disabled, value, hasCloseButton }) => {
@@ -43,9 +42,4 @@ export default {
   title: 'Components/Interaction/Chip',
   argTypes: chipComponentArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: chipComponentDocs,
-    },
-  },
 } as Meta;
