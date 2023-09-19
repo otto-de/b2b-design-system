@@ -23,9 +23,11 @@
     &--left {
       justify-content: left;
     }
+
     &--right {
       justify-content: right;
     }
+
     &--center {
       justify-content: center;
     }
@@ -86,9 +88,11 @@
 :host(.b2b-table-header--divider) {
   border-right: 1px solid var(--b2b-color-grey-200);
 }
+
 :host(.b2b-table-header--left) {
   padding-left: 6px;
 }
+
 :host(.b2b-table-header--right) {
   padding-right: 6px;
 }
