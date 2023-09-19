@@ -11,6 +11,7 @@
   font-weight: bold;
   border-top: 1px solid var(--b2b-color-grey-200);
   border-bottom: 2px solid var(--b2b-color-grey-300);
+  vertical-align: middle;
 
   .b2b-table-header__heading {
     cursor: pointer;
@@ -18,6 +19,16 @@
     display: flex;
     height: var(--b2b-size-icon-100);
     line-height: var(--b2b-size-icon-100);
+
+    &--left {
+      justify-content: left;
+    }
+    &--right {
+      justify-content: right;
+    }
+    &--center {
+      justify-content: center;
+    }
 
     &:hover,
     &:focus-visible {
@@ -74,6 +85,12 @@
 
 :host(.b2b-table-header--divider) {
   border-right: 1px solid var(--b2b-color-grey-200);
+}
+:host(.b2b-table-header--left) {
+  padding-left: 6px;
+}
+:host(.b2b-table-header--right) {
+  padding-right: 6px;
 }
 
 :host(.b2b-table-header--fixed) {

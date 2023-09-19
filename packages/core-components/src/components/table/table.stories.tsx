@@ -207,6 +207,8 @@ const TemplateSorting: Story = ({
   highlight,
   withDividers,
   color,
+  sortIconAlign,
+  contentAlign,
 }) => {
   const [_, updateArgs] = useArgs();
   const onSort = (event, index) => {
@@ -244,6 +246,8 @@ const TemplateSorting: Story = ({
             ${data.columns.map(column => {
               return html` <b2b-table-header
                 sort-direction="not-sorted"
+                sort-icon-align=${sortIconAlign}
+                content-align=${contentAlign}
                 @b2b-change=${event => onSort(event, column.id)}
                 ?divider=${withDividers}
                 style=${column.id === 0 ? `width: ${firstColumnWidth}` : ''}
@@ -274,14 +278,46 @@ const TemplateSorting: Story = ({
   `;
 };
 
-export const story110Sorting = TemplateSorting.bind({});
-story110Sorting.args = {
+export const story110SortingLeft = TemplateSorting.bind({});
+story110SortingLeft.args = {
   ...defaultArgs,
   withDividers: true,
   size: 'expand',
   data: userSampleData,
+  sortIconAlign: 'left',
 };
-story110Sorting.storyName = 'Table with Sorting';
+story110SortingLeft.storyName = 'Table with Sorting Icon Left';
+export const story111SortingRight = TemplateSorting.bind({});
+story111SortingRight.args = {
+  ...defaultArgs,
+  withDividers: true,
+  size: 'expand',
+  data: userSampleData,
+  sortIconAlign: 'right',
+};
+story111SortingRight.storyName = 'Table with Sorting  Icon Right';
+export const story112SortingAndTextRight = TemplateSorting.bind({});
+story112SortingAndTextRight.args = {
+  ...defaultArgs,
+  withDividers: true,
+  size: 'expand',
+  data: userSampleData,
+  sortIconAlign: 'right',
+  contentAlign: 'right',
+};
+story112SortingAndTextRight.storyName =
+  'Table with Sorting Icon and text aligned Right';
+export const story113SortingAndTextCenter = TemplateSorting.bind({});
+story113SortingAndTextCenter.args = {
+  ...defaultArgs,
+  withDividers: true,
+  size: 'expand',
+  data: userSampleData,
+  sortIconAlign: 'right',
+  contentAlign: 'center',
+};
+story113SortingAndTextCenter.storyName =
+  'Table with Sorting Icon and text aligned Center';
 
 const TemplateAccordion: Story = ({
   data,

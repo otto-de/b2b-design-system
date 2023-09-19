@@ -8,7 +8,11 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { TableSortDirections } from '../../../utils/types/table.types';
+import {
+  ContentAlignment,
+  TableSortDirections,
+  SortIconAlignment,
+} from '../../../utils/types/table.types';
 
 @Component({
   tag: 'b2b-table-header',
@@ -29,6 +33,12 @@ export class TableHeaderComponent {
 
   /** Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent. */
   @Prop() sortId?: string;
+
+  /** Alignment of the content of the cell, by default is to the left. **/
+  @Prop() contentAlign: ContentAlignment = ContentAlignment.LEFT;
+
+  /** Alignment of the content of the cell, by default is to the left. **/
+  @Prop() sortIconAlign: SortIconAlignment = SortIconAlignment.LEFT;
 
   /** Emits whenever the sort direction changes. */
   @Event({ eventName: 'b2b-change' })
@@ -92,7 +102,8 @@ export class TableHeaderComponent {
     return (
       <Host
         class={{
-          'b2b-table-header': true,
+          [`b2b-table-header--${this.sortDirection && this.sortIconAlign}`]:
+            true,
           'b2b-table-header--divider': this.divider,
           'b2b-table-header--fixed': this.fixed,
         }}
@@ -108,20 +119,34 @@ export class TableHeaderComponent {
             tabIndex={0}
             class={{
               'b2b-table-header__heading': true,
+              [`b2b-table-header__heading--${this.contentAlign}`]: true,
               'b2b-table-header__sort--active': this.active,
             }}
             onClick={this.changeSortDirection}
             onKeyDown={this.changeSortDirection}
             onMouseLeave={this.setInactive}
             onBlur={this.setInactive}>
+            {this.sortIconAlign === SortIconAlignment.LEFT && (
+              <span
+                class={{
+                  'b2b-table-header__sort': true,
+                  [`b2b-table-header__sort--${this.sortDirection}`]: true,
+                  [`b2b-table-header__sort--${this.sortIconAlign}`]: true,
+                }}>
+                {this.sortIcon}
+              </span>
+            )}
             <slot></slot>
-            <span
-              class={{
-                'b2b-table-header__sort': true,
-                [`b2b-table-header__sort--${this.sortDirection}`]: true,
-              }}>
-              {this.sortIcon}
-            </span>
+            {this.sortIconAlign === SortIconAlignment.RIGHT && (
+              <span
+                class={{
+                  'b2b-table-header__sort': true,
+                  [`b2b-table-header__sort--${this.sortDirection}`]: true,
+                  [`b2b-table-header__sort--${this.sortIconAlign}`]: true,
+                }}>
+                {this.sortIcon}
+              </span>
+            )}
           </div>
         ) : (
           <slot></slot>
