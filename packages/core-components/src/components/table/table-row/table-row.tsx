@@ -135,7 +135,10 @@ export class TableRowComponent {
             <b2b-checkbox
               standalone
               checked={this.checked}
-              indeterminate={this.indeterminate}></b2b-checkbox>
+              indeterminate={this.indeterminate}
+              style={{
+                'line-height': '16px',
+              }}></b2b-checkbox>
           </b2b-table-header>
         );
       } else {
@@ -145,7 +148,10 @@ export class TableRowComponent {
               standalone
               checked={this.checked}
               value={this.value}
-              indeterminate={this.indeterminate}></b2b-checkbox>
+              indeterminate={this.indeterminate}
+              style={{
+                'line-height': '16px',
+              }}></b2b-checkbox>
           </b2b-table-cell>
         );
       }
