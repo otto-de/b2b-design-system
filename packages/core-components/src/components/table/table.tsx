@@ -23,6 +23,9 @@ export class TableComponent {
    **/
   @Prop() size: TableSizes = TableSizes.EXPAND;
 
+  /** Whether or not the column the header is associated with can be resized by dragging. Per default it is false. */
+  @Prop() resize: boolean = false;
+
   /** Emits whenever the sort direction of any column in the table changes. */
   @Event({ eventName: 'b2b-sort-change' })
   b2bSortChange: EventEmitter<ColumnSortChangeEventDetail>;
@@ -34,6 +37,13 @@ export class TableComponent {
         sortedColumn: event.target.sortId || event.target.textContent.trim(),
         sortDirection: event.detail,
       });
+    }
+  }
+
+  private setHeaderResize() {
+    if (this.size === TableSizes.EQUAL) {
+      const allHeaders = this.host.querySelectorAll('b2b-table-header');
+      [...allHeaders].map(header => (header.resize = this.resize));
     }
   }
 
@@ -52,6 +62,7 @@ export class TableComponent {
 
   componentDidRender() {
     this.setCellSize();
+    this.setHeaderResize();
     this.setFixedHeaders();
   }
 

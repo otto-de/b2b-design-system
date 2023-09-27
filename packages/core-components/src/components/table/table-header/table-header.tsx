@@ -8,7 +8,10 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { TableSortDirections } from '../../../utils/types/table.types';
+import {
+  TableSortDirections,
+  TableSizes,
+} from '../../../utils/types/table.types';
 
 @Component({
   tag: 'b2b-table-header',
@@ -17,6 +20,12 @@ import { TableSortDirections } from '../../../utils/types/table.types';
 })
 export class TableHeaderComponent {
   @Element() hostElement: HTMLB2bTableHeaderElement;
+
+  /** The size of the cell. Follows table size.
+   * When size is equal and textWrap is false, the text will truncate with Ellipsis.
+   * Other sizes won't affect cell current implementation.
+   **/
+  @Prop() size: TableSizes = TableSizes.EXPAND;
 
   /** adds a border to the right of the header. **/
   @Prop() divider: boolean = false;
@@ -30,11 +39,17 @@ export class TableHeaderComponent {
   /** Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent. */
   @Prop() sortId?: string;
 
+  /** Whether or not the column the header is associated with can be resized by dragging. Per default it is false. */
+  @Prop() resize: boolean = false;
+
   /** Emits whenever the sort direction changes. */
   @Event({ eventName: 'b2b-change' })
   b2bChange: EventEmitter<TableSortDirections>;
 
   @State() active = false;
+
+  private x = 0;
+  private w = 0;
 
   private sortIcon = (
     <svg
@@ -88,6 +103,34 @@ export class TableHeaderComponent {
     this.active = false;
   };
 
+  private handleMouseDown = (event: MouseEvent) => {
+    if (this.resize) {
+      this.x = event.clientX;
+      this.w = this.hostElement.offsetWidth;
+      let resizer = this.hostElement.shadowRoot.querySelector(
+        '.b2b-table-header--resizer',
+      );
+      resizer.classList.add('resizing');
+      document.addEventListener('mousemove', this.handleMouseMove);
+    }
+  };
+
+  private handleMouseMove = (event: MouseEvent) => {
+    let dx = event.clientX - this.x;
+
+    this.hostElement.style.width = `${this.w + dx}px`;
+
+    document.addEventListener('mouseup', this.handleMouseUp);
+  };
+
+  private handleMouseUp = () => {
+    let resizer = this.hostElement.shadowRoot.querySelector(
+      '.b2b-table-header--resizer',
+    );
+    resizer.classList.remove('resizing');
+    document.removeEventListener('mousemove', this.handleMouseMove);
+  };
+
   render() {
     return (
       <Host
@@ -126,6 +169,9 @@ export class TableHeaderComponent {
         ) : (
           <slot></slot>
         )}
+        <div
+          onMouseDown={this.handleMouseDown}
+          class={{ 'b2b-table-header--resizer': this.resize }}></div>
       </Host>
     );
   }

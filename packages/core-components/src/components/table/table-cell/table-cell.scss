@@ -11,10 +11,10 @@
   line-height: var(--b2b-size-copy-line-height-100);
   border-bottom: 1px solid var(--b2b-color-grey-200);
   white-space: normal;
+  overflow: hidden;
 }
 
 :host(.b2b-table-cell--ellipsis) {
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   position: relative;

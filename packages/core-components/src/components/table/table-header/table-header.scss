@@ -2,6 +2,7 @@
 
 :host {
   display: table-cell;
+  position: relative;
   padding: 12px;
   margin: 0;
   white-space: nowrap;
@@ -11,6 +12,22 @@
   font-weight: bold;
   border-top: 1px solid var(--b2b-color-grey-200);
   border-bottom: 2px solid var(--b2b-color-grey-300);
+  overflow: hidden;
+
+  .b2b-table-header--resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+    user-select: none;
+
+    &:hover,
+    &.resizing {
+      border-right: 2px solid var(--b2b-color-grey-300);
+    }
+  }
 
   .b2b-table-header__heading {
     cursor: pointer;

@@ -680,6 +680,10 @@ export namespace Components {
     }
     interface B2bTable {
         /**
+          * Whether or not the column the header is associated with can be resized by dragging. Per default it is false.
+         */
+        "resize": boolean;
+        /**
           * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns.
          */
         "size": TableSizes;
@@ -715,6 +719,14 @@ export namespace Components {
           * sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed": boolean;
+        /**
+          * Whether or not the column the header is associated with can be resized by dragging. Per default it is false.
+         */
+        "resize": boolean;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size": TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
@@ -2114,6 +2126,10 @@ declare namespace LocalJSX {
          */
         "onB2b-sort-change"?: (event: B2bTableCustomEvent<ColumnSortChangeEventDetail>) => void;
         /**
+          * Whether or not the column the header is associated with can be resized by dragging. Per default it is false.
+         */
+        "resize"?: boolean;
+        /**
           * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns.
          */
         "size"?: TableSizes;
@@ -2153,6 +2169,14 @@ declare namespace LocalJSX {
           * Emits whenever the sort direction changes.
          */
         "onB2b-change"?: (event: B2bTableHeaderCustomEvent<TableSortDirections>) => void;
+        /**
+          * Whether or not the column the header is associated with can be resized by dragging. Per default it is false.
+         */
+        "resize"?: boolean;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size"?: TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */

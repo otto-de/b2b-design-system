@@ -36,6 +36,7 @@ const meta: Meta = {
     parentWidth: '600px',
     firstColumnWidth: 'auto',
     firstRowHeight: 'auto',
+    resize: false,
   },
   argTypes: {
     ...tableArgs,
@@ -48,7 +49,7 @@ const meta: Meta = {
   },
   render: ({ ...args }) => html`<div style="width: ${
     args.parentWidth
-  }"><b2b-table size="${args.size}">
+  }"><b2b-table  size="${args.size}" resize=${args.resize}>
         <b2b-table-rowgroup type="header">
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
@@ -404,4 +405,12 @@ export const Selectable: Story = {
       </b2b-table-rowgroup>
     </b2b-table>
   </div>`,
+};
+export const ResizableHeaders: Story = {
+  args: {
+    ...meta.args,
+    withDividers: true,
+    resize: true,
+    size: 'equal',
+  },
 };

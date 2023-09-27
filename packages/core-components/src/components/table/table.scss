@@ -12,4 +12,6 @@
 :host(.b2b-table--equal) {
   width: 100%;
   table-layout: fixed;
+  max-width: 100%;
+  overflow: hidden;
 }
