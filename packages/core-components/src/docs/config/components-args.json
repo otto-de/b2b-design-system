@@ -2140,6 +2140,20 @@
   },
   "b2b-tab-panel": {},
   "b2b-table": {
+    "resize": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the column the header is associated with can be resized by dragging. Per default it is false."
+    },
     "size": {
       "options": [
         "equal",
@@ -2273,6 +2287,38 @@
         }
       },
       "description": "sets the header position to sticky. Use it when table is inside a scrollable container. *"
+    },
+    "resize": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the column the header is associated with can be resized by dragging. Per default it is false."
+    },
+    "size": {
+      "options": [
+        "equal",
+        "expand"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "TableSizes.EXPAND"
+        }
+      },
+      "description": "The size of the cell. Follows table size.\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\nOther sizes won't affect cell current implementation."
     },
     "sortDirection": {
       "options": [
