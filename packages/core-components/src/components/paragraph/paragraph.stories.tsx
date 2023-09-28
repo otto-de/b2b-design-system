@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import docs from './paragraph.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const template: Story = ({ weight, size, align }) => {
@@ -45,19 +44,10 @@ export const story050Right = template.bind({});
 story050Right.args = { ...defaultArgs, align: 'right' };
 story050Right.storyName = 'Right aligned text';
 
-export const story900Playground = template.bind({});
-story900Playground.args = { ...defaultArgs };
-story900Playground.storyName = 'Playground';
-
 const argTypes = getArgTypes('b2b-paragraph');
 
 export default {
   title: 'Components/Content/Paragraph',
   argTypes: argTypes,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: docs,
-    },
-  },
 } as Meta;

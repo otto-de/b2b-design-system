@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
-import dropdownDocs from './dropdown.docs.mdx';
 
 const Template: Story = ({
   label,
@@ -61,9 +60,4 @@ export default {
   title: 'Components/Form/Dropdown',
   argTypes: dropdownArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: dropdownDocs,
-    },
-  },
 } as Meta;

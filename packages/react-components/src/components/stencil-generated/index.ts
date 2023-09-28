@@ -5,7 +5,7 @@ import { createReactComponent } from './react-component-lib';
 
 import type { JSX } from '@otto-de/b2b-core-components';
 
-import { defineCustomElements } from '@otto-de/b2b-core-components/loader';
+import { defineCustomElements } from '@otto-de/b2b-core-components/dist/loader';
 
 defineCustomElements();
 export const B2bAlert = /*@__PURE__*/createReactComponent<JSX.B2bAlert, HTMLB2bAlertElement>('b2b-alert');
@@ -16,6 +16,7 @@ export const B2bButton = /*@__PURE__*/createReactComponent<JSX.B2bButton, HTMLB2
 export const B2bCard = /*@__PURE__*/createReactComponent<JSX.B2bCard, HTMLB2bCardElement>('b2b-card');
 export const B2bCheckbox = /*@__PURE__*/createReactComponent<JSX.B2bCheckbox, HTMLB2bCheckboxElement>('b2b-checkbox');
 export const B2bCheckboxGroup = /*@__PURE__*/createReactComponent<JSX.B2bCheckboxGroup, HTMLB2bCheckboxGroupElement>('b2b-checkbox-group');
+export const B2bChipComponent = /*@__PURE__*/createReactComponent<JSX.B2bChipComponent, HTMLB2bChipComponentElement>('b2b-chip-component');
 export const B2bDropdown = /*@__PURE__*/createReactComponent<JSX.B2bDropdown, HTMLB2bDropdownElement>('b2b-dropdown');
 export const B2bGrid = /*@__PURE__*/createReactComponent<JSX.B2bGrid, HTMLB2bGridElement>('b2b-grid');
 export const B2bGridCol = /*@__PURE__*/createReactComponent<JSX.B2bGridCol, HTMLB2bGridColElement>('b2b-grid-col');

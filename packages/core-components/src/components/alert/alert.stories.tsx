@@ -1,10 +1,8 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { screen } from '@storybook/testing-library';
-import alertDocs from './alert.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
-// @ts-ignore IDE can not find this dep, but storybook is happy
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 
 const Template: Story = ({
   type,
@@ -94,9 +92,4 @@ export default {
   title: 'Components/Status & Feedback/Alert',
   argTypes: alertArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: alertDocs,
-    },
-  },
 } as Meta;

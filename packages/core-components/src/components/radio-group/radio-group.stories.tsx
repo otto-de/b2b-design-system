@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
-import radioGroupDocs from './radio-group.docs.mdx';
 import { html } from 'lit-html';
 
 const Template: Story = ({
@@ -79,9 +78,4 @@ export default {
   title: 'Components/Form/Radio Group',
   argTypes: radioGroupArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: radioGroupDocs,
-    },
-  },
 } as Meta;

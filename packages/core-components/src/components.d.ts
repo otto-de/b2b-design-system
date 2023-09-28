@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
@@ -13,7 +13,7 @@ import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowg
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { CheckboxEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
@@ -207,6 +207,24 @@ export namespace Components {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required": boolean;
+    }
+    interface B2bChipComponent {
+        /**
+          * Whether the chip is disabled.
+         */
+        "disabled": boolean;
+        /**
+          * Whether or not the chip component has a close button. Per default it is true.
+         */
+        "hasCloseButton": boolean;
+        /**
+          * The text content of the chip. It is required.
+         */
+        "label": string;
+        /**
+          * It is only used when the chip component participates in a group
+         */
+        "value"?: any;
     }
     interface B2bDropdown {
         /**
@@ -934,6 +952,10 @@ export interface B2bCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCheckboxGroupElement;
 }
+export interface B2bChipComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bChipComponentElement;
+}
 export interface B2bDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bDropdownElement;
@@ -1054,6 +1076,12 @@ declare global {
     var HTMLB2bCheckboxGroupElement: {
         prototype: HTMLB2bCheckboxGroupElement;
         new (): HTMLB2bCheckboxGroupElement;
+    };
+    interface HTMLB2bChipComponentElement extends Components.B2bChipComponent, HTMLStencilElement {
+    }
+    var HTMLB2bChipComponentElement: {
+        prototype: HTMLB2bChipComponentElement;
+        new (): HTMLB2bChipComponentElement;
     };
     interface HTMLB2bDropdownElement extends Components.B2bDropdown, HTMLStencilElement {
     }
@@ -1320,6 +1348,7 @@ declare global {
         "b2b-card": HTMLB2bCardElement;
         "b2b-checkbox": HTMLB2bCheckboxElement;
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
+        "b2b-chip-component": HTMLB2bChipComponentElement;
         "b2b-dropdown": HTMLB2bDropdownElement;
         "b2b-grid": HTMLB2bGridElement;
         "b2b-grid-col": HTMLB2bGridColElement;
@@ -1566,6 +1595,28 @@ declare namespace LocalJSX {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required"?: boolean;
+    }
+    interface B2bChipComponent {
+        /**
+          * Whether the chip is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether or not the chip component has a close button. Per default it is true.
+         */
+        "hasCloseButton"?: boolean;
+        /**
+          * The text content of the chip. It is required.
+         */
+        "label": string;
+        /**
+          * This event will be triggered when the chip element is closed
+         */
+        "onB2b-close"?: (event: B2bChipComponentCustomEvent<ChipComponentEventDetail>) => void;
+        /**
+          * It is only used when the chip component participates in a group
+         */
+        "value"?: any;
     }
     interface B2bDropdown {
         /**
@@ -2385,6 +2436,7 @@ declare namespace LocalJSX {
         "b2b-card": B2bCard;
         "b2b-checkbox": B2bCheckbox;
         "b2b-checkbox-group": B2bCheckboxGroup;
+        "b2b-chip-component": B2bChipComponent;
         "b2b-dropdown": B2bDropdown;
         "b2b-grid": B2bGrid;
         "b2b-grid-col": B2bGridCol;
@@ -2437,6 +2489,7 @@ declare module "@stencil/core" {
             "b2b-card": LocalJSX.B2bCard & JSXBase.HTMLAttributes<HTMLB2bCardElement>;
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
+            "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
             "b2b-dropdown": LocalJSX.B2bDropdown & JSXBase.HTMLAttributes<HTMLB2bDropdownElement>;
             "b2b-grid": LocalJSX.B2bGrid & JSXBase.HTMLAttributes<HTMLB2bGridElement>;
             "b2b-grid-col": LocalJSX.B2bGridCol & JSXBase.HTMLAttributes<HTMLB2bGridColElement>;

@@ -539,6 +539,54 @@
       "description": "Adds an asterisk at the end of the label to signify that the field is required."
     }
   },
+  "b2b-chip-component": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the chip is disabled."
+    },
+    "hasCloseButton": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Whether or not the chip component has a close button. Per default it is true."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The text content of the chip. It is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {}
+      },
+      "description": "It is only used when the chip component participates in a group"
+    }
+  },
   "b2b-dropdown": {
     "disabled": {
       "control": {
@@ -928,6 +976,7 @@
         "b2b_icon-empty-hint",
         "b2b_icon-end-to-end",
         "b2b_icon-error-article-image",
+        "b2b_icon-error-hint",
         "b2b_icon-error",
         "b2b_icon-euro",
         "b2b_icon-event",

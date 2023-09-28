@@ -1,16 +1,16 @@
 import {
-  Story,
+  Meta,
+  Controls,
+  Primary,
   ArgsTable,
   PRIMARY_STORY,
-  Primary,
-  Canvas,
-} from '@storybook/addon-docs';
+} from '@storybook/blocks';
+
+import * as AlertStories from './alert.stories';
+
+<Meta of={AlertStories} />
 
 # Alert Component
-
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-status-feedback-alert--story-010-info" />
-</Canvas>
 
 The alert allows the user to see contextual feedback and information.
 There are the following alert variants:
@@ -19,22 +19,24 @@ There are the following alert variants:
 
 **_Info:_** For attributes with an informative character, such as "Inquired" for a service or "Submitted" for a briefing.
 
-<Story id="components-status-feedback-alert--story-010-info" />
+<b2b-alert opened size="large" type="info">An info alert.</b2b-alert>
 
 **_Error:_** For critical issues that require the user's attention and possible actions. This alert type should be
 used sparingly.
 
-<Story id="components-status-feedback-alert--story-040-error" />
+<b2b-alert opened size="large" type="error">An error alert.</b2b-alert>
 
 **_Warning:_** For topics that require the user's attention but the issue is not critical.
 
-<Story id="components-status-feedback-alert--story-030-warning" />
+<b2b-alert opened size="large" type="warning">A warning alert.</b2b-alert>
 
 **_Success:_** For successful or completed status if it is important for the user to achieve it.
 
-<Story id="components-status-feedback-alert--story-020-success" />
+<b2b-alert opened size="large" type="success">A success alert.</b2b-alert>
 
 **_There is the possibility of including a "closing-X" in the alert, by which the message can be hidden. The "closing-X" cannot be used for error alerts._**
+
+## Properties
 
 ### Size
 

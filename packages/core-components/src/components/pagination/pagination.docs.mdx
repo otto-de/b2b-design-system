@@ -5,8 +5,14 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
 import dedent from 'ts-dedent';
+
+import * as PaginationStories from './pagination.stories';
+
+<Meta of={PaginationStories} />
 
 # Pagination Component
 

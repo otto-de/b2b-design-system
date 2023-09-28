@@ -5,8 +5,14 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
 import dedent from 'ts-dedent';
+
+import * as ToggleGroupStories from './toggle-group.stories';
+
+<Meta of={ToggleGroupStories} />
 
 # Toggle Button Group
 
@@ -113,7 +119,7 @@ radio button is currently checked.
 value: T;
 }`
 
-## Attributes for Toggle Group
+## Attributes
 
 <ArgsTable story={PRIMARY_STORY} />
 Changes made to the attributes in the above table will reflect in the example below:

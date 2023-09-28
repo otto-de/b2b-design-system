@@ -4,7 +4,12 @@ import {
   PRIMARY_STORY,
   Primary,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as AnchorStories from './anchor.stories';
+
+<Meta of={AnchorStories} />
 
 # Anchor Component
 
@@ -21,7 +26,9 @@ The only required argument to the link component is the `href` attribute, all ot
 If not specified, `download` is set to null, so that a default anchor is not downloadable.
 The default `target` attribute is `self`, the default `size` is inherited from the anchor's parent element.
 
-## Size
+## Properties
+
+### Size
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-interaction-anchor--story-020-size-100" />
@@ -30,7 +37,7 @@ The default `target` attribute is `self`, the default `size` is inherited from t
 If not specified, the size of the anchor component is inherited from the parent element.
 Alternatively, it can be set to `size="100"` which defines the font size as 14px.
 
-## Target
+### Target
 
 <Canvas columns={3} withSource="open" withToolbar={false}>
   <Story id="components-interaction-anchor--story-030-target-blank" />

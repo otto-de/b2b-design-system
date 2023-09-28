@@ -5,16 +5,20 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
 import dedent from 'ts-dedent';
+
+import * as InputListStories from './input-list.stories';
+
+<Meta of={InputListStories} />
 
 # Input List Component
 
 _click the component and type to display the list_
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-form-input-list--story-020-input-list-focused" />
-</Canvas>
+<Canvas of={InputListStories.InputList} />
 
 This component will receive a list of options to be presented to the user. It is not a dropdown, and it should be
 used as part of a search or filter component, or in any other use case where a list of results makes sense.
@@ -58,7 +62,7 @@ A boolean to indicate if the element is `disabled`. The default value is `false`
 The input list is a wrapper of the `b2b-input` component, so the events from the input component will be emitted as
 well. You can find this documentation in this [link](?path=/docs/components-form-input--story-010-default#events).
 
-### OnB2b-option-selected
+### b2b-option-selected
 
 This event will emit when the user clicks on an option from the list, if optionsList was provided.
 
@@ -75,7 +79,7 @@ This event will emit when the user clicks on an option from the list, if options
   `}
 />
 
-### OnB2b-clear
+### b2b-clear
 
 This event will emit when the clear `X` button is triggered either by mouse or keyboard interaction.
 
@@ -94,7 +98,7 @@ you can also subscribe to this event and check for an empty value.
 
 <br />
 
-## Custom Lists
+### Custom Lists
 
 You can also provide your HTML for the list instead of an array of options. This allows you to display nested or individually styled lists.
 To do so, you can simply nest your custom list HTML in the input list component. **_Please do not supply an `optionsList` in this case. Additionally, keyboard navigation and option selection must be implemented
@@ -119,7 +123,7 @@ by you as a consumer, because the component has no knowledge about the slotted l
   `}
 />
 
-## Form Elements width
+### Form Elements Width
 
 You can change the width of our form elements by directly applying the desired width to the component. Follow
 this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-width) if you want to know more.
