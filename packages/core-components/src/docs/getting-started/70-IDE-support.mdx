@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Getting Started/IDE Support" />
+
+# IDE Support
+
+<br />
+<br />
+
+## React
+
+React autocomplete works with the use of Typescript annotations and JSDocs. It works out of the box in VSCode even
+for Vanilla JS projects. We have a known limitation with JetBrains IDEs, where it is not fully working for projects
+not using Typescript.
+
+<br />
+
+## Vue
+
+For Vue autocomplete and documentation to fully work in your IDE, please follow up these configurations:
+
+<br />
+
+### VSCode
+
+If you haven't done so already, create a `.vscode` directory and a `settings.json` file. Add the following
+settings after you have installed the B2B Component Library:
+
+```json
+{
+  "html.customData": [
+    "./node_modules/@otto-de/b2b-core-components/dist/custom-elements.json"
+  ]
+}
+```
+
+### JetBrains (IntelliJ, WebStorm)
+
+Add the following line to your package.json.
+
+```json
+  "web-types": "./node_modules/@otto-de/b2b-core-components/dist/web-types.json"
+```

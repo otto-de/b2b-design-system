@@ -1,9 +1,8 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import dedent from 'ts-dedent';
-import searchDocs from './search.docs.mdx';
 import fruits from './stories.data.json';
 
 const Template: Story = ({ placeholder, optionsList, disabled }) => {
@@ -101,11 +100,10 @@ searchArgs.optionsList = {
 
 export default {
   title: 'Components/Form/Search',
-  argTypes: { ...searchArgs },
-  viewmode: 'docs',
-  parameters: {
-    docs: {
-      page: searchDocs,
-    },
+  argTypes: {
+    ...searchArgs,
+    optionsList: { table: { disable: true } },
+    value: { table: { disable: true } },
   },
+  viewmode: 'docs',
 } as Meta;

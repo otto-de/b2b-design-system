@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import requiredSeparatorDocs from './required-separator.docs.mdx';
 
 const Template: Story = ({ label }) => {
   return html`<div style="width: 400px">
@@ -24,9 +23,4 @@ export default {
   title: 'Components/Form/Required Separator',
   args: requiredSeparatorArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: requiredSeparatorDocs,
-    },
-  },
 } as Meta;

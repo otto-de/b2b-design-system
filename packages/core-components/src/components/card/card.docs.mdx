@@ -5,7 +5,12 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as CardStories from './card.stories';
+
+<Meta of={CardStories} />
 
 # Card Component
 
@@ -35,7 +40,7 @@ The card can be disabled and it would render opaque and unhoverable. It cannot b
   <Story id="components-interaction-card--story-020-disabled-card" />
 </Canvas>
 
-### href
+### Href
 
 If you want to use a redirect with the card, you can pass a url to the `href` property.
 

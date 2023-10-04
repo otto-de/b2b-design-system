@@ -1,0 +1,48 @@
+import { Canvas, Meta, Story, Markdown } from '@storybook/addon-docs';
+import Changelog from './CHANGELOG.md?raw';
+
+<Meta title="Updates" />
+
+# Updates
+
+<br />
+
+## Open Source
+
+We are happy to announce that we have migrated our system and packages successfully.
+From now on, you would be able to install our libraries directly from npm without the need for authentication.
+
+You can find our new open source repo in [this link](https://github.com/otto-de/b2b-design-system).
+
+<br />
+
+### For teams using the components for the first time
+
+You don't have to do anything special, just go ahead and install the library that fits your project:
+
+[b2b-core-components](https://www.npmjs.com/package/@otto-de/b2b-core-components) - Core web components, can be used with Vue.
+
+[b2b-react-components](https://www.npmjs.com/package/@otto-de/b2b-react-components) - React wrapper library, exposes first class React components. Wrapper is created by Stencil.
+
+[b2b-tokens](https://www.npmjs.com/package/@otto-de/b2b-tokens) - These are atomic design decisions that can be used to
+centrally change the styles of our components. For more information about Design Tokens read [here](https://specifyapp.com/blog/introduction-to-design-tokens).
+
+### For teams that are using our private packages
+
+You will have to update the dependency organisation, now it will be `otto-de`, and change to the latest stable version.
+
+If you were using the `.npmrc` file and had configured a GitHub PAT token for installation, you can remove it only if
+you are not using other otto internal packages. Otherwise, that should not cause issues in downloading the open
+source library.
+
+☝️ You may also need to change the organisation name wherever you were importing the components or library resources
+to `otto-de`.
+
+☝️ Please do update to this new library as the private package is not going to be updated nor maintained from now on.
+
+<br />
+<br />
+
+## Changelog
+
+<Markdown>{Changelog}</Markdown>

@@ -4,14 +4,17 @@ import {
   PRIMARY_STORY,
   Primary,
   Source,
+  Meta,
   Canvas,
-} from '@storybook/addon-docs';
+} from '@storybook/blocks';
+
+import * as HeadlineStories from './headline.stories';
+
+<Meta of={HeadlineStories} />
 
 # Headline Component
 
 This component can be used to render headings. It is a wrapper around the html `<h>` tag.
-
-### Example:
 
 <Canvas withSource="open" withToolbar={false}>
   <Story id="components-content-headline--story-010-default" />
@@ -22,14 +25,16 @@ default, it will render to size 400:
 
 <Source code={`<b2b-headline>This is a Headline</b2b-headline>`} />
 
-## Size
+## Properties
+
+### Size
 
 There are three different sizes available for the headline pattern. Each size has a different hierarchical order,
 where 1 is the highest level.
 
 <br />
 
-#### 400 will render to `<h1>` tag.
+### 400 will render to `<h1>` tag.
 
 Size 400 can be used inside an `.obc_title-container` div because it does not have any margin-bottom.
 
@@ -37,7 +42,7 @@ Size 400 can be used inside an `.obc_title-container` div because it does not ha
   <Story id="components-content-headline--story-010-default" />
 </Canvas>
 
-#### 200 will render to `<h2>` tag.
+### 200 will render to `<h2>` tag.
 
 Note: Size 200 has a default margin bottom.
 
@@ -45,7 +50,7 @@ Note: Size 200 has a default margin bottom.
   <Story id="components-content-headline--story-030-size-200" />
 </Canvas>
 
-#### 100 will render to `<h3>` tag.
+### 100 will render to `<h3>` tag.
 
 Note: Size 100 has a default margin bottom.
 
@@ -53,9 +58,9 @@ Note: Size 100 has a default margin bottom.
   <Story id="components-content-headline--story-040-size-100" />
 </Canvas>
 
-## Align
+### Align
 
-#### Center aligned text
+### Center aligned text
 
 The headline component can also use an `align` attribute in case you need to change the text alignment to center or right.
 
@@ -63,7 +68,7 @@ The headline component can also use an `align` attribute in case you need to cha
   <Story id="components-content-headline--story-050-center" />
 </Canvas>
 
-#### Right aligned text
+### Right aligned text
 
 <Canvas withSource="closed" withToolbar={false}>
   <Story id="components-content-headline--story-060-right" />

@@ -5,15 +5,18 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
+import * as InputStories from './input.stories';
+
+<Meta of={InputStories} />
 
 # Input Component
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-form-input--story-070-all-args" />
-</Canvas>
+<Canvas of={InputStories.AllPropertiesSpecified} sourceState="shown" />
 
-## Slots
+### Slots
 
 In addition to regular user input, the Input Component also provides two slots for prefixed (or suffixed) text as well as icons.
 If you want to add text, please use a `<span>` tag as this will automatically add a border to separate it from the user input.
@@ -24,19 +27,15 @@ Note that it is not necessary to use B2B Icons, the slots work with any icon.
 
 You can add an icon or prefixed text here like so:
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-form-input--story-080-prefix" />
-</Canvas>
+<Canvas of={InputStories.Prefix} sourceState="shown" />
 
 ### End
 
 You can add an icon or a suffix like so:
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-form-input--story-060-icon-end" />
-</Canvas>
+<Canvas of={InputStories.IconEnd} sourceState="shown" />
 
-## Attributes
+## Properties
 
 ### Label
 
@@ -99,16 +98,16 @@ The input component supports several different events that emit their respective
 **Per default, we recommend to use the b2bBlur event for validation.**
 To see the Event Emitters in action and for usage examples in Vue and React, please refer to [our example repository](https://github.com/otto-ec/b2b-design-system/tree/beta/examples).
 
-### b2bInput
+### b2b-input
 
 Emits whenever the input is changed, i.e. after every keypress. It will emit all changes to the input,
 which enables granular input validation and will immediately update the error state.
 
-### b2bFocus
+### b2b-focus
 
 Emits whenever the input element has focus.
 
-### b2bBlur
+### b2b-blur
 
 Emits whenever the input element loses focus. Use this event to validate input only after
 the user leaves the input field. **This is the recommended event to hook into when doing input validation as it
@@ -116,7 +115,7 @@ prevents layout shifts. Unless you have a good use case for character-by-charact
 
 <br />
 
-## Form Elements width
+### Form Elements Width
 
 You can change the width of our form elements by directly applying the desired width to the component. Follow
 this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-width) if you want to know more.

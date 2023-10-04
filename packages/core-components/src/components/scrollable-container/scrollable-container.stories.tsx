@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import componentDocs from './scrollable-container.docs.mdx';
 
 const Template: Story = ({ testWidth, testHeight, testWhiteSpace }) => {
   return html`
@@ -70,9 +69,6 @@ export default {
   viewmode: 'docs',
   parameters: {
     controls: { expanded: true },
-    docs: {
-      page: componentDocs,
-    },
     backgrounds: {
       default: 'docsBackground',
       values: [{ name: 'docsBackground', value: '#fff' }],

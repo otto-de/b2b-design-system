@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import tabGroupDocs from './tab-group.docs.mdx';
 
 const Template: Story = ({ useRouter }) => {
   return html` <b2b-tab-group use-router="${useRouter}">
@@ -56,9 +55,4 @@ export default {
   title: 'Components/Interaction/Tab Group',
   argTypes: tabGroupArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: tabGroupDocs,
-    },
-  },
 } as Meta;

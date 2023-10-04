@@ -2,7 +2,6 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import allTokens from '@otto-de/b2b-tokens/build/js/default.json';
 import './styles.css';
-import colorDocs from './color.docs.mdx';
 
 const tokenRow = token => {
   return html`
@@ -69,12 +68,9 @@ story010ColorTokens.parameters = {
 };
 
 export default {
-  title: 'DesignTokens/Color',
+  title: 'Design Tokens/Color',
   viewMode: 'docs',
   parameters: {
-    docs: {
-      page: colorDocs,
-    },
     options: {
       showPanel: false, // hides addons panel
     },

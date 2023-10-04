@@ -189,30 +189,12 @@ To be able to capture accurate and consistent renders of our components we need 
 
 If you are able to use [Docker Desktop](https://docs.docker.com/desktop/) you can use this tool, otherwise for Mac users [Colima](https://github.com/abiosoft/colima) is a good alternative.
 
-Once you have one of this two runtime envs, you can follow this steps:
+Once you have one of this two runtime envs, you can follow these steps:
 
-You will need to have storybook running on your host machine:
-```shell
-cd packages/core-components
-npm run storybook
-# storybook runs on localhost:6006
-```
+1. Run `docker-compose up` or `docker-compose up --build` if you have created the services before. This creates a storybook service
+  and a service that runs the tests against storybook. If any test failed, you will find a new folder inside `__snapshots__` called `__diff_output__`.
+2. If the differences were expected (because you made visual changes to an existing component), run `docker-compose run run-tests npx test-storybook --verbose --url http://storybook:6006 -u`
 
-Now, you can either use the following shell shortcuts, or run the docker commands directly (you can find the commands in the `do` file):
-```shell
-# shell shortcuts
-./do build-test-image
-./do visual-tests
-```
-
-If you're using windows, make sure that you exchange the `$(pwd)` in the docker commands for Windows equivalent `${pwd}`, otherwise the tests cannot run.
-
-If any test failed, you will find a new folder inside `__snapshots__` called `__diff_output__`.
-
-If the differences where expected run:
-```shell
-./do visual-tests-update
-```
 
 #### Making changes to the docker image
 
