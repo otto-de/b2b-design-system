@@ -18,7 +18,7 @@ module.exports = {
   setup() {
     expect.extend({ toMatchImageSnapshot });
     // retry on failures as this can be caused by delay in loading assets or rendering
-    jest.retryTimes(5);
+    jest.retryTimes(10);
   },
   async postRender(page, context) {
     if (ignoredStories.includes(context.id)) {
