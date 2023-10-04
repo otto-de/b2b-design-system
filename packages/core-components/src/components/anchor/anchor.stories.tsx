@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import anchorDocs from './anchor.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({ href, download, size, target }) => {
@@ -45,9 +44,4 @@ export default {
   title: 'Components/Interaction/Anchor',
   argTypes: anchorArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: anchorDocs,
-    },
-  },
 } as Meta;

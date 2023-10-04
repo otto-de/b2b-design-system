@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import inputCheckboxGroupDocs from './checkbox-group.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({
@@ -73,9 +72,4 @@ export default {
   title: 'Components/Form/Checkbox Group',
   argTypes: checkboxGroupArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: inputCheckboxGroupDocs,
-    },
-  },
 } as Meta;

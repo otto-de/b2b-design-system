@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import wizardDocs from './wizard.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({ activeStep, checkIcon }) => {
@@ -43,8 +42,5 @@ export default {
   viewmode: 'docs',
   parameters: {
     controls: { expanded: true },
-    docs: {
-      page: wizardDocs,
-    },
   },
 } as Meta;

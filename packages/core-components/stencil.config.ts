@@ -16,6 +16,7 @@ export const config: Config = {
   namespace: 'b2b-core-components',
   sourceMap: false,
   globalStyle: 'src/global/b2b-styles.scss',
+  transformAliasedImportPaths: false,
   env: {
     env: apiEnv,
   },
@@ -30,8 +31,6 @@ export const config: Config = {
     }),
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
-      isPrimaryPackageOutputTarget: true,
     },
     {
       type: 'dist-custom-elements',

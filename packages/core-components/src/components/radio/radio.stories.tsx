@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
-import radioButtonDocs from './radio.docs.mdx';
 import { html } from 'lit-html';
 
 const Template: Story = ({
@@ -82,9 +81,4 @@ export default {
   title: 'Components/Form/Radio Button',
   argTypes: radioButtonArgs,
   viewmode: 'docs',
-  parameters: {
-    docs: {
-      page: radioButtonDocs,
-    },
-  },
 } as Meta;

@@ -5,8 +5,14 @@ import {
   Primary,
   Source,
   Canvas,
-} from '@storybook/addon-docs';
+  Meta,
+} from '@storybook/blocks';
+
 import dedent from 'ts-dedent';
+
+import * as GridStories from './grid.stories';
+
+<Meta of={GridStories} />
 
 # Grid Component
 
@@ -37,7 +43,7 @@ The maximum number of columns that are displayed in the same row is 12 for singl
 Columns with a `span` greater than one count towards the maximum equal to their `span` width.
 All additional columns will overflow to the next line.
 
-## Properties
+### Row Properties
 
 ### Column Gap
 
@@ -93,7 +99,7 @@ setting the `justify` property will align your columns horizontally. Per default
 
 A maximum of 12 individual columns can be used inside one row. They hold the content of the grid system.
 
-## Properties
+### Column Properties
 
 ### Span
 

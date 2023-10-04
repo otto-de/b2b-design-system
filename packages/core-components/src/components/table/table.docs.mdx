@@ -1,24 +1,17 @@
-import { Story, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Canvas, ArgsTable, PRIMARY_STORY, Meta } from '@storybook/blocks';
+
+import * as TableStories from './table.stories';
+
+<Meta of={TableStories} />
 
 # Table
 
 The table components can be use in a similar way than a normal html table. It encapsulates styles
 that give consistency to the look and feel of the table, and help developers with flexible display options.
 
-### Contents
-
-| Table components                          | Features                                          | Sizing                                         |
-| ----------------------------------------- | ------------------------------------------------- | ---------------------------------------------- |
-| [b2b-table](#b2b-table)                   | [Divider](#divider-property)                      | [Sizing - fixed cell width](#fixed-cell-width) |
-| [b2b-table-rowgroup](#b2b-table-rowgroup) | [Colored rows and cells](#colored-rows-and-cells) | [Sizing - fixed row height](#fixed-row-height) |
-| [b2b-table-row](#b2b-table-row)           | [Scrollable Table](#scrollable-table)             |                                                |
-| [b2b-table-header](#b2b-table-header)     | [Sorting Arrows](#sorting-arrows)                 |                                                |
-| [b2b-table-cell](#b2b-table-cell)         | [Accordion](#accordion)                           |                                                |
-|                                           | [Selectable Rows](#selectable-rows)               |                                                |
-
 <br />
 
-## B2B Table components
+## Components
 
 The components to use to build a table are `b2b-table`, `b2b-rowgroup`, `b2b-row`, `b2b-header`, `b2b-cell` and use
 a similar hierarchy than a html table:
@@ -59,7 +52,7 @@ In this example, parent size is 400px.
 </div>
 ```
 
-<Story id="components-content-table--story-040-table-expand" />
+<Canvas of={TableStories.SizeExpand} />
 
 #### equal
 
@@ -76,7 +69,7 @@ example, parent size is 400px, and text is truncated.
 </div>
 ```
 
-<Story id="components-content-table--story-050-table-equal" />
+<Canvas of={TableStories.SizeEqual} />
 
 <br />
 <hr />
@@ -160,14 +153,14 @@ Will truncate the text if set to `true`, and ** table size is `equal`**.
 Truncated text will expand when user hovers over the cell after a short timeout. This will allow the user to copy
 the text or read it in full. You can try by hovering over the truncated text in this example:
 
-<Story id="components-content-table--story-050-table-equal" />
+<Canvas of={TableStories.SmallTableExpand} />
 
 <br />
 <hr />
 
-### Features
+## Features
 
-#### divider property
+### divider property
 
 Adds a border to the right of the cell or header.
 
@@ -181,12 +174,12 @@ Adds a border to the right of the cell or header.
 <B2bTableCell divider={true} textWrap="false" align="right">Data</B2bTableCell>
 ```
 
-<Story id="components-content-table--story-080-table-with-dividers" />
+<Canvas of={TableStories.WithDividers} />
 
 <br />
 <hr />
 
-#### Colored rows and cells
+### Colored rows and cells
 
 You can select the background color of a row or a cell. The available colors are semantic and will be used for
 specific cases: selected and group (accordion). As per design we also won't be using a zebra pattern so please don't
@@ -197,12 +190,12 @@ use alternate row colors unless otherwise briefed by design.
 <b2b-table-cell color="selected"> ... </b2b-table-cell>
 ```
 
-<Story id="components-content-table--story-090-table-color" />
+<Canvas of={TableStories.ColoredRow} />
 
 <br />
 <hr />
 
-#### Scrollable table
+### Scrollable table
 
 If you are building a table that will expand beyond the screen size, you can use the `scrollable-container` as a
 parent for the table to achieve scrollable content, like so:
@@ -213,7 +206,7 @@ parent for the table to achieve scrollable content, like so:
 </b2b-scrollable-container>
 ```
 
-<Story id="components-content-table--story-100-scrollable-table" />
+<Canvas of={TableStories.ScrollableTable} />
 
 This table includes a `sticky` header by default.
 
@@ -277,7 +270,7 @@ it will only go back to its unsorted state automatically, when the user clicks o
 </b2b-table>
 ```
 
-#### Events
+## Events
 
 When the user interacts with sorting, the `b2b-table` will emit a `b2b-sort-change` event that will contain
 information about the sorted header and the direction selected. You can provide the property `sort-id` to the
@@ -385,8 +378,6 @@ Note that the header row does _not_ need a `value`.
 </b2b-table-rowgroup>
 ```
 
-#### Events
-
 _b2b-row-selected_
 
 This event emits whenever a row is selected or unselected. It emits the value of the row alongside its current status.
@@ -454,12 +445,12 @@ _Vue Notation_
 
 ### Sizing
 
-#### Fixed cell width
+### Fixed cell width
 
 In both cases when using `expand` or `equal` properties in the table, you can also set a fixed size for a particular
 column by adding it directly to the column header using style or class:
 
-<Story id="components-content-table--story-060-table-fixed-cell-size" />
+<Canvas of={TableStories.FixedCellSize} />
 
 ```html
 <b2b-table size="equal">
@@ -482,11 +473,11 @@ In the same way, the cell can have a `max-width` property to make it more dynami
 
 <hr />
 
-#### Fixed row height
+### Fixed row height
 
 In both cases when using `expand` or `equal` properties in the table, you can also set a fixed height by adding it directly to the row using style or class:
 
-<Story id="components-content-table--story-070-table-fixed-row-height" />
+<Canvas of={TableStories.FixedRowHeight} />
 
 ```html
 <b2b-table size="equal">
@@ -503,4 +494,4 @@ In both cases when using `expand` or `equal` properties in the table, you can al
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} controls={false} />
+<ArgsTable story={PRIMARY_STORY} />
