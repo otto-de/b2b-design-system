@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import breadcrumbDocs from './breadcrumb.docs.mdx';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: Story = ({ href, active }) => {
@@ -26,9 +25,4 @@ export default {
   title: 'Components/Interaction/Breadcrumb',
   argTypes: breadcrumbArgs,
   viewMode: 'docs',
-  parameters: {
-    docs: {
-      page: breadcrumbDocs,
-    },
-  },
 } as Meta;
