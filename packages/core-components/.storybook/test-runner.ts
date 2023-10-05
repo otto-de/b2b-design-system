@@ -25,7 +25,7 @@ module.exports = {
       console.log('Skipped: ', context.id);
       return;
     }
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
 
     const image = await page.screenshot({ animations: 'disabled' });
     // @ts-ignore
