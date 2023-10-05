@@ -18,14 +18,14 @@ module.exports = {
   setup() {
     expect.extend({ toMatchImageSnapshot });
     // retry on failures as this can be caused by delay in loading assets or rendering
-    jest.retryTimes(10);
+    jest.retryTimes(5);
   },
   async postRender(page, context) {
     if (ignoredStories.includes(context.id)) {
       console.log('Skipped: ', context.id);
       return;
     }
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(1000);
 
     const image = await page.screenshot({ animations: 'disabled' });
     // @ts-ignore
