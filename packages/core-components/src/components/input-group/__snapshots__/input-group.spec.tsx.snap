@@ -25,16 +25,14 @@ exports[`B2B Input Group should not render a group error if the group is invalid
     </mock:shadow-root>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="">
-    <mock:shadow-root>
-      <select class="b2b-dropdown__select" disabled="">
-        <option value="data-1">
-          Data Set 1
-        </option>
-        <option value="data-2">
-          Data Set 2
-        </option>
-      </select>
-    </mock:shadow-root>
+    <select class="b2b-dropdown__select" disabled="">
+      <option value="data-1">
+        Data Set 1
+      </option>
+      <option value="data-2">
+        Data Set 2
+      </option>
+    </select>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100" disabled="">
     <mock:shadow-root>
@@ -76,16 +74,14 @@ exports[`B2B Input Group should render a group error if one is specified and the
     </mock:shadow-root>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
-    <mock:shadow-root>
-      <select class="b2b-dropdown__select">
-        <option value="data-1">
-          Data Set 1
-        </option>
-        <option value="data-2">
-          Data Set 2
-        </option>
-      </select>
-    </mock:shadow-root>
+    <select class="b2b-dropdown__select">
+      <option value="data-1">
+        Data Set 1
+      </option>
+      <option value="data-2">
+        Data Set 2
+      </option>
+    </select>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100">
     <mock:shadow-root>
@@ -127,16 +123,14 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
     </mock:shadow-root>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown">
-    <mock:shadow-root>
-      <select class="b2b-dropdown__select">
-        <option value="data-1">
-          Data Set 1
-        </option>
-        <option value="data-2">
-          Data Set 2
-        </option>
-      </select>
-    </mock:shadow-root>
+    <select class="b2b-dropdown__select">
+      <option value="data-1">
+        Data Set 1
+      </option>
+      <option value="data-2">
+        Data Set 2
+      </option>
+    </select>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100">
     <mock:shadow-root>
@@ -175,16 +169,14 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
     </mock:shadow-root>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown">
-    <mock:shadow-root>
-      <select class="b2b-dropdown__select">
-        <option value="data-1">
-          Data Set 1
-        </option>
-        <option value="data-2">
-          Data Set 2
-        </option>
-      </select>
-    </mock:shadow-root>
+    <select class="b2b-dropdown__select">
+      <option value="data-1">
+        Data Set 1
+      </option>
+      <option value="data-2">
+        Data Set 2
+      </option>
+    </select>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100">
     <mock:shadow-root>
