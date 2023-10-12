@@ -100,15 +100,13 @@ export class TableRowComponent {
   };
 
   private getRowWidth = () => {
-    const accordionIconSize = '24px';
+    const accordionSize = '24px';
     const checkboxSize = '16px';
 
-    if (Boolean(this.accordionType)) {
-      return accordionIconSize;
-    } else if (Boolean(this.selectable)) {
+    if (Boolean(this.selectable)) {
       return checkboxSize;
-    } else if (Boolean(this.accordionType && this.selectable)) {
-      return accordionIconSize + checkboxSize;
+    } else if (Boolean(this.accordionType)) {
+      return accordionSize;
     } else {
       return;
     }
@@ -135,10 +133,7 @@ export class TableRowComponent {
             <b2b-checkbox
               standalone
               checked={this.checked}
-              indeterminate={this.indeterminate}
-              style={{
-                'line-height': '16px',
-              }}></b2b-checkbox>
+              indeterminate={this.indeterminate}></b2b-checkbox>
           </b2b-table-header>
         );
       } else {
@@ -148,10 +143,7 @@ export class TableRowComponent {
               standalone
               checked={this.checked}
               value={this.value}
-              indeterminate={this.indeterminate}
-              style={{
-                'line-height': '16px',
-              }}></b2b-checkbox>
+              indeterminate={this.indeterminate}></b2b-checkbox>
           </b2b-table-cell>
         );
       }
