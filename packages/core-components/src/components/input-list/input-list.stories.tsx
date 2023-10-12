@@ -44,7 +44,7 @@ export const Focused: Story = {
       const b2bInput = inputList.shadowRoot?.querySelector('b2b-input');
       const input = b2bInput?.shadowRoot?.querySelector('input');
       userEvent.type(input, 'op');
-    }, 2000);
+    }, 500);
   },
 };
 

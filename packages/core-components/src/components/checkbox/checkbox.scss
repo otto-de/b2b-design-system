@@ -115,15 +115,15 @@
     }
 
     .b2b-checkbox__icon {
-      margin-top: var(--b2b-size-5);
-      margin-left: var(--b2b-size-5);
+      margin-top: 9px;
+      margin-left: var(--b2b-size-7);
       display: inline-block;
     }
   }
 
   &--indeterminate.b2b-checkbox--standalone {
     .b2b-checkbox__icon {
-      margin-top: var(--b2b-size-1);
+      margin-top: 7px;
     }
   }
 }
