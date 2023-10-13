@@ -8,9 +8,9 @@ describe('B2B-Table', () => {
       <b2b-table size='equal'>
         <b2b-table-rowgroup type='header'>
           <b2b-table-row>
-            <b2b-table-header sort-direction="not-sorted">Title 1</b2b-table-header>
+            <b2b-table-header sort-direction="not-sorted" sort-icon-align="left">Title 1</b2b-table-header>
             <b2b-table-header>Title 2</b2b-table-header>
-            <b2b-table-header sort-direction="descending" sort-id='title3'>Title 3</b2b-table-header>
+            <b2b-table-header sort-direction="descending" sort-id='title3' sort-icon-align="right">Title 3</b2b-table-header>
           </b2b-table-row>
         </b2b-table-rowgroup>
         <b2b-table-rowgroup type='body'>
@@ -137,10 +137,16 @@ describe('B2B-Table', () => {
   it('should emit the sort direction when a column header is clicked', async () => {
     const headerCol = await page.find({ text: 'Title 1' });
     const b2bChange = await page.spyOnEvent('b2b-change');
+    const sortArrow = await page.find('b2b-table-header >>> svg');
+
+    let ariaState = await headerCol.getAttribute('aria-sort');
+
+    expect(sortArrow).toHaveClass('b2b-table-header__sort--left');
+
+    expect(ariaState).toEqualText('other');
 
     await headerCol.click();
-
-    const ariaState = await headerCol.getAttribute('aria-sort');
+    ariaState = await headerCol.getAttribute('aria-sort');
 
     expect(ariaState).toEqualText('ascending');
     expect(b2bChange).toHaveReceivedEvent();

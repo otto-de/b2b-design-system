@@ -46,16 +46,6 @@ export class TableHeaderComponent {
 
   @State() active = false;
 
-  private sortIcon = (
-    <svg
-      viewBox="0 0 24 24"
-      height="24px"
-      width="24px"
-      xmlns="http://www.w3.org/2000/svg">
-      <path d="M19.1831 8.47552L12.8541 2.14703C12.8079 2.10065 12.7524 2.06384 12.6909 2.03839C12.5687 1.98785 12.4313 1.98785 12.3091 2.03839C12.2476 2.06384 12.1921 2.10065 12.1459 2.14703L5.81689 8.47552C5.62158 8.67084 5.62158 8.98724 5.81689 9.18256C6.01221 9.37787 6.32861 9.37787 6.52393 9.18256L12 3.70691V21.4999C12 21.7763 12.2236 21.9999 12.5 21.9999C12.7764 21.9999 13 21.7763 13 21.4999V3.70691L18.4761 9.18256C18.5737 9.28021 18.7017 9.32904 18.8296 9.32904C18.9575 9.32904 19.0854 9.28021 19.1831 9.18256C19.3784 8.98724 19.3784 8.67084 19.1831 8.47552Z" />
-    </svg>
-  );
-
   private changeSortDirection = (e: any) => {
     if ((e.type === 'keydown' && e.key === 'Enter') || e.type === 'click') {
       this.unSortSiblings();
@@ -126,27 +116,20 @@ export class TableHeaderComponent {
             onKeyDown={this.changeSortDirection}
             onMouseLeave={this.setInactive}
             onBlur={this.setInactive}>
-            {this.sortIconAlign === SortIconAlignment.LEFT && (
-              <span
-                class={{
-                  'b2b-table-header__sort': true,
-                  [`b2b-table-header__sort--${this.sortDirection}`]: true,
-                  [`b2b-table-header__sort--${this.sortIconAlign}`]: true,
-                }}>
-                {this.sortIcon}
-              </span>
-            )}
-            <slot></slot>
-            {this.sortIconAlign === SortIconAlignment.RIGHT && (
-              <span
-                class={{
-                  'b2b-table-header__sort': true,
-                  [`b2b-table-header__sort--${this.sortDirection}`]: true,
-                  [`b2b-table-header__sort--${this.sortIconAlign}`]: true,
-                }}>
-                {this.sortIcon}
-              </span>
-            )}
+            {this.sortIconAlign === SortIconAlignment.LEFT && <slot></slot>}
+            <svg
+              class={{
+                'b2b-table-header__sort': true,
+                [`b2b-table-header__sort--${this.sortDirection}`]: true,
+                [`b2b-table-header__sort--${this.sortIconAlign}`]: true,
+              }}
+              viewBox="0 0 24 24"
+              height="24px"
+              width="24px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.1831 8.47552L12.8541 2.14703C12.8079 2.10065 12.7524 2.06384 12.6909 2.03839C12.5687 1.98785 12.4313 1.98785 12.3091 2.03839C12.2476 2.06384 12.1921 2.10065 12.1459 2.14703L5.81689 8.47552C5.62158 8.67084 5.62158 8.98724 5.81689 9.18256C6.01221 9.37787 6.32861 9.37787 6.52393 9.18256L12 3.70691V21.4999C12 21.7763 12.2236 21.9999 12.5 21.9999C12.7764 21.9999 13 21.7763 13 21.4999V3.70691L18.4761 9.18256C18.5737 9.28021 18.7017 9.32904 18.8296 9.32904C18.9575 9.32904 19.0854 9.28021 19.1831 9.18256C19.3784 8.98724 19.3784 8.67084 19.1831 8.47552Z" />
+            </svg>
+            {this.sortIconAlign === SortIconAlignment.RIGHT && <slot></slot>}
           </div>
         ) : (
           <slot></slot>

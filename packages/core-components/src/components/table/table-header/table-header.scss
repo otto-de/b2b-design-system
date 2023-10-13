@@ -52,6 +52,14 @@
           transform: rotate(180deg);
           transition: transform 0.4s ease;
         }
+
+        &--left {
+          float: right;
+        }
+
+        &--right {
+          float: right;
+        }
       }
     }
 
@@ -90,11 +98,11 @@
 }
 
 :host(.b2b-table-header--left) {
-  padding-left: 6px;
+  padding-left: var(--b2b-size-15);
 }
 
 :host(.b2b-table-header--right) {
-  padding-right: 6px;
+  padding-right: var(--b2b-size-15);
 }
 
 :host(.b2b-table-header--fixed) {
