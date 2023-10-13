@@ -5,18 +5,18 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-import { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 import { ContentAlignment, SortIconAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
+export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-export { ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
 export { ContentAlignment, SortIconAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
@@ -61,6 +61,22 @@ export namespace Components {
           * The target the URL will be opened into. The default is self.
          */
         "target": 'self' | 'blank' | 'parent' | 'top';
+    }
+    interface B2bBreadcrumb {
+    }
+    interface B2bBreadcrumbItem {
+        /**
+          * If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state.
+         */
+        "active": boolean;
+        /**
+          * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
+         */
+        "href": string;
+        /**
+          * The value associated with the current page. It is required, must be unique and can be a page title, an id or something similar.
+         */
+        "value": any;
     }
     interface B2bButton {
         /**
@@ -936,6 +952,14 @@ export interface B2bAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bAlertElement;
 }
+export interface B2bBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bBreadcrumbElement;
+}
+export interface B2bBreadcrumbItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bBreadcrumbItemElement;
+}
 export interface B2bCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCardElement;
@@ -1036,6 +1060,18 @@ declare global {
     var HTMLB2bAnchorElement: {
         prototype: HTMLB2bAnchorElement;
         new (): HTMLB2bAnchorElement;
+    };
+    interface HTMLB2bBreadcrumbElement extends Components.B2bBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLB2bBreadcrumbElement: {
+        prototype: HTMLB2bBreadcrumbElement;
+        new (): HTMLB2bBreadcrumbElement;
+    };
+    interface HTMLB2bBreadcrumbItemElement extends Components.B2bBreadcrumbItem, HTMLStencilElement {
+    }
+    var HTMLB2bBreadcrumbItemElement: {
+        prototype: HTMLB2bBreadcrumbItemElement;
+        new (): HTMLB2bBreadcrumbItemElement;
     };
     interface HTMLB2bButtonElement extends Components.B2bButton, HTMLStencilElement {
     }
@@ -1326,6 +1362,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
+        "b2b-breadcrumb": HTMLB2bBreadcrumbElement;
+        "b2b-breadcrumb-item": HTMLB2bBreadcrumbItemElement;
         "b2b-button": HTMLB2bButtonElement;
         "b2b-card": HTMLB2bCardElement;
         "b2b-checkbox": HTMLB2bCheckboxElement;
@@ -1415,6 +1453,27 @@ declare namespace LocalJSX {
           * The target the URL will be opened into. The default is self.
          */
         "target"?: 'self' | 'blank' | 'parent' | 'top';
+    }
+    interface B2bBreadcrumb {
+        /**
+          * Emits the value of the currently selected item whenever an item is selected.
+         */
+        "onB2b-selected"?: (event: B2bBreadcrumbCustomEvent<BreadCrumbChangeEventDetail>) => void;
+    }
+    interface B2bBreadcrumbItem {
+        /**
+          * If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state.
+         */
+        "active"?: boolean;
+        /**
+          * If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked.
+         */
+        "href"?: string;
+        "onB2b-change"?: (event: B2bBreadcrumbItemCustomEvent<BreadCrumbChangeEventDetail>) => void;
+        /**
+          * The value associated with the current page. It is required, must be unique and can be a page title, an id or something similar.
+         */
+        "value": any;
     }
     interface B2bButton {
         /**
@@ -2408,6 +2467,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "b2b-alert": B2bAlert;
         "b2b-anchor": B2bAnchor;
+        "b2b-breadcrumb": B2bBreadcrumb;
+        "b2b-breadcrumb-item": B2bBreadcrumbItem;
         "b2b-button": B2bButton;
         "b2b-card": B2bCard;
         "b2b-checkbox": B2bCheckbox;
@@ -2459,6 +2520,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "b2b-alert": LocalJSX.B2bAlert & JSXBase.HTMLAttributes<HTMLB2bAlertElement>;
             "b2b-anchor": LocalJSX.B2bAnchor & JSXBase.HTMLAttributes<HTMLB2bAnchorElement>;
+            "b2b-breadcrumb": LocalJSX.B2bBreadcrumb & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbElement>;
+            "b2b-breadcrumb-item": LocalJSX.B2bBreadcrumbItem & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbItemElement>;
             "b2b-button": LocalJSX.B2bButton & JSXBase.HTMLAttributes<HTMLB2bButtonElement>;
             "b2b-card": LocalJSX.B2bCard & JSXBase.HTMLAttributes<HTMLB2bCardElement>;
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;

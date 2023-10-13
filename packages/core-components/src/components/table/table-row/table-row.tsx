@@ -100,15 +100,13 @@ export class TableRowComponent {
   };
 
   private getRowWidth = () => {
-    const accordionIconSize = '24px';
+    const accordionSize = '24px';
     const checkboxSize = '16px';
 
-    if (Boolean(this.accordionType)) {
-      return accordionIconSize;
-    } else if (Boolean(this.selectable)) {
+    if (Boolean(this.selectable)) {
       return checkboxSize;
-    } else if (Boolean(this.accordionType && this.selectable)) {
-      return accordionIconSize + checkboxSize;
+    } else if (Boolean(this.accordionType)) {
+      return accordionSize;
     } else {
       return;
     }
