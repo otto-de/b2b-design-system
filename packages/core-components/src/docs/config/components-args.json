@@ -141,6 +141,43 @@
       "description": "The target the URL will be opened into. The default is self."
     }
   },
+  "b2b-breadcrumb": {},
+  "b2b-breadcrumb-item": {
+    "active": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state."
+    },
+    "href": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value associated with the current page. It is required, must be unique and can be a page title, an id or something similar."
+    }
+  },
   "b2b-button": {
     "active": {
       "control": {

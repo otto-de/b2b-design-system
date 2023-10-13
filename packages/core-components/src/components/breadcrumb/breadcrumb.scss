@@ -1,0 +1,47 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+:host {
+  .b2b-breadcrumb-nav {
+    z-index: 99;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0.75rem 0;
+    height: var(--b2b-size-90);
+    margin-bottom: 1.125rem;
+    border-bottom: var(--b2b-size-border-width-50) solid
+      var(--b2b-color-grey-200);
+
+    &__item {
+      font-size: var(--b2b-size-copy-125);
+      line-height: var(--b2b-size-copy-line-height-125);
+      display: inline-flex;
+      color: var(--b2b-color-grey-400);
+      cursor: pointer;
+
+      & a {
+        color: var(--b2b-color-grey-400);
+        text-decoration: none;
+      }
+
+      &:hover,
+      a:hover {
+        color: var(--b2b-color-red-100);
+      }
+
+      &--active {
+        &:hover,
+        a:hover {
+          cursor: default;
+          color: var(--b2b-color-grey-400);
+        }
+      }
+    }
+  }
+}
+
+::slotted(*:not(:last-child))::after {
+  content: '»';
+  color: var(--b2b-color-grey-400);
+  margin: 0 calc(0.75rem / 2);
+}
