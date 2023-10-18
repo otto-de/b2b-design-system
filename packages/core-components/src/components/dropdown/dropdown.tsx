@@ -11,7 +11,7 @@ import {
 @Component({
   tag: 'b2b-dropdown',
   styleUrl: 'dropdown.scss',
-  shadow: true,
+  shadow: false,
 })
 export class DropdownComponent {
   @Element() hostElement: HTMLB2bDropdownElement;
@@ -63,7 +63,7 @@ export class DropdownComponent {
   };
 
   private getSelectElement = () => {
-    return this.hostElement.shadowRoot.querySelector('select');
+    return this.hostElement.querySelector('select');
   };
 
   connectedCallback() {
@@ -82,9 +82,9 @@ export class DropdownComponent {
     }
   };
 
-  // shadow-DOM issue: <option> did not render inside <slot> so we need to re-append to <select>
+  // we need to attach the options to the correct element here
   componentDidRender() {
-    const options = this.hostElement.querySelectorAll('option');
+    let options = this.hostElement.querySelectorAll('option');
     const selectElement = this.getSelectElement();
     selectElement.append(...options);
   }
