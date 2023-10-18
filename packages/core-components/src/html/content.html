@@ -102,19 +102,19 @@
       <br />
       <!--  Parent can control size of table when table has size: expand-->
       <div style="width: 500px">
-        <b2b-table size="equal" resize>
+        <b2b-table size="equal">
           <b2b-table-rowgroup type="header" selectable>
             <b2b-table-row>
-              <b2b-table-header sort-direction="not-sorted" divider
+              <b2b-table-header sort-direction="not-sorted"
                 >Title 1</b2b-table-header
               >
-              <b2b-table-header sort-direction="not-sorted" divider
+              <b2b-table-header sort-direction="not-sorted"
                 >Title 2</b2b-table-header
               >
-              <b2b-table-header sort-direction="not-sorted" divider
+              <b2b-table-header sort-direction="not-sorted"
                 >Title 3</b2b-table-header
               >
-              <b2b-table-header sort-direction="descending" divider
+              <b2b-table-header sort-direction="descending"
                 >Title 4</b2b-table-header
               >
             </b2b-table-row>
@@ -242,6 +242,34 @@
           </b2b-table-rowgroup>
         </b2b-table>
       </b2b-scrollable-container>
+
+      <br />
+      <b2b-headline size="200">Resizable Table</b2b-headline>
+      <div style="width: 500px">
+        <b2b-table size="equal" id="test-table" resize>
+          <b2b-table-rowgroup type="header">
+            <b2b-table-row>
+              <b2b-table-header
+                sort-direction="not-sorted"
+                initial-sorting="ascending"
+                divider
+                >Title 1</b2b-table-header
+              >
+              <b2b-table-header divider>Title 2</b2b-table-header>
+              <b2b-table-header sort-direction="descending" divider
+                >Title 3</b2b-table-header
+              >
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body">
+            <b2b-table-row>
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+        </b2b-table>
+      </div>
     </div>
 
     <div class="content-container">

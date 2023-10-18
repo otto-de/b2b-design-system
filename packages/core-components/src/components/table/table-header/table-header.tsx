@@ -117,8 +117,22 @@ export class TableHeaderComponent {
 
   private handleMouseMove = (event: MouseEvent) => {
     let dx = event.clientX - this.x;
-
+    const parent = this.hostElement.closest('b2b-table-row');
+    const parentTable = this.hostElement.closest('b2b-table')
+      .parentNode as HTMLElement;
+    let width = 0;
     this.hostElement.style.width = `${this.w + dx}px`;
+
+    const siblings = Array.from(
+      parent.querySelectorAll('b2b-table-header'),
+    ).filter(el => el != this.hostElement) as HTMLB2bTableHeaderElement[];
+    siblings.forEach(sibling => {
+      width = width + sibling.offsetWidth;
+    });
+
+    this.hostElement.style.maxWidth = `${
+      parseInt(parentTable.style.width) - width
+    }px`;
 
     document.addEventListener('mouseup', this.handleMouseUp);
   };
@@ -127,6 +141,9 @@ export class TableHeaderComponent {
     let resizer = this.hostElement.shadowRoot.querySelector(
       '.b2b-table-header--resizer',
     );
+    console.log(this.hostElement.style.maxWidth + 'px');
+    console.log(this.hostElement.style.width + 'px');
+
     resizer.classList.remove('resizing');
     document.removeEventListener('mousemove', this.handleMouseMove);
   };
