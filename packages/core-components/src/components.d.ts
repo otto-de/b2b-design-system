@@ -9,7 +9,7 @@ import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEve
 import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-import { ContentAlignment, SortIconAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
@@ -17,7 +17,7 @@ export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEve
 export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-export { ContentAlignment, SortIconAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
@@ -739,10 +739,6 @@ export namespace Components {
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
         "sortDirection": TableSortDirections;
-        /**
-          * Alignment of the content of the cell, by default is to the left. *
-         */
-        "sortIconAlign": SortIconAlignment;
         /**
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */
@@ -2228,10 +2224,6 @@ declare namespace LocalJSX {
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
         "sortDirection"?: TableSortDirections;
-        /**
-          * Alignment of the content of the cell, by default is to the left. *
-         */
-        "sortIconAlign"?: SortIconAlignment;
         /**
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */

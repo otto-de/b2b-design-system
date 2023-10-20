@@ -21,11 +21,12 @@
     line-height: var(--b2b-size-icon-100);
 
     &--left {
-      justify-content: left;
+      justify-content: start;
     }
 
     &--right {
-      justify-content: right;
+      justify-content: end;
+      flex-direction: row-reverse;
     }
 
     &--center {

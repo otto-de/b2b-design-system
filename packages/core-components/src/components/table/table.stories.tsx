@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
+import { userEvent } from '@storybook/testing-library';
 import { html } from 'lit-html';
 import { repeat } from 'lit/directives/repeat.js';
 import {
@@ -15,6 +16,7 @@ type Story = StoryObj;
 const tableArgs = getArgTypes('b2b-table');
 const cellArgs = getArgTypes('b2b-table-cell');
 const rowArgs = getArgTypes('b2b-table-row');
+const headerArgs = getArgTypes('b2b-table-header');
 
 const meta: Meta = {
   title: 'Components/Content/Table',
@@ -36,13 +38,13 @@ const meta: Meta = {
     parentWidth: '600px',
     firstColumnWidth: 'auto',
     firstRowHeight: 'auto',
-    sortIconAlign: 'left',
     contentAlign: 'left',
   },
   argTypes: {
     ...tableArgs,
     ...cellArgs,
     ...rowArgs,
+    ...headerArgs,
     data: { table: { disable: true } },
     parentWidth: { table: { disable: true } },
     firstColumnWidth: { table: { disable: true } },
@@ -270,7 +272,6 @@ const SortableTableMeta: Meta = {
               ${userSampleData.columns.map(column => {
                 return html` <b2b-table-header
                   sort-direction="not-sorted"
-                  sort-icon-align=${args.sortIconAlign}
                   content-align=${args.contentAlign}
                   @b2b-change=${event =>
                     onSort(event, column.id, userSampleData)}
@@ -285,24 +286,39 @@ const SortableTableMeta: Meta = {
     },
   ],
 };
-export const SortableTableSortIconLeftAlign: Story = {
-  args: { ...SortableTableMeta.args, sortIconAlign: 'left' },
-  decorators: SortableTableMeta.decorators,
-  render: RenderSortableTable,
-};
-export const SortableTableSortIconRightAlign: Story = {
-  args: { ...SortableTableMeta.args, sortIconAlign: 'right' },
-  decorators: SortableTableMeta.decorators,
-  render: RenderSortableTable,
-};
-export const SortableTableSortIconRightAlignWithTextCenter: Story = {
+export const SortableTable: Story = {
   args: {
     ...SortableTableMeta.args,
-    sortIconAlign: 'right',
-    contentAlign: 'center',
+    contentAlign: 'left',
+    align: 'left',
+    data: userSampleData,
   },
   decorators: SortableTableMeta.decorators,
   render: RenderSortableTable,
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const header = await canvasElement.querySelector('b2b-table-header');
+      const sortArrow = header.shadowRoot.querySelector('div');
+      await userEvent.click(sortArrow);
+    }, 2000);
+  },
+};
+export const SortableTableRightAlign: Story = {
+  args: {
+    ...SortableTableMeta.args,
+    contentAlign: 'right',
+    align: 'right',
+    data: userSampleData,
+  },
+  decorators: SortableTableMeta.decorators,
+  render: RenderSortableTable,
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const header = await canvasElement.querySelector('b2b-table-header');
+      const sortArrow = header.shadowRoot.querySelector('div');
+      await userEvent.click(sortArrow);
+    }, 1000);
+  },
 };
 
 export const AccordionTable: Story = {
