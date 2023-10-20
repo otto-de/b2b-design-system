@@ -141,7 +141,7 @@ describe('B2B-Table', () => {
 
     let ariaState = await headerCol.getAttribute('aria-sort');
 
-    expect(sortArrow).toHaveClass('b2b-table-header__sort--left');
+    expect(sortArrow).toHaveClass('b2b-table-header__sort--right');
 
     expect(ariaState).toEqualText('other');
 
