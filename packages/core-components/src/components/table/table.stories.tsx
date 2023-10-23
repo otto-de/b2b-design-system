@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
+import { userEvent } from '@storybook/testing-library';
 import { html } from 'lit-html';
 import { repeat } from 'lit/directives/repeat.js';
 import {
@@ -15,6 +16,7 @@ type Story = StoryObj;
 const tableArgs = getArgTypes('b2b-table');
 const cellArgs = getArgTypes('b2b-table-cell');
 const rowArgs = getArgTypes('b2b-table-row');
+const headerArgs = getArgTypes('b2b-table-header');
 
 const meta: Meta = {
   title: 'Components/Content/Table',
@@ -36,11 +38,13 @@ const meta: Meta = {
     parentWidth: '600px',
     firstColumnWidth: 'auto',
     firstRowHeight: 'auto',
+    contentAlign: 'left',
   },
   argTypes: {
     ...tableArgs,
     ...cellArgs,
     ...rowArgs,
+    ...headerArgs,
     data: { table: { disable: true } },
     parentWidth: { table: { disable: true } },
     firstColumnWidth: { table: { disable: true } },
@@ -206,14 +210,34 @@ export const ScrollableTable: Story = {
   </b2b-scrollable-container>`,
 };
 
-export const SortableTable: Story = {
+const RenderSortableTable = ({ ...args }) => html`
+      <b2b-table-rowgroup type="body">
+        ${args.data.rows.map((row, index) => {
+          return html`<b2b-table-row
+            highlight="${args.highlight}"
+            color=${index === 0 ? args.color : 'default'}>
+            ${row.map(
+              data =>
+                html`<b2b-table-cell
+                  ?divider=${args.withDividers}
+                  align="${args.align}"
+                  text-wrap="${args.textWrap}"
+                  >${data}</b2b-table-cell
+                >`,
+            )}
+          </b2b-table-row>`;
+        })}
+      </b2b-table-rowgroup>
+    </b2b-table>
+  </div>`;
+
+const SortableTableMeta: Meta = {
   args: {
     ...meta.args,
-    data: userSampleData,
   },
   decorators: [
     story => {
-      const [_, updateArgs] = useArgs();
+      const [args, updateArgs] = useArgs();
       const onSort = (event, index, data) => {
         switch (event.detail) {
           case 'ascending':
@@ -248,6 +272,7 @@ export const SortableTable: Story = {
               ${userSampleData.columns.map(column => {
                 return html` <b2b-table-header
                   sort-direction="not-sorted"
+                  content-align=${args.contentAlign}
                   @b2b-change=${event =>
                     onSort(event, column.id, userSampleData)}
                   ?divider="false"
@@ -260,26 +285,40 @@ export const SortableTable: Story = {
       </div>`;
     },
   ],
-  render: ({ ...args }) => html`
-      <b2b-table-rowgroup type="body">
-        ${args.data.rows.map((row, index) => {
-          return html`<b2b-table-row
-            highlight="${args.highlight}"
-            color=${index === 0 ? args.color : 'default'}>
-            ${row.map(
-              data =>
-                html`<b2b-table-cell
-                  ?divider=${args.withDividers}
-                  align="${args.align}"
-                  text-wrap="${args.textWrap}"
-                  >${data}</b2b-table-cell
-                >`,
-            )}
-          </b2b-table-row>`;
-        })}
-      </b2b-table-rowgroup>
-    </b2b-table>
-  </div>`,
+};
+export const SortableTable: Story = {
+  args: {
+    ...SortableTableMeta.args,
+    contentAlign: 'left',
+    align: 'left',
+    data: userSampleData,
+  },
+  decorators: SortableTableMeta.decorators,
+  render: RenderSortableTable,
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const header = await canvasElement.querySelector('b2b-table-header');
+      const sortArrow = header.shadowRoot.querySelector('div');
+      await userEvent.click(sortArrow);
+    }, 2000);
+  },
+};
+export const SortableTableRightAlign: Story = {
+  args: {
+    ...SortableTableMeta.args,
+    contentAlign: 'right',
+    align: 'right',
+    data: userSampleData,
+  },
+  decorators: SortableTableMeta.decorators,
+  render: RenderSortableTable,
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const header = await canvasElement.querySelector('b2b-table-header');
+      const sortArrow = header.shadowRoot.querySelector('div');
+      await userEvent.click(sortArrow);
+    }, 1000);
+  },
 };
 
 export const AccordionTable: Story = {

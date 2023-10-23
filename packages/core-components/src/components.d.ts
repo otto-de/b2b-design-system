@@ -724,6 +724,10 @@ export namespace Components {
     }
     interface B2bTableHeader {
         /**
+          * Alignment of the content of the cell, by default is to the left. *
+         */
+        "contentAlign": ContentAlignment;
+        /**
           * adds a border to the right of the header. *
          */
         "divider": boolean;
@@ -2200,6 +2204,10 @@ declare namespace LocalJSX {
         "textWrap"?: boolean;
     }
     interface B2bTableHeader {
+        /**
+          * Alignment of the content of the cell, by default is to the left. *
+         */
+        "contentAlign"?: ContentAlignment;
         /**
           * adds a border to the right of the header. *
          */
