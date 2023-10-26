@@ -107,7 +107,6 @@ export class B2BTextareaComponent {
   };
 
   render() {
-    console.log('**' + this.height);
     return (
       <Host
         class={{
