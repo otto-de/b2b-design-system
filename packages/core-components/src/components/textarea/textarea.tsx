@@ -61,6 +61,9 @@ export class B2BTextareaComponent {
   /** The maximum input length. Characters entered after that will not be appended to the input value. */
   @Prop({ reflect: true }) maxLength?: number;
 
+  /** The height of the text area */
+  @Prop() height?: string;
+
   /** Emits whenever the textarea receives focus. */
   @Event({ eventName: 'b2b-focus' })
   b2bFocus: EventEmitter<FocusEvent>;
@@ -79,7 +82,6 @@ export class B2BTextareaComponent {
       form.addEventListener('formdata', this.handleFormData);
     }
   }
-
   // TODO: find a way to test it maybe when migrating to new testing framework
   private handleFormData = (event: FormDataEvent) => {
     if (this.name != undefined) {
@@ -105,6 +107,7 @@ export class B2BTextareaComponent {
   };
 
   render() {
+    console.log('**' + this.height);
     return (
       <Host
         class={{
@@ -119,7 +122,10 @@ export class B2BTextareaComponent {
         <textarea
           class="textarea-input"
           aria-labelledby={this.name}
-          style={Boolean(this.resize) && { resize: this.resize }}
+          style={{
+            height: this.height,
+            ...(Boolean(this.resize) && { resize: this.resize }),
+          }}
           value={this.value}
           name={this.name}
           placeholder={this.placeholder}
