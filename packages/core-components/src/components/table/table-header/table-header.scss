@@ -11,6 +11,7 @@
   font-weight: bold;
   border-top: 1px solid var(--b2b-color-grey-200);
   border-bottom: 2px solid var(--b2b-color-grey-300);
+  vertical-align: middle;
 
   .b2b-table-header__heading {
     cursor: pointer;
@@ -18,6 +19,19 @@
     display: flex;
     height: var(--b2b-size-icon-100);
     line-height: var(--b2b-size-icon-100);
+
+    &--left {
+      justify-content: start;
+    }
+
+    &--right {
+      justify-content: end;
+      flex-direction: row-reverse;
+    }
+
+    &--center {
+      justify-content: center;
+    }
 
     &:hover,
     &:focus-visible {
@@ -38,6 +52,14 @@
         &--ascending {
           transform: rotate(180deg);
           transition: transform 0.4s ease;
+        }
+
+        &--left {
+          float: right;
+        }
+
+        &--right {
+          float: right;
         }
       }
     }
@@ -74,6 +96,14 @@
 
 :host(.b2b-table-header--divider) {
   border-right: 1px solid var(--b2b-color-grey-200);
+}
+
+:host(.b2b-table-header--left) {
+  padding-left: var(--b2b-size-15);
+}
+
+:host(.b2b-table-header--right) {
+  padding-right: var(--b2b-size-15);
 }
 
 :host(.b2b-table-header--fixed) {

@@ -11,7 +11,7 @@ import {
 @Component({
   tag: 'b2b-dropdown',
   styleUrl: 'dropdown.scss',
-  shadow: false,
+  shadow: true,
 })
 export class DropdownComponent {
   @Element() hostElement: HTMLB2bDropdownElement;
@@ -63,7 +63,7 @@ export class DropdownComponent {
   };
 
   private getSelectElement = () => {
-    return this.hostElement.querySelector('select');
+    return this.hostElement.shadowRoot.querySelector('select');
   };
 
   connectedCallback() {
