@@ -87,7 +87,9 @@ export class B2bTabGroupComponent {
       customElements.whenDefined('b2b-tab'),
       customElements.whenDefined('b2b-tab-panel'),
     ]).then(() => {
-      this.linkPanels();
+      if (!this.useRouter) {
+        this.linkPanels();
+      }
     });
   }
 
