@@ -724,6 +724,10 @@ export namespace Components {
     }
     interface B2bTableHeader {
         /**
+          * Alignment of the content of the cell, by default is to the left. *
+         */
+        "contentAlign": ContentAlignment;
+        /**
           * adds a border to the right of the header. *
          */
         "divider": boolean;
@@ -803,6 +807,10 @@ export namespace Components {
           * An optional error message that is displayed when the textarea is invalid. Per default it is undefined.
          */
         "error"?: string;
+        /**
+          * The height of the text area
+         */
+        "height"?: string;
         /**
           * An optional hint for the textarea. Per default it is undefined.
          */
@@ -2201,6 +2209,10 @@ declare namespace LocalJSX {
     }
     interface B2bTableHeader {
         /**
+          * Alignment of the content of the cell, by default is to the left. *
+         */
+        "contentAlign"?: ContentAlignment;
+        /**
           * adds a border to the right of the header. *
          */
         "divider"?: boolean;
@@ -2292,6 +2304,10 @@ declare namespace LocalJSX {
           * An optional error message that is displayed when the textarea is invalid. Per default it is undefined.
          */
         "error"?: string;
+        /**
+          * The height of the text area
+         */
+        "height"?: string;
         /**
           * An optional hint for the textarea. Per default it is undefined.
          */
