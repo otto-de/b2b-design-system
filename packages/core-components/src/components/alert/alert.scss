@@ -46,6 +46,7 @@
 
   &__content {
     display: flex;
+    align-items: baseline;
     flex: 2;
     gap: var(--b2b-size-30);
 
