@@ -29,24 +29,11 @@ The distribution of this package exposes web-components that are natively suppor
 do a very simple configuration in your project to make them available:
 
 <br />
-To use the components, you need to load a CSS file and some JavaScript. The CSS file
-includes the fonts and the design tokens.
-
-## Plain HTML
-
-```html
-<link
-  rel="stylesheet"
-  href="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css" />
-<script
-  type="module"
-  src="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.esm.js"></script>
-```
-
-## With a bundler or ES modules
+To use the components, you need to load a CSS file and include it in your `App.Vue`
+file. The CSS file includes the fonts and the design tokens.
 
 ```js
-import '~@otto-de/b2b-core-components/dist/b2b-core-components/b2b-core-components.css';
+import '@otto-de/b2b-core-components/dist/b2b-core-components/b2b-core-components.css';
 ```
 
 ## Vue 3
@@ -54,7 +41,7 @@ import '~@otto-de/b2b-core-components/dist/b2b-core-components/b2b-core-componen
 **1.** In your `main.ts/.js` file, please copy the following configuration.
 
 ```ts
-import { defineCustomElements } from '@otto-de/b2b-core-components/loader';
+import { defineCustomElements } from '@otto-de/b2b-core-components/dist/loader';
 
 defineCustomElements(window).catch(err => console.log('Log your error', err));
 ```
@@ -102,7 +89,7 @@ Vue.config.ignoredElements = [/^b2b/];
 Register JavaScript Plugin within /plugin folder: b2bDesignSystem.client.js
 
 ```js
-import { defineCustomElements } from '@otto-ec/b2b-core-components/loader';
+import { defineCustomElements } from '@otto-de/b2b-core-components/dist/loader';
 import Vue from 'vue';
 
 export default (context, inject) => {
@@ -168,10 +155,10 @@ checkbox:
 ```
 
 To learn more about v-model, we recommend following [this guide](https://vuejs.org/guide/essentials/forms.html).
-We have published some examples of our components with the V-Model VModelNotation (look for VModelNotation naming)
+We have published some examples of our components with the V-Model Notation
 notation. You can find them in our [example repository](https://github.com/otto-ec/b2b-vue-examples/blob/main/src/App.vue) (only available internally for now, sorry).
 
-If you encounter a problem with this directive, let us know by [opening an issue](https://github.com/otto-ec/b2b-design-system/issues) in GitHub, and also consider using an
+If you encounter a problem with this directive, let us know by [opening an issue](https://github.com/otto-de/b2b-design-system/issues) in GitHub, and also consider using an
 extended `v-on` directive such as:
 
 ### event handling example
