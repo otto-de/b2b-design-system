@@ -1,6 +1,12 @@
 # [1.7.0](https://github.com/otto-de/b2b-design-system/compare/v1.6.1...v1.7.0) (2023-10-26)
 
 
+### Breaking changes
+
+* **Vue Setup:** `defineCustomElements` must now be imported from `@otto-de/b2b-core-components/dist/loader` 
+
+
+
 ### Bug Fixes
 
 * [B2BDS-211] Apply disabled style for a button with href ([2bd2aba](https://github.com/otto-de/b2b-design-system/commit/2bd2abaa58bba73ccd6832e98d45ca72cad76ce2))
