@@ -31,6 +31,7 @@ export const config: Config = {
     }),
     {
       type: 'dist',
+      isPrimaryPackageOutputTarget: true,
     },
     {
       type: 'dist-custom-elements',
