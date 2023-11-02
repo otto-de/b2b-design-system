@@ -19,7 +19,7 @@ const rowArgs = getArgTypes('b2b-table-row');
 const headerArgs = getArgTypes('b2b-table-header');
 
 const meta: Meta = {
-  title: 'Components/Content/Table',
+  title: 'Components/Table/Table',
   component: 'b2b-table',
   parameters: {
     backgrounds: {

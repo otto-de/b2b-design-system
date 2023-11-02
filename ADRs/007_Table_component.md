@@ -29,7 +29,7 @@ teams to slightly depend on Stencil and we would like to keep that dependency en
 the component library. 
 
 
-####2. Creating components that resemble the current html table structure 
+#### 2. Creating components that resemble the current html table structure 
 
 Advantages
 - We provide a more familiar way of using tables
