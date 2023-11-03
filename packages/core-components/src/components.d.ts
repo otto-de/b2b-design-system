@@ -709,6 +709,7 @@ export namespace Components {
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
         "color": TableColourOptions;
+        "colspan"?: string;
         /**
           * adds a border to the right of the cell. *
          */
@@ -2186,6 +2187,7 @@ declare namespace LocalJSX {
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
         "color"?: TableColourOptions;
+        "colspan"?: string;
         /**
           * adds a border to the right of the cell. *
          */

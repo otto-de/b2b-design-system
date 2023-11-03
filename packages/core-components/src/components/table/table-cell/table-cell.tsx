@@ -30,6 +30,7 @@ export class TableCellComponent {
 
   /** Background color of the cell. This color selection does not have hover states, as it is handled from the row**/
   @Prop() color: TableColourOptions = 'default';
+  @Prop() colspan?: string;
 
   @State() useTextEllipsis = false;
 
@@ -62,6 +63,7 @@ export class TableCellComponent {
       <Host
         onMouseEnter={this.addExpandStyles}
         onMouseLeave={this.removeExpandStyles}
+        style={{ 'flex-grow': this.colspan }}
         class={{
           'b2b-table-cell': true,
           ['b2b-table-cell--ellipsis']: this.useTextEllipsis,
