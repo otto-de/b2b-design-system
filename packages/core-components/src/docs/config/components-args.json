@@ -2283,6 +2283,25 @@
     }
   },
   "b2b-table-header": {
+    "contentAlign": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "ContentAlignment.LEFT"
+        }
+      },
+      "description": "Alignment of the content of the cell, by default is to the left. *"
+    },
     "divider": {
       "control": {
         "type": "boolean"
@@ -2510,6 +2529,15 @@
         "defaultValue": {}
       },
       "description": "An optional error message that is displayed when the textarea is invalid. Per default it is undefined."
+    },
+    "height": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The height of the text area"
     },
     "hint": {
       "table": {
