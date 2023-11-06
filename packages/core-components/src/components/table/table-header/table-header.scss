@@ -1,7 +1,8 @@
 @use '../../../global/b2b-styles';
 
 :host {
-  display: table-cell;
+  display: flex;
+  flex: 1;
   padding: 12px;
   margin: 0;
   white-space: nowrap;

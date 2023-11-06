@@ -1,9 +1,9 @@
 @use '../../../global/b2b-styles';
 
 :host {
-  display: table-row-group;
+   display: block;
 }
 
 :host(.b2b-table-rowgroup__header) {
-  display: table-header-group;
+   display: block;
 }

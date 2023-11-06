@@ -103,10 +103,10 @@ export class TableRowComponent {
     const accordionSize = '24px';
     const checkboxSize = '16px';
 
-    if (Boolean(this.selectable)) {
-      return checkboxSize;
-    } else if (Boolean(this.accordionType)) {
+    if (Boolean(this.accordionType)) {
       return accordionSize;
+    } else if (Boolean(this.selectable)) {
+      return checkboxSize;
     } else {
       return;
     }
@@ -176,7 +176,12 @@ export class TableRowComponent {
             </b2b-table-cell>
           );
         case TableAccordionRowTypes.CHILD:
-          return <b2b-table-cell></b2b-table-cell>;
+          return (
+            <b2b-table-cell
+              style={{
+                ['width']: this.getRowWidth(),
+              }}></b2b-table-cell>
+          );
       }
     }
   };

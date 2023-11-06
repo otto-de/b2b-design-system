@@ -724,6 +724,7 @@ export namespace Components {
         "textWrap": boolean;
     }
     interface B2bTableHeader {
+        "colspan"?: string;
         /**
           * adds a border to the right of the header. *
          */
@@ -732,6 +733,10 @@ export namespace Components {
           * sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed": boolean;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size": TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
@@ -2202,6 +2207,7 @@ declare namespace LocalJSX {
         "textWrap"?: boolean;
     }
     interface B2bTableHeader {
+        "colspan"?: string;
         /**
           * adds a border to the right of the header. *
          */
@@ -2214,6 +2220,10 @@ declare namespace LocalJSX {
           * Emits whenever the sort direction changes.
          */
         "onB2b-change"?: (event: B2bTableHeaderCustomEvent<TableSortDirections>) => void;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size"?: TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */

@@ -63,7 +63,10 @@ export class TableCellComponent {
       <Host
         onMouseEnter={this.addExpandStyles}
         onMouseLeave={this.removeExpandStyles}
-        style={{ 'flex-grow': this.colspan }}
+        style={{
+          'flex-grow': this.colspan,
+          'flex': `${this.size === TableSizes.EQUAL && 1}`,
+        }}
         class={{
           'b2b-table-cell': true,
           ['b2b-table-cell--ellipsis']: this.useTextEllipsis,
