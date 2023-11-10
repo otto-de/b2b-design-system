@@ -730,6 +730,10 @@ export namespace Components {
          */
         "divider": boolean;
         /**
+          * Optional string to represent how many cells the header should expand to
+         */
+        "expand"?: string;
+        /**
           * sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed": boolean;
@@ -2212,6 +2216,10 @@ declare namespace LocalJSX {
           * adds a border to the right of the header. *
          */
         "divider"?: boolean;
+        /**
+          * Optional string to represent how many cells the header should expand to
+         */
+        "expand"?: string;
         /**
           * sets the header position to sticky. Use it when table is inside a scrollable container. *
          */

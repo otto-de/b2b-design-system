@@ -41,6 +41,9 @@ export class TableHeaderComponent {
 
   @Prop() colspan?: string;
 
+  /** Optional string to represent how many cells the header should expand to  */
+  @Prop() expand?: string;
+
   /** Emits whenever the sort direction changes. */
   @Event({ eventName: 'b2b-change' })
   b2bChange: EventEmitter<TableSortDirections>;
