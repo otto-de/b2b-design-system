@@ -160,11 +160,11 @@ export class TableRowgroupComponent {
 
     if (isOpen) {
       children.forEach(child => {
-        child.style.visibility = 'visible';
+        child.style.display = 'flex';
       });
     } else {
       children.forEach(child => {
-        child.style.visibility = 'collapse';
+        child.style.display = 'none';
       });
     }
   };

@@ -64,7 +64,7 @@ export class TableComponent {
     }
   }
 
-  componentDidRender() {
+  componentWillRender() {
     this.setCellSize();
     this.setFixedHeaders();
   }
@@ -83,6 +83,8 @@ export class TableComponent {
       );
       console.log(this.host);
     }
+    this.setCellSize();
+    this.setFixedHeaders();
   }
 
   render() {

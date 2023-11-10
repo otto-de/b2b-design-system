@@ -65,7 +65,6 @@ export class TableCellComponent {
         onMouseLeave={this.removeExpandStyles}
         style={{
           'flex-grow': this.colspan,
-          'flex': `${this.size === TableSizes.EQUAL && 1}`,
         }}
         class={{
           'b2b-table-cell': true,
