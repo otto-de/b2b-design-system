@@ -3,6 +3,7 @@
 :host {
   border-bottom: 1px solid var(--b2b-color-grey-200);
   display: flex;
+  flex-flow: row nowrap;
 
   .b2b-table-row__accordion-icon {
     transform: rotate(0);

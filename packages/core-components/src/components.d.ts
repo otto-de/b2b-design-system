@@ -724,6 +724,7 @@ export namespace Components {
         "textWrap": boolean;
     }
     interface B2bTableHeader {
+        "colspan"?: string;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */
@@ -733,9 +734,17 @@ export namespace Components {
          */
         "divider": boolean;
         /**
+          * Optional string to represent how many cells the header should expand to
+         */
+        "expand"?: string;
+        /**
           * sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed": boolean;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size": TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
@@ -2497,6 +2506,7 @@ declare namespace LocalJSX {
         "textWrap"?: boolean;
     }
     interface B2bTableHeader {
+        "colspan"?: string;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */
@@ -2506,6 +2516,10 @@ declare namespace LocalJSX {
          */
         "divider"?: boolean;
         /**
+          * Optional string to represent how many cells the header should expand to
+         */
+        "expand"?: string;
+        /**
           * sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed"?: boolean;
@@ -2513,6 +2527,10 @@ declare namespace LocalJSX {
           * Emits whenever the sort direction changes.
          */
         "onB2b-change"?: (event: B2bTableHeaderCustomEvent<TableSortDirections>) => void;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size"?: TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */

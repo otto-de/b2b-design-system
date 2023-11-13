@@ -9,9 +9,10 @@ import {
   EventEmitter,
 } from '@stencil/core';
 import {
-  ContentAlignment,
+  TableSizes,
   TableSortDirections,
   SortIconAlignment,
+  ContentAlignment,
 } from '../../../utils/types/table.types';
 
 @Component({
@@ -28,14 +29,25 @@ export class TableHeaderComponent {
   /** sets the header position to sticky. Use it when table is inside a scrollable container. **/
   @Prop() fixed: boolean = false;
 
+  /** The size of the cell. Follows table size.
+   * When size is equal and textWrap is false, the text will truncate with Ellipsis.
+   * Other sizes won't affect cell current implementation.
+   **/
+  @Prop() size: TableSizes = TableSizes.EXPAND;
+
   /** The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this. */
   @Prop({ reflect: true, mutable: true }) sortDirection: TableSortDirections;
 
   /** Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent. */
   @Prop() sortId?: string;
 
+  @Prop() colspan?: string;
+
   /** Alignment of the content of the cell, by default is to the left. **/
   @Prop() contentAlign: ContentAlignment = ContentAlignment.LEFT;
+
+  /** Optional string to represent how many cells the header should expand to  */
+  @Prop() expand?: string;
 
   /** Emits whenever the sort direction changes. */
   @Event({ eventName: 'b2b-change' })
@@ -108,6 +120,10 @@ export class TableHeaderComponent {
           [`b2b-table-header--${this.sortDirection && this.iconAlign}`]: true,
           'b2b-table-header--divider': this.divider,
           'b2b-table-header--fixed': this.fixed,
+        }}
+        style={{
+          'flex-grow': this.colspan,
+          'flex': `${this.size === TableSizes.EQUAL && 1}`,
         }}
         role="columnheader"
         aria-sort={

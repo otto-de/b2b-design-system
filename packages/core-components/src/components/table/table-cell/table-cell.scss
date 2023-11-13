@@ -3,7 +3,8 @@
 :host {
   --b2b-table-cell-text-expand-bg: var(--b2b-color-white-100);
 
-  display: table-cell;
+  display: flex;
+  flex: 1 0 0;
   padding: 12px;
   margin: 0;
   font-family: var(--b2b-font-family-default);

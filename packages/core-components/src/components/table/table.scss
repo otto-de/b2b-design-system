@@ -2,7 +2,9 @@
 
 :host {
   text-align: left;
-  display: table;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 }
 
 :host(.b2b-table--expand) {

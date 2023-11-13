@@ -34,7 +34,7 @@
           <b2b-table-rowgroup type="header" accordion selectable>
             <b2b-table-row>
               <b2b-table-header>Name</b2b-table-header>
-              <b2b-table-header>Weight</b2b-table-header>
+              <b2b-table-header expand="2">Weight</b2b-table-header>
               <b2b-table-header>Color</b2b-table-header>
               <b2b-table-header>Action</b2b-table-header>
             </b2b-table-row>
@@ -162,15 +162,78 @@
         </b2b-table-rowgroup>
         <b2b-table-rowgroup type="body">
           <b2b-table-row>
-            <b2b-table-cell colspan="3"
-              ><p>data 1a gffhjashkfjkgjkjgdsf</p></b2b-table-cell
-            >
-            <!--            <b2b-table-cell>data 2a</b2b-table-cell>-->
-            <!--            <b2b-table-cell>data 3a</b2b-table-cell>-->
+            <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+            <b2b-table-cell>data 2a</b2b-table-cell>
+            <b2b-table-cell>data 3a</b2b-table-cell>
           </b2b-table-row>
         </b2b-table-rowgroup>
       </b2b-table>
-
+      <br />
+      <div style="width: 500px">
+        <b2b-table size="equal">
+          <b2b-table-rowgroup type="header" selectable>
+            <b2b-table-row>
+              <b2b-table-header sort-direction="not-sorted"
+                >Title 1</b2b-table-header
+              >
+              <b2b-table-header sort-direction="not-sorted"
+                >Title 2</b2b-table-header
+              >
+              <b2b-table-header sort-direction="not-sorted"
+                >Title 3</b2b-table-header
+              >
+              <b2b-table-header sort-direction="descending"
+                >Title 4</b2b-table-header
+              >
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body" selectable>
+            <b2b-table-row value="peaches">
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell>data 3a</b2b-table-cell>
+              <b2b-table-cell text-wrap="false"
+                ><b2b-button>Button</b2b-button></b2b-table-cell
+              >
+            </b2b-table-row>
+            <b2b-table-row value="plums">
+              <b2b-table-cell text-wrap="false">data 1b</b2b-table-cell>
+              <b2b-table-cell text-wrap="false"
+                >Very long data text that wraps over to next line and then some
+                more text to see what happens when the line is longer than the
+                table</b2b-table-cell
+              >
+              <b2b-table-cell>data 3b</b2b-table-cell>
+              <b2b-table-cell>data 4b</b2b-table-cell>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+        </b2b-table>
+      </div>
+      <div style="width: 500px">
+        <b2b-table id="test-table">
+          <b2b-table-rowgroup type="header">
+            <b2b-table-row>
+              <b2b-table-header
+                sort-direction="not-sorted"
+                initial-sorting="ascending"
+                >Title 1</b2b-table-header
+              >
+              <b2b-table-header>Title 2</b2b-table-header>
+              <b2b-table-header sort-direction="descending"
+                >Title 3</b2b-table-header
+              >
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body">
+            <b2b-table-row>
+              <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell colspan="2"
+                >very long data that spans over to the next cell</b2b-table-cell
+              >
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+        </b2b-table>
+      </div>
       <br />
       <b2b-headline size="200">Scrollable Table</b2b-headline>
       <b2b-scrollable-container style="width: 400px; height: 200px">

@@ -39,18 +39,49 @@ export class TableComponent {
 
   private setCellSize() {
     const allCells = this.host.querySelectorAll('b2b-table-cell');
+    let allRows = this.host.querySelectorAll('b2b-table-row');
+    const allHeaders = this.host.querySelectorAll('b2b-table-header');
     [...allCells].map(cell => cell.setAttribute('size', this.size));
+    [...allHeaders].map(cell => cell.setAttribute('size', this.size));
+    for (const [id, cell] of allHeaders.entries()) {
+      cell.setAttribute('column', String(id));
+      cell.getAttribute('expand') &&
+        cell.setAttribute('colspan', cell.getAttribute('expand'));
+    }
+    allRows.forEach(row => {
+      for (const [id, cell] of row
+        .querySelectorAll('b2b-table-cell')
+        .entries()) {
+        cell.setAttribute('column', String(id));
+        allHeaders.item(id).getAttribute('expand') &&
+          cell.setAttribute(
+            'colspan',
+            allHeaders.item(id).getAttribute('expand'),
+          );
+      }
+    });
   }
 
   private setFixedHeaders() {
     const isScrollable = this.host.closest('b2b-scrollable-container') !== null;
     if (isScrollable) {
-      const allHeaders = this.host.querySelectorAll('b2b-table-header');
-      [...allHeaders].map(cell => cell.setAttribute('fixed', 'true'));
+      let allHeaders = this.host.querySelectorAll('b2b-table-header');
+      let allRows = this.host.querySelectorAll('b2b-table-row');
+      [...allHeaders].map(
+        cell => (cell.style.flex = `0 0 ${cell.style.width}`),
+      );
+
+      allRows.forEach(row => {
+        for (const [id, cell] of row
+          .querySelectorAll('b2b-table-cell')
+          .entries()) {
+          cell.style.flex = `0 0 ${allHeaders.item(id).style.width}`;
+        }
+      });
     }
   }
 
-  componentDidRender() {
+  componentWillRender() {
     this.setCellSize();
     this.setFixedHeaders();
   }
@@ -69,6 +100,8 @@ export class TableComponent {
       );
       console.log(this.host);
     }
+    this.setCellSize();
+    this.setFixedHeaders();
   }
 
   render() {
