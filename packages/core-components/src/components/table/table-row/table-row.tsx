@@ -129,8 +129,13 @@ export class TableRowComponent {
           <b2b-table-header
             style={{
               ['width']: this.getRowWidth(),
+              flex: `0 0 ${this.getRowWidth()}`,
             }}>
             <b2b-checkbox
+              style={{
+                ['width']: this.getRowWidth(),
+                flex: `0 0 ${this.getRowWidth()}`,
+              }}
               standalone
               checked={this.checked}
               indeterminate={this.indeterminate}></b2b-checkbox>
@@ -138,8 +143,16 @@ export class TableRowComponent {
         );
       } else {
         return (
-          <b2b-table-cell>
+          <b2b-table-cell
+            style={{
+              ['width']: this.getRowWidth(),
+              flex: `0 0 ${this.getRowWidth()}`,
+            }}>
             <b2b-checkbox
+              style={{
+                ['width']: this.getRowWidth(),
+                flex: `0 0 ${this.getRowWidth()}`,
+              }}
               standalone
               checked={this.checked}
               value={this.value}
@@ -158,11 +171,12 @@ export class TableRowComponent {
             <b2b-table-header
               style={{
                 ['width']: this.getRowWidth(),
+                flex: `0 0 ${this.getRowWidth()}`,
               }}></b2b-table-header>
           );
         case TableAccordionRowTypes.PARENT:
           return (
-            <b2b-table-cell>
+            <b2b-table-cell style={{ flex: `0 0 ${this.getRowWidth()}` }}>
               <button
                 onClick={this.toggleOpen}
                 class={{
@@ -180,6 +194,7 @@ export class TableRowComponent {
             <b2b-table-cell
               style={{
                 ['width']: this.getRowWidth(),
+                flex: `0 0 ${this.getRowWidth()}`,
               }}></b2b-table-cell>
           );
       }
