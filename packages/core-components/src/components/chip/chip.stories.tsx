@@ -2,11 +2,20 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ label, disabled, value, hasCloseButton }) => {
+const Template: Story = ({
+  label,
+  disabled,
+  value,
+  hasCloseButton,
+  maxWidth,
+  truncate,
+}) => {
   return html`<b2b-chip-component
     label="${label}"
     disabled="${disabled}"
     value="${value}"
+    max-width="${maxWidth}"
+    truncate="${truncate}"
     has-close-button="${hasCloseButton}"></b2b-chip-component>`;
 };
 
@@ -15,6 +24,7 @@ const defaultArgs = {
   disabled: false,
   value: '',
   hasCloseButton: true,
+  truncate: false,
 };
 
 export const story010Default = Template.bind({});
@@ -35,6 +45,14 @@ story030WithoutButton.args = {
   hasCloseButton: false,
 };
 story030WithoutButton.storyName = 'Without Button';
+export const story040WithTruncatedText = Template.bind({});
+story040WithTruncatedText.args = {
+  ...defaultArgs,
+  label: ' Chip with truncated text',
+  truncate: true,
+  maxWidth: '50px',
+};
+story040WithTruncatedText.storyName = 'Truncated Text';
 
 const chipComponentArgs = getArgTypes('b2b-chip-component');
 

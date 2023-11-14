@@ -226,6 +226,14 @@ export namespace Components {
          */
         "label": string;
         /**
+          * To specift the max width of chip when used in multi-select
+         */
+        "maxWidth"?: string;
+        /**
+          * Whether the chip text should be truncated.
+         */
+        "truncate": boolean;
+        /**
           * It is only used when the chip component participates in a group
          */
         "value"?: any;
@@ -1049,18 +1057,7 @@ export interface B2bToggleGroupCustomEvent<T> extends CustomEvent<T> {
     target: HTMLB2bToggleGroupElement;
 }
 declare global {
-    interface HTMLB2bAlertElementEventMap {
-        "b2b-close": void;
-    }
     interface HTMLB2bAlertElement extends Components.B2bAlert, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bAlertElementEventMap>(type: K, listener: (this: HTMLB2bAlertElement, ev: B2bAlertCustomEvent<HTMLB2bAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bAlertElementEventMap>(type: K, listener: (this: HTMLB2bAlertElement, ev: B2bAlertCustomEvent<HTMLB2bAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bAlertElement: {
         prototype: HTMLB2bAlertElement;
@@ -1072,35 +1069,13 @@ declare global {
         prototype: HTMLB2bAnchorElement;
         new (): HTMLB2bAnchorElement;
     };
-    interface HTMLB2bBreadcrumbElementEventMap {
-        "b2b-selected": BreadCrumbChangeEventDetail;
-    }
     interface HTMLB2bBreadcrumbElement extends Components.B2bBreadcrumb, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bBreadcrumbElementEventMap>(type: K, listener: (this: HTMLB2bBreadcrumbElement, ev: B2bBreadcrumbCustomEvent<HTMLB2bBreadcrumbElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bBreadcrumbElementEventMap>(type: K, listener: (this: HTMLB2bBreadcrumbElement, ev: B2bBreadcrumbCustomEvent<HTMLB2bBreadcrumbElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bBreadcrumbElement: {
         prototype: HTMLB2bBreadcrumbElement;
         new (): HTMLB2bBreadcrumbElement;
     };
-    interface HTMLB2bBreadcrumbItemElementEventMap {
-        "b2b-change": BreadCrumbChangeEventDetail;
-    }
     interface HTMLB2bBreadcrumbItemElement extends Components.B2bBreadcrumbItem, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bBreadcrumbItemElementEventMap>(type: K, listener: (this: HTMLB2bBreadcrumbItemElement, ev: B2bBreadcrumbItemCustomEvent<HTMLB2bBreadcrumbItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bBreadcrumbItemElementEventMap>(type: K, listener: (this: HTMLB2bBreadcrumbItemElement, ev: B2bBreadcrumbItemCustomEvent<HTMLB2bBreadcrumbItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bBreadcrumbItemElement: {
         prototype: HTMLB2bBreadcrumbItemElement;
@@ -1112,90 +1087,31 @@ declare global {
         prototype: HTMLB2bButtonElement;
         new (): HTMLB2bButtonElement;
     };
-    interface HTMLB2bCardElementEventMap {
-        "b2b-selected": void;
-    }
     interface HTMLB2bCardElement extends Components.B2bCard, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCardElementEventMap>(type: K, listener: (this: HTMLB2bCardElement, ev: B2bCardCustomEvent<HTMLB2bCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCardElementEventMap>(type: K, listener: (this: HTMLB2bCardElement, ev: B2bCardCustomEvent<HTMLB2bCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bCardElement: {
         prototype: HTMLB2bCardElement;
         new (): HTMLB2bCardElement;
     };
-    interface HTMLB2bCheckboxElementEventMap {
-        "b2b-focus": FocusEvent;
-        "b2b-blur": FocusEvent;
-        "b2b-change": CheckboxEventDetail;
-    }
     interface HTMLB2bCheckboxElement extends Components.B2bCheckbox, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCheckboxElementEventMap>(type: K, listener: (this: HTMLB2bCheckboxElement, ev: B2bCheckboxCustomEvent<HTMLB2bCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCheckboxElementEventMap>(type: K, listener: (this: HTMLB2bCheckboxElement, ev: B2bCheckboxCustomEvent<HTMLB2bCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bCheckboxElement: {
         prototype: HTMLB2bCheckboxElement;
         new (): HTMLB2bCheckboxElement;
     };
-    interface HTMLB2bCheckboxGroupElementEventMap {
-        "b2b-group-change": CheckboxEventDetail;
-    }
     interface HTMLB2bCheckboxGroupElement extends Components.B2bCheckboxGroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLB2bCheckboxGroupElement, ev: B2bCheckboxGroupCustomEvent<HTMLB2bCheckboxGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLB2bCheckboxGroupElement, ev: B2bCheckboxGroupCustomEvent<HTMLB2bCheckboxGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bCheckboxGroupElement: {
         prototype: HTMLB2bCheckboxGroupElement;
         new (): HTMLB2bCheckboxGroupElement;
     };
-    interface HTMLB2bChipComponentElementEventMap {
-        "b2b-close": ChipComponentEventDetail;
-    }
     interface HTMLB2bChipComponentElement extends Components.B2bChipComponent, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bChipComponentElementEventMap>(type: K, listener: (this: HTMLB2bChipComponentElement, ev: B2bChipComponentCustomEvent<HTMLB2bChipComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bChipComponentElementEventMap>(type: K, listener: (this: HTMLB2bChipComponentElement, ev: B2bChipComponentCustomEvent<HTMLB2bChipComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bChipComponentElement: {
         prototype: HTMLB2bChipComponentElement;
         new (): HTMLB2bChipComponentElement;
     };
-    interface HTMLB2bDropdownElementEventMap {
-        "b2b-change": string;
-        "b2b-focus": FocusEvent;
-        "b2b-blur": FocusEvent;
-    }
     interface HTMLB2bDropdownElement extends Components.B2bDropdown, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bDropdownElementEventMap>(type: K, listener: (this: HTMLB2bDropdownElement, ev: B2bDropdownCustomEvent<HTMLB2bDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bDropdownElementEventMap>(type: K, listener: (this: HTMLB2bDropdownElement, ev: B2bDropdownCustomEvent<HTMLB2bDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bDropdownElement: {
         prototype: HTMLB2bDropdownElement;
@@ -1235,24 +1151,11 @@ declare global {
         prototype: HTMLB2bIconElement;
         new (): HTMLB2bIconElement;
     };
-    interface HTMLB2bInputElementEventMap {
-        "b2b-focus": FocusEvent;
-        "b2b-blur": FocusEvent;
-        "b2b-input": InputChangeEvent;
-    }
     /**
      * Input component
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53
      */
     interface HTMLB2bInputElement extends Components.B2bInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bInputElementEventMap>(type: K, listener: (this: HTMLB2bInputElement, ev: B2bInputCustomEvent<HTMLB2bInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bInputElementEventMap>(type: K, listener: (this: HTMLB2bInputElement, ev: B2bInputCustomEvent<HTMLB2bInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bInputElement: {
         prototype: HTMLB2bInputElement;
@@ -1270,35 +1173,13 @@ declare global {
         prototype: HTMLB2bInputLabelElement;
         new (): HTMLB2bInputLabelElement;
     };
-    interface HTMLB2bInputListElementEventMap {
-        "b2b-clear": InputClear;
-    }
     interface HTMLB2bInputListElement extends Components.B2bInputList, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bInputListElementEventMap>(type: K, listener: (this: HTMLB2bInputListElement, ev: B2bInputListCustomEvent<HTMLB2bInputListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bInputListElementEventMap>(type: K, listener: (this: HTMLB2bInputListElement, ev: B2bInputListCustomEvent<HTMLB2bInputListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bInputListElement: {
         prototype: HTMLB2bInputListElement;
         new (): HTMLB2bInputListElement;
     };
-    interface HTMLB2bInputListOptionElementEventMap {
-        "b2b-option-selected": OptionSelectedEventDetail;
-    }
     interface HTMLB2bInputListOptionElement extends Components.B2bInputListOption, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bInputListOptionElementEventMap>(type: K, listener: (this: HTMLB2bInputListOptionElement, ev: B2bInputListOptionCustomEvent<HTMLB2bInputListOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bInputListOptionElementEventMap>(type: K, listener: (this: HTMLB2bInputListOptionElement, ev: B2bInputListOptionCustomEvent<HTMLB2bInputListOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bInputListOptionElement: {
         prototype: HTMLB2bInputListOptionElement;
@@ -1310,40 +1191,17 @@ declare global {
         prototype: HTMLB2bLabelElement;
         new (): HTMLB2bLabelElement;
     };
-    interface HTMLB2bModalElementEventMap {
-        "b2b-close": void;
-        "b2b-before-close": BeforeCloseEventDetail;
-    }
     /**
      * Modal component
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53
      */
     interface HTMLB2bModalElement extends Components.B2bModal, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bModalElementEventMap>(type: K, listener: (this: HTMLB2bModalElement, ev: B2bModalCustomEvent<HTMLB2bModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bModalElementEventMap>(type: K, listener: (this: HTMLB2bModalElement, ev: B2bModalCustomEvent<HTMLB2bModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bModalElement: {
         prototype: HTMLB2bModalElement;
         new (): HTMLB2bModalElement;
     };
-    interface HTMLB2bPaginationElementEventMap {
-        "b2b-page-change": PageChangeEventDetail;
-    }
     interface HTMLB2bPaginationElement extends Components.B2bPagination, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bPaginationElementEventMap>(type: K, listener: (this: HTMLB2bPaginationElement, ev: B2bPaginationCustomEvent<HTMLB2bPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bPaginationElementEventMap>(type: K, listener: (this: HTMLB2bPaginationElement, ev: B2bPaginationCustomEvent<HTMLB2bPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bPaginationElement: {
         prototype: HTMLB2bPaginationElement;
@@ -1359,37 +1217,13 @@ declare global {
         prototype: HTMLB2bParagraphElement;
         new (): HTMLB2bParagraphElement;
     };
-    interface HTMLB2bRadioButtonElementEventMap {
-        "b2b-focus": FocusEvent;
-        "b2b-blur": FocusEvent;
-        "b2b-change": RadioEventDetail;
-    }
     interface HTMLB2bRadioButtonElement extends Components.B2bRadioButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bRadioButtonElementEventMap>(type: K, listener: (this: HTMLB2bRadioButtonElement, ev: B2bRadioButtonCustomEvent<HTMLB2bRadioButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bRadioButtonElementEventMap>(type: K, listener: (this: HTMLB2bRadioButtonElement, ev: B2bRadioButtonCustomEvent<HTMLB2bRadioButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bRadioButtonElement: {
         prototype: HTMLB2bRadioButtonElement;
         new (): HTMLB2bRadioButtonElement;
     };
-    interface HTMLB2bRadioGroupElementEventMap {
-        "b2b-group-change": RadioEventDetail;
-    }
     interface HTMLB2bRadioGroupElement extends Components.B2bRadioGroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bRadioGroupElementEventMap>(type: K, listener: (this: HTMLB2bRadioGroupElement, ev: B2bRadioGroupCustomEvent<HTMLB2bRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bRadioGroupElementEventMap>(type: K, listener: (this: HTMLB2bRadioGroupElement, ev: B2bRadioGroupCustomEvent<HTMLB2bRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bRadioGroupElement: {
         prototype: HTMLB2bRadioGroupElement;
@@ -1413,18 +1247,7 @@ declare global {
         prototype: HTMLB2bScrollableContainerElement;
         new (): HTMLB2bScrollableContainerElement;
     };
-    interface HTMLB2bSearchElementEventMap {
-        "b2b-search": SearchClickEventDetail;
-    }
     interface HTMLB2bSearchElement extends Components.B2bSearch, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bSearchElementEventMap>(type: K, listener: (this: HTMLB2bSearchElement, ev: B2bSearchCustomEvent<HTMLB2bSearchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bSearchElementEventMap>(type: K, listener: (this: HTMLB2bSearchElement, ev: B2bSearchCustomEvent<HTMLB2bSearchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bSearchElement: {
         prototype: HTMLB2bSearchElement;
@@ -1446,35 +1269,13 @@ declare global {
         prototype: HTMLB2bSpinnerElement;
         new (): HTMLB2bSpinnerElement;
     };
-    interface HTMLB2bTabElementEventMap {
-        "b2b-change": boolean;
-    }
     interface HTMLB2bTabElement extends Components.B2bTab, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bTabElementEventMap>(type: K, listener: (this: HTMLB2bTabElement, ev: B2bTabCustomEvent<HTMLB2bTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bTabElementEventMap>(type: K, listener: (this: HTMLB2bTabElement, ev: B2bTabCustomEvent<HTMLB2bTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bTabElement: {
         prototype: HTMLB2bTabElement;
         new (): HTMLB2bTabElement;
     };
-    interface HTMLB2bTabGroupElementEventMap {
-        "b2b-selected": TabChangeEventDetail;
-    }
     interface HTMLB2bTabGroupElement extends Components.B2bTabGroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bTabGroupElementEventMap>(type: K, listener: (this: HTMLB2bTabGroupElement, ev: B2bTabGroupCustomEvent<HTMLB2bTabGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bTabGroupElementEventMap>(type: K, listener: (this: HTMLB2bTabGroupElement, ev: B2bTabGroupCustomEvent<HTMLB2bTabGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bTabGroupElement: {
         prototype: HTMLB2bTabGroupElement;
@@ -1486,18 +1287,7 @@ declare global {
         prototype: HTMLB2bTabPanelElement;
         new (): HTMLB2bTabPanelElement;
     };
-    interface HTMLB2bTableElementEventMap {
-        "b2b-sort-change": ColumnSortChangeEventDetail;
-    }
     interface HTMLB2bTableElement extends Components.B2bTable, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bTableElementEventMap>(type: K, listener: (this: HTMLB2bTableElement, ev: B2bTableCustomEvent<HTMLB2bTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bTableElementEventMap>(type: K, listener: (this: HTMLB2bTableElement, ev: B2bTableCustomEvent<HTMLB2bTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bTableElement: {
         prototype: HTMLB2bTableElement;
@@ -1509,110 +1299,41 @@ declare global {
         prototype: HTMLB2bTableCellElement;
         new (): HTMLB2bTableCellElement;
     };
-    interface HTMLB2bTableHeaderElementEventMap {
-        "b2b-change": TableSortDirections;
-    }
     interface HTMLB2bTableHeaderElement extends Components.B2bTableHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bTableHeaderElementEventMap>(type: K, listener: (this: HTMLB2bTableHeaderElement, ev: B2bTableHeaderCustomEvent<HTMLB2bTableHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bTableHeaderElementEventMap>(type: K, listener: (this: HTMLB2bTableHeaderElement, ev: B2bTableHeaderCustomEvent<HTMLB2bTableHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bTableHeaderElement: {
         prototype: HTMLB2bTableHeaderElement;
         new (): HTMLB2bTableHeaderElement;
     };
-    interface HTMLB2bTableRowElementEventMap {
-        "b2b-open": boolean;
-        "b2b-row-selected": CheckboxEventDetail1;
-    }
     interface HTMLB2bTableRowElement extends Components.B2bTableRow, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bTableRowElementEventMap>(type: K, listener: (this: HTMLB2bTableRowElement, ev: B2bTableRowCustomEvent<HTMLB2bTableRowElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bTableRowElementEventMap>(type: K, listener: (this: HTMLB2bTableRowElement, ev: B2bTableRowCustomEvent<HTMLB2bTableRowElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bTableRowElement: {
         prototype: HTMLB2bTableRowElement;
         new (): HTMLB2bTableRowElement;
     };
-    interface HTMLB2bTableRowgroupElementEventMap {
-        "b2b-group-selected": TableAccordionSelectedEventDetail;
-    }
     interface HTMLB2bTableRowgroupElement extends Components.B2bTableRowgroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bTableRowgroupElementEventMap>(type: K, listener: (this: HTMLB2bTableRowgroupElement, ev: B2bTableRowgroupCustomEvent<HTMLB2bTableRowgroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bTableRowgroupElementEventMap>(type: K, listener: (this: HTMLB2bTableRowgroupElement, ev: B2bTableRowgroupCustomEvent<HTMLB2bTableRowgroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bTableRowgroupElement: {
         prototype: HTMLB2bTableRowgroupElement;
         new (): HTMLB2bTableRowgroupElement;
     };
-    interface HTMLB2bTextareaElementEventMap {
-        "b2b-focus": FocusEvent;
-        "b2b-blur": FocusEvent;
-        "b2b-input": InputChangeEvent;
-    }
     /**
      * Text Area Component
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-96
      */
     interface HTMLB2bTextareaElement extends Components.B2bTextarea, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bTextareaElementEventMap>(type: K, listener: (this: HTMLB2bTextareaElement, ev: B2bTextareaCustomEvent<HTMLB2bTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bTextareaElementEventMap>(type: K, listener: (this: HTMLB2bTextareaElement, ev: B2bTextareaCustomEvent<HTMLB2bTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bTextareaElement: {
         prototype: HTMLB2bTextareaElement;
         new (): HTMLB2bTextareaElement;
     };
-    interface HTMLB2bToggleButtonElementEventMap {
-        "b2b-change": ToggleButtonEventDetail;
-    }
     interface HTMLB2bToggleButtonElement extends Components.B2bToggleButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bToggleButtonElementEventMap>(type: K, listener: (this: HTMLB2bToggleButtonElement, ev: B2bToggleButtonCustomEvent<HTMLB2bToggleButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bToggleButtonElementEventMap>(type: K, listener: (this: HTMLB2bToggleButtonElement, ev: B2bToggleButtonCustomEvent<HTMLB2bToggleButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bToggleButtonElement: {
         prototype: HTMLB2bToggleButtonElement;
         new (): HTMLB2bToggleButtonElement;
     };
-    interface HTMLB2bToggleGroupElementEventMap {
-        "b2b-group-change": ToggleButtonEventDetail;
-    }
     interface HTMLB2bToggleGroupElement extends Components.B2bToggleGroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bToggleGroupElementEventMap>(type: K, listener: (this: HTMLB2bToggleGroupElement, ev: B2bToggleGroupCustomEvent<HTMLB2bToggleGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bToggleGroupElementEventMap>(type: K, listener: (this: HTMLB2bToggleGroupElement, ev: B2bToggleGroupCustomEvent<HTMLB2bToggleGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLB2bToggleGroupElement: {
         prototype: HTMLB2bToggleGroupElement;
@@ -1926,9 +1647,17 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
+          * To specift the max width of chip when used in multi-select
+         */
+        "maxWidth"?: string;
+        /**
           * This event will be triggered when the chip element is closed
          */
         "onB2b-close"?: (event: B2bChipComponentCustomEvent<ChipComponentEventDetail>) => void;
+        /**
+          * Whether the chip text should be truncated.
+         */
+        "truncate"?: boolean;
         /**
           * It is only used when the chip component participates in a group
          */

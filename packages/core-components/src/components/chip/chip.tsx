@@ -1,4 +1,12 @@
-import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Event,
+  EventEmitter,
+  Element,
+} from '@stencil/core';
 import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface';
 
 @Component({
@@ -7,11 +15,18 @@ import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface'
   shadow: true,
 })
 export class B2bChipComponent {
+  @Element() host: HTMLB2bChipComponentElement;
   /** The text content of the chip. It is required. */
   @Prop() label!: string;
 
   /** Whether the chip is disabled. */
   @Prop() disabled: boolean = false;
+
+  /** Whether the chip text should be truncated. */
+  @Prop() truncate: boolean = false;
+
+  /** To specift the max width of chip when used in multi-select */
+  @Prop() maxWidth?: string;
 
   /** Whether or not the chip component has a close button. Per default it is true. */
   @Prop() hasCloseButton: boolean = true;
@@ -48,7 +63,16 @@ export class B2bChipComponent {
             'b2b-chip': true,
             'b2b-chip--disabled': this.disabled,
           }}>
-          <span class="b2b-chip__label">{this.label}</span>
+          <span
+            style={{
+              'max-width': this.maxWidth,
+            }}
+            class={{
+              'b2b-chip__label': true,
+              'b2b-chip--truncate': this.truncate,
+            }}>
+            {this.label}
+          </span>
           {this.hasCloseButton && (
             <div
               class={{
