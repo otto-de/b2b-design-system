@@ -36,6 +36,7 @@ Advantages
 - Passing other components as children is straight forward using slots
 
 Challenges
+- We cannot make use of native table features such as col- or rowspans
 - We could not use html semantic table elements as the host web component breaks the 
   semantic structure:
 
@@ -46,6 +47,16 @@ Challenges
       <header>
       ...
 ```
+#### 3. Using components that semantically resemble the html table structure but use flexbox
+
+Advantages
+- Most table features to date can be displayed using flexbox
+- Gives the freedom to add colspans for headers and cells
+
+Challenges
+- Having a table that expands columns to fit the largest content of all cells in that column is not possible
+- Only fixed width or equal width can be achieved
+- Text truncation and overflow are harder to handle
 
 ### Decision
 
@@ -57,7 +68,7 @@ We implemented the table using shadow dom for consistency and to support slots, 
 declared in the host elements meaning they live still in the light-dom and can be overwritten.
 
 This was necessary because of how the elements are structured, where all children are passed in slots but are still 
-part of the light-dom. For any `dysplay` styles to work it needs to be declared in the light-dom as well.
+part of the light-dom. For any `display` styles to work it needs to be declared in the light-dom as well.
 
 ### Links
 Examples of table-data implementations (option1)
