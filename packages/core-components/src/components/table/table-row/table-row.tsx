@@ -99,19 +99,6 @@ export class TableRowComponent {
     return this.color;
   };
 
-  private getRowWidth = () => {
-    const accordionSize = '24px';
-    const checkboxSize = '16px';
-
-    if (Boolean(this.accordionType)) {
-      return accordionSize;
-    } else if (Boolean(this.selectable)) {
-      return checkboxSize;
-    } else {
-      return;
-    }
-  };
-
   private shouldAddCheckbox = () => {
     let checkbox = this.hostElement.querySelector('b2b-checkbox');
     return this.selectable && !Boolean(checkbox);
@@ -126,10 +113,7 @@ export class TableRowComponent {
     if (this.shouldAddCheckbox()) {
       if (parent.type === 'header') {
         return (
-          <b2b-table-header
-            style={{
-              ['width']: this.getRowWidth(),
-            }}>
+          <b2b-table-header style={{ ['flex']: '0 0 16px' }}>
             <b2b-checkbox
               standalone
               checked={this.checked}
@@ -138,7 +122,7 @@ export class TableRowComponent {
         );
       } else {
         return (
-          <b2b-table-cell>
+          <b2b-table-cell style={{ ['flex']: '0 0 16px' }}>
             <b2b-checkbox
               standalone
               checked={this.checked}
@@ -156,13 +140,11 @@ export class TableRowComponent {
         case TableAccordionRowTypes.HEADER:
           return (
             <b2b-table-header
-              style={{
-                ['width']: this.getRowWidth(),
-              }}></b2b-table-header>
+              style={{ ['flex']: '0 0 24px' }}></b2b-table-header>
           );
         case TableAccordionRowTypes.PARENT:
           return (
-            <b2b-table-cell>
+            <b2b-table-cell style={{ ['flex']: '0 0 24px' }}>
               <button
                 onClick={this.toggleOpen}
                 class={{
@@ -177,10 +159,7 @@ export class TableRowComponent {
           );
         case TableAccordionRowTypes.CHILD:
           return (
-            <b2b-table-cell
-              style={{
-                ['width']: this.getRowWidth(),
-              }}></b2b-table-cell>
+            <b2b-table-cell style={{ ['flex']: '0 0 24px' }}></b2b-table-cell>
           );
       }
     }

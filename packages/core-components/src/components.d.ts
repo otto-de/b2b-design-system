@@ -709,7 +709,11 @@ export namespace Components {
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
         "color": TableColourOptions;
+        /**
+          * How many columns the cell should span. Accepts numbers greater than one.
+         */
         "colspan"?: string;
+        "column"?: string;
         /**
           * adds a border to the right of the cell. *
          */
@@ -724,7 +728,11 @@ export namespace Components {
         "textWrap": boolean;
     }
     interface B2bTableHeader {
-        "colspan"?: string;
+        /**
+          * The width of the column. Increase it to change the size of the column relative to other columns.
+         */
+        "colspan": number;
+        "column"?: string;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */
@@ -2491,7 +2499,11 @@ declare namespace LocalJSX {
           * Background color of the cell. This color selection does not have hover states, as it is handled from the row*
          */
         "color"?: TableColourOptions;
+        /**
+          * How many columns the cell should span. Accepts numbers greater than one.
+         */
         "colspan"?: string;
+        "column"?: string;
         /**
           * adds a border to the right of the cell. *
          */
@@ -2506,7 +2518,11 @@ declare namespace LocalJSX {
         "textWrap"?: boolean;
     }
     interface B2bTableHeader {
-        "colspan"?: string;
+        /**
+          * The width of the column. Increase it to change the size of the column relative to other columns.
+         */
+        "colspan"?: number;
+        "column"?: string;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */

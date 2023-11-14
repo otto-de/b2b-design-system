@@ -3,8 +3,7 @@
 :host {
   --b2b-table-cell-text-expand-bg: var(--b2b-color-white-100);
 
-  display: flex;
-  flex: 1 0 0;
+  flex: 1;
   padding: 12px;
   margin: 0;
   font-family: var(--b2b-font-family-default);
@@ -12,23 +11,25 @@
   line-height: var(--b2b-size-copy-line-height-100);
   border-bottom: 1px solid var(--b2b-color-grey-200);
   white-space: normal;
+  position: relative;
 }
 
 :host(.b2b-table-cell--ellipsis) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  position: relative;
+  display: block;
 }
 
 :host(.b2b-table-cell--expand-text) {
+  overflow-y: visible;
   position: absolute;
   white-space: normal;
   background-color: var(--b2b-table-cell-text-expand-bg);
   border: 1px solid var(--b2b-color-grey-200);
   border-top: none;
   z-index: 2000;
-  min-width: 100px;
+  width: 100%;
 }
 
 :host(.b2b-table-cell--left) {

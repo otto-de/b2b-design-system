@@ -10,6 +10,7 @@ import {
 } from '@stencil/core';
 import { TableSizes, TableSortDirections } from '../../utils/types/table.types';
 import { ColumnSortChangeEventDetail } from '../../utils/interfaces/interaction.interface';
+import { getFirstRow, getAllRows, getRemainingRows } from './utils';
 @Component({
   tag: 'b2b-table',
   styleUrl: 'table.scss',
@@ -37,53 +38,62 @@ export class TableComponent {
     }
   }
 
+  private getAllCellsByRow = (
+    row: HTMLB2bTableRowElement,
+  ): HTMLB2bTableCellElement[] | HTMLB2bTableHeaderElement[] => {
+    return Array.from(row.children) as any[];
+  };
+
+  private getColumnById = (id: string): Element[] => {
+    return Array.from(this.host.querySelectorAll('b2b-table-cell')).filter(
+      cell => cell.id === id,
+    );
+  };
+
+  // TO DO: Get maximum width of a given column so that and set all cells in the column to max width if size is expand
+
+  /** Add column ids to set cell width for a given column */
+  private setColumns = () => {
+    getAllRows(this.host).forEach(row => {
+      this.getAllCellsByRow(row).forEach((cell, id) => {
+        cell.column = String(id);
+      });
+    });
+  };
+
   private setCellSize() {
-    const allCells = this.host.querySelectorAll('b2b-table-cell');
-    let allRows = this.host.querySelectorAll('b2b-table-row');
-    const allHeaders = this.host.querySelectorAll('b2b-table-header');
-    [...allCells].map(cell => cell.setAttribute('size', this.size));
-    [...allHeaders].map(cell => cell.setAttribute('size', this.size));
-    for (const [id, cell] of allHeaders.entries()) {
-      cell.setAttribute('column', String(id));
-      cell.getAttribute('expand') &&
-        cell.setAttribute('colspan', cell.getAttribute('expand'));
-    }
-    allRows.forEach(row => {
-      for (const [id, cell] of row
-        .querySelectorAll('b2b-table-cell')
-        .entries()) {
-        cell.setAttribute('column', String(id));
-        allHeaders.item(id).getAttribute('expand') &&
-          cell.setAttribute(
-            'colspan',
-            allHeaders.item(id).getAttribute('expand'),
-          );
-      }
+    getAllRows(this.host).forEach(row => {
+      this.getAllCellsByRow(row).forEach(cell => {
+        cell.setAttribute('size', this.size);
+      });
     });
   }
 
+  /** Set flex-basis to header width in scrollable containers with fixed width.
+   * Should probably be a utils function so we can also use it in the header component
+   * to mimick expand styles
+   */
   private setFixedHeaders() {
     const isScrollable = this.host.closest('b2b-scrollable-container') !== null;
     if (isScrollable) {
-      let allHeaders = this.host.querySelectorAll('b2b-table-header');
-      let allRows = this.host.querySelectorAll('b2b-table-row');
-      [...allHeaders].map(
-        cell => (cell.style.flex = `0 0 ${cell.style.width}`),
-      );
+      const allHeaders = this.getAllCellsByRow(getFirstRow(this.host));
+      const remainingRows = getRemainingRows(this.host);
 
-      allRows.forEach(row => {
-        for (const [id, cell] of row
-          .querySelectorAll('b2b-table-cell')
-          .entries()) {
-          cell.style.flex = `0 0 ${allHeaders.item(id).style.width}`;
-        }
+      allHeaders.forEach(cell => {
+        cell.style.flex = `0 0 ${cell.style.width}`;
+      });
+
+      remainingRows.forEach(row => {
+        this.getAllCellsByRow(row).forEach((cell, id) => {
+          cell.style.flex = `0 0 ${allHeaders[id].style.width}`;
+        });
       });
     }
   }
 
   componentWillRender() {
     this.setCellSize();
-    this.setFixedHeaders();
+    this.setColumns();
   }
 
   componentDidLoad() {
@@ -100,7 +110,6 @@ export class TableComponent {
       );
       console.log(this.host);
     }
-    this.setCellSize();
     this.setFixedHeaders();
   }
 

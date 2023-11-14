@@ -1,9 +1,8 @@
 @use '../../../global/b2b-styles';
 
 :host {
-  display: flex;
-  flex: 1;
   padding: 12px;
+  flex: 1;
   margin: 0;
   white-space: nowrap;
   font-family: var(--b2b-font-family-default);

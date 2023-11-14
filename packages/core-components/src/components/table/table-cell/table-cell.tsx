@@ -30,7 +30,12 @@ export class TableCellComponent {
 
   /** Background color of the cell. This color selection does not have hover states, as it is handled from the row**/
   @Prop() color: TableColourOptions = 'default';
+
+  /** How many columns the cell should span. Accepts numbers greater than one. */
   @Prop() colspan?: string;
+
+  /** @internal column id */
+  @Prop() column?: string;
 
   @State() useTextEllipsis = false;
 

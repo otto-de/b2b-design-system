@@ -41,13 +41,17 @@ export class TableHeaderComponent {
   /** Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent. */
   @Prop() sortId?: string;
 
-  @Prop() colspan?: string;
+  /** The width of the column. Increase it to change the size of the column relative to other columns. */
+  @Prop() colspan: number = 0;
 
   /** Alignment of the content of the cell, by default is to the left. **/
   @Prop() contentAlign: ContentAlignment = ContentAlignment.LEFT;
 
   /** Optional string to represent how many cells the header should expand to  */
   @Prop() expand?: string;
+
+  /** @internal column id */
+  @Prop() column?: string;
 
   /** Emits whenever the sort direction changes. */
   @Event({ eventName: 'b2b-change' })
@@ -122,8 +126,8 @@ export class TableHeaderComponent {
           'b2b-table-header--fixed': this.fixed,
         }}
         style={{
-          'flex-grow': this.colspan,
-          'flex': `${this.size === TableSizes.EQUAL && 1}`,
+          // 'flex-grow': `${this.colspan}`,
+          flex: `${this.size === TableSizes.EQUAL && 1}`,
         }}
         role="columnheader"
         aria-sort={
