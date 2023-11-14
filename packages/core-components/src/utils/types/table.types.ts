@@ -19,6 +19,13 @@ export const ContentAlignment = {
 } as const;
 export type ContentAlignment =
   (typeof ContentAlignment)[keyof typeof ContentAlignment];
+export const SortIconAlignment = {
+  LEFT: 'left',
+  RIGHT: 'right',
+  CENTER: 'center',
+} as const;
+export type SortIconAlignment =
+  (typeof SortIconAlignment)[keyof typeof SortIconAlignment];
 
 export const TableSortDirections = {
   NOT: 'not-sorted',

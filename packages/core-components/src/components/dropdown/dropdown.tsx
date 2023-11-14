@@ -82,9 +82,9 @@ export class DropdownComponent {
     }
   };
 
-  // shadow-DOM issue: <option> did not render inside <slot> so we need to re-append to <select>
+  // we need to attach the options to the correct element here
   componentDidRender() {
-    const options = this.hostElement.querySelectorAll('option');
+    let options = this.hostElement.querySelectorAll('option');
     const selectElement = this.getSelectElement();
     selectElement.append(...options);
   }

@@ -1,3 +1,30 @@
+# [1.7.0](https://github.com/otto-de/b2b-design-system/compare/v1.6.1...v1.7.0) (2023-10-26)
+
+
+### Breaking changes
+
+* **Vue Setup:** `defineCustomElements` must now be imported from `@otto-de/b2b-core-components/dist/loader` 
+
+
+
+### Bug Fixes
+
+* [B2BDS-211] Apply disabled style for a button with href ([2bd2aba](https://github.com/otto-de/b2b-design-system/commit/2bd2abaa58bba73ccd6832e98d45ca72cad76ce2))
+* **Dropdown:** [B2BDS-222] moved dropdown out of shadow dom to prevent async data issues ([9c4d435](https://github.com/otto-de/b2b-design-system/commit/9c4d43583a9a3bfac4f1a61909926ef674f82b6f))
+* **Tab Group:** [B2BDS-225] removed error in tab group when router is used ([9194ced](https://github.com/otto-de/b2b-design-system/commit/9194cedb7bc7bf9f50676ce1d9d62889f0bff796))
+* **table:** [B2BDS-213] Vertically align checkbox in selectable rows ([05c7001](https://github.com/otto-de/b2b-design-system/commit/05c7001cce09364769ec4abc9dfc12f3d093153a))
+
+
+### Features
+
+* **breadcrumb:** add breadcrumb component from [#80](https://github.com/otto-de/b2b-design-system/issues/80) ([cd03882](https://github.com/otto-de/b2b-design-system/commit/cd03882ff4b79121fba7d142e461222eda309add))
+* **breadcrumb:** add breadcrumb component from [#80](https://github.com/otto-de/b2b-design-system/issues/80) ([b1217c2](https://github.com/otto-de/b2b-design-system/commit/b1217c278faf45110959bd089968278ffae124e7))
+* **Breadcrumb:** added active state ([8796d99](https://github.com/otto-de/b2b-design-system/commit/8796d992effc97813b4307af5c9ef82f2fa036f6))
+* **Breadcrumb:** added breadcrumb component ([bc9a2d0](https://github.com/otto-de/b2b-design-system/commit/bc9a2d0653f0a91be85272787fb0140f2384030a))
+* **core:** [B2BDS-208] Add chip component ([8ee9700](https://github.com/otto-de/b2b-design-system/commit/8ee970086f6873fb4d3b4e90365680232c569c26))
+* **core:** [B2BDS-208] Fix chip without icon story ([23cbf61](https://github.com/otto-de/b2b-design-system/commit/23cbf6166a0414aa016020163ba625f505184fbd))
+* **table:** [B2BDS-195] Add alignments to table header with sorting ([40450f2](https://github.com/otto-de/b2b-design-system/commit/40450f21c002c48e97ffd5550c8e8019fbb84d8e))
+
 ## [1.6.1](https://github.com/otto-de/b2b-design-system/compare/v1.6.0...v1.6.1) (2023-08-22)
 
 
