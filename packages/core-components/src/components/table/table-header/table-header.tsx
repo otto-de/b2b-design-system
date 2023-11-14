@@ -25,15 +25,14 @@ export class TableHeaderComponent {
 
   /** adds a border to the right of the header. **/
   @Prop() divider: boolean = false;
-
-  /** sets the header position to sticky. Use it when table is inside a scrollable container. **/
-  @Prop() fixed: boolean = false;
-
   /** The size of the cell. Follows table size.
    * When size is equal and textWrap is false, the text will truncate with Ellipsis.
    * Other sizes won't affect cell current implementation.
    **/
   @Prop() size: TableSizes = TableSizes.EXPAND;
+
+  /** sets the header position to sticky. Use it when table is inside a scrollable container. **/
+  @Prop() fixed: boolean = false;
 
   /** The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this. */
   @Prop({ reflect: true, mutable: true }) sortDirection: TableSortDirections;
