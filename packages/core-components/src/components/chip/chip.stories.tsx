@@ -2,21 +2,23 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({
-  label,
-  disabled,
-  value,
-  hasCloseButton,
-  maxWidth,
-  truncate,
-}) => {
+const Template: Story = ({ label, disabled, value, hasCloseButton }) => {
   return html`<b2b-chip-component
     label="${label}"
     disabled="${disabled}"
     value="${value}"
-    max-width="${maxWidth}"
-    truncate="${truncate}"
     has-close-button="${hasCloseButton}"></b2b-chip-component>`;
+};
+
+const TruncTemplate: Story = ({ label, disabled, value, hasCloseButton }) => {
+  return html`<div
+    style="width: 170px; border: 1px solid grey; border-radius: 3px; padding: 6px;">
+    <b2b-chip-component
+      label="${label}"
+      disabled="${disabled}"
+      value="${value}"
+      has-close-button="${hasCloseButton}"></b2b-chip-component>
+  </div>`;
 };
 
 const defaultArgs = {
@@ -45,12 +47,10 @@ story030WithoutButton.args = {
   hasCloseButton: false,
 };
 story030WithoutButton.storyName = 'Without Button';
-export const story040WithTruncatedText = Template.bind({});
+export const story040WithTruncatedText = TruncTemplate.bind({});
 story040WithTruncatedText.args = {
   ...defaultArgs,
   label: ' Chip with truncated text',
-  truncate: true,
-  maxWidth: '50px',
 };
 story040WithTruncatedText.storyName = 'Truncated Text';
 

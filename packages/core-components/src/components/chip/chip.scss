@@ -1,54 +1,61 @@
 @use 'sass:color';
 @use '../../global/b2b-styles';
 
-.b2b-chip {
-  font-family: var(--b2b-font-family-default);
-  font-size: var(--b2b-size-copy-100);
-  width: fit-content;
-  background-color: var(--b2b-color-grey-50);
-  border-radius: var(--b2b-size-50);
-  padding: var(--b2b-size-10) var(--b2b-size-25);
-  line-height: var(--b2b-size-copy-line-height-100);
-  height: var(--b2b-size-70);
-  display: flex;
-  align-items: center;
-  cursor: default;
-  margin-left: var(--b2b-size-20);
-
-  &:hover {
-    background: var(--b2b-color-table-expand-hover);
-    white-space: normal;
-    overflow: visible;
-  }
-
-  &__label {
-    margin-right: var(--b2b-size-10);
-  }
-
-  &__clearIcon {
-    display: flex;
-    fill: var(--b2b-color-icon-default);
-    height: var(--b2b-size-copy-line-height-100);
-    width: var(--b2b-size-50);
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transform: rotate(180deg);
-  }
-}
-
-.b2b-chip--disabled {
-  pointer-events: none;
-  background: var(--b2b-color-grey-25);
-  color: var(--b2b-color-grey-400);
-
-  &__clearIcon {
-    fill: var(--b2b-color-grey-400);
-  }
-}
-
-.b2b-chip--truncate {
+:host {
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: inline-flex;
+  max-width: 100%;
+
+  .b2b-chip {
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: var(--b2b-font-family-default);
+    font-size: var(--b2b-size-copy-100);
+    background-color: var(--b2b-color-grey-50);
+    border-radius: var(--b2b-size-50);
+    padding: var(--b2b-size-10) var(--b2b-size-25);
+    line-height: var(--b2b-size-copy-line-height-100);
+    height: var(--b2b-size-70);
+    display: inline-flex;
+    align-items: center;
+    cursor: default;
+    margin-left: var(--b2b-size-20);
+
+    &:hover {
+      background: var(--b2b-color-table-expand-hover);
+    }
+
+    &__label {
+      margin-right: var(--b2b-size-10);
+      display: inline-block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  
+    &__clearIcon {
+      display: flex;
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      fill: var(--b2b-color-icon-default);
+      height: var(--b2b-size-copy-line-height-100);
+      width: var(--b2b-size-50);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transform: rotate(180deg);
+      position: relative;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      background: var(--b2b-color-grey-25);
+      color: var(--b2b-color-grey-400);
+
+      &__clearIcon {
+        fill: var(--b2b-color-grey-400);
+      }
+    }
+  }
 }
+

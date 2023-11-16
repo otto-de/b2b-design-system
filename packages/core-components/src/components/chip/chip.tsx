@@ -22,12 +22,6 @@ export class B2bChipComponent {
   /** Whether the chip is disabled. */
   @Prop() disabled: boolean = false;
 
-  /** Whether the chip text should be truncated. */
-  @Prop() truncate: boolean = false;
-
-  /** To specift the max width of chip when used in multi-select */
-  @Prop() maxWidth?: string;
-
   /** Whether or not the chip component has a close button. Per default it is true. */
   @Prop() hasCloseButton: boolean = true;
 
@@ -64,24 +58,20 @@ export class B2bChipComponent {
             'b2b-chip--disabled': this.disabled,
           }}>
           <span
-            style={{
-              'max-width': this.maxWidth,
-            }}
             class={{
               'b2b-chip__label': true,
-              'b2b-chip--truncate': this.truncate,
             }}>
             {this.label}
           </span>
           {this.hasCloseButton && (
-            <div
+            <button
               class={{
                 'b2b-chip__clearIcon': true,
                 'b2b-chip--disabled__clearIcon': this.disabled,
               }}
               onClick={this.onClick}>
               {this.clearIcon}
-            </div>
+            </button>
           )}
         </div>
       </Host>
