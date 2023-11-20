@@ -311,6 +311,10 @@ export const iconTypes = [
  "b2b_icon-work-life",
  "b2b_icon-workshop",
  "b2b_icon-zoom-in",
- "b2b_icon-zoom-out"
+ "b2b_icon-zoom-out",
+ "b2b_logo-carrier-dhl",
+ "b2b_logo-carrier-gls",
+ "b2b_logo-carrier-hermes",
+ "b2b_logo-carrier-ups"
 ] as const
 export type IconName = typeof iconTypes[number];

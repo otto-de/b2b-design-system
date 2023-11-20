@@ -27,7 +27,7 @@
     "build:icons": "node src/components/icon/generate-icon-types.mjs",
     "start": "stencil build --dev --watch --serve --config stencil-dev.config.ts",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test.watch": "stencil test --spec --e2e --watch",
     "generate": "stencil generate",
     "lint": "eslint \"src/**/*{.ts,.tsx}\" && stylelint \"src/**/*{.scss,.css}\"",
     "lint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix && stylelint \"src/**/*{.scss,.css}\" --fix",
