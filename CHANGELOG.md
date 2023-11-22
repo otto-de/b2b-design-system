@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.0...v1.8.1) (2023-11-22)
+
+
+### Bug Fixes
+
+* **Chip:** fixed hover state for closeable chip ([e904bb0](https://github.com/otto-de/b2b-design-system/commit/e904bb01b101844a387f3c9bd5df844f8a60bb9b))
+
 # [1.8.0](https://github.com/otto-de/b2b-design-system/compare/v1.7.0...v1.8.0) (2023-11-22)
 
 
