@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/b2b-core-components",
-  "version": "1.7.0",
+  "version": "1.8.1",
   "description": "Core components defined with Stencil",
   "author": "Otto GmbH",
   "license": "Apache-2.0",
@@ -27,7 +27,7 @@
     "build:icons": "node src/components/icon/generate-icon-types.mjs",
     "start": "stencil build --dev --watch --serve --config stencil-dev.config.ts",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test.watch": "stencil test --spec --e2e --watch",
     "generate": "stencil generate",
     "lint": "eslint \"src/**/*{.ts,.tsx}\" && stylelint \"src/**/*{.scss,.css}\"",
     "lint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix && stylelint \"src/**/*{.scss,.css}\" --fix",
@@ -39,7 +39,7 @@
     "build:storybook": "npm run copy-md-files && storybook build -o docs-build/design-system"
   },
   "dependencies": {
-    "@otto-de/b2b-tokens": "1.7.0",
+    "@otto-de/b2b-tokens": "1.8.1",
     "@stencil-community/eslint-plugin": "^0.5.0",
     "@stencil/core": "^4.7.0"
   },

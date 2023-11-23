@@ -3,7 +3,7 @@ import { buildPath, fetchIcon, iconContent } from './request';
 import { IconName, iconTypes } from './types';
 
 @Component({
-  assetsDirs: ['icons'],
+  assetsDirs: ['icons', 'logos'],
   tag: 'b2b-icon',
   styleUrl: 'icon.scss',
   shadow: true,

@@ -1,3 +1,23 @@
+## [1.8.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.0...v1.8.1) (2023-11-22)
+
+
+### Bug Fixes
+
+* **Chip:** fixed hover state for closeable chip ([e904bb0](https://github.com/otto-de/b2b-design-system/commit/e904bb01b101844a387f3c9bd5df844f8a60bb9b))
+
+# [1.8.0](https://github.com/otto-de/b2b-design-system/compare/v1.7.0...v1.8.0) (2023-11-22)
+
+
+### Bug Fixes
+
+* **alert:** [B2BDS-218] Align error icon on the top for long text ([610ec59](https://github.com/otto-de/b2b-design-system/commit/610ec59121b50936ca228cfc4ff06373a92c5b76))
+* updated docker ignore to not include dist ([b74cb8d](https://github.com/otto-de/b2b-design-system/commit/b74cb8d86535fa5a4415005f6d79d7e1b57d8c7f))
+
+
+### Features
+
+* **Icon:** [B2BDS-223] added carrier logos ([7e769af](https://github.com/otto-de/b2b-design-system/commit/7e769af261f691bacb19e26f5800c32f223c1fce))
+
 # [1.7.0](https://github.com/otto-de/b2b-design-system/compare/v1.6.1...v1.7.0) (2023-10-26)
 
 

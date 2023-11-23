@@ -21,10 +21,6 @@
     cursor: default;
     margin-left: var(--b2b-size-20);
 
-    &:hover {
-      background: var(--b2b-color-table-expand-hover);
-    }
-
     &__label {
       margin-right: var(--b2b-size-10);
       display: inline-block;
@@ -37,7 +33,7 @@
       border: none;
       padding: 0;
       background-color: transparent;
-      fill: var(--b2b-color-icon-default);
+      fill: var(--b2b-color-grey-400);
       height: var(--b2b-size-copy-line-height-100);
       width: var(--b2b-size-50);
       align-items: center;
@@ -45,6 +41,10 @@
       cursor: pointer;
       transform: rotate(180deg);
       position: relative;
+
+      &:hover {
+        fill: var(--b2b-color-icon-default);
+      }
     }
 
     &--disabled {
