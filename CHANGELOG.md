@@ -1,3 +1,10 @@
+# [1.9.0-beta.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.1...v1.9.0-beta.1) (2023-11-27)
+
+
+### Features
+
+* **Icon:** added warning-hint icon ([a1823b5](https://github.com/otto-de/b2b-design-system/commit/a1823b5a7f7fa7399bb6f3f46f5e17aaf8292431))
+
 ## [1.8.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.0...v1.8.1) (2023-11-22)
 
 
