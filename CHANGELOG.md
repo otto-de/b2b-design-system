@@ -1,3 +1,10 @@
+# [1.9.0-beta.2](https://github.com/otto-de/b2b-design-system/compare/v1.9.0-beta.1...v1.9.0-beta.2) (2023-11-28)
+
+
+### Bug Fixes
+
+* **Icon:** added inheritable color for warning hint icon ([dfebdfc](https://github.com/otto-de/b2b-design-system/commit/dfebdfcbecc4f453b2cd4a83f93b9cfacfb81139))
+
 # [1.9.0-beta.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.1...v1.9.0-beta.1) (2023-11-27)
 
 
