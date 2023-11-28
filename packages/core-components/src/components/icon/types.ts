@@ -300,6 +300,7 @@ export const iconTypes = [
  "b2b_icon-volume-on",
  "b2b_icon-voucher",
  "b2b_icon-walnut",
+ "b2b_icon-warning-hint",
  "b2b_icon-warning",
  "b2b_icon-warranty",
  "b2b_icon-washing-machine",

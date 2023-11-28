@@ -51,7 +51,7 @@ export class B2bIcon {
   private loadIconPathData() {
     if (!this.isIconSupported()) {
       console.warn(
-        'icon name: ' + this.icon + 'is not supported or might have a typo.',
+        'icon name: ' + this.icon + ' is not supported or might have a typo.',
       );
       return;
     }
