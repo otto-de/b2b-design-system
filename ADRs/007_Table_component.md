@@ -1,6 +1,6 @@
 # 007. Table component
 
-Last update: 19.09.2022
+Last update: 29.11.2023
 
 ## Background
 
@@ -62,6 +62,9 @@ Challenges
 
 We decided for option two as the ability to pass children components is a must-have. Hopefully if that can be solved 
 in the future we may be able to have a table-data component that encapsulates better the table.
+
+The flexbox model is only adapted for tables that require the colspan feature as not all existing features (text truncation and expansion on hover, expanding column sizes) can be realized while applying flexbox. This also saves performance as dynamic
+calculation of cell width via JavaScript could be a performance issue in larger tables. 
 
 ### Note
 We implemented the table using shadow dom for consistency and to support slots, but most of the classes are 

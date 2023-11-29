@@ -49,6 +49,12 @@ const meta: Meta = {
     parentWidth: { table: { disable: true } },
     firstColumnWidth: { table: { disable: true } },
     firstRowHeight: { table: { disable: true } },
+    colspan: { table: { disable: true } },
+    divider: { table: { disable: true } },
+    checked: { table: { disable: true } },
+    indeterminate: { table: { disable: true } },
+    fixed: { table: { disable: true } },
+    sortId: { table: { disable: true } },
   },
   render: ({ ...args }) => html`<div style="width: ${
     args.parentWidth
@@ -383,7 +389,7 @@ export const AccordionTable: Story = {
   </div>`,
 };
 
-export const Selectable: Story = {
+export const SelectableTable: Story = {
   args: {
     ...meta.args,
   },
@@ -440,6 +446,59 @@ export const Selectable: Story = {
             >
           </b2b-table-row>`;
         })}
+      </b2b-table-rowgroup>
+    </b2b-table>
+  </div>`,
+};
+
+export const ColspanTable: Story = {
+  args: {
+    ...meta.args,
+    size: 'colspan',
+    selectable: false,
+    withDividers: true,
+  },
+  render: ({ ...args }) => html`<div style="width: 500px">
+    <b2b-table size="${args.size}">
+      <b2b-table-rowgroup type="header" selectable="${args.selectable}">
+        <b2b-table-row>
+          <b2b-table-header divider="${args.withDividers}" colspan="2"
+            >2 Columns</b2b-table-header
+          >
+          <b2b-table-header divider="${args.withDividers}"
+            >1 Column</b2b-table-header
+          >
+          <b2b-table-header>1 Column</b2b-table-header>
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+      <b2b-table-rowgroup type="body" selectable="${args.selectable}">
+        <b2b-table-row>
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell colspan="3">3 Columns</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row>
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell>1 Column</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row>
+          <b2b-table-cell divider="${args.withDividers}" colspan="2"
+            >2 Columns</b2b-table-cell
+          >
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell>1 Column</b2b-table-cell>
+        </b2b-table-row>
       </b2b-table-rowgroup>
     </b2b-table>
   </div>`,
