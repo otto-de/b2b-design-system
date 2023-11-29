@@ -2183,6 +2183,7 @@
   "b2b-table": {
     "size": {
       "options": [
+        "colspan",
         "equal",
         "expand"
       ],
@@ -2197,7 +2198,7 @@
           "summary": "TableSizes.EXPAND"
         }
       },
-      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns."
+      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns.\r\nColspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells\r\nto make them span more than one column."
     }
   },
   "b2b-table-cell": {
@@ -2242,11 +2243,11 @@
     "colspan": {
       "table": {
         "type": {
-          "summary": "string"
+          "summary": "number"
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "How many columns the cell should span. Accepts numbers greater than one."
     },
     "divider": {
       "control": {
@@ -2261,24 +2262,6 @@
         }
       },
       "description": "adds a border to the right of the cell. *"
-    },
-    "size": {
-      "options": [
-        "equal",
-        "expand"
-      ],
-      "control": {
-        "type": "radio"
-      },
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {
-          "summary": "TableSizes.EXPAND"
-        }
-      },
-      "description": "The size of the cell. Follows table size.\r\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\r\nOther sizes won't affect cell current implementation."
     },
     "textWrap": {
       "control": {
@@ -2299,11 +2282,11 @@
     "colspan": {
       "table": {
         "type": {
-          "summary": "string"
+          "summary": "number"
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "The width of the column. Increase it to change the size of the column relative to other columns."
     },
     "contentAlign": {
       "options": [
@@ -2338,15 +2321,6 @@
       },
       "description": "adds a border to the right of the header. *"
     },
-    "expand": {
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {}
-      },
-      "description": "Optional string to represent how many cells the header should expand to"
-    },
     "fixed": {
       "control": {
         "type": "boolean"
@@ -2359,10 +2333,11 @@
           "summary": "false"
         }
       },
-      "description": "sets the header position to sticky. Use it when table is inside a scrollable container. *"
+      "description": ""
     },
     "size": {
       "options": [
+        "colspan",
         "equal",
         "expand"
       ],
@@ -2492,6 +2467,20 @@
         }
       },
       "description": "Renders the rowgroup as an accordion. Both header and body must have accordion set to true.\r\nOne table can contain multiple rowgroups of type body, each of which represents an accordion row with children."
+    },
+    "fixed": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Sets the header rowgroup position to sticky. Use this in a scrollable container."
     },
     "opened": {
       "control": {

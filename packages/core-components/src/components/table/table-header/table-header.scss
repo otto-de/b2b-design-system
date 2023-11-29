@@ -1,16 +1,16 @@
 @use '../../../global/b2b-styles';
 
 :host {
-  padding: 12px;
-  flex: 1;
+  padding: var(--b2b-size-30);
+  display: table-cell;
   margin: 0;
   white-space: nowrap;
   font-family: var(--b2b-font-family-default);
   font-size: var(--b2b-size-copy-100);
   line-height: var(--b2b-size-copy-line-height-100);
   font-weight: bold;
-  border-top: 1px solid var(--b2b-color-grey-200);
-  border-bottom: 2px solid var(--b2b-color-grey-300);
+  border-top: var(--b2b-size-1) solid var(--b2b-color-grey-200);
+  border-bottom: var(--b2b-size-5) solid var(--b2b-color-grey-300);
   vertical-align: middle;
 
   .b2b-table-header__heading {
@@ -98,17 +98,7 @@
   border-right: 1px solid var(--b2b-color-grey-200);
 }
 
-:host(.b2b-table-header--left) {
-  padding-left: var(--b2b-size-15);
-}
-
-:host(.b2b-table-header--right) {
-  padding-right: var(--b2b-size-15);
-}
-
-:host(.b2b-table-header--fixed) {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  background-color: var(--b2b-color-white-100);
+:host(.b2b-table-header--colspan) {
+  flex: 1;
+  display: block;
 }

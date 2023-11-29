@@ -1,6 +1,7 @@
 export const TableSizes = {
   EQUAL: 'equal',
   EXPAND: 'expand',
+  COLSPAN: 'colspan',
 } as const;
 export type TableSizes = (typeof TableSizes)[keyof typeof TableSizes];
 

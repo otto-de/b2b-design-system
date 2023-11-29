@@ -3,9 +3,9 @@
 :host {
   --b2b-table-cell-text-expand-bg: var(--b2b-color-white-100);
 
-  flex: 1;
-  padding: 12px;
+  display: table-cell;
   margin: 0;
+  padding: 12px;
   font-family: var(--b2b-font-family-default);
   font-size: var(--b2b-size-copy-100);
   line-height: var(--b2b-size-copy-line-height-100);
@@ -14,11 +14,15 @@
   position: relative;
 }
 
+:host(.b2b-table-cell--colspan) {
+  flex: 1;
+  display: block;
+}
+
 :host(.b2b-table-cell--ellipsis) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block;
 }
 
 :host(.b2b-table-cell--expand-text) {

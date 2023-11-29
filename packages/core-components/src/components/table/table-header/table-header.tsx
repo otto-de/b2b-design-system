@@ -14,6 +14,7 @@ import {
   SortIconAlignment,
   ContentAlignment,
 } from '../../../utils/types/table.types';
+import { setFlexBase } from '../utils';
 
 @Component({
   tag: 'b2b-table-header',
@@ -31,7 +32,7 @@ export class TableHeaderComponent {
    **/
   @Prop() size: TableSizes = TableSizes.EXPAND;
 
-  /** sets the header position to sticky. Use it when table is inside a scrollable container. **/
+  /** @deprecated Use fixed on the rowgroup instead. Sets the header position to sticky. Use it when table is inside a scrollable container. **/
   @Prop() fixed: boolean = false;
 
   /** The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this. */
@@ -41,16 +42,13 @@ export class TableHeaderComponent {
   @Prop() sortId?: string;
 
   /** The width of the column. Increase it to change the size of the column relative to other columns. */
-  @Prop() colspan: number = 0;
+  @Prop() colspan?: number;
 
   /** Alignment of the content of the cell, by default is to the left. **/
   @Prop() contentAlign: ContentAlignment = ContentAlignment.LEFT;
 
-  /** Optional string to represent how many cells the header should expand to  */
-  @Prop() expand?: string;
-
-  /** @internal column id */
-  @Prop() column?: string;
+  /** @internal number of total columns per row */
+  @Prop() totalCols?: number;
 
   /** Emits whenever the sort direction changes. */
   @Event({ eventName: 'b2b-change' })
@@ -60,7 +58,7 @@ export class TableHeaderComponent {
 
   @State() iconAlign: SortIconAlignment;
 
-  componentWillRender() {
+  private setIconPlacement = () => {
     switch (this.contentAlign) {
       case ContentAlignment.LEFT:
         this.iconAlign = SortIconAlignment.RIGHT;
@@ -72,7 +70,7 @@ export class TableHeaderComponent {
         this.iconAlign = SortIconAlignment.RIGHT;
         break;
     }
-  }
+  };
 
   private changeSortDirection = (e: any) => {
     if ((e.type === 'keydown' && e.key === 'Enter') || e.type === 'click') {
@@ -116,17 +114,35 @@ export class TableHeaderComponent {
     this.active = false;
   };
 
+  componentWillLoad() {
+    if (this.size === TableSizes.COLSPAN) {
+      const rowGroup = this.hostElement.closest(
+        'b2b-table-rowgroup',
+      ) as HTMLB2bTableRowgroupElement;
+      setFlexBase(
+        this.hostElement,
+        this.colspan,
+        this.totalCols,
+        rowGroup.selectable,
+        rowGroup.accordion,
+      );
+    }
+  }
+
+  componentWillRender() {
+    this.setIconPlacement();
+  }
+
   render() {
     return (
       <Host
         class={{
           [`b2b-table-header--${this.sortDirection && this.iconAlign}`]: true,
           'b2b-table-header--divider': this.divider,
-          'b2b-table-header--fixed': this.fixed,
+          [`b2b-table-header--${this.size}`]: true,
         }}
         style={{
-          // 'flex-grow': `${this.colspan}`,
-          flex: `${this.size === TableSizes.EQUAL && 1}`,
+          'flex-grow': `${this.colspan}`,
         }}
         role="columnheader"
         aria-sort={

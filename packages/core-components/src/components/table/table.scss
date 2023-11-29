@@ -2,15 +2,18 @@
 
 :host {
   text-align: left;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
+  width: 100%;
 }
 
 :host(.b2b-table--expand) {
-  width: 100%;
+  display: table;
 }
 
 :host(.b2b-table--equal) {
-  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+:host(.b2b-table--colspan) {
+  display: block;
 }

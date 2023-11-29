@@ -2,8 +2,7 @@
 
 :host {
   border-bottom: 1px solid var(--b2b-color-grey-200);
-  display: flex;
-  flex-flow: row nowrap;
+  display: table-row;
 
   .b2b-table-row__accordion-icon {
     transform: rotate(0);
@@ -17,6 +16,11 @@
       transition: transform 0.2s ease-in-out;
     }
   }
+}
+
+:host(.b2b-table-row--colspan) {
+  flex-flow: row nowrap;
+  display: flex;
 }
 
 :host(.b2b-table-row--color-default) {
@@ -60,11 +64,18 @@
   }
 }
 
-.b2b-table-header__control-cell {
-  /* For equal width the control cell will automatically grow.
-  We should fix the size and this size
-   */
-  max-width: 44px;
+.b2b-table-row__control-cell {
+  /* For equal width the control cell will automatically grow.*/
+
+  &--checkbox {
+    flex: 0 0 var(--b2b-size-40);
+    width: var(--b2b-size-40);
+  }
+
+  &--accordion {
+    flex: 0 0 var(--b2b-size-60);
+    width: var(--b2b-size-60);
+  }
 }
 
 /* purgecss end ignore */
