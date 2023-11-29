@@ -65,8 +65,6 @@
 }
 
 .b2b-table-row__control-cell {
-  /* For equal width the control cell will automatically grow.*/
-
   &--checkbox {
     flex: 0 0 var(--b2b-size-40);
     width: var(--b2b-size-40);
