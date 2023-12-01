@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
+import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
 import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -13,7 +13,7 @@ import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowg
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
+export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
 export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -873,6 +873,32 @@ export namespace Components {
          */
         "value": string;
     }
+    interface B2bToggleChip {
+        /**
+          * Whether or not the chip is currently active. Per default, it is false.
+         */
+        "active": boolean;
+        /**
+          * Whether or not the chip is currently disabled. Per default it is false.
+         */
+        "disabled": boolean;
+        /**
+          * The chip's label. This is required.
+         */
+        "label": string;
+        /**
+          * The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required.
+         */
+        "name": string;
+        /**
+          * The value associated with the toggle chip. This is emitted when the chip is interacted with.
+         */
+        "value": any;
+        /**
+          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds.
+         */
+        "variant": 'grey' | 'white';
+    }
     interface B2bToggleGroup {
         /**
           * Whether or not the toggle group is disabled as a whole. Per default it is false.
@@ -1043,6 +1069,10 @@ export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
 export interface B2bToggleButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bToggleButtonElement;
+}
+export interface B2bToggleChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bToggleChipElement;
 }
 export interface B2bToggleGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1601,6 +1631,23 @@ declare global {
         prototype: HTMLB2bToggleButtonElement;
         new (): HTMLB2bToggleButtonElement;
     };
+    interface HTMLB2bToggleChipElementEventMap {
+        "b2b-selected": ToggleChipEventDetail;
+    }
+    interface HTMLB2bToggleChipElement extends Components.B2bToggleChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bToggleChipElementEventMap>(type: K, listener: (this: HTMLB2bToggleChipElement, ev: B2bToggleChipCustomEvent<HTMLB2bToggleChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bToggleChipElementEventMap>(type: K, listener: (this: HTMLB2bToggleChipElement, ev: B2bToggleChipCustomEvent<HTMLB2bToggleChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bToggleChipElement: {
+        prototype: HTMLB2bToggleChipElement;
+        new (): HTMLB2bToggleChipElement;
+    };
     interface HTMLB2bToggleGroupElementEventMap {
         "b2b-group-change": ToggleButtonEventDetail;
     }
@@ -1689,6 +1736,7 @@ declare global {
         "b2b-table-rowgroup": HTMLB2bTableRowgroupElement;
         "b2b-textarea": HTMLB2bTextareaElement;
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
+        "b2b-toggle-chip": HTMLB2bToggleChipElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
         "b2b-wizard": HTMLB2bWizardElement;
@@ -2673,6 +2721,36 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    interface B2bToggleChip {
+        /**
+          * Whether or not the chip is currently active. Per default, it is false.
+         */
+        "active"?: boolean;
+        /**
+          * Whether or not the chip is currently disabled. Per default it is false.
+         */
+        "disabled"?: boolean;
+        /**
+          * The chip's label. This is required.
+         */
+        "label": string;
+        /**
+          * The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required.
+         */
+        "name": string;
+        /**
+          * Emits the value whenever the toggle chip is selected.
+         */
+        "onB2b-selected"?: (event: B2bToggleChipCustomEvent<ToggleChipEventDetail>) => void;
+        /**
+          * The value associated with the toggle chip. This is emitted when the chip is interacted with.
+         */
+        "value": any;
+        /**
+          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds.
+         */
+        "variant"?: 'grey' | 'white';
+    }
     interface B2bToggleGroup {
         /**
           * Whether or not the toggle group is disabled as a whole. Per default it is false.
@@ -2794,6 +2872,7 @@ declare namespace LocalJSX {
         "b2b-table-rowgroup": B2bTableRowgroup;
         "b2b-textarea": B2bTextarea;
         "b2b-toggle-button": B2bToggleButton;
+        "b2b-toggle-chip": B2bToggleChip;
         "b2b-toggle-group": B2bToggleGroup;
         "b2b-tooltip": B2bTooltip;
         "b2b-wizard": B2bWizard;
@@ -2871,6 +2950,7 @@ declare module "@stencil/core" {
              */
             "b2b-textarea": LocalJSX.B2bTextarea & JSXBase.HTMLAttributes<HTMLB2bTextareaElement>;
             "b2b-toggle-button": LocalJSX.B2bToggleButton & JSXBase.HTMLAttributes<HTMLB2bToggleButtonElement>;
+            "b2b-toggle-chip": LocalJSX.B2bToggleChip & JSXBase.HTMLAttributes<HTMLB2bToggleChipElement>;
             "b2b-toggle-group": LocalJSX.B2bToggleGroup & JSXBase.HTMLAttributes<HTMLB2bToggleGroupElement>;
             /**
              * The tooltip can display additional information, and will be visible based on
