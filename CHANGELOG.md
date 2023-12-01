@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/otto-de/b2b-design-system/compare/v1.8.1...v1.8.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* **Anchor:** [B2BDS-237] added forced stacking context to avoid host element hiding anchor ([35d235c](https://github.com/otto-de/b2b-design-system/commit/35d235cce239afbac761db403669a77dcea289ba))
+
 ## [1.8.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.0...v1.8.1) (2023-11-22)
 
 
