@@ -19,3 +19,7 @@ export interface ColumnSortChangeEventDetail {
 export interface BreadCrumbChangeEventDetail<T = any> {
   value: T;
 }
+
+export interface ToggleChipEventDetail<T = string> {
+  value: T;
+}
