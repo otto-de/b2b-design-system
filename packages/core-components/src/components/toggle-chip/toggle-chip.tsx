@@ -16,8 +16,8 @@ export class B2BToggleChipComponent {
   /** The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required. */
   @Prop({ reflect: true }) name!: string;
 
-  /** The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. */
-  @Prop() variant: 'grey' | 'white' = 'white';
+  /** The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey*/
+  @Prop() variant: 'grey' | 'white' = 'grey';
 
   /** Whether or not the chip is currently active. Per default, it is false. */
   @Prop({ mutable: true }) active: boolean = false;

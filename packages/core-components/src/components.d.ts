@@ -895,7 +895,7 @@ export namespace Components {
          */
         "value": any;
         /**
-          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds.
+          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey
          */
         "variant": 'grey' | 'white';
     }
@@ -2747,7 +2747,7 @@ declare namespace LocalJSX {
          */
         "value": any;
         /**
-          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds.
+          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey
          */
         "variant"?: 'grey' | 'white';
     }
