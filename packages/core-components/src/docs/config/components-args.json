@@ -2704,6 +2704,81 @@
       "description": "The value of the toggle button. This will be emitted when the toggle button is clicked. This is required"
     }
   },
+  "b2b-toggle-chip": {
+    "active": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the chip is currently active. Per default, it is false."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the chip is currently disabled. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The chip's label. This is required."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value associated with the toggle chip. This is emitted when the chip is interacted with."
+    },
+    "variant": {
+      "options": [
+        "grey",
+        "white"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'grey'"
+        }
+      },
+      "description": "The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey"
+    }
+  },
   "b2b-toggle-group": {
     "disabled": {
       "control": {
