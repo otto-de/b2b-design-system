@@ -32,7 +32,6 @@ export const longSampleData = {
     'Column 4',
     'Column 5',
     'Column 6',
-    'Column 7',
   ],
   rows: [
     [

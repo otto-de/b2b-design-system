@@ -696,7 +696,7 @@ export namespace Components {
     }
     interface B2bTable {
         /**
-          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns.
+          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns. Colspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells to make them span more than one column.
          */
         "size": TableSizes;
     }
@@ -710,19 +710,25 @@ export namespace Components {
          */
         "color": TableColourOptions;
         /**
+          * How many columns the cell should span. Accepts numbers greater than one.
+         */
+        "colspan"?: number;
+        /**
           * adds a border to the right of the cell. *
          */
         "divider": boolean;
-        /**
-          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
-         */
         "size": TableSizes;
         /**
           * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap": boolean;
+        "totalCols"?: number;
     }
     interface B2bTableHeader {
+        /**
+          * The width of the column. Increase it to change the size of the column relative to other columns.
+         */
+        "colspan"?: number;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */
@@ -732,9 +738,13 @@ export namespace Components {
          */
         "divider": boolean;
         /**
-          * sets the header position to sticky. Use it when table is inside a scrollable container. *
+          * @deprecated Use fixed on the rowgroup instead. Sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed": boolean;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size": TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
@@ -743,6 +753,7 @@ export namespace Components {
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */
         "sortId"?: string;
+        "totalCols"?: number;
     }
     interface B2bTableRow {
         "accordionType": TableAccordionRowTypes;
@@ -763,6 +774,7 @@ export namespace Components {
          */
         "indeterminate": boolean;
         "selectable": boolean;
+        "size"?: TableSizes;
         /**
           * Will toggle the accordion opened or closed.
          */
@@ -778,6 +790,10 @@ export namespace Components {
          */
         "accordion": boolean;
         /**
+          * Sets the header rowgroup position to sticky. Use this in a scrollable container.
+         */
+        "fixed": boolean;
+        /**
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened": boolean;
@@ -785,6 +801,7 @@ export namespace Components {
           * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
          */
         "selectable": boolean;
+        "size": TableSizes;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -2516,7 +2533,7 @@ declare namespace LocalJSX {
          */
         "onB2b-sort-change"?: (event: B2bTableCustomEvent<ColumnSortChangeEventDetail>) => void;
         /**
-          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns.
+          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns. Colspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells to make them span more than one column.
          */
         "size"?: TableSizes;
     }
@@ -2530,19 +2547,25 @@ declare namespace LocalJSX {
          */
         "color"?: TableColourOptions;
         /**
+          * How many columns the cell should span. Accepts numbers greater than one.
+         */
+        "colspan"?: number;
+        /**
           * adds a border to the right of the cell. *
          */
         "divider"?: boolean;
-        /**
-          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
-         */
         "size"?: TableSizes;
         /**
           * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap"?: boolean;
+        "totalCols"?: number;
     }
     interface B2bTableHeader {
+        /**
+          * The width of the column. Increase it to change the size of the column relative to other columns.
+         */
+        "colspan"?: number;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */
@@ -2552,13 +2575,17 @@ declare namespace LocalJSX {
          */
         "divider"?: boolean;
         /**
-          * sets the header position to sticky. Use it when table is inside a scrollable container. *
+          * @deprecated Use fixed on the rowgroup instead. Sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed"?: boolean;
         /**
           * Emits whenever the sort direction changes.
          */
         "onB2b-change"?: (event: B2bTableHeaderCustomEvent<TableSortDirections>) => void;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size"?: TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
@@ -2567,6 +2594,7 @@ declare namespace LocalJSX {
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */
         "sortId"?: string;
+        "totalCols"?: number;
     }
     interface B2bTableRow {
         "accordionType"?: TableAccordionRowTypes;
@@ -2595,6 +2623,7 @@ declare namespace LocalJSX {
          */
         "onB2b-row-selected"?: (event: B2bTableRowCustomEvent<CheckboxEventDetail1>) => void;
         "selectable"?: boolean;
+        "size"?: TableSizes;
         /**
           * The unique identifier for a selectable row. It is emitted when the row is selected.
          */
@@ -2605,6 +2634,10 @@ declare namespace LocalJSX {
           * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
          */
         "accordion"?: boolean;
+        /**
+          * Sets the header rowgroup position to sticky. Use this in a scrollable container.
+         */
+        "fixed"?: boolean;
         /**
           * Emits when the rowgroup as a whole is selected.
          */
@@ -2617,6 +2650,7 @@ declare namespace LocalJSX {
           * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
          */
         "selectable"?: boolean;
+        "size"?: TableSizes;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */

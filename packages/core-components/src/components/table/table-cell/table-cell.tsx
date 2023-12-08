@@ -4,6 +4,7 @@ import {
   TableSizes,
   TableColourOptions,
 } from '../../../utils/types/table.types';
+import { setFlexBase } from '../utils';
 
 @Component({
   tag: 'b2b-table-cell',
@@ -16,7 +17,8 @@ export class TableCellComponent {
    * It will only truncate when table size is equal
    * **/
   @Prop({ reflect: true }) textWrap: boolean = true;
-  /** The size of the cell. Follows table size.
+
+  /** @internal The size of the cell. Follows table size.
    * When size is equal and textWrap is false, the text will truncate with Ellipsis.
    * Other sizes won't affect cell current implementation.
    **/
@@ -31,13 +33,31 @@ export class TableCellComponent {
   /** Background color of the cell. This color selection does not have hover states, as it is handled from the row**/
   @Prop() color: TableColourOptions = 'default';
 
+  /** How many columns the cell should span. Accepts numbers greater than one. */
+  @Prop() colspan?: number;
+
+  /** @internal number of total columns in a colspan table */
+  @Prop() totalCols?: number;
+
   @State() useTextEllipsis = false;
 
   private expandTextHoverWaitTime = 600;
   private expandTextHoverTimeoutId;
 
-  componentWillRender() {
+  componentWillLoad() {
     this.useTextEllipsis = !this.textWrap && this.size === TableSizes.EQUAL;
+    if (this.size === TableSizes.COLSPAN) {
+      const rowGroup = this.host.closest(
+        'b2b-table-rowgroup',
+      ) as HTMLB2bTableRowgroupElement;
+      setFlexBase(
+        this.host,
+        this.colspan,
+        this.totalCols,
+        rowGroup.selectable,
+        rowGroup.accordion,
+      );
+    }
   }
 
   private addExpandStyles = () => {
@@ -64,6 +84,7 @@ export class TableCellComponent {
         onMouseLeave={this.removeExpandStyles}
         class={{
           'b2b-table-cell': true,
+          ['b2b-table-cell--colspan']: this.size === TableSizes.COLSPAN,
           ['b2b-table-cell--ellipsis']: this.useTextEllipsis,
           ['b2b-table-cell--' + this.align]: true,
           ['b2b-table-cell--divider']: this.divider,

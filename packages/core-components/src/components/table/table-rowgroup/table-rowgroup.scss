@@ -7,3 +7,14 @@
 :host(.b2b-table-rowgroup__header) {
   display: table-header-group;
 }
+
+:host(.b2b-table-rowgroup--fixed) {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--b2b-color-white-100);
+}
+
+:host(.b2b-table-rowgroup--colspan) {
+  display: block;
+}

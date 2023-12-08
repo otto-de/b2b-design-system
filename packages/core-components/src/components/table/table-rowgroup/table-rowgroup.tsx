@@ -12,6 +12,7 @@ import {
 import {
   TableAccordionRowTypes,
   TableRowgroupTypes,
+  TableSizes,
 } from '../../../utils/types/table.types';
 import {
   B2bCheckboxCustomEvent,
@@ -37,6 +38,9 @@ export class TableRowgroupComponent {
    **/
   @Prop() type: TableRowgroupTypes = TableRowgroupTypes.HEADER;
 
+  /** @internal the table size. */
+  @Prop() size: TableSizes;
+
   /** Renders the rowgroup as an accordion. Both header and body must have accordion set to true.
    * One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
    */
@@ -44,6 +48,9 @@ export class TableRowgroupComponent {
 
   /** If the rows in the rowgroup can be selected via checkmark. Per default, it is false. */
   @Prop() selectable = false;
+
+  /** Sets the header rowgroup position to sticky. Use this in a scrollable container. */
+  @Prop() fixed: boolean = false;
 
   /** Only use when accordion property is true.
    * Will render the accordion opened if set to true. By default, is false.
@@ -158,14 +165,30 @@ export class TableRowgroupComponent {
   private toggleChildRowVisibility = (isOpen: boolean) => {
     const children = getRemainingRows(this.host);
 
-    if (isOpen) {
-      children.forEach(child => {
-        child.style.visibility = 'visible';
-      });
+    if (this.size === TableSizes.COLSPAN) {
+      if (isOpen) {
+        children.forEach(child => {
+          child.hidden = false;
+          child.setAttribute('aria-hidden', 'false');
+        });
+      } else {
+        children.forEach(child => {
+          child.hidden = true;
+          child.setAttribute('aria-hidden', 'true');
+        });
+      }
     } else {
-      children.forEach(child => {
-        child.style.visibility = 'collapse';
-      });
+      if (isOpen) {
+        children.forEach(child => {
+          child.style.visibility = 'visible';
+          child.setAttribute('aria-hidden', 'false');
+        });
+      } else {
+        children.forEach(child => {
+          child.style.visibility = 'collapse';
+          child.setAttribute('aria-hidden', 'true');
+        });
+      }
     }
   };
 
@@ -189,6 +212,8 @@ export class TableRowgroupComponent {
       <Host
         class={{
           ['b2b-table-rowgroup__' + this.type]: true,
+          'b2b-table-rowgroup--fixed': this.fixed,
+          'b2b-table-rowgroup--colspan': this.size === TableSizes.COLSPAN,
         }}
         role="rowgroup">
         <slot></slot>
