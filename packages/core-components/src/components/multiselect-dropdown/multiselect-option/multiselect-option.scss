@@ -1,11 +1,11 @@
 .b2b-multiselect-dropdown__option {
-    display: flex;
-    flex-direction: row;
-    gap: var(--b2b-size-15);
-    padding: var(--b2b-size-20) var(--b2b-size-20) var(--b2b-size-25);
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: var(--b2b-size-15);
+  padding: var(--b2b-size-20) var(--b2b-size-20) var(--b2b-size-25);
+  align-items: center;
 
-    &:hover {
-        background-color: var(--b2b-color-table-selected-hover);
-    }
+  &:hover {
+    background-color: var(--b2b-color-table-selected-hover);
+  }
 }
