@@ -15,17 +15,20 @@
     border-radius: var(--b2b-size-50);
     padding: var(--b2b-size-10) var(--b2b-size-25);
     line-height: var(--b2b-size-copy-line-height-100);
-    height: var(--b2b-size-70);
+    height: var(--b2b-size-50);
     display: inline-flex;
     align-items: center;
     cursor: default;
     margin-left: var(--b2b-size-20);
 
     &__label {
-      margin-right: var(--b2b-size-10);
       display: inline-block;
       text-overflow: ellipsis;
       overflow: hidden;
+
+      &--close-button {
+        margin-right: var(--b2b-size-10);
+      }
     }
 
     &__clearIcon {
