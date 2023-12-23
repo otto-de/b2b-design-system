@@ -63,8 +63,6 @@ export class TableRowgroupComponent {
 
   @State() selectedValues = [];
 
-  @State() indeterminate = false;
-
   @Listen('b2b-open')
   handleOpenChange(event: any) {
     this.toggleChildRowVisibility(event.detail);
