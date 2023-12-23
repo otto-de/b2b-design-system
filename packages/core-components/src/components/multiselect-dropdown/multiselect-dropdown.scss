@@ -1,0 +1,91 @@
+@use '../../global/b2b-styles';
+
+:host {
+    width: 100%;
+
+    b2b-input-label {
+        margin-bottom: var(--b2b-size-10);
+        display: block;
+    }
+
+    .b2b-multiselect-dropdown {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        min-width: 20rem;
+        overflow: hidden;
+        border: 1px solid var(--b2b-color-grey-200);
+        border-radius: var(--b2b-size-border-radius-100);
+        padding: var(--b2b-size-15) var(--b2b-size-25);
+        max-height: 104px;
+        background-color: var(--b2b-color-white-100);
+
+        &--open {
+            border-radius: var(--b2b-size-border-no-radius-bottom);
+            border-bottom: 0;
+        }
+
+        &__placeholder {
+            color: var(--b2b-color-black-100);
+            user-select: none;
+            cursor: default;
+            font-size: var(--b2b-size-copy-100);
+            line-height: var(--b2b-size-copy-line-height-100);
+            font-family: var(--b2b-font-family-default);
+        }
+
+        &__chip-container {
+            display: flex;
+            flex-flow: row wrap;
+            gap: 4px 0;
+            width: calc(100% - 24px);
+        }
+
+        &__options-container {
+            position: relative;
+            display: none;
+
+            &--visible {
+                display: block;
+            }
+        }
+
+        &__options {
+            position: absolute;
+            width: 100%;
+            max-height: calc(8 * 39px);
+            overflow-y: auto;
+            margin: 0;
+            background-color: var(--b2b-color-white-100);
+            border: solid 1px var(--b2b-color-grey-200);
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        &__option {
+            &__search {
+                width: 100%;
+
+                &__input {
+                    width: calc(100% - 16px);
+                    font-size: var(--b2b-size-copy-100);
+                    line-height: var(--b2b-size-copy-line-height-100);
+                    font-family: var(--b2b-font-family-default);
+                    outline: none;
+                    border-bottom: 1px solid var(--b2b-color-grey-200);
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    padding: 8px 8px 10px;
+                }
+            }
+            &__select-all {
+                border-bottom: 1px solid var(--b2b-color-grey-200);
+            }
+
+            &__show-more-button {
+                cursor: pointer;
+            }
+        }
+    }
+}

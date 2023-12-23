@@ -22,6 +22,19 @@
 | `b2b-close` | This event will be triggered when the chip element is closed | `CustomEvent<ChipComponentEventDetail<any>>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [b2b-multiselect-dropdown](../multiselect-dropdown)
+
+### Graph
+```mermaid
+graph TD;
+  b2b-multiselect-dropdown --> b2b-chip-component
+  style b2b-chip-component fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
