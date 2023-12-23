@@ -9,4 +9,5 @@ document.head.appendChild(link);
 
 addons.setConfig({
   theme: customTheme,
+  enableShortcuts: false,
 });
