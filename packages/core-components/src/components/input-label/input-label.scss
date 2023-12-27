@@ -1,7 +1,6 @@
 .b2b-input-label {
   font-size: var(--b2b-size-copy-100);
-  font-family: var(--b2b-font-family-default);
-  line-height: var(--b2b-size-copy-line-height-2);
+  line-height: var(--b2b-size-copy-line-height-100);
 
   &--required {
     slot::after {
