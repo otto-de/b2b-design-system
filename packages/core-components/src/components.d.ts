@@ -2390,7 +2390,7 @@ declare namespace LocalJSX {
         /**
           * The input label.
          */
-        "label"?: string;
+        "label": string;
         /**
           * The maximum amount of chips visible. Adjust this depending on available size of the dropdown.
          */
