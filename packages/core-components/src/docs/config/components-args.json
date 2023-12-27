@@ -1662,6 +1662,91 @@
       "description": "The size of the modal. If not specified, will assume the default size"
     }
   },
+  "b2b-multiselect-dropdown": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The input label."
+    },
+    "maxOptionsVisible": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "8"
+        }
+      },
+      "description": "The maximum amount of chips visible. Adjust this depending on available size of the dropdown."
+    },
+    "optionsList": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the input field."
+    },
+    "searchPlaceholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the search bar."
+    },
+    "selectAllLabel": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The string displayed as the select all label."
+    }
+  },
+  "b2b-multiselect-option": {
+    "option": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the option."
+    },
+    "selected": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option is currently selected."
+    }
+  },
   "b2b-pagination": {
     "activePage": {
       "table": {

@@ -26,7 +26,6 @@ const defaultArgs = {
   disabled: false,
   value: '',
   hasCloseButton: true,
-  truncate: false,
 };
 
 export const story010Default = Template.bind({});

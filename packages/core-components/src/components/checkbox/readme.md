@@ -35,6 +35,7 @@
 
 ### Used by
 
+ - [b2b-multiselect-option](../multiselect-dropdown/multiselect-option)
  - [b2b-table-row](../table/table-row)
 
 ### Depends on
@@ -45,6 +46,7 @@
 ```mermaid
 graph TD;
   b2b-checkbox --> b2b-input-label
+  b2b-multiselect-option --> b2b-checkbox
   b2b-table-row --> b2b-checkbox
   style b2b-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```

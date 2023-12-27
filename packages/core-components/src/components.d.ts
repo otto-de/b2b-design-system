@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
-import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
@@ -14,7 +14,7 @@ import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
-export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
@@ -503,6 +503,43 @@ export namespace Components {
           * The size of the modal. If not specified, will assume the default size
          */
         "variant": 'default' | 'large';
+    }
+    interface B2bMultiselectDropdown {
+        /**
+          * The input label.
+         */
+        "label": string;
+        /**
+          * The maximum amount of chips visible. Adjust this depending on available size of the dropdown.
+         */
+        "maxOptionsVisible": number;
+        /**
+          * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
+         */
+        "optionsList": string[];
+        /**
+          * The placeholder shown in the input field.
+         */
+        "placeholder": string;
+        /**
+          * The placeholder shown in the search bar.
+         */
+        "searchPlaceholder": string;
+        /**
+          * The string displayed as the select all label.
+         */
+        "selectAllLabel": string;
+    }
+    interface B2bMultiselectOption {
+        "indeterminate"?: boolean;
+        /**
+          * The label of the option.
+         */
+        "option": string;
+        /**
+          * Whether the option is currently selected.
+         */
+        "selected": boolean;
     }
     interface B2bPagination {
         /**
@@ -1039,6 +1076,14 @@ export interface B2bModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bModalElement;
 }
+export interface B2bMultiselectDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bMultiselectDropdownElement;
+}
+export interface B2bMultiselectOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bMultiselectOptionElement;
+}
 export interface B2bPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bPaginationElement;
@@ -1378,6 +1423,40 @@ declare global {
     var HTMLB2bModalElement: {
         prototype: HTMLB2bModalElement;
         new (): HTMLB2bModalElement;
+    };
+    interface HTMLB2bMultiselectDropdownElementEventMap {
+        "b2b-selected": string[];
+    }
+    interface HTMLB2bMultiselectDropdownElement extends Components.B2bMultiselectDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bMultiselectDropdownElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectDropdownElement, ev: B2bMultiselectDropdownCustomEvent<HTMLB2bMultiselectDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bMultiselectDropdownElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectDropdownElement, ev: B2bMultiselectDropdownCustomEvent<HTMLB2bMultiselectDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bMultiselectDropdownElement: {
+        prototype: HTMLB2bMultiselectDropdownElement;
+        new (): HTMLB2bMultiselectDropdownElement;
+    };
+    interface HTMLB2bMultiselectOptionElementEventMap {
+        "b2b-option-selected": MultiSelectOptionEventDetail;
+    }
+    interface HTMLB2bMultiselectOptionElement extends Components.B2bMultiselectOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bMultiselectOptionElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectOptionElement, ev: B2bMultiselectOptionCustomEvent<HTMLB2bMultiselectOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bMultiselectOptionElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectOptionElement, ev: B2bMultiselectOptionCustomEvent<HTMLB2bMultiselectOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bMultiselectOptionElement: {
+        prototype: HTMLB2bMultiselectOptionElement;
+        new (): HTMLB2bMultiselectOptionElement;
     };
     interface HTMLB2bPaginationElementEventMap {
         "b2b-page-change": PageChangeEventDetail;
@@ -1733,6 +1812,8 @@ declare global {
         "b2b-input-list-option": HTMLB2bInputListOptionElement;
         "b2b-label": HTMLB2bLabelElement;
         "b2b-modal": HTMLB2bModalElement;
+        "b2b-multiselect-dropdown": HTMLB2bMultiselectDropdownElement;
+        "b2b-multiselect-option": HTMLB2bMultiselectOptionElement;
         "b2b-pagination": HTMLB2bPaginationElement;
         "b2b-paragraph": HTMLB2bParagraphElement;
         "b2b-radio-button": HTMLB2bRadioButtonElement;
@@ -2304,6 +2385,51 @@ declare namespace LocalJSX {
           * The size of the modal. If not specified, will assume the default size
          */
         "variant"?: 'default' | 'large';
+    }
+    interface B2bMultiselectDropdown {
+        /**
+          * The input label.
+         */
+        "label"?: string;
+        /**
+          * The maximum amount of chips visible. Adjust this depending on available size of the dropdown.
+         */
+        "maxOptionsVisible"?: number;
+        /**
+          * Emits when there is a change to the currently selected values.
+         */
+        "onB2b-selected"?: (event: B2bMultiselectDropdownCustomEvent<string[]>) => void;
+        /**
+          * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
+         */
+        "optionsList"?: string[];
+        /**
+          * The placeholder shown in the input field.
+         */
+        "placeholder"?: string;
+        /**
+          * The placeholder shown in the search bar.
+         */
+        "searchPlaceholder"?: string;
+        /**
+          * The string displayed as the select all label.
+         */
+        "selectAllLabel"?: string;
+    }
+    interface B2bMultiselectOption {
+        "indeterminate"?: boolean;
+        /**
+          * Emits the option as a string whenever an option is selected.
+         */
+        "onB2b-option-selected"?: (event: B2bMultiselectOptionCustomEvent<MultiSelectOptionEventDetail>) => void;
+        /**
+          * The label of the option.
+         */
+        "option": string;
+        /**
+          * Whether the option is currently selected.
+         */
+        "selected"?: boolean;
     }
     interface B2bPagination {
         /**
@@ -2886,6 +3012,8 @@ declare namespace LocalJSX {
         "b2b-input-list-option": B2bInputListOption;
         "b2b-label": B2bLabel;
         "b2b-modal": B2bModal;
+        "b2b-multiselect-dropdown": B2bMultiselectDropdown;
+        "b2b-multiselect-option": B2bMultiselectOption;
         "b2b-pagination": B2bPagination;
         "b2b-paragraph": B2bParagraph;
         "b2b-radio-button": B2bRadioButton;
@@ -2952,6 +3080,8 @@ declare module "@stencil/core" {
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53
              */
             "b2b-modal": LocalJSX.B2bModal & JSXBase.HTMLAttributes<HTMLB2bModalElement>;
+            "b2b-multiselect-dropdown": LocalJSX.B2bMultiselectDropdown & JSXBase.HTMLAttributes<HTMLB2bMultiselectDropdownElement>;
+            "b2b-multiselect-option": LocalJSX.B2bMultiselectOption & JSXBase.HTMLAttributes<HTMLB2bMultiselectOptionElement>;
             "b2b-pagination": LocalJSX.B2bPagination & JSXBase.HTMLAttributes<HTMLB2bPaginationElement>;
             /**
              * Paragraph component to render text content.

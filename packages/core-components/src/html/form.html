@@ -19,12 +19,23 @@
     <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
     <style>
       .form-element-width {
-        width: 550px;
+        width: 500px;
       }
     </style>
   </head>
 
   <body data-theme="light">
+    <div class="content-container">
+      <b2b-headline size="200">Multiselect Dropdown</b2b-headline>
+      <div class="form-element-width">
+        <b2b-multiselect-dropdown
+          id="multiselect"
+          placeholder="Please select..."
+          search-placeholder="Search"
+          select-all-label="Select All"
+          label="Hylian fruits and vegetables"></b2b-multiselect-dropdown>
+      </div>
+    </div>
     <div class="content-container">
       <b2b-headline size="200">Input list</b2b-headline>
       <div style="width: 40%">
@@ -48,6 +59,18 @@
             'result4',
             'result4',
             'result4',
+          ];
+          const el = document.getElementById('multiselect');
+          el.optionsList = [
+            'Swift Carrot',
+            'Hydromelon',
+            'Skyshroom',
+            'Fortified Pumpkin',
+            'Hyrule Herb',
+            'Hylian Shroom',
+            'Mighty Banana',
+            'Endura Carrot',
+            'Golden Apple',
           ];
         </script>
       </div>

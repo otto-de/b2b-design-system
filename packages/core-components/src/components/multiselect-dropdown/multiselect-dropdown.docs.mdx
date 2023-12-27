@@ -1,0 +1,73 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+  Meta,
+} from '@storybook/blocks';
+
+import * as MultiSelectStories from './multiselect-dropdown.stories';
+
+<Meta of={MultiSelectStories} />
+
+# Multiselect Dropdown Component
+
+<Canvas of={MultiSelectStories.Default} />
+
+## Properties
+
+### Label
+
+The dropdown label shown at the top of the dropdown. Must be a string.
+
+### SelectAllLabel
+
+The label for the select all checkbox at the top of the option list.
+Must be a string.
+
+### Placeholder
+
+The placeholder displayed when no option is selected. Must be a string.
+
+### SearchPlaceholder
+
+The placeholder for the search input. Must be a string.
+
+### OptionsList
+
+The list of items displayed as options in the multiselect. Must be a list of strings.
+
+### MaxOptionsVisible
+
+The number of chips visible by default. It is per default set to 8, but can be adjusted
+according to the typical length of a chip as well as the available width of the multiselect
+container element. If more than the default number of chips displayed are selected, an
+additional small chip is displayed that indicates more options are selected.
+
+The chips will wrap to up to three lines before
+they exceed the maximum container width. We recommend setting the maximum number so that
+3 lines of chips are not exceeded.
+
+## Events
+
+### b2b-selected
+
+This event fires whenever a dropdown option is selected or deselected and
+contains all currently selected options as an array of strings.
+
+### b2b-option-selected
+
+Fires whenever a single value is selected or deselected. You can listen to this if you need granular access to options.
+
+```ts
+interface MultiSelectOptionEventDetail {
+  selected: boolean;
+  selectedOption: string;
+}
+```
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />

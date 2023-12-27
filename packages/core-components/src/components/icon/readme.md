@@ -22,6 +22,7 @@
  - [b2b-alert](../alert)
  - [b2b-input-list](../input-list)
  - [b2b-modal](../modal)
+ - [b2b-multiselect-dropdown](../multiselect-dropdown)
  - [b2b-search](../search)
  - [b2b-table-row](../table/table-row)
  - [b2b-wizard-icon](../wizard-icon)
@@ -32,6 +33,7 @@ graph TD;
   b2b-alert --> b2b-icon
   b2b-input-list --> b2b-icon
   b2b-modal --> b2b-icon
+  b2b-multiselect-dropdown --> b2b-icon
   b2b-search --> b2b-icon
   b2b-table-row --> b2b-icon
   b2b-wizard-icon --> b2b-icon
