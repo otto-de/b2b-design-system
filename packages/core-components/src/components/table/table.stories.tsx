@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
-import { userEvent } from '@storybook/testing-library';
 import { html } from 'lit-html';
 import { repeat } from 'lit/directives/repeat.js';
 import {
@@ -301,13 +300,6 @@ export const SortableTable: Story = {
   },
   decorators: SortableTableMeta.decorators,
   render: RenderSortableTable,
-  play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const header = await canvasElement.querySelector('b2b-table-header');
-      const sortArrow = header.shadowRoot.querySelector('div');
-      await userEvent.click(sortArrow);
-    }, 2000);
-  },
 };
 export const SortableTableRightAlign: Story = {
   args: {
@@ -318,13 +310,6 @@ export const SortableTableRightAlign: Story = {
   },
   decorators: SortableTableMeta.decorators,
   render: RenderSortableTable,
-  play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const header = await canvasElement.querySelector('b2b-table-header');
-      const sortArrow = header.shadowRoot.querySelector('div');
-      await userEvent.click(sortArrow);
-    }, 1000);
-  },
 };
 
 export const AccordionTable: Story = {
