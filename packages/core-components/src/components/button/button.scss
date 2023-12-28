@@ -57,6 +57,11 @@
           border: 0.125rem solid rgba(#ffff, 0.5);
           border-top: 0.125rem solid var(--b2b-color-red-100);
         }
+
+        &:active {
+          background-color: var(--b2b-color-red-250);
+          border-color: var(--b2b-color-red-250);
+        }
       }
 
       &--secondary {
@@ -72,6 +77,11 @@
         &.loading::after {
           border: 0.125rem solid rgba(#333, 0.2);
           border-top: 0.125rem solid var(--b2b-color-copy-default);
+        }
+
+        &:active {
+          background-color: var(--b2b-color-grey-200);
+          border-color: var(--b2b-color-grey-200);
         }
       }
     }
@@ -166,6 +176,28 @@
   button,
   a {
     padding: 0 var(--b2b-size-20);
+  }
+}
+
+:host(.b2b-button--fit-container) {
+  button, a {
+    width: 100%;
+    display: inline-block;
+  }
+
+  span {
+    display: inline-flex;
+  }
+}
+
+:host(.b2b-button--custom) {
+  button, a {
+    width: inherit;
+    display: inline-block;
+  }
+
+  span {
+    display: inline-flex;
   }
 }
 
