@@ -180,7 +180,8 @@
 }
 
 :host(.b2b-button--fit-container) {
-  button, a {
+  button,
+  a {
     width: 100%;
     display: inline-block;
   }
@@ -191,7 +192,8 @@
 }
 
 :host(.b2b-button--custom) {
-  button, a {
+  button,
+  a {
     width: inherit;
     display: inline-block;
   }
