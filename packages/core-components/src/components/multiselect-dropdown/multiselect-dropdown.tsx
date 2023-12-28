@@ -190,7 +190,10 @@ export class B2bMultiSelectDropdown {
     }
 
     if (newVal) {
-      this.selectedValues = newVals;
+      // filter out duplicates
+      this.selectedValues = Array.from(
+        new Set([...this.selectedValues, ...newVals]),
+      );
     } else {
       this.selectedValues = this.selectedValues.filter(
         option => !newVals.includes(option),
