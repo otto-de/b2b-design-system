@@ -120,6 +120,10 @@ export namespace Components {
           * The button variant. If not specified, the button will be the secondary variant.
          */
         "variant": 'primary' | 'secondary';
+        /**
+          * The width of the button. Per default, it will fit the content
+         */
+        "width": 'fit-content' | 'fit-container' | 'custom';
     }
     interface B2bCard {
         /**
@@ -1946,6 +1950,10 @@ declare namespace LocalJSX {
           * The button variant. If not specified, the button will be the secondary variant.
          */
         "variant"?: 'primary' | 'secondary';
+        /**
+          * The width of the button. Per default, it will fit the content
+         */
+        "width"?: 'fit-content' | 'fit-container' | 'custom';
     }
     interface B2bCard {
         /**

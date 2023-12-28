@@ -311,6 +311,25 @@
         }
       },
       "description": "The button variant. If not specified, the button will be the secondary variant."
+    },
+    "width": {
+      "options": [
+        "custom",
+        "fit-container",
+        "fit-content"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'fit-content'"
+        }
+      },
+      "description": "The width of the button. Per default, it will fit the content"
     }
   },
   "b2b-card": {
