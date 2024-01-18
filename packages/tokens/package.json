@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "lodash": "^4.17.21",
-    "style-dictionary": "^3.8.0"
+    "style-dictionary": "^3.9.2"
   }
 }
