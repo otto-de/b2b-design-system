@@ -5,16 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
+import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail } from "./utils/interfaces/interaction.interface";
-export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
+export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
@@ -120,6 +120,10 @@ export namespace Components {
           * The button variant. If not specified, the button will be the secondary variant.
          */
         "variant": 'primary' | 'secondary';
+        /**
+          * The width of the button. Per default, it will fit the content
+         */
+        "width": 'fit-content' | 'fit-container' | 'custom';
     }
     interface B2bCard {
         /**
@@ -504,6 +508,43 @@ export namespace Components {
          */
         "variant": 'default' | 'large';
     }
+    interface B2bMultiselectDropdown {
+        /**
+          * The input label.
+         */
+        "label": string;
+        /**
+          * The maximum amount of chips visible. Adjust this depending on available size of the dropdown.
+         */
+        "maxOptionsVisible": number;
+        /**
+          * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
+         */
+        "optionsList": string[];
+        /**
+          * The placeholder shown in the input field.
+         */
+        "placeholder": string;
+        /**
+          * The placeholder shown in the search bar.
+         */
+        "searchPlaceholder": string;
+        /**
+          * The string displayed as the select all label.
+         */
+        "selectAllLabel": string;
+    }
+    interface B2bMultiselectOption {
+        "indeterminate"?: boolean;
+        /**
+          * The label of the option.
+         */
+        "option": string;
+        /**
+          * Whether the option is currently selected.
+         */
+        "selected": boolean;
+    }
     interface B2bPagination {
         /**
           * Use this property to set programmatically the active page
@@ -696,7 +737,7 @@ export namespace Components {
     }
     interface B2bTable {
         /**
-          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns.
+          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns. Colspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells to make them span more than one column.
          */
         "size": TableSizes;
     }
@@ -710,19 +751,25 @@ export namespace Components {
          */
         "color": TableColourOptions;
         /**
+          * How many columns the cell should span. Accepts numbers greater than one.
+         */
+        "colspan"?: number;
+        /**
           * adds a border to the right of the cell. *
          */
         "divider": boolean;
-        /**
-          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
-         */
         "size": TableSizes;
         /**
           * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap": boolean;
+        "totalCols"?: number;
     }
     interface B2bTableHeader {
+        /**
+          * The width of the column. Increase it to change the size of the column relative to other columns.
+         */
+        "colspan"?: number;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */
@@ -732,9 +779,13 @@ export namespace Components {
          */
         "divider": boolean;
         /**
-          * sets the header position to sticky. Use it when table is inside a scrollable container. *
+          * @deprecated Use fixed on the rowgroup instead. Sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed": boolean;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size": TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
@@ -743,6 +794,7 @@ export namespace Components {
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */
         "sortId"?: string;
+        "totalCols"?: number;
     }
     interface B2bTableRow {
         "accordionType": TableAccordionRowTypes;
@@ -763,6 +815,7 @@ export namespace Components {
          */
         "indeterminate": boolean;
         "selectable": boolean;
+        "size"?: TableSizes;
         /**
           * Will toggle the accordion opened or closed.
          */
@@ -778,6 +831,10 @@ export namespace Components {
          */
         "accordion": boolean;
         /**
+          * Sets the header rowgroup position to sticky. Use this in a scrollable container.
+         */
+        "fixed": boolean;
+        /**
           * Only use when accordion property is true. Will render the accordion opened if set to true. By default, is false.
          */
         "opened": boolean;
@@ -785,6 +842,7 @@ export namespace Components {
           * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
          */
         "selectable": boolean;
+        "size": TableSizes;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -872,6 +930,32 @@ export namespace Components {
           * The value of the toggle button. This will be emitted when the toggle button is clicked. This is required
          */
         "value": string;
+    }
+    interface B2bToggleChip {
+        /**
+          * Whether or not the chip is currently active. Per default, it is false.
+         */
+        "active": boolean;
+        /**
+          * Whether or not the chip is currently disabled. Per default it is false.
+         */
+        "disabled": boolean;
+        /**
+          * The chip's label. This is required.
+         */
+        "label": string;
+        /**
+          * The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required.
+         */
+        "name": string;
+        /**
+          * The value associated with the toggle chip. This is emitted when the chip is interacted with.
+         */
+        "value": any;
+        /**
+          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey
+         */
+        "variant": 'grey' | 'white';
     }
     interface B2bToggleGroup {
         /**
@@ -996,6 +1080,14 @@ export interface B2bModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bModalElement;
 }
+export interface B2bMultiselectDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bMultiselectDropdownElement;
+}
+export interface B2bMultiselectOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bMultiselectOptionElement;
+}
 export interface B2bPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bPaginationElement;
@@ -1043,6 +1135,10 @@ export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
 export interface B2bToggleButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bToggleButtonElement;
+}
+export interface B2bToggleChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bToggleChipElement;
 }
 export interface B2bToggleGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1332,6 +1428,40 @@ declare global {
         prototype: HTMLB2bModalElement;
         new (): HTMLB2bModalElement;
     };
+    interface HTMLB2bMultiselectDropdownElementEventMap {
+        "b2b-selected": string[];
+    }
+    interface HTMLB2bMultiselectDropdownElement extends Components.B2bMultiselectDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bMultiselectDropdownElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectDropdownElement, ev: B2bMultiselectDropdownCustomEvent<HTMLB2bMultiselectDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bMultiselectDropdownElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectDropdownElement, ev: B2bMultiselectDropdownCustomEvent<HTMLB2bMultiselectDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bMultiselectDropdownElement: {
+        prototype: HTMLB2bMultiselectDropdownElement;
+        new (): HTMLB2bMultiselectDropdownElement;
+    };
+    interface HTMLB2bMultiselectOptionElementEventMap {
+        "b2b-option-selected": MultiSelectOptionEventDetail;
+    }
+    interface HTMLB2bMultiselectOptionElement extends Components.B2bMultiselectOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bMultiselectOptionElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectOptionElement, ev: B2bMultiselectOptionCustomEvent<HTMLB2bMultiselectOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bMultiselectOptionElementEventMap>(type: K, listener: (this: HTMLB2bMultiselectOptionElement, ev: B2bMultiselectOptionCustomEvent<HTMLB2bMultiselectOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bMultiselectOptionElement: {
+        prototype: HTMLB2bMultiselectOptionElement;
+        new (): HTMLB2bMultiselectOptionElement;
+    };
     interface HTMLB2bPaginationElementEventMap {
         "b2b-page-change": PageChangeEventDetail;
     }
@@ -1601,6 +1731,23 @@ declare global {
         prototype: HTMLB2bToggleButtonElement;
         new (): HTMLB2bToggleButtonElement;
     };
+    interface HTMLB2bToggleChipElementEventMap {
+        "b2b-selected": ToggleChipEventDetail;
+    }
+    interface HTMLB2bToggleChipElement extends Components.B2bToggleChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bToggleChipElementEventMap>(type: K, listener: (this: HTMLB2bToggleChipElement, ev: B2bToggleChipCustomEvent<HTMLB2bToggleChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bToggleChipElementEventMap>(type: K, listener: (this: HTMLB2bToggleChipElement, ev: B2bToggleChipCustomEvent<HTMLB2bToggleChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bToggleChipElement: {
+        prototype: HTMLB2bToggleChipElement;
+        new (): HTMLB2bToggleChipElement;
+    };
     interface HTMLB2bToggleGroupElementEventMap {
         "b2b-group-change": ToggleButtonEventDetail;
     }
@@ -1669,6 +1816,8 @@ declare global {
         "b2b-input-list-option": HTMLB2bInputListOptionElement;
         "b2b-label": HTMLB2bLabelElement;
         "b2b-modal": HTMLB2bModalElement;
+        "b2b-multiselect-dropdown": HTMLB2bMultiselectDropdownElement;
+        "b2b-multiselect-option": HTMLB2bMultiselectOptionElement;
         "b2b-pagination": HTMLB2bPaginationElement;
         "b2b-paragraph": HTMLB2bParagraphElement;
         "b2b-radio-button": HTMLB2bRadioButtonElement;
@@ -1689,6 +1838,7 @@ declare global {
         "b2b-table-rowgroup": HTMLB2bTableRowgroupElement;
         "b2b-textarea": HTMLB2bTextareaElement;
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
+        "b2b-toggle-chip": HTMLB2bToggleChipElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
         "b2b-wizard": HTMLB2bWizardElement;
@@ -1800,6 +1950,10 @@ declare namespace LocalJSX {
           * The button variant. If not specified, the button will be the secondary variant.
          */
         "variant"?: 'primary' | 'secondary';
+        /**
+          * The width of the button. Per default, it will fit the content
+         */
+        "width"?: 'fit-content' | 'fit-container' | 'custom';
     }
     interface B2bCard {
         /**
@@ -2240,6 +2394,51 @@ declare namespace LocalJSX {
          */
         "variant"?: 'default' | 'large';
     }
+    interface B2bMultiselectDropdown {
+        /**
+          * The input label.
+         */
+        "label": string;
+        /**
+          * The maximum amount of chips visible. Adjust this depending on available size of the dropdown.
+         */
+        "maxOptionsVisible"?: number;
+        /**
+          * Emits when there is a change to the currently selected values.
+         */
+        "onB2b-selected"?: (event: B2bMultiselectDropdownCustomEvent<string[]>) => void;
+        /**
+          * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
+         */
+        "optionsList"?: string[];
+        /**
+          * The placeholder shown in the input field.
+         */
+        "placeholder"?: string;
+        /**
+          * The placeholder shown in the search bar.
+         */
+        "searchPlaceholder"?: string;
+        /**
+          * The string displayed as the select all label.
+         */
+        "selectAllLabel"?: string;
+    }
+    interface B2bMultiselectOption {
+        "indeterminate"?: boolean;
+        /**
+          * Emits the option as a string whenever an option is selected.
+         */
+        "onB2b-option-selected"?: (event: B2bMultiselectOptionCustomEvent<MultiSelectOptionEventDetail>) => void;
+        /**
+          * The label of the option.
+         */
+        "option": string;
+        /**
+          * Whether the option is currently selected.
+         */
+        "selected"?: boolean;
+    }
     interface B2bPagination {
         /**
           * Use this property to set programmatically the active page
@@ -2468,7 +2667,7 @@ declare namespace LocalJSX {
          */
         "onB2b-sort-change"?: (event: B2bTableCustomEvent<ColumnSortChangeEventDetail>) => void;
         /**
-          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns.
+          * The size of the table. Both will expand to 100% of parent size. Expand cells will use as much space as content needs and text will wrap. Equal will keep all column sizes proportional to the number of columns. Colspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells to make them span more than one column.
          */
         "size"?: TableSizes;
     }
@@ -2482,19 +2681,25 @@ declare namespace LocalJSX {
          */
         "color"?: TableColourOptions;
         /**
+          * How many columns the cell should span. Accepts numbers greater than one.
+         */
+        "colspan"?: number;
+        /**
           * adds a border to the right of the cell. *
          */
         "divider"?: boolean;
-        /**
-          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
-         */
         "size"?: TableSizes;
         /**
           * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap"?: boolean;
+        "totalCols"?: number;
     }
     interface B2bTableHeader {
+        /**
+          * The width of the column. Increase it to change the size of the column relative to other columns.
+         */
+        "colspan"?: number;
         /**
           * Alignment of the content of the cell, by default is to the left. *
          */
@@ -2504,13 +2709,17 @@ declare namespace LocalJSX {
          */
         "divider"?: boolean;
         /**
-          * sets the header position to sticky. Use it when table is inside a scrollable container. *
+          * @deprecated Use fixed on the rowgroup instead. Sets the header position to sticky. Use it when table is inside a scrollable container. *
          */
         "fixed"?: boolean;
         /**
           * Emits whenever the sort direction changes.
          */
         "onB2b-change"?: (event: B2bTableHeaderCustomEvent<TableSortDirections>) => void;
+        /**
+          * The size of the cell. Follows table size. When size is equal and textWrap is false, the text will truncate with Ellipsis. Other sizes won't affect cell current implementation.
+         */
+        "size"?: TableSizes;
         /**
           * The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this.
          */
@@ -2519,6 +2728,7 @@ declare namespace LocalJSX {
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */
         "sortId"?: string;
+        "totalCols"?: number;
     }
     interface B2bTableRow {
         "accordionType"?: TableAccordionRowTypes;
@@ -2547,6 +2757,7 @@ declare namespace LocalJSX {
          */
         "onB2b-row-selected"?: (event: B2bTableRowCustomEvent<CheckboxEventDetail1>) => void;
         "selectable"?: boolean;
+        "size"?: TableSizes;
         /**
           * The unique identifier for a selectable row. It is emitted when the row is selected.
          */
@@ -2557,6 +2768,10 @@ declare namespace LocalJSX {
           * Renders the rowgroup as an accordion. Both header and body must have accordion set to true. One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
          */
         "accordion"?: boolean;
+        /**
+          * Sets the header rowgroup position to sticky. Use this in a scrollable container.
+         */
+        "fixed"?: boolean;
         /**
           * Emits when the rowgroup as a whole is selected.
          */
@@ -2569,6 +2784,7 @@ declare namespace LocalJSX {
           * If the rows in the rowgroup can be selected via checkmark. Per default, it is false.
          */
         "selectable"?: boolean;
+        "size"?: TableSizes;
         /**
           * Rowgroup allows grouping rows by context: header, body or footer. Header rows are by default not highlightable on mouse over.
          */
@@ -2673,6 +2889,36 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    interface B2bToggleChip {
+        /**
+          * Whether or not the chip is currently active. Per default, it is false.
+         */
+        "active"?: boolean;
+        /**
+          * Whether or not the chip is currently disabled. Per default it is false.
+         */
+        "disabled"?: boolean;
+        /**
+          * The chip's label. This is required.
+         */
+        "label": string;
+        /**
+          * The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required.
+         */
+        "name": string;
+        /**
+          * Emits the value whenever the toggle chip is selected.
+         */
+        "onB2b-selected"?: (event: B2bToggleChipCustomEvent<ToggleChipEventDetail>) => void;
+        /**
+          * The value associated with the toggle chip. This is emitted when the chip is interacted with.
+         */
+        "value": any;
+        /**
+          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey
+         */
+        "variant"?: 'grey' | 'white';
+    }
     interface B2bToggleGroup {
         /**
           * Whether or not the toggle group is disabled as a whole. Per default it is false.
@@ -2774,6 +3020,8 @@ declare namespace LocalJSX {
         "b2b-input-list-option": B2bInputListOption;
         "b2b-label": B2bLabel;
         "b2b-modal": B2bModal;
+        "b2b-multiselect-dropdown": B2bMultiselectDropdown;
+        "b2b-multiselect-option": B2bMultiselectOption;
         "b2b-pagination": B2bPagination;
         "b2b-paragraph": B2bParagraph;
         "b2b-radio-button": B2bRadioButton;
@@ -2794,6 +3042,7 @@ declare namespace LocalJSX {
         "b2b-table-rowgroup": B2bTableRowgroup;
         "b2b-textarea": B2bTextarea;
         "b2b-toggle-button": B2bToggleButton;
+        "b2b-toggle-chip": B2bToggleChip;
         "b2b-toggle-group": B2bToggleGroup;
         "b2b-tooltip": B2bTooltip;
         "b2b-wizard": B2bWizard;
@@ -2839,6 +3088,8 @@ declare module "@stencil/core" {
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53
              */
             "b2b-modal": LocalJSX.B2bModal & JSXBase.HTMLAttributes<HTMLB2bModalElement>;
+            "b2b-multiselect-dropdown": LocalJSX.B2bMultiselectDropdown & JSXBase.HTMLAttributes<HTMLB2bMultiselectDropdownElement>;
+            "b2b-multiselect-option": LocalJSX.B2bMultiselectOption & JSXBase.HTMLAttributes<HTMLB2bMultiselectOptionElement>;
             "b2b-pagination": LocalJSX.B2bPagination & JSXBase.HTMLAttributes<HTMLB2bPaginationElement>;
             /**
              * Paragraph component to render text content.
@@ -2871,6 +3122,7 @@ declare module "@stencil/core" {
              */
             "b2b-textarea": LocalJSX.B2bTextarea & JSXBase.HTMLAttributes<HTMLB2bTextareaElement>;
             "b2b-toggle-button": LocalJSX.B2bToggleButton & JSXBase.HTMLAttributes<HTMLB2bToggleButtonElement>;
+            "b2b-toggle-chip": LocalJSX.B2bToggleChip & JSXBase.HTMLAttributes<HTMLB2bToggleChipElement>;
             "b2b-toggle-group": LocalJSX.B2bToggleGroup & JSXBase.HTMLAttributes<HTMLB2bToggleGroupElement>;
             /**
              * The tooltip can display additional information, and will be visible based on

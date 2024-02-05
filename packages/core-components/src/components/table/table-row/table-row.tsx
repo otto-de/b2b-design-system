@@ -13,6 +13,7 @@ import {
 import {
   TableAccordionRowTypes,
   TableColourOptions,
+  TableSizes,
 } from '../../../utils/types/table.types';
 import {
   B2bCheckboxCustomEvent,
@@ -38,6 +39,9 @@ export class TableRowComponent {
 
   /** @internal Whether the parent rowgroup is selectable. */
   @Prop() selectable: boolean;
+
+  /** @internal Whether colspans are possible in the table. */
+  @Prop() size?: TableSizes;
 
   /** The unique identifier for a selectable row. It is emitted when the row is selected. */
   @Prop() value?: string;
@@ -77,6 +81,9 @@ export class TableRowComponent {
   }
 
   componentWillLoad() {
+    if (this.size === TableSizes.COLSPAN) {
+      this.setTotalCols();
+    }
     if (
       this.selectable &&
       !Boolean(this.value) &&
@@ -93,25 +100,26 @@ export class TableRowComponent {
     this.b2bOpen.emit(this.isOpen);
   };
 
+  private setTotalCols = () => {
+    let cells = Array.from(this.hostElement.children) as
+      | HTMLB2bTableCellElement[]
+      | HTMLB2bTableHeaderElement[];
+    let cols = 0;
+    cells.forEach(cell => {
+      cols += cell.colspan ? cell.colspan : 1;
+    });
+    cells.forEach(cell => {
+      cell.totalCols = cols;
+    });
+  };
+
   private getRowColor = () => {
     if (this.accordionType === TableAccordionRowTypes.PARENT)
       return TableColourOptions.GROUP;
     return this.color;
   };
 
-  private getRowWidth = () => {
-    const accordionSize = '24px';
-    const checkboxSize = '16px';
-
-    if (Boolean(this.selectable)) {
-      return checkboxSize;
-    } else if (Boolean(this.accordionType)) {
-      return accordionSize;
-    } else {
-      return;
-    }
-  };
-
+  /** Only needs to be added if we control the state of the selection. */
   private shouldAddCheckbox = () => {
     let checkbox = this.hostElement.querySelector('b2b-checkbox');
     return this.selectable && !Boolean(checkbox);
@@ -126,10 +134,7 @@ export class TableRowComponent {
     if (this.shouldAddCheckbox()) {
       if (parent.type === 'header') {
         return (
-          <b2b-table-header
-            style={{
-              ['width']: this.getRowWidth(),
-            }}>
+          <b2b-table-header class="b2b-table-row__control-cell--checkbox">
             <b2b-checkbox
               standalone
               checked={this.checked}
@@ -138,7 +143,7 @@ export class TableRowComponent {
         );
       } else {
         return (
-          <b2b-table-cell>
+          <b2b-table-cell class="b2b-table-row__control-cell--checkbox">
             <b2b-checkbox
               standalone
               checked={this.checked}
@@ -155,10 +160,7 @@ export class TableRowComponent {
       switch (this.accordionType) {
         case TableAccordionRowTypes.HEADER:
           return (
-            <b2b-table-header
-              style={{
-                ['width']: this.getRowWidth(),
-              }}></b2b-table-header>
+            <b2b-table-header class="b2b-table-row__control-cell--accordion"></b2b-table-header>
           );
         case TableAccordionRowTypes.PARENT:
           return (
@@ -176,7 +178,9 @@ export class TableRowComponent {
             </b2b-table-cell>
           );
         case TableAccordionRowTypes.CHILD:
-          return <b2b-table-cell></b2b-table-cell>;
+          return (
+            <b2b-table-cell class="b2b-table-row__control-cell--accordion"></b2b-table-cell>
+          );
       }
     }
   };
@@ -186,6 +190,7 @@ export class TableRowComponent {
       <Host
         class={{
           'b2b-table-row': true,
+          ['b2b-table-row--colspan']: this.size === TableSizes.COLSPAN,
           ['b2b-table-row--highlight']: this.highlight,
           [`b2b-table-row--color-${this.getRowColor()}`]: true,
         }}

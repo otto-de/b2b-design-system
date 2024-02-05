@@ -21,7 +21,9 @@
   </head>
   <body data-theme="light">
     <div class="content-container">
-      <b2b-headline size="200">Table Expand size</b2b-headline>
+      <b2b-headline size="200"
+        >Table Expand Size with Accordion and Selectable Rows</b2b-headline
+      >
       <b2b-paragraph>
         Expand size will expand to 100% of parent size and cells will use as
         much space as they need depending on content of header or data. Text
@@ -92,8 +94,7 @@
         </b2b-table>
       </div>
       <br />
-      <b2b-headline size="200">Table Equal size</b2b-headline>
-
+      <b2b-headline size="200">Table Equal Size with Selection</b2b-headline>
       <b2b-paragraph>
         Equal size also extends to parent width but will keep cell sizes
         proportional no matter how long the content. Text can both wrap or be
@@ -143,6 +144,8 @@
           </b2b-table-rowgroup>
         </b2b-table>
       </div>
+      <br />
+      <b2b-headline size="200">Small Table Equal Size</b2b-headline>
       <b2b-table size="equal" id="test-table">
         <b2b-table-rowgroup type="header">
           <b2b-table-row>
@@ -150,25 +153,72 @@
               sort-direction="not-sorted"
               initial-sorting="ascending"
               sort-icon-align="left"
+              divider
               >Title 1</b2b-table-header
             >
-            <b2b-table-header>Title 2</b2b-table-header>
+            <b2b-table-header divider>Title 2</b2b-table-header>
             <b2b-table-header
               sort-direction="descending"
               sort-icon-align="right"
+              divider
               >Title 3</b2b-table-header
             >
           </b2b-table-row>
         </b2b-table-rowgroup>
         <b2b-table-rowgroup type="body">
           <b2b-table-row>
-            <b2b-table-cell><p>data 1a</p></b2b-table-cell>
-            <b2b-table-cell>data 2a</b2b-table-cell>
-            <b2b-table-cell>data 3a</b2b-table-cell>
+            <b2b-table-cell divider><p>data 1a</p></b2b-table-cell>
+            <b2b-table-cell divider>data 2a</b2b-table-cell>
+            <b2b-table-cell divider>data 3a</b2b-table-cell>
           </b2b-table-row>
         </b2b-table-rowgroup>
       </b2b-table>
-
+      <br />
+      <b2b-headline size="200">Table with colspan feature</b2b-headline>
+      <div style="width: 500px">
+        <b2b-table id="test-table" size="colspan">
+          <b2b-table-rowgroup type="header" selectable>
+            <b2b-table-row>
+              <b2b-table-header sort-direction="not-sorted" divider colspan="2"
+                >Title 1</b2b-table-header
+              >
+              <b2b-table-header divider sort-direction="not-sorted"
+                >Title 2</b2b-table-header
+              >
+              <b2b-table-header sort-direction="not-sorted" divider
+                >Title 3</b2b-table-header
+              >
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+          <b2b-table-rowgroup type="body" selectable>
+            <b2b-table-row>
+              <b2b-table-cell divider><p>data 1a</p></b2b-table-cell>
+              <b2b-table-cell colspan="3" divider
+                >very long data that spans over to the next cell and then some
+                more text for wrapping purposes lorem ipsum dolor sit
+                amet</b2b-table-cell
+              >
+            </b2b-table-row>
+            <b2b-table-row>
+              <b2b-table-cell divider><p>data 1b</p></b2b-table-cell>
+              <b2b-table-cell divider><p>data 2b</p></b2b-table-cell>
+              <b2b-table-cell divider><p>data 3b</p></b2b-table-cell>
+              <b2b-table-cell divider><p>data 4b</p></b2b-table-cell>
+            </b2b-table-row>
+            <b2b-table-row>
+              <b2b-table-cell divider colspan="2"
+                ><p>data 1a</p></b2b-table-cell
+              >
+              <b2b-table-cell divider
+                >very long data that spans over to the next cell and then some
+                more text for wrapping purposes lorem ipsum dolor sit
+                amet</b2b-table-cell
+              >
+              <b2b-table-cell divider><p>data 4b</p></b2b-table-cell>
+            </b2b-table-row>
+          </b2b-table-rowgroup>
+        </b2b-table>
+      </div>
       <br />
       <b2b-headline size="200">Scrollable Table</b2b-headline>
       <b2b-scrollable-container style="width: 400px; height: 200px">
@@ -201,7 +251,7 @@
           <b2b-table-rowgroup type="body">
             <b2b-table-row>
               <b2b-table-cell><p>data 1a</p></b2b-table-cell>
-              <b2b-table-cell>data 2a</b2b-table-cell>
+              <b2b-table-cell><p>data 2a</p></b2b-table-cell>
               <b2b-table-cell>data 3a</b2b-table-cell>
               <b2b-table-cell>data 3a</b2b-table-cell>
               <b2b-table-cell>data 3a</b2b-table-cell>

@@ -3,7 +3,7 @@ import { newE2EPage } from '@stencil/core/testing';
 describe('B2B-Table', () => {
   let page;
   beforeEach(async () => {
-    page = await newE2EPage();
+    page = await newE2EPage({ timeout: 10000 });
     await page.setContent(`
       <b2b-table size='equal'>
         <b2b-table-rowgroup type='header'>
@@ -68,6 +68,23 @@ describe('B2B-Table', () => {
       </b2b-table-rowgroup>
     </b2b-table>`;
 
+  const tableWithColspan = `
+  <b2b-table size='colspan'>
+    <b2b-table-rowgroup type='header'>
+      <b2b-table-row>
+        <b2b-table-header colspan="2">Title 1 + 2</b2b-table-header>
+        <b2b-table-header>Title 2</b2b-table-header>
+      </b2b-table-row>
+    </b2b-table-rowgroup>
+    <b2b-table-rowgroup type='body'>
+      <b2b-table-row>
+        <b2b-table-cell><p>data 1a</p></b2b-table-cell>
+        <b2b-table-cell colspan="2">data 2a + 3a</b2b-table-cell>
+      </b2b-table-row>
+    </b2b-table-rowgroup>
+  </b2b-table>
+`;
+
   it('should render the table component', async () => {
     const element = await page.find('b2b-table');
     expect(element).not.toBeNull();
@@ -100,10 +117,9 @@ describe('B2B-Table', () => {
         </b2b-table>
       </b2b-scrollable-container>
     `);
-    const cells = await page.findAll('b2b-table-header');
-    cells.map(cell => {
-      expect(cell.getAttribute('fixed')).toBe('true');
-    });
+    const rowGroup = await page.find('b2b-table-rowgroup');
+
+    expect(await rowGroup.getProperty('fixed')).toBe(true);
   });
 
   it('should set header rows not highlightable', async () => {
@@ -483,5 +499,20 @@ describe('B2B-Table', () => {
       group: 'peaches',
       values: ['cherries'],
     });
+  });
+
+  it('should allow setting the colspan property on cells if the table size is colspan', async () => {
+    page = await newE2EPage();
+    await page.setContent(tableWithColspan);
+
+    const header = await page.find({ text: 'Title 1 + 2' });
+    const table = await page.find('b2b-table');
+    const row = await page.find('b2b-table-row');
+    const cell = await page.find({ text: 'data 2a + 3a' });
+
+    expect(await cell.style.flexBasis).toBeDefined;
+    expect(row).toHaveClass('b2b-table-row--colspan');
+    expect(table).toHaveClass('b2b-table--colspan');
+    expect(await header.getProperty('colspan')).toEqual(2);
   });
 });

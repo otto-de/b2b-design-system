@@ -9,10 +9,12 @@ import {
   EventEmitter,
 } from '@stencil/core';
 import {
-  ContentAlignment,
+  TableSizes,
   TableSortDirections,
   SortIconAlignment,
+  ContentAlignment,
 } from '../../../utils/types/table.types';
+import { setFlexBase } from '../utils';
 
 @Component({
   tag: 'b2b-table-header',
@@ -24,8 +26,13 @@ export class TableHeaderComponent {
 
   /** adds a border to the right of the header. **/
   @Prop() divider: boolean = false;
+  /** The size of the cell. Follows table size.
+   * When size is equal and textWrap is false, the text will truncate with Ellipsis.
+   * Other sizes won't affect cell current implementation.
+   **/
+  @Prop() size: TableSizes = TableSizes.EXPAND;
 
-  /** sets the header position to sticky. Use it when table is inside a scrollable container. **/
+  /** @deprecated Use fixed on the rowgroup instead. Sets the header position to sticky. Use it when table is inside a scrollable container. **/
   @Prop() fixed: boolean = false;
 
   /** The direction in which the column data is sorted. Per default, it is unsorted and no button is visible. If your data comes presorted, you need to adjust this. */
@@ -34,8 +41,14 @@ export class TableHeaderComponent {
   /** Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent. */
   @Prop() sortId?: string;
 
+  /** The width of the column. Increase it to change the size of the column relative to other columns. */
+  @Prop() colspan?: number;
+
   /** Alignment of the content of the cell, by default is to the left. **/
   @Prop() contentAlign: ContentAlignment = ContentAlignment.LEFT;
+
+  /** @internal number of total columns per row */
+  @Prop() totalCols?: number;
 
   /** Emits whenever the sort direction changes. */
   @Event({ eventName: 'b2b-change' })
@@ -45,7 +58,7 @@ export class TableHeaderComponent {
 
   @State() iconAlign: SortIconAlignment;
 
-  componentWillRender() {
+  private setIconPlacement = () => {
     switch (this.contentAlign) {
       case ContentAlignment.LEFT:
         this.iconAlign = SortIconAlignment.RIGHT;
@@ -57,7 +70,7 @@ export class TableHeaderComponent {
         this.iconAlign = SortIconAlignment.RIGHT;
         break;
     }
-  }
+  };
 
   private changeSortDirection = (e: any) => {
     if ((e.type === 'keydown' && e.key === 'Enter') || e.type === 'click') {
@@ -101,13 +114,35 @@ export class TableHeaderComponent {
     this.active = false;
   };
 
+  componentWillLoad() {
+    if (this.size === TableSizes.COLSPAN) {
+      const rowGroup = this.hostElement.closest(
+        'b2b-table-rowgroup',
+      ) as HTMLB2bTableRowgroupElement;
+      setFlexBase(
+        this.hostElement,
+        this.colspan,
+        this.totalCols,
+        rowGroup.selectable,
+        rowGroup.accordion,
+      );
+    }
+  }
+
+  componentWillRender() {
+    this.setIconPlacement();
+  }
+
   render() {
     return (
       <Host
         class={{
           [`b2b-table-header--${this.sortDirection && this.iconAlign}`]: true,
           'b2b-table-header--divider': this.divider,
-          'b2b-table-header--fixed': this.fixed,
+          [`b2b-table-header--${this.size}`]: true,
+        }}
+        style={{
+          'flex-grow': `${this.colspan}`,
         }}
         role="columnheader"
         aria-sort={

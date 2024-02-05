@@ -1,9 +1,22 @@
-## [1.8.2](https://github.com/otto-de/b2b-design-system/compare/v1.8.1...v1.8.2) (2023-12-01)
+# [1.9.0-beta.2](https://github.com/otto-de/b2b-design-system/compare/v1.9.0-beta.1...v1.9.0-beta.2) (2023-11-28)
 
+### Bug Fixes
+
+* **Icon:** added inheritable color for warning hint icon ([dfebdfc](https://github.com/otto-de/b2b-design-system/commit/dfebdfcbecc4f453b2cd4a83f93b9cfacfb81139))
+
+# [1.9.0-beta.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.1...v1.9.0-beta.1) (2023-11-27)
+
+
+### Features
+
+* **Icon:** added warning-hint icon ([a1823b5](https://github.com/otto-de/b2b-design-system/commit/a1823b5a7f7fa7399bb6f3f46f5e17aaf8292431))
+
+## [1.8.2](https://github.com/otto-de/b2b-design-system/compare/v1.8.1...v1.8.2) (2023-12-01)
 
 ### Bug Fixes
 
 * **Anchor:** [B2BDS-237] added forced stacking context to avoid host element hiding anchor ([35d235c](https://github.com/otto-de/b2b-design-system/commit/35d235cce239afbac761db403669a77dcea289ba))
+
 
 ## [1.8.1](https://github.com/otto-de/b2b-design-system/compare/v1.8.0...v1.8.1) (2023-11-22)
 

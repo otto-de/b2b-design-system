@@ -20,6 +20,11 @@ export interface OptionSelectedEventDetail<T = any> {
   selectedOption: string;
 }
 
+export interface MultiSelectOptionEventDetail {
+  selected: boolean;
+  selectedOption: string;
+}
+
 export interface InputClear<T = any> {}
 
 export interface HTMLB2bFormElement {

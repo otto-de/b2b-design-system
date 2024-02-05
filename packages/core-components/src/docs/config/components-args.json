@@ -311,6 +311,25 @@
         }
       },
       "description": "The button variant. If not specified, the button will be the secondary variant."
+    },
+    "width": {
+      "options": [
+        "custom",
+        "fit-container",
+        "fit-content"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'fit-content'"
+        }
+      },
+      "description": "The width of the button. Per default, it will fit the content"
     }
   },
   "b2b-card": {
@@ -1221,6 +1240,7 @@
         "b2b_icon-volume-on",
         "b2b_icon-voucher",
         "b2b_icon-walnut",
+        "b2b_icon-warning-hint",
         "b2b_icon-warning",
         "b2b_icon-warranty",
         "b2b_icon-washing-machine",
@@ -1659,6 +1679,91 @@
         }
       },
       "description": "The size of the modal. If not specified, will assume the default size"
+    }
+  },
+  "b2b-multiselect-dropdown": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The input label."
+    },
+    "maxOptionsVisible": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "8"
+        }
+      },
+      "description": "The maximum amount of chips visible. Adjust this depending on available size of the dropdown."
+    },
+    "optionsList": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the input field."
+    },
+    "searchPlaceholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the search bar."
+    },
+    "selectAllLabel": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The string displayed as the select all label."
+    }
+  },
+  "b2b-multiselect-option": {
+    "option": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the option."
+    },
+    "selected": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option is currently selected."
     }
   },
   "b2b-pagination": {
@@ -2183,6 +2288,7 @@
   "b2b-table": {
     "size": {
       "options": [
+        "colspan",
         "equal",
         "expand"
       ],
@@ -2197,7 +2303,7 @@
           "summary": "TableSizes.EXPAND"
         }
       },
-      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns."
+      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns.\r\nColspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells\r\nto make them span more than one column."
     }
   },
   "b2b-table-cell": {
@@ -2239,6 +2345,15 @@
       },
       "description": "Background color of the cell. This color selection does not have hover states, as it is handled from the row*"
     },
+    "colspan": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "How many columns the cell should span. Accepts numbers greater than one."
+    },
     "divider": {
       "control": {
         "type": "boolean"
@@ -2252,24 +2367,6 @@
         }
       },
       "description": "adds a border to the right of the cell. *"
-    },
-    "size": {
-      "options": [
-        "equal",
-        "expand"
-      ],
-      "control": {
-        "type": "radio"
-      },
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {
-          "summary": "TableSizes.EXPAND"
-        }
-      },
-      "description": "The size of the cell. Follows table size.\r\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\r\nOther sizes won't affect cell current implementation."
     },
     "textWrap": {
       "control": {
@@ -2287,6 +2384,15 @@
     }
   },
   "b2b-table-header": {
+    "colspan": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "The width of the column. Increase it to change the size of the column relative to other columns."
+    },
     "contentAlign": {
       "options": [
         "center",
@@ -2332,7 +2438,26 @@
           "summary": "false"
         }
       },
-      "description": "sets the header position to sticky. Use it when table is inside a scrollable container. *"
+      "description": ""
+    },
+    "size": {
+      "options": [
+        "colspan",
+        "equal",
+        "expand"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "TableSizes.EXPAND"
+        }
+      },
+      "description": "The size of the cell. Follows table size.\r\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\r\nOther sizes won't affect cell current implementation."
     },
     "sortDirection": {
       "options": [
@@ -2447,6 +2572,20 @@
         }
       },
       "description": "Renders the rowgroup as an accordion. Both header and body must have accordion set to true.\r\nOne table can contain multiple rowgroups of type body, each of which represents an accordion row with children."
+    },
+    "fixed": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Sets the header rowgroup position to sticky. Use this in a scrollable container."
     },
     "opened": {
       "control": {
@@ -2701,6 +2840,81 @@
         "defaultValue": {}
       },
       "description": "The value of the toggle button. This will be emitted when the toggle button is clicked. This is required"
+    }
+  },
+  "b2b-toggle-chip": {
+    "active": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the chip is currently active. Per default, it is false."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the chip is currently disabled. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The chip's label. This is required."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value associated with the toggle chip. This is emitted when the chip is interacted with."
+    },
+    "variant": {
+      "options": [
+        "grey",
+        "white"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'grey'"
+        }
+      },
+      "description": "The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey"
     }
   },
   "b2b-toggle-group": {
