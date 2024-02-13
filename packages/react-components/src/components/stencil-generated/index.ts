@@ -34,6 +34,7 @@ export const B2bMultiselectDropdown = /*@__PURE__*/createReactComponent<JSX.B2bM
 export const B2bMultiselectOption = /*@__PURE__*/createReactComponent<JSX.B2bMultiselectOption, HTMLB2bMultiselectOptionElement>('b2b-multiselect-option');
 export const B2bPagination = /*@__PURE__*/createReactComponent<JSX.B2bPagination, HTMLB2bPaginationElement>('b2b-pagination');
 export const B2bParagraph = /*@__PURE__*/createReactComponent<JSX.B2bParagraph, HTMLB2bParagraphElement>('b2b-paragraph');
+export const B2bProgressBar = /*@__PURE__*/createReactComponent<JSX.B2bProgressBar, HTMLB2bProgressBarElement>('b2b-progress-bar');
 export const B2bRadioButton = /*@__PURE__*/createReactComponent<JSX.B2bRadioButton, HTMLB2bRadioButtonElement>('b2b-radio-button');
 export const B2bRadioGroup = /*@__PURE__*/createReactComponent<JSX.B2bRadioGroup, HTMLB2bRadioGroupElement>('b2b-radio-group');
 export const B2bRequiredSeparator = /*@__PURE__*/createReactComponent<JSX.B2bRequiredSeparator, HTMLB2bRequiredSeparatorElement>('b2b-required-separator');

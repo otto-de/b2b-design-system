@@ -1869,6 +1869,62 @@
       "description": "The weight of the text."
     }
   },
+  "b2b-progress-bar": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the progress bar."
+    },
+    "labelPosition": {
+      "options": [
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "Whether the label should be displayed on the right or left of the progress bar."
+    },
+    "labelType": {
+      "options": [
+        "below",
+        "side"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'below'"
+        }
+      },
+      "description": "Whether the label should be displayed below or on the side of the progress bar."
+    },
+    "progress": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "The percentage of progress from 0 to 100."
+    }
+  },
   "b2b-radio-button": {
     "checked": {
       "control": {
