@@ -1,3 +1,27 @@
+# [1.9.0](https://github.com/otto-de/b2b-design-system/compare/v1.8.2...v1.9.0) (2024-02-15)
+
+
+### Bug Fixes
+
+* **Headline:** [B2BDS-255] updated lineheight to improve multiline appearance ([1c34f6e](https://github.com/otto-de/b2b-design-system/commit/1c34f6e882dc44f656e8044d84047abed1637efc))
+* **Icon:** added inheritable color for warning hint icon ([b5a547e](https://github.com/otto-de/b2b-design-system/commit/b5a547e0708f431a729c3af559cab851f49e90ce))
+* **Icon:** added inheritable color for warning hint icon ([dfebdfc](https://github.com/otto-de/b2b-design-system/commit/dfebdfcbecc4f453b2cd4a83f93b9cfacfb81139))
+* **input-list:** [BLA-626] fixes input list with text bug ([0131ef2](https://github.com/otto-de/b2b-design-system/commit/0131ef210b1acec0ac11185c21451807da48cc5d))
+* **Multiselect:** filtered select all now adds to preselection ([a965baf](https://github.com/otto-de/b2b-design-system/commit/a965baf07fa036ef076d784a5396cb02ab3346c0))
+
+
+### Features
+
+* **Button:** [B2BDS-215] width prop and pressed state for button ([995a8cc](https://github.com/otto-de/b2b-design-system/commit/995a8cc64bf51f008dfe8ee244b36bf49c80e7b9))
+* **Icon:** [B2BDS-245] changed ellipsis icon to filled in version ([27c731f](https://github.com/otto-de/b2b-design-system/commit/27c731f34a457904bcc7d86792e7061514798ae0))
+* **Icon:** added trend left and trend right icon ([f01c855](https://github.com/otto-de/b2b-design-system/commit/f01c855ba0f2b4b8e410f579d85e4efc6d684b25))
+* **Icon:** added warning-hint icon ([32c916f](https://github.com/otto-de/b2b-design-system/commit/32c916f3b8ad2eeaceadab5414541898906bd697))
+* **Icon:** added warning-hint icon ([a1823b5](https://github.com/otto-de/b2b-design-system/commit/a1823b5a7f7fa7399bb6f3f46f5e17aaf8292431))
+* **Multiselect Dropdown:** [B2BDS-219] added multiselect dropdown component ([3ab3d0a](https://github.com/otto-de/b2b-design-system/commit/3ab3d0a6619b8edae473ab975ca2aed1a6f9a133))
+* **Progress Bar:** [BLA-627] added progress bar component ([271089f](https://github.com/otto-de/b2b-design-system/commit/271089f40f8603fa9112ffa9990dcf0fca0728a6))
+* **Table:** [B2BDS-192] colspan size for cells and headers ([96df9d1](https://github.com/otto-de/b2b-design-system/commit/96df9d1513031eef3290ffe305533933cdb4c9b3))
+* **Toggle Chip:** [B2BDS-233] added toggle chip ([96bb108](https://github.com/otto-de/b2b-design-system/commit/96bb108fd2fc3592c52e20b4ab428ab99bb47a6d))
+
 # [1.9.0-beta.2](https://github.com/otto-de/b2b-design-system/compare/v1.9.0-beta.1...v1.9.0-beta.2) (2023-11-28)
 
 ### Bug Fixes
