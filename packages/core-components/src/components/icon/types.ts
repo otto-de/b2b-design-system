@@ -284,6 +284,8 @@ export const iconTypes = [
  "b2b_icon-town",
  "b2b_icon-trash",
  "b2b_icon-trend-down",
+ "b2b_icon-trend-left",
+ "b2b_icon-trend-right",
  "b2b_icon-trend-up",
  "b2b_icon-trousers",
  "b2b_icon-trusted",
