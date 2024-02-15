@@ -581,6 +581,24 @@ export namespace Components {
          */
         "weight": 'bold' | 'normal';
     }
+    interface B2bProgressBar {
+        /**
+          * The label of the progress bar.
+         */
+        "label"?: string;
+        /**
+          * Whether the label should be displayed on the right or left of the progress bar.
+         */
+        "labelPosition"?: 'left' | 'right';
+        /**
+          * Whether the label should be displayed below or on the side of the progress bar.
+         */
+        "labelType"?: 'below' | 'side';
+        /**
+          * The percentage of progress from 0 to 100.
+         */
+        "progress": number;
+    }
     interface B2bRadioButton {
         /**
           * Whether or not the radio button is currently checked. Per default it is false.
@@ -1489,6 +1507,12 @@ declare global {
         prototype: HTMLB2bParagraphElement;
         new (): HTMLB2bParagraphElement;
     };
+    interface HTMLB2bProgressBarElement extends Components.B2bProgressBar, HTMLStencilElement {
+    }
+    var HTMLB2bProgressBarElement: {
+        prototype: HTMLB2bProgressBarElement;
+        new (): HTMLB2bProgressBarElement;
+    };
     interface HTMLB2bRadioButtonElementEventMap {
         "b2b-focus": FocusEvent;
         "b2b-blur": FocusEvent;
@@ -1820,6 +1844,7 @@ declare global {
         "b2b-multiselect-option": HTMLB2bMultiselectOptionElement;
         "b2b-pagination": HTMLB2bPaginationElement;
         "b2b-paragraph": HTMLB2bParagraphElement;
+        "b2b-progress-bar": HTMLB2bProgressBarElement;
         "b2b-radio-button": HTMLB2bRadioButtonElement;
         "b2b-radio-group": HTMLB2bRadioGroupElement;
         "b2b-required-separator": HTMLB2bRequiredSeparatorElement;
@@ -2479,6 +2504,24 @@ declare namespace LocalJSX {
          */
         "weight"?: 'bold' | 'normal';
     }
+    interface B2bProgressBar {
+        /**
+          * The label of the progress bar.
+         */
+        "label"?: string;
+        /**
+          * Whether the label should be displayed on the right or left of the progress bar.
+         */
+        "labelPosition"?: 'left' | 'right';
+        /**
+          * Whether the label should be displayed below or on the side of the progress bar.
+         */
+        "labelType"?: 'below' | 'side';
+        /**
+          * The percentage of progress from 0 to 100.
+         */
+        "progress"?: number;
+    }
     interface B2bRadioButton {
         /**
           * Whether or not the radio button is currently checked. Per default it is false.
@@ -3024,6 +3067,7 @@ declare namespace LocalJSX {
         "b2b-multiselect-option": B2bMultiselectOption;
         "b2b-pagination": B2bPagination;
         "b2b-paragraph": B2bParagraph;
+        "b2b-progress-bar": B2bProgressBar;
         "b2b-radio-button": B2bRadioButton;
         "b2b-radio-group": B2bRadioGroup;
         "b2b-required-separator": B2bRequiredSeparator;
@@ -3096,6 +3140,7 @@ declare module "@stencil/core" {
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-45
              */
             "b2b-paragraph": LocalJSX.B2bParagraph & JSXBase.HTMLAttributes<HTMLB2bParagraphElement>;
+            "b2b-progress-bar": LocalJSX.B2bProgressBar & JSXBase.HTMLAttributes<HTMLB2bProgressBarElement>;
             "b2b-radio-button": LocalJSX.B2bRadioButton & JSXBase.HTMLAttributes<HTMLB2bRadioButtonElement>;
             "b2b-radio-group": LocalJSX.B2bRadioGroup & JSXBase.HTMLAttributes<HTMLB2bRadioGroupElement>;
             "b2b-required-separator": LocalJSX.B2bRequiredSeparator & JSXBase.HTMLAttributes<HTMLB2bRequiredSeparatorElement>;
