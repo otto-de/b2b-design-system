@@ -1,0 +1,103 @@
+@use '../../global/b2b-styles';
+
+$switch-width: 40px;
+$switch-height: 20px;
+$slider-size: 16px;
+$slider-surround: 2px;
+$border-radius: 3px;
+$transition-size: 20px;
+
+.b2b-toggle {
+  display: flex;
+  font-family: var(--b2b-font-family-default);
+
+  &__left {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + .b2b-toggle__label .b2b-toggle__switch {
+      &:before {
+        background-color: var(--b2b-color-success-100);
+      }
+
+      &:after {
+        background-color: var(--b2b-color-white-100);
+        -webkit-transform: translateX($transition-size);
+        transform: translateX($transition-size);
+      }
+    }
+  }
+
+  &__label {
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__switch {
+    position: relative;
+    display: flex;
+    width: $switch-width;
+    height: $switch-height;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+    }
+
+    &:before {
+      width: $switch-width;
+      height: $switch-height;
+      border-radius: $border-radius;
+      background-color: var(--b2b-color-grey-200);
+      -webkit-transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease;
+    }
+
+    &:after {
+      top: $slider-surround;
+      left: $slider-surround;
+      width: $slider-size;
+      height: $slider-size;
+      border-radius: $border-radius;
+      background-color: var(--b2b-color-white-100);
+      -webkit-transition: -webkit-transform 0.3s ease;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &--disabled {
+    .b2b-toggle__switch::after {
+      background-color: var(--b2b-color-grey-100);
+    }
+
+    .b2b-toggle__input:checked + .b2b-toggle__label .b2b-toggle__switch {
+      &:before {
+        background-color: #b1b1b1; // special color from figma
+      }
+
+      &:after {
+        background-color: var(--b2b-color-grey-100);
+        -webkit-transform: translateX($transition-size);
+        transform: translateX($transition-size);
+      }
+    }
+  }
+
+  &__text-left {
+    margin-right: var(--b2b-size-space-50);
+  }
+
+  &__text-right {
+    margin-left: var(--b2b-size-space-50);
+  }
+}

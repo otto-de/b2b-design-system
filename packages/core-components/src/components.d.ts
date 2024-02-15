@@ -985,6 +985,24 @@ export namespace Components {
          */
         "name": string;
     }
+    interface B2bToggleSwitch {
+        /**
+          * Whether or not the toggle button is currently disabled. Per default it is false.
+         */
+        "disabled": boolean;
+        /**
+          * The label of the toggle button. This is required
+         */
+        "label": string;
+        /**
+          * The alignment of the toggle switch label.
+         */
+        "labelPosition"?: 'left' | 'right';
+        /**
+          * Whether or not the toggle button is currently on or off. Per default it is off.
+         */
+        "state": boolean;
+    }
     /**
      * The tooltip can display additional information, and will be visible based on
      * a specific trigger.
@@ -1789,6 +1807,12 @@ declare global {
         prototype: HTMLB2bToggleGroupElement;
         new (): HTMLB2bToggleGroupElement;
     };
+    interface HTMLB2bToggleSwitchElement extends Components.B2bToggleSwitch, HTMLStencilElement {
+    }
+    var HTMLB2bToggleSwitchElement: {
+        prototype: HTMLB2bToggleSwitchElement;
+        new (): HTMLB2bToggleSwitchElement;
+    };
     /**
      * The tooltip can display additional information, and will be visible based on
      * a specific trigger.
@@ -1865,6 +1889,7 @@ declare global {
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-chip": HTMLB2bToggleChipElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
+        "b2b-toggle-switch": HTMLB2bToggleSwitchElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
         "b2b-wizard": HTMLB2bWizardElement;
         "b2b-wizard-icon": HTMLB2bWizardIconElement;
@@ -2976,6 +3001,24 @@ declare namespace LocalJSX {
          */
         "onB2b-group-change"?: (event: B2bToggleGroupCustomEvent<ToggleButtonEventDetail>) => void;
     }
+    interface B2bToggleSwitch {
+        /**
+          * Whether or not the toggle button is currently disabled. Per default it is false.
+         */
+        "disabled"?: boolean;
+        /**
+          * The label of the toggle button. This is required
+         */
+        "label": string;
+        /**
+          * The alignment of the toggle switch label.
+         */
+        "labelPosition"?: 'left' | 'right';
+        /**
+          * Whether or not the toggle button is currently on or off. Per default it is off.
+         */
+        "state"?: boolean;
+    }
     /**
      * The tooltip can display additional information, and will be visible based on
      * a specific trigger.
@@ -3088,6 +3131,7 @@ declare namespace LocalJSX {
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-chip": B2bToggleChip;
         "b2b-toggle-group": B2bToggleGroup;
+        "b2b-toggle-switch": B2bToggleSwitch;
         "b2b-tooltip": B2bTooltip;
         "b2b-wizard": B2bWizard;
         "b2b-wizard-icon": B2bWizardIcon;
@@ -3169,6 +3213,7 @@ declare module "@stencil/core" {
             "b2b-toggle-button": LocalJSX.B2bToggleButton & JSXBase.HTMLAttributes<HTMLB2bToggleButtonElement>;
             "b2b-toggle-chip": LocalJSX.B2bToggleChip & JSXBase.HTMLAttributes<HTMLB2bToggleChipElement>;
             "b2b-toggle-group": LocalJSX.B2bToggleGroup & JSXBase.HTMLAttributes<HTMLB2bToggleGroupElement>;
+            "b2b-toggle-switch": LocalJSX.B2bToggleSwitch & JSXBase.HTMLAttributes<HTMLB2bToggleSwitchElement>;
             /**
              * The tooltip can display additional information, and will be visible based on
              * a specific trigger.
