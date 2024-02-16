@@ -6,10 +6,32 @@ $slider-size: 16px;
 $slider-surround: 2px;
 $border-radius: 3px;
 $transition-size: 20px;
+$special-grey: #b1b1b1;
 
 .b2b-toggle {
   display: flex;
   font-family: var(--b2b-font-family-default);
+
+  &__icon {
+    position: absolute;
+    fill: var(--b2b-color-success-100);
+    display: inline-block;
+    margin-top: var(--b2b-size-space-25);
+    margin-left: var(--b2b-size-space-150);
+    width: var(--b2b-size-30);
+    height: var(--b2b-size-30);
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+
+    &__show {
+      .b2b-toggle__icon {
+        transition: opacity 1s;
+        -webkit-transition: opacity 1s ease;
+        opacity: 1;
+      }
+    }
+  }
 
   &__left {
     display: flex;
@@ -24,7 +46,7 @@ $transition-size: 20px;
   &__input {
     display: none;
 
-    &:checked + .b2b-toggle__label .b2b-toggle__switch {
+    &:checked+.b2b-toggle__label .b2b-toggle__switch {
       &:before {
         background-color: var(--b2b-color-success-100);
       }
@@ -80,9 +102,13 @@ $transition-size: 20px;
       background-color: var(--b2b-color-grey-100);
     }
 
-    .b2b-toggle__input:checked + .b2b-toggle__label .b2b-toggle__switch {
+    .b2b-toggle__icon {
+      fill: $special-grey;
+    }
+
+    .b2b-toggle__input:checked+.b2b-toggle__label .b2b-toggle__switch {
       &:before {
-        background-color: #b1b1b1; // special color from figma
+        background-color: $special-grey; // special color from figma
       }
 
       &:after {
@@ -94,10 +120,12 @@ $transition-size: 20px;
   }
 
   &__text-left {
+    margin-top: var(--b2b-size-5);
     margin-right: var(--b2b-size-space-50);
   }
 
   &__text-right {
+    margin-top: var(--b2b-size-5);
     margin-left: var(--b2b-size-space-50);
   }
 }

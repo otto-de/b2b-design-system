@@ -23,3 +23,7 @@ export interface BreadCrumbChangeEventDetail<T = any> {
 export interface ToggleChipEventDetail<T = string> {
   value: T;
 }
+
+export interface ToggleSwitchEventDetail<T = boolean> {
+  value: T;
+}

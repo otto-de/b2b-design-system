@@ -15,6 +15,13 @@
 | `state`              | `state`          | Whether or not the toggle button is currently on or off. Per default it is off.  | `boolean`           | `false`     |
 
 
+## Events
+
+| Event        | Description                                            | Type                                            |
+| ------------ | ------------------------------------------------------ | ----------------------------------------------- |
+| `b2b-change` | Emits the toggle switch value when it's state changes. | `CustomEvent<ToggleSwitchEventDetail<boolean>>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
