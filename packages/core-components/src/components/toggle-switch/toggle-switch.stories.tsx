@@ -3,7 +3,7 @@ import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
 const meta: Meta = {
-  title: 'Components/Status & Feedback/Toggle Switch',
+  title: 'Components/Interaction/Toggle Switch',
   component: 'b2b-toggle-switch',
   args: {
     label: 'Label',
