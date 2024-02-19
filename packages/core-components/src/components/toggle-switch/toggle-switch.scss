@@ -27,7 +27,7 @@ $special-grey: #b1b1b1;
     &__show {
       .b2b-toggle__icon {
         transition: opacity 1s;
-        -webkit-transition: opacity 1s ease;
+        transition: opacity 1s ease;
         opacity: 1;
       }
     }
@@ -46,14 +46,13 @@ $special-grey: #b1b1b1;
   &__input {
     display: none;
 
-    &:checked+.b2b-toggle__label .b2b-toggle__switch {
-      &:before {
+    &:checked + .b2b-toggle__label .b2b-toggle__switch {
+      &::before {
         background-color: var(--b2b-color-success-100);
       }
 
-      &:after {
+      &::after {
         background-color: var(--b2b-color-white-100);
-        -webkit-transform: translateX($transition-size);
         transform: translateX($transition-size);
       }
     }
@@ -70,29 +69,28 @@ $special-grey: #b1b1b1;
     width: $switch-width;
     height: $switch-height;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       position: absolute;
       content: '';
     }
 
-    &:before {
+    &::before {
       width: $switch-width;
       height: $switch-height;
       border-radius: $border-radius;
       background-color: var(--b2b-color-grey-200);
-      -webkit-transition: background-color 0.3s ease;
       transition: background-color 0.3s ease;
     }
 
-    &:after {
+    &::after {
       top: $slider-surround;
       left: $slider-surround;
       width: $slider-size;
       height: $slider-size;
       border-radius: $border-radius;
       background-color: var(--b2b-color-white-100);
-      -webkit-transition: -webkit-transform 0.3s ease;
+      transition: -webkit-transform 0.3s ease;
       transition: transform 0.3s ease;
     }
   }
@@ -106,14 +104,13 @@ $special-grey: #b1b1b1;
       fill: $special-grey;
     }
 
-    .b2b-toggle__input:checked+.b2b-toggle__label .b2b-toggle__switch {
-      &:before {
+    .b2b-toggle__input:checked + .b2b-toggle__label .b2b-toggle__switch {
+      &::before {
         background-color: $special-grey; // special color from figma
       }
 
-      &:after {
+      &::after {
         background-color: var(--b2b-color-grey-100);
-        -webkit-transform: translateX($transition-size);
         transform: translateX($transition-size);
       }
     }
