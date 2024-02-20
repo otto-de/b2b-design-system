@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
+import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
 import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -13,7 +13,7 @@ import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowg
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail } from "./utils/interfaces/interaction.interface";
+export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
 export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -985,6 +985,24 @@ export namespace Components {
          */
         "name": string;
     }
+    interface B2bToggleSwitch {
+        /**
+          * Whether or not the toggle button is currently disabled. Per default it is false.
+         */
+        "disabled": boolean;
+        /**
+          * The label of the toggle button. This is required
+         */
+        "label": string;
+        /**
+          * The alignment of the toggle switch label.
+         */
+        "labelPosition"?: 'left' | 'right';
+        /**
+          * Whether or not the toggle button is currently on or off. Per default it is off.
+         */
+        "state": boolean;
+    }
     /**
      * The tooltip can display additional information, and will be visible based on
      * a specific trigger.
@@ -1161,6 +1179,10 @@ export interface B2bToggleChipCustomEvent<T> extends CustomEvent<T> {
 export interface B2bToggleGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bToggleGroupElement;
+}
+export interface B2bToggleSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bToggleSwitchElement;
 }
 declare global {
     interface HTMLB2bAlertElementEventMap {
@@ -1789,6 +1811,23 @@ declare global {
         prototype: HTMLB2bToggleGroupElement;
         new (): HTMLB2bToggleGroupElement;
     };
+    interface HTMLB2bToggleSwitchElementEventMap {
+        "b2b-change": ToggleSwitchEventDetail;
+    }
+    interface HTMLB2bToggleSwitchElement extends Components.B2bToggleSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bToggleSwitchElementEventMap>(type: K, listener: (this: HTMLB2bToggleSwitchElement, ev: B2bToggleSwitchCustomEvent<HTMLB2bToggleSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bToggleSwitchElementEventMap>(type: K, listener: (this: HTMLB2bToggleSwitchElement, ev: B2bToggleSwitchCustomEvent<HTMLB2bToggleSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bToggleSwitchElement: {
+        prototype: HTMLB2bToggleSwitchElement;
+        new (): HTMLB2bToggleSwitchElement;
+    };
     /**
      * The tooltip can display additional information, and will be visible based on
      * a specific trigger.
@@ -1865,6 +1904,7 @@ declare global {
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-chip": HTMLB2bToggleChipElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
+        "b2b-toggle-switch": HTMLB2bToggleSwitchElement;
         "b2b-tooltip": HTMLB2bTooltipElement;
         "b2b-wizard": HTMLB2bWizardElement;
         "b2b-wizard-icon": HTMLB2bWizardIconElement;
@@ -2976,6 +3016,28 @@ declare namespace LocalJSX {
          */
         "onB2b-group-change"?: (event: B2bToggleGroupCustomEvent<ToggleButtonEventDetail>) => void;
     }
+    interface B2bToggleSwitch {
+        /**
+          * Whether or not the toggle button is currently disabled. Per default it is false.
+         */
+        "disabled"?: boolean;
+        /**
+          * The label of the toggle button. This is required
+         */
+        "label": string;
+        /**
+          * The alignment of the toggle switch label.
+         */
+        "labelPosition"?: 'left' | 'right';
+        /**
+          * Emits the toggle switch value when it's state changes.
+         */
+        "onB2b-change"?: (event: B2bToggleSwitchCustomEvent<ToggleSwitchEventDetail>) => void;
+        /**
+          * Whether or not the toggle button is currently on or off. Per default it is off.
+         */
+        "state"?: boolean;
+    }
     /**
      * The tooltip can display additional information, and will be visible based on
      * a specific trigger.
@@ -3088,6 +3150,7 @@ declare namespace LocalJSX {
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-chip": B2bToggleChip;
         "b2b-toggle-group": B2bToggleGroup;
+        "b2b-toggle-switch": B2bToggleSwitch;
         "b2b-tooltip": B2bTooltip;
         "b2b-wizard": B2bWizard;
         "b2b-wizard-icon": B2bWizardIcon;
@@ -3169,6 +3232,7 @@ declare module "@stencil/core" {
             "b2b-toggle-button": LocalJSX.B2bToggleButton & JSXBase.HTMLAttributes<HTMLB2bToggleButtonElement>;
             "b2b-toggle-chip": LocalJSX.B2bToggleChip & JSXBase.HTMLAttributes<HTMLB2bToggleChipElement>;
             "b2b-toggle-group": LocalJSX.B2bToggleGroup & JSXBase.HTMLAttributes<HTMLB2bToggleGroupElement>;
+            "b2b-toggle-switch": LocalJSX.B2bToggleSwitch & JSXBase.HTMLAttributes<HTMLB2bToggleSwitchElement>;
             /**
              * The tooltip can display additional information, and will be visible based on
              * a specific trigger.

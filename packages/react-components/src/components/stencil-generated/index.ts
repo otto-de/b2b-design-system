@@ -55,6 +55,7 @@ export const B2bTextarea = /*@__PURE__*/createReactComponent<JSX.B2bTextarea, HT
 export const B2bToggleButton = /*@__PURE__*/createReactComponent<JSX.B2bToggleButton, HTMLB2bToggleButtonElement>('b2b-toggle-button');
 export const B2bToggleChip = /*@__PURE__*/createReactComponent<JSX.B2bToggleChip, HTMLB2bToggleChipElement>('b2b-toggle-chip');
 export const B2bToggleGroup = /*@__PURE__*/createReactComponent<JSX.B2bToggleGroup, HTMLB2bToggleGroupElement>('b2b-toggle-group');
+export const B2bToggleSwitch = /*@__PURE__*/createReactComponent<JSX.B2bToggleSwitch, HTMLB2bToggleSwitchElement>('b2b-toggle-switch');
 export const B2bTooltip = /*@__PURE__*/createReactComponent<JSX.B2bTooltip, HTMLB2bTooltipElement>('b2b-tooltip');
 export const B2bWizard = /*@__PURE__*/createReactComponent<JSX.B2bWizard, HTMLB2bWizardElement>('b2b-wizard');
 export const B2bWizardIcon = /*@__PURE__*/createReactComponent<JSX.B2bWizardIcon, HTMLB2bWizardIconElement>('b2b-wizard-icon');

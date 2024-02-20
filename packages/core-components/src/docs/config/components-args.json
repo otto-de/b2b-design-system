@@ -3000,6 +3000,63 @@
       "description": "The toggle group name used to group them together programmatically. This is required."
     }
   },
+  "b2b-toggle-switch": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the toggle button is currently disabled. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the toggle button. This is required"
+    },
+    "labelPosition": {
+      "options": [
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of the toggle switch label."
+    },
+    "state": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the toggle button is currently on or off. Per default it is off."
+    }
+  },
   "b2b-tooltip": {
     "content": {
       "table": {

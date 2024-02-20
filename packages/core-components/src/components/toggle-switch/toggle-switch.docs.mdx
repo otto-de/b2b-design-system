@@ -1,0 +1,32 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+} from '@storybook/blocks';
+import * as ToggleSwitchStories from './toggle-switch.stories';
+
+<Meta of={ToggleSwitchStories} />
+
+# Toggle Switch
+
+The toggle switch component used for the switch. Additionally, a label can be included right or left of the toggle switch.
+
+<Canvas of={ToggleSwitchStories.SwitchOn} sourceState="shown" />
+
+## Properties
+
+### Label
+
+The label of the toggle button. This is required
+
+### Label Position
+
+This property controls whether the label should be rendered on the right or left side of the toggle switch. Its value should be either `left` or `right`. It is optional and defaults to `left`.
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
