@@ -1,11 +1,11 @@
 @use '../../global/b2b-styles';
 
-$switch-width: 40px;
-$switch-height: 20px;
-$slider-size: 16px;
-$slider-surround: 2px;
-$border-radius: 3px;
-$transition-size: 20px;
+$switch-width: var(--b2b-size-100);
+$switch-height: var(--b2b-size-50);
+$slider-size: var(--b2b-size-40);
+$slider-surround: var(--b2b-size-5);
+$border-radius: var(--b2b-size-7);
+$transition-size: var(--b2b-size-50);
 $special-grey: #b1b1b1;
 
 .b2b-toggle {
@@ -24,7 +24,7 @@ $special-grey: #b1b1b1;
     opacity: 0;
     cursor: pointer;
 
-    &__show {
+    &--show {
       .b2b-toggle__icon {
         transition: opacity 1s;
         transition: opacity 1s ease;

@@ -23,15 +23,13 @@ export default meta;
 
 type Story = StoryObj;
 
-export const story021Default: Story = {
-  name: 'Switch On',
+export const SwitchOn: Story = {
   args: {
     ...meta.args,
   },
 };
 
-export const story022Disabled: Story = {
-  name: 'Switch Off',
+export const SwitchOff: Story = {
   args: {
     ...meta.args,
     disabled: false,
@@ -39,8 +37,7 @@ export const story022Disabled: Story = {
   },
 };
 
-export const story023Disabled: Story = {
-  name: 'Switch On - Disabled',
+export const SwitchOnDisabled: Story = {
   args: {
     ...meta.args,
     state: true,
@@ -48,8 +45,7 @@ export const story023Disabled: Story = {
   },
 };
 
-export const story024Disabled: Story = {
-  name: 'Switch Off - Disabled',
+export const SwitchOffDisabled: Story = {
   args: {
     ...meta.args,
     state: false,

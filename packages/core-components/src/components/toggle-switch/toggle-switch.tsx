@@ -27,7 +27,7 @@ export class B2bToggleSwitchComponent {
   @Prop() disabled = false;
 
   /** Whether or not the toggle button is currently on or off. Per default it is off. */
-  @Prop() state: boolean = false;
+  @Prop() state = false;
 
   /** Emits the toggle switch value when it's state changes. */
   @Event({ eventName: 'b2b-change' })
@@ -64,7 +64,7 @@ export class B2bToggleSwitchComponent {
           <div
             class={{
               [`b2b-toggle__${this.labelPosition}`]: true,
-              'b2b-toggle__icon__show': this.state,
+              'b2b-toggle__icon--show': this.state,
             }}>
             <div onClick={this.onClick}>
               <svg
