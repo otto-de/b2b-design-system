@@ -3022,7 +3022,7 @@
         },
         "defaultValue": {}
       },
-      "description": "The label of the toggle button. This is required"
+      "description": "An optional label for the toggle switch."
     },
     "labelPosition": {
       "options": [

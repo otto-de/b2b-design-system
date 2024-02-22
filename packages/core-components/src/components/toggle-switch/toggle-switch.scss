@@ -9,58 +9,51 @@ $transition-size: var(--b2b-size-50);
 $special-grey: #b1b1b1;
 
 .b2b-toggle {
-  display: flex;
+  display: inline-flex;
+  position: relative;
   font-family: var(--b2b-font-family-default);
 
   &__icon {
     position: absolute;
     fill: var(--b2b-color-success-100);
     display: inline-block;
-    margin-top: var(--b2b-size-space-25);
-    margin-left: var(--b2b-size-space-150);
+    left: var(--b2b-size-60);
+    top: var(--b2b-size-10);
     width: var(--b2b-size-30);
     height: var(--b2b-size-30);
     z-index: 1000;
     opacity: 0;
-    cursor: pointer;
 
     &--show {
-      .b2b-toggle__icon {
-        transition: opacity 1s;
-        transition: opacity 1s ease;
-        opacity: 1;
-      }
+      transition: opacity 1s;
+      transition: opacity 1s ease;
+      opacity: 1;
     }
   }
 
   &__left {
-    display: flex;
-    flex-direction: row-reverse;
+    .b2b-toggle__label {
+      flex-direction: row-reverse;
+    }
+
+    .b2b-toggle__text {
+      margin-right: var(--b2b-size-30);
+    }
+
+    .b2b-toggle__icon {
+      left: var(--b2b-size-60);
+    }
   }
 
   &__right {
-    display: flex;
-    flex-direction: row;
-  }
-
-  &__input {
-    display: none;
-
-    &:checked + .b2b-toggle__label .b2b-toggle__switch {
-      &::before {
-        background-color: var(--b2b-color-success-100);
-      }
-
-      &::after {
-        background-color: var(--b2b-color-white-100);
-        transform: translateX($transition-size);
-      }
+    .b2b-toggle__text {
+      margin-left: var(--b2b-size-30);
     }
   }
 
   &__label {
+    display: inline-flex;
     align-items: center;
-    cursor: pointer;
   }
 
   &__switch {
@@ -68,11 +61,13 @@ $special-grey: #b1b1b1;
     display: flex;
     width: $switch-width;
     height: $switch-height;
+    cursor: pointer;
 
     &::before,
     &::after {
       position: absolute;
       content: '';
+      cursor: pointer;
     }
 
     &::before {
@@ -95,34 +90,32 @@ $special-grey: #b1b1b1;
     }
   }
 
-  &--disabled {
-    .b2b-toggle__switch::after {
-      background-color: var(--b2b-color-grey-100);
+  &--checked {
+    .b2b-toggle__switch::before {
+      background-color: var(--b2b-color-success-100);
     }
 
+    .b2b-toggle__switch::after {
+      background-color: var(--b2b-color-white-100);
+      transform: translateX($transition-size);
+    }
+  }
+
+  &--disabled {
     .b2b-toggle__icon {
       fill: $special-grey;
     }
 
-    .b2b-toggle__input:checked + .b2b-toggle__label .b2b-toggle__switch {
+    .b2b-toggle__switch {
+      cursor: default;
+
       &::before {
         background-color: $special-grey; // special color from figma
       }
 
       &::after {
         background-color: var(--b2b-color-grey-100);
-        transform: translateX($transition-size);
       }
     }
-  }
-
-  &__text-left {
-    margin-top: var(--b2b-size-5);
-    margin-right: var(--b2b-size-space-50);
-  }
-
-  &__text-right {
-    margin-top: var(--b2b-size-5);
-    margin-left: var(--b2b-size-space-50);
   }
 }

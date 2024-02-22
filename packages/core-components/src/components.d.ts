@@ -991,13 +991,17 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * The label of the toggle button. This is required
+          * An optional label for the toggle switch.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The alignment of the toggle switch label.
          */
         "labelPosition"?: 'left' | 'right';
+        /**
+          * The toggle name. Use this if the toggle switch is used in a form group.
+         */
+        "name"?: string;
         /**
           * Whether or not the toggle button is currently on or off. Per default it is off.
          */
@@ -3022,13 +3026,17 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The label of the toggle button. This is required
+          * An optional label for the toggle switch.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The alignment of the toggle switch label.
          */
         "labelPosition"?: 'left' | 'right';
+        /**
+          * The toggle name. Use this if the toggle switch is used in a form group.
+         */
+        "name"?: string;
         /**
           * Emits the toggle switch value when it's state changes.
          */

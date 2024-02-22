@@ -24,9 +24,7 @@ describe('B2B-InputList', () => {
       state="true"></b2b-toggle-switch>
     `);
 
-    const label = await page.find(
-      'b2b-toggle-switch >>> .b2b-toggle__text-left',
-    );
+    const label = await page.find('b2b-toggle-switch >>> .b2b-toggle__text');
     expect(label.textContent).toBe('IT-test-label');
   });
 
@@ -40,9 +38,7 @@ describe('B2B-InputList', () => {
       state="true"></b2b-toggle-switch>
     `);
 
-    const label = await page.find(
-      'b2b-toggle-switch >>> .b2b-toggle__text-right',
-    );
+    const label = await page.find('b2b-toggle-switch >>> .b2b-toggle__text');
     expect(label.textContent).toBe('IT-test-label-right');
   });
 
