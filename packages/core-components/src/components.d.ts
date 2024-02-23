@@ -997,7 +997,7 @@ export namespace Components {
         /**
           * The alignment of the toggle switch label.
          */
-        "labelPosition"?: 'left' | 'right';
+        "labelPosition": 'left' | 'right';
         /**
           * The toggle name. Use this if the toggle switch is used in a form group.
          */

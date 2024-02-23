@@ -3042,6 +3042,15 @@
       },
       "description": "The alignment of the toggle switch label."
     },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The toggle name. Use this if the toggle switch is used in a form group."
+    },
     "state": {
       "control": {
         "type": "boolean"

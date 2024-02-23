@@ -24,7 +24,7 @@ export class B2bToggleSwitchComponent {
   @Prop() name?: string;
 
   /** The alignment of the toggle switch label. */
-  @Prop() labelPosition?: 'left' | 'right' = 'left';
+  @Prop() labelPosition: 'left' | 'right' = 'left';
 
   /** Whether or not the toggle button is currently disabled. Per default it is false. */
   @Prop() disabled = false;
@@ -67,16 +67,21 @@ export class B2bToggleSwitchComponent {
   };
 
   render() {
+    // workaround for purgecss as safelist doesn't work
+    const isLeft = this.labelPosition === 'left';
     return (
       <Host>
         <div
           class={{
             'b2b-toggle': true,
-            [`b2b-toggle__${this.labelPosition}`]: true,
             'b2b-toggle--disabled': this.disabled,
             'b2b-toggle--checked': this.state,
           }}>
-          <label class="b2b-toggle__label" htmlFor="toggle">
+          <div
+            class={{
+              'b2b-toggle__label': true,
+              'b2b-toggle__label--left': isLeft,
+            }}>
             <span
               class="b2b-toggle__switch"
               role="switch"
@@ -93,8 +98,16 @@ export class B2bToggleSwitchComponent {
                 <path d="M11.798 25.082c-.341 0-.681-.13-.942-.389l-7.132-7.115a1.334 1.334 0 0 1 1.884-1.888l6.19 6.175L26.391 7.307a1.334 1.334 0 0 1 1.884 1.888L12.74 24.693c-.26.259-.601.389-.942.389z" />
               </svg>
             </span>
-            {this.label && <span class="b2b-toggle__text">{this.label}</span>}
-          </label>
+            {this.label && (
+              <span
+                class={{
+                  'b2b-toggle__text': true,
+                  'b2b-toggle__text--left': isLeft,
+                }}>
+                {this.label}
+              </span>
+            )}
+          </div>
         </div>
       </Host>
     );
