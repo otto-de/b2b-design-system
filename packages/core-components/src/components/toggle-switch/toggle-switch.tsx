@@ -37,7 +37,6 @@ export class B2bToggleSwitchComponent {
   b2bChange: EventEmitter<ToggleSwitchEventDetail>;
 
   private emitDetail = () => {
-    console.log(this.state);
     this.b2bChange.emit({
       value: this.state,
     });
