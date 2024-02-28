@@ -346,9 +346,13 @@ export namespace Components {
          */
         "icon": IconName;
         /**
-          * The size of the icon
+          * @deprecated The size of the icon. Use the newer variant property instead.
          */
         "size": '50' | '100' | '200';
+        /**
+          * Icon variant. Icon 50 is only available for select icons. Icon 100 is 24x24px and can be scaled up.
+         */
+        "variant": '50' | '100';
     }
     /**
      * Input component
@@ -2281,9 +2285,13 @@ declare namespace LocalJSX {
          */
         "icon"?: IconName;
         /**
-          * The size of the icon
+          * @deprecated The size of the icon. Use the newer variant property instead.
          */
         "size"?: '50' | '100' | '200';
+        /**
+          * Icon variant. Icon 50 is only available for select icons. Icon 100 is 24x24px and can be scaled up.
+         */
+        "variant"?: '50' | '100';
     }
     /**
      * Input component
