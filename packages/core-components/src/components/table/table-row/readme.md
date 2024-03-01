@@ -30,6 +30,12 @@
 
 Will toggle the accordion opened or closed.
 
+#### Parameters
+
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| `isOpen` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<void>`
