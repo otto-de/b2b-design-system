@@ -58,7 +58,7 @@
     "@storybook/addon-mdx-gfm": "^7.3.2",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/preview-api": "^7.3.2",
-    "@storybook/test-runner": "^0.13.0",
+    "@storybook/test-runner": "^0.16.0",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/theming": "^7.3.2",
     "@storybook/web-components": "^7.3.2",
