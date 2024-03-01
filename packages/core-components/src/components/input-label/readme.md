@@ -21,6 +21,7 @@
  - [b2b-checkbox-group](../checkbox-group)
  - [b2b-dropdown](../dropdown)
  - [b2b-input](../input)
+ - [b2b-multiselect-dropdown](../multiselect-dropdown)
  - [b2b-radio-button](../radio)
  - [b2b-radio-group](../radio-group)
  - [b2b-textarea](../textarea)
@@ -32,6 +33,7 @@ graph TD;
   b2b-checkbox-group --> b2b-input-label
   b2b-dropdown --> b2b-input-label
   b2b-input --> b2b-input-label
+  b2b-multiselect-dropdown --> b2b-input-label
   b2b-radio-button --> b2b-input-label
   b2b-radio-group --> b2b-input-label
   b2b-textarea --> b2b-input-label

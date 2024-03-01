@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/b2b-core-components",
-  "version": "1.6.1",
+  "version": "1.9.0",
   "description": "Core components defined with Stencil",
   "author": "Otto GmbH",
   "license": "Apache-2.0",
@@ -27,7 +27,7 @@
     "build:icons": "node src/components/icon/generate-icon-types.mjs",
     "start": "stencil build --dev --watch --serve --config stencil-dev.config.ts",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test.watch": "stencil test --spec --e2e --watch",
     "generate": "stencil generate",
     "lint": "eslint \"src/**/*{.ts,.tsx}\" && stylelint \"src/**/*{.scss,.css}\"",
     "lint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix && stylelint \"src/**/*{.scss,.css}\" --fix",
@@ -39,9 +39,9 @@
     "build:storybook": "npm run copy-md-files && storybook build -o docs-build/design-system"
   },
   "dependencies": {
-    "@otto-de/b2b-tokens": "1.6.1",
+    "@otto-de/b2b-tokens": "1.9.0",
     "@stencil-community/eslint-plugin": "^0.5.0",
-    "@stencil/core": "^3.4.2"
+    "@stencil/core": "^4.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -49,12 +49,12 @@
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.5.3",
-    "@stencil/sass": "^3.0.0",
+    "@stencil/sass": "^3.0.10",
     "@storybook/addon-actions": "^7.3.2",
     "@storybook/addon-docs": "^7.3.2",
     "@storybook/addon-essentials": "^7.3.2",
     "@storybook/addon-interactions": "^7.3.2",
-    "@storybook/addon-links": "^7.3.2",
+    "@storybook/addon-links": "^7.6.17",
     "@storybook/addon-mdx-gfm": "^7.3.2",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/preview-api": "^7.3.2",
@@ -63,7 +63,7 @@
     "@storybook/theming": "^7.3.2",
     "@storybook/web-components": "^7.3.2",
     "@storybook/web-components-webpack5": "^7.3.2",
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^29.1.1",
     "@types/mdx": "^2.0.7",
     "@types/postcss-import": "^14.0.0",
     "copyfiles": "^2.4.1",
@@ -71,8 +71,8 @@
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "jest": "^27.5.1",
-    "jest-cli": "^27.5.1",
+    "jest": "^29.1.1",
+    "jest-cli": "^29.7.0",
     "jest-image-snapshot": "^6.1.0",
     "lint-staged": "^13.2.0",
     "postcss-import": "^15.1.0",
@@ -80,7 +80,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-gfm": "^3.0.1",
-    "sass": "^1.57.1",
+    "sass": "^1.71.0",
     "sass-loader": "^13.3.2",
     "storybook": "^7.3.2",
     "style-loader": "^3.3.2",
@@ -88,7 +88,7 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "ts-dedent": "^2.2.0",
-    "ts-jest": "^27.1.5",
+    "ts-jest": "^29.1.1",
     "typescript": "^4.9.4"
   }
 }

@@ -116,7 +116,7 @@ export class CheckboxComponent {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 11 1"
+          viewBox="0 0 12 12"
           class="b2b-checkbox__icon">
           <path
             d="M8.5 0H0.5C0.223633 0 0 0.223633 0 0.5C0 0.776367 0.223633 1 0.5 1H8.5C8.77637 1 9 0.776367 9 0.5C9 0.223633 8.77637 0 8.5 0Z"

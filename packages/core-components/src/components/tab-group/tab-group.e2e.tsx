@@ -113,6 +113,7 @@ describe('B2B Tab Group', () => {
 
     const tabs = await page.findAll('b2b-tab');
     expect(await tabs[0].getProperty('selected')).toBe(true);
+    expect(await tabs[0].getAttribute('aria-controls')).not.toBeDefined;
 
     await page.keyboard.press('ArrowRight');
     await page.waitForChanges();

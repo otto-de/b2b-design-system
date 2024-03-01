@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, Host, h } from '@stencil/core';
 
 @Component({
   tag: 'b2b-anchor',
@@ -21,16 +21,18 @@ export class AnchorComponent {
 
   render() {
     return (
-      <a
-        href={this.href}
-        download={this.download}
-        target={`_${this.target}`}
-        class={{
-          'b2b-anchor': true,
-          [`b2b-anchor--${this.size}`]: true,
-        }}>
-        <slot></slot>
-      </a>
+      <Host>
+        <a
+          href={this.href}
+          download={this.download}
+          target={`_${this.target}`}
+          class={{
+            'b2b-anchor': true,
+            [`b2b-anchor--${this.size}`]: true,
+          }}>
+          <slot></slot>
+        </a>
+      </Host>
     );
   }
 }

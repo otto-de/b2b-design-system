@@ -21,6 +21,28 @@
   </head>
   <body data-theme="light">
     <div class="content-container">
+      <b2b-headline>Toggle Chip</b2b-headline>
+      <b2b-toggle-chip
+        label="Hello B2B Design System"
+        name="test"></b2b-toggle-chip>
+      <b2b-toggle-chip
+        label="Hello B2B Design System disabled"
+        disabled
+        name="test"></b2b-toggle-chip>
+      <div
+        style="
+          background-color: lightgray;
+          padding: 10px;
+          display: inline-block;
+        ">
+        <b2b-toggle-chip
+          label="Hello B2B Design System"
+          variant="white"
+          disabled
+          name="test"></b2b-toggle-chip>
+      </div>
+    </div>
+    <div class="content-container">
       <b2b-headline size="200">Pagination</b2b-headline>
       <b2b-pagination total-pages="10" active-page="5"></b2b-pagination>
     </div>
@@ -31,6 +53,18 @@
         ev.preventDefault();
       }
     </script>
+    <div class="content-container">
+      <b2b-headline>Breadcrumb Navigation</b2b-headline>
+      <b2b-breadcrumb>
+        <b2b-breadcrumb-item href="https://www.otto.de" value="three"
+          >Top Level</b2b-breadcrumb-item
+        >
+        <b2b-breadcrumb-item active value="one"
+          >Second Level</b2b-breadcrumb-item
+        >
+        <b2b-breadcrumb-item value="two">Third Level</b2b-breadcrumb-item>
+      </b2b-breadcrumb>
+    </div>
     <div class="content-container">
       <b2b-headline>Form Buttons</b2b-headline>
       <form id="myForm">
@@ -431,6 +465,58 @@
         label="Chip component"
         value="one"
         disabled="true"></b2b-chip-component>
+      <b2b-headline size="100" no-margin="true"
+        >Truncated Chip Component</b2b-headline
+      >
+      <div
+        style="
+          display: flex;
+          width: 200px;
+          border: 1px solid black;
+          padding: 6px;
+        ">
+        <b2b-chip-component
+          label="Chip component with long text"
+          value="one"></b2b-chip-component>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Toggle Switch Component</b2b-headline>
+
+      <b2b-headline size="100" no-margin="true"
+        >Enabled Toggle Switch Component - On</b2b-headline
+      >
+      <b2b-toggle-switch
+        label="Long Label for the fun of it"
+        disabled="false"
+        state="true"></b2b-toggle-switch>
+
+      <b2b-headline size="100" no-margin="true"
+        >Enabled Toggle Switch Component - Off, Label on right</b2b-headline
+      >
+      <b2b-toggle-switch
+        label="Label"
+        label-position="right"
+        disabled="false"
+        state="false"></b2b-toggle-switch>
+
+      <b2b-headline size="100" no-margin="true"
+        >Disabled Toggle Switch Component - Off</b2b-headline
+      >
+      <b2b-toggle-switch
+        label="Label"
+        disabled="true"
+        state="false"></b2b-toggle-switch>
+
+      <b2b-headline size="100" no-margin="true"
+        >Disabled Toggle Switch Component - On, Label on right</b2b-headline
+      >
+      <b2b-toggle-switch
+        label="Label"
+        disabled="true"
+        state="true"
+        label-position="right"></b2b-toggle-switch>
     </div>
   </body>
 </html>

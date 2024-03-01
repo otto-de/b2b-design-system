@@ -35,9 +35,8 @@ describe('B2B-InputList', () => {
     expect(inputValue).toBe('8');
   });
 
-  it('should not receive input text when disabled', async () => {
+  it('should not receive input text when disabled & should not show close icon', async () => {
     const inputList = await page.find('b2b-input-list');
-
     inputList.setAttribute('disabled', true);
     await page.waitForChanges();
 
@@ -45,6 +44,23 @@ describe('B2B-InputList', () => {
 
     let inputValue = inputList.getAttribute('value');
     expect(inputValue).toBe(null);
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    expect(closeIcon).toBeNull();
+  });
+
+  it('should not not show close icon when input list has text and is disabled', async () => {
+    await typeInput('b');
+    await typeInput('2');
+    await typeInput('b');
+    const inputList = await page.find('b2b-input-list');
+
+    inputList.setAttribute('disabled', true);
+    await page.waitForChanges();
+
+    let inputValue = inputList.getAttribute('value');
+    expect(inputValue).toBe('b2b');
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    expect(closeIcon).toBeNull();
   });
 
   it('should not show search list when input is not focused', async () => {
