@@ -72,7 +72,33 @@ Inherit will allow you to specify any color for the icon by first defining the p
   <Story id="components-assets-icon--story-035-inherit" />
 </Canvas>
 
-### Size
+### Variant
+
+#### 50
+
+This is a special variant that only a subset of icons is available in.
+They are marked by a `-50` suffix in the icon name. The icon 50 is 12x12px and uses bold strokes.
+Use this for small labels or interactive icons in a form element.
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-assets-icon--story-040-size-50" />
+</Canvas>
+
+#### 100
+
+Standard size for the icon is 24x24px. The icon can be scaled up but not scaled down.
+You can change the size of the icon by overwriting the following CSS custom properties on the `b2b-icon` element:
+
+```css
+--b2b-icon-height: 1rem;
+--b2b-icon-width: 1rem;
+```
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-assets-icon--story-050-size-100" />
+</Canvas>
+
+### Size (Deprecated)
 
 The icon comes in three different sizes that can be adjusted according
 to the context the icon is used in.
@@ -81,17 +107,9 @@ to the context the icon is used in.
 
 The smallest icon size at 16 x 16px. Can be used in a small button or label.
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-assets-icon--story-040-size-50" />
-</Canvas>
-
 #### 100
 
 This is the standard size of the icon, 24 x 24px. If not otherwise specified, this is the default.
-
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-assets-icon--story-050-size-100" />
-</Canvas>
 
 #### 200
 
