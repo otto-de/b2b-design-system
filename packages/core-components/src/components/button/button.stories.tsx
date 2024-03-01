@@ -14,6 +14,7 @@ const meta: Meta = {
     active: false,
     target: 'self',
     label: 'B2B Button',
+    width: 'fit-content',
   },
   argTypes: getArgTypes('b2b-button'),
   render: ({ ...args }) => html`<b2b-button
@@ -152,5 +153,23 @@ export const DisabledAnchor: Story = {
     target="blank"
     type="${args.type}">
     Go to otto.de
+  </b2b-button>`,
+};
+
+export const CustomWidth: Story = {
+  args: {
+    ...meta.args,
+    width: 'custom',
+  },
+  render: ({ ...args }) => html` <b2b-button
+    class="docs-button-obc-overwrite"
+    style="width: 300px"
+    variant="${args.variant}"
+    size="${args.size}"
+    width="${args.width}"
+    disabled="${args.disabled}"
+    loading="${args.loading}"
+    type="${args.type}">
+    300px custom width
   </b2b-button>`,
 };

@@ -19,12 +19,23 @@
     <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
     <style>
       .form-element-width {
-        width: 550px;
+        width: 500px;
       }
     </style>
   </head>
 
   <body data-theme="light">
+    <div class="content-container">
+      <b2b-headline size="200">Multiselect Dropdown</b2b-headline>
+      <div class="form-element-width">
+        <b2b-multiselect-dropdown
+          id="multiselect"
+          placeholder="Please select..."
+          search-placeholder="Search"
+          select-all-label="Select All"
+          label="Hylian fruits and vegetables"></b2b-multiselect-dropdown>
+      </div>
+    </div>
     <div class="content-container">
       <b2b-headline size="200">Input list</b2b-headline>
       <div style="width: 40%">
@@ -48,6 +59,18 @@
             'result4',
             'result4',
             'result4',
+          ];
+          const el = document.getElementById('multiselect');
+          el.optionsList = [
+            'Swift Carrot',
+            'Hydromelon',
+            'Skyshroom',
+            'Fortified Pumpkin',
+            'Hyrule Herb',
+            'Hylian Shroom',
+            'Mighty Banana',
+            'Endura Carrot',
+            'Golden Apple',
           ];
         </script>
       </div>
@@ -193,6 +216,11 @@
         placeholder="Input"
         hint="Hint"
         error="Error"></b2b-textarea>
+      <b2b-textarea
+        label="Textarea with height"
+        resize="vertical"
+        placeholder="Input"
+        height="100px"></b2b-textarea>
     </div>
 
     <div class="content-container">
@@ -273,6 +301,7 @@
     <div class="content-container">
       <b2b-headline size="200">Checkbox</b2b-headline>
       <b2b-checkbox label="Checkbox disabled" disabled="true"></b2b-checkbox>
+      <b2b-checkbox label="Indeterminate" indeterminate></b2b-checkbox>
       <b2b-checkbox
         label="Checkbox selected disabled"
         checked="checked"

@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/b2b-tokens",
-  "version": "1.6.1",
+  "version": "1.9.0",
   "description": "B2B Design Tokens",
   "author": "Otto GmbH",
   "license": "Apache-2.0",
@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "lodash": "^4.17.21",
-    "style-dictionary": "^3.8.0"
+    "style-dictionary": "^3.9.2"
   }
 }

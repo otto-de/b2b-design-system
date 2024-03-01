@@ -15,9 +15,10 @@ type Story = StoryObj;
 const tableArgs = getArgTypes('b2b-table');
 const cellArgs = getArgTypes('b2b-table-cell');
 const rowArgs = getArgTypes('b2b-table-row');
+const headerArgs = getArgTypes('b2b-table-header');
 
 const meta: Meta = {
-  title: 'Components/Content/Table',
+  title: 'Components/Table/Table',
   component: 'b2b-table',
   parameters: {
     backgrounds: {
@@ -36,15 +37,23 @@ const meta: Meta = {
     parentWidth: '600px',
     firstColumnWidth: 'auto',
     firstRowHeight: 'auto',
+    contentAlign: 'left',
   },
   argTypes: {
     ...tableArgs,
     ...cellArgs,
     ...rowArgs,
+    ...headerArgs,
     data: { table: { disable: true } },
     parentWidth: { table: { disable: true } },
     firstColumnWidth: { table: { disable: true } },
     firstRowHeight: { table: { disable: true } },
+    colspan: { table: { disable: true } },
+    divider: { table: { disable: true } },
+    checked: { table: { disable: true } },
+    indeterminate: { table: { disable: true } },
+    fixed: { table: { disable: true } },
+    sortId: { table: { disable: true } },
   },
   render: ({ ...args }) => html`<div style="width: ${
     args.parentWidth
@@ -206,14 +215,34 @@ export const ScrollableTable: Story = {
   </b2b-scrollable-container>`,
 };
 
-export const SortableTable: Story = {
+const RenderSortableTable = ({ ...args }) => html`
+      <b2b-table-rowgroup type="body">
+        ${args.data.rows.map((row, index) => {
+          return html`<b2b-table-row
+            highlight="${args.highlight}"
+            color=${index === 0 ? args.color : 'default'}>
+            ${row.map(
+              data =>
+                html`<b2b-table-cell
+                  ?divider=${args.withDividers}
+                  align="${args.align}"
+                  text-wrap="${args.textWrap}"
+                  >${data}</b2b-table-cell
+                >`,
+            )}
+          </b2b-table-row>`;
+        })}
+      </b2b-table-rowgroup>
+    </b2b-table>
+  </div>`;
+
+const SortableTableMeta: Meta = {
   args: {
     ...meta.args,
-    data: userSampleData,
   },
   decorators: [
     story => {
-      const [_, updateArgs] = useArgs();
+      const [args, updateArgs] = useArgs();
       const onSort = (event, index, data) => {
         switch (event.detail) {
           case 'ascending':
@@ -248,6 +277,7 @@ export const SortableTable: Story = {
               ${userSampleData.columns.map(column => {
                 return html` <b2b-table-header
                   sort-direction="not-sorted"
+                  content-align=${args.contentAlign}
                   @b2b-change=${event =>
                     onSort(event, column.id, userSampleData)}
                   ?divider="false"
@@ -260,26 +290,26 @@ export const SortableTable: Story = {
       </div>`;
     },
   ],
-  render: ({ ...args }) => html`
-      <b2b-table-rowgroup type="body">
-        ${args.data.rows.map((row, index) => {
-          return html`<b2b-table-row
-            highlight="${args.highlight}"
-            color=${index === 0 ? args.color : 'default'}>
-            ${row.map(
-              data =>
-                html`<b2b-table-cell
-                  ?divider=${args.withDividers}
-                  align="${args.align}"
-                  text-wrap="${args.textWrap}"
-                  >${data}</b2b-table-cell
-                >`,
-            )}
-          </b2b-table-row>`;
-        })}
-      </b2b-table-rowgroup>
-    </b2b-table>
-  </div>`,
+};
+export const SortableTable: Story = {
+  args: {
+    ...SortableTableMeta.args,
+    contentAlign: 'left',
+    align: 'left',
+    data: userSampleData,
+  },
+  decorators: SortableTableMeta.decorators,
+  render: RenderSortableTable,
+};
+export const SortableTableRightAlign: Story = {
+  args: {
+    ...SortableTableMeta.args,
+    contentAlign: 'right',
+    align: 'right',
+    data: userSampleData,
+  },
+  decorators: SortableTableMeta.decorators,
+  render: RenderSortableTable,
 };
 
 export const AccordionTable: Story = {
@@ -344,7 +374,7 @@ export const AccordionTable: Story = {
   </div>`,
 };
 
-export const Selectable: Story = {
+export const SelectableTable: Story = {
   args: {
     ...meta.args,
   },
@@ -401,6 +431,59 @@ export const Selectable: Story = {
             >
           </b2b-table-row>`;
         })}
+      </b2b-table-rowgroup>
+    </b2b-table>
+  </div>`,
+};
+
+export const ColspanTable: Story = {
+  args: {
+    ...meta.args,
+    size: 'colspan',
+    selectable: false,
+    withDividers: true,
+  },
+  render: ({ ...args }) => html`<div style="width: 500px">
+    <b2b-table size="${args.size}">
+      <b2b-table-rowgroup type="header" selectable="${args.selectable}">
+        <b2b-table-row>
+          <b2b-table-header divider="${args.withDividers}" colspan="2"
+            >2 Columns</b2b-table-header
+          >
+          <b2b-table-header divider="${args.withDividers}"
+            >1 Column</b2b-table-header
+          >
+          <b2b-table-header>1 Column</b2b-table-header>
+        </b2b-table-row>
+      </b2b-table-rowgroup>
+      <b2b-table-rowgroup type="body" selectable="${args.selectable}">
+        <b2b-table-row>
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell colspan="3">3 Columns</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row>
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell>1 Column</b2b-table-cell>
+        </b2b-table-row>
+        <b2b-table-row>
+          <b2b-table-cell divider="${args.withDividers}" colspan="2"
+            >2 Columns</b2b-table-cell
+          >
+          <b2b-table-cell divider="${args.withDividers}"
+            >1 Column</b2b-table-cell
+          >
+          <b2b-table-cell>1 Column</b2b-table-cell>
+        </b2b-table-row>
       </b2b-table-rowgroup>
     </b2b-table>
   </div>`,

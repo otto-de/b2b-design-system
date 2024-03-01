@@ -15,3 +15,15 @@ export interface ColumnSortChangeEventDetail {
   sortedColumn: string;
   sortDirection: string;
 }
+
+export interface BreadCrumbChangeEventDetail<T = any> {
+  value: T;
+}
+
+export interface ToggleChipEventDetail<T = string> {
+  value: T;
+}
+
+export interface ToggleSwitchEventDetail<T = boolean> {
+  value: T;
+}
