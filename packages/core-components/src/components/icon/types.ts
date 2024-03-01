@@ -284,6 +284,8 @@ export const iconTypes = [
  "b2b_icon-town",
  "b2b_icon-trash",
  "b2b_icon-trend-down",
+ "b2b_icon-trend-left",
+ "b2b_icon-trend-right",
  "b2b_icon-trend-up",
  "b2b_icon-trousers",
  "b2b_icon-trusted",
@@ -300,6 +302,7 @@ export const iconTypes = [
  "b2b_icon-volume-on",
  "b2b_icon-voucher",
  "b2b_icon-walnut",
+ "b2b_icon-warning-hint",
  "b2b_icon-warning",
  "b2b_icon-warranty",
  "b2b_icon-washing-machine",
@@ -311,6 +314,10 @@ export const iconTypes = [
  "b2b_icon-work-life",
  "b2b_icon-workshop",
  "b2b_icon-zoom-in",
- "b2b_icon-zoom-out"
+ "b2b_icon-zoom-out",
+ "b2b_logo-carrier-dhl",
+ "b2b_logo-carrier-gls",
+ "b2b_logo-carrier-hermes",
+ "b2b_logo-carrier-ups"
 ] as const
 export type IconName = typeof iconTypes[number];

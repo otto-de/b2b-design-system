@@ -3,7 +3,7 @@ import { buildPath, fetchIcon, iconContent } from './request';
 import { IconName, iconTypes } from './types';
 
 @Component({
-  assetsDirs: ['icons'],
+  assetsDirs: ['icons', 'logos'],
   tag: 'b2b-icon',
   styleUrl: 'icon.scss',
   shadow: true,
@@ -51,7 +51,7 @@ export class B2bIcon {
   private loadIconPathData() {
     if (!this.isIconSupported()) {
       console.warn(
-        'icon name: ' + this.icon + 'is not supported or might have a typo.',
+        'icon name: ' + this.icon + ' is not supported or might have a typo.',
       );
       return;
     }

@@ -1,5 +1,5 @@
 # Use playwright image as a base
-FROM mcr.microsoft.com/playwright:v1.38.0-jammy as playwright
+FROM mcr.microsoft.com/playwright:v1.41.2-jammy as playwright
 
 WORKDIR /b2b
 

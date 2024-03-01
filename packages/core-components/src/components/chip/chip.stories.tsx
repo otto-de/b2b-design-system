@@ -10,6 +10,17 @@ const Template: Story = ({ label, disabled, value, hasCloseButton }) => {
     has-close-button="${hasCloseButton}"></b2b-chip-component>`;
 };
 
+const TruncTemplate: Story = ({ label, disabled, value, hasCloseButton }) => {
+  return html`<div
+    style="width: 170px; border: 1px solid grey; border-radius: 3px; padding: 6px;">
+    <b2b-chip-component
+      label="${label}"
+      disabled="${disabled}"
+      value="${value}"
+      has-close-button="${hasCloseButton}"></b2b-chip-component>
+  </div>`;
+};
+
 const defaultArgs = {
   label: 'Chip Label',
   disabled: false,
@@ -35,6 +46,12 @@ story030WithoutButton.args = {
   hasCloseButton: false,
 };
 story030WithoutButton.storyName = 'Without Button';
+export const story040WithTruncatedText = TruncTemplate.bind({});
+story040WithTruncatedText.args = {
+  ...defaultArgs,
+  label: ' Chip with truncated text',
+};
+story040WithTruncatedText.storyName = 'Truncated Text';
 
 const chipComponentArgs = getArgTypes('b2b-chip-component');
 
