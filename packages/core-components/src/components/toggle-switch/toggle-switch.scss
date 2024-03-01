@@ -1,0 +1,124 @@
+@use '../../global/b2b-styles';
+
+$switch-width: var(--b2b-size-100);
+$switch-height: var(--b2b-size-50);
+$slider-size: var(--b2b-size-40);
+$slider-surround: var(--b2b-size-5);
+$border-radius: var(--b2b-size-7);
+$transition-size: var(--b2b-size-50);
+$special-grey: #b1b1b1;
+
+:host {
+  .b2b-toggle {
+    display: inline-flex;
+    position: relative;
+
+    &__icon {
+      position: absolute;
+      fill: var(--b2b-color-success-100);
+      display: inline-block;
+      left: var(--b2b-size-60);
+      top: var(--b2b-size-10);
+      width: var(--b2b-size-30);
+      height: var(--b2b-size-30);
+      z-index: 1000;
+      opacity: 0;
+
+      &--show {
+        transition: opacity 1s;
+        transition: opacity 1s ease;
+        opacity: 1;
+      }
+    }
+
+    &__label {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--b2b-font-family-default);
+
+      &--left {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__text {
+      margin-left: var(--b2b-size-30);
+
+      &--left {
+        margin-right: var(--b2b-size-30);
+        margin-left: 0;
+      }
+    }
+
+    &__switch {
+      position: relative;
+      display: flex;
+      width: $switch-width;
+      height: $switch-height;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        cursor: pointer;
+      }
+
+      &::before {
+        width: $switch-width;
+        height: $switch-height;
+        border-radius: $border-radius;
+        background-color: var(--b2b-color-grey-200);
+        transition: background-color 0.3s ease;
+      }
+
+      &::after {
+        top: $slider-surround;
+        left: $slider-surround;
+        width: $slider-size;
+        height: $slider-size;
+        border-radius: $border-radius;
+        background-color: var(--b2b-color-white-100);
+        transition: -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &--checked {
+      .b2b-toggle__switch::before {
+        background-color: var(--b2b-color-success-100);
+      }
+
+      .b2b-toggle__switch::after {
+        background-color: var(--b2b-color-white-100);
+        transform: translateX($transition-size);
+      }
+    }
+
+    &--disabled {
+      .b2b-toggle__icon {
+        fill: $special-grey;
+        cursor: default;
+      }
+
+      .b2b-toggle__label {
+        cursor: default;
+      }
+
+      .b2b-toggle__switch {
+        &::before,
+        &::after {
+          cursor: default;
+        }
+
+        &::before {
+          background-color: $special-grey; // special color from figma
+        }
+
+        &::after {
+          background-color: var(--b2b-color-grey-100);
+        }
+      }
+    }
+  }
+}

@@ -74,6 +74,23 @@ example, parent size is 400px, and text is truncated.
 <br />
 <hr />
 
+#### colspan
+
+If the table size is set to colspan, it will behave like an equal sized table. Additionally, a `colspan` property is available
+for individual `b2b-table-cell` or `b2b-table-header` elements that accepts any positive integer and allows you to set the cell
+size in relation to the number of cells in a row. Text will always wrap and never truncate in this case.
+
+```html
+<div id="parent" style="width: 500px">
+  <b2b-table size="colspan">
+    ...
+    <b2b-table-cell colspan="3">...</b2b-table-cell>
+  </b2b-table>
+</div>
+```
+
+<Canvas of={TableStories.ColspanTable} />
+
 ### b2b-table-rowgroup
 
 Rowgroup will let you group rows based on context: `header`, `body` or `footer`.
@@ -270,7 +287,7 @@ it will only go back to its unsorted state automatically, when the user clicks o
 </b2b-table>
 ```
 
-## Events
+#### Events
 
 When the user interacts with sorting, the `b2b-table` will emit a `b2b-sort-change` event that will contain
 information about the sorted header and the direction selected. You can provide the property `sort-id` to the
@@ -443,7 +460,7 @@ _Vue Notation_
 </b2b-table>
 ```
 
-### Sizing
+## Sizing
 
 ### Fixed cell width
 

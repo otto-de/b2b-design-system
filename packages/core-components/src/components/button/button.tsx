@@ -25,6 +25,9 @@ export class ButtonComponent {
   /** The size of the button, 100 is the default state */
   @Prop() size: '100' | '50' = '100';
 
+  /** The width of the button. Per default, it will fit the content */
+  @Prop() width: 'fit-content' | 'fit-container' | 'custom' = 'fit-content';
+
   /** Whether the button is disabled. */
   @Prop({ reflect: true }) disabled = false;
 
@@ -114,6 +117,7 @@ export class ButtonComponent {
           [`b2b-button--${this.size}`]: true,
           [`b2b-button--active`]: this.active,
           [`b2b-button--icon-only`]: this.checkIcon(),
+          [`b2b-button--${this.width}`]: true,
         }}>
         {this.href !== undefined ? (
           <a

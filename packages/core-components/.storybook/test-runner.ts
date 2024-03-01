@@ -9,9 +9,9 @@ const ignoredStories = [
   'components-interaction-tooltip--story-010-hover',
   'components-interaction-tooltip--story-020-focus',
   'components-interaction-tooltip--story-030-custom',
-  'designtokens-color--story-010-color-tokens',
-  'designtokens-font--story-010-font-tokens',
-  'designtokens-size--story-010-size-tokens',
+  'design-tokens-color--story-010-color-tokens',
+  'design-tokens-font--story-010-font-tokens',
+  'design-tokens-size--story-010-size-tokens',
 ];
 
 module.exports = {

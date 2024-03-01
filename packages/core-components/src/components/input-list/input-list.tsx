@@ -222,7 +222,7 @@ export class InputListComponent {
             onb2b-input={this.handleInput}
             placeholder={this.placeholder}
             required={this.required}>
-            {Boolean(this.value) && (
+            {!(this.disabled || this.groupDisabled) && Boolean(this.value) && (
               <b2b-icon
                 icon="b2b_icon-close"
                 aria-label="reset"

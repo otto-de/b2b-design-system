@@ -1,0 +1,63 @@
+@use '../../global/b2b-styles';
+
+:host {
+  width: 100%;
+
+  .b2b-progress-bar {
+    &__left-side {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    &__right-side {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__wrapper {
+      flex-basis: 100%;
+      height: var(--b2b-size-space-50);
+      background-color: var(--b2b-color-grey-100);
+      border-radius: var(--b2b-size-border-width-150);
+    }
+
+    &__progress {
+      height: var(--b2b-size-space-50);
+      background-color: var(--b2b-color-success-100);
+      border-radius: var(--b2b-size-border-width-150);
+    }
+
+    &__label {
+      font-size: var(--b2b-size-copy-100);
+      color: var(--b2b-color-copy-default);
+      line-height: var(--b2b-size-copy-line-height-100);
+
+      &-none {
+        display: none;
+      }
+
+      &__left-side {
+        bottom: 7px;
+        position: relative;
+        white-space: nowrap;
+        margin-right: var(--b2b-size-space-50);
+      }
+
+      &__right-side {
+        bottom: 7px;
+        position: relative;
+        white-space: nowrap;
+        margin-left: var(--b2b-size-space-50);
+      }
+
+      &__left-below {
+        margin-top: var(--b2b-size-7);
+      }
+
+      &__right-below {
+        text-align: right;
+        margin-top: var(--b2b-size-7);
+      }
+    }
+  }
+}
