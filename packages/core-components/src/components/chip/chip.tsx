@@ -1,4 +1,12 @@
-import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Event,
+  EventEmitter,
+  Element,
+} from '@stencil/core';
 import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface';
 
 @Component({
@@ -7,6 +15,7 @@ import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface'
   shadow: true,
 })
 export class B2bChipComponent {
+  @Element() host: HTMLB2bChipComponentElement;
   /** The text content of the chip. It is required. */
   @Prop() label!: string;
 
@@ -30,6 +39,13 @@ export class B2bChipComponent {
     this.b2bClose.emit({ value: this.value });
   };
 
+  private onKeyDown = (event: KeyboardEvent) => {
+    if (this.disabled || event.key !== 'Enter') {
+      return;
+    }
+    this.b2bClose.emit({ value: this.value });
+  };
+
   private clearIcon = (
     <svg
       width="12"
@@ -48,16 +64,23 @@ export class B2bChipComponent {
             'b2b-chip': true,
             'b2b-chip--disabled': this.disabled,
           }}>
-          <span class="b2b-chip__label">{this.label}</span>
+          <span
+            class={{
+              'b2b-chip__label': true,
+              'b2b-chip__label--close-button': this.hasCloseButton,
+            }}>
+            {this.label}
+          </span>
           {this.hasCloseButton && (
-            <div
+            <button
               class={{
                 'b2b-chip__clearIcon': true,
                 'b2b-chip--disabled__clearIcon': this.disabled,
               }}
-              onClick={this.onClick}>
+              onClick={this.onClick}
+              onKeyDown={this.onKeyDown}>
               {this.clearIcon}
-            </div>
+            </button>
           )}
         </div>
       </Host>

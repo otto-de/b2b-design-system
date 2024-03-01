@@ -14,6 +14,7 @@ const Template: Story = ({
   autofocus,
   name,
   resize,
+  height,
 }) => {
   return html`<b2b-textarea
     label="${label}"
@@ -26,6 +27,7 @@ const Template: Story = ({
     error="${error}"
     autofocus="${autofocus}"
     name="${name}"
+    height="${height}"
     resize="${resize}"></b2b-textarea>`;
 };
 
@@ -88,6 +90,10 @@ story060AllArgs.args = {
   autofocus: false,
 };
 story060AllArgs.storyName = 'All Arguments';
+
+export const story070Height = Template.bind({});
+story070Height.args = { ...defaultArgs, height: '100px' };
+story070Height.storyName = 'With Height';
 
 const textareaArgs = getArgTypes('b2b-textarea');
 

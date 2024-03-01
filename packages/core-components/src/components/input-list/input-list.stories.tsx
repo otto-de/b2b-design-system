@@ -48,13 +48,6 @@ export const Focused: Story = {
   },
 };
 
-export const Disabled: Story = {
-  args: {
-    ...meta.args,
-    disabled: true,
-  },
-};
-
 export const CustomList: Story = {
   args: {
     ...meta.args,
@@ -63,6 +56,42 @@ export const CustomList: Story = {
     <b2b-input-list
       data-testid="element"
       label="${args.label}"
+      required="${args.required}"
+      placeholder="${args.placeholder}"
+      disabled="${args.disabled}"
+      .optionsList=${args.optionsList}
+      ><ul>
+        <li>Option 1</li>
+        <li>
+          Option 2
+          <ul>
+            <li>Option 2.1</li>
+            <li>Option 2.2</li>
+          </ul>
+        </li>
+        <li>Option 3</li>
+      </ul></b2b-input-list
+    >
+  </div>`,
+};
+
+export const DisabledWithoutSelectedOption: Story = {
+  args: {
+    ...meta.args,
+    disabled: true,
+  },
+};
+
+export const disabledWithSelectedOption: Story = {
+  args: {
+    ...meta.args,
+    disabled: true,
+  },
+  render: ({ ...args }) => html`<div style="height: 130px; width: 300px">
+    <b2b-input-list
+      data-testid="element"
+      label="${args.label}"
+      value="${args.optionsList[0]}"
       required="${args.required}"
       placeholder="${args.placeholder}"
       disabled="${args.disabled}"

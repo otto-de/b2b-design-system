@@ -8,6 +8,28 @@ export function updateCheckboxState(
   header.checked = everySelected;
   header.indeterminate = someSelected && !everySelected;
 }
+/** Sets appropriate column width for colspan table */
+export function setFlexBase(
+  host: HTMLB2bTableCellElement | HTMLB2bTableHeaderElement,
+  colspan: number,
+  totalCols: number,
+  selectable: boolean,
+  accordion: boolean,
+): void {
+  const flexBase = colspan != undefined ? colspan : 1;
+  let border = 0;
+  // factor in dividers for multi columns
+  if (flexBase > 1) {
+    border = flexBase;
+  }
+  // calculate space for control columns
+  const checkboxSpace = selectable ? (40 / totalCols) * flexBase : 0;
+  const accordionSpace = accordion ? (48 / totalCols) * flexBase : 0;
+  const style = `calc((${(flexBase / totalCols) * 100}% - ${
+    checkboxSpace + accordionSpace
+  }px) - ${24 - border}px)`;
+  host.style.flexBasis = style;
+}
 
 export function getAllRows(
   hostEl: HTMLB2bTableElement | HTMLB2bTableRowgroupElement,

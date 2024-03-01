@@ -65,8 +65,8 @@
       "200": { "value": "{size.45}" },
       "400": { "value": "{size.60}" },
       "line-height": {
-        "100": { "value": "{size.40}" },
-        "200": { "value": "{size.45}" },
+        "100": { "value": "{size.60}" },
+        "200": { "value": "{size.60}" },
         "400": { "value": "{size.60}" }
       }
     }

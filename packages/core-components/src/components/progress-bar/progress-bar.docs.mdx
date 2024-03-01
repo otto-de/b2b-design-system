@@ -1,0 +1,40 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+} from '@storybook/blocks';
+import * as ProgressBarStories from './progress-bar.stories';
+
+<Meta of={ProgressBarStories} />
+
+# Progress Bar
+
+The progress bar component represents the progression of a process. Additionally, a label can be included below or alongside the progress bar.
+
+<Canvas of={ProgressBarStories.story010Default} sourceState="shown" />
+
+## Properties
+
+### Progress
+
+This property represents the progression of a process. It is a required argument and its value can range between `0` and `100`.
+
+### Label
+
+The label of the progress bar. If not specified, `label` is set to `undefined`.
+
+### Label Type
+
+This property controls whether the label should be rendered below or on the side of the progress bar. Its value should be either `below` or `side`. It is optional and defaults to `below`.
+
+### Label Position
+
+This property controls whether the label should be rendered on the right or left side of the progress bar. Its value should be either `left` or `right`. It is optional and defaults to `left`.
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

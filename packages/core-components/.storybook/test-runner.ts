@@ -4,14 +4,15 @@ const customSnapshotsDir = `${process.cwd()}/__snapshots__`;
 
 const ignoredStories = [
   'components-assets-icon--story-070-all-icons',
+  'components-assets-icon--story-040-size-50',
   'components-status-feedback-modal--story-010-backdrop-dismiss',
   'components-status-feedback-modal--story-020-esc-dismiss',
   'components-interaction-tooltip--story-010-hover',
   'components-interaction-tooltip--story-020-focus',
   'components-interaction-tooltip--story-030-custom',
-  'designtokens-color--story-010-color-tokens',
-  'designtokens-font--story-010-font-tokens',
-  'designtokens-size--story-010-size-tokens',
+  'design-tokens-color--story-010-color-tokens',
+  'design-tokens-font--story-010-font-tokens',
+  'design-tokens-size--story-010-size-tokens',
 ];
 
 module.exports = {

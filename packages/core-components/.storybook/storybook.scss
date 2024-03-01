@@ -11,3 +11,12 @@
     margin-bottom: 8px !important;
   }
 }
+
+.docs-button-obc-overwrite {
+  appearance: none;
+  -webkit-appearance: none !important;
+  button, a, [type=button] {
+    appearance: none;
+    -webkit-appearance: none !important;
+  }
+}

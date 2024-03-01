@@ -18,6 +18,11 @@
   }
 }
 
+:host(.b2b-table-row--colspan) {
+  flex-flow: row nowrap;
+  display: flex;
+}
+
 :host(.b2b-table-row--color-default) {
   background-color: inherit;
 }
@@ -59,11 +64,16 @@
   }
 }
 
-.b2b-table-header__control-cell {
-  /* For equal width the control cell will automatically grow.
-  We should fix the size and this size
-   */
-  max-width: 44px;
+.b2b-table-row__control-cell {
+  &--checkbox {
+    flex: 0 0 var(--b2b-size-40);
+    width: var(--b2b-size-40);
+  }
+
+  &--accordion {
+    flex: 0 0 var(--b2b-size-60);
+    width: var(--b2b-size-60);
+  }
 }
 
 /* purgecss end ignore */

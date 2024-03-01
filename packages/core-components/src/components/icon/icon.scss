@@ -3,6 +3,8 @@
 :host {
   --b2b-icon-line-height: inherit;
   --b2b-icon-cursor: default;
+  --b2b-icon-width: var(--b2b-size-60);
+  --b2b-icon-height: var(--b2b-size-60);
 
   .b2b-icon {
     display: inline-flex;
@@ -17,6 +19,18 @@
     &.b2b-icon--50 {
       width: var(--b2b-size-40);
       height: var(--b2b-size-40);
+    }
+
+    &.b2b-icon--variant-50 {
+      width: var(--b2b-size-30);
+      height: var(--b2b-size-30);
+    }
+
+    &.b2b-icon--variant-100 {
+      width: var(--b2b-icon-width);
+      height: var(--b2b-icon-height);
+      min-width: var(--b2b-size-60);
+      min-height: var(--b2b-size-60);
     }
 
     &.b2b-icon--100 {

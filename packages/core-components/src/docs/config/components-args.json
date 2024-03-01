@@ -141,6 +141,43 @@
       "description": "The target the URL will be opened into. The default is self."
     }
   },
+  "b2b-breadcrumb": {},
+  "b2b-breadcrumb-item": {
+    "active": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "If the item is currently selected. If true, it will not emit an event when clicked and does not have a hover state."
+    },
+    "href": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "If defined, an anchor tag will be rendered instead of a span, opening the specified link in the same context when clicked."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value associated with the current page. It is required, must be unique and can be a page title, an id or something similar."
+    }
+  },
   "b2b-button": {
     "active": {
       "control": {
@@ -274,6 +311,25 @@
         }
       },
       "description": "The button variant. If not specified, the button will be the secondary variant."
+    },
+    "width": {
+      "options": [
+        "custom",
+        "fit-container",
+        "fit-content"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'fit-content'"
+        }
+      },
+      "description": "The width of the button. Per default, it will fit the content"
     }
   },
   "b2b-card": {
@@ -890,10 +946,14 @@
         "b2b_icon-almond",
         "b2b_icon-archive",
         "b2b_icon-armchair",
+        "b2b_icon-arrow-down-50",
         "b2b_icon-arrow-down",
         "b2b_icon-arrow-graph",
+        "b2b_icon-arrow-left-50",
         "b2b_icon-arrow-left",
+        "b2b_icon-arrow-right-50",
         "b2b_icon-arrow-right",
+        "b2b_icon-arrow-up-50",
         "b2b_icon-arrow-up",
         "b2b_icon-assembly",
         "b2b_icon-assortment",
@@ -904,6 +964,7 @@
         "b2b_icon-bar-graph-ascending",
         "b2b_icon-bar-graph-axis",
         "b2b_icon-barley",
+        "b2b_icon-basket-50",
         "b2b_icon-basket-sale",
         "b2b_icon-basket",
         "b2b_icon-basketball",
@@ -926,11 +987,13 @@
         "b2b_icon-certificate",
         "b2b_icon-chair",
         "b2b_icon-chat",
+        "b2b_icon-check-50",
         "b2b_icon-check-bold",
         "b2b_icon-check",
         "b2b_icon-chicken",
         "b2b_icon-city",
         "b2b_icon-clear",
+        "b2b_icon-close-50",
         "b2b_icon-close-bold",
         "b2b_icon-close",
         "b2b_icon-code-management",
@@ -943,6 +1006,7 @@
         "b2b_icon-cut-out",
         "b2b_icon-dashboard",
         "b2b_icon-deer",
+        "b2b_icon-delete-50",
         "b2b_icon-delete",
         "b2b_icon-delivery-24h",
         "b2b_icon-delivery-desired-date-selection",
@@ -976,6 +1040,7 @@
         "b2b_icon-empty-hint",
         "b2b_icon-end-to-end",
         "b2b_icon-error-article-image",
+        "b2b_icon-error-hint-50",
         "b2b_icon-error-hint",
         "b2b_icon-error",
         "b2b_icon-euro",
@@ -984,6 +1049,7 @@
         "b2b_icon-expand",
         "b2b_icon-faq",
         "b2b_icon-feedback",
+        "b2b_icon-filter-50",
         "b2b_icon-filter",
         "b2b_icon-fish",
         "b2b_icon-fitness",
@@ -1005,6 +1071,8 @@
         "b2b_icon-hide",
         "b2b_icon-high-heels",
         "b2b_icon-home",
+        "b2b_icon-info-50",
+        "b2b_icon-info-hint-50",
         "b2b_icon-info-small",
         "b2b_icon-info",
         "b2b_icon-inplace-zoom-reverse",
@@ -1013,6 +1081,7 @@
         "b2b_icon-kamut",
         "b2b_icon-laptop-os",
         "b2b_icon-laptop",
+        "b2b_icon-leaving-page-50",
         "b2b_icon-leaving-page",
         "b2b_icon-light-bulb",
         "b2b_icon-like-fingers",
@@ -1029,6 +1098,7 @@
         "b2b_icon-menu",
         "b2b_icon-mic",
         "b2b_icon-milk",
+        "b2b_icon-minus-50",
         "b2b_icon-minus",
         "b2b_icon-module-operations",
         "b2b_icon-money-coins",
@@ -1093,6 +1163,7 @@
         "b2b_icon-phone-permission",
         "b2b_icon-phone",
         "b2b_icon-pig",
+        "b2b_icon-pin-50",
         "b2b_icon-pin",
         "b2b_icon-pinch-gesture",
         "b2b_icon-pinch",
@@ -1100,21 +1171,29 @@
         "b2b_icon-plant",
         "b2b_icon-play-1",
         "b2b_icon-play",
+        "b2b_icon-plus-50",
         "b2b_icon-plus",
         "b2b_icon-price-alert",
         "b2b_icon-price-tag",
         "b2b_icon-print",
         "b2b_icon-puzzle",
         "b2b_icon-qr-code",
+        "b2b_icon-question-50",
+        "b2b_icon-question-hint-50",
         "b2b_icon-question-hint",
         "b2b_icon-question",
+        "b2b_icon-rating-empty-50",
         "b2b_icon-rating-empty",
+        "b2b_icon-rating-filled-50",
         "b2b_icon-rating-filled",
+        "b2b_icon-rating-half-50",
         "b2b_icon-rating-half",
         "b2b_icon-rating-order",
         "b2b_icon-rating-payment",
+        "b2b_icon-refresh-50",
         "b2b_icon-remote-work",
         "b2b_icon-repair",
+        "b2b_icon-reply-50",
         "b2b_icon-reply",
         "b2b_icon-retirement-provision",
         "b2b_icon-rocket",
@@ -1141,16 +1220,21 @@
         "b2b_icon-smiley-happy",
         "b2b_icon-smiley-negative",
         "b2b_icon-smiley-neutral",
+        "b2b_icon-smiley-positive-50",
         "b2b_icon-smiley-positive",
         "b2b_icon-sms-info",
         "b2b_icon-sneaker",
+        "b2b_icon-sort-50",
+        "b2b_icon-sort-ascending-50",
         "b2b_icon-sort-ascending",
+        "b2b_icon-sort-descending-50",
         "b2b_icon-sort-descending",
         "b2b_icon-sort",
         "b2b_icon-soy",
         "b2b_icon-spelt",
         "b2b_icon-stationary",
         "b2b_icon-studies",
+        "b2b_icon-success-hint-50",
         "b2b_icon-success",
         "b2b_icon-sustainable-delivery",
         "b2b_icon-sustainable-energy-efficient",
@@ -1167,7 +1251,11 @@
         "b2b_icon-test-result",
         "b2b_icon-town",
         "b2b_icon-trash",
+        "b2b_icon-trend-down-50",
         "b2b_icon-trend-down",
+        "b2b_icon-trend-left",
+        "b2b_icon-trend-right",
+        "b2b_icon-trend-up-50",
         "b2b_icon-trend-up",
         "b2b_icon-trousers",
         "b2b_icon-trusted",
@@ -1184,18 +1272,26 @@
         "b2b_icon-volume-on",
         "b2b_icon-voucher",
         "b2b_icon-walnut",
+        "b2b_icon-warning-hint-50",
+        "b2b_icon-warning-hint",
         "b2b_icon-warning",
         "b2b_icon-warranty",
         "b2b_icon-washing-machine",
         "b2b_icon-whatsapp",
         "b2b_icon-wheat",
         "b2b_icon-wifi",
+        "b2b_icon-wishlist-50",
+        "b2b_icon-wishlist-active-50",
         "b2b_icon-wishlist-active",
         "b2b_icon-wishlist",
         "b2b_icon-work-life",
         "b2b_icon-workshop",
         "b2b_icon-zoom-in",
-        "b2b_icon-zoom-out"
+        "b2b_icon-zoom-out",
+        "b2b_logo-carrier-dhl",
+        "b2b_logo-carrier-gls",
+        "b2b_logo-carrier-hermes",
+        "b2b_logo-carrier-ups"
       ],
       "control": {
         "type": "radio"
@@ -1225,7 +1321,23 @@
           "summary": "'100'"
         }
       },
-      "description": "The size of the icon"
+      "description": ""
+    },
+    "variant": {
+      "options": [
+        "100",
+        "50"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Icon variant. Icon 50 is only available for select icons. Icon 100 is 24x24px and can be scaled up."
     }
   },
   "b2b-input": {
@@ -1620,6 +1732,91 @@
       "description": "The size of the modal. If not specified, will assume the default size"
     }
   },
+  "b2b-multiselect-dropdown": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The input label."
+    },
+    "maxOptionsVisible": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "8"
+        }
+      },
+      "description": "The maximum amount of chips visible. Adjust this depending on available size of the dropdown."
+    },
+    "optionsList": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the input field."
+    },
+    "searchPlaceholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the search bar."
+    },
+    "selectAllLabel": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The string displayed as the select all label."
+    }
+  },
+  "b2b-multiselect-option": {
+    "option": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the option."
+    },
+    "selected": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option is currently selected."
+    }
+  },
   "b2b-pagination": {
     "activePage": {
       "table": {
@@ -1721,6 +1918,62 @@
         }
       },
       "description": "The weight of the text."
+    }
+  },
+  "b2b-progress-bar": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The label of the progress bar."
+    },
+    "labelPosition": {
+      "options": [
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "Whether the label should be displayed on the right or left of the progress bar."
+    },
+    "labelType": {
+      "options": [
+        "below",
+        "side"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'below'"
+        }
+      },
+      "description": "Whether the label should be displayed below or on the side of the progress bar."
+    },
+    "progress": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "The percentage of progress from 0 to 100."
     }
   },
   "b2b-radio-button": {
@@ -2142,6 +2395,7 @@
   "b2b-table": {
     "size": {
       "options": [
+        "colspan",
         "equal",
         "expand"
       ],
@@ -2156,7 +2410,7 @@
           "summary": "TableSizes.EXPAND"
         }
       },
-      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns."
+      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns.\r\nColspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells\r\nto make them span more than one column."
     }
   },
   "b2b-table-cell": {
@@ -2198,6 +2452,15 @@
       },
       "description": "Background color of the cell. This color selection does not have hover states, as it is handled from the row*"
     },
+    "colspan": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "How many columns the cell should span. Accepts numbers greater than one."
+    },
     "divider": {
       "control": {
         "type": "boolean"
@@ -2211,24 +2474,6 @@
         }
       },
       "description": "adds a border to the right of the cell. *"
-    },
-    "size": {
-      "options": [
-        "equal",
-        "expand"
-      ],
-      "control": {
-        "type": "radio"
-      },
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {
-          "summary": "TableSizes.EXPAND"
-        }
-      },
-      "description": "The size of the cell. Follows table size.\r\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\r\nOther sizes won't affect cell current implementation."
     },
     "textWrap": {
       "control": {
@@ -2246,6 +2491,34 @@
     }
   },
   "b2b-table-header": {
+    "colspan": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "The width of the column. Increase it to change the size of the column relative to other columns."
+    },
+    "contentAlign": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "ContentAlignment.LEFT"
+        }
+      },
+      "description": "Alignment of the content of the cell, by default is to the left. *"
+    },
     "divider": {
       "control": {
         "type": "boolean"
@@ -2272,7 +2545,26 @@
           "summary": "false"
         }
       },
-      "description": "sets the header position to sticky. Use it when table is inside a scrollable container. *"
+      "description": ""
+    },
+    "size": {
+      "options": [
+        "colspan",
+        "equal",
+        "expand"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "TableSizes.EXPAND"
+        }
+      },
+      "description": "The size of the cell. Follows table size.\r\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\r\nOther sizes won't affect cell current implementation."
     },
     "sortDirection": {
       "options": [
@@ -2388,6 +2680,20 @@
       },
       "description": "Renders the rowgroup as an accordion. Both header and body must have accordion set to true.\r\nOne table can contain multiple rowgroups of type body, each of which represents an accordion row with children."
     },
+    "fixed": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Sets the header rowgroup position to sticky. Use this in a scrollable container."
+    },
     "opened": {
       "control": {
         "type": "boolean"
@@ -2473,6 +2779,15 @@
         "defaultValue": {}
       },
       "description": "An optional error message that is displayed when the textarea is invalid. Per default it is undefined."
+    },
+    "height": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The height of the text area"
     },
     "hint": {
       "table": {
@@ -2634,6 +2949,81 @@
       "description": "The value of the toggle button. This will be emitted when the toggle button is clicked. This is required"
     }
   },
+  "b2b-toggle-chip": {
+    "active": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the chip is currently active. Per default, it is false."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the chip is currently disabled. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The chip's label. This is required."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {}
+      },
+      "description": "The value associated with the toggle chip. This is emitted when the chip is interacted with."
+    },
+    "variant": {
+      "options": [
+        "grey",
+        "white"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'grey'"
+        }
+      },
+      "description": "The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey"
+    }
+  },
   "b2b-toggle-group": {
     "disabled": {
       "control": {
@@ -2657,6 +3047,72 @@
         "defaultValue": {}
       },
       "description": "The toggle group name used to group them together programmatically. This is required."
+    }
+  },
+  "b2b-toggle-switch": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the toggle button is currently disabled. Per default it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "An optional label for the toggle switch."
+    },
+    "labelPosition": {
+      "options": [
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of the toggle switch label."
+    },
+    "name": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The toggle name. Use this if the toggle switch is used in a form group."
+    },
+    "state": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the toggle button is currently on or off. Per default it is off."
     }
   },
   "b2b-tooltip": {
