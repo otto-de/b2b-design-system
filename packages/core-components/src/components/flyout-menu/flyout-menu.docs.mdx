@@ -1,0 +1,60 @@
+import {
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+  Meta,
+} from '@storybook/blocks';
+import * as FlyoutMenuStories from './flyout-menu.stories';
+
+<Meta of={FlyoutMenuStories} />
+
+# Flyout Menu Component
+
+<Canvas of={FlyoutMenuStories.Default} />
+
+The B2B flyout menu component is interactive and list down the multiple menu options. You can hook into an event
+that fires whenever the user selects an option from the flyout menu.
+
+☝️ You should not add other interactive content such as links or buttons to the flyout menu.
+
+☝️ Remember not to use the flyout menu just to display content, it is an interactive element and must execute an action when
+clicked
+
+NOTE: All attributes are optional. The component can simply be used like this without specifying any attributes:
+
+<Source
+  code={`<b2b-flyout-menu><b2b-icon icon="b2b_icon-ellipsis" slot='icon'></b2b-icon><b2b-flyout-menu-option slot='option' option='option1' ></b2b-flyout-menu-option></b2b-flyout-menu>`}
+/>
+
+## Properties
+
+### Disabled
+
+The flyout menu option can be disabled, and it would render opaque and unclickable.
+
+<Canvas of={FlyoutMenuStories.Disabled} />
+
+### Separator
+
+The flyout menu option can have a separator after an option when separator property is set as true.
+
+<Canvas of={FlyoutMenuStories.Separator} />
+
+<br />
+
+## Events
+
+### b2b-selected
+
+This event emits whenever the user selects an option by clicking on it or pressing enter while it has focus. You can
+listen to this.
+
+<br />
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
