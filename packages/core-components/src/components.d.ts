@@ -264,6 +264,23 @@ export namespace Components {
          */
         "required": boolean;
     }
+    interface B2bFlyoutMenu {
+        "opened": boolean;
+    }
+    interface B2bFlyoutMenuOption {
+        /**
+          * Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected.
+         */
+        "disabled": boolean;
+        /**
+          * The option name.
+         */
+        "option": string;
+        /**
+          * Whether the option has a separator at the bottom. Per default it is false.
+         */
+        "separator": boolean;
+    }
     interface B2bGrid {
         /**
           * The inner padding of the grid container measured in px.
@@ -341,6 +358,10 @@ export namespace Components {
           * The color of the icon
          */
         "color": 'primary' | 'secondary' | 'inverse' | 'inherit';
+        /**
+          * Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu.
+         */
+        "focusable": boolean;
         /**
           * The name of the icon
          */
@@ -1108,6 +1129,10 @@ export interface B2bDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bDropdownElement;
 }
+export interface B2bFlyoutMenuOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bFlyoutMenuOptionElement;
+}
 export interface B2bInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bInputElement;
@@ -1344,6 +1369,29 @@ declare global {
     var HTMLB2bDropdownElement: {
         prototype: HTMLB2bDropdownElement;
         new (): HTMLB2bDropdownElement;
+    };
+    interface HTMLB2bFlyoutMenuElement extends Components.B2bFlyoutMenu, HTMLStencilElement {
+    }
+    var HTMLB2bFlyoutMenuElement: {
+        prototype: HTMLB2bFlyoutMenuElement;
+        new (): HTMLB2bFlyoutMenuElement;
+    };
+    interface HTMLB2bFlyoutMenuOptionElementEventMap {
+        "b2b-option-selected": OptionSelectedEventDetail;
+    }
+    interface HTMLB2bFlyoutMenuOptionElement extends Components.B2bFlyoutMenuOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bFlyoutMenuOptionElementEventMap>(type: K, listener: (this: HTMLB2bFlyoutMenuOptionElement, ev: B2bFlyoutMenuOptionCustomEvent<HTMLB2bFlyoutMenuOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bFlyoutMenuOptionElementEventMap>(type: K, listener: (this: HTMLB2bFlyoutMenuOptionElement, ev: B2bFlyoutMenuOptionCustomEvent<HTMLB2bFlyoutMenuOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bFlyoutMenuOptionElement: {
+        prototype: HTMLB2bFlyoutMenuOptionElement;
+        new (): HTMLB2bFlyoutMenuOptionElement;
     };
     interface HTMLB2bGridElement extends Components.B2bGrid, HTMLStencilElement {
     }
@@ -1875,6 +1923,8 @@ declare global {
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
         "b2b-chip-component": HTMLB2bChipComponentElement;
         "b2b-dropdown": HTMLB2bDropdownElement;
+        "b2b-flyout-menu": HTMLB2bFlyoutMenuElement;
+        "b2b-flyout-menu-option": HTMLB2bFlyoutMenuOptionElement;
         "b2b-grid": HTMLB2bGridElement;
         "b2b-grid-col": HTMLB2bGridColElement;
         "b2b-grid-row": HTMLB2bGridRowElement;
@@ -2203,6 +2253,27 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
     }
+    interface B2bFlyoutMenu {
+        "opened"?: boolean;
+    }
+    interface B2bFlyoutMenuOption {
+        /**
+          * Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected.
+         */
+        "disabled"?: boolean;
+        /**
+          * Emits the option as a string whenever an option is selected.
+         */
+        "onB2b-option-selected"?: (event: B2bFlyoutMenuOptionCustomEvent<OptionSelectedEventDetail>) => void;
+        /**
+          * The option name.
+         */
+        "option": string;
+        /**
+          * Whether the option has a separator at the bottom. Per default it is false.
+         */
+        "separator"?: boolean;
+    }
     interface B2bGrid {
         /**
           * The inner padding of the grid container measured in px.
@@ -2280,6 +2351,10 @@ declare namespace LocalJSX {
           * The color of the icon
          */
         "color"?: 'primary' | 'secondary' | 'inverse' | 'inherit';
+        /**
+          * Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu.
+         */
+        "focusable"?: boolean;
         /**
           * The name of the icon
          */
@@ -3129,6 +3204,8 @@ declare namespace LocalJSX {
         "b2b-checkbox-group": B2bCheckboxGroup;
         "b2b-chip-component": B2bChipComponent;
         "b2b-dropdown": B2bDropdown;
+        "b2b-flyout-menu": B2bFlyoutMenu;
+        "b2b-flyout-menu-option": B2bFlyoutMenuOption;
         "b2b-grid": B2bGrid;
         "b2b-grid-col": B2bGridCol;
         "b2b-grid-row": B2bGridRow;
@@ -3187,6 +3264,8 @@ declare module "@stencil/core" {
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
             "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
             "b2b-dropdown": LocalJSX.B2bDropdown & JSXBase.HTMLAttributes<HTMLB2bDropdownElement>;
+            "b2b-flyout-menu": LocalJSX.B2bFlyoutMenu & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuElement>;
+            "b2b-flyout-menu-option": LocalJSX.B2bFlyoutMenuOption & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuOptionElement>;
             "b2b-grid": LocalJSX.B2bGrid & JSXBase.HTMLAttributes<HTMLB2bGridElement>;
             "b2b-grid-col": LocalJSX.B2bGridCol & JSXBase.HTMLAttributes<HTMLB2bGridColElement>;
             "b2b-grid-row": LocalJSX.B2bGridRow & JSXBase.HTMLAttributes<HTMLB2bGridRowElement>;

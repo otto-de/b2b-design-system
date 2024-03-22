@@ -1,0 +1,96 @@
+@use '../../global/b2b-styles';
+
+.b2b-flyout-menu {
+  position: relative;
+  display: inline !important;
+
+  &__trigger {
+    cursor: pointer;
+    display: inline;
+
+    &:focus {
+      outline: 2px solid -webkit-focus-ring-color;
+      outline-offset: -1px;
+      z-index: 9999;
+    }
+  }
+
+  .b2b-flyout-menu__options {
+    &__container {
+      background-color: var(--b2b-color-white-100);
+      display: none;
+      box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+      font-size: var(--b2b-size-copy-100);
+      margin: 0.75rem 0 0;
+      position: absolute;
+      right: -0.625rem;
+      text-align: left;
+      z-index: 1000;
+      line-height: var(--b2b-size-copy-line-height-100);
+
+      &--on {
+        display: block;
+      }
+    }
+  }
+
+  &__arrow {
+    bottom: 100%;
+    height: 0.625rem;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    transform: translateX(-0.75rem);
+    width: 1.25rem;
+    z-index: 1001;
+
+    &::after {
+      background: var(--b2b-color-white-100);
+      box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
+      content: '';
+      height: 0.875rem;
+      position: absolute;
+      transform: translateX(3px) translateY(3px) rotate(45deg);
+      width: 0.875rem;
+    }
+  }
+
+  /* this is a workaround to force purgecss to include the overwrites of
+   the variables --b2b-border-right and --b2b-border-radius
+  */
+  .purge-css-include-variables {
+    border-radius: var(--b2b-border-radius);
+    border-right: var(--b2b-border-right);
+    cursor: var(--b2b-icon-cursor);
+  }
+}
+
+.b2b-flyout-menu__option {
+  display: block;
+  padding: var(--b2b-size-15) var(--b2b-size-30) 5px var(--b2b-size-30);
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+
+  &--separator {
+    border-bottom: 1px solid var(--b2b-color-grey-200);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--b2b-color-table-selected-hover);
+    outline: none;
+  }
+
+  &:first-of-type {
+    padding-top: 9px;
+  }
+
+  &:last-of-type {
+    padding-bottom: 9px;
+  }
+}
+
+.b2b-flyout-menu__option--disabled {
+  pointer-events: none;
+  color: var(--b2b-color-grey-200);
+}

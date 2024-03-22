@@ -24,6 +24,9 @@ export class B2bIcon {
   /** Will display a pointer cursor when hovering the icon */
   @Prop() clickable: boolean = false;
 
+  /** Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu. */
+  @Prop() focusable: boolean = false;
+
   @State() private pathData: string = null;
 
   connectedCallback() {
@@ -49,6 +52,7 @@ export class B2bIcon {
     return (
       <Host>
         <div
+          tabIndex={this.focusable ? 0 : null}
           class={{
             'b2b-icon': true,
             [`b2b-icon--${this.size}`]:

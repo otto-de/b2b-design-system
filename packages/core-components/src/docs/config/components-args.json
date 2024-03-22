@@ -723,6 +723,46 @@
       "description": "Adds an asterisk at the end of the label to signify that the field is required."
     }
   },
+  "b2b-flyout-menu": {},
+  "b2b-flyout-menu-option": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected."
+    },
+    "option": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The option name."
+    },
+    "separator": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option has a separator at the bottom. Per default it is false."
+    }
+  },
   "b2b-grid": {
     "margin": {
       "table": {
@@ -937,6 +977,20 @@
         }
       },
       "description": "The color of the icon"
+    },
+    "focusable": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu."
     },
     "icon": {
       "options": [
