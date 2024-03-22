@@ -16,23 +16,22 @@
   }
 
   .b2b-flyout-menu__options {
-  
-  &__container {
-    background-color: var(--b2b-color-white-100);
-    display: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    font-size: var(--b2b-size-copy-100);
-    margin: 0.75rem 0 0;
-    position: absolute;
-    right: -0.625rem;
-    text-align: left;
-    z-index: 1000;
-    line-height: var(--b2b-size-copy-line-height-100);
+    &__container {
+      background-color: var(--b2b-color-white-100);
+      display: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      font-size: var(--b2b-size-copy-100);
+      margin: 0.75rem 0 0;
+      position: absolute;
+      right: -0.625rem;
+      text-align: left;
+      z-index: 1000;
+      line-height: var(--b2b-size-copy-line-height-100);
 
-    &--on {
-      display: block;
+      &--on {
+        display: block;
+      }
     }
-  }
   }
   &__arrow {
     bottom: 100%;
