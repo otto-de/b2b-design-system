@@ -5,11 +5,9 @@ describe('B2B-FlyoutMenu', () => {
 
   beforeEach(async () => {
     page = await newE2EPage();
-    await page.setContent(`<b2b-card>Hello World</b2b-card>`);
-    page = await newE2EPage();
     await page.setContent(`
       <b2b-flyout-menu>
-        <b2b-icon icon="b2b_icon-ellipsis" slot='icon'></b2b-icon>
+        <b2b-icon icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon>
         <b2b-flyout-menu-option slot='option' option='option1' >
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option slot='option' option='option2' >
@@ -24,31 +22,45 @@ describe('B2B-FlyoutMenu', () => {
 
   it('should display the flyout menu component along with the custom icon', async () => {
     const flyoutMenu = await page.find('b2b-flyout-menu');
-    const icon = flyoutMenu.shadowRoot?.icon;
+    const icon = flyoutMenu.icon;
 
     expect(flyoutMenu).not.toBeNull();
     expect(icon).not.toBeNull();
   });
 
   it('should show the menu when icon is clicked', async () => {
-    const iconContainer = await page.find(
-      'b2b-flyout-menu >>> .b2b-flyout-menu__icon',
-    );
+    const iconContainer = await page.find('b2b-icon');
 
     iconContainer.click();
     await page.waitForChanges();
 
     const flyoutMenuOption = await page.find('b2b-flyout-menu-option');
-    expect(flyoutMenuOption).not.toBeNull();
+    expect(await flyoutMenuOption.isVisible()).toBe(true);
+  });
+
+  it('should hide the menu when it loses focus', async () => {
+    const iconContainer = await page.find('b2b-icon');
+
+    iconContainer.click();
+    await page.waitForChanges();
+    const flyoutMenuOption = await page.find('b2b-flyout-menu-option');
+    expect(await flyoutMenuOption.isVisible()).toBe(true);
+
+    await page.keyboard.press('Tab');
+    await page.waitForChanges();
+    const container = await page.find(
+      'b2b-flyout-menu >>> div.b2b-flyout-menu__options__container',
+    );
+    expect(container).not.toHaveClass(
+      'b2b-flyout-menu__options__container--on',
+    );
   });
 
   it('should emit the selected event when a menu option is clicked', async () => {
     const optionSelectedEventSpy = await page.spyOnEvent('b2b-option-selected');
-    const iconContainer = await page.find(
-      'b2b-flyout-menu >>> .b2b-flyout-menu__icon',
-    );
+    const icon = await page.find('b2b-icon');
 
-    iconContainer.click();
+    icon.click();
     await page.waitForChanges();
 
     const flyoutMenuOption = await page.find('b2b-flyout-menu-option');
@@ -64,11 +76,9 @@ describe('B2B-FlyoutMenu', () => {
 
   it('should disable an option when disabled is true', async () => {
     const optionSelectedEventSpy = await page.spyOnEvent('b2b-option-selected');
-    const iconContainer = await page.find(
-      'b2b-flyout-menu >>> .b2b-flyout-menu__icon',
-    );
+    const icon = await page.find('b2b-icon');
 
-    iconContainer.click();
+    icon.click();
     await page.waitForChanges();
 
     const flyoutMenuOption = await page.find({ text: 'option3' });
@@ -80,11 +90,9 @@ describe('B2B-FlyoutMenu', () => {
   });
 
   it('should display separator after an option when separator is true', async () => {
-    const iconContainer = await page.find(
-      'b2b-flyout-menu >>> .b2b-flyout-menu__icon',
-    );
+    const icon = await page.find('b2b-icon');
 
-    iconContainer.click();
+    icon.click();
     await page.waitForChanges();
 
     const flyoutMenuOptions = await page.findAll('b2b-flyout-menu-option');
@@ -92,5 +100,29 @@ describe('B2B-FlyoutMenu', () => {
 
     const separator = await flyoutMenuOption4.getProperty('separator');
     expect(separator).toBe(true);
+  });
+
+  it('should emit the selected event when a menu option is navigated to using a keyboard', async () => {
+    const optionSelectedEventSpy = await page.spyOnEvent('b2b-option-selected');
+    await page.keyboard.press('Tab');
+    await page.waitForChanges();
+
+    await page.keyboard.press('Enter');
+    await page.waitForChanges();
+
+    const flyoutMenuOption = await page.find('b2b-flyout-menu-option');
+    expect(flyoutMenuOption).not.toBeNull();
+    expect(await flyoutMenuOption.isVisible()).toBe(true);
+
+    await page.keyboard.press('ArrowDown');
+    await page.waitForChanges();
+
+    await page.keyboard.press('Enter');
+    await page.waitForChanges();
+
+    expect(optionSelectedEventSpy).toHaveReceivedEvent();
+    expect(optionSelectedEventSpy).toHaveReceivedEventDetail({
+      selectedOption: 'option1',
+    });
   });
 });

@@ -1,8 +1,5 @@
-import { Component, Element, h, Host, Listen, State } from '@stencil/core';
-
-/** Modal component
- * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53
- */
+import { Component, Element, h, Host, Listen, Prop } from '@stencil/core';
+import { isClickOutside } from '../../utils/utils';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -20,15 +17,41 @@ const keys = {
 export class FlyoutMenuComponent {
   @Element() hostElement: HTMLB2bFlyoutMenuElement;
 
-  @State() isElementFocused: boolean = false;
+  /** @internal if the menu is opened. */
+  @Prop({ mutable: true }) opened: boolean = false;
+
+  private triggerEl: HTMLElement;
+
+  connectedCallback() {
+    // Check if there are any HTML elements slotted.
+    // and stop registration if there are none
+    const children = Array.from(this.hostElement.children).filter(
+      x => !x.hasAttribute('option'),
+    );
+    if (children.length === 0) {
+      return;
+    }
+    // Manual event handler registration for focus events
+    this.triggerEl = children[0] as HTMLElement;
+    this.triggerEl.addEventListener('click', this.openMenu, true);
+    this.triggerEl.addEventListener('blur', this.blurMenu, true);
+  }
+
+  disconnectedCallback() {
+    if (Boolean(this.triggerEl)) {
+      this.triggerEl.removeEventListener('click', this.openMenu, true);
+      this.triggerEl.removeEventListener('blur', this.blurMenu, true);
+    }
+  }
 
   private getCurrentOption = () => {
     const options = this.getAllOptions();
     return options.find(el => el.getAttribute('tabindex') === '0');
   };
+
   private getAllOptions = () => {
     return Array.from(
-      this.hostElement.shadowRoot.querySelectorAll('b2b-flyout-menu-option'),
+      this.hostElement.querySelectorAll('b2b-flyout-menu-option'),
     );
   };
 
@@ -39,64 +62,107 @@ export class FlyoutMenuComponent {
     });
   };
 
-  private onEscapePress = () => {
-    this.setElementOutOfFocus();
+  private resetAllOptions = () => {
+    const options = this.getAllOptions();
+    options.forEach(element => {
+      element.setAttribute('tabindex', '-1');
+    });
   };
+
   @Listen('keydown')
   handleKeyDown(event: KeyboardEvent) {
-    /** we need to be informed when a user changes focus to the clear button
-     * without manually blurring the element, browser focus stack and the component's
-     * isElementFocused do not align, which causes a value change during rerender
-     */
     if (event.key === 'Tab') {
-      this.setElementOutOfFocus();
+      this.closeMenu();
+      return;
     } else if (
-      this.isElementFocused &&
-      Object.values(keys).includes(event.key)
+      //@ts-ignore
+      event.target.tagName.toLowerCase() ===
+        this.triggerEl.tagName.toLocaleLowerCase() &&
+      event.key === 'Enter'
     ) {
-      const options = this.getAllOptions();
-      const activeOption = this.getCurrentOption();
-      let index = options.indexOf(activeOption);
-      event.preventDefault();
-
-      switch (event.key) {
-        case keys.ARROW_UP:
-          index--;
-          break;
-        case keys.ARROW_DOWN:
-          index++;
-          break;
-        case keys.HOME:
-          index = 0;
-          break;
-        case keys.END:
-          index = options.length - 1;
-          break;
-        case keys.ESC:
-          this.onEscapePress();
-          return;
-        default:
-          return;
-      }
-
-      if (index < 0) {
-        index = options.length - 1;
-      }
-
-      if (index > options.length - 1) {
-        index = 0;
-      }
-
-      this.setCurrentOption(options[index]);
-      options[index].focus();
+      this.openMenu();
+    } else if (Object.values(keys).includes(event.key)) {
+      this.navigateMenu(event);
     }
   }
-  private setElementClicked = () => {
-    this.isElementFocused = true;
+
+  @Listen('b2b-option-selected')
+  handleSelected() {
+    this.closeMenu();
+  }
+
+  @Listen('click', { target: 'document' })
+  handleClickOutside(event) {
+    if (isClickOutside(event, this.hostElement)) {
+      this.closeMenu();
+    }
+  }
+
+  private onEscapePress = () => {
+    this.closeMenu();
   };
 
-  private setElementOutOfFocus = () => {
-    this.isElementFocused = false;
+  private openMenu = () => {
+    this.opened = true;
+  };
+
+  private navigateMenu(event: KeyboardEvent) {
+    event.preventDefault();
+    const options = this.getAllOptions();
+    const activeOption = this.getCurrentOption();
+    let index = options.indexOf(activeOption);
+
+    switch (event.key) {
+      case keys.ARROW_UP:
+        index--;
+        break;
+      case keys.ARROW_DOWN:
+        index++;
+        break;
+      case keys.HOME:
+        index = 0;
+        break;
+      case keys.END:
+        index = options.length - 1;
+        break;
+      case keys.ESC:
+        this.onEscapePress();
+        return;
+      default:
+        return;
+    }
+
+    if (index < 0) {
+      index = options.length - 1;
+    }
+
+    if (index > options.length - 1) {
+      index = 0;
+    }
+
+    this.setCurrentOption(options[index]);
+    options[index].focus();
+  }
+
+  private closeMenu = () => {
+    this.opened = false;
+    this.resetAllOptions();
+  };
+
+  /** We need to keep the menu open when the focus changes from the trigger
+   * to the options. We only close the menu if the next element receiving focus
+   * (relatedTarget) is not a menu option.
+   */
+  private blurMenu = event => {
+    event.preventDefault();
+    let target = event.relatedTarget
+      ? event.relatedTarget.nodeName.toLowerCase()
+      : '';
+    if (target === 'b2b-flyout-menu-option') {
+      return;
+    } else {
+      this.closeMenu();
+    }
   };
 
   render() {
@@ -105,22 +171,19 @@ export class FlyoutMenuComponent {
         <div
           class={{
             'b2b-flyout-menu': true,
-            'b2b-flyout-menu__options-on': this.isElementFocused,
           }}>
-          <button
-            class="b2b-flyout-menu__icon"
-            role="button"
-            onClick={this.setElementClicked}
-            onBlur={this.setElementOutOfFocus}>
-            <slot name="icon"></slot>
-          </button>
-
-          {this.isElementFocused ? (
-            <div class="b2b-flyout-menu__options-container">
-              <div class="b2b-flyout-menu__arrow"></div>
-              <slot name="option"></slot>
-            </div>
-          ) : null}
+          <div class="b2b-flyout-menu__trigger">
+            <slot name="trigger"></slot>
+          </div>
+          <div
+            onFocusout={this.blurMenu}
+            class={{
+              'b2b-flyout-menu__options__container': true,
+              'b2b-flyout-menu__options__container--on': this.opened,
+            }}>
+            <div class="b2b-flyout-menu__arrow"></div>
+            <slot name="option"></slot>
+          </div>
         </div>
       </Host>
     );

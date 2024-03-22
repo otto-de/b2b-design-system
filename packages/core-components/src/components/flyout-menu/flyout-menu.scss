@@ -2,16 +2,24 @@
 
 .b2b-flyout-menu {
   position: relative;
-  display: inline-block;
+  display: inline !important;
 
-  &__icon {
-    outline: none;
-    border: none;
-    background-color: transparent;
+  &__trigger {
+    cursor: pointer;
+    display: inline;
+
+    &:focus {
+      outline: 2px solid -webkit-focus-ring-color;
+      outline-offset: -1px;
+      z-index: 9999;
+    }
   }
 
-  .b2b-flyout-menu__options-container {
+  .b2b-flyout-menu__options {
+  
+  &__container {
     background-color: var(--b2b-color-white-100);
+    display: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     font-size: var(--b2b-size-copy-100);
     margin: 0.75rem 0 0;
@@ -20,6 +28,11 @@
     text-align: left;
     z-index: 1000;
     line-height: var(--b2b-size-copy-line-height-100);
+
+    &--on {
+      display: block;
+    }
+  }
   }
   &__arrow {
     bottom: 100%;
@@ -56,6 +69,7 @@
   display: block;
   padding: var(--b2b-size-15) var(--b2b-size-30) 5px var(--b2b-size-30);
   border-bottom: 1px solid transparent;
+  cursor: pointer;
 
   &--separator {
     border-bottom: 1px solid var(--b2b-color-grey-200);
@@ -64,20 +78,19 @@
   &:hover,
   &:focus {
     background-color: var(--b2b-color-table-selected-hover);
+    outline: none;
+  }
+
+  &:first-of-type {
+    padding-top: 9px;
+  }
+
+  &:last-of-type {
+    padding-bottom: 9px;
   }
 }
 
 .b2b-flyout-menu__option--disabled {
   pointer-events: none;
   color: var(--b2b-color-grey-200);
-}
-
-::slotted(*[slot='option']) {
-  &:first-child {
-    padding-top: 9px;
-  }
-
-  &:last-child {
-    padding-bottom: 9px;
-  }
 }

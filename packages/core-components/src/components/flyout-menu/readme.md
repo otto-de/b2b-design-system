@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property    | Attribute   | Description      | Type      | Default     |
-| ----------- | ----------- | ---------------- | --------- | ----------- |
-| `disabled`  | `disabled`  |                  | `boolean` | `false`     |
-| `option`    | `option`    | The option name. | `string`  | `undefined` |
-| `separator` | `separator` |                  | `boolean` | `false`     |
+| Property              | Attribute   | Description                                                                                                  | Type      | Default     |
+| --------------------- | ----------- | ------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `disabled`            | `disabled`  | Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected. | `boolean` | `false`     |
+| `option` _(required)_ | `option`    | The option name.                                                                                             | `string`  | `undefined` |
+| `separator`           | `separator` | Whether the option has a separator at the bottom. Per default it is false.                                   | `boolean` | `false`     |
 
 
 ## Events

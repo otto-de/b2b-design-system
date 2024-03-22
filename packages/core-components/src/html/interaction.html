@@ -149,6 +149,9 @@
           <b2b-icon slot="end" icon="b2b_icon-info" size="100"></b2b-icon>
           <span>Primary with Icon</span>
         </b2b-button>
+        <b2b-button>
+          <b2b-icon icon="b2b_icon-check" size="100"></b2b-icon>
+        </b2b-button>
       </div>
 
       <b2b-headline size="100" no-margin="true">Pali icons</b2b-headline>
@@ -245,97 +248,6 @@
             </b2b-input-group></div
         ></b2b-tab-panel>
       </b2b-tab-group>
-    </div>
-
-    <div class="content-container">
-      <b2b-headline size="200">Button</b2b-headline>
-      <b2b-headline size="100" no-margin="true">Primary</b2b-headline>
-      <div class="component-wrapper">
-        <b2b-button variant="primary" size="100">Primary</b2b-button>
-        <b2b-button variant="primary" size="50">Primary 50</b2b-button>
-        <b2b-button variant="primary" size="100">
-          <b2b-icon slot="start" icon="b2b_icon-check" size="100"></b2b-icon>
-          Primary with Icon
-          <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
-        </b2b-button>
-        <b2b-button variant="primary" size="100">
-          <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
-          <span>Primary with Icon</span>
-        </b2b-button>
-        <b2b-button href="https://www.otto.de" target="blank" disabled>
-          <b2b-icon slot="start" icon="b2b_icon-info" size="100"></b2b-icon>
-          Button with anchor
-        </b2b-button>
-      </div>
-
-      <b2b-headline size="100" no-margin="true"
-        >b2b Icon component</b2b-headline
-      >
-      <div class="component-wrapper">
-        <b2b-button variant="primary" size="100">
-          <b2b-icon slot="start" icon="b2b_icon-info" size="100"></b2b-icon>
-          Primary with Icon
-        </b2b-button>
-        <b2b-button variant="primary" size="100" loading>
-          <b2b-icon slot="end" icon="b2b_icon-info" size="100"></b2b-icon>
-          <span>Primary with Icon</span>
-        </b2b-button>
-      </div>
-
-      <b2b-headline size="100" no-margin="true">Pali icons</b2b-headline>
-      <div class="component-wrapper">
-        <b2b-button variant="primary" size="100">
-          <i slot="start" class="obc_icon-info"></i>
-          Primary with Icon
-        </b2b-button>
-        <b2b-button variant="primary" size="100">
-          <span>Primary with Icon</span>
-          <i slot="end" class="obc_icon-info"></i>
-        </b2b-button>
-      </div>
-
-      <b2b-headline size="100" no-margin="true">Secondary</b2b-headline>
-      <div class="component-wrapper">
-        <b2b-button variant="secondary" size="100">Secondary</b2b-button>
-        <b2b-button variant="secondary" size="50">Secondary 50</b2b-button>
-      </div>
-
-      <b2b-headline size="100" no-margin="true">Loading state</b2b-headline>
-      <div class="component-wrapper">
-        <b2b-button variant="primary" loading="true" size="100"
-          >Save</b2b-button
-        >
-        <b2b-button variant="secondary" loading="true" size="100"
-          >Save</b2b-button
-        >
-        <b2b-button variant="primary" loading="true" disabled="true" size="100"
-          >Save Disabled</b2b-button
-        >
-      </div>
-
-      <b2b-headline size="100" no-margin="true">Disabled</b2b-headline>
-      <div class="component-wrapper">
-        <b2b-button variant="primary" disabled="true" size="100"
-          >Disabled primary</b2b-button
-        >
-        <b2b-button
-          variant="primary"
-          disabled="true"
-          size="100"
-          href="https://www.otto.de"
-          >Disabled primary with href</b2b-button
-        >
-      </div>
-
-      <b2b-headline size="100" no-margin="true">Active</b2b-headline>
-      <div class="component-wrapper">
-        <b2b-button variant="secondary" size="100" active="true"
-          >Secondary</b2b-button
-        >
-        <b2b-button variant="secondary" size="50" active="true"
-          >Secondary 50</b2b-button
-        >
-      </div>
     </div>
 
     <div class="content-container">
@@ -483,16 +395,17 @@
 
     <div class="content-container">
       <b2b-headline size="200">Flyout Menu</b2b-headline>
-      <b2b-flyout-menu id="flyout-option">
-        <b2b-icon icon="b2b_icon-ellipsis" slot="icon"></b2b-icon>
+      <b2b-flyout-menu>
+        <b2b-icon
+          icon="b2b_icon-ellipsis"
+          slot="trigger"
+          focusable
+          clickable></b2b-icon>
         <b2b-flyout-menu-option slot="option" option="option1">
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option slot="option" option="option2">
         </b2b-flyout-menu-option>
-        <b2b-flyout-menu-option
-          slot="option"
-          option="option3"
-          bottom-line-separator>
+        <b2b-flyout-menu-option slot="option" option="option3" separator>
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option slot="option" option="option4" disabled>
         </b2b-flyout-menu-option>

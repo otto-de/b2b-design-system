@@ -14,7 +14,7 @@ import * as FlyoutMenuStories from './flyout-menu.stories';
 
 <Canvas of={FlyoutMenuStories.Default} />
 
-The B2B flyout menu component is interactive and list down the multiple menu options. You can hook into an event
+The B2B flyout menu component is interactive and lists down the multiple menu options. You can hook into an event
 that fires whenever the user selects an option from the flyout menu.
 
 ☝️ You should not add other interactive content such as links or buttons to the flyout menu.
@@ -22,10 +22,10 @@ that fires whenever the user selects an option from the flyout menu.
 ☝️ Remember not to use the flyout menu just to display content, it is an interactive element and must execute an action when
 clicked
 
-NOTE: All attributes are optional. The component can simply be used like this without specifying any attributes:
+NOTE: Disabled and separator are optional. The component can simply be used like this without specifying any properties aside from the label:
 
 <Source
-  code={`<b2b-flyout-menu><b2b-icon icon="b2b_icon-ellipsis" slot='icon'></b2b-icon><b2b-flyout-menu-option slot='option' option='option1' ></b2b-flyout-menu-option></b2b-flyout-menu>`}
+  code={`<b2b-flyout-menu><b2b-icon icon="b2b_icon-ellipsis" clickable focusable slot='trigger'></b2b-icon><b2b-flyout-menu-option slot='option' option='Cut' ></b2b-flyout-menu-option></b2b-flyout-menu>`}
 />
 
 ## Properties

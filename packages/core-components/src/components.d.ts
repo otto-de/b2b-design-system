@@ -265,13 +265,20 @@ export namespace Components {
         "required": boolean;
     }
     interface B2bFlyoutMenu {
+        "opened": boolean;
     }
     interface B2bFlyoutMenuOption {
+        /**
+          * Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected.
+         */
         "disabled": boolean;
         /**
           * The option name.
          */
         "option": string;
+        /**
+          * Whether the option has a separator at the bottom. Per default it is false.
+         */
         "separator": boolean;
     }
     interface B2bGrid {
@@ -351,6 +358,10 @@ export namespace Components {
           * The color of the icon
          */
         "color": 'primary' | 'secondary' | 'inverse' | 'inherit';
+        /**
+          * Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu.
+         */
+        "focusable": boolean;
         /**
           * The name of the icon
          */
@@ -2243,8 +2254,12 @@ declare namespace LocalJSX {
         "required"?: boolean;
     }
     interface B2bFlyoutMenu {
+        "opened"?: boolean;
     }
     interface B2bFlyoutMenuOption {
+        /**
+          * Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected.
+         */
         "disabled"?: boolean;
         /**
           * Emits the option as a string whenever an option is selected.
@@ -2253,7 +2268,10 @@ declare namespace LocalJSX {
         /**
           * The option name.
          */
-        "option"?: string;
+        "option": string;
+        /**
+          * Whether the option has a separator at the bottom. Per default it is false.
+         */
         "separator"?: boolean;
     }
     interface B2bGrid {
@@ -2333,6 +2351,10 @@ declare namespace LocalJSX {
           * The color of the icon
          */
         "color"?: 'primary' | 'secondary' | 'inverse' | 'inherit';
+        /**
+          * Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu.
+         */
+        "focusable"?: boolean;
         /**
           * The name of the icon
          */
