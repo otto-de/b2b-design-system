@@ -4,7 +4,7 @@ describe('B2B Tooltip', () => {
   const expectToBeVisibleAfterTransition = async (page, tooltipDiv) => {
     await page.$eval('b2b-tooltip', el => {
       const tooltipElm = el.shadowRoot.querySelector('div');
-      tooltipElm.addEventListener('transitionend', () => {
+      tooltipElm.addEventListener('transitioned', () => {
         expect(tooltipDiv.isVisible()).toBe(true);
       });
     });
