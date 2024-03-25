@@ -1,5 +1,5 @@
 import { Env, getAssetPath } from '@stencil/core';
-import { ICON_PATH } from '../../utils/resources';
+import { ICON_PATH } from '../resources';
 
 export const iconContent = new Map<string, string>();
 const requests = new Map<string, Promise<any>>();

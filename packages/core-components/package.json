@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "npm run build:icons && stencil build --docs",
-    "build:icons": "node src/components/icon/generate-icon-types.mjs",
+    "build:icons": "node scripts/generate-icon-types.mjs",
     "start": "stencil build --dev --watch --serve --config stencil-dev.config.ts",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",
