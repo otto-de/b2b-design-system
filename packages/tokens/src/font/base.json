@@ -5,7 +5,7 @@
     },
     "weight": {
       "thin": { "value": "100" },
-      "normal": { "value": "400" },
+      "normal": { "value": "500" },
       "bold": { "value": "700" }
     }
   }
