@@ -21,12 +21,14 @@
       display: none;
       box-shadow: 0 0 5px rgb(0 0 0 / 20%);
       font-size: var(--b2b-size-copy-100);
+      font-family: var(--b2b-font-family-default);
       margin: 0.75rem 0 0;
       position: absolute;
       right: -0.625rem;
       text-align: left;
       z-index: 1000;
       line-height: var(--b2b-size-copy-line-height-100);
+      padding: var(--b2b-size-10) 0;
 
       &--on {
         display: block;
@@ -79,14 +81,6 @@
   &:focus {
     background-color: var(--b2b-color-table-selected-hover);
     outline: none;
-  }
-
-  &:first-of-type {
-    padding-top: 9px;
-  }
-
-  &:last-of-type {
-    padding-bottom: 9px;
   }
 }
 

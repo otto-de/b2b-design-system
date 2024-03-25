@@ -77,7 +77,7 @@ export class FlyoutMenuComponent {
     } else if (
       //@ts-ignore
       event.target.tagName.toLowerCase() ===
-        this.triggerEl.tagName.toLocaleLowerCase() &&
+        this.triggerEl.tagName.toLowerCase() &&
       event.key === 'Enter'
     ) {
       this.openMenu();
