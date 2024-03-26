@@ -66,7 +66,7 @@ export class B2bIcon {
       );
       return;
     }
-    const icon = buildPath(this.icon);
+    const icon = buildPath(this.icon, 'icons');
 
     if (Build.isBrowser) {
       if (iconContent.has(icon)) {

@@ -67,7 +67,7 @@ export class B2bIcon {
         `the icon ${this.icon} uses an unsupported size (${this.size}px). Please use a size between 24 and 96 pixels.`,
       );
     }
-    const icon = buildPath(this.icon);
+    const icon = buildPath(this.icon, 'icons-100');
 
     if (Build.isBrowser) {
       if (iconContent.has(icon)) {

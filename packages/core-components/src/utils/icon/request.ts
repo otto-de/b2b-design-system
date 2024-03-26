@@ -32,11 +32,10 @@ export const fetchIcon = (icon: string) => {
   return req;
 };
 
-export const buildPath = (icon: string) => {
+export const buildPath = (icon: string, folderName: string) => {
   // fetch icons from local dir for development
   if (Env.env === 'dev') {
-    const iconPath = getAssetPath(`./icons/${icon}.svg`);
-    return iconPath;
+    return getAssetPath(`./${folderName}/${icon}.svg`);
   } else {
     return `${ICON_PATH}/${icon}.svg`;
   }
