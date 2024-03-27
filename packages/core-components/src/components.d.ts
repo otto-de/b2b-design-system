@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
 import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
+import { IconName as IconName1 } from "./components/icon-100/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
@@ -16,6 +17,7 @@ import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
 export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
+export { IconName as IconName1 } from "./components/icon-100/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
 export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
@@ -367,13 +369,31 @@ export namespace Components {
          */
         "icon": IconName;
         /**
-          * @deprecated The size of the icon. Use the newer variant property instead.
+          * @deprecated The size of the icon. In the future, only 50 and 100 will be support through new components.
          */
         "size": '50' | '100' | '200';
+    }
+    interface B2bIcon100 {
         /**
-          * Icon variant. Icon 50 is only available for select icons. Icon 100 is 24x24px and can be scaled up.
+          * Will display a pointer cursor when hovering the icon
          */
-        "variant": '50' | '100';
+        "clickable": boolean;
+        /**
+          * The color of the icon
+         */
+        "color": 'primary' | 'secondary' | 'inverse' | 'inherit';
+        /**
+          * Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu.
+         */
+        "focusable": boolean;
+        /**
+          * The name of the icon
+         */
+        "icon": IconName1;
+        /**
+          * The size of the icon in pixel. Minimum is 24, maximum is 96px.
+         */
+        "size": number;
     }
     /**
      * Input component
@@ -1427,6 +1447,12 @@ declare global {
         prototype: HTMLB2bIconElement;
         new (): HTMLB2bIconElement;
     };
+    interface HTMLB2bIcon100Element extends Components.B2bIcon100, HTMLStencilElement {
+    }
+    var HTMLB2bIcon100Element: {
+        prototype: HTMLB2bIcon100Element;
+        new (): HTMLB2bIcon100Element;
+    };
     interface HTMLB2bInputElementEventMap {
         "b2b-focus": FocusEvent;
         "b2b-blur": FocusEvent;
@@ -1930,6 +1956,7 @@ declare global {
         "b2b-grid-row": HTMLB2bGridRowElement;
         "b2b-headline": HTMLB2bHeadlineElement;
         "b2b-icon": HTMLB2bIconElement;
+        "b2b-icon-100": HTMLB2bIcon100Element;
         "b2b-input": HTMLB2bInputElement;
         "b2b-input-group": HTMLB2bInputGroupElement;
         "b2b-input-label": HTMLB2bInputLabelElement;
@@ -2360,13 +2387,31 @@ declare namespace LocalJSX {
          */
         "icon"?: IconName;
         /**
-          * @deprecated The size of the icon. Use the newer variant property instead.
+          * @deprecated The size of the icon. In the future, only 50 and 100 will be support through new components.
          */
         "size"?: '50' | '100' | '200';
+    }
+    interface B2bIcon100 {
         /**
-          * Icon variant. Icon 50 is only available for select icons. Icon 100 is 24x24px and can be scaled up.
+          * Will display a pointer cursor when hovering the icon
          */
-        "variant"?: '50' | '100';
+        "clickable"?: boolean;
+        /**
+          * The color of the icon
+         */
+        "color"?: 'primary' | 'secondary' | 'inverse' | 'inherit';
+        /**
+          * Whether the icon can receive focus. Per default it is false. Use this for icon triggers like tooltip or flyout menu.
+         */
+        "focusable"?: boolean;
+        /**
+          * The name of the icon
+         */
+        "icon"?: IconName1;
+        /**
+          * The size of the icon in pixel. Minimum is 24, maximum is 96px.
+         */
+        "size"?: number;
     }
     /**
      * Input component
@@ -3211,6 +3256,7 @@ declare namespace LocalJSX {
         "b2b-grid-row": B2bGridRow;
         "b2b-headline": B2bHeadline;
         "b2b-icon": B2bIcon;
+        "b2b-icon-100": B2bIcon100;
         "b2b-input": B2bInput;
         "b2b-input-group": B2bInputGroup;
         "b2b-input-label": B2bInputLabel;
@@ -3275,6 +3321,7 @@ declare module "@stencil/core" {
              */
             "b2b-headline": LocalJSX.B2bHeadline & JSXBase.HTMLAttributes<HTMLB2bHeadlineElement>;
             "b2b-icon": LocalJSX.B2bIcon & JSXBase.HTMLAttributes<HTMLB2bIconElement>;
+            "b2b-icon-100": LocalJSX.B2bIcon100 & JSXBase.HTMLAttributes<HTMLB2bIcon100Element>;
             /**
              * Input component
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53

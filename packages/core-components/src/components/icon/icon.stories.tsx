@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 import { iconTypes } from './types';
-import './icon.stories.scss';
+import './../../global/icon.stories.scss';
 
 const Template: Story = ({ icon, color, variant }) => {
   return html`<b2b-icon
