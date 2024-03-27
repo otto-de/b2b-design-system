@@ -47,14 +47,14 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
-      - name: Install Chrome
-        run: npx puppeteer browsers install chrome
-
       - name: Build
         run: npm run build
 
       - name: Lint
         run: npm run lint
+
+      - name: Install Chrome
+        run: npx puppeteer browsers install chrome
 
       - name: Test
         run: npm test
