@@ -25,6 +25,7 @@ export const B2bGridCol = /*@__PURE__*/createReactComponent<JSX.B2bGridCol, HTML
 export const B2bGridRow = /*@__PURE__*/createReactComponent<JSX.B2bGridRow, HTMLB2bGridRowElement>('b2b-grid-row');
 export const B2bHeadline = /*@__PURE__*/createReactComponent<JSX.B2bHeadline, HTMLB2bHeadlineElement>('b2b-headline');
 export const B2bIcon = /*@__PURE__*/createReactComponent<JSX.B2bIcon, HTMLB2bIconElement>('b2b-icon');
+export const B2bIcon100 = /*@__PURE__*/createReactComponent<JSX.B2bIcon100, HTMLB2bIcon100Element>('b2b-icon-100');
 export const B2bInput = /*@__PURE__*/createReactComponent<JSX.B2bInput, HTMLB2bInputElement>('b2b-input');
 export const B2bInputGroup = /*@__PURE__*/createReactComponent<JSX.B2bInputGroup, HTMLB2bInputGroupElement>('b2b-input-group');
 export const B2bInputLabel = /*@__PURE__*/createReactComponent<JSX.B2bInputLabel, HTMLB2bInputLabelElement>('b2b-input-label');

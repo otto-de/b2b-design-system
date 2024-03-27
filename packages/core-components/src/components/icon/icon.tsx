@@ -1,5 +1,5 @@
 import { Build, Component, h, Host, Prop, State, Watch } from '@stencil/core';
-import { buildPath, fetchIcon, iconContent } from './request';
+import { buildPath, fetchIcon, iconContent } from '../../utils/icon/request';
 import { IconName, iconTypes } from './types';
 
 @Component({
@@ -15,11 +15,8 @@ export class B2bIcon {
   /** The color of the icon */
   @Prop() color: 'primary' | 'secondary' | 'inverse' | 'inherit' = 'inherit';
 
-  /** @deprecated The size of the icon. Use the newer variant property instead. */
+  /** @deprecated The size of the icon. In the future, only 50 and 100 will be support through new components. */
   @Prop() size: '50' | '100' | '200' = '100';
-
-  /** Icon variant. Icon 50 is only available for select icons. Icon 100 is 24x24px and can be scaled up. */
-  @Prop() variant: '50' | '100';
 
   /** Will display a pointer cursor when hovering the icon */
   @Prop() clickable: boolean = false;
@@ -31,33 +28,30 @@ export class B2bIcon {
 
   connectedCallback() {
     this.loadIconPathData();
+    this.warnDeprecate();
   }
 
   private isIconSupported = (): boolean => {
     return iconTypes.includes(this.icon);
   };
 
-  private isIconCorrectSize = (): boolean => {
-    if (Boolean(this.variant)) {
-      const isSmall = this.icon.includes('50') && this.variant != '50';
-      const isBig = !this.icon.includes('50') && this.variant === '50';
-      return !(isSmall || isBig);
-    } else {
-      return true;
+  private warnDeprecate = () => {
+    if (!Build.isDev || !Build.isTesting) {
+      console.warn(
+        'B2B Icon is deprecated and will be removed on the next major release. Please use b2b-icon-100 or b2b-icon-50 instead.',
+      );
     }
   };
 
   render() {
-    if (!this.isIconSupported() || !this.isIconCorrectSize()) return null;
+    if (!this.isIconSupported()) return null;
     return (
       <Host>
         <div
           tabIndex={this.focusable ? 0 : null}
           class={{
             'b2b-icon': true,
-            [`b2b-icon--${this.size}`]:
-              Boolean(this.size) && !Boolean(this.variant),
-            [`b2b-icon--variant-${this.variant}`]: Boolean(this.variant),
+            [`b2b-icon--${this.size}`]: Boolean(this.size),
             [`b2b-icon--${this.color}`]: true,
             'b2b-icon--clickable': this.clickable,
           }}
@@ -73,15 +67,8 @@ export class B2bIcon {
         'icon name: ' + this.icon + ' is not supported or might have a typo.',
       );
       return;
-    } else if (!this.isIconCorrectSize()) {
-      console.warn(
-        'you are trying to use ' +
-          this.icon +
-          ' as a size 50 icon but have specified an incorrect variant property. Please make sure that all icons with the suffix -50 are of variant 50.',
-      );
-      return;
     }
-    const icon = buildPath(this.icon);
+    const icon = buildPath(this.icon, 'icons');
 
     if (Build.isBrowser) {
       if (iconContent.has(icon)) {

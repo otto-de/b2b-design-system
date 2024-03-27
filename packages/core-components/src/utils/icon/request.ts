@@ -1,5 +1,5 @@
 import { Env, getAssetPath } from '@stencil/core';
-import { ICON_PATH } from '../../utils/resources';
+import { ICON_PATH } from '../resources';
 
 export const iconContent = new Map<string, string>();
 const requests = new Map<string, Promise<any>>();
@@ -32,11 +32,12 @@ export const fetchIcon = (icon: string) => {
   return req;
 };
 
-export const buildPath = (icon: string) => {
+export const buildPath = (icon: string, folderName: string) => {
   // fetch icons from local dir for development
   if (Env.env === 'dev') {
-    const iconPath = getAssetPath(`./icons/${icon}.svg`);
-    return iconPath;
+    return getAssetPath(`./${folderName}/${icon}.svg`);
+  } else if (folderName === 'icons') {
+    return `${ICON_PATH}/icons/${icon}.svg`;
   } else {
     return `${ICON_PATH}/${icon}.svg`;
   }

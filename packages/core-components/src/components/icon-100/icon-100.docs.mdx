@@ -1,0 +1,104 @@
+import {
+  ArgsTable,
+  Primary,
+  Canvas,
+  Meta,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+
+import * as IconStories from './icon-100.stories';
+
+<Meta of={IconStories} />
+
+# Icon Component
+
+<Canvas of={IconStories.Primary} />
+
+## Properties
+
+### Name
+
+The name of the icon. Each name is prefixed with b2b.
+
+You can find [here](#icon-list) the full list of supported icons.
+
+<br />
+
+### Color
+
+The color of the icon. There are four different variants to ensure
+good contrast with different background colors. Per default the icon
+will inherit the color of the parent element. When using the icon
+in a standalone context and the color of the parent is not defined, we recommend
+using one of the variants below.
+
+#### Primary
+
+Use the primary version for light backgrounds.
+
+<Canvas of={IconStories.Primary} />
+
+#### Secondary
+
+Use the secondary version for icons that indicate secondary actions.
+
+<Canvas of={IconStories.Secondary} />
+
+#### Inverse
+
+Use the inverse version for dark backgrounds only.
+
+<Canvas of={IconStories.Secondary} />
+
+#### Inherit
+
+Inherit will allow you to specify any color for the icon by first defining the parent `color` property.
+
+<Canvas of={IconStories.Inherit} />
+
+### Size
+
+The icon's size can be adjusted according to the context the icon is used in. The size can range between 24px to 96px.
+
+<Canvas of={IconStories.SizeGreaterThan24} />
+
+### clickable
+
+Will display a pointer cursor when hovering over the icon.
+
+### focusable
+
+Will make the icon focusable for accessibility purpose.
+
+### Custom Properties
+
+The properties below are CSS variables that we expose in our component. You can set your own value by overwriting the respective variables
+in your styles:
+
+```css
+--b2b-icon-line-height: 1rem;
+```
+
+<table>
+  <tr>
+    <td>Variable Name</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>--b2b-icon-line-height</td>
+    <td>
+      The icon line height. Per default it will inherit the current line height
+      set on the parent element.
+    </td>
+  </tr>
+</table>
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
+
+### Icon List
+
+<Canvas of={IconStories.AllIcons} />
