@@ -180,20 +180,18 @@ export class InputListComponent {
     const inputElement = this.hostElement.shadowRoot.querySelector(
       'b2b-input',
     ) as HTMLB2bInputElement;
-    if (event.type === 'keydown' && event.key === 'Enter') {
-      /** Manually reset focus after blur to match mousedown behavior */
-      await inputElement.setFocus();
-    } else if (event.type === 'mousedown') {
-      /** Manual blurring to prevent browser focus stack & component state mismatch */
-      event.preventDefault();
-      event.stopPropagation();
-      await inputElement.setFocus();
+    event.preventDefault();
+    event.stopPropagation();
+    await inputElement.setFocus();
+    if (
+      (event.type === 'keydown' && event.key === 'Enter') ||
+      event.type === 'mousedown'
+    ) {
+      this.value = '';
+      this.b2bClear.emit();
+      // Called to trigger an Input Event
+      await inputElement.clearInput();
     }
-    this.value = '';
-    this.b2bClear.emit();
-    // Called to trigger an Input Event
-    await inputElement.clearInput();
-    return;
   };
 
   /* Notes:
