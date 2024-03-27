@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should gracefully fail if icon is the wrong size 1`] = `
-<b2b-icon variant="50">
-  <mock:shadow-root>
-    <div class="b2b-icon b2b-icon--100 b2b-icon--inherit"></div>
-  </mock:shadow-root>
-</b2b-icon>
-`;
-
 exports[`should gracefully fail if icon name is not found by not rendering icon and emitting a warning 1`] = `
 <b2b-icon>
   <mock:shadow-root></mock:shadow-root>

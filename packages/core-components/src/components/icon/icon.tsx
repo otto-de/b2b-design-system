@@ -36,9 +36,11 @@ export class B2bIcon {
   };
 
   private warnDeprecate = () => {
-    console.warn(
-      'B2B Icon is deprecated and will be removed on the next major release. Please use b2b-icon-100 or b2b-icon-50 instead.',
-    );
+    if (!Build.isDev || !Build.isTesting) {
+      console.warn(
+        'B2B Icon is deprecated and will be removed on the next major release. Please use b2b-icon-100 or b2b-icon-50 instead.',
+      );
+    }
   };
 
   render() {
