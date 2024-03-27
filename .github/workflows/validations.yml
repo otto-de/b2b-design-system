@@ -47,6 +47,9 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
+      - name: Install
+        uses: browser-actions/setup-chrome@v1
+
       - name: Build
         run: npm run build
 
