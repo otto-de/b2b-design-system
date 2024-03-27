@@ -53,8 +53,5 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Install Chrome
-        run: npx puppeteer browsers install chrome
-
       - name: Test
         run: npm test
