@@ -19,6 +19,7 @@
     &__container {
       background-color: var(--b2b-color-white-100);
       display: none;
+      width: max-content;
       box-shadow: 0 0 5px rgb(0 0 0 / 20%);
       font-size: var(--b2b-size-copy-100);
       font-family: var(--b2b-font-family-default);
