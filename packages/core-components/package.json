@@ -44,7 +44,7 @@
     "@stencil/core": "^4.12.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.24.4",
     "@babel/preset-typescript": "^7.22.15",
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@stencil-community/postcss": "^2.2.0",
