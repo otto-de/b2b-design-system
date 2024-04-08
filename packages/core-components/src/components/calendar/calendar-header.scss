@@ -1,0 +1,20 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+:root,
+:host {
+  --b2b-border-radius: var(--b2b-size-border-radius-100);
+
+.calendar-header {
+  display: flex;
+}
+  .calendar-month {
+    border: 1px solid black;
+    margin-right: 20px;
+  }
+  .calendar-year {
+    border: 1px solid black;
+    margin-right: 20px;
+  }
+}
+

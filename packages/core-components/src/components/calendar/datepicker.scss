@@ -1,0 +1,14 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+:root,
+:host {
+  --b2b-border-radius: var(--b2b-size-border-radius-100);
+
+  .b2b-datepicker {
+    border: 2px solid black;
+    width: 300px;
+    height: 278px;
+  }
+}
+

@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-import { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -15,7 +15,7 @@ import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-export { CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -127,6 +127,19 @@ export namespace Components {
          */
         "width": 'fit-content' | 'fit-container' | 'custom';
     }
+    interface B2bCalendar {
+        "calendarLabel": string;
+        "disableFutureDates": boolean;
+        "disablePastDates": boolean;
+        "disableWeekends": boolean;
+    }
+    interface B2bCalendarDaysHeader {
+    }
+    interface B2bCalendarHeader {
+        "selectedMonth": number;
+        "selectedYear": number;
+        "setCurrentMonth": (currentMonth: number) => void;
+    }
     interface B2bCard {
         /**
           * Disables the card. Per default, it is false
@@ -235,6 +248,11 @@ export namespace Components {
           * It is only used when the chip component participates in a group
          */
         "value"?: any;
+    }
+    interface B2bDatepicker {
+        "disableFutureDates": boolean;
+        "disablePastDates": boolean;
+        "disableWeekends": boolean;
     }
     interface B2bDropdown {
         /**
@@ -1129,6 +1147,10 @@ export interface B2bBreadcrumbItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bBreadcrumbItemElement;
 }
+export interface B2bCalendarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bCalendarElement;
+}
 export interface B2bCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCardElement;
@@ -1144,6 +1166,10 @@ export interface B2bCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
 export interface B2bChipComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bChipComponentElement;
+}
+export interface B2bDatepickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDatepickerElement;
 }
 export interface B2bDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1301,6 +1327,35 @@ declare global {
         prototype: HTMLB2bButtonElement;
         new (): HTMLB2bButtonElement;
     };
+    interface HTMLB2bCalendarElementEventMap {
+        "b2b-selected": CalendarEventDetail;
+    }
+    interface HTMLB2bCalendarElement extends Components.B2bCalendar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bCalendarElementEventMap>(type: K, listener: (this: HTMLB2bCalendarElement, ev: B2bCalendarCustomEvent<HTMLB2bCalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bCalendarElementEventMap>(type: K, listener: (this: HTMLB2bCalendarElement, ev: B2bCalendarCustomEvent<HTMLB2bCalendarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bCalendarElement: {
+        prototype: HTMLB2bCalendarElement;
+        new (): HTMLB2bCalendarElement;
+    };
+    interface HTMLB2bCalendarDaysHeaderElement extends Components.B2bCalendarDaysHeader, HTMLStencilElement {
+    }
+    var HTMLB2bCalendarDaysHeaderElement: {
+        prototype: HTMLB2bCalendarDaysHeaderElement;
+        new (): HTMLB2bCalendarDaysHeaderElement;
+    };
+    interface HTMLB2bCalendarHeaderElement extends Components.B2bCalendarHeader, HTMLStencilElement {
+    }
+    var HTMLB2bCalendarHeaderElement: {
+        prototype: HTMLB2bCalendarHeaderElement;
+        new (): HTMLB2bCalendarHeaderElement;
+    };
     interface HTMLB2bCardElementEventMap {
         "b2b-selected": void;
     }
@@ -1370,6 +1425,23 @@ declare global {
     var HTMLB2bChipComponentElement: {
         prototype: HTMLB2bChipComponentElement;
         new (): HTMLB2bChipComponentElement;
+    };
+    interface HTMLB2bDatepickerElementEventMap {
+        "b2b-selected": CalendarEventDetail;
+    }
+    interface HTMLB2bDatepickerElement extends Components.B2bDatepicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDatepickerElementEventMap>(type: K, listener: (this: HTMLB2bDatepickerElement, ev: B2bDatepickerCustomEvent<HTMLB2bDatepickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDatepickerElementEventMap>(type: K, listener: (this: HTMLB2bDatepickerElement, ev: B2bDatepickerCustomEvent<HTMLB2bDatepickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDatepickerElement: {
+        prototype: HTMLB2bDatepickerElement;
+        new (): HTMLB2bDatepickerElement;
     };
     interface HTMLB2bDropdownElementEventMap {
         "b2b-change": string;
@@ -1944,10 +2016,14 @@ declare global {
         "b2b-breadcrumb": HTMLB2bBreadcrumbElement;
         "b2b-breadcrumb-item": HTMLB2bBreadcrumbItemElement;
         "b2b-button": HTMLB2bButtonElement;
+        "b2b-calendar": HTMLB2bCalendarElement;
+        "b2b-calendar-days-header": HTMLB2bCalendarDaysHeaderElement;
+        "b2b-calendar-header": HTMLB2bCalendarHeaderElement;
         "b2b-card": HTMLB2bCardElement;
         "b2b-checkbox": HTMLB2bCheckboxElement;
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
         "b2b-chip-component": HTMLB2bChipComponentElement;
+        "b2b-datepicker": HTMLB2bDatepickerElement;
         "b2b-dropdown": HTMLB2bDropdownElement;
         "b2b-flyout-menu": HTMLB2bFlyoutMenuElement;
         "b2b-flyout-menu-option": HTMLB2bFlyoutMenuOptionElement;
@@ -2105,6 +2181,20 @@ declare namespace LocalJSX {
          */
         "width"?: 'fit-content' | 'fit-container' | 'custom';
     }
+    interface B2bCalendar {
+        "calendarLabel"?: string;
+        "disableFutureDates"?: boolean;
+        "disablePastDates"?: boolean;
+        "disableWeekends"?: boolean;
+        "onB2b-selected"?: (event: B2bCalendarCustomEvent<CalendarEventDetail>) => void;
+    }
+    interface B2bCalendarDaysHeader {
+    }
+    interface B2bCalendarHeader {
+        "selectedMonth"?: number;
+        "selectedYear"?: number;
+        "setCurrentMonth"?: (currentMonth: number) => void;
+    }
     interface B2bCard {
         /**
           * Disables the card. Per default, it is false
@@ -2237,6 +2327,12 @@ declare namespace LocalJSX {
           * It is only used when the chip component participates in a group
          */
         "value"?: any;
+    }
+    interface B2bDatepicker {
+        "disableFutureDates"?: boolean;
+        "disablePastDates"?: boolean;
+        "disableWeekends"?: boolean;
+        "onB2b-selected"?: (event: B2bDatepickerCustomEvent<CalendarEventDetail>) => void;
     }
     interface B2bDropdown {
         /**
@@ -3244,10 +3340,14 @@ declare namespace LocalJSX {
         "b2b-breadcrumb": B2bBreadcrumb;
         "b2b-breadcrumb-item": B2bBreadcrumbItem;
         "b2b-button": B2bButton;
+        "b2b-calendar": B2bCalendar;
+        "b2b-calendar-days-header": B2bCalendarDaysHeader;
+        "b2b-calendar-header": B2bCalendarHeader;
         "b2b-card": B2bCard;
         "b2b-checkbox": B2bCheckbox;
         "b2b-checkbox-group": B2bCheckboxGroup;
         "b2b-chip-component": B2bChipComponent;
+        "b2b-datepicker": B2bDatepicker;
         "b2b-dropdown": B2bDropdown;
         "b2b-flyout-menu": B2bFlyoutMenu;
         "b2b-flyout-menu-option": B2bFlyoutMenuOption;
@@ -3305,10 +3405,14 @@ declare module "@stencil/core" {
             "b2b-breadcrumb": LocalJSX.B2bBreadcrumb & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbElement>;
             "b2b-breadcrumb-item": LocalJSX.B2bBreadcrumbItem & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbItemElement>;
             "b2b-button": LocalJSX.B2bButton & JSXBase.HTMLAttributes<HTMLB2bButtonElement>;
+            "b2b-calendar": LocalJSX.B2bCalendar & JSXBase.HTMLAttributes<HTMLB2bCalendarElement>;
+            "b2b-calendar-days-header": LocalJSX.B2bCalendarDaysHeader & JSXBase.HTMLAttributes<HTMLB2bCalendarDaysHeaderElement>;
+            "b2b-calendar-header": LocalJSX.B2bCalendarHeader & JSXBase.HTMLAttributes<HTMLB2bCalendarHeaderElement>;
             "b2b-card": LocalJSX.B2bCard & JSXBase.HTMLAttributes<HTMLB2bCardElement>;
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
             "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
+            "b2b-datepicker": LocalJSX.B2bDatepicker & JSXBase.HTMLAttributes<HTMLB2bDatepickerElement>;
             "b2b-dropdown": LocalJSX.B2bDropdown & JSXBase.HTMLAttributes<HTMLB2bDropdownElement>;
             "b2b-flyout-menu": LocalJSX.B2bFlyoutMenu & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuElement>;
             "b2b-flyout-menu-option": LocalJSX.B2bFlyoutMenuOption & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuOptionElement>;
