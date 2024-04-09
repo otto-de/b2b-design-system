@@ -6,7 +6,8 @@
 
   display: block;
   width: 100%;
-  min-width: var(--b2b-size-200);
+  min-width: var(--b2b-size-120);
+  max-width: 600px;
   font-family: var(--b2b-font-family-default);
 
   .b2b-input__wrapper {
@@ -16,7 +17,7 @@
     border: 1px solid var(--b2b-color-grey-200);
     border-right: var(--b2b-border-right);
     border-radius: var(--b2b-border-radius);
-    padding: 5px var(--b2b-size-30) 5px;
+    padding: 5px var(--b2b-size-25) 5px;
     background-color: var(--b2b-color-white-100);
     color: var(--b2b-color-black-100);
     position: relative;
@@ -65,14 +66,15 @@
 
   b2b-input-label {
     display: block;
-    margin-bottom: var(--b2b-size-10);
+    margin-bottom: var(--b2b-size-5);
+    color: var(--b2b-color-black-100);
   }
 
   span {
     font-size: var(--b2b-size-copy-50);
     line-height: var(--b2b-size-copy-line-height-75);
     display: block;
-    margin-top: var(--b2b-size-10);
+    margin-top: var(--b2b-size-7);
     color: var(--b2b-color-grey-300);
   }
 }
