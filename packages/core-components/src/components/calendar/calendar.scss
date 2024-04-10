@@ -1,11 +1,20 @@
-:host{
+:host {
   .calender-selected-date-wrapper {
-  display: flex;
+    display: flex;
   }
 
   .calendar-selected-date {
     border: 2px solid black;
     width: 300px;
-    height: 20px;
+    height: 30px;
+    box-sizing: border-box;
+  }
+
+  .b2b-datepicker {
+    border: 2px solid black;
+    width: 300px;
+    height: 278px;
+    padding: 12px 24px;
+    box-sizing: border-box;
   }
 }

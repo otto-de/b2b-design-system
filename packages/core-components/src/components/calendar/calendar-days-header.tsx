@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Element } from '@stencil/core';
+import { Component, h, Host, Element } from '@stencil/core';
 
 @Component({
   tag: 'b2b-calendar-days-header',
@@ -6,19 +6,22 @@ import { Component, Prop, h, Host, Element } from '@stencil/core';
   shadow: true,
 })
 export class B2bCalendarDaysHeader {
-  @Element() host: HTMLB2bCalendarDaysHeader;
+  @Element() host: HTMLB2bCalendarDaysHeaderElement;
 
-  private daysOfWeek = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
+  private weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+  private displayWeekDays = () => {
+    let renderWeekDays = [];
+    this.weekdays.forEach(day => {
+      renderWeekDays.push(<div class="b2b-calender-day">{day}</div>);
+    });
+    return renderWeekDays;
+  };
 
   render() {
-    <Host></Host>;
+    return (
+      <Host>
+        <div class="b2b-calender-days-header">{this.displayWeekDays()}</div>
+      </Host>
+    );
   }
 }

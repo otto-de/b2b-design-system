@@ -7,18 +7,11 @@
 
 ## Properties
 
-| Property             | Attribute              | Description | Type      | Default |
-| -------------------- | ---------------------- | ----------- | --------- | ------- |
-| `disableFutureDates` | `disable-future-dates` |             | `boolean` | `false` |
-| `disablePastDates`   | `disable-past-dates`   |             | `boolean` | `true`  |
-| `disableWeekends`    | `disable-weekends`     |             | `boolean` | `false` |
-
-
-## Events
-
-| Event          | Description | Type                                    |
-| -------------- | ----------- | --------------------------------------- |
-| `b2b-selected` |             | `CustomEvent<CalendarEventDetail<any>>` |
+| Property         | Attribute        | Description | Type                     | Default     |
+| ---------------- | ---------------- | ----------- | ------------------------ | ----------- |
+| `selectedMonth`  | `selected-month` |             | `number`                 | `undefined` |
+| `selectedYear`   | `selected-year`  |             | `number`                 | `undefined` |
+| `setCurrentDate` | --               |             | `(date: number) => void` | `undefined` |
 
 
 ## Dependencies
@@ -27,17 +20,11 @@
 
  - [b2b-calendar](.)
 
-### Depends on
-
-- [b2b-calendar-header](.)
-
 ### Graph
 ```mermaid
 graph TD;
-  b2b-datepicker --> b2b-calendar-header
-  b2b-calendar-header --> b2b-icon-100
-  b2b-calendar --> b2b-datepicker
-  style b2b-datepicker fill:#f9f,stroke:#333,stroke-width:4px
+  b2b-calendar --> b2b-calender-days
+  style b2b-calender-days fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

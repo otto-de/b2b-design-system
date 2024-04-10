@@ -339,7 +339,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "\"this is a calender\""
+          "summary": "'this is a calender'"
         }
       },
       "description": ""
@@ -387,8 +387,18 @@
       "description": ""
     }
   },
+  "b2b-calendar-days-header": {},
   "b2b-calendar-header": {
     "selectedMonth": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    },
+    "selectedYear": {
       "table": {
         "type": {
           "summary": "number"
@@ -401,6 +411,44 @@
       "table": {
         "type": {
           "summary": "(currentMonth: number) => void"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    },
+    "setCurrentYear": {
+      "table": {
+        "type": {
+          "summary": "(currentYear: number) => void"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    }
+  },
+  "b2b-calender-days": {
+    "selectedMonth": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    },
+    "selectedYear": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    },
+    "setCurrentDate": {
+      "table": {
+        "type": {
+          "summary": "(date: number) => void"
         },
         "defaultValue": {}
       },
@@ -716,50 +764,6 @@
         "defaultValue": {}
       },
       "description": "It is only used when the chip component participates in a group"
-    }
-  },
-  "b2b-datepicker": {
-    "disableFutureDates": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": ""
-    },
-    "disablePastDates": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "true"
-        }
-      },
-      "description": ""
-    },
-    "disableWeekends": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": ""
     }
   },
   "b2b-dropdown": {

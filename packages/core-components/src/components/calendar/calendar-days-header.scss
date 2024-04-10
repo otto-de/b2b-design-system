@@ -1,0 +1,18 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+:root,
+:host {
+  .b2b-calender-days-header {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Display days in a grid */
+
+    .b2b-calender-day {
+      width: 36px;
+      height: 22px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  }
+}
