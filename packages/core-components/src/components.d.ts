@@ -142,9 +142,12 @@ export namespace Components {
         "setCurrentYear": (currentYear: number) => void;
     }
     interface B2bCalenderDays {
+        "disableFutureDates": boolean;
+        "disablePastDates": boolean;
+        "disableWeekends": boolean;
         "selectedMonth": number;
         "selectedYear": number;
-        "setCurrentDate": (date: number) => void;
+        "setCurrentDay": (day: number) => void;
     }
     interface B2bCard {
         /**
@@ -2183,9 +2186,12 @@ declare namespace LocalJSX {
         "setCurrentYear"?: (currentYear: number) => void;
     }
     interface B2bCalenderDays {
+        "disableFutureDates"?: boolean;
+        "disablePastDates"?: boolean;
+        "disableWeekends"?: boolean;
         "selectedMonth"?: number;
         "selectedYear"?: number;
-        "setCurrentDate"?: (date: number) => void;
+        "setCurrentDay"?: (day: number) => void;
     }
     interface B2bCard {
         /**

@@ -427,6 +427,48 @@
     }
   },
   "b2b-calender-days": {
+    "disableFutureDates": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": ""
+    },
+    "disablePastDates": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": ""
+    },
+    "disableWeekends": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": ""
+    },
     "selectedMonth": {
       "table": {
         "type": {
@@ -445,10 +487,10 @@
       },
       "description": ""
     },
-    "setCurrentDate": {
+    "setCurrentDay": {
       "table": {
         "type": {
-          "summary": "(date: number) => void"
+          "summary": "(day: number) => void"
         },
         "defaultValue": {}
       },

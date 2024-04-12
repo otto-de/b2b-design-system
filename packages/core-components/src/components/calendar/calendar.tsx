@@ -31,9 +31,10 @@ export class B2bCalendar {
 
   @State() private showCalendar: boolean = false;
 
-  @State() selectedMonth: number = new Date().getMonth() + 1;
+  @State() selectedMonth: number = new Date().getMonth();
   @State() selectedYear: number = new Date().getFullYear();
-  @State() selectedDate: number = new Date().getDate();
+  @State() selectedDay: number;
+  @State() selectedDate: string = undefined;
 
   private setCurrentMonth = (selectedMonth: number) => {
     this.selectedMonth = selectedMonth;
@@ -42,30 +43,47 @@ export class B2bCalendar {
   private setCurrentYear = (selectedYear: number) => {
     this.selectedYear = selectedYear;
   };
-  private setCurrentDate = (selectedDate: number) => {
-    this.selectedDate = selectedDate;
+  private setCurrentDay = (selectedDate: number) => {
+    this.selectedDay = selectedDate;
+    this.setSelectedDate();
   };
 
   private showHideCalendar = () => {
     this.showCalendar = !this.showCalendar;
   };
 
+  private clearDateInput = () => {
+    this.selectedDate = undefined;
+  };
+
+  private setSelectedDate() {
+    if (this.selectedDay !== undefined)
+      this.selectedDate =
+        this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
+    this.b2bSelected.emit({
+      selectedDate: new Date(this.selectedDate),
+    });
+  }
+
   render() {
     return (
       <Host>
-        <div>
+        <div class="b2b-calender">
           <div>{this.calendarLabel}</div>
           <div
-            class="calender-selected-date-wrapper"
+            class="b2b-calender-input-wrapper"
             onClick={this.showHideCalendar}>
-            <div class="calendar-selected-date">
-              {this.selectedDate +
-                '.' +
-                this.selectedMonth +
-                '.' +
-                this.selectedYear}
+            <div class="calendar-selected-date">{this.selectedDate}</div>
+            {this.selectedDate && (
+              <div class="b2b-close-icon" onClick={this.clearDateInput}>
+                <b2b-icon-100
+                  icon="b2b_icon-close"
+                  clickable={true}></b2b-icon-100>
+              </div>
+            )}
+            <div class="b2b-calender-icon">
+              <b2b-icon-100 icon="b2b_icon-event"></b2b-icon-100>
             </div>
-            <b2b-icon-100 icon="b2b_icon-event"></b2b-icon-100>
           </div>
         </div>
         {this.showCalendar && (
@@ -79,7 +97,10 @@ export class B2bCalendar {
             <b2b-calender-days
               selectedMonth={this.selectedMonth}
               selectedYear={this.selectedYear}
-              setCurrentDate={this.setCurrentDate}></b2b-calender-days>
+              setCurrentDay={this.setCurrentDay}
+              disableWeekends={this.disableWeekends}
+              disableFutureDates={this.disableFutureDates}
+              disablePastDates={this.disablePastDates}></b2b-calender-days>
           </div>
         )}
       </Host>

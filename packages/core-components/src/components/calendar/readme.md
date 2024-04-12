@@ -7,11 +7,14 @@
 
 ## Properties
 
-| Property         | Attribute        | Description | Type                     | Default     |
-| ---------------- | ---------------- | ----------- | ------------------------ | ----------- |
-| `selectedMonth`  | `selected-month` |             | `number`                 | `undefined` |
-| `selectedYear`   | `selected-year`  |             | `number`                 | `undefined` |
-| `setCurrentDate` | --               |             | `(date: number) => void` | `undefined` |
+| Property             | Attribute              | Description | Type                    | Default     |
+| -------------------- | ---------------------- | ----------- | ----------------------- | ----------- |
+| `disableFutureDates` | `disable-future-dates` |             | `boolean`               | `false`     |
+| `disablePastDates`   | `disable-past-dates`   |             | `boolean`               | `false`     |
+| `disableWeekends`    | `disable-weekends`     |             | `boolean`               | `false`     |
+| `selectedMonth`      | `selected-month`       |             | `number`                | `undefined` |
+| `selectedYear`       | `selected-year`        |             | `number`                | `undefined` |
+| `setCurrentDay`      | --                     |             | `(day: number) => void` | `undefined` |
 
 
 ## Dependencies

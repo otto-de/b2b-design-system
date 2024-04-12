@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Prop } from '@stencil/core';
+import { Component, h, Host, Element, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'b2b-calender-days',
@@ -9,7 +9,29 @@ export class B2bCalenderDays {
   @Element() host: HTMLB2bCalenderDaysElement;
   @Prop() selectedMonth: number;
   @Prop() selectedYear: number;
-  @Prop() setCurrentDate: (date: number) => void;
+  @Prop() setCurrentDay: (day: number) => void;
+  @Prop() disablePastDates: boolean = false;
+  @Prop() disableFutureDates: boolean = false;
+  @Prop() disableWeekends: boolean = false;
+  @State() disabled: boolean = false;
+  private today = new Date();
+  private todayWithoutTime = new Date(
+    this.today.getFullYear(),
+    this.today.getMonth(),
+    this.today.getDate(),
+  );
+
+  private isDisabledDate = (givenDate: Date) => {
+    if (this.disablePastDates) {
+      if (givenDate < this.todayWithoutTime) return true;
+    } else if (this.disableFutureDates) {
+      if (givenDate > this.todayWithoutTime) return true;
+    } else if (this.disableWeekends) {
+      if (givenDate.getDay() == 0 || givenDate.getDay() == 6) return true;
+    } else {
+      return false;
+    }
+  };
 
   private renderCalenderDays = () => {
     let daysInMonth = new Date(
@@ -19,7 +41,7 @@ export class B2bCalenderDays {
     ).getDate(); // Get total days in the current month
     let firstDayOfMonth = new Date(
       this.selectedYear,
-      this.selectedMonth,
+      this.selectedMonth + 1,
       1,
     ).getDay(); // Get the day of the week (0-6) of the first day of the month
     let days = [];
@@ -30,8 +52,15 @@ export class B2bCalenderDays {
 
     // Populate days array with day numbers
     for (let i = 1; i <= daysInMonth; i++) {
+      let givenDate = new Date(this.selectedYear, this.selectedMonth, i);
+      let disabled = this.isDisabledDate(givenDate);
       days.push(
-        <div class="b2b-calender-day" onClick={() => this.setCurrentDate(i)}>
+        <div
+          class={{
+            'b2b-calender-day': true,
+            'b2b-calender-day--disabled': disabled,
+          }}
+          onClick={() => this.setCurrentDay(i)}>
           {i}
         </div>,
       );

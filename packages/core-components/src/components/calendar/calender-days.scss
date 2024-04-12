@@ -23,4 +23,14 @@
       background-color: var(--b2b-color-table-selected-hover);
     }
   }
+
+  .b2b-calender-day--disabled {
+    width: 36px;
+    height: 22px;
+    border-radius: 5px;
+    padding: 5px 0;
+    text-align: center;
+    pointer-events: none;
+    color: var(--b2b-color-grey-200);
+  }
 }
