@@ -469,6 +469,15 @@
       },
       "description": ""
     },
+    "selectedDate": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    },
     "selectedMonth": {
       "table": {
         "type": {

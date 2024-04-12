@@ -38,7 +38,6 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [b2b-calendar-header](../calendar)
  - [b2b-pagination](../pagination)
  - [b2b-search](../search)
 
@@ -50,7 +49,6 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   b2b-button --> b2b-spinner
-  b2b-calendar-header --> b2b-button
   b2b-pagination --> b2b-button
   b2b-search --> b2b-button
   style b2b-button fill:#f9f,stroke:#333,stroke-width:4px

@@ -7,16 +7,51 @@
 
   .calendar-header {
     display: flex;
-    padding-left: 24px;
+    box-sizing: border-box;
+  }
+
+  .calendar-nav {
+  height: 32px;
+  width: 32px;
+    background-color: var(--b2b-color-grey-25);
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: var(--b2b-color-table-selected-hover);
+    }
+
   }
 
   .calendar-month {
-    border: 1px solid black;
-    margin-right: 20px;
+    height: 32px;
+    width: 82px;
+    padding: 4px 8px;
+    margin: 0 8px;
+    background-color: var(--b2b-color-grey-25);
+    box-sizing: border-box;
+    text-align: center;
+    &:hover,
+    &:focus {
+      background-color: var(--b2b-color-table-selected-hover);
+    }
+
   }
 
   .calendar-year {
-    border: 1px solid black;
-    margin-right: 20px;
+    height: 32px;
+    width: 82px;
+    padding: 4px 8px;
+    margin: 0 8px;
+    background-color: var(--b2b-color-grey-25);
+    box-sizing: border-box;
+    text-align: center;
+    &:hover,
+    &:focus {
+      background-color: var(--b2b-color-table-selected-hover);
+    }
+
+
   }
 }

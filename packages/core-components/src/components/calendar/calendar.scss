@@ -12,7 +12,8 @@
     width: 300px;
     box-sizing: border-box;
     height: 30px;
-    border: 2px solid black;
+    border: 1px solid black;
+    justify-content: flex-end;
   }
   .calendar-selected-date {
     width: fit-content;
@@ -20,7 +21,8 @@
   }
 
   .b2b-datepicker {
-    border: 2px solid black;
+    border: 1px solid black;
+    border-top: none;
     width: 300px;
     height: 278px;
     padding: 12px 24px;
@@ -28,14 +30,9 @@
   }
 
   .b2b-close-icon {
-    position: absolute;
-    margin: 3px 5px 3px 249px;
-    z-index: 999;
-  }
+ }
 
   .b2b-calender-icon {
-    position: absolute;
-    margin: 3px 0 3px 269px;
-    z-index: 999;
+    //justify-content: flex-end
   }
 }

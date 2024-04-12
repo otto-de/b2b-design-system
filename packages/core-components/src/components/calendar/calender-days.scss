@@ -22,15 +22,24 @@
     &:focus {
       background-color: var(--b2b-color-table-selected-hover);
     }
+
+    &--disabled {
+      width: 36px;
+      height: 22px;
+      border-radius: 5px;
+      padding: 5px 0;
+      text-align: center;
+      pointer-events: none;
+      color: var(--b2b-color-grey-200);
+    }
+    &--today {
+     border: 1px solid var(--b2b-color-black-50);
+    }
+    &--selected {
+     background-color: var(--b2b-color-black-100);
+      color: var(--b2b-color-white-100);
+      pointer-events: none;
+    }
   }
 
-  .b2b-calender-day--disabled {
-    width: 36px;
-    height: 22px;
-    border-radius: 5px;
-    padding: 5px 0;
-    text-align: center;
-    pointer-events: none;
-    color: var(--b2b-color-grey-200);
-  }
 }

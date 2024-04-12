@@ -12,6 +12,7 @@
 | `disableFutureDates` | `disable-future-dates` |             | `boolean`               | `false`     |
 | `disablePastDates`   | `disable-past-dates`   |             | `boolean`               | `false`     |
 | `disableWeekends`    | `disable-weekends`     |             | `boolean`               | `false`     |
+| `selectedDate`       | `selected-date`        |             | `string`                | `undefined` |
 | `selectedMonth`      | `selected-month`       |             | `number`                | `undefined` |
 | `selectedYear`       | `selected-year`        |             | `number`                | `undefined` |
 | `setCurrentDay`      | --                     |             | `(day: number) => void` | `undefined` |

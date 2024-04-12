@@ -145,6 +145,7 @@ export namespace Components {
         "disableFutureDates": boolean;
         "disablePastDates": boolean;
         "disableWeekends": boolean;
+        "selectedDay": number;
         "selectedMonth": number;
         "selectedYear": number;
         "setCurrentDay": (day: number) => void;
@@ -2189,6 +2190,7 @@ declare namespace LocalJSX {
         "disableFutureDates"?: boolean;
         "disablePastDates"?: boolean;
         "disableWeekends"?: boolean;
+        "selectedDay"?: number;
         "selectedMonth"?: number;
         "selectedYear"?: number;
         "setCurrentDay"?: (day: number) => void;

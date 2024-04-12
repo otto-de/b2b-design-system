@@ -38,11 +38,16 @@ export class B2bCalendar {
 
   private setCurrentMonth = (selectedMonth: number) => {
     this.selectedMonth = selectedMonth;
+    this.clearDateInput();
+    this.selectedDay = undefined;
   };
 
   private setCurrentYear = (selectedYear: number) => {
     this.selectedYear = selectedYear;
+    this.clearDateInput();
+    this.selectedDay = undefined;
   };
+
   private setCurrentDay = (selectedDate: number) => {
     this.selectedDay = selectedDate;
     this.setSelectedDate();
@@ -59,7 +64,11 @@ export class B2bCalendar {
   private setSelectedDate() {
     if (this.selectedDay !== undefined)
       this.selectedDate =
-        this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
+        this.selectedDay +
+        '.' +
+        (this.selectedMonth + 1) +
+        '.' +
+        this.selectedYear;
     this.b2bSelected.emit({
       selectedDate: new Date(this.selectedDate),
     });
@@ -81,6 +90,7 @@ export class B2bCalendar {
                   clickable={true}></b2b-icon-100>
               </div>
             )}
+
             <div class="b2b-calender-icon">
               <b2b-icon-100 icon="b2b_icon-event"></b2b-icon-100>
             </div>
@@ -97,6 +107,7 @@ export class B2bCalendar {
             <b2b-calender-days
               selectedMonth={this.selectedMonth}
               selectedYear={this.selectedYear}
+              selectedDay={this.selectedDay}
               setCurrentDay={this.setCurrentDay}
               disableWeekends={this.disableWeekends}
               disableFutureDates={this.disableFutureDates}
