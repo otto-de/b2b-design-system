@@ -1,5 +1,4 @@
 :host {
-
   .b2b-calender {
     position: relative;
   }
@@ -14,10 +13,11 @@
     height: 30px;
     border: 1px solid black;
     justify-content: flex-end;
+    z-index: 1000;
   }
   .calendar-selected-date {
-    width: fit-content;
     margin: 3px 0 3px 10px;
+    flex: 1;
   }
 
   .b2b-datepicker {
@@ -29,10 +29,8 @@
     box-sizing: border-box;
   }
 
-  .b2b-close-icon {
- }
-
-  .b2b-calender-icon {
-    //justify-content: flex-end
+  .b2b-icons {
+    display: flex;
+    z-index: 1000;
   }
 }

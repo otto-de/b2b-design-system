@@ -11,8 +11,8 @@
   }
 
   .calendar-nav {
-  height: 32px;
-  width: 32px;
+    height: 32px;
+    width: 32px;
     background-color: var(--b2b-color-grey-25);
     box-sizing: border-box;
     border: none;
@@ -21,7 +21,6 @@
     &:focus {
       background-color: var(--b2b-color-table-selected-hover);
     }
-
   }
 
   .calendar-month {
@@ -36,7 +35,6 @@
     &:focus {
       background-color: var(--b2b-color-table-selected-hover);
     }
-
   }
 
   .calendar-year {
@@ -51,7 +49,5 @@
     &:focus {
       background-color: var(--b2b-color-table-selected-hover);
     }
-
-
   }
 }

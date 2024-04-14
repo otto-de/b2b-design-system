@@ -33,13 +33,12 @@
       color: var(--b2b-color-grey-200);
     }
     &--today {
-     border: 1px solid var(--b2b-color-black-50);
+      border: 1px solid var(--b2b-color-black-50);
     }
     &--selected {
-     background-color: var(--b2b-color-black-100);
+      background-color: var(--b2b-color-black-100);
       color: var(--b2b-color-white-100);
       pointer-events: none;
     }
   }
-
 }
