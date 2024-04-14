@@ -2,6 +2,7 @@
   .b2b-calender {
     position: relative;
   }
+
   .calender-selected-date-wrapper {
     display: flex;
   }
@@ -15,6 +16,7 @@
     justify-content: flex-end;
     z-index: 1000;
   }
+
   .calendar-selected-date {
     margin: 3px 0 3px 10px;
     flex: 1;
