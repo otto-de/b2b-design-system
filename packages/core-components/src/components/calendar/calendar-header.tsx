@@ -50,12 +50,16 @@ export class B2bCalendarHeader {
       <Host>
         <div class="calendar-header">
           <button class="calendar-nav" onClick={this.getPreviousMonth}>
-            <b2b-icon-100 icon="b2b_icon-arrow-left" clickable></b2b-icon-100>
+            <b2b-icon-100
+              icon="b2b_icon-arrow-left"
+              clickable={true}></b2b-icon-100>
           </button>
           <div class="calendar-month"> {this.months[this.selectedMonth]}</div>
           <div class="calendar-year"> {this.selectedYear}</div>
           <button class="calendar-nav" onClick={this.getNextMonth}>
-            <b2b-icon-100 icon="b2b_icon-arrow-right" clickable></b2b-icon-100>
+            <b2b-icon-100
+              icon="b2b_icon-arrow-right"
+              clickable={true}></b2b-icon-100>
           </button>
         </div>
       </Host>

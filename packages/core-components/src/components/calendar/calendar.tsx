@@ -60,7 +60,6 @@ export class B2bCalendar {
   private clearDateInput = () => {
     this.selectedDate = undefined;
     this.selectedDay = undefined;
-    this.showHideCalendar();
   };
 
   private setSelectedDate() {
@@ -87,7 +86,11 @@ export class B2bCalendar {
             <div class="calendar-selected-date">{this.selectedDate}</div>
             <div class="b2b-icons">
               {this.selectedDate && (
-                <div onClick={this.clearDateInput}>
+                <div
+                  onClick={() => {
+                    this.clearDateInput();
+                    this.showHideCalendar();
+                  }}>
                   <b2b-icon-100
                     icon="b2b_icon-close"
                     class="b2b-close-icon"
