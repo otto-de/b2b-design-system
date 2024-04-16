@@ -7,15 +7,17 @@
 
 ## Properties
 
-| Property             | Attribute              | Description | Type                    | Default     |
-| -------------------- | ---------------------- | ----------- | ----------------------- | ----------- |
-| `disableFutureDates` | `disable-future-dates` |             | `boolean`               | `false`     |
-| `disablePastDates`   | `disable-past-dates`   |             | `boolean`               | `false`     |
-| `disableWeekends`    | `disable-weekends`     |             | `boolean`               | `false`     |
-| `selectedDate`       | `selected-date`        |             | `string`                | `undefined` |
-| `selectedMonth`      | `selected-month`       |             | `number`                | `undefined` |
-| `selectedYear`       | `selected-year`        |             | `number`                | `undefined` |
-| `setCurrentDay`      | --                     |             | `(day: number) => void` | `undefined` |
+| Property             | Attribute              | Description | Type                      | Default     |
+| -------------------- | ---------------------- | ----------- | ------------------------- | ----------- |
+| `disableFutureDates` | `disable-future-dates` |             | `boolean`                 | `false`     |
+| `disablePastDates`   | `disable-past-dates`   |             | `boolean`                 | `false`     |
+| `disableWeekends`    | `disable-weekends`     |             | `boolean`                 | `false`     |
+| `selectedDay`        | `selected-day`         |             | `number`                  | `undefined` |
+| `selectedMonth`      | `selected-month`       |             | `number`                  | `undefined` |
+| `selectedYear`       | `selected-year`        |             | `number`                  | `undefined` |
+| `setCurrentDay`      | --                     |             | `(day: number) => void`   | `undefined` |
+| `setShowDatePicker`  | --                     |             | `(show: boolean) => void` | `undefined` |
+| `showDatePicker`     | `show-date-picker`     |             | `boolean`                 | `undefined` |
 
 
 ## Dependencies

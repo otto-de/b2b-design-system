@@ -33,7 +33,7 @@ export class B2bCalendar {
 
   @State() selectedMonth: number = new Date().getMonth();
   @State() selectedYear: number = new Date().getFullYear();
-  @State() selectedDay: number;
+  @State() selectedDay: number = new Date().getDate();
   @State() selectedDate: string = undefined;
 
   private setCurrentMonth = (selectedMonth: number) => {
@@ -53,8 +53,8 @@ export class B2bCalendar {
     this.setSelectedDate();
   };
 
-  private showHideCalendar = () => {
-    this.showCalendar = !this.showCalendar;
+  private showHideCalendar = (showCalendar: boolean) => {
+    this.showCalendar = showCalendar;
   };
 
   private clearDateInput = () => {
@@ -75,6 +75,17 @@ export class B2bCalendar {
     });
   }
 
+  private handleCancelKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      this.clearDateInput();
+    }
+  };
+  private handleCalendarKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      this.showHideCalendar(!this.showCalendar);
+    }
+  };
+
   render() {
     return (
       <Host>
@@ -82,15 +93,17 @@ export class B2bCalendar {
           <div>{this.calendarLabel}</div>
           <div
             class="b2b-calender-input-wrapper"
-            onClick={this.showHideCalendar}>
+            onClick={() => this.showHideCalendar(!this.showCalendar)}>
             <div class="calendar-selected-date">{this.selectedDate}</div>
             <div class="b2b-icons">
               {this.selectedDate && (
                 <div
+                  aria-label="reset date"
+                  tabindex={0}
                   onClick={() => {
                     this.clearDateInput();
-                    this.showHideCalendar();
-                  }}>
+                  }}
+                  onKeyDown={this.handleCancelKeydown}>
                   <b2b-icon-100
                     icon="b2b_icon-close"
                     class="b2b-close-icon"
@@ -98,7 +111,11 @@ export class B2bCalendar {
                 </div>
               )}
 
-              <div class="b2b-calender-icon">
+              <div
+                class="b2b-calender-icon"
+                aria-label="open calendar"
+                tabindex={0}
+                onKeyDown={this.handleCalendarKeydown}>
                 <b2b-icon-100
                   icon="b2b_icon-event"
                   clickable={true}></b2b-icon-100>
@@ -107,7 +124,10 @@ export class B2bCalendar {
           </div>
         </div>
         {this.showCalendar && (
-          <div class="b2b-datepicker">
+          <div
+            class="b2b-datepicker"
+            aria-modal="true"
+            aria-label="Choose Date">
             <b2b-calendar-header
               selectedMonth={this.selectedMonth}
               setCurrentMonth={this.setCurrentMonth}
@@ -121,7 +141,9 @@ export class B2bCalendar {
               setCurrentDay={this.setCurrentDay}
               disableWeekends={this.disableWeekends}
               disableFutureDates={this.disableFutureDates}
-              disablePastDates={this.disablePastDates}></b2b-calender-days>
+              disablePastDates={this.disablePastDates}
+              showDatePicker={this.showCalendar}
+              setShowDatePicker={this.showHideCalendar}></b2b-calender-days>
           </div>
         )}
       </Host>

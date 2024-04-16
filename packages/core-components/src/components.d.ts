@@ -149,6 +149,8 @@ export namespace Components {
         "selectedMonth": number;
         "selectedYear": number;
         "setCurrentDay": (day: number) => void;
+        "setShowDatePicker": (show: boolean) => void;
+        "showDatePicker": boolean;
     }
     interface B2bCard {
         /**
@@ -2194,6 +2196,8 @@ declare namespace LocalJSX {
         "selectedMonth"?: number;
         "selectedYear"?: number;
         "setCurrentDay"?: (day: number) => void;
+        "setShowDatePicker"?: (show: boolean) => void;
+        "showDatePicker"?: boolean;
     }
     interface B2bCard {
         /**

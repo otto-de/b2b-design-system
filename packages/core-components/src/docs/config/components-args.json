@@ -469,10 +469,10 @@
       },
       "description": ""
     },
-    "selectedDate": {
+    "selectedDay": {
       "table": {
         "type": {
-          "summary": "string"
+          "summary": "number"
         },
         "defaultValue": {}
       },
@@ -500,6 +500,27 @@
       "table": {
         "type": {
           "summary": "(day: number) => void"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    },
+    "setShowDatePicker": {
+      "table": {
+        "type": {
+          "summary": "(show: boolean) => void"
+        },
+        "defaultValue": {}
+      },
+      "description": ""
+    },
+    "showDatePicker": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
         },
         "defaultValue": {}
       },

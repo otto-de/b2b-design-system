@@ -36,11 +36,14 @@
     &--today {
       border: 1px solid var(--b2b-color-black-50);
     }
-    
+
     &--selected {
       background-color: var(--b2b-color-black-100);
       color: var(--b2b-color-white-100);
       pointer-events: none;
+    }
+    &--focussed {
+      background-color: var(--b2b-color-table-selected-hover);
     }
   }
 }
