@@ -1,4 +1,27 @@
-import { Component, h, Host, Element, Prop, State } from '@stencil/core';
+import {
+  Component,
+  h,
+  Host,
+  Element,
+  Prop,
+  State,
+  Listen,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
+import { EscapePressed } from '../../utils/interfaces/form.interface';
+
+const keys = {
+  ARROW_UP: 'ArrowUp',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_RIGHT: 'ArrowRight',
+  ARROW_LEFT: 'ArrowLeft',
+  HOME: 'Home',
+  END: 'End',
+  ESC: 'Escape',
+  TAB: 'Tab',
+  ENTER: 'Enter',
+};
 
 @Component({
   tag: 'b2b-calender-days',
@@ -11,20 +34,90 @@ export class B2bCalenderDays {
   @Prop() selectedYear: number;
   @Prop() selectedDay: number;
   @Prop() setCurrentDay: (day: number) => void;
-  @Prop() setShowDatePicker: (show: boolean) => void;
-  @Prop() showDatePicker: boolean;
   @Prop() disablePastDates: boolean = false;
   @Prop() disableFutureDates: boolean = false;
   @Prop() disableWeekends: boolean = false;
   @State() disabled: boolean = false;
-  @State() focusDay: number;
-
   private today = new Date();
   private todayWithoutTime = new Date(
     this.today.getFullYear(),
     this.today.getMonth(),
     this.today.getDate(),
   );
+
+  @Event({ eventName: 'b2b-calender-escape' })
+  b2bCalenderEscape: EventEmitter<EscapePressed>;
+  @Listen('keydown')
+  handleKeyDown(event: KeyboardEvent) {
+    event.preventDefault();
+    const dates = this.getAllDates();
+    let index = this.today.getDate() - 1;
+    switch (event.key) {
+      case keys.TAB:
+        index = this.today.getDate() - 1;
+        break;
+      case keys.ARROW_LEFT:
+        index = dates.indexOf(this.getCurrentDate()) - 1;
+        break;
+      case keys.ARROW_RIGHT:
+        index = dates.indexOf(this.getCurrentDate()) + 1;
+        break;
+      case keys.ARROW_UP:
+        index = dates.indexOf(this.getCurrentDate()) - 7;
+        break;
+      case keys.ARROW_DOWN:
+        index = dates.indexOf(this.getCurrentDate()) + 7;
+        break;
+      case keys.ENTER:
+        index = dates.indexOf(this.getCurrentDate());
+        if (dates[index].classList.contains('b2b-calender-day--disabled')) {
+          return;
+        }
+        this.setCurrentDay(index + 1);
+        break;
+      case keys.ESC:
+        this.resetAllDates();
+        this.b2bCalenderEscape.emit();
+        break;
+      default:
+        return;
+    }
+
+    if (index < 0) {
+      index = dates.length - 1;
+    }
+
+    if (index > dates.length - 1) {
+      index = 0;
+    }
+
+    this.focusCurrentDate(dates[index]);
+    dates[index].focus();
+  }
+
+  private getCurrentDate = () => {
+    const dates = this.getAllDates();
+    return dates.find(el => el.getAttribute('tabindex') === '0');
+  };
+
+  private resetAllDates() {
+    const dates = this.getAllDates();
+    dates.forEach(element => {
+      element.setAttribute('tabindex', '-1');
+    });
+  }
+
+  private getAllDates = (): HTMLDivElement[] => {
+    return Array.from(
+      this.host.shadowRoot.querySelectorAll('.b2b-calender-day'),
+    ) as HTMLDivElement[];
+  };
+  private focusCurrentDate = (date: HTMLDivElement) => {
+    const dates = this.getAllDates();
+    dates.forEach(element => {
+      element.setAttribute('tabindex', element === date ? '0' : '-1');
+    });
+  };
 
   private isDisabledDate = (givenDate: Date) => {
     if (this.disablePastDates) {
@@ -37,40 +130,10 @@ export class B2bCalenderDays {
       return false;
     }
   };
-  private handleKeydown = (day: number, event: KeyboardEvent) => {
-    event.preventDefault();
-    switch (event.key) {
-      case 'Esc':
-      case 'Escape':
-        this.setShowDatePicker(false);
-        break;
-      case 'Enter':
-        this.setCurrentDay(day);
-        break;
 
-      case 'Right':
-      case 'ArrowRight':
-        this.focusDay = day + 1;
-        break;
-
-      case 'Left':
-      case 'ArrowLeft':
-        this.focusDay = day - 1;
-        break;
-
-      case 'Down':
-      case 'ArrowDown':
-        this.focusDay = day + 7;
-        break;
-
-      case 'Up':
-      case 'ArrowUp':
-        this.focusDay = day - 7;
-        break;
-
-      default:
-        return;
-    }
+  private handleClick = (event: MouseEvent) => {
+    // Remove focus from the clicked element
+    (event.target as HTMLDivElement).blur();
   };
 
   private renderCalenderDays = () => {
@@ -95,14 +158,6 @@ export class B2bCalenderDays {
     // Populate days array with day numbers
     for (let i = 1; i <= daysInMonth; i++) {
       let givenDate = new Date(this.selectedYear, this.selectedMonth, i);
-      this.focusDay =
-        this.focusDay === undefined ? this.selectedDay : this.focusDay;
-
-      let focusDate = new Date(
-        this.selectedYear,
-        this.selectedMonth,
-        this.focusDay,
-      );
       let disabled = this.isDisabledDate(givenDate);
       days.push(
         <div
@@ -117,29 +172,14 @@ export class B2bCalenderDays {
                 this.selectedMonth,
                 this.selectedDay,
               ).toDateString() === givenDate.toDateString(),
-            'b2b-calender-day--focussed':
-              givenDate.toDateString() === focusDate.toDateString() &&
-              !disabled &&
-              !(
-                new Date(
-                  this.selectedYear,
-                  this.selectedMonth,
-                  this.selectedDay,
-                ).toDateString() === givenDate.toDateString()
-              ),
           }}
-          tabindex={
-            givenDate.toDateString() === focusDate.toDateString() ? 0 : -1
-          }
-          // aria-selected={givenDate.toDateString() === focusDate.toDateString()}
-          onClick={() => {
+          onClick={event => {
             this.setCurrentDay(i);
+            this.handleClick(event);
           }}
-          onKeyDown={event => {
-            this.handleKeydown(this.focusDay, event);
-          }}
-          role="cell"
-          aria-label={i}>
+          tabindex={0}
+          role="gridcell"
+          aria-label={`Date ${i}  ${this.selectedMonth}  ${this.selectedYear}`}>
           {i}
         </div>,
       );
@@ -151,9 +191,7 @@ export class B2bCalenderDays {
   render() {
     return (
       <Host>
-        <div class="b2b-calender-days-grid" role="row">
-          {this.renderCalenderDays()}
-        </div>
+        <div class="b2b-calender-days-grid">{this.renderCalenderDays()}</div>
       </Host>
     );
   }

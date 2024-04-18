@@ -33,6 +33,11 @@
 
   .b2b-icons {
     display: flex;
+    margin-top: 2px;
     z-index: 1000;
+  }
+
+  .b2b-icon {
+    z-index: 1001;
   }
 }
