@@ -19,14 +19,19 @@ import { CalendarEventDetail } from '../../utils/interfaces/form.interface';
 export class B2bCalendar {
   @Element() host: HTMLB2bCalendarElement;
 
+  /** Whether the previous dates from the current date are disabled. By default, this is true. */
   @Prop() disablePastDates: boolean = true;
 
+  /** Whether the dates after the current date are disabled. By default, this is false. */
   @Prop() disableFutureDates: boolean = false;
 
+  /** Whether the dates that fall on the weekend are disabled. By default, this is false. */
   @Prop() disableWeekends: boolean = false;
 
+  /** Label for the calendar component. */
   @Prop() calendarLabel: string = 'this is a calender';
 
+  /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<CalendarEventDetail>;
 

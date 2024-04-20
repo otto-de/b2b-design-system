@@ -128,9 +128,21 @@ export namespace Components {
         "width": 'fit-content' | 'fit-container' | 'custom';
     }
     interface B2bCalendar {
+        /**
+          * Label for the calendar component.
+         */
         "calendarLabel": string;
+        /**
+          * Whether the dates after the current date are disabled. By default, this is false.
+         */
         "disableFutureDates": boolean;
+        /**
+          * Whether the previous dates from the current date are disabled. By default, this is true.
+         */
         "disablePastDates": boolean;
+        /**
+          * Whether the dates that fall on the weekend are disabled. By default, this is false.
+         */
         "disableWeekends": boolean;
     }
     interface B2bCalendarDaysHeader {
@@ -142,11 +154,29 @@ export namespace Components {
         "setCurrentYear": (currentYear: number) => void;
     }
     interface B2bCalenderDays {
+        /**
+          * Internal whether the dates after the current date are disabled. By default, this is false.
+         */
         "disableFutureDates": boolean;
+        /**
+          * Internal whether the dates previous to the current date are disabled. By default, this is true.
+         */
         "disablePastDates": boolean;
+        /**
+          * Internal whether the weekends are disabled. By default, this is false.
+         */
         "disableWeekends": boolean;
+        /**
+          * Internal selected day
+         */
         "selectedDay": number;
+        /**
+          * Internal selected month
+         */
         "selectedMonth": number;
+        /**
+          * Internal selected year
+         */
         "selectedYear": number;
         "setCurrentDay": (day: number) => void;
     }
@@ -2187,10 +2217,25 @@ declare namespace LocalJSX {
         "width"?: 'fit-content' | 'fit-container' | 'custom';
     }
     interface B2bCalendar {
+        /**
+          * Label for the calendar component.
+         */
         "calendarLabel"?: string;
+        /**
+          * Whether the dates after the current date are disabled. By default, this is false.
+         */
         "disableFutureDates"?: boolean;
+        /**
+          * Whether the previous dates from the current date are disabled. By default, this is true.
+         */
         "disablePastDates"?: boolean;
+        /**
+          * Whether the dates that fall on the weekend are disabled. By default, this is false.
+         */
         "disableWeekends"?: boolean;
+        /**
+          * Emits the selected date as Date type.
+         */
         "onB2b-selected"?: (event: B2bCalendarCustomEvent<CalendarEventDetail>) => void;
     }
     interface B2bCalendarDaysHeader {
@@ -2202,12 +2247,30 @@ declare namespace LocalJSX {
         "setCurrentYear"?: (currentYear: number) => void;
     }
     interface B2bCalenderDays {
+        /**
+          * Internal whether the dates after the current date are disabled. By default, this is false.
+         */
         "disableFutureDates"?: boolean;
+        /**
+          * Internal whether the dates previous to the current date are disabled. By default, this is true.
+         */
         "disablePastDates"?: boolean;
+        /**
+          * Internal whether the weekends are disabled. By default, this is false.
+         */
         "disableWeekends"?: boolean;
         "onB2b-calender-escape"?: (event: B2bCalenderDaysCustomEvent<EscapePressed>) => void;
+        /**
+          * Internal selected day
+         */
         "selectedDay"?: number;
+        /**
+          * Internal selected month
+         */
         "selectedMonth"?: number;
+        /**
+          * Internal selected year
+         */
         "selectedYear"?: number;
         "setCurrentDay"?: (day: number) => void;
     }

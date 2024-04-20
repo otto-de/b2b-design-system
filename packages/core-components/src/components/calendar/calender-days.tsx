@@ -30,12 +30,18 @@ const keys = {
 })
 export class B2bCalenderDays {
   @Element() host: HTMLB2bCalenderDaysElement;
+  /** Internal selected month */
   @Prop() selectedMonth: number;
+  /** Internal selected year */
   @Prop() selectedYear: number;
+  /** Internal selected day */
   @Prop() selectedDay: number;
   @Prop() setCurrentDay: (day: number) => void;
-  @Prop() disablePastDates: boolean = false;
+  /** Internal whether the dates previous to the current date are disabled. By default, this is true. */
+  @Prop() disablePastDates: boolean = true;
+  /** Internal whether the dates after the current date are disabled. By default, this is false. */
   @Prop() disableFutureDates: boolean = false;
+  /** Internal whether the weekends are disabled. By default, this is false.  */
   @Prop() disableWeekends: boolean = false;
   @State() disabled: boolean = false;
   private today = new Date();
@@ -54,7 +60,11 @@ export class B2bCalenderDays {
     let index = this.today.getDate() - 1;
     switch (event.key) {
       case keys.TAB:
-        index = this.today.getDate() - 1;
+        if (this.today.getMonth() === this.selectedMonth) {
+          index = this.today.getDate() - 1;
+        } else {
+          index = 0;
+        }
         break;
       case keys.ARROW_LEFT:
         index = dates.indexOf(this.getCurrentDate()) - 1;
@@ -132,7 +142,7 @@ export class B2bCalenderDays {
   };
 
   private handleClick = (event: MouseEvent) => {
-    // Remove focus from the clicked element
+    /** Remove focus from the clicked element */
     (event.target as HTMLDivElement).blur();
   };
 
@@ -141,21 +151,24 @@ export class B2bCalenderDays {
       this.selectedYear,
       this.selectedMonth + 1,
       0,
-    ).getDate(); // Get total days in the current month
+    ).getDate(); /** Get total number of days in the current month */
+
     let actualFirstDayOfMonth = new Date(
       this.selectedYear,
       this.selectedMonth,
       1,
-    ).getDay(); // Get the day of the week (0-6) of the first day of the month
+    ).getDay(); /** Get the day of the week (0-6) of the first day of the month */
 
     let firstDayOfMonth =
       actualFirstDayOfMonth == 0 ? 6 : actualFirstDayOfMonth - 1;
     let days = [];
 
+    /** Populate the days before the first day of the month with empty divs. */
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(<div></div>);
     }
-    // Populate days array with day numbers
+
+    /** Populate days array with day numbers. */
     for (let i = 1; i <= daysInMonth; i++) {
       let givenDate = new Date(this.selectedYear, this.selectedMonth, i);
       let disabled = this.isDisabledDate(givenDate);
