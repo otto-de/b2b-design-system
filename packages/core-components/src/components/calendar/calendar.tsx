@@ -82,7 +82,7 @@ export class B2bCalendar {
     });
     setTimeout(() => {
       this.setFocusOnCloseIcon();
-    }, 10);
+    }, 100);
   }
 
   private setFocusOnCloseIcon() {
@@ -127,6 +127,7 @@ export class B2bCalendar {
                   <b2b-icon-100
                     icon="b2b_icon-close"
                     class="b2b-icon"
+                    aria-label="clear input"
                     clickable={true}></b2b-icon-100>
                 </div>
               )}
@@ -134,6 +135,9 @@ export class B2bCalendar {
               <div class="b2b-calender-icon" tabindex={0}>
                 <b2b-icon-100
                   class="b2b-icon"
+                  aria-label={
+                    this.showCalendar ? 'close calender' : 'open calender'
+                  }
                   icon="b2b_icon-event"
                   clickable={true}></b2b-icon-100>
               </div>

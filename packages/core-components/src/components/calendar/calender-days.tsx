@@ -179,7 +179,9 @@ export class B2bCalenderDays {
           }}
           tabindex={0}
           role="gridcell"
-          aria-label={`Date ${i}  ${this.selectedMonth}  ${this.selectedYear}`}>
+          aria-label={`Date ${i}  ${this.selectedMonth + 1}  ${
+            this.selectedYear
+          }`}>
           {i}
         </div>,
       );
