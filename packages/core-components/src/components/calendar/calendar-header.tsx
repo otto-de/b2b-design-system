@@ -7,9 +7,13 @@ import { Component, Prop, h, Host, Element } from '@stencil/core';
 })
 export class B2bCalendarHeader {
   @Element() host: HTMLB2bCalendarHeaderElement;
+  /** Internal selected month */
   @Prop() selectedMonth: number;
+  /** Internal selected year */
   @Prop() selectedYear: number;
+  /** Internal method to set the current month selected */
   @Prop() setCurrentMonth: (currentMonth: number) => void;
+  /** Internal method to set the current year selected */
   @Prop() setCurrentYear: (currentYear: number) => void;
 
   private months = [

@@ -396,7 +396,7 @@
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "Internal selected month"
     },
     "selectedYear": {
       "table": {
@@ -405,7 +405,7 @@
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "Internal selected year"
     },
     "setCurrentMonth": {
       "table": {
@@ -414,7 +414,7 @@
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "Internal method to set the current month selected"
     },
     "setCurrentYear": {
       "table": {
@@ -423,7 +423,7 @@
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "Internal method to set the current year selected"
     }
   },
   "b2b-calender-days": {

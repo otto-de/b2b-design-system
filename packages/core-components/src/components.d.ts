@@ -148,9 +148,21 @@ export namespace Components {
     interface B2bCalendarDaysHeader {
     }
     interface B2bCalendarHeader {
+        /**
+          * Internal selected month
+         */
         "selectedMonth": number;
+        /**
+          * Internal selected year
+         */
         "selectedYear": number;
+        /**
+          * Internal method to set the current month selected
+         */
         "setCurrentMonth": (currentMonth: number) => void;
+        /**
+          * Internal method to set the current year selected
+         */
         "setCurrentYear": (currentYear: number) => void;
     }
     interface B2bCalenderDays {
@@ -2241,9 +2253,21 @@ declare namespace LocalJSX {
     interface B2bCalendarDaysHeader {
     }
     interface B2bCalendarHeader {
+        /**
+          * Internal selected month
+         */
         "selectedMonth"?: number;
+        /**
+          * Internal selected year
+         */
         "selectedYear"?: number;
+        /**
+          * Internal method to set the current month selected
+         */
         "setCurrentMonth"?: (currentMonth: number) => void;
+        /**
+          * Internal method to set the current year selected
+         */
         "setCurrentYear"?: (currentYear: number) => void;
     }
     interface B2bCalenderDays {

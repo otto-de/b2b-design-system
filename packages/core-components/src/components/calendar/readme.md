@@ -19,10 +19,10 @@
 
 ## Events
 
-| Event                 | Description | Type                                        |
-| --------------------- | ----------- | ------------------------------------------- |
-| `b2b-calender-escape` |             | `CustomEvent<EscapePressed<any>>`           |
-| `b2b-date-selected`   |             | `CustomEvent<DateSelectedEventDetail<any>>` |
+| Event                 | Description | Type                                   |
+| --------------------- | ----------- | -------------------------------------- |
+| `b2b-calender-escape` |             | `CustomEvent<EscapePressed<any>>`      |
+| `b2b-date-selected`   |             | `CustomEvent<DateSelectedEventDetail>` |
 
 
 ## Dependencies
