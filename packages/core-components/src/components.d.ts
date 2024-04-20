@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-import { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, EscapePressed, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -15,7 +15,7 @@ import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-export { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, EscapePressed, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -178,7 +178,6 @@ export namespace Components {
           * Internal selected year
          */
         "selectedYear": number;
-        "setCurrentDay": (day: number) => void;
     }
     interface B2bCard {
         /**
@@ -1393,6 +1392,7 @@ declare global {
     };
     interface HTMLB2bCalenderDaysElementEventMap {
         "b2b-calender-escape": EscapePressed;
+        "b2b-date-selected": DateSelectedEventDetail;
     }
     interface HTMLB2bCalenderDaysElement extends Components.B2bCalenderDays, HTMLStencilElement {
         addEventListener<K extends keyof HTMLB2bCalenderDaysElementEventMap>(type: K, listener: (this: HTMLB2bCalenderDaysElement, ev: B2bCalenderDaysCustomEvent<HTMLB2bCalenderDaysElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2260,6 +2260,7 @@ declare namespace LocalJSX {
          */
         "disableWeekends"?: boolean;
         "onB2b-calender-escape"?: (event: B2bCalenderDaysCustomEvent<EscapePressed>) => void;
+        "onB2b-date-selected"?: (event: B2bCalenderDaysCustomEvent<DateSelectedEventDetail>) => void;
         /**
           * Internal selected day
          */
@@ -2272,7 +2273,6 @@ declare namespace LocalJSX {
           * Internal selected year
          */
         "selectedYear"?: number;
-        "setCurrentDay"?: (day: number) => void;
     }
     interface B2bCard {
         /**

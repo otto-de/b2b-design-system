@@ -342,7 +342,7 @@
           "summary": "'this is a calender'"
         }
       },
-      "description": ""
+      "description": "Label for the calendar component."
     },
     "disableFutureDates": {
       "control": {
@@ -356,7 +356,7 @@
           "summary": "false"
         }
       },
-      "description": ""
+      "description": "Whether the dates after the current date are disabled. By default, this is false."
     },
     "disablePastDates": {
       "control": {
@@ -370,7 +370,7 @@
           "summary": "true"
         }
       },
-      "description": ""
+      "description": "Whether the previous dates from the current date are disabled. By default, this is true."
     },
     "disableWeekends": {
       "control": {
@@ -384,7 +384,7 @@
           "summary": "false"
         }
       },
-      "description": ""
+      "description": "Whether the dates that fall on the weekend are disabled. By default, this is false."
     }
   },
   "b2b-calendar-days-header": {},
@@ -439,7 +439,7 @@
           "summary": "false"
         }
       },
-      "description": ""
+      "description": "Internal whether the dates after the current date are disabled. By default, this is false."
     },
     "disablePastDates": {
       "control": {
@@ -450,10 +450,10 @@
           "summary": "boolean"
         },
         "defaultValue": {
-          "summary": "false"
+          "summary": "true"
         }
       },
-      "description": ""
+      "description": "Internal whether the dates previous to the current date are disabled. By default, this is true."
     },
     "disableWeekends": {
       "control": {
@@ -467,7 +467,7 @@
           "summary": "false"
         }
       },
-      "description": ""
+      "description": "Internal whether the weekends are disabled. By default, this is false."
     },
     "selectedDay": {
       "table": {
@@ -476,7 +476,7 @@
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "Internal selected day"
     },
     "selectedMonth": {
       "table": {
@@ -485,7 +485,7 @@
         },
         "defaultValue": {}
       },
-      "description": ""
+      "description": "Internal selected month"
     },
     "selectedYear": {
       "table": {
@@ -494,16 +494,7 @@
         },
         "defaultValue": {}
       },
-      "description": ""
-    },
-    "setCurrentDay": {
-      "table": {
-        "type": {
-          "summary": "(day: number) => void"
-        },
-        "defaultValue": {}
-      },
-      "description": ""
+      "description": "Internal selected year"
     }
   },
   "b2b-card": {

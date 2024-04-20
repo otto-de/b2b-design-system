@@ -7,22 +7,22 @@
 
 ## Properties
 
-| Property             | Attribute              | Description | Type                    | Default     |
-| -------------------- | ---------------------- | ----------- | ----------------------- | ----------- |
-| `disableFutureDates` | `disable-future-dates` |             | `boolean`               | `false`     |
-| `disablePastDates`   | `disable-past-dates`   |             | `boolean`               | `false`     |
-| `disableWeekends`    | `disable-weekends`     |             | `boolean`               | `false`     |
-| `selectedDay`        | `selected-day`         |             | `number`                | `undefined` |
-| `selectedMonth`      | `selected-month`       |             | `number`                | `undefined` |
-| `selectedYear`       | `selected-year`        |             | `number`                | `undefined` |
-| `setCurrentDay`      | --                     |             | `(day: number) => void` | `undefined` |
+| Property             | Attribute              | Description                                                                                     | Type      | Default     |
+| -------------------- | ---------------------- | ----------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disableFutureDates` | `disable-future-dates` | Internal whether the dates after the current date are disabled. By default, this is false.      | `boolean` | `false`     |
+| `disablePastDates`   | `disable-past-dates`   | Internal whether the dates previous to the current date are disabled. By default, this is true. | `boolean` | `true`      |
+| `disableWeekends`    | `disable-weekends`     | Internal whether the weekends are disabled. By default, this is false.                          | `boolean` | `false`     |
+| `selectedDay`        | `selected-day`         | Internal selected day                                                                           | `number`  | `undefined` |
+| `selectedMonth`      | `selected-month`       | Internal selected month                                                                         | `number`  | `undefined` |
+| `selectedYear`       | `selected-year`        | Internal selected year                                                                          | `number`  | `undefined` |
 
 
 ## Events
 
-| Event                 | Description | Type                              |
-| --------------------- | ----------- | --------------------------------- |
-| `b2b-calender-escape` |             | `CustomEvent<EscapePressed<any>>` |
+| Event                 | Description | Type                                        |
+| --------------------- | ----------- | ------------------------------------------- |
+| `b2b-calender-escape` |             | `CustomEvent<EscapePressed<any>>`           |
+| `b2b-date-selected`   |             | `CustomEvent<DateSelectedEventDetail<any>>` |
 
 
 ## Dependencies

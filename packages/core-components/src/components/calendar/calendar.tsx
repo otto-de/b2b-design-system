@@ -47,6 +47,13 @@ export class B2bCalendar {
     this.showCalendar = false;
   }
 
+  @Listen('b2b-date-selected')
+  handleDateSelection(event: CustomEvent) {
+    this.selectedDay = event.detail.selectedDate.getDate();
+    this.setSelectedDate();
+    this.showCalendar = false;
+  }
+
   private setCurrentMonth = (selectedMonth: number) => {
     this.selectedMonth = selectedMonth;
     this.clearDateInput();
@@ -58,13 +65,6 @@ export class B2bCalendar {
     this.clearDateInput();
     this.selectedDay = undefined;
   };
-
-  private setCurrentDay = (selectedDate: number) => {
-    this.selectedDay = selectedDate;
-    this.setSelectedDate();
-    this.showCalendar = false;
-  };
-
   private showHideCalendar = () => {
     this.showCalendar = !this.showCalendar;
   };
@@ -161,7 +161,6 @@ export class B2bCalendar {
               selectedMonth={this.selectedMonth}
               selectedYear={this.selectedYear}
               selectedDay={this.selectedDay}
-              setCurrentDay={this.setCurrentDay}
               disableWeekends={this.disableWeekends}
               disableFutureDates={this.disableFutureDates}
               disablePastDates={this.disablePastDates}></b2b-calender-days>

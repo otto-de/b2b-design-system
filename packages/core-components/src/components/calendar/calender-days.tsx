@@ -9,7 +9,10 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { EscapePressed } from '../../utils/interfaces/form.interface';
+import {
+  DateSelectedEventDetail,
+  EscapePressed,
+} from '../../utils/interfaces/form.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -36,7 +39,6 @@ export class B2bCalenderDays {
   @Prop() selectedYear: number;
   /** Internal selected day */
   @Prop() selectedDay: number;
-  @Prop() setCurrentDay: (day: number) => void;
   /** Internal whether the dates previous to the current date are disabled. By default, this is true. */
   @Prop() disablePastDates: boolean = true;
   /** Internal whether the dates after the current date are disabled. By default, this is false. */
@@ -53,6 +55,9 @@ export class B2bCalenderDays {
 
   @Event({ eventName: 'b2b-calender-escape' })
   b2bCalenderEscape: EventEmitter<EscapePressed>;
+
+  @Event({ eventName: 'b2b-date-selected' })
+  b2bDateSelected: EventEmitter<DateSelectedEventDetail>;
   @Listen('keydown')
   handleKeyDown(event: KeyboardEvent) {
     event.preventDefault();
@@ -83,7 +88,13 @@ export class B2bCalenderDays {
         if (dates[index].classList.contains('b2b-calender-day--disabled')) {
           return;
         }
-        this.setCurrentDay(index + 1);
+        this.b2bDateSelected.emit({
+          selectedDate: new Date(
+            this.selectedYear,
+            this.selectedMonth + 1,
+            index + 1,
+          ),
+        });
         break;
       case keys.ESC:
         this.resetAllDates();
@@ -187,7 +198,9 @@ export class B2bCalenderDays {
               ).toDateString() === givenDate.toDateString(),
           }}
           onClick={event => {
-            this.setCurrentDay(i);
+            this.b2bDateSelected.emit({
+              selectedDate: new Date(this.selectedYear, this.selectedMonth, i),
+            });
             this.handleClick(event);
           }}
           tabindex={0}

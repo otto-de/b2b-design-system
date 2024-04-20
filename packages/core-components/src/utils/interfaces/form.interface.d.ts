@@ -20,6 +20,10 @@ export interface OptionSelectedEventDetail<T = any> {
   selectedOption: string;
 }
 
+export interface DateSelectedEventDetail {
+  selectedDate: Date;
+}
+
 export interface MultiSelectOptionEventDetail {
   selected: boolean;
   selectedOption: string;
