@@ -51,25 +51,33 @@ export class B2bCalendarHeader {
   render() {
     return (
       <Host>
-        <div class="calendar-header">
+        <div class="b2b-calendar-header">
           <button
-            class="calendar-nav"
+            class="b2b-calendar-nav"
             onClick={this.getPreviousMonth}
             aria-label="previous month">
             <b2b-icon-100
               icon="b2b_icon-arrow-left"
               clickable={true}></b2b-icon-100>
           </button>
-          <div class="calendar-month" aria-live="polite">
+          <b2b-headline
+            size={'100'}
+            align={'center'}
+            class="b2b-calendar-month"
+            aria-live="polite">
             {' '}
             {this.months[this.selectedMonth]}
-          </div>
-          <div class="calendar-year" aria-live="polite">
+          </b2b-headline>
+          <b2b-headline
+            size={'100'}
+            align={'center'}
+            class="b2b-calendar-year"
+            aria-live="polite">
             {' '}
             {this.selectedYear}
-          </div>
+          </b2b-headline>
           <button
-            class="calendar-nav"
+            class="b2b-calendar-nav"
             onClick={this.getNextMonth}
             aria-label="next month">
             <b2b-icon-100

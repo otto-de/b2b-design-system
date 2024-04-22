@@ -333,17 +333,6 @@
     }
   },
   "b2b-calendar": {
-    "calendarLabel": {
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {
-          "summary": "'this is a calender'"
-        }
-      },
-      "description": "Label for the calendar component."
-    },
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -385,6 +374,17 @@
         }
       },
       "description": "Whether the dates that fall on the weekend are disabled. By default, this is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Zeitraum auswählen'"
+        }
+      },
+      "description": "Label for the calendar component."
     }
   },
   "b2b-calendar-days-header": {},

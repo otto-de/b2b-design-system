@@ -1,10 +1,6 @@
 :host {
-  .b2b-calender {
+  .b2b-calendar {
     position: relative;
-  }
-
-  .calender-selected-date-wrapper {
-    display: flex;
   }
 
   .b2b-calender-input-wrapper {
@@ -15,11 +11,18 @@
     border: 1px solid black;
     justify-content: flex-end;
     z-index: 1000;
+    border-radius: 3px 3px 0 0;
   }
 
-  .calendar-selected-date {
+  .b2b-calendar-selected-date {
     margin: 3px 0 3px 10px;
     flex: 1;
+  }
+
+  .b2b-calendar-label {
+    font-size: var(--b2b-size-35);
+    color: var(--b2b-color-black-100);
+    line-height: 21px;
   }
 
   .b2b-datepicker {

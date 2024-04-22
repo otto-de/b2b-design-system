@@ -129,10 +129,6 @@ export namespace Components {
     }
     interface B2bCalendar {
         /**
-          * Label for the calendar component.
-         */
-        "calendarLabel": string;
-        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates": boolean;
@@ -144,6 +140,10 @@ export namespace Components {
           * Whether the dates that fall on the weekend are disabled. By default, this is false.
          */
         "disableWeekends": boolean;
+        /**
+          * Label for the calendar component.
+         */
+        "label": string;
     }
     interface B2bCalendarDaysHeader {
     }
@@ -2230,10 +2230,6 @@ declare namespace LocalJSX {
     }
     interface B2bCalendar {
         /**
-          * Label for the calendar component.
-         */
-        "calendarLabel"?: string;
-        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates"?: boolean;
@@ -2245,6 +2241,10 @@ declare namespace LocalJSX {
           * Whether the dates that fall on the weekend are disabled. By default, this is false.
          */
         "disableWeekends"?: boolean;
+        /**
+          * Label for the calendar component.
+         */
+        "label"?: string;
         /**
           * Emits the selected date as Date type.
          */

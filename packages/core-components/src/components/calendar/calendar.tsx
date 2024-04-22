@@ -29,7 +29,7 @@ export class B2bCalendar {
   @Prop() disableWeekends: boolean = false;
 
   /** Label for the calendar component. */
-  @Prop() calendarLabel: string = 'this is a calender';
+  @Prop() label: string = 'Zeitraum auswählen';
 
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
@@ -102,8 +102,8 @@ export class B2bCalendar {
   render() {
     return (
       <Host>
-        <div class="b2b-calender">
-          <div>{this.calendarLabel}</div>
+        <div class="b2b-calendar">
+          <div class="b2b-calender">{this.label}</div>
           <div
             class="b2b-calender-input-wrapper"
             tabindex={0}
@@ -113,7 +113,7 @@ export class B2bCalendar {
                 this.showHideCalendar();
               }
             }}>
-            <div class="calendar-selected-date">{this.selectedDate}</div>
+            <div class="b2b-calendar-selected-date">{this.selectedDate}</div>
             <div class="b2b-icons">
               {this.selectedDate && (
                 <div

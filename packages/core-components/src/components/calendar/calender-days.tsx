@@ -113,7 +113,6 @@ export class B2bCalenderDays {
     }
 
     this.focusCurrentDate(dates[index]);
-    dates[index].focus();
   }
 
   private getCurrentDate = () => {
@@ -136,8 +135,14 @@ export class B2bCalenderDays {
   private focusCurrentDate = (date: HTMLDivElement) => {
     const dates = this.getAllDates();
     dates.forEach(element => {
+      if (date.className.includes('b2b-calender-day--disabled')) {
+        return;
+      }
       element.setAttribute('tabindex', element === date ? '0' : '-1');
     });
+    if (!date.className.includes('b2b-calender-day--disabled')) {
+      date.focus();
+    }
   };
 
   private isDisabledDate = (givenDate: Date) => {
@@ -203,7 +208,11 @@ export class B2bCalenderDays {
             });
             this.handleClick(event);
           }}
-          tabindex={0}
+          tabindex={
+            givenDate.toDateString() === this.todayWithoutTime.toDateString()
+              ? 0
+              : -1
+          }
           role="gridcell"
           aria-label={`Date ${i}  ${this.selectedMonth + 1}  ${
             this.selectedYear

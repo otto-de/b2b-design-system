@@ -5,12 +5,12 @@
 :host {
   --b2b-border-radius: var(--b2b-size-border-radius-100);
 
-  .calendar-header {
+  .b2b-calendar-header {
     display: flex;
     box-sizing: border-box;
   }
 
-  .calendar-nav {
+  .b2b-calendar-nav {
     height: 32px;
     width: 32px;
     background-color: var(--b2b-color-grey-25);
@@ -24,7 +24,7 @@
     }
   }
 
-  .calendar-month {
+  .b2b-calendar-month {
     height: 32px;
     width: 82px;
     padding: 4px 8px;
@@ -32,6 +32,7 @@
     background-color: var(--b2b-color-grey-25);
     box-sizing: border-box;
     text-align: center;
+    font-weight: var(--b2b-size-headline-100);
 
     &:hover,
     &:focus {
@@ -39,7 +40,7 @@
     }
   }
 
-  .calendar-year {
+  .b2b-calendar-year {
     height: 32px;
     width: 82px;
     padding: 4px 8px;
@@ -47,6 +48,7 @@
     background-color: var(--b2b-color-grey-25);
     box-sizing: border-box;
     text-align: center;
+    font-weight: var(--b2b-size-headline-100);
 
     &:hover,
     &:focus {
