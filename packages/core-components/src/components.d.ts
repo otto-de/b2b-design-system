@@ -912,6 +912,23 @@ export namespace Components {
         "type": TableRowgroupTypes;
     }
     /**
+     * Text component to render text content.
+     */
+    interface B2bText {
+        /**
+          * The alignment of the text.
+         */
+        "align": 'left' | 'right' | 'center';
+        /**
+          * The size of the text.
+         */
+        "size": '50' | '100';
+        /**
+          * The weight of the text.
+         */
+        "weight": 'bold' | 'normal';
+    }
+    /**
      * Text Area Component
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-96
      */
@@ -1819,6 +1836,15 @@ declare global {
         prototype: HTMLB2bTableRowgroupElement;
         new (): HTMLB2bTableRowgroupElement;
     };
+    /**
+     * Text component to render text content.
+     */
+    interface HTMLB2bTextElement extends Components.B2bText, HTMLStencilElement {
+    }
+    var HTMLB2bTextElement: {
+        prototype: HTMLB2bTextElement;
+        new (): HTMLB2bTextElement;
+    };
     interface HTMLB2bTextareaElementEventMap {
         "b2b-focus": FocusEvent;
         "b2b-blur": FocusEvent;
@@ -1985,6 +2011,7 @@ declare global {
         "b2b-table-header": HTMLB2bTableHeaderElement;
         "b2b-table-row": HTMLB2bTableRowElement;
         "b2b-table-rowgroup": HTMLB2bTableRowgroupElement;
+        "b2b-text": HTMLB2bTextElement;
         "b2b-textarea": HTMLB2bTextareaElement;
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-chip": HTMLB2bToggleChipElement;
@@ -3006,6 +3033,23 @@ declare namespace LocalJSX {
         "type"?: TableRowgroupTypes;
     }
     /**
+     * Text component to render text content.
+     */
+    interface B2bText {
+        /**
+          * The alignment of the text.
+         */
+        "align"?: 'left' | 'right' | 'center';
+        /**
+          * The size of the text.
+         */
+        "size"?: '50' | '100';
+        /**
+          * The weight of the text.
+         */
+        "weight"?: 'bold' | 'normal';
+    }
+    /**
      * Text Area Component
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-96
      */
@@ -3285,6 +3329,7 @@ declare namespace LocalJSX {
         "b2b-table-header": B2bTableHeader;
         "b2b-table-row": B2bTableRow;
         "b2b-table-rowgroup": B2bTableRowgroup;
+        "b2b-text": B2bText;
         "b2b-textarea": B2bTextarea;
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-chip": B2bToggleChip;
@@ -3366,6 +3411,10 @@ declare module "@stencil/core" {
             "b2b-table-header": LocalJSX.B2bTableHeader & JSXBase.HTMLAttributes<HTMLB2bTableHeaderElement>;
             "b2b-table-row": LocalJSX.B2bTableRow & JSXBase.HTMLAttributes<HTMLB2bTableRowElement>;
             "b2b-table-rowgroup": LocalJSX.B2bTableRowgroup & JSXBase.HTMLAttributes<HTMLB2bTableRowgroupElement>;
+            /**
+             * Text component to render text content.
+             */
+            "b2b-text": LocalJSX.B2bText & JSXBase.HTMLAttributes<HTMLB2bTextElement>;
             /**
              * Text Area Component
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-96

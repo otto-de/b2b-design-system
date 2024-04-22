@@ -54,6 +54,7 @@ export const B2bTableCell = /*@__PURE__*/createReactComponent<JSX.B2bTableCell, 
 export const B2bTableHeader = /*@__PURE__*/createReactComponent<JSX.B2bTableHeader, HTMLB2bTableHeaderElement>('b2b-table-header');
 export const B2bTableRow = /*@__PURE__*/createReactComponent<JSX.B2bTableRow, HTMLB2bTableRowElement>('b2b-table-row');
 export const B2bTableRowgroup = /*@__PURE__*/createReactComponent<JSX.B2bTableRowgroup, HTMLB2bTableRowgroupElement>('b2b-table-rowgroup');
+export const B2bText = /*@__PURE__*/createReactComponent<JSX.B2bText, HTMLB2bTextElement>('b2b-text');
 export const B2bTextarea = /*@__PURE__*/createReactComponent<JSX.B2bTextarea, HTMLB2bTextareaElement>('b2b-textarea');
 export const B2bToggleButton = /*@__PURE__*/createReactComponent<JSX.B2bToggleButton, HTMLB2bToggleButtonElement>('b2b-toggle-button');
 export const B2bToggleChip = /*@__PURE__*/createReactComponent<JSX.B2bToggleChip, HTMLB2bToggleChipElement>('b2b-toggle-chip');

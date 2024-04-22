@@ -91,7 +91,7 @@
           "summary": "null"
         }
       },
-      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\r\ndefaults to the URL string, but can be changed by the user."
+      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\ndefaults to the URL string, but can be changed by the user."
     },
     "href": {
       "table": {
@@ -214,7 +214,7 @@
         },
         "defaultValue": {}
       },
-      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\r\ndefaults to the URL string, but can be changed by the user."
+      "description": "If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file\ndefaults to the URL string, but can be changed by the user."
     },
     "href": {
       "table": {
@@ -2106,7 +2106,7 @@
           "summary": "false"
         }
       },
-      "description": "A boolean that indicates whether the modal can be dismissed by clicking\r\nin the backdrop outside the modal."
+      "description": "A boolean that indicates whether the modal can be dismissed by clicking\nin the backdrop outside the modal."
     },
     "escDismiss": {
       "control": {
@@ -2120,7 +2120,7 @@
           "summary": "true"
         }
       },
-      "description": "A boolean to indicate whether the modal can be dismissed by pressing\r\nthe escape key on the keyboard"
+      "description": "A boolean to indicate whether the modal can be dismissed by pressing\nthe escape key on the keyboard"
     },
     "heading": {
       "table": {
@@ -2630,7 +2630,7 @@
         },
         "defaultValue": {}
       },
-      "description": "The color of the border of the circle around the icon or text.\r\nUse any type including hex, rgb or css custom properties\r\nas long as you pass it as a string"
+      "description": "The color of the border of the circle around the icon or text.\nUse any type including hex, rgb or css custom properties\nas long as you pass it as a string"
     },
     "color": {
       "table": {
@@ -2641,7 +2641,7 @@
           "summary": "'var(--b2b-color-info-50)'"
         }
       },
-      "description": "The color of the circle around the icon or text.\r\nUse any type including hex, rgb or css custom properties\r\nas long as you pass it as a string"
+      "description": "The color of the circle around the icon or text.\nUse any type including hex, rgb or css custom properties\nas long as you pass it as a string"
     },
     "contentColor": {
       "table": {
@@ -2652,7 +2652,7 @@
           "summary": "'var(--b2b-color-copy-default)'"
         }
       },
-      "description": "The color of the text or icon within the circle.\r\nUse any type including hex, rgb or css custom properties\r\nas long as you pass it as a string"
+      "description": "The color of the text or icon within the circle.\nUse any type including hex, rgb or css custom properties\nas long as you pass it as a string"
     }
   },
   "b2b-scrollable-container": {},
@@ -2820,7 +2820,7 @@
           "summary": "false"
         }
       },
-      "description": "Determines if the Tab Group will do it's own navigation. Per default, it will use internal navigation.\r\nSet it to true if you want to use external, route-based navigation."
+      "description": "Determines if the Tab Group will do it's own navigation. Per default, it will use internal navigation.\nSet it to true if you want to use external, route-based navigation."
     }
   },
   "b2b-tab-panel": {},
@@ -2842,7 +2842,7 @@
           "summary": "TableSizes.EXPAND"
         }
       },
-      "description": "The size of the table. Both will expand to 100% of parent size.\r\nExpand cells will use as much space as content needs and text will wrap.\r\nEqual will keep all column sizes proportional to the number of columns.\r\nColspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells\r\nto make them span more than one column."
+      "description": "The size of the table. Both will expand to 100% of parent size.\nExpand cells will use as much space as content needs and text will wrap.\nEqual will keep all column sizes proportional to the number of columns.\nColspan behaves same as equal, but allows you to set a colspan attribute on individual columns or cells\nto make them span more than one column."
     }
   },
   "b2b-table-cell": {
@@ -2919,7 +2919,7 @@
           "summary": "true"
         }
       },
-      "description": "Whether text should wrap or truncate.\r\nIt will only truncate when table size is equal\r\n*"
+      "description": "Whether text should wrap or truncate.\nIt will only truncate when table size is equal\n*"
     }
   },
   "b2b-table-header": {
@@ -2996,7 +2996,7 @@
           "summary": "TableSizes.EXPAND"
         }
       },
-      "description": "The size of the cell. Follows table size.\r\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\r\nOther sizes won't affect cell current implementation."
+      "description": "The size of the cell. Follows table size.\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\nOther sizes won't affect cell current implementation."
     },
     "sortDirection": {
       "options": [
@@ -3110,7 +3110,7 @@
           "summary": "false"
         }
       },
-      "description": "Renders the rowgroup as an accordion. Both header and body must have accordion set to true.\r\nOne table can contain multiple rowgroups of type body, each of which represents an accordion row with children."
+      "description": "Renders the rowgroup as an accordion. Both header and body must have accordion set to true.\nOne table can contain multiple rowgroups of type body, each of which represents an accordion row with children."
     },
     "fixed": {
       "control": {
@@ -3138,7 +3138,7 @@
           "summary": "false"
         }
       },
-      "description": "Only use when accordion property is true.\r\nWill render the accordion opened if set to true. By default, is false."
+      "description": "Only use when accordion property is true.\nWill render the accordion opened if set to true. By default, is false."
     },
     "selectable": {
       "control": {
@@ -3171,7 +3171,64 @@
           "summary": "TableRowgroupTypes.HEADER"
         }
       },
-      "description": "Rowgroup allows grouping rows by context: header, body or footer.\r\nHeader rows are by default not highlightable on mouse over."
+      "description": "Rowgroup allows grouping rows by context: header, body or footer.\nHeader rows are by default not highlightable on mouse over."
+    }
+  },
+  "b2b-text": {
+    "align": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of the text."
+    },
+    "size": {
+      "options": [
+        "100",
+        "50"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'100'"
+        }
+      },
+      "description": "The size of the text."
+    },
+    "weight": {
+      "options": [
+        "bold",
+        "normal"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'normal'"
+        }
+      },
+      "description": "The weight of the text."
     }
   },
   "b2b-textarea": {
@@ -3647,7 +3704,7 @@
           "summary": "true"
         }
       },
-      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\r\nSet as false to show the step number"
+      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
     },
     "custom": {
       "control": {
@@ -3661,7 +3718,7 @@
           "summary": "false"
         }
       },
-      "description": "By default, is false, where the wizard will handle steps states.\r\nIf set to true, steps state must be handled manually."
+      "description": "By default, is false, where the wizard will handle steps states.\nIf set to true, steps state must be handled manually."
     }
   },
   "b2b-wizard-icon": {
@@ -3677,7 +3734,7 @@
           "summary": "true"
         }
       },
-      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\r\nSet as false to show the step number"
+      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
     },
     "state": {
       "options": [
@@ -3733,7 +3790,7 @@
           "summary": "true"
         }
       },
-      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\r\nSet as false to show the step number"
+      "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
     },
     "state": {
       "options": [
