@@ -228,7 +228,7 @@ export class B2bCalenderDays {
   render() {
     return (
       <Host>
-        <div class="b2b-calender-days-grid">{this.renderCalenderDays()}</div>
+        <div class="b2b-calender-days">{this.renderCalenderDays()}</div>
       </Host>
     );
   }

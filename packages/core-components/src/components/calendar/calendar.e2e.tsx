@@ -47,28 +47,4 @@ describe('B2B-Calendar', () => {
     expect(await datePickerHeader.isVisible()).toBe(true);
     expect(await datePickerDays.isVisible()).toBe(true);
   });
-
-  // it('should render the datepicker component and display the previous month when left arrow is clicked', async () => {
-  //   const clickableInputComponent = await page.find(
-  //     'b2b-calendar >>> div.b2b-calender-input-wrapper',
-  //   );
-  //
-  //   await clickableInputComponent.click();
-  //   await page.waitForChanges();
-  //
-  //   let calendarHeaderButton = await page.find(
-  //     'b2b-calendar-header >>> button',
-  //   );
-  //   let monthNameRenderedBeforeClick = await page.find({ text: 'Apr' });
-  //
-  //   await calendarHeaderButton.click();
-  //
-  //   await page.waitForChanges();
-  //
-  //   let monthNameRendered = await page.find({ text: 'Mär' });
-  //
-  //   expect(calendarHeaderButton).not.toBeNull();
-  //   expect(monthNameRenderedBeforeClick).not.toBeNull();
-  //   expect(monthNameRendered).not.toBeNull();
-  // });
 });

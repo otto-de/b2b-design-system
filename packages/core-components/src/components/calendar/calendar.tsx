@@ -99,6 +99,23 @@ export class B2bCalendar {
     }
   }
 
+  getPreviousMonth = () => {
+    if (this.selectedMonth === 0) {
+      this.setCurrentMonth(11);
+      this.setCurrentYear(this.selectedYear - 1);
+    } else {
+      this.setCurrentMonth(this.selectedMonth - 1);
+    }
+  };
+  getNextMonth = () => {
+    if (this.selectedMonth === 11) {
+      this.setCurrentMonth(0);
+      this.setCurrentYear(this.selectedYear + 1);
+    } else {
+      this.setCurrentMonth(this.selectedMonth + 1);
+    }
+  };
+
   render() {
     return (
       <Host>
@@ -153,9 +170,9 @@ export class B2bCalendar {
           <div class="b2b-datepicker">
             <b2b-calendar-header
               selectedMonth={this.selectedMonth}
-              setCurrentMonth={this.setCurrentMonth}
-              setCurrentYear={this.setCurrentYear}
-              selectedYear={this.selectedYear}></b2b-calendar-header>
+              selectedYear={this.selectedYear}
+              onLeftArrowClick={this.getPreviousMonth}
+              onRightArrowClick={this.getNextMonth}></b2b-calendar-header>
             <b2b-calendar-days-header></b2b-calendar-days-header>
             <b2b-calender-days
               selectedMonth={this.selectedMonth}

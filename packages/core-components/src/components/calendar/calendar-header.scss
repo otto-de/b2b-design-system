@@ -10,7 +10,8 @@
     box-sizing: border-box;
   }
 
-  .b2b-calendar-nav {
+  .b2b-calendar-nav--left,
+  .b2b-calendar-nav--right {
     height: 32px;
     width: 32px;
     background-color: var(--b2b-color-grey-25);

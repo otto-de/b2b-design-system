@@ -149,6 +149,14 @@ export namespace Components {
     }
     interface B2bCalendarHeader {
         /**
+          * Callback for left arrow click
+         */
+        "onLeftArrowClick": () => void;
+        /**
+          * Callback for right arrow click
+         */
+        "onRightArrowClick": () => void;
+        /**
           * Internal selected month
          */
         "selectedMonth": number;
@@ -156,14 +164,6 @@ export namespace Components {
           * Internal selected year
          */
         "selectedYear": number;
-        /**
-          * Internal method to set the current month selected
-         */
-        "setCurrentMonth": (currentMonth: number) => void;
-        /**
-          * Internal method to set the current year selected
-         */
-        "setCurrentYear": (currentYear: number) => void;
     }
     interface B2bCalenderDays {
         /**
@@ -2254,6 +2254,14 @@ declare namespace LocalJSX {
     }
     interface B2bCalendarHeader {
         /**
+          * Callback for left arrow click
+         */
+        "onLeftArrowClick"?: () => void;
+        /**
+          * Callback for right arrow click
+         */
+        "onRightArrowClick"?: () => void;
+        /**
           * Internal selected month
          */
         "selectedMonth"?: number;
@@ -2261,14 +2269,6 @@ declare namespace LocalJSX {
           * Internal selected year
          */
         "selectedYear"?: number;
-        /**
-          * Internal method to set the current month selected
-         */
-        "setCurrentMonth"?: (currentMonth: number) => void;
-        /**
-          * Internal method to set the current year selected
-         */
-        "setCurrentYear"?: (currentYear: number) => void;
     }
     interface B2bCalenderDays {
         /**
