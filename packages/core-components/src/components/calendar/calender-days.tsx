@@ -40,7 +40,7 @@ export class B2bCalenderDays {
   /** Internal selected day */
   @Prop() selectedDay: number;
   /** Internal whether the dates previous to the current date are disabled. By default, this is true. */
-  @Prop() disablePastDates: boolean = true;
+  @Prop() disablePastDates: boolean = false;
   /** Internal whether the dates after the current date are disabled. By default, this is false. */
   @Prop() disableFutureDates: boolean = false;
   /** Internal whether the weekends are disabled. By default, this is false.  */

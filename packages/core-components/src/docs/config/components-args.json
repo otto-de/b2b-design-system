@@ -341,9 +341,7 @@
         "type": {
           "summary": "boolean"
         },
-        "defaultValue": {
-          "summary": "false"
-        }
+        "defaultValue": {}
       },
       "description": "Whether the dates after the current date are disabled. By default, this is false."
     },
@@ -355,9 +353,7 @@
         "type": {
           "summary": "boolean"
         },
-        "defaultValue": {
-          "summary": "true"
-        }
+        "defaultValue": {}
       },
       "description": "Whether the previous dates from the current date are disabled. By default, this is true."
     },
@@ -369,9 +365,7 @@
         "type": {
           "summary": "boolean"
         },
-        "defaultValue": {
-          "summary": "false"
-        }
+        "defaultValue": {}
       },
       "description": "Whether the dates that fall on the weekend are disabled. By default, this is false."
     },
@@ -450,7 +444,7 @@
           "summary": "boolean"
         },
         "defaultValue": {
-          "summary": "true"
+          "summary": "false"
         }
       },
       "description": "Internal whether the dates previous to the current date are disabled. By default, this is true."

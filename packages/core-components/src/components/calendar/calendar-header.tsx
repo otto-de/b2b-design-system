@@ -56,9 +56,7 @@ export class B2bCalendarHeader {
             class="b2b-calendar-nav"
             onClick={this.getPreviousMonth}
             aria-label="previous month">
-            <b2b-icon-100
-              icon="b2b_icon-arrow-left"
-              clickable={true}></b2b-icon-100>
+            <b2b-icon icon="b2b_icon-arrow-left" clickable={true}></b2b-icon>
           </button>
           <b2b-headline
             size={'100'}
@@ -80,9 +78,7 @@ export class B2bCalendarHeader {
             class="b2b-calendar-nav"
             onClick={this.getNextMonth}
             aria-label="next month">
-            <b2b-icon-100
-              icon="b2b_icon-arrow-right"
-              clickable={true}></b2b-icon-100>
+            <b2b-icon icon="b2b_icon-arrow-right" clickable={true}></b2b-icon>
           </button>
         </div>
       </Host>

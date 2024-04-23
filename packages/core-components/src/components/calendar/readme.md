@@ -10,7 +10,7 @@
 | Property             | Attribute              | Description                                                                                     | Type      | Default     |
 | -------------------- | ---------------------- | ----------------------------------------------------------------------------------------------- | --------- | ----------- |
 | `disableFutureDates` | `disable-future-dates` | Internal whether the dates after the current date are disabled. By default, this is false.      | `boolean` | `false`     |
-| `disablePastDates`   | `disable-past-dates`   | Internal whether the dates previous to the current date are disabled. By default, this is true. | `boolean` | `true`      |
+| `disablePastDates`   | `disable-past-dates`   | Internal whether the dates previous to the current date are disabled. By default, this is true. | `boolean` | `false`     |
 | `disableWeekends`    | `disable-weekends`     | Internal whether the weekends are disabled. By default, this is false.                          | `boolean` | `false`     |
 | `selectedDay`        | `selected-day`         | Internal selected day                                                                           | `number`  | `undefined` |
 | `selectedMonth`      | `selected-month`       | Internal selected month                                                                         | `number`  | `undefined` |

@@ -20,13 +20,13 @@ export class B2bCalendar {
   @Element() host: HTMLB2bCalendarElement;
 
   /** Whether the previous dates from the current date are disabled. By default, this is true. */
-  @Prop() disablePastDates: boolean = true;
+  @Prop() disablePastDates: boolean;
 
   /** Whether the dates after the current date are disabled. By default, this is false. */
-  @Prop() disableFutureDates: boolean = false;
+  @Prop() disableFutureDates: boolean;
 
   /** Whether the dates that fall on the weekend are disabled. By default, this is false. */
-  @Prop() disableWeekends: boolean = false;
+  @Prop() disableWeekends: boolean;
 
   /** Label for the calendar component. */
   @Prop() label: string = 'Zeitraum auswählen';
@@ -129,22 +129,22 @@ export class B2bCalendar {
                       this.showHideCalendar();
                     }
                   }}>
-                  <b2b-icon-100
+                  <b2b-icon
                     icon="b2b_icon-close"
                     class="b2b-icon"
                     aria-label="clear input"
-                    clickable={true}></b2b-icon-100>
+                    clickable={true}></b2b-icon>
                 </div>
               )}
 
               <div class="b2b-calender-icon" tabindex={0}>
-                <b2b-icon-100
+                <b2b-icon
                   class="b2b-icon"
                   aria-label={
                     this.showCalendar ? 'close calender' : 'open calender'
                   }
                   icon="b2b_icon-event"
-                  clickable={true}></b2b-icon-100>
+                  clickable={true}></b2b-icon>
               </div>
             </div>
           </div>

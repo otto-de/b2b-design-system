@@ -1,0 +1,64 @@
+import {
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+  Meta,
+} from '@storybook/blocks';
+import * as CalendarStories from './calendar.stories';
+
+<Meta of={CalendarStories} />
+
+# Calendar Component
+
+<Canvas of={CalendarStories.Default} />
+
+The B2B calendar component is interactive and provides option to select a particular date. You can hook into an event
+that fires whenever the user selects a date from the calendar.
+
+☝️ You should not add other interactive content such as links or buttons to the calendar.
+
+☝️ Remember not to use the calendar just to display the dates, it is an interactive element and must execute an action when
+clicked
+
+NOTE: DisablePastDates, DisableFutureDates, DisableWeekends are optional. The component can simply be used like this without specifying any properties aside from the label:
+
+<Source code={`<b2b-calendar></b2b-calendar>`} />
+
+## Properties
+
+### DisablePastDates
+
+All the dates that are previous to the today's date of the calendar can be disabled, and those dates would render opaque and unclickable.
+
+<Canvas of={CalendarStories.DisablePastDates} />
+
+### DisableFutureDates
+
+All the dates that are future to the today's date of the calendar can be disabled, and those dates would render opaque and unclickable.
+
+<Canvas of={CalendarStories.DisableFutureDates} />
+
+### DisableWeekends
+
+All the dates that are weekends can be disabled, and those dates would render opaque and unclickable.
+
+<Canvas of={CalendarStories.DisableWeekends} />
+
+<br />
+
+## Events
+
+### b2b-selected
+
+This event emits whenever the user selects a date by clicking on it or pressing enter while it has focus. You can
+listen to this.
+
+<br />
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
