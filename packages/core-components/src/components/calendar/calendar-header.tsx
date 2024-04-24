@@ -38,6 +38,9 @@ export class B2bCalendarHeader {
           <button
             class="b2b-calendar-nav--left"
             onClick={this.onLeftArrowClick}
+            onMouseOut={event => {
+              (event.target as HTMLDivElement).blur();
+            }}
             aria-label="previous month">
             <b2b-icon icon="b2b_icon-arrow-left" clickable={true}></b2b-icon>
           </button>
@@ -58,6 +61,9 @@ export class B2bCalendarHeader {
           <button
             class="b2b-calendar-nav--right"
             onClick={this.onRightArrowClick}
+            onMouseOut={event => {
+              (event.target as HTMLDivElement).blur();
+            }}
             aria-label="next month">
             <b2b-icon icon="b2b_icon-arrow-right" clickable={true}></b2b-icon>
           </button>

@@ -12,10 +12,10 @@
     justify-content: flex-end;
     z-index: 1000;
     border-radius: 3px 3px 0 0;
+    padding: 6px 8px 6px 8px;
   }
 
   .b2b-calendar-selected-date {
-    margin: 3px 0 3px 10px;
     flex: 1;
   }
 
@@ -37,10 +37,6 @@
   .b2b-icons {
     display: flex;
     margin-top: 2px;
-    z-index: 1000;
-  }
-
-  .b2b-icon {
-    z-index: 1001;
+    align-items: center;
   }
 }
