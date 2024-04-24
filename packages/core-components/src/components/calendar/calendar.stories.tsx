@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
+import { userEvent } from '@storybook/testing-library';
 
 const meta: Meta = {
   title: 'Components/Interaction/Calendar',
@@ -31,12 +32,39 @@ export const Default: Story = {
 
 export const DisablePastDates: Story = {
   args: { ...meta.args, disablePastDates: true },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const calendar = canvasElement.querySelector('b2b-calendar');
+      const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
+        '.b2b-calender-input-wrapper',
+      );
+      await userEvent.click(b2bCalendarInputWrapper);
+    }, 500);
+  },
 };
 
 export const DisableFutureDates: Story = {
   args: { ...meta.args, disableFutureDates: true },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const calendar = canvasElement.querySelector('b2b-calendar');
+      const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
+        '.b2b-calender-input-wrapper',
+      );
+      await userEvent.click(b2bCalendarInputWrapper);
+    }, 500);
+  },
 };
 
 export const DisableWeekends: Story = {
   args: { ...meta.args, disableWeekends: true },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const calendar = canvasElement.querySelector('b2b-calendar');
+      const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
+        '.b2b-calender-input-wrapper',
+      );
+      await userEvent.click(b2bCalendarInputWrapper);
+    }, 500);
+  },
 };
