@@ -28,6 +28,15 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: { ...meta.args },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const calendar = canvasElement.querySelector('b2b-calendar');
+      const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
+        '.b2b-calender-input-wrapper',
+      );
+      await userEvent.click(b2bCalendarInputWrapper);
+    }, 500);
+  },
 };
 
 export const DisablePastDates: Story = {
