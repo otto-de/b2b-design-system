@@ -1,21 +1,15 @@
 @use 'sass:color';
 @use '../../global/b2b-styles';
 
-.host {
-  .b2b-calender-days {
-    margin-left: 16px;
-  }
-}
-
 .b2b-calender-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr); /* Display days in a grid */
+  padding-left: var(--b2b-size-40);
 
   .b2b-calender-day {
-    width: 36px;
-    height: 22px;
+    width: var(--b2b-size-90);
+    height: var(--b2b-size-90);
     border-radius: 5px;
-    padding: 5px 0;
     text-align: center;
     display: flex;
     align-items: center;
@@ -33,8 +27,8 @@
     }
 
     &--disabled {
-      width: 36px;
-      height: 22px;
+      width: var(--b2b-size-90);
+      height: var(--b2b-size-55);
       border-radius: 5px;
       padding: 5px 0;
       text-align: center;

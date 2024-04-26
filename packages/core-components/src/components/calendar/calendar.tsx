@@ -120,9 +120,12 @@ export class B2bCalendar {
     return (
       <Host>
         <div class="b2b-calendar">
-          <div class="b2b-calender">{this.label}</div>
+          <div class="b2b-calendar-label">{this.label}</div>
           <div
-            class="b2b-calender-input-wrapper"
+            class={{
+              'b2b-calender-input-wrapper': true,
+              'b2b-calender-input-wrapper--opened': this.showCalendar,
+            }}
             tabindex={0}
             onClick={this.showHideCalendar}
             onKeyDown={event => {

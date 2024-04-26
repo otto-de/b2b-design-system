@@ -8,16 +8,18 @@
   .b2b-calendar-header {
     display: flex;
     box-sizing: border-box;
+    padding: var(--b2b-size-30) var(--b2b-size-60) var(--b2b-size-40) var(--b2b-size-60);
   }
 
   .b2b-calendar-nav--left,
   .b2b-calendar-nav--right {
-    height: 32px;
-    width: 32px;
+    height: var(--b2b-size-80);
+    width: var(--b2b-size-80);
     background-color: var(--b2b-color-grey-25);
     box-sizing: border-box;
     border: none;
     cursor: pointer;
+    border-radius: var(--b2b-size-7);
 
     &:hover,
     &:focus {
@@ -26,14 +28,16 @@
   }
 
   .b2b-calendar-month {
-    height: 32px;
+    height: var(--b2b-size-80);
     width: 82px;
-    padding: 4px 8px;
-    margin: 0 8px;
+    padding: var(--b2b-size-10) var(--b2b-size-20);
+    margin: 0 0 0 var(--b2b-size-20);
     background-color: var(--b2b-color-grey-25);
     box-sizing: border-box;
     text-align: center;
     font-weight: var(--b2b-size-headline-100);
+    border-radius: var(--b2b-size-7);
+
 
     &:hover,
     &:focus {
@@ -42,14 +46,16 @@
   }
 
   .b2b-calendar-year {
-    height: 32px;
+    height: var(--b2b-size-80);
     width: 82px;
-    padding: 4px 8px;
-    margin: 0 8px;
+    padding: var(--b2b-size-10) var(--b2b-size-20);
+    margin: 0 var(--b2b-size-20);
     background-color: var(--b2b-color-grey-25);
     box-sizing: border-box;
     text-align: center;
     font-weight: var(--b2b-size-headline-100);
+    border-radius: var(--b2b-size-7);
+
 
     &:hover,
     &:focus {

@@ -5,14 +5,15 @@
 
   .b2b-calender-input-wrapper {
     display: flex;
-    width: 300px;
     box-sizing: border-box;
-    height: 30px;
-    border: 1px solid black;
+    height: var(--b2b-size-90);
+    border: var(--b2b-size-1) solid var(--b2b-color-black-100);
     justify-content: flex-end;
-    z-index: 1000;
-    border-radius: 3px 3px 0 0;
-    padding: 6px 8px;
+    border-radius: var(--b2b-size-7);
+    padding: var(--b2b-size-15) var(--b2b-size-20);
+    &--opened {
+      border-radius: var(--b2b-size-7) var(--b2b-size-7) 0 0;
+    }
   }
 
   .b2b-calendar-selected-date {
@@ -22,21 +23,20 @@
   .b2b-calendar-label {
     font-size: var(--b2b-size-35);
     color: var(--b2b-color-black-100);
-    line-height: 21px;
+    line-height: var(--b2b-size-copy-line-height-100);
+    margin-bottom: var(--b2b-size-5);
   }
 
   .b2b-datepicker {
-    border: 1px solid black;
+    border: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-top: none;
     width: 300px;
-    height: 278px;
-    padding: 12px 24px;
     box-sizing: border-box;
   }
 
   .b2b-icons {
     display: flex;
-    margin-top: 2px;
+    margin-top: var(--b2b-size-5);
     align-items: center;
   }
 }
