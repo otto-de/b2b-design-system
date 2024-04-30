@@ -383,6 +383,24 @@
   },
   "b2b-calendar-days-header": {},
   "b2b-calendar-header": {
+    "onLeftArrowClick": {
+      "table": {
+        "type": {
+          "summary": "() => void"
+        },
+        "defaultValue": {}
+      },
+      "description": "Callback for left arrow click"
+    },
+    "onRightArrowClick": {
+      "table": {
+        "type": {
+          "summary": "() => void"
+        },
+        "defaultValue": {}
+      },
+      "description": "Callback for right arrow click"
+    },
     "selectedMonth": {
       "table": {
         "type": {
@@ -400,24 +418,6 @@
         "defaultValue": {}
       },
       "description": "Internal selected year"
-    },
-    "setCurrentMonth": {
-      "table": {
-        "type": {
-          "summary": "(currentMonth: number) => void"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal method to set the current month selected"
-    },
-    "setCurrentYear": {
-      "table": {
-        "type": {
-          "summary": "(currentYear: number) => void"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal method to set the current year selected"
     }
   },
   "b2b-calender-days": {

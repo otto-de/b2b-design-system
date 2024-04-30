@@ -1,3 +1,5 @@
+@use '../../global/b2b-styles';
+
 :host {
   .b2b-calendar {
     position: relative;
@@ -32,6 +34,7 @@
     border-top: none;
     width: 300px;
     box-sizing: border-box;
+    padding-bottom: var(--b2b-size-40);
   }
 
   .b2b-icons {
