@@ -6,9 +6,10 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* Display days in a grid */
     padding-left: var(--b2b-size-40);
+
     .b2b-calender-day {
-      width: var( --b2b-size-90);
-      height: var( --b2b-size-55);
+      width: var(--b2b-size-90);
+      height: var(--b2b-size-55);
       border-radius: 5px;
       text-align: center;
       font-weight: var(--b2b-font-weight-normal);

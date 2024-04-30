@@ -7,7 +7,8 @@
   .b2b-calendar-header {
     display: flex;
     box-sizing: border-box;
-    padding: var(--b2b-size-30) var(--b2b-size-60) var(--b2b-size-40) var(--b2b-size-60);
+    padding: var(--b2b-size-30) var(--b2b-size-60) var(--b2b-size-40)
+      var(--b2b-size-60);
   }
 
   .b2b-calendar-nav--left,
@@ -37,7 +38,6 @@
     font-weight: var(--b2b-size-headline-100);
     border-radius: var(--b2b-size-7);
 
-
     &:hover,
     &:focus {
       background-color: var(--b2b-color-table-selected-hover);
@@ -54,7 +54,6 @@
     text-align: center;
     font-weight: var(--b2b-size-headline-100);
     border-radius: var(--b2b-size-7);
-
 
     &:hover,
     &:focus {

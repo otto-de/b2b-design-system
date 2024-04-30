@@ -21,6 +21,8 @@
 ### Used by
 
  - [b2b-alert](../alert)
+ - [b2b-calendar](../calendar)
+ - [b2b-calendar-header](../calendar)
  - [b2b-input-list](../input-list)
  - [b2b-modal](../modal)
  - [b2b-multiselect-dropdown](../multiselect-dropdown)
@@ -32,6 +34,8 @@
 ```mermaid
 graph TD;
   b2b-alert --> b2b-icon
+  b2b-calendar --> b2b-icon
+  b2b-calendar-header --> b2b-icon
   b2b-input-list --> b2b-icon
   b2b-modal --> b2b-icon
   b2b-multiselect-dropdown --> b2b-icon
