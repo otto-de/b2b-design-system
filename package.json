@@ -47,10 +47,19 @@
     "puppeteer": "^18.2.1",
     "semantic-release": "^19.0.5"
   },
-  "resolutions": {
-    "trim": "0.0.3",
-    "trim-newlines": "3.0.1",
-    "sass-graph": "4.0.1"
+  "overrides": {
+    "@otto-de/b2b-core-components": {
+      "stylelint": {
+        "meow": {
+          "trim-newlines": "3.0.1"
+        }
+      }
+    },
+    "@semantic-release/commit-analyzer": {
+      "conventional-commits-parse": {
+        "trim-newlines": "3.0.1"
+      }
+    }
   },
   "engines": {
     "npm": "^10.0.0",
