@@ -21,7 +21,7 @@ RUN apt-get update && \
 
 
 WORKDIR /b2b
-RUN npm ci
+RUN npm i
 
 WORKDIR /b2b/packages/core-components
 
