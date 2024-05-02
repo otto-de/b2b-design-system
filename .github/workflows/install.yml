@@ -20,4 +20,4 @@ jobs:
           #cache: 'npm'
 
       - name: Install dependencies
-        run: cd ./node_modules || npm ci || node ../node_modules/puppeteer/install.js
+        run: cd ./node_modules || npm ci || cd ../node_modules || node ./puppeteer/install.js
