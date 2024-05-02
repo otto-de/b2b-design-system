@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: ${{ env.node_version }}
           #cache: 'npm'
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+        run: chrome --version
 
       - name: Cache dependencies
         id: node-modules-cache
