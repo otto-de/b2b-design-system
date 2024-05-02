@@ -29,4 +29,4 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
-        run: cd ./node_modules || npm ci
+        run: cd ./node_modules || npm i
