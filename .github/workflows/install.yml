@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.node_version }}
           #cache: 'npm'
 
       - name: Cache dependencies
         id: node-modules-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ./node_modules
@@ -29,4 +29,4 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
-        run: cd ./node_modules || npm ci || node ../node_modules/puppeteer/install.js
+        run: cd ./node_modules || npm ci
