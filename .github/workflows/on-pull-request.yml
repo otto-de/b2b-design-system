@@ -19,7 +19,7 @@ jobs:
     uses: ./.github/workflows/validations.yml
     with:
       node_version: 18
-  
+
   dependabot-automerge:
     name: Dependabot Automerge
     needs: [ install, validations ]
