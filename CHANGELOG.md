@@ -1,3 +1,33 @@
+# [1.10.0](https://github.com/otto-de/b2b-design-system/compare/v1.9.0...v1.10.0) (2024-05-07)
+
+
+### Bug Fixes
+
+* **Docker:** [BLA-761] Add visual regression stage on pull request, for testing ([19e6468](https://github.com/otto-de/b2b-design-system/commit/19e64682abe695a85b0d61181082278ec64eab09))
+* **Docker:** [BLA-761] Revert visual regression stage on pull request ([b54b4ec](https://github.com/otto-de/b2b-design-system/commit/b54b4ec4ff6ff2c012bebc083d3611ef77510ae8))
+* **Docker:** [BLA-761] Update docker image ([5c50bbb](https://github.com/otto-de/b2b-design-system/commit/5c50bbb726b381f8c37d5171856ee09b3eea43d6))
+* **Flyout Menu:** added expansion to the left for longer text ([f072b18](https://github.com/otto-de/b2b-design-system/commit/f072b185721c061a4dc2c1e91ea26e33ef882252))
+* **icons:** [BLA-752] Fix icon hide alignment ([ff06108](https://github.com/otto-de/b2b-design-system/commit/ff0610813200303423d2a812c102c7265255cdef))
+* **Input List:** removed focus change issue after refocusing clear icon ([359b5d2](https://github.com/otto-de/b2b-design-system/commit/359b5d24c30f90441de85e124b8ce25be39e4c4f))
+* **Input:** [BLA-719] Fix styles in Input ([839a856](https://github.com/otto-de/b2b-design-system/commit/839a8564e0f6cd91b77e2a9cd474d1b1956ce254))
+* **Input:** [BLA-719] Update snapshot for input component. ([b8eb72b](https://github.com/otto-de/b2b-design-system/commit/b8eb72bac2ab0ed068a8d49a2b441cae3c0dcd2d))
+* **Input:** [BLA-719] Updates snapshot tests ([74eea57](https://github.com/otto-de/b2b-design-system/commit/74eea5752b94227b9a019a6d26621c540e237e26))
+* **Toggle Switch:** removed label margin for left facing label ([329a6c0](https://github.com/otto-de/b2b-design-system/commit/329a6c0a6e7070c60d213447496a15a26318442a))
+* **Tokens:** [BLA-667] updated normal font weight from 400 to 500 ([ba9966f](https://github.com/otto-de/b2b-design-system/commit/ba9966f6b308744685eca61fb096271a3bb1dc0b))
+
+
+### Features
+
+* **Icon 100:** [BLA-696] added icon 100 component ([760c9d2](https://github.com/otto-de/b2b-design-system/commit/760c9d2cd8c2659a389f61ca68bb299c0eb134a0))
+* **Icon:** [BLA-651] added size 50 icons from otto_icon_library ([0bc2be9](https://github.com/otto-de/b2b-design-system/commit/0bc2be926f5be4bb6660d71211a34114eccee8a7))
+* **Icon:** [BLA-680] added focusable prop to icon for menu ([7c1f94a](https://github.com/otto-de/b2b-design-system/commit/7c1f94ad9feae27e398bfc5f24bc6356664a7785))
+* **Table:** [BLA-742] | updates b2b-table docs to not use accordion table ([8ccfe4a](https://github.com/otto-de/b2b-design-system/commit/8ccfe4a3af5f5d46771f52450cdc4c41806394f1))
+* **Toggle Switch:** [BLA-631] | Adds docs for toggle-switch ([3190f9c](https://github.com/otto-de/b2b-design-system/commit/3190f9c64b2cc9f94861a7f9075ccc23c97e8b17))
+* **Toggle Switch:** [BLA-631] | Adds e2e test and storybook for toggle-switch ([3c0666d](https://github.com/otto-de/b2b-design-system/commit/3c0666dc04d75ace963240011a3d808dfc6faaaf))
+* **Toggle Switch:** [BLA-631] | Adds toggle-switch component ([9e1e5bf](https://github.com/otto-de/b2b-design-system/commit/9e1e5bf34a32db2f3304ee45077a0ffb919d9fe4))
+* **Toggle Switch:** [BLA-631] | Adds toggle-switch icon ([3289fee](https://github.com/otto-de/b2b-design-system/commit/3289feebb53c8a65a1647736de5893f7c132ec56))
+* **Toggle Switch:** [BLA-631] | implements review comments ([3a24648](https://github.com/otto-de/b2b-design-system/commit/3a246482ce6be9fee839fe861e77eed18e0d6cc3))
+
 # [1.9.0](https://github.com/otto-de/b2b-design-system/compare/v1.8.2...v1.9.0) (2024-02-15)
 
 
