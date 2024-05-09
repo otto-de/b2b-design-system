@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/b2b-react-components",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "B2B React components wrapper",
   "author": "Otto GmbH",
   "license": "Apache-2.0",
@@ -25,7 +25,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@otto-de/b2b-core-components": "1.10.0"
+    "@otto-de/b2b-core-components": "1.10.1"
   },
   "devDependencies": {
     "@types/node": "^18.17.1",

@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/b2b-core-components",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "Core components defined with Stencil",
   "author": "Otto GmbH",
   "license": "Apache-2.0",
@@ -39,7 +39,7 @@
     "build:storybook": "npm run copy-md-files && storybook build -o docs-build/design-system"
   },
   "dependencies": {
-    "@otto-de/b2b-tokens": "1.10.0",
+    "@otto-de/b2b-tokens": "1.10.1",
     "@stencil-community/eslint-plugin": "^0.5.0",
     "@stencil/core": "^4.12.4"
   },

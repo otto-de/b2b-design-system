@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/otto-de/b2b-design-system/compare/v1.10.0...v1.10.1) (2024-05-09)
+
+
+### Bug Fixes
+
+* **icons:** [BLA-752] Removed hide icon's dimensions ([73938d7](https://github.com/otto-de/b2b-design-system/commit/73938d78c09864e25e7f60279ad6c7d72d0524b0))
+
 # [1.10.0](https://github.com/otto-de/b2b-design-system/compare/v1.9.0...v1.10.0) (2024-05-07)
 
 
