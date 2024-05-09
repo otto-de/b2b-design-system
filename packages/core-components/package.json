@@ -82,7 +82,7 @@
     "remark-gfm": "^3.0.1",
     "sass": "^1.71.0",
     "sass-loader": "^13.3.2",
-    "storybook": "^7.3.2",
+    "storybook": "^8.0.10",
     "style-loader": "^3.3.2",
     "stylelint": "^15.6.3",
     "stylelint-config-standard": "^34.0.0",
