@@ -6,6 +6,7 @@ WORKDIR /b2b
 
 COPY ./packages /b2b/packages
 COPY ./package.json /b2b/package.json
+COPY ./package-lock.json /b2b/package-lock.json
 COPY ./scripts /b2b/scripts
 COPY ./DEV-GUIDELINES.md /b2b
 COPY ./CHANGELOG.md /b2b
