@@ -9,10 +9,8 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import {
-  DateSelectedEventDetail,
-  EscapePressed,
-} from '../../utils/interfaces/form.interface';
+import { DateSelectedEventDetail } from '../../utils/interfaces/form.interface';
+import { EscapePressed } from '../../utils/interfaces/interaction.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',

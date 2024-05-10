@@ -7,12 +7,18 @@
 
 ## Properties
 
-| Property            | Attribute        | Description                    | Type         | Default     |
-| ------------------- | ---------------- | ------------------------------ | ------------ | ----------- |
-| `onLeftArrowClick`  | --               | Callback for left arrow click  | `() => void` | `undefined` |
-| `onRightArrowClick` | --               | Callback for right arrow click | `() => void` | `undefined` |
-| `selectedMonth`     | `selected-month` | Internal selected month        | `number`     | `undefined` |
-| `selectedYear`      | `selected-year`  | Internal selected year         | `number`     | `undefined` |
+| Property        | Attribute        | Description             | Type     | Default     |
+| --------------- | ---------------- | ----------------------- | -------- | ----------- |
+| `selectedMonth` | `selected-month` | Internal selected month | `number` | `undefined` |
+| `selectedYear`  | `selected-year`  | Internal selected year  | `number` | `undefined` |
+
+
+## Events
+
+| Event                         | Description                             | Type                              |
+| ----------------------------- | --------------------------------------- | --------------------------------- |
+| `b2b-calendar-next-month`     | Event emitted for next month click*     | `CustomEvent<NextMonth<any>>`     |
+| `b2b-calendar-previous-month` | Event emitted for previous month click* | `CustomEvent<PreviousMonth<any>>` |
 
 
 ## Dependencies

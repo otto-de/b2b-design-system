@@ -11,7 +11,7 @@ import { Months } from './calendar.types';
 import {
   NextMonth,
   PreviousMonth,
-} from '../../utils/interfaces/form.interface';
+} from '../../utils/interfaces/interaction.interface';
 
 @Component({
   tag: 'b2b-calendar-header',
