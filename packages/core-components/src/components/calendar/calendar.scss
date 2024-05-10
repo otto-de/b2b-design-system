@@ -14,6 +14,7 @@
     border-radius: var(--b2b-size-7);
     padding: var(--b2b-size-15) var(--b2b-size-20);
     max-width: 600px;
+    background-color: var(--b2b-color-white-100);
 
     &--opened {
       border-radius: var(--b2b-size-7) var(--b2b-size-7) 0 0;
@@ -39,6 +40,7 @@
     width: 300px;
     box-sizing: border-box;
     padding-bottom: var(--b2b-size-40);
+    background-color: var(--b2b-color-white-100);
 
     &--hidden {
       display: none;
