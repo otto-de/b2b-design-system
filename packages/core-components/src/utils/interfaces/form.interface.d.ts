@@ -32,6 +32,8 @@ export interface MultiSelectOptionEventDetail {
 export interface InputClear<T = any> {}
 
 export interface EscapePressed<T = any> {}
+export interface PreviousMonth<T = any> {}
+export interface NextMonth<T = any> {}
 
 export interface HTMLB2bFormElement {
   error?: string;

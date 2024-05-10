@@ -1,4 +1,17 @@
-import { Component, Prop, h, Host, Element } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Element,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
+import { Months } from './calendar.types';
+import {
+  NextMonth,
+  PreviousMonth,
+} from '../../utils/interfaces/form.interface';
 
 @Component({
   tag: 'b2b-calendar-header',
@@ -11,33 +24,19 @@ export class B2bCalendarHeader {
   @Prop() selectedMonth: number;
   /** Internal selected year */
   @Prop() selectedYear: number;
-  /** Callback for left arrow click */
-  @Prop() onLeftArrowClick: () => void;
-  /** Callback for right arrow click*/
-  @Prop() onRightArrowClick: () => void;
-
-  private months = [
-    'Jan',
-    'Feb',
-    'Mär',
-    'Apr',
-    'Mai',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Okt',
-    'Nov',
-    'Dez',
-  ];
-
+  /** Event emitted for previous month click**/
+  @Event({ eventName: 'b2b-calendar-previous-month' })
+  b2bCalendarPreviousMonth: EventEmitter<PreviousMonth>;
+  /** Event emitted for next month click**/
+  @Event({ eventName: 'b2b-calendar-next-month' })
+  b2bCalendarNextMonth: EventEmitter<NextMonth>;
   render() {
     return (
       <Host>
         <div class="b2b-calendar-header">
           <button
             class="b2b-calendar-nav--left"
-            onClick={this.onLeftArrowClick}
+            onClick={this.b2bCalendarPreviousMonth.emit}
             onMouseOut={event => {
               (event.target as HTMLDivElement).blur();
             }}
@@ -49,7 +48,7 @@ export class B2bCalendarHeader {
             align={'center'}
             class="b2b-calendar-month"
             aria-live="polite">
-            {this.months[this.selectedMonth]}
+            {Months[this.selectedMonth]}
           </b2b-headline>
           <b2b-headline
             size={'100'}
@@ -60,7 +59,7 @@ export class B2bCalendarHeader {
           </b2b-headline>
           <button
             class="b2b-calendar-nav--right"
-            onClick={this.onRightArrowClick}
+            onClick={this.b2bCalendarNextMonth.emit}
             onMouseOut={event => {
               (event.target as HTMLDivElement).blur();
             }}

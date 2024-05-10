@@ -5,7 +5,7 @@
     position: relative;
   }
 
-  .b2b-calender-input-wrapper {
+  .b2b-calendar-input-wrapper {
     display: flex;
     box-sizing: border-box;
     height: var(--b2b-size-90);
@@ -13,6 +13,7 @@
     justify-content: flex-end;
     border-radius: var(--b2b-size-7);
     padding: var(--b2b-size-15) var(--b2b-size-20);
+    max-width: 600px;
 
     &--opened {
       border-radius: var(--b2b-size-7) var(--b2b-size-7) 0 0;
@@ -21,6 +22,8 @@
 
   .b2b-calendar-selected-date {
     flex: 1;
+    align-self: center;
+    font-size: var(--b2b-size-35);
   }
 
   .b2b-calendar-label {
@@ -30,17 +33,29 @@
     margin-bottom: var(--b2b-size-5);
   }
 
-  .b2b-datepicker {
+  .b2b-calendar-body {
     border: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-top: none;
     width: 300px;
     box-sizing: border-box;
     padding-bottom: var(--b2b-size-40);
+
+    &--hidden {
+      display: none;
+    }
   }
 
   .b2b-icons {
     display: flex;
     margin-top: var(--b2b-size-5);
     align-items: center;
+  }
+
+  .b2b-close-icon {
+    display: block;
+
+    &--hidden {
+      display: none;
+    }
   }
 }

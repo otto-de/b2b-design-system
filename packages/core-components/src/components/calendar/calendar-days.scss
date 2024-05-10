@@ -1,12 +1,12 @@
 @use 'sass:color';
 @use '../../global/b2b-styles';
 
-.b2b-calender-days {
+.b2b-calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr); /* Display days in a grid */
-  padding-left: var(--b2b-size-40);
+  padding: 0 var(--b2b-size-40) 0 var(--b2b-size-40);
 
-  .b2b-calender-day {
+  .b2b-calendar-day {
     width: var(--b2b-size-90);
     height: var(--b2b-size-90);
     border-radius: 5px;
@@ -16,6 +16,7 @@
     justify-content: center;
     font-weight: var(--b2b-font-weight-normal);
     color: var(--b2b-color-black-100);
+    font-size: var(--b2b-size-35);
 
     &:hover {
       cursor: pointer;
@@ -38,6 +39,7 @@
 
     &--today {
       border: 1px solid var(--b2b-color-black-50);
+      box-sizing: border-box;
     }
 
     &--selected {

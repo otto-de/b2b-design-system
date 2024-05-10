@@ -32,7 +32,7 @@ export const Default: Story = {
     setTimeout(async () => {
       const calendar = canvasElement.querySelector('b2b-calendar');
       const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
-        '.b2b-calender-input-wrapper',
+        '.b2b-calendar-input-wrapper',
       );
       await userEvent.click(b2bCalendarInputWrapper);
     }, 500);
@@ -45,7 +45,7 @@ export const DisablePastDates: Story = {
     setTimeout(async () => {
       const calendar = canvasElement.querySelector('b2b-calendar');
       const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
-        '.b2b-calender-input-wrapper',
+        '.b2b-calendar-input-wrapper',
       );
       await userEvent.click(b2bCalendarInputWrapper);
     }, 500);
@@ -58,7 +58,7 @@ export const DisableFutureDates: Story = {
     setTimeout(async () => {
       const calendar = canvasElement.querySelector('b2b-calendar');
       const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
-        '.b2b-calender-input-wrapper',
+        '.b2b-calendar-input-wrapper',
       );
       await userEvent.click(b2bCalendarInputWrapper);
     }, 500);
@@ -71,7 +71,7 @@ export const DisableWeekends: Story = {
     setTimeout(async () => {
       const calendar = canvasElement.querySelector('b2b-calendar');
       const b2bCalendarInputWrapper = calendar.shadowRoot?.querySelector(
-        '.b2b-calender-input-wrapper',
+        '.b2b-calendar-input-wrapper',
       );
       await userEvent.click(b2bCalendarInputWrapper);
     }, 500);

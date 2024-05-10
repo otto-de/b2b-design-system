@@ -27,12 +27,12 @@ const keys = {
 };
 
 @Component({
-  tag: 'b2b-calender-days',
-  styleUrl: 'calender-days.scss',
+  tag: 'b2b-calendar-days',
+  styleUrl: 'calendar-days.scss',
   shadow: true,
 })
-export class B2bCalenderDays {
-  @Element() host: HTMLB2bCalenderDaysElement;
+export class B2bCalendarDays {
+  @Element() host: HTMLB2bCalendarDaysElement;
   /** Internal selected month */
   @Prop() selectedMonth: number;
   /** Internal selected year */
@@ -52,10 +52,11 @@ export class B2bCalenderDays {
     this.today.getMonth(),
     this.today.getDate(),
   );
+  /** Event emitted on escape press**/
+  @Event({ eventName: 'b2b-calendar-escape' })
+  b2bCalendarEscape: EventEmitter<EscapePressed>;
 
-  @Event({ eventName: 'b2b-calender-escape' })
-  b2bCalenderEscape: EventEmitter<EscapePressed>;
-
+  /** Event emitted on selecting date**/
   @Event({ eventName: 'b2b-date-selected' })
   b2bDateSelected: EventEmitter<DateSelectedEventDetail>;
   @Listen('keydown')
@@ -85,7 +86,7 @@ export class B2bCalenderDays {
         break;
       case keys.ENTER:
         index = dates.indexOf(this.getCurrentDate());
-        if (dates[index].classList.contains('b2b-calender-day--disabled')) {
+        if (dates[index].classList.contains('b2b-calendar-day--disabled')) {
           return;
         }
         this.b2bDateSelected.emit({
@@ -98,7 +99,7 @@ export class B2bCalenderDays {
         break;
       case keys.ESC:
         this.resetAllDates();
-        this.b2bCalenderEscape.emit();
+        this.b2bCalendarEscape.emit();
         break;
       default:
         return;
@@ -129,18 +130,18 @@ export class B2bCalenderDays {
 
   private getAllDates = (): HTMLDivElement[] => {
     return Array.from(
-      this.host.shadowRoot.querySelectorAll('.b2b-calender-day'),
+      this.host.shadowRoot.querySelectorAll('.b2b-calendar-day'),
     ) as HTMLDivElement[];
   };
   private focusCurrentDate = (date: HTMLDivElement) => {
     const dates = this.getAllDates();
     dates.forEach(element => {
-      if (date.className.includes('b2b-calender-day--disabled')) {
+      if (date.className.includes('b2b-calendar-day--disabled')) {
         return;
       }
       element.setAttribute('tabindex', element === date ? '0' : '-1');
     });
-    if (!date.className.includes('b2b-calender-day--disabled')) {
+    if (!date.className.includes('b2b-calendar-day--disabled')) {
       date.focus();
     }
   };
@@ -162,7 +163,7 @@ export class B2bCalenderDays {
     (event.target as HTMLDivElement).blur();
   };
 
-  private renderCalenderDays = () => {
+  private renderCalendarDays = () => {
     let daysInMonth = new Date(
       this.selectedYear,
       this.selectedMonth + 1,
@@ -191,11 +192,11 @@ export class B2bCalenderDays {
       days.push(
         <div
           class={{
-            'b2b-calender-day': true,
-            'b2b-calender-day--disabled': disabled,
-            'b2b-calender-day--today':
+            'b2b-calendar-day': true,
+            'b2b-calendar-day--disabled': disabled,
+            'b2b-calendar-day--today':
               givenDate.toDateString() === this.todayWithoutTime.toDateString(),
-            'b2b-calender-day--selected':
+            'b2b-calendar-day--selected':
               new Date(
                 this.selectedYear,
                 this.selectedMonth,
@@ -228,7 +229,7 @@ export class B2bCalenderDays {
   render() {
     return (
       <Host>
-        <div class="b2b-calender-days">{this.renderCalenderDays()}</div>
+        <div class="b2b-calendar-days">{this.renderCalendarDays()}</div>
       </Host>
     );
   }

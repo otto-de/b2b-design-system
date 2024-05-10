@@ -42,7 +42,7 @@ export class B2bCalendar {
   @State() selectedDay: number;
   @State() selectedDate: string = undefined;
 
-  @Listen('b2b-calender-escape')
+  @Listen('b2b-calendar-escape')
   handleEscapePress() {
     this.showCalendar = false;
   }
@@ -52,6 +52,25 @@ export class B2bCalendar {
     this.selectedDay = event.detail.selectedDate.getDate();
     this.setSelectedDate();
     this.showCalendar = false;
+  }
+  @Listen('b2b-calendar-previous-month')
+  getPreviousMonth() {
+    if (this.selectedMonth === 0) {
+      this.setCurrentMonth(11);
+      this.setCurrentYear(this.selectedYear - 1);
+    } else {
+      this.setCurrentMonth(this.selectedMonth - 1);
+    }
+  }
+
+  @Listen('b2b-calendar-next-month')
+  getNextMonth() {
+    if (this.selectedMonth === 11) {
+      this.setCurrentMonth(0);
+      this.setCurrentYear(this.selectedYear + 1);
+    } else {
+      this.setCurrentMonth(this.selectedMonth + 1);
+    }
   }
 
   private setCurrentMonth = (selectedMonth: number) => {
@@ -99,23 +118,6 @@ export class B2bCalendar {
     }
   }
 
-  getPreviousMonth = () => {
-    if (this.selectedMonth === 0) {
-      this.setCurrentMonth(11);
-      this.setCurrentYear(this.selectedYear - 1);
-    } else {
-      this.setCurrentMonth(this.selectedMonth - 1);
-    }
-  };
-  getNextMonth = () => {
-    if (this.selectedMonth === 11) {
-      this.setCurrentMonth(0);
-      this.setCurrentYear(this.selectedYear + 1);
-    } else {
-      this.setCurrentMonth(this.selectedMonth + 1);
-    }
-  };
-
   render() {
     return (
       <Host>
@@ -123,8 +125,8 @@ export class B2bCalendar {
           <div class="b2b-calendar-label">{this.label}</div>
           <div
             class={{
-              'b2b-calender-input-wrapper': true,
-              'b2b-calender-input-wrapper--opened': this.showCalendar,
+              'b2b-calendar-input-wrapper': true,
+              'b2b-calendar-input-wrapper--opened': this.showCalendar,
             }}
             tabindex={0}
             onClick={this.showHideCalendar}
@@ -151,17 +153,15 @@ export class B2bCalendar {
                   }}>
                   <b2b-icon
                     icon="b2b_icon-close"
-                    class="b2b-icon"
                     aria-label="clear input"
                     clickable={true}></b2b-icon>
                 </div>
               )}
 
-              <div class="b2b-calender-icon" tabindex={0}>
+              <div tabindex={0}>
                 <b2b-icon
-                  class="b2b-icon"
                   aria-label={
-                    this.showCalendar ? 'close calender' : 'open calender'
+                    this.showCalendar ? 'close calendar' : 'open calendar'
                   }
                   icon="b2b_icon-event"
                   clickable={true}></b2b-icon>
@@ -169,23 +169,23 @@ export class B2bCalendar {
             </div>
           </div>
         </div>
-        {this.showCalendar && (
-          <div class="b2b-datepicker">
-            <b2b-calendar-header
-              selectedMonth={this.selectedMonth}
-              selectedYear={this.selectedYear}
-              onLeftArrowClick={this.getPreviousMonth}
-              onRightArrowClick={this.getNextMonth}></b2b-calendar-header>
-            <b2b-calendar-days-header></b2b-calendar-days-header>
-            <b2b-calender-days
-              selectedMonth={this.selectedMonth}
-              selectedYear={this.selectedYear}
-              selectedDay={this.selectedDay}
-              disableWeekends={this.disableWeekends}
-              disableFutureDates={this.disableFutureDates}
-              disablePastDates={this.disablePastDates}></b2b-calender-days>
-          </div>
-        )}
+        <div
+          class={{
+            'b2b-calendar-body': true,
+            'b2b-calendar-body--hidden': !this.showCalendar,
+          }}>
+          <b2b-calendar-header
+            selectedMonth={this.selectedMonth}
+            selectedYear={this.selectedYear}></b2b-calendar-header>
+          <b2b-calendar-days-header></b2b-calendar-days-header>
+          <b2b-calendar-days
+            selectedMonth={this.selectedMonth}
+            selectedYear={this.selectedYear}
+            selectedDay={this.selectedDay}
+            disableWeekends={this.disableWeekends}
+            disableFutureDates={this.disableFutureDates}
+            disablePastDates={this.disablePastDates}></b2b-calendar-days>
+        </div>
       </Host>
     );
   }
