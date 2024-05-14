@@ -1,0 +1,55 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+.b2b-calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Display days in a grid */
+  padding: 0 var(--b2b-size-40) 0 var(--b2b-size-40);
+
+  .b2b-calendar-day {
+    width: var(--b2b-size-90);
+    height: var(--b2b-size-90);
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--b2b-font-weight-normal);
+    color: var(--b2b-color-black-100);
+    font-size: var(--b2b-size-35);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--b2b-color-table-selected-hover);
+    }
+
+    &--disabled {
+      width: var(--b2b-size-90);
+      height: var(--b2b-size-55);
+      border-radius: 5px;
+      padding: 5px 0;
+      text-align: center;
+      pointer-events: none;
+      color: var(--b2b-color-grey-200);
+    }
+
+    &--today {
+      border: 1px solid var(--b2b-color-black-50);
+      box-sizing: border-box;
+    }
+
+    &--selected {
+      background-color: var(--b2b-color-black-100);
+      color: var(--b2b-color-white-100);
+      pointer-events: none;
+    }
+
+    &--focussed {
+      background-color: var(--b2b-color-table-selected-hover);
+    }
+  }
+}

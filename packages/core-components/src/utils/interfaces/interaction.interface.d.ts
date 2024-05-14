@@ -10,7 +10,9 @@ export interface TabChangeEventDetail {
   previousTab: HTMLB2bTabElement;
   nextTab: HTMLB2bTabElement;
 }
-
+export interface EscapePressed<T = any> {}
+export interface PreviousMonth<T = any> {}
+export interface NextMonth<T = any> {}
 export interface ColumnSortChangeEventDetail {
   sortedColumn: string;
   sortDirection: string;

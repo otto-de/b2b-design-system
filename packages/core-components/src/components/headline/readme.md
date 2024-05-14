@@ -23,11 +23,13 @@ Initial story: https://otto-eg.atlassian.net/browse/B2BDS-46
 
 ### Used by
 
+ - [b2b-calendar-header](../calendar)
  - [b2b-modal](../modal)
 
 ### Graph
 ```mermaid
 graph TD;
+  b2b-calendar-header --> b2b-headline
   b2b-modal --> b2b-headline
   style b2b-headline fill:#f9f,stroke:#333,stroke-width:4px
 ```
