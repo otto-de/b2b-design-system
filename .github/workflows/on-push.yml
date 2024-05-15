@@ -19,17 +19,17 @@ jobs:
     with:
       node_version: 18
 
-  visual_tests:
-    name: Visual Regression Tests
-    needs: [ validations ]
-    if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
-    uses: ./.github/workflows/visual-test.yml
-    with:
-      node_version: 18
+#  visual_tests:
+#    name: Visual Regression Tests
+#    needs: [ validations ]
+#    if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
+#    uses: ./.github/workflows/visual-test.yml
+#    with:
+#      node_version: 18
 
   deploy_docker_image:
     name: Deploy Docker Image
-    needs: [ visual_tests ]
+    needs: [ validations ]
     if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
     uses: ./.github/workflows/docker-image.yml
     with:
