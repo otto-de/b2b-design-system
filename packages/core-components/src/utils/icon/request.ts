@@ -39,6 +39,6 @@ export const buildPath = (icon: string, folderName: string) => {
   } else if (folderName === 'icons') {
     return `${ICON_PATH}/icons/${icon}.svg`;
   } else {
-    return `${ICON_PATH}/${icon}.svg`;
+    return `${ICON_PATH}/${folderName}/${icon}.svg`;
   }
 };
