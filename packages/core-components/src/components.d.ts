@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-import { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, EscapePressed, NextMonth, PageChangeEventDetail, PreviousMonth, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
+import { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -14,8 +14,8 @@ import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowg
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-export { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, EscapePressed, NextMonth, PageChangeEventDetail, PreviousMonth, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
+export { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
@@ -287,6 +287,14 @@ export namespace Components {
           * The text content of the chip. It is required.
          */
         "label": string;
+        /**
+          * The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set.
+         */
+        "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+        /**
+          * The type of chip to represent states like success, info, warn and error. Uses default style if not set.
+         */
+        "type"?: 'success' | 'info' | 'warn' | 'error';
         /**
           * It is only used when the chip component participates in a group
          */
@@ -2437,9 +2445,17 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
+          * The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set.
+         */
+        "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+        /**
           * This event will be triggered when the chip element is closed
          */
         "onB2b-close"?: (event: B2bChipComponentCustomEvent<ChipComponentEventDetail>) => void;
+        /**
+          * The type of chip to represent states like success, info, warn and error. Uses default style if not set.
+         */
+        "type"?: 'success' | 'info' | 'warn' | 'error';
         /**
           * It is only used when the chip component participates in a group
          */

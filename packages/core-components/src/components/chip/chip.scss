@@ -21,10 +21,46 @@
     cursor: default;
     margin-left: var(--b2b-size-20);
 
+    &--success {
+      background-color: var(--b2b-color-success-50);
+      border: 1px solid var(--b2b-color-success-100);
+    }
+
+    &--info {
+      background-color: var(--b2b-color-info-50);
+      border: 1px solid var(--b2b-color-info-100);
+    }
+
+    &--warn {
+      background-color: var(--b2b-color-warning-50);
+      border: 1px solid var(--b2b-color-warning-100);
+    }
+
+    &--error {
+      background-color: var(--b2b-color-error-50);
+      border: 1px solid var(--b2b-color-error-100);
+    }
+
     &__label {
       display: inline-block;
       text-overflow: ellipsis;
       overflow: hidden;
+
+      &--bold {
+        font-weight: bold;
+      }
+
+      &--italic {
+        font-style: italic;
+      }
+
+      &--underline {
+        text-decoration: underline;
+      }
+
+      &--strikethrough {
+        text-decoration: line-through;
+      }
 
       &--close-button {
         margin-right: var(--b2b-size-10);

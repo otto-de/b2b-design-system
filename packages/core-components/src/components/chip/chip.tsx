@@ -19,6 +19,12 @@ export class B2bChipComponent {
   /** The text content of the chip. It is required. */
   @Prop() label!: string;
 
+  /** The type of chip to represent states like success, info, warn and error. Uses default style if not set. */
+  @Prop() type?: 'success' | 'info' | 'warn' | 'error';
+
+  /** The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set. */
+  @Prop() labelStyle?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+
   /** Whether the chip is disabled. */
   @Prop() disabled: boolean = false;
 
@@ -62,11 +68,15 @@ export class B2bChipComponent {
         <div
           class={{
             'b2b-chip': true,
+            [`b2b-chip--${this.type}`]:
+              !this.disabled && this.type !== undefined,
             'b2b-chip--disabled': this.disabled,
           }}>
           <span
             class={{
               'b2b-chip__label': true,
+              [`b2b-chip__label--${this.labelStyle}`]:
+                this.labelStyle !== undefined,
               'b2b-chip__label--close-button': this.hasCloseButton,
             }}>
             {this.label}

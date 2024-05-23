@@ -14,9 +14,7 @@ import * as ChipStories from './chip.stories';
 
 # Chip Component
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-interaction-chip-component--story-010-default" />
-</Canvas>
+<Canvas of={ChipStories.story010Default} sourceState="shown" />
 
 ## Properties
 
@@ -24,6 +22,14 @@ import * as ChipStories from './chip.stories';
 
 The label of the chip which appears on the component. This is the only
 required property.
+
+### Type
+
+The type of chip to represent states like success, info, warn and error. Uses default style if not set.
+
+### Label Style
+
+The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set.
 
 ### Disabled
 
