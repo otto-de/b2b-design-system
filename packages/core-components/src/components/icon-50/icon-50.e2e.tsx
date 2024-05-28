@@ -1,13 +1,13 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('B2B Icon 100', () => {
+describe('B2B Icon 50', () => {
   it('should render the icon', async () => {
     const page = await newE2EPage();
     await page.setContent(
       `<b2b-icon-50 icon="b2b_icon-arrow-down"></b2b-icon-50>`,
     );
 
-    const icon = await page.find('b2b-icon-100');
+    const icon = await page.find('b2b-icon-50');
 
     expect(icon).not.toBe(null);
   });
