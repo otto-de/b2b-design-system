@@ -1,0 +1,35 @@
+@use '../../global/b2b-styles';
+
+:host {
+  --b2b-icon-line-height: inherit;
+  --b2b-icon-cursor: default;
+
+  .b2b-icon-50 {
+    display: inline-flex;
+    vertical-align: middle;
+    line-height: var(--b2b-icon-line-height);
+    cursor: var(--b2b-icon-cursor);
+    height: var(--b2b-size-30);
+    width: var(--b2b-size-30);
+
+    &--clickable {
+      cursor: pointer;
+    }
+
+    &.b2b-icon-50--primary {
+      fill: var(--b2b-color-black-100);
+    }
+
+    &.b2b-icon-50--secondary {
+      fill: var(--b2b-color-grey-200);
+    }
+
+    &.b2b-icon-50--inverse {
+      fill: var(--b2b-color-white-100);
+    }
+
+    &.b2b-icon-50--inherit {
+      fill: currentcolor;
+    }
+  }
+}

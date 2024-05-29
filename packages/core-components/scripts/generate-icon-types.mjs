@@ -7,8 +7,8 @@ type to be used in the icon component. Whenever a new icon is added and the pack
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-const sourceDirs = ['src/components/icon/icons', 'src/components/icon-100/icons-100'];
-const goalDirs = ['src/components/icon/types.ts', 'src/components/icon-100/types.ts'];
+const sourceDirs = ['src/components/icon/icons', 'src/components/icon-100/icons-100', 'src/components/icon-50/icons-50'];
+const goalDirs = ['src/components/icon/types.ts', 'src/components/icon-100/types.ts', 'src/components/icon-50/types.ts'];
 
 function generateIconTypes() {
   console.log('Generating icon types');
