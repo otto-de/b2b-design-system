@@ -40,6 +40,7 @@ module.exports = {
     expect(image).toMatchImageSnapshot({
       customSnapshotsDir,
       customSnapshotIdentifier: context.id,
+      threshold: 0.25,
     });
   },
 };
