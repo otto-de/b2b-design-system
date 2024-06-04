@@ -1,3 +1,58 @@
+# [1.11.0](https://github.com/otto-de/b2b-design-system/compare/v1.10.1...v1.11.0) (2024-06-04)
+
+
+### Bug Fixes
+
+* **Docker:** [BLA-761] Add visual regression stage on pull request, for testing ([bde5a8f](https://github.com/otto-de/b2b-design-system/commit/bde5a8ff8ee9ebf26e5f69898364464ea4720199))
+* **Docker:** [BLA-761] Revert visual regression stage on pull request ([32d0be8](https://github.com/otto-de/b2b-design-system/commit/32d0be84dfaf0b29a6a0d52532c892e9d3bc938f))
+* **Docker:** [BLA-761] Update docker image ([952e4bc](https://github.com/otto-de/b2b-design-system/commit/952e4bc69ec7bd6fe340e7bdbc7aad2d4fef5759))
+* **Icon-100:** [BLA-773] Update build path for icon-100 ([be0a8d8](https://github.com/otto-de/b2b-design-system/commit/be0a8d89935900d2cd115eff90a160261ef62651))
+* **icons:** [BLA-752] Fix icon hide alignment ([a8c9c9a](https://github.com/otto-de/b2b-design-system/commit/a8c9c9a01c9d373c24786ff8cd98558bd63acc54))
+* **Input:** [BLA-719] Fix styles in Input ([42f9889](https://github.com/otto-de/b2b-design-system/commit/42f988969cd3334b301bf358403fe903a4d40ee1))
+* **Input:** [BLA-719] Update snapshot for input component. ([f02661d](https://github.com/otto-de/b2b-design-system/commit/f02661d26fcd27d8af095ad77d8a2d2d2bdd9745))
+* **Input:** [BLA-719] Updates snapshot tests ([0592757](https://github.com/otto-de/b2b-design-system/commit/0592757c0d5279fdf2e014a61328b939cda8a8e2))
+* **snapshot:** [BLA-697] Fix snapshot test ([6ded2f9](https://github.com/otto-de/b2b-design-system/commit/6ded2f9839bb5eccb3921b2501551593cb9f0e8b))
+* **snapshot:** [BLA-697] Fix snapshot test ([e989b50](https://github.com/otto-de/b2b-design-system/commit/e989b5000c1eef40d74df3ad840215e608a56a85))
+* **snapshots:** [BLA-772] Enable visual regression on pipeline ([b7eb949](https://github.com/otto-de/b2b-design-system/commit/b7eb949bfa5af9d2b79693845e7224b15756886f))
+* **snapshots:** [BLA-772] Fix snapshot test ([5e3b4f5](https://github.com/otto-de/b2b-design-system/commit/5e3b4f57d282b8428fd0187d99a91289e0cc178a))
+* **snapshots:** [BLA-772] Updates snapshot tests and enable visual regression on pipeline ([d6e0fc7](https://github.com/otto-de/b2b-design-system/commit/d6e0fc70b69649a4cd667bc82f9918a55eca2df7))
+
+
+### Features
+
+* **Calendar:** [BLA-693] Fix conflicts ([bd283d0](https://github.com/otto-de/b2b-design-system/commit/bd283d0ad2e7fe06f42d6d60118ab3f6c595bdc7))
+* **Calender:** [BLA-693] Add accessibility for calender days component ([85e6200](https://github.com/otto-de/b2b-design-system/commit/85e620068a33b18fd4b00a24855ab790218a5ed3))
+* **Calender:** [BLA-693] add aria label for icons ([5a9c766](https://github.com/otto-de/b2b-design-system/commit/5a9c7665b320b9352e006faadc22985c9122d5e6))
+* **Calender:** [BLA-693] Add background color to the calendar ([6616b89](https://github.com/otto-de/b2b-design-system/commit/6616b8909a7c26f5a85b94c349c202b1fa329b0e))
+* **Calender:** [BLA-693] Add focus to 1st day of month for other months ([487d1a9](https://github.com/otto-de/b2b-design-system/commit/487d1a90ce3adc78c1120751e28d5b4314f1c447))
+* **Calender:** [BLA-693] Adds accessibilty ([8f2bfce](https://github.com/otto-de/b2b-design-system/commit/8f2bfceb1934b1c1d0125277553ecf9821d7802f))
+* **Calender:** [BLA-693] Adds disable and cross button features ([3bf1d0f](https://github.com/otto-de/b2b-design-system/commit/3bf1d0fbdb74c194ed27a29363755d7c7c3a1496))
+* **Calender:** [BLA-693] Adds documentation for calendar component ([d880031](https://github.com/otto-de/b2b-design-system/commit/d8800314217d288672041f648dd71d36fe95cfb3))
+* **Calender:** [BLA-693] Adds e2e test ([2b4f7c2](https://github.com/otto-de/b2b-design-system/commit/2b4f7c22c54afc61c9336ec50125ddfe3bfb2fd0))
+* **Calender:** [BLA-693] Adds interaction to default state of the calendar ([1ce8c7e](https://github.com/otto-de/b2b-design-system/commit/1ce8c7ec7aebf0d78d64d2f693c4eda6b43a0606))
+* **Calender:** [BLA-693] Adds lint fix ([db2ed00](https://github.com/otto-de/b2b-design-system/commit/db2ed0078ad065c897d6a3e59c6c1385f813388f))
+* **Calender:** [BLA-693] Adds property description for calander header component ([4b4f9b2](https://github.com/otto-de/b2b-design-system/commit/4b4f9b201fcd9888dc89c97bed42475196d38222))
+* **Calender:** [BLA-693] Adds snapshots for calendar component ([50085af](https://github.com/otto-de/b2b-design-system/commit/50085af8f5a4b9d33bc995e7682479d8647b3c27))
+* **Calender:** [BLA-693] Adds spec test ([50450fb](https://github.com/otto-de/b2b-design-system/commit/50450fb67d60d37259d455b43e08972277e5285a))
+* **Calender:** [BLA-693] Adds style changes ([62ad2d6](https://github.com/otto-de/b2b-design-system/commit/62ad2d6e96cdc24b3a89660495144d06c176673d))
+* **Calender:** [BLA-693] Changes the tokens ad css fixes ([b5ff341](https://github.com/otto-de/b2b-design-system/commit/b5ff341b9d64a6c4f692a3ff94d0a8b3509d0723))
+* **Calender:** [BLA-693] Emit event when date is selected from calender days component ([67b2ee0](https://github.com/otto-de/b2b-design-system/commit/67b2ee0f617b3db4658c5d16965d8376d0693620))
+* **Calender:** [BLA-693] Fixes days of the month and adds styles ([8d296e6](https://github.com/otto-de/b2b-design-system/commit/8d296e60c7ac5e32dd99ebb1b9d74179db3fd521))
+* **Calender:** [BLA-693] Import b2b tokens in css file ([33fd3b0](https://github.com/otto-de/b2b-design-system/commit/33fd3b09c603c091d24e49ee1319971ab5d46e26))
+* **Calender:** [BLA-693] Lint changes ([a0f39ae](https://github.com/otto-de/b2b-design-system/commit/a0f39aebeb982290af9d46c00f14562d4b6c3b5f))
+* **Calender:** [BLA-693] lint fix ([06764e7](https://github.com/otto-de/b2b-design-system/commit/06764e7a7e062261b73d7743e797caa41c75ec1e))
+* **Calender:** [BLA-693] Lint fix ([eb14f47](https://github.com/otto-de/b2b-design-system/commit/eb14f47b74555c7527f2f8060863011520f2ab23))
+* **Calender:** [BLA-693] Makes cursor as pointer on hover effect on dates ([93d731c](https://github.com/otto-de/b2b-design-system/commit/93d731c0dbe2cbe53d6cefe0e6fae0f6ae19bd8c))
+* **Calender:** [BLA-693] Makes the calender component to be open when close icon is clicked ([0c10bf8](https://github.com/otto-de/b2b-design-system/commit/0c10bf81a0b338630fb542330902e92630737b50))
+* **Calender:** [BLA-693] Moves focus to today's date by default ([68f312b](https://github.com/otto-de/b2b-design-system/commit/68f312b7bdcf5ff3ea84cf7495918cd4edff64b9))
+* **Calender:** [BLA-693] Refactor and css enhancements ([376f952](https://github.com/otto-de/b2b-design-system/commit/376f95279aa1b222cd05023502210bd32d6ef79e))
+* **Calender:** [BLA-693] Refactor events ([137e118](https://github.com/otto-de/b2b-design-system/commit/137e118fda32c04231eb833fda3d1a0acf326a37))
+* **Calender:** [BLA-693] Style changes for calender and close icon ([4ccff6b](https://github.com/otto-de/b2b-design-system/commit/4ccff6b167ebe162c4b44941fe5d22502c10e402))
+* **Calender:** [BLA-693] undo changes on package-lock ([f4b72f5](https://github.com/otto-de/b2b-design-system/commit/f4b72f5ad9c5e441ee7f84e823c205d231567eec))
+* **Chip:** [BLA-768] added type and label style props for chip ([0391ab4](https://github.com/otto-de/b2b-design-system/commit/0391ab425a79b600923fa6ee544c2e5647560812))
+* **datepicker:** [BLA-693] Adds date selection to date picker component ([9d3048e](https://github.com/otto-de/b2b-design-system/commit/9d3048e27c53d144cd683dcd540cc29127ecd803))
+* **Icon-50:** [BLA-697] Implements Icon-50 component ([#480](https://github.com/otto-de/b2b-design-system/issues/480)) ([0ab55aa](https://github.com/otto-de/b2b-design-system/commit/0ab55aac66093aba7842804b89f9a60a8d463ca7))
+
 ## [1.10.1](https://github.com/otto-de/b2b-design-system/compare/v1.10.0...v1.10.1) (2024-05-09)
 
 
