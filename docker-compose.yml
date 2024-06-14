@@ -26,4 +26,4 @@ services:
     depends_on:
       storybook:
         condition: service_healthy
-    command: npx test-storybook --verbose --url http://storybook:6006
+    command: npx test-storybook --verbose --url http://host.docker.internal:6006
