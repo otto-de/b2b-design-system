@@ -1,6 +1,16 @@
 import { Meta } from '@storybook/addon-docs';
 import LinkTo from '@storybook/addon-links/react';
 
+<b2b-alert type='warning' opened='true' size='large' has-close-button='false'>
+The documentation and resources, including icons, JS, and CSS files, <strong>will no longer be available</strong> at https://design-system.live.b2b.platform.otto.de, https://portal.otto.market and https://internal.otto.market <strong>after 3 months</strong>.
+
+The updated [documentation](https://b2b-design-system.otto.market) and resources are now hosted at https://b2b-design-system.otto.market.
+Please refer to the new documentation and update your packages to the latest version to prevent any issues.
+</b2b-alert>
+
+<br />
+<br />
+
 <Meta title="Getting Started/Design Tokens Installation" />
 
 # B2B Design Tokens
@@ -24,7 +34,7 @@ npm install @otto-de/b2b-tokens
 ```
 
 _\*This is currently hosted in GitHub packages withing the Otto organisation, therefore it requires an authentication
-token to be able to install. Follow [this guide](?path=/story/getting-started-package-installation--page)
+token to be able to install. Follow [this guide](?path=/docs/getting-started-package-installation--docs)
 if you haven't configured this yet._
 
 ### 2. SCSS usage
@@ -41,7 +51,7 @@ You can import the css variables directly from the node package with the `@impor
 
 ## CDN
 
-You can find our tokens in this CDN `https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css`
+You can find our tokens in this CDN `https://b2b-design-system.otto.market/dist/b2b-core-components/b2b-core-components.css`
 Importing them in your index headline will globally define them.
 
 ```html
@@ -49,6 +59,6 @@ Importing them in your index headline will globally define them.
   <link
     rel="stylesheet"
     type="text/css"
-    href="https://internal.otto.market/design-system/dist/b2b-core-components/b2b-core-components.css" />
+    href="https://b2b-design-system.otto.market/dist/b2b-core-components/b2b-core-components.css" />
 </head>
 ```

@@ -7,7 +7,7 @@ The goal of the B2B Design System is to provide frontend components that encapsu
 
 This image packs the distribution files and main documentation, and can be deployed in any server and run as a static site.
 
-You can find our documentation released in [this link](https://internal.otto.market/design-system/?path=/story/overview--page), and the Design System repository [here](https://github.com/otto-de/b2b-design-system).
+You can find our documentation released in [this link](https://b2b-design-system.otto.market/?path=/docs/overview--docs), and the Design System repository [here](https://github.com/otto-de/b2b-design-system).
 
 ## Usage
 

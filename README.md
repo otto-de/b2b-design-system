@@ -9,7 +9,7 @@ for teams to use out of the box.
 We wish to support different frontend frameworks and for this goal we are building this solution using [Web 
 Components](https://www.webcomponents.org/) with [Stencil](https://stenciljs.com/docs/introduction).
 
-You can find our documentation in [this link](https://internal.otto.market/design-system/?path=/story/overview--page).
+You can find our documentation in [this link](https://b2b-design-system.otto.market/?path=/docs/overview--docs).
 
 ### Why open source?
 

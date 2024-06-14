@@ -26,7 +26,7 @@ const generateVueWebTypes = (docsData: JsonDocs) => {
     const slots = [];
     const events = [];
     const docUrl =
-      'https://internal.otto.market/design-system/?path=/story/overview--page';
+      'https://b2b-design-system.otto.market/?path=/docs/overview--docs';
 
     component.props.map((prop: JsonDocsProp) => {
       const name = prop.attr || prop.name;

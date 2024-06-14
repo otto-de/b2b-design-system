@@ -5,4 +5,4 @@ This is the core components package for the B2B Design System. You can use nativ
 js` applications. 
 
 For information on how to get started in `vue`, you can follow
-our [documentation page](https://internal.otto.market/design-system/?path=/story/getting-started-vue--page).
+our [documentation page](https://b2b-design-system.otto.market/?path=/docs/getting-started-vue--docs).
