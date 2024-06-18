@@ -16,6 +16,10 @@ services:
     working_dir: /b2b/packages/core-components
     volumes:
       - ./packages/core-components/__snapshots__:/b2b/packages/core-components/__snapshots__
+    networks:
+      default:
+        aliases:
+          - storybook.local
 
   run-tests:
     build:
@@ -26,4 +30,4 @@ services:
     depends_on:
       storybook:
         condition: service_healthy
-    command: npx test-storybook --verbose --url http://host.docker.internal:6006
+    command: npx test-storybook --verbose --url http://storybook.local:6006

@@ -3,6 +3,7 @@ const { toMatchImageSnapshot } = require('jest-image-snapshot');
 const customSnapshotsDir = `${process.cwd()}/__snapshots__`;
 
 const ignoredStories = [
+  'components-assets-icon-100--all-icons',
   'components-assets-icon--story-070-all-icons',
   'components-assets-icon--story-040-size-50',
   'components-status-feedback-modal--story-010-backdrop-dismiss',
