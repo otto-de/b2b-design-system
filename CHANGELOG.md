@@ -1,3 +1,12 @@
+## [1.11.1](https://github.com/otto-de/b2b-design-system/compare/v1.11.0...v1.11.1) (2024-06-18)
+
+
+### Bug Fixes
+
+* **docker:** [BLA-816] added network alias for snapshot tests ([14ada18](https://github.com/otto-de/b2b-design-system/commit/14ada18adbb18b3dba662178f2feb69dce812f9d))
+* **snapshot:** [BLA-816] updated snapshots ([ae4f650](https://github.com/otto-de/b2b-design-system/commit/ae4f650ccb7843c90bbe2922e8ac30b0c38360e5))
+* **snapshot:** [BLA-816] updated snapshots with icons ([61207ef](https://github.com/otto-de/b2b-design-system/commit/61207ef3ec969cc4fc4a368f90b471d0af4bdbd6))
+
 # [1.11.0](https://github.com/otto-de/b2b-design-system/compare/v1.10.1...v1.11.0) (2024-06-04)
 
 
