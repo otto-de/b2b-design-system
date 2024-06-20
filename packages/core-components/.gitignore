@@ -6,6 +6,7 @@ docs-build/
 __snapshots__/__diff_output__
 playwright-report/
 src/docs/getting-started/CHANGELOG.md
+src/docs/guidelines/DEV-GUIDELINES.md
 
 *~
 *.sw[mnpcod]
