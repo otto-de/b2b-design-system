@@ -12,7 +12,7 @@
 - [ADRs](#adrs)
 
 ## Contributions Overview
-If you are part of an Otto team, please reach out to us to get a ticket number and add you as a collaborator, so you can work from a branch and push directly. We generally name our branches with the ticket ID.
+If you are part of an Otto team, feel free to make a PR from a fork of this repo and post the PR in BlaBlaFish teams channel.
 
 If you are an external contributor, please first create an issue in GitHub to find a great task you can contribute to. If is a simple change, feel free to make a PR from a fork of this repo.
 
