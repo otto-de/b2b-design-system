@@ -15,6 +15,7 @@
 | `placeholder`        | `placeholder`         | The placeholder shown in the input field.                                                                                                   | `string`   | `undefined` |
 | `searchPlaceholder`  | `search-placeholder`  | The placeholder shown in the search bar.                                                                                                    | `string`   | `undefined` |
 | `selectAllLabel`     | `select-all-label`    | The string displayed as the select all label.                                                                                               | `string`   | `undefined` |
+| `selectedValues`     | --                    | The initial values to be selected in the dropdown.                                                                                          | `string[]` | `[]`        |
 
 
 ## Events

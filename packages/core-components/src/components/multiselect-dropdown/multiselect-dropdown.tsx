@@ -24,6 +24,9 @@ export class B2bMultiSelectDropdown {
   /** The placeholder shown in the input field. */
   @Prop({ reflect: true }) placeholder: string;
 
+  /** The initial values to be selected in the dropdown. */
+  @Prop() selectedValues: string[] = [];
+
   /** The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. */
   @Prop() optionsList: string[] = [];
 
@@ -40,11 +43,17 @@ export class B2bMultiSelectDropdown {
   @Event({ eventName: 'b2b-selected' })
   b2bChange: EventEmitter<string[]>;
 
-  @State() selectedValues = [];
+  @State() currentSelectedValues = [];
   @State() currentList = this.optionsList;
   @State() value = '';
   @State() isElementFocused = false;
   @State() hasOptionList = this.optionsList.length > 0;
+
+  componentWillLoad() {
+    this.currentSelectedValues = this.selectedValues.filter(value =>
+      this.optionsList.includes(value),
+    );
+  }
 
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
@@ -55,9 +64,9 @@ export class B2bMultiSelectDropdown {
     }
   }
 
-  @Watch('selectedValues')
-  handleSelectedValuesChange() {
-    this.b2bChange.emit(this.selectedValues);
+  @Watch('currentSelectedValues')
+  handleSelectedValuesChange(newValues: string[]) {
+    this.b2bChange.emit(newValues);
   }
 
   componentDidUpdate() {
@@ -85,7 +94,7 @@ export class B2bMultiSelectDropdown {
   };
 
   private renderChips = () => {
-    return this.selectedValues.map((option, index) => {
+    return this.currentSelectedValues.map((option, index) => {
       if (index < this.maxOptionsVisible) {
         return (
           <b2b-chip-component
@@ -116,14 +125,16 @@ export class B2bMultiSelectDropdown {
   private handleSelectedChange = event => {
     const newOption = event.detail.selectedOption;
     if (event.detail.selected) {
-      this.selectedValues = [...this.selectedValues, newOption];
+      this.currentSelectedValues = [...this.currentSelectedValues, newOption];
     } else {
-      this.selectedValues = this.selectedValues.filter(el => el !== newOption);
+      this.currentSelectedValues = this.currentSelectedValues.filter(
+        el => el !== newOption,
+      );
     }
   };
 
   private handleChipClose = event => {
-    this.selectedValues = this.selectedValues.filter(
+    this.currentSelectedValues = this.currentSelectedValues.filter(
       el => el !== event.detail.value,
     );
     this.updateOption(event.detail.value);
@@ -140,7 +151,7 @@ export class B2bMultiSelectDropdown {
     // Deselect all to avoid caching issues in Vue
     options.forEach(option => (option.selected = false));
     options
-      .filter(option => this.selectedValues.includes(option.option))
+      .filter(option => this.currentSelectedValues.includes(option.option))
       .forEach(option => (option.selected = true));
   };
 
@@ -191,11 +202,11 @@ export class B2bMultiSelectDropdown {
 
     if (newVal) {
       // filter out duplicates
-      this.selectedValues = Array.from(
-        new Set([...this.selectedValues, ...newVals]),
+      this.currentSelectedValues = Array.from(
+        new Set([...this.currentSelectedValues, ...newVals]),
       );
     } else {
-      this.selectedValues = this.selectedValues.filter(
+      this.currentSelectedValues = this.currentSelectedValues.filter(
         option => !newVals.includes(option),
       );
     }
@@ -227,7 +238,7 @@ export class B2bMultiSelectDropdown {
           tabindex={0}
           role="combobox"
           aria-expanded={this.isElementFocused}>
-          {this.selectedValues.length === 0 ? (
+          {this.currentSelectedValues.length === 0 ? (
             <span class="b2b-multiselect-dropdown__placeholder">
               {this.placeholder}
             </span>

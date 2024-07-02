@@ -702,6 +702,10 @@ export namespace Components {
      * The string displayed as the select all label.
      */
     selectAllLabel: string;
+    /**
+     * The initial values to be selected in the dropdown.
+     */
+    selectedValues: string[];
   }
   interface B2bMultiselectOption {
     indeterminate?: boolean;
@@ -4308,6 +4312,10 @@ declare namespace LocalJSX {
      * The string displayed as the select all label.
      */
     'selectAllLabel'?: string;
+    /**
+     * The initial values to be selected in the dropdown.
+     */
+    'selectedValues'?: string[];
   }
   interface B2bMultiselectOption {
     'indeterminate'?: boolean;

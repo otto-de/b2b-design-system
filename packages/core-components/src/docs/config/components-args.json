@@ -2402,6 +2402,17 @@
         "defaultValue": {}
       },
       "description": "The string displayed as the select all label."
+    },
+    "selectedValues": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The initial values to be selected in the dropdown."
     }
   },
   "b2b-multiselect-option": {
