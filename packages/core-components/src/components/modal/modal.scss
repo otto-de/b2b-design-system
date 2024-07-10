@@ -53,8 +53,18 @@
       align-items: center;
       margin-bottom: var(--b2b-size-space-75);
 
-      b2b-icon {
-        padding-left: 8px;
+      &-left {
+        display: flex;
+        justify-content: flex-start;
+
+        b2b-headline {
+          padding-right: 8px;
+        }
+      }
+
+      &-right {
+        display: flex;
+        justify-content: flex-end;
       }
     }
 

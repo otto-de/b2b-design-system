@@ -36,7 +36,7 @@ const Template: Story = ({
       heading="${heading}"
       backdrop-dismiss="${backdropDismiss}"
       esc-dismiss="${escDismiss}">
-      <b2b-icon slot="header-icon" icon="b2b_icon-info"></b2b-icon>
+      <b2b-icon-100 slot="header-icon" icon="b2b_icon-info"></b2b-icon-100>
       <div>${content}</div>
       <b2b-paragraph slot="footer-left">* Left Slot</b2b-paragraph>
       <b2b-button @click=${closeModal} slot="footer-right">Close</b2b-button>

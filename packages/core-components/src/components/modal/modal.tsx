@@ -161,22 +161,26 @@ export class ModalComponent {
               [`b2b-modal__dialog--${this.variant}`]: true,
             }}>
             <div class="b2b-modal__dialog__header">
-              <b2b-headline align="center" size="200" noMargin={true}>
-                {this.heading}
-              </b2b-headline>
-              <slot name="header-icon"></slot>
-              <button
-                type="button"
-                class="b2b-modal__dialog__close"
-                onMouseEnter={this.toggleIconHover}
-                onMouseLeave={this.toggleIconHover}
-                onClick={this.handleClickDismiss}
-                ref={el => (this.closeButton = el)}>
-                <b2b-icon
-                  clickable
-                  icon="b2b_icon-close"
-                  color={this.iconHover ? 'primary' : 'secondary'}></b2b-icon>
-              </button>
+              <div class="b2b-modal__dialog__header-left">
+                <b2b-headline align="center" size="200" noMargin={true}>
+                  {this.heading}
+                </b2b-headline>
+                <slot name="header-icon"></slot>
+              </div>
+              <div class="b2b-modal__dialog__header-right">
+                <button
+                  type="button"
+                  class="b2b-modal__dialog__close"
+                  onMouseEnter={this.toggleIconHover}
+                  onMouseLeave={this.toggleIconHover}
+                  onClick={this.handleClickDismiss}
+                  ref={el => (this.closeButton = el)}>
+                  <b2b-icon
+                    clickable
+                    icon="b2b_icon-close"
+                    color={this.iconHover ? 'primary' : 'secondary'}></b2b-icon>
+                </button>
+              </div>
             </div>
             <div class="b2b-modal__dialog__body">
               <slot></slot>
