@@ -164,6 +164,7 @@ export class ModalComponent {
               <b2b-headline align="center" size="200" noMargin={true}>
                 {this.heading}
               </b2b-headline>
+              <slot name="header-icon"></slot>
               <button
                 type="button"
                 class="b2b-modal__dialog__close"
