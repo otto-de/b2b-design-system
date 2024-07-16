@@ -1,3 +1,17 @@
+# [1.12.0](https://github.com/otto-de/b2b-design-system/compare/v1.11.1...v1.12.0) (2024-07-16)
+
+
+### Bug Fixes
+
+* **snaphot:** [BLA-794] added snapshot for initial selected values ([6edfb5c](https://github.com/otto-de/b2b-design-system/commit/6edfb5ce21cccef9c0fa8bef46b88073706c265c))
+
+
+### Features
+
+* **Modal:** [BLA-803] Add slot for icons in modal header ([4a9bce2](https://github.com/otto-de/b2b-design-system/commit/4a9bce2bd37f0258e8193e29a1d5b3a4bdd5e736))
+* **Modal:** [BLA-803] Add slot for icons in modal header ([5709fa4](https://github.com/otto-de/b2b-design-system/commit/5709fa40a30cc0dce1175bd882a9120096e7e41a))
+* **Multiselect Dropdown:** [BLA-794] added a prop to set initial selected values ([3a5006e](https://github.com/otto-de/b2b-design-system/commit/3a5006ee4596a5693a8e29189004f6e8fd2ae111))
+
 ## [1.11.1](https://github.com/otto-de/b2b-design-system/compare/v1.11.0...v1.11.1) (2024-06-18)
 
 
