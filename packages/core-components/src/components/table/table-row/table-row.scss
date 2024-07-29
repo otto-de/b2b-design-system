@@ -49,10 +49,10 @@
 }
 
 :host(.b2b-table-row--color-selected:hover) {
-  background-color: var(--b2b-color-red-100);
+  background-color: var(--b2b-color-table-selected-default);
 
   ::slotted(*) {
-    --b2b-table-cell-text-expand-bg: var(--b2b-color-red-100);
+    --b2b-table-cell-text-expand-bg: var(--b2b-color-table-selected-default);
   }
 }
 
