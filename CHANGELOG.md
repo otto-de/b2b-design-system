@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/otto-de/b2b-design-system/compare/v1.12.0...v1.12.1) (2024-07-31)
+
+
+### Bug Fixes
+
+* **Table:** [BLA-882] selected table hover effect color correction ([692a771](https://github.com/otto-de/b2b-design-system/commit/692a771e44e5c1fe66082d05e0f846a39c720aab))
+
 # [1.12.0](https://github.com/otto-de/b2b-design-system/compare/v1.11.1...v1.12.0) (2024-07-16)
 
 
