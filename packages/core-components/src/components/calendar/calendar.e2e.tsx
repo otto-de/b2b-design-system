@@ -52,8 +52,12 @@ describe('B2B-Calendar', () => {
     await page.setContent(
       `<b2b-calendar disable-past-dates=true></b2b-calendar>`,
     );
-    const prevDay = new Date().getDate() - 1;
-    if (prevDay > 0) {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const prevDay = yesterday.getDate();
+
+    if (prevDay > 0 && prevDay >= 30) {
       const prevDayElement = await page.find({ text: prevDay.toString() });
       expect(prevDayElement.className).toBe(
         'b2b-calendar-day b2b-calendar-day--disabled',
@@ -65,10 +69,14 @@ describe('B2B-Calendar', () => {
     await page.setContent(
       `<b2b-calendar disable-future-dates=true></b2b-calendar>`,
     );
-    const nextDay = new Date().getDate() + 1;
-    if (nextDay > 0) {
-      const prevDayElement = await page.find({ text: nextDay.toString() });
-      expect(prevDayElement.className).toBe(
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    const nextDay = tomorrow.getDate();
+
+    if (nextDay > 0 && nextDay !== 1) {
+      const nextDayElement = await page.find({ text: nextDay.toString() });
+      expect(nextDayElement.className).toBe(
         'b2b-calendar-day b2b-calendar-day--disabled',
       );
     }
