@@ -1,5 +1,6 @@
 import { newE2EPage } from '@stencil/core/testing';
 
+//ToDo Rewrite the tests so that the next, previous button and date selection scenarios are also tested
 describe('B2B-Calendar', () => {
   let page;
   beforeEach(async () => {
