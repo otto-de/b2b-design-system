@@ -153,16 +153,15 @@ export class FlyoutMenuComponent {
    * to the options. We only close the menu if the next element receiving focus
    * (relatedTarget) is not a menu option.
    */
-  private blurMenu = event => {
+  private blurMenu = (event: FocusEvent) => {
     event.preventDefault();
-    let target = event.relatedTarget
-      ? event.relatedTarget.nodeName.toLowerCase()
-      : '';
-    if (target === 'b2b-flyout-menu-option') {
+    const target = event.relatedTarget as HTMLElement;
+    if (target && target.tagName.toLowerCase() === 'b2b-flyout-menu-option') {
       return;
-    } else {
-      this.closeMenu();
     }
+    setTimeout(() => {
+      this.closeMenu();
+    }, 150);
   };
 
   render() {
