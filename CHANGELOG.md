@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/otto-de/b2b-design-system/compare/v1.12.1...v1.12.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* **FlyoutMenu:** [BLA-SCOUT] Emit option select event after slight delay ([862eef4](https://github.com/otto-de/b2b-design-system/commit/862eef494ed212a0dd0794af039bb37c24e9dc1f))
+
 ## [1.12.1](https://github.com/otto-de/b2b-design-system/compare/v1.12.0...v1.12.1) (2024-07-31)
 
 
