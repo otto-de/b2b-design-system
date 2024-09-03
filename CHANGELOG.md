@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/otto-de/b2b-design-system/compare/v1.12.4...v1.13.0) (2024-09-03)
+
+
+### Features
+
+* **Icons:** [BLA-775] Update Icons to Storybook ([9075bb6](https://github.com/otto-de/b2b-design-system/commit/9075bb6ef9165955caddcd2eb01519a826a75bfd))
+
 ## [1.12.4](https://github.com/otto-de/b2b-design-system/compare/v1.12.3...v1.12.4) (2024-09-03)
 
 
