@@ -1,3 +1,15 @@
+# [1.14.0](https://github.com/otto-de/b2b-design-system/compare/v1.13.0...v1.14.0) (2024-09-04)
+
+
+### Bug Fixes
+
+* **Input:** [BLA-869] Inputs with a Pre- and Suffix (Improvement) ([42e2598](https://github.com/otto-de/b2b-design-system/commit/42e2598ab9aa4181028f3b47ed943d09c1246145))
+
+
+### Features
+
+* **Icons:** [BLA-775] Update Icons to Storybook ([a412997](https://github.com/otto-de/b2b-design-system/commit/a412997b79550d170b249331bb634ead035143f5))
+
 # [1.13.0](https://github.com/otto-de/b2b-design-system/compare/v1.12.4...v1.13.0) (2024-09-03)
 
 
