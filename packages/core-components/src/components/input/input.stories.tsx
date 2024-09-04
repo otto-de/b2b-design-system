@@ -16,6 +16,7 @@ const meta: Meta = {
     error: '',
     autofocus: false,
     invalid: false,
+    inputTextAlign: 'left',
   },
   argTypes: getArgTypes('b2b-input'),
   render: ({ ...args }) => html`<div style="width: 400px;">
@@ -29,7 +30,8 @@ const meta: Meta = {
       hint="${args.hint}"
       error="${args.error}"
       autofocus="${args.autofocus}"
-      invalid=${args.invalid}></b2b-input>
+      invalid=${args.invalid}
+      input-text-align="${args.inputTextAlign}"></b2b-input>
   </div>`,
 };
 export default meta;
@@ -162,5 +164,20 @@ export const AllPropertiesSpecified: Story = {
     error: 'This is an error so you will not see the hint',
     disabled: false,
     autofocus: false,
+  },
+};
+
+export const RightAligned: Story = {
+  args: {
+    ...meta.args,
+    value: 'RightAligned Input',
+    inputTextAlign: 'right',
+  },
+};
+export const CenterAligned: Story = {
+  args: {
+    ...meta.args,
+    value: 'CenterAligned Input',
+    inputTextAlign: 'center',
   },
 };
