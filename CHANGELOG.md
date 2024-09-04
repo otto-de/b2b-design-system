@@ -1,3 +1,15 @@
+## [1.14.1](https://github.com/otto-de/b2b-design-system/compare/v1.14.0...v1.14.1) (2024-09-04)
+
+
+### Bug Fixes
+
+* **Icons:** [BLA-775] Change icon to have chat icon ([b933859](https://github.com/otto-de/b2b-design-system/commit/b9338590166ed75c7d51dfba459504c3f6f9b7b5))
+
+
+### Reverts
+
+* Revert "fix(Input): [BLA-869] Inputs with a Pre- and Suffix (Improvement)" ([da0e187](https://github.com/otto-de/b2b-design-system/commit/da0e187c17ee5d4889c4b1e7ee76f7c01ea6bdd9))
+
 # [1.14.0](https://github.com/otto-de/b2b-design-system/compare/v1.13.0...v1.14.0) (2024-09-04)
 
 
