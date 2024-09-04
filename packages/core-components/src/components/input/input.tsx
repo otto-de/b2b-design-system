@@ -66,9 +66,6 @@ export class InputComponent {
   /** @internal Whether the parent input group is disabled. Per default, it is false. */
   @Prop() groupDisabled = false;
 
-  /** The alignment of the text. */
-  @Prop() inputTextAlign: 'left' | 'right' | 'center' = 'left';
-
   /** Emits whenever the input receives focus. */
   @Event({ eventName: 'b2b-focus' })
   b2bFocus: EventEmitter<FocusEvent>;
@@ -178,10 +175,7 @@ export class InputComponent {
           <slot name="start"></slot>
           {this.hasTextPrefix && <div class="border"></div>}
           <input
-            class={{
-              'b2b-input__native-input': true,
-              ['b2b-input__native-input--align-' + this.inputTextAlign]: true,
-            }}
+            class="b2b-input__native-input"
             aria-labelledby={this.name}
             type={this.type}
             placeholder={this.placeholder}
