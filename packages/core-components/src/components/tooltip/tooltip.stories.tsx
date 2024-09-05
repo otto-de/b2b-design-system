@@ -1,139 +1,147 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
+import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import { getArgTypes, hideAllControls } from '../../docs/config/utils';
 import { useArgs } from '@storybook/preview-api';
+import { hideAllControls } from '../../docs/config/utils';
 import dedent from 'ts-dedent';
+const meta: Meta = {
+  title: 'Components/Interaction/Tooltip',
+  component: 'b2b-tooltip',
+  args: {
+    trigger: 'hover',
+    position: 'right',
+    content: 'I am a tooltip',
+    triggerMarkup: undefined,
+    buttons: undefined,
+    opened: false,
+  },
+  argTypes: getArgTypes('b2b-tooltip'),
+  render: ({ ...args }) => {
+    const markup = args.triggerMarkup ? args.triggerMarkup : 'trigger.';
+    const filler =
+      args.position === 'top' ? html`<div style="height: 125px;"></div>` : null;
+
+    const [_, updateArgs] = useArgs();
+    const showToolTip = async () => {
+      updateArgs({ opened: true });
+    };
+
+    const hideToolTip = async () => {
+      updateArgs({ opened: false });
+    };
+
+    const buttonMarkup = args.buttons
+      ? html`<b2b-button @click=${showToolTip} variant="primary"
+            >Show Tooltip</b2b-button
+          ><b2b-button @click=${hideToolTip}>Hide Tooltip</b2b-button>`
+      : null;
+    return html` ${filler}
+      <b2b-paragraph>
+        I am some text with a tooltip
+        <b2b-tooltip
+          position="${args.position}"
+          trigger="${args.trigger}"
+          content="${args.content}"
+          opened="${args.opened}"
+          data-testid="trigger"
+          >${markup}
+        </b2b-tooltip>
+      </b2b-paragraph>
+      ${buttonMarkup}`;
+  },
+};
+
+type Story = StoryObj;
+
+export const DefaultHoverToolTip: Story = {
+  args: { ...meta.args },
+};
+
+export const FocusTooltip: Story = {
+  ...meta,
+  render: args => {
+    const focusTriggerMarkup = html`<b2b-button>button to focus</b2b-button>`;
+    return html`
+      <b2b-paragraph>
+        I am some text with a tooltip
+        <b2b-tooltip
+          position="${args.position}"
+          trigger="${args.trigger}"
+          content="${args.content}"
+          opened="${args.opened}"
+          data-testid="trigger">
+          ${focusTriggerMarkup}
+        </b2b-tooltip>
+      </b2b-paragraph>
+    `;
+  },
+};
+
+export const CustomTooltip: Story = {
+  ...meta,
+};
+
+export const TopTooltip: Story = {
+  ...meta,
+  args: { ...meta.args, opened: true },
+};
+
+export const BottomTooltip: Story = {
+  ...meta,
+  args: { ...meta.args, opened: true, position: 'bottom' },
+};
+
+export const LeftTooltip: Story = {
+  ...meta,
+  args: { ...meta.args, opened: true, position: 'left' },
+};
+
+export const RightTooltip: Story = {
+  ...meta,
+  args: { ...meta.args, opened: true, position: 'right' },
+};
+
+export const LongRightTooltip: Story = {
+  ...meta,
+  args: {
+    ...meta.args,
+    opened: true,
+    position: 'top',
+    content:
+      'Topping halvah cake sugar plum marzipan jelly marshmallow lemon drops. Bonbon brownie powder sesame snaps fruitcake caramels toffee. Brownie pie cotton candy sesame snaps wafer sugar plum candy marzipan oat cake.',
+  },
+};
 
 const tooltipArgs = getArgTypes('b2b-tooltip');
-
-const Template: Story = ({
-  position,
-  trigger,
-  content,
-  triggerMarkup,
-  buttons,
-  opened,
-}) => {
-  const markup = triggerMarkup ? triggerMarkup : 'trigger.';
-  const filler =
-    position === 'top' ? html`<div style="height: 125px;"></div>` : null;
-
-  const [_, updateArgs] = useArgs();
-  const showToolTip = async () => {
-    updateArgs({ opened: true });
-  };
-
-  const hideToolTip = async () => {
-    updateArgs({ opened: false });
-  };
-
-  const buttonMarkup = buttons
-    ? html`<b2b-button @click=${showToolTip} variant="primary"
-          >Show Tooltip</b2b-button
-        ><b2b-button @click=${hideToolTip}>Hide Tooltip</b2b-button>`
-    : null;
-
-  return html`${filler}<b2b-paragraph>
-      I am some text with a tooltip
-      <b2b-tooltip
-        position="${position}"
-        trigger="${trigger}"
-        content="${content}"
-        opened="${opened}"
-        data-testid="trigger"
-        >${markup}</b2b-tooltip
-      >
-    </b2b-paragraph>
-    ${buttonMarkup}`;
-};
-
-const defaultArgs = {
-  content: 'I am a tooltip',
-  trigger: 'hover',
-  position: 'top',
-  opened: false,
-};
-
-export const story010Hover = Template.bind({});
-story010Hover.args = { ...defaultArgs };
-story010Hover.storyName = 'Default Hover Tooltip';
-
-export const story020Focus = Template.bind({});
-const focusTriggerMarkup = html`<b2b-button>button to focus</b2b-button>`;
-story020Focus.args = {
-  ...defaultArgs,
-  trigger: 'focus',
-  triggerMarkup: focusTriggerMarkup,
-};
-story020Focus.storyName = 'Focus Tooltip';
-
-export const story030Custom = Template.bind({});
-const buttons = true;
-story030Custom.args = {
-  ...defaultArgs,
-  buttons: buttons,
-  trigger: 'custom',
-  position: 'right',
-};
-story030Custom.storyName = 'Custom Trigger Tooltip';
-
-// for testing purposes
-export const story040Top = Template.bind({});
-story040Top.args = { ...defaultArgs, opened: true };
-story040Top.storyName = 'Top Tooltip';
-
-export const story050Bottom = Template.bind({});
-story050Bottom.args = { ...defaultArgs, position: 'bottom', opened: true };
-story050Bottom.storyName = 'Bottom Tooltip';
-
-export const story060Left = Template.bind({});
-story060Left.args = { ...defaultArgs, position: 'left', opened: true };
-story060Left.storyName = 'Left Tooltip';
-
-export const story070Right = Template.bind({});
-story070Right.args = { ...defaultArgs, position: 'right', opened: true };
-story070Right.storyName = 'Right Tooltip';
-
-export const story080Right = Template.bind({});
-story080Right.args = {
-  ...defaultArgs,
-  position: 'top',
-  opened: true,
-  content:
-    'Topping halvah cake sugar plum marzipan jelly marshmallow lemon drops. Bonbon brownie powder sesame snaps fruitcake caramels toffee. Brownie pie cotton candy sesame snaps wafer sugar plum candy marzipan oat cake.',
-};
-story080Right.storyName = 'Tooltip with long text';
-
-const BlockTooltipTemplate: Story = ({}) => {
-  return html`<b2b-tooltip
-    content="I am a tooltip"
-    position="right"
-    opened
-    style="display: inline-block"
-    ><b2b-input style="width: 300px"></b2b-input>
-  </b2b-tooltip> `;
-};
-export const story090BlockElement = BlockTooltipTemplate.bind({});
-story090BlockElement.storyName = 'Block Element';
-story090BlockElement.parameters = {
-  controls: { hideNoControlsWarning: true },
-  docs: {
-    source: {
-      code: dedent`
-      <b2b-tooltip style="display: inline-block" content="I am a tooltip" position="right">
-        <b2b-input style="width: 300px"></b2b-input>
-      </b2b-tooltip>`,
+export const BlockTooltipStory: Story = {
+  ...meta, // Inherit metadata from meta if necessary
+  args: {
+    ...meta.args, // Use existing meta args
+    content: 'I am a tooltip',
+    position: 'right',
+    opened: true, // Ensure the tooltip is visible
+  },
+  render: () => html`
+    <b2b-tooltip
+      content="I am a tooltip"
+      position="right"
+      opened
+      style="display: inline-block">
+      <b2b-input style="width: 300px"></b2b-input>
+    </b2b-tooltip>
+  `,
+  storyName: 'Block Element', // Give a custom name for the story
+  parameters: {
+    controls: { hideNoControlsWarning: true }, // Hide the "no controls" warning
+    docs: {
+      source: {
+        code: dedent`
+        <b2b-tooltip style="display: inline-block" content="I am a tooltip" position="right">
+          <b2b-input style="width: 300px"></b2b-input>
+        </b2b-tooltip>`,
+      },
     },
   },
+  argTypes: { ...hideAllControls(tooltipArgs) }, // Control hiding function
 };
-story090BlockElement.argTypes = { ...hideAllControls(tooltipArgs) };
-
-export default {
-  title: 'Components/Interaction/Tooltip',
-  argTypes: {
-    ...tooltipArgs,
-    triggerMarkup: { table: { disable: true } },
-    buttons: { table: { disable: true } },
-  },
-  viewMode: 'docs',
-} as Meta;
+export default meta;
