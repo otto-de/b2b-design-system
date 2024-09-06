@@ -83,7 +83,7 @@ export const CustomTooltip: Story = {
 
 export const TopTooltip: Story = {
   ...meta,
-  args: { ...meta.args, opened: true },
+  args: { ...meta.args, opened: true, position: 'top' },
 };
 
 export const BottomTooltip: Story = {
