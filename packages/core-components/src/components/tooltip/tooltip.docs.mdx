@@ -1,9 +1,7 @@
 import {
-  Story,
   ArgsTable,
   PRIMARY_STORY,
   Primary,
-  Source,
   Canvas,
   Meta,
 } from '@storybook/blocks';
@@ -14,9 +12,7 @@ import * as TooltipStories from './tooltip.stories';
 
 # Tooltip Component
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-interaction-tooltip--story-010-hover" />
-</Canvas>
+<Canvas of={TooltipStories.DefaultHoverToolTip} />
 
 ## Properties
 
@@ -35,9 +31,7 @@ will be positioned relative to the whole line. If you want a left or right align
 with a block-level element, please set it to `display: inline-block` to make sure it only uses
 the space it needs:
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-interaction-tooltip--story-090-block-element" />
-</Canvas>
+<Canvas of={TooltipStories.FocusTooltip} />
 
 Additionally, the tooltip will try to fit it's content up to a maximum width
 of `17.5rem` or `280px`, then it will overflow to the next line.
