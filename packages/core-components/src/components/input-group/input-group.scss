@@ -4,8 +4,8 @@
   .b2b-input-wrapper {
     display: flex;
     align-items: flex-end;
-    width: 100%;
     flex: 0 0 auto;
+    max-width: 800px;
   }
 
   .b2b-input-wrapper__hint {
