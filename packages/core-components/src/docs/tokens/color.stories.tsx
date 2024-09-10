@@ -42,7 +42,13 @@ const semanticTopTokensList = [
   'icon',
   'table',
 ];
-const semanticBottomTokensList = ['error', 'warning', 'success', 'info'];
+const semanticBottomTokensList = [
+  'error',
+  'warning',
+  'success',
+  'info',
+  'hover',
+];
 const basicTokensList = ['black', 'white', 'grey', 'red'];
 
 const ColorTokens: Story = ({}) => {
