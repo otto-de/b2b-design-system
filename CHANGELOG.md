@@ -1,3 +1,16 @@
+# [1.15.0](https://github.com/otto-de/b2b-design-system/compare/v1.14.1...v1.15.0) (2024-09-10)
+
+
+### Bug Fixes
+
+* **Input:** [BLA-936] Change B2b Input label colour to b2b-black-100 ([5014910](https://github.com/otto-de/b2b-design-system/commit/501491002b21ff8d437770c7af6fd846b76e4088))
+* **toolTip:** [BLA-899] BUG - Focus Tooltip shows error in Storybook ([c812137](https://github.com/otto-de/b2b-design-system/commit/c8121378315e3121c861725e96f14ad40c7da19f))
+
+
+### Features
+
+* **Tokens:** [BLA-704] Add a new color token for hover effect ([ae26b31](https://github.com/otto-de/b2b-design-system/commit/ae26b31a9d7381e7caeef8850c6c7a1cfd71a4be))
+
 ## [1.14.1](https://github.com/otto-de/b2b-design-system/compare/v1.14.0...v1.14.1) (2024-09-04)
 
 
