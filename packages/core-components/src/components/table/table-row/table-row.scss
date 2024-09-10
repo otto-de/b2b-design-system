@@ -41,10 +41,10 @@
 
 /* purgecss start ignore */
 :host(.b2b-table-row--highlight:hover) {
-  background-color: var(--b2b-color-table-hover);
+  background-color: var(--b2b-color-hover);
 
   ::slotted(*) {
-    --b2b-table-cell-text-expand-bg: var(--b2b-color-table-hover);
+    --b2b-table-cell-text-expand-bg: var(--b2b-color-hover);
   }
 }
 
@@ -57,10 +57,10 @@
 }
 
 :host(.b2b-table-row--color-group:hover) {
-  background-color: var(--b2b-color-table-expand-hover);
+  background-color: var(--b2b-color-hover);
 
   ::slotted(*) {
-    --b2b-table-cell-text-expand-bg: var(--b2b-color-table-expand-hover);
+    --b2b-table-cell-text-expand-bg: var(--b2b-color-hover);
   }
 }
 

@@ -28,10 +28,8 @@
       "inverted": { "value": "{color.white.100}" }
     },
     "table": {
-      "hover": { "value": "#E6F4FF" },
       "selected": {
-        "default": { "value": "#CCE9FF" },
-        "hover": { "value": "#E6F4FF" }
+        "default": { "value": "#CCE9FF" }
       },
       "expand": {
         "default": { "value": "{color.grey.25}" },
