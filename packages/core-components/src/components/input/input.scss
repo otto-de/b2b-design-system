@@ -73,6 +73,10 @@
       &--align-center {
         text-align: center;
       }
+
+      &--disabled {
+        color: var(--b2b-color-grey-300);
+      }
     }
   }
 

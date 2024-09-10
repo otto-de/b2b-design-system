@@ -26,7 +26,7 @@ exports[`should render a hint if invalid and disabled are true at the same time 
     </b2b-input-label>
     <div class="b2b-input__wrapper b2b-input__wrapper--disabled">
       <slot name="start"></slot>
-      <input class="b2b-input__native-input b2b-input__native-input--align-left" disabled="" type="text">
+      <input class="b2b-input__native-input b2b-input__native-input--align-left b2b-input__native-input--disabled" disabled="" type="text">
       <slot name="end"></slot>
     </div>
     <span>

@@ -181,6 +181,7 @@ export class InputComponent {
             class={{
               'b2b-input__native-input': true,
               ['b2b-input__native-input--align-' + this.inputTextAlign]: true,
+              'b2b-input__native-input--disabled': this.disabled,
             }}
             aria-labelledby={this.name}
             type={this.type}
