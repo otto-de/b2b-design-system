@@ -153,6 +153,29 @@ export const PrefixAndSuffix: Story = {
   </div>`,
 };
 
+export const IconPrefixAndTextSuffix: Story = {
+  args: {
+    ...meta.args,
+    label: 'Default Input',
+  },
+  render: ({ ...args }) => html`<div style="width: 400px;">
+    <b2b-input
+      label="${args.label}"
+      required="${args.required}"
+      type="${args.type}"
+      disabled="${args.disabled}"
+      placeholder="${args.placeholder}"
+      value="${args.value}"
+      hint="${args.hint}"
+      error="${args.error}"
+      autofocus="${args.autofocus}"
+      invalid=${args.invalid}
+      ><span slot="end">Registration Number</span
+      ><b2b-icon icon="b2b_icon-search" slot="start"></b2b-icon
+    ></b2b-input>
+  </div>`,
+};
+
 export const AllPropertiesSpecified: Story = {
   args: {
     ...meta.args,
