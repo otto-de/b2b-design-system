@@ -111,7 +111,7 @@ export const IconEnd: Story = {
 export const Prefix: Story = {
   args: {
     ...meta.args,
-    label: 'Default Input',
+    label: 'Label',
   },
   render: ({ ...args }) => html`<div style="width: 400px;">
     <b2b-input
@@ -130,10 +130,10 @@ export const Prefix: Story = {
   </div>`,
 };
 
-export const PrefixAndSuffix: Story = {
+export const Suffix: Story = {
   args: {
     ...meta.args,
-    label: 'Default Input',
+    label: 'Label',
   },
   render: ({ ...args }) => html`<div style="width: 400px;">
     <b2b-input
@@ -147,16 +147,15 @@ export const PrefixAndSuffix: Story = {
       error="${args.error}"
       autofocus="${args.autofocus}"
       invalid=${args.invalid}
-      ><span slot="start">Registration Number</span
       ><b2b-icon icon="b2b_icon-search" slot="end"></b2b-icon
-    ></b2b-input>
+    >
   </div>`,
 };
 
-export const IconPrefixAndTextSuffix: Story = {
+export const PrefixAndSuffix: Story = {
   args: {
     ...meta.args,
-    label: 'Default Input',
+    label: 'Label',
   },
   render: ({ ...args }) => html`<div style="width: 400px;">
     <b2b-input
@@ -169,10 +168,10 @@ export const IconPrefixAndTextSuffix: Story = {
       hint="${args.hint}"
       error="${args.error}"
       autofocus="${args.autofocus}"
-      invalid=${args.invalid}
-      ><span slot="end">Registration Number</span
-      ><b2b-icon icon="b2b_icon-search" slot="start"></b2b-icon
-    ></b2b-input>
+      invalid=${args.invalid}>
+      <b2b-icon icon="b2b_icon-search" slot="start"></b2b-icon
+      ><span slot="end">Registration Number</span></b2b-input
+    >
   </div>`,
 };
 
