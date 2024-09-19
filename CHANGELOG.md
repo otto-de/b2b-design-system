@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/otto-de/b2b-design-system/compare/v1.15.0...v1.15.1) (2024-09-19)
+
+
+### Bug Fixes
+
+* **Calendar:** [BLA-682] fix Pagination issue and calendar ([51834f5](https://github.com/otto-de/b2b-design-system/commit/51834f51e7094ed2c8a5f5fc4bd56aa6fa20c1f6))
+
 # [1.15.0](https://github.com/otto-de/b2b-design-system/compare/v1.14.1...v1.15.0) (2024-09-10)
 
 
