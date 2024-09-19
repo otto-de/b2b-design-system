@@ -102,7 +102,11 @@ export class B2bCalendar {
         '.' +
         this.selectedYear;
     this.b2bSelected.emit({
-      selectedDate: new Date(this.selectedDate),
+      selectedDate: new Date(
+        this.selectedYear,
+        this.selectedMonth,
+        this.selectedDay,
+      ),
     });
     setTimeout(() => {
       this.setFocusOnCloseIcon();
