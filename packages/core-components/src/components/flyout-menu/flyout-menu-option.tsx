@@ -11,7 +11,8 @@ import { OptionSelectedEventDetail } from '../../utils/interfaces/form.interface
 
 @Component({
   tag: 'b2b-flyout-menu-option',
-  styleUrl: 'flyout-menu.scss',
+  styleUrl: 'flyout-menu-option.scss',
+  shadow: true,
 })
 export class FlyoutMenuOptionComponent {
   /** The option name. */
