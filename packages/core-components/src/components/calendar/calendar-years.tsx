@@ -79,7 +79,6 @@ export class B2bCalendarYears {
     for (let i = 1900; i <= 2100; i++) {
       this.yearsRange.push(i);
     }
-    console.log(this.yearsRange);
   }
 
   private getAllYears = (): HTMLDivElement[] => {

@@ -14,3 +14,9 @@ export const Months = [
 ] as const;
 
 export const Weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'] as const;
+
+export enum CalendarView {
+  Days = 'Days',
+  Months = 'Months',
+  Years = 'Years',
+}

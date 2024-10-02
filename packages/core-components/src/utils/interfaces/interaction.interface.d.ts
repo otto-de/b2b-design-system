@@ -1,3 +1,5 @@
+import { CalendarView } from '../../components/calendar/calendar.types';
+
 export type PaginationEventDirection = 'PREVIOUS' | 'NEXT';
 
 export interface PageChangeEventDetail {
@@ -13,8 +15,9 @@ export interface TabChangeEventDetail {
 export interface EscapePressed<T = any> {}
 export interface PreviousMonth<T = any> {}
 export interface NextMonth<T = any> {}
-export interface SelectMonth<T = any> {}
-export interface SelectYear<T = any> {}
+export interface CalendarViewChangedEventDetail<T = CalendarView> {
+  value: T;
+}
 export interface ColumnSortChangeEventDetail {
   sortedColumn: string;
   sortDirection: string;

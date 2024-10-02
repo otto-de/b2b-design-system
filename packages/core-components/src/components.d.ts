@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, EscapePressed, NextMonth, PageChangeEventDetail, PreviousMonth, SelectMonth, SelectYear, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
+import { BreadCrumbChangeEventDetail, CalendarViewChangedEventDetail, ColumnSortChangeEventDetail, EscapePressed, NextMonth, PageChangeEventDetail, PreviousMonth, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
 import { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
@@ -15,7 +15,7 @@ import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowg
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, EscapePressed, NextMonth, PageChangeEventDetail, PreviousMonth, SelectMonth, SelectYear, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
+export { BreadCrumbChangeEventDetail, CalendarViewChangedEventDetail, ColumnSortChangeEventDetail, EscapePressed, NextMonth, PageChangeEventDetail, PreviousMonth, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
 export { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
@@ -1469,8 +1469,7 @@ declare global {
     interface HTMLB2bCalendarHeaderElementEventMap {
         "b2b-calendar-previous-month": PreviousMonth;
         "b2b-calendar-next-month": NextMonth;
-        "b2b-calendar-select-month": SelectMonth;
-        "b2b-calendar-select-year": SelectYear;
+        "b2b-calendar-view-changed": CalendarViewChangedEventDetail;
     }
     interface HTMLB2bCalendarHeaderElement extends Components.B2bCalendarHeader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLB2bCalendarHeaderElementEventMap>(type: K, listener: (this: HTMLB2bCalendarHeaderElement, ev: B2bCalendarHeaderCustomEvent<HTMLB2bCalendarHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2405,13 +2404,9 @@ declare namespace LocalJSX {
          */
         "onB2b-calendar-previous-month"?: (event: B2bCalendarHeaderCustomEvent<PreviousMonth>) => void;
         /**
-          * Event emitted for months view click*
+          * Event emitted for changing the calendar view *
          */
-        "onB2b-calendar-select-month"?: (event: B2bCalendarHeaderCustomEvent<SelectMonth>) => void;
-        /**
-          * Event emitted for years view click*
-         */
-        "onB2b-calendar-select-year"?: (event: B2bCalendarHeaderCustomEvent<SelectYear>) => void;
+        "onB2b-calendar-view-changed"?: (event: B2bCalendarHeaderCustomEvent<CalendarViewChangedEventDetail>) => void;
         /**
           * Internal selected month
          */
