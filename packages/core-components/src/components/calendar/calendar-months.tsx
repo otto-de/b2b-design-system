@@ -8,8 +8,8 @@ import {
   EventEmitter,
   Listen,
 } from '@stencil/core';
-import { MonthSelectedEventDetail } from '../../utils/interfaces/form.interface';
 import { Months } from './calendar.types';
+import { MonthSelectedEventDetail } from '../../utils/interfaces/interaction.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -55,7 +55,7 @@ export class B2bCalendarMonths {
       case keys.ENTER:
         index = months.indexOf(currentMonth);
         this.b2bCalendarMonthSelected.emit({
-          selectedMonth: index,
+          value: index,
         });
         break;
       default:
@@ -101,9 +101,7 @@ export class B2bCalendarMonths {
             'b2b-calendar-month': true,
             'b2b-calendar-month--selected': this.selectedMonth === i,
           }}
-          onClick={() =>
-            this.b2bCalendarMonthSelected.emit({ selectedMonth: i })
-          }
+          onClick={() => this.b2bCalendarMonthSelected.emit({ value: i })}
           tabIndex={this.selectedMonth === i ? 0 : -1}
           aria-label={`Month ${i + 1}`}>
           {Months[i]}

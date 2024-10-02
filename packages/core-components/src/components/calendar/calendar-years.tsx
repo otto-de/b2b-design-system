@@ -9,7 +9,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { YearSelectedEventDetail } from '../../utils/interfaces/form.interface';
+import { YearSelectedEventDetail } from '../../utils/interfaces/interaction.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -57,7 +57,7 @@ export class B2bCalendarYears {
       case keys.ENTER:
         index = years.indexOf(currentYear);
         this.b2bCalendarYearSelected.emit({
-          selectedYear: this.yearsRange[index],
+          value: this.yearsRange[index],
         });
         break;
       default:
@@ -111,7 +111,7 @@ export class B2bCalendarYears {
           }}
           onClick={() =>
             this.b2bCalendarYearSelected.emit({
-              selectedYear: year,
+              value: year,
             })
           }
           tabIndex={this.selectedYear === year ? 0 : -1}

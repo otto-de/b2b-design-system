@@ -9,12 +9,13 @@ import {
   Prop,
   State,
 } from '@stencil/core';
+import { CalendarEventDetail } from '../../utils/interfaces/form.interface';
+import { CalendarView } from './calendar.types';
 import {
-  CalendarEventDetail,
+  CalendarViewChangedEventDetail,
   MonthSelectedEventDetail,
   YearSelectedEventDetail,
-} from '../../utils/interfaces/form.interface';
-import { CalendarView } from './calendar.types';
+} from '../../utils/interfaces/interaction.interface';
 
 @Component({
   tag: 'b2b-calendar',
@@ -80,21 +81,21 @@ export class B2bCalendar {
   }
 
   @Listen('b2b-calendar-view-changed')
-  handleCalendarViewChanged(event: CustomEvent) {
-    // TODO: didnt work as
-    // handleCalendarViewChanged(event: CalendarViewChangedEventDetail)
+  handleCalendarViewChanged(
+    event: CustomEvent<CalendarViewChangedEventDetail>,
+  ) {
     this.calendarView = event.detail.value;
   }
 
   @Listen('b2b-calendar-month-selected')
   handleMonthSelected(event: CustomEvent<MonthSelectedEventDetail>) {
-    this.setCurrentMonth(event.detail.selectedMonth);
+    this.setCurrentMonth(event.detail.value);
     this.calendarView = CalendarView.Days;
   }
 
   @Listen('b2b-calendar-year-selected')
   handleYearSelected(event: CustomEvent<YearSelectedEventDetail>) {
-    this.setCurrentYear(event.detail.selectedYear);
+    this.setCurrentYear(event.detail.value);
     this.calendarView = CalendarView.Days;
   }
 
