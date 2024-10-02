@@ -39,8 +39,7 @@ export class B2bCalendar {
   b2bSelected: EventEmitter<CalendarEventDetail>;
 
   @State() private showCalendar: boolean = false;
-  @State() private showDays: boolean = true;
-  @State() private showMonths: boolean = false;
+  @State() private calendarView: 'Days' | 'Months' | 'Years' = 'Days';
 
   @State() selectedMonth: number = new Date().getMonth();
   @State() selectedYear: number = new Date().getFullYear();
@@ -80,15 +79,13 @@ export class B2bCalendar {
 
   @Listen('b2b-calendar-select-month')
   showMonthsSelection() {
-    this.showDays = false;
-    this.showMonths = true;
+    this.calendarView = 'Months';
   }
 
   @Listen('b2b-calendar-month-selected')
   handleMonthSelected(event: CustomEvent<MonthSelectedEventDetail>) {
     this.setCurrentMonth(event.detail.selectedMonth);
-    this.showDays = true;
-    this.showMonths = false;
+    this.calendarView = 'Days';
   }
 
   private setCurrentMonth = (selectedMonth: number) => {
@@ -196,7 +193,7 @@ export class B2bCalendar {
             'b2b-calendar-body': true,
             'b2b-calendar-body--hidden': !this.showCalendar,
           }}>
-          {this.showDays && (
+          {this.calendarView === 'Days' && (
             <div>
               <b2b-calendar-header
                 selectedMonth={this.selectedMonth}
@@ -211,7 +208,7 @@ export class B2bCalendar {
                 disablePastDates={this.disablePastDates}></b2b-calendar-days>
             </div>
           )}
-          {this.showMonths && (
+          {this.calendarView === 'Months' && (
             <b2b-calendar-months
               selectedMonth={this.selectedMonth}></b2b-calendar-months>
           )}
