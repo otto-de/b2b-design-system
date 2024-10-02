@@ -43,7 +43,10 @@
       "description": "Whether the alert is currently open. Set to true to display the alert."
     },
     "size": {
-      "options": ["large", "small"],
+      "options": [
+        "large",
+        "small"
+      ],
       "control": {
         "type": "radio"
       },
@@ -58,7 +61,12 @@
       "description": "The size of the alert. Per default it is large. If set to small, the alert will only have an icon."
     },
     "type": {
-      "options": ["error", "info", "success", "warning"],
+      "options": [
+        "error",
+        "info",
+        "success",
+        "warning"
+      ],
       "control": {
         "type": "radio"
       },
@@ -95,7 +103,10 @@
       "description": "The URL or URL fragment the anchor points to. This is required."
     },
     "size": {
-      "options": ["100", "inherit"],
+      "options": [
+        "100",
+        "inherit"
+      ],
       "control": {
         "type": "radio"
       },
@@ -110,7 +121,12 @@
       "description": "The size of the link. Per default, it is inherited from the parent element. If specified to 100, the font size is 14px."
     },
     "target": {
-      "options": ["blank", "parent", "self", "top"],
+      "options": [
+        "blank",
+        "parent",
+        "self",
+        "top"
+      ],
       "control": {
         "type": "radio"
       },
@@ -224,7 +240,10 @@
       "description": "Whether the button is currently loading. Set to true to hide text and display loading spinner instead"
     },
     "size": {
-      "options": ["100", "50"],
+      "options": [
+        "100",
+        "50"
+      ],
       "control": {
         "type": "radio"
       },
@@ -239,7 +258,10 @@
       "description": "The size of the button, 100 is the default state"
     },
     "target": {
-      "options": ["blank", "self"],
+      "options": [
+        "blank",
+        "self"
+      ],
       "control": {
         "type": "radio"
       },
@@ -254,7 +276,11 @@
       "description": "The target of the button if it should behave like an anchor. Per default it is self."
     },
     "type": {
-      "options": ["button", "reset", "submit"],
+      "options": [
+        "button",
+        "reset",
+        "submit"
+      ],
       "control": {
         "type": "radio"
       },
@@ -269,7 +295,10 @@
       "description": "The button type. Matches native HTML types. The default type is 'button'."
     },
     "variant": {
-      "options": ["primary", "secondary"],
+      "options": [
+        "primary",
+        "secondary"
+      ],
       "control": {
         "type": "radio"
       },
@@ -284,7 +313,11 @@
       "description": "The button variant. If not specified, the button will be the secondary variant."
     },
     "width": {
-      "options": ["custom", "fit-container", "fit-content"],
+      "options": [
+        "custom",
+        "fit-container",
+        "fit-content"
+      ],
       "control": {
         "type": "radio"
       },
@@ -440,6 +473,17 @@
       "description": "Internal selected year"
     }
   },
+  "b2b-calendar-months": {
+    "selectedMonth": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected month"
+    }
+  },
   "b2b-card": {
     "disabled": {
       "control": {
@@ -467,7 +511,10 @@
       "description": "An optional href in case the card is used to redirect on click."
     },
     "target": {
-      "options": ["blank", "self"],
+      "options": [
+        "blank",
+        "self"
+      ],
       "control": {
         "type": "radio"
       },
@@ -613,7 +660,10 @@
   },
   "b2b-checkbox-group": {
     "alignment": {
-      "options": ["horizontal", "vertical"],
+      "options": [
+        "horizontal",
+        "vertical"
+      ],
       "control": {
         "type": "radio"
       },
@@ -736,7 +786,12 @@
       "description": "The text content of the chip. It is required."
     },
     "labelStyle": {
-      "options": ["bold", "italic", "strikethrough", "underline"],
+      "options": [
+        "bold",
+        "italic",
+        "strikethrough",
+        "underline"
+      ],
       "control": {
         "type": "radio"
       },
@@ -749,7 +804,12 @@
       "description": "The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set."
     },
     "type": {
-      "options": ["error", "info", "success", "warn"],
+      "options": [
+        "error",
+        "info",
+        "success",
+        "warn"
+      ],
       "control": {
         "type": "radio"
       },
@@ -932,7 +992,11 @@
       "description": "How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. Up to single 12 columns fit in one row."
     },
     "textAlign": {
-      "options": ["center", "left", "right"],
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
       "control": {
         "type": "radio"
       },
@@ -949,7 +1013,12 @@
   },
   "b2b-grid-row": {
     "alignItems": {
-      "options": ["center", "flex-end", "flex-start", "stretch"],
+      "options": [
+        "center",
+        "flex-end",
+        "flex-start",
+        "stretch"
+      ],
       "control": {
         "type": "radio"
       },
@@ -1010,7 +1079,11 @@
   },
   "b2b-headline": {
     "align": {
-      "options": ["center", "left", "right"],
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
       "control": {
         "type": "radio"
       },
@@ -1039,7 +1112,11 @@
       "description": "Whether the headline should have a margin. Per default, margins are enabled."
     },
     "size": {
-      "options": ["100", "200", "400"],
+      "options": [
+        "100",
+        "200",
+        "400"
+      ],
       "control": {
         "type": "radio"
       },
@@ -1070,7 +1147,12 @@
       "description": "Will display a pointer cursor when hovering the icon"
     },
     "color": {
-      "options": ["inherit", "inverse", "primary", "secondary"],
+      "options": [
+        "inherit",
+        "inverse",
+        "primary",
+        "secondary"
+      ],
       "control": {
         "type": "radio"
       },
@@ -1147,6 +1229,7 @@
         "b2b_icon-certificate",
         "b2b_icon-chair",
         "b2b_icon-chat",
+        "b2b_icon-chatbot",
         "b2b_icon-check-50",
         "b2b_icon-check-bold",
         "b2b_icon-check",
@@ -1465,7 +1548,11 @@
       "description": "The name of the icon"
     },
     "size": {
-      "options": ["100", "200", "50"],
+      "options": [
+        "100",
+        "200",
+        "50"
+      ],
       "control": {
         "type": "radio"
       },
@@ -1496,7 +1583,12 @@
       "description": "Will display a pointer cursor when hovering the icon"
     },
     "color": {
-      "options": ["inherit", "inverse", "primary", "secondary"],
+      "options": [
+        "inherit",
+        "inverse",
+        "primary",
+        "secondary"
+      ],
       "control": {
         "type": "radio"
       },
@@ -1567,7 +1659,7 @@
         "b2b_icon-celery",
         "b2b_icon-certificate",
         "b2b_icon-chair",
-        "b2b_icon-chat",
+        "b2b_icon-chatbot",
         "b2b_icon-check-bold",
         "b2b_icon-check",
         "b2b_icon-chicken",
@@ -1885,7 +1977,12 @@
       "description": "Will display a pointer cursor when hovering the icon"
     },
     "color": {
-      "options": ["inherit", "inverse", "primary", "secondary"],
+      "options": [
+        "inherit",
+        "inverse",
+        "primary",
+        "secondary"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2007,6 +2104,25 @@
         "defaultValue": {}
       },
       "description": "The hint text that appears underneath the input field."
+    },
+    "inputTextAlign": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of the text."
     },
     "invalid": {
       "control": {
@@ -2261,7 +2377,13 @@
   },
   "b2b-label": {
     "type": {
-      "options": ["error", "info", "neutral", "success", "warning"],
+      "options": [
+        "error",
+        "info",
+        "neutral",
+        "success",
+        "warning"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2329,7 +2451,10 @@
       "description": "Whether the modal is shown or not. Default is false"
     },
     "variant": {
-      "options": ["default", "large"],
+      "options": [
+        "default",
+        "large"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2488,7 +2613,11 @@
   },
   "b2b-paragraph": {
     "align": {
-      "options": ["center", "left", "right"],
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2503,7 +2632,10 @@
       "description": "The alignment of the text."
     },
     "size": {
-      "options": ["100", "50"],
+      "options": [
+        "100",
+        "50"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2518,7 +2650,10 @@
       "description": "The size of the text."
     },
     "weight": {
-      "options": ["bold", "normal"],
+      "options": [
+        "bold",
+        "normal"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2544,7 +2679,10 @@
       "description": "The label of the progress bar."
     },
     "labelPosition": {
-      "options": ["left", "right"],
+      "options": [
+        "left",
+        "right"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2559,7 +2697,10 @@
       "description": "Whether the label should be displayed on the right or left of the progress bar."
     },
     "labelType": {
-      "options": ["below", "side"],
+      "options": [
+        "below",
+        "side"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2688,7 +2829,10 @@
   },
   "b2b-radio-group": {
     "alignment": {
-      "options": ["horizontal", "vertical"],
+      "options": [
+        "horizontal",
+        "vertical"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2877,7 +3021,10 @@
   },
   "b2b-separator": {
     "alignment": {
-      "options": ["horizontal", "vertical"],
+      "options": [
+        "horizontal",
+        "vertical"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2894,7 +3041,11 @@
   },
   "b2b-spinner": {
     "color": {
-      "options": ["inverse", "primary", "secondary"],
+      "options": [
+        "inverse",
+        "primary",
+        "secondary"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2909,7 +3060,11 @@
       "description": "The color of the spinner."
     },
     "size": {
-      "options": ["100", "200", "50"],
+      "options": [
+        "100",
+        "200",
+        "50"
+      ],
       "control": {
         "type": "radio"
       },
@@ -2987,7 +3142,11 @@
   "b2b-tab-panel": {},
   "b2b-table": {
     "size": {
-      "options": ["colspan", "equal", "expand"],
+      "options": [
+        "colspan",
+        "equal",
+        "expand"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3004,7 +3163,11 @@
   },
   "b2b-table-cell": {
     "align": {
-      "options": ["center", "left", "right"],
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3019,7 +3182,11 @@
       "description": "Alignment of the content of the cell, by default is to the left. *"
     },
     "color": {
-      "options": ["default", "group", "selected"],
+      "options": [
+        "default",
+        "group",
+        "selected"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3082,7 +3249,11 @@
       "description": "The width of the column. Increase it to change the size of the column relative to other columns."
     },
     "contentAlign": {
-      "options": ["center", "left", "right"],
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3125,7 +3296,11 @@
       "description": ""
     },
     "size": {
-      "options": ["colspan", "equal", "expand"],
+      "options": [
+        "colspan",
+        "equal",
+        "expand"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3140,7 +3315,11 @@
       "description": "The size of the cell. Follows table size.\nWhen size is equal and textWrap is false, the text will truncate with Ellipsis.\nOther sizes won't affect cell current implementation."
     },
     "sortDirection": {
-      "options": ["ascending", "descending", "not-sorted"],
+      "options": [
+        "ascending",
+        "descending",
+        "not-sorted"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3178,7 +3357,11 @@
       "description": "If a selectable row is currently checked. Per default, it is false."
     },
     "color": {
-      "options": ["default", "group", "selected"],
+      "options": [
+        "default",
+        "group",
+        "selected"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3288,7 +3471,11 @@
       "description": "If the rows in the rowgroup can be selected via checkmark. Per default, it is false."
     },
     "type": {
-      "options": ["body", "footer", "header"],
+      "options": [
+        "body",
+        "footer",
+        "header"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3424,7 +3611,12 @@
       "description": "Adds an asterisk at the end of the label to signify that the field is required."
     },
     "resize": {
-      "options": ["horizontal", "none", "unset", "vertical"],
+      "options": [
+        "horizontal",
+        "none",
+        "unset",
+        "vertical"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3562,7 +3754,10 @@
       "description": "The value associated with the toggle chip. This is emitted when the chip is interacted with."
     },
     "variant": {
-      "options": ["grey", "white"],
+      "options": [
+        "grey",
+        "white"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3627,7 +3822,10 @@
       "description": "An optional label for the toggle switch."
     },
     "labelPosition": {
-      "options": ["left", "right"],
+      "options": [
+        "left",
+        "right"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3690,7 +3888,12 @@
       "description": "Whether the tooltip is currently opened or not. When the trigger is set to custom, changing this prop will change the tooltip's visibility."
     },
     "position": {
-      "options": ["bottom", "left", "right", "top"],
+      "options": [
+        "bottom",
+        "left",
+        "right",
+        "top"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3705,7 +3908,11 @@
       "description": "Position of the tooltip."
     },
     "trigger": {
-      "options": ["custom", "focus", "hover"],
+      "options": [
+        "custom",
+        "focus",
+        "hover"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3722,7 +3929,15 @@
   },
   "b2b-wizard": {
     "activeStep": {
-      "options": ["0", "1", "2", "3", "4", "5", "6"],
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3781,7 +3996,12 @@
       "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
     },
     "state": {
-      "options": ["completed", "default", "disabled", "pending"],
+      "options": [
+        "completed",
+        "default",
+        "disabled",
+        "pending"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3796,7 +4016,14 @@
       "description": "The state of the step"
     },
     "step": {
-      "options": ["1", "2", "3", "4", "5", "6"],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3825,7 +4052,12 @@
       "description": "Defaults to true. It will show a checkmark icon when a step is completed.\nSet as false to show the step number"
     },
     "state": {
-      "options": ["completed", "default", "disabled", "pending"],
+      "options": [
+        "completed",
+        "default",
+        "disabled",
+        "pending"
+      ],
       "control": {
         "type": "radio"
       },
@@ -3840,7 +4072,14 @@
       "description": "Use when wizard has property custom true. The state of the step"
     },
     "step": {
-      "options": ["1", "2", "3", "4", "5", "6"],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
       "control": {
         "type": "radio"
       },

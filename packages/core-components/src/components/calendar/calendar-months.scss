@@ -1,0 +1,40 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+:host {
+  .b2b-calendar-months {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display months in a grid */
+    padding: var(--b2b-size-30) var(--b2b-size-60) var(--b2b-size-40)
+      var(--b2b-size-60);
+    column-gap: var(--b2b-size-25);
+    row-gap: var(--b2b-size-25);
+  }
+
+  .b2b-calendar-month {
+    height: var(--b2b-size-80);
+    //width: 82px;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--b2b-font-weight-normal);
+    background-color: var(--b2b-color-grey-25);
+    font-size: var(--b2b-size-35);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--b2b-color-hover);
+    }
+
+    &--selected {
+      background-color: var(--b2b-color-black-100);
+      color: var(--b2b-color-white-100);
+    }
+  }
+}

@@ -24,6 +24,10 @@ export interface DateSelectedEventDetail {
   selectedDate: Date;
 }
 
+export interface MonthSelectedEventDetail {
+  selectedMonth: number;
+}
+
 export interface MultiSelectOptionEventDetail {
   selected: boolean;
   selectedOption: string;

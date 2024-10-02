@@ -47,6 +47,7 @@ export const iconTypes = [
  "b2b_icon-certificate",
  "b2b_icon-chair",
  "b2b_icon-chat",
+ "b2b_icon-chatbot",
  "b2b_icon-check-50",
  "b2b_icon-check-bold",
  "b2b_icon-check",
