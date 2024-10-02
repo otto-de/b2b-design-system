@@ -60,6 +60,7 @@
 
     &:hover,
     &:focus {
+      cursor: pointer;
       background-color: var(--b2b-color-hover);
     }
   }

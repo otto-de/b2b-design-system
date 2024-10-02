@@ -12,6 +12,7 @@ import {
   NextMonth,
   PreviousMonth,
   SelectMonth,
+  SelectYear,
 } from '../../utils/interfaces/interaction.interface';
 
 @Component({
@@ -34,6 +35,9 @@ export class B2bCalendarHeader {
   /** Event emitted for months view click**/
   @Event({ eventName: 'b2b-calendar-select-month' })
   b2bCalendarSelectMonth: EventEmitter<SelectMonth>;
+  /** Event emitted for years view click**/
+  @Event({ eventName: 'b2b-calendar-select-year' })
+  b2bCalendarSelectYear: EventEmitter<SelectYear>;
   render() {
     return (
       <Host>
@@ -61,7 +65,10 @@ export class B2bCalendarHeader {
             size={'100'}
             align={'center'}
             class="b2b-calendar-year"
-            aria-live="polite">
+            aria-live="polite"
+            onClick={() => {
+              this.b2bCalendarSelectYear.emit();
+            }}>
             {this.selectedYear}
           </b2b-headline>
           <button

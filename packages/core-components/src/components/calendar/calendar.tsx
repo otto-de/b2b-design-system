@@ -12,6 +12,7 @@ import {
 import {
   CalendarEventDetail,
   MonthSelectedEventDetail,
+  YearSelectedEventDetail,
 } from '../../utils/interfaces/form.interface';
 
 @Component({
@@ -85,6 +86,17 @@ export class B2bCalendar {
   @Listen('b2b-calendar-month-selected')
   handleMonthSelected(event: CustomEvent<MonthSelectedEventDetail>) {
     this.setCurrentMonth(event.detail.selectedMonth);
+    this.calendarView = 'Days';
+  }
+
+  @Listen('b2b-calendar-select-year')
+  showYearSelection() {
+    this.calendarView = 'Years';
+  }
+
+  @Listen('b2b-calendar-year-selected')
+  handleYearSelected(event: CustomEvent<YearSelectedEventDetail>) {
+    this.setCurrentYear(event.detail.selectedYear);
     this.calendarView = 'Days';
   }
 
@@ -211,6 +223,10 @@ export class B2bCalendar {
           {this.calendarView === 'Months' && (
             <b2b-calendar-months
               selectedMonth={this.selectedMonth}></b2b-calendar-months>
+          )}
+          {this.calendarView === 'Years' && (
+            <b2b-calendar-years
+              selectedYear={this.selectedYear}></b2b-calendar-years>
           )}
         </div>
       </Host>

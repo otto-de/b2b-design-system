@@ -14,6 +14,7 @@ export interface EscapePressed<T = any> {}
 export interface PreviousMonth<T = any> {}
 export interface NextMonth<T = any> {}
 export interface SelectMonth<T = any> {}
+export interface SelectYear<T = any> {}
 export interface ColumnSortChangeEventDetail {
   sortedColumn: string;
   sortDirection: string;
