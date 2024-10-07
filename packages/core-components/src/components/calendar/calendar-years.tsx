@@ -81,6 +81,12 @@ export class B2bCalendarYears {
     }
   }
 
+  componentDidLoad() {
+    if (this.selectedYear > 0) {
+      this.scrollToYear(this.selectedYear);
+    }
+  }
+
   private getAllYears = (): HTMLDivElement[] => {
     return Array.from(
       this.host.shadowRoot.querySelectorAll('.b2b-calendar-year'),
@@ -98,6 +104,26 @@ export class B2bCalendarYears {
       el.setAttribute('tabindex', el === year ? '0' : '-1');
     });
     year.focus();
+  };
+
+  private scrollToYear = (year: number) => {
+    const grid = this.host.shadowRoot.querySelector(
+      '.b2b-calendar-years',
+    ) as HTMLDivElement;
+    if (grid !== null) {
+      const yearElements = grid.children;
+      const startYear = this.yearsRange[0];
+      const index = year - startYear;
+
+      if (index >= 0 && index < yearElements.length) {
+        const rowGap = 10;
+        const rowHeight =
+          (yearElements[0] as HTMLDivElement).offsetHeight + rowGap;
+        const rowIndex = Math.floor(index / 3);
+        // Show two rows of years above the row with the selected year
+        grid.scrollTop = rowIndex * rowHeight - rowHeight * 2;
+      }
+    }
   };
 
   private renderCalendarYears = () => {

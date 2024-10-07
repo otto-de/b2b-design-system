@@ -5,8 +5,7 @@
   .b2b-calendar-years {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Display years in a grid */
-    padding: var(--b2b-size-30) var(--b2b-size-60) var(--b2b-size-40)
-      var(--b2b-size-60);
+    padding: var(--b2b-size-30) var(--b2b-size-60) 0 var(--b2b-size-60);
     column-gap: var(--b2b-size-25);
     row-gap: var(--b2b-size-25);
 
