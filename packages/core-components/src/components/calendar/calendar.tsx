@@ -112,6 +112,7 @@ export class B2bCalendar {
   };
   private showHideCalendar = () => {
     this.showCalendar = !this.showCalendar;
+    this.calendarView = CalendarView.Days;
   };
 
   private clearDateInput = () => {
