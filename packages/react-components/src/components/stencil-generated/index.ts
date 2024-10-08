@@ -18,6 +18,7 @@ export const B2bCalendarDays = /*@__PURE__*/createReactComponent<JSX.B2bCalendar
 export const B2bCalendarDaysHeader = /*@__PURE__*/createReactComponent<JSX.B2bCalendarDaysHeader, HTMLB2bCalendarDaysHeaderElement>('b2b-calendar-days-header');
 export const B2bCalendarHeader = /*@__PURE__*/createReactComponent<JSX.B2bCalendarHeader, HTMLB2bCalendarHeaderElement>('b2b-calendar-header');
 export const B2bCalendarMonths = /*@__PURE__*/createReactComponent<JSX.B2bCalendarMonths, HTMLB2bCalendarMonthsElement>('b2b-calendar-months');
+export const B2bCalendarYears = /*@__PURE__*/createReactComponent<JSX.B2bCalendarYears, HTMLB2bCalendarYearsElement>('b2b-calendar-years');
 export const B2bCard = /*@__PURE__*/createReactComponent<JSX.B2bCard, HTMLB2bCardElement>('b2b-card');
 export const B2bCheckbox = /*@__PURE__*/createReactComponent<JSX.B2bCheckbox, HTMLB2bCheckboxElement>('b2b-checkbox');
 export const B2bCheckboxGroup = /*@__PURE__*/createReactComponent<JSX.B2bCheckboxGroup, HTMLB2bCheckboxGroupElement>('b2b-checkbox-group');

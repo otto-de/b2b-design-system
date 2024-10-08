@@ -484,6 +484,17 @@
       "description": "Internal selected month"
     }
   },
+  "b2b-calendar-years": {
+    "selectedYear": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected year"
+    }
+  },
   "b2b-card": {
     "disabled": {
       "control": {
