@@ -3,6 +3,16 @@
 :host {
   .b2b-calendar {
     position: relative;
+    z-index: 1000;
+
+    &__backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
   }
 
   .b2b-calendar-input-wrapper {
@@ -35,6 +45,8 @@
   }
 
   .b2b-calendar-body {
+    position: relative;
+    z-index: 1000;
     border: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-top: none;
     width: 300px;

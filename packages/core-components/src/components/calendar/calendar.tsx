@@ -149,6 +149,10 @@ export class B2bCalendar {
     }
   }
 
+  private handleBackdropDismiss = () => {
+    this.showCalendar = false;
+  };
+
   render() {
     return (
       <Host>
@@ -229,6 +233,11 @@ export class B2bCalendar {
               selectedYear={this.selectedYear}></b2b-calendar-years>
           )}
         </div>
+        {this.showCalendar && (
+          <div
+            class="b2b-calendar__backdrop"
+            onClick={this.handleBackdropDismiss}></div>
+        )}
       </Host>
     );
   }
