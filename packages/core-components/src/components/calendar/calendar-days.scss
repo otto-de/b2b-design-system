@@ -10,7 +10,6 @@
     width: var(--b2b-size-90);
     height: var(--b2b-size-90);
     border-radius: 5px;
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,27 +24,28 @@
     &:hover,
     &:focus {
       background-color: var(--b2b-color-hover);
+      width: 100%;
+      height: 100%;
     }
 
     &--disabled {
-      width: var(--b2b-size-90);
-      height: var(--b2b-size-55);
       border-radius: 5px;
-      padding: 5px 0;
-      text-align: center;
-      pointer-events: none;
       color: var(--b2b-color-grey-200);
     }
 
     &--today {
       border: 1px solid var(--b2b-color-black-50);
       box-sizing: border-box;
+      width: 100%;
+      height: 100%;
     }
 
     &--selected {
       background-color: var(--b2b-color-black-100);
       color: var(--b2b-color-white-100);
       pointer-events: none;
+      width: 100%;
+      height: 100%;
     }
 
     &--focussed {
