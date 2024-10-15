@@ -82,7 +82,9 @@ describe('B2B-FlyoutMenu', () => {
     icon.click();
     await page.waitForChanges();
 
-    const flyoutMenuOption = await page.find({ text: 'option3' });
+    const flyoutMenuOption = await page.find(
+      'b2b-flyout-menu-option[option="option3"]',
+    );
     flyoutMenuOption.click();
     await page.waitForChanges();
 

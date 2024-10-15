@@ -1,3 +1,15 @@
+# [1.16.0](https://github.com/otto-de/b2b-design-system/compare/v1.15.1...v1.16.0) (2024-10-09)
+
+
+### Bug Fixes
+
+* **FlyoutMenuOption:** added shadow:true & css ([#498](https://github.com/otto-de/b2b-design-system/issues/498)) ([08eb1c6](https://github.com/otto-de/b2b-design-system/commit/08eb1c6cf6986803fbb9a4db847ce71b4b4cc372))
+
+
+### Features
+
+* **Icons:** [BLA-969] Added duplicate icon for Icon and Icon 100 components ([db7dce9](https://github.com/otto-de/b2b-design-system/commit/db7dce966a0effcc1d5cf0b9626c2e279106610a))
+
 ## [1.15.1](https://github.com/otto-de/b2b-design-system/compare/v1.15.0...v1.15.1) (2024-09-19)
 
 

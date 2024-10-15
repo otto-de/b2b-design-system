@@ -1,0 +1,23 @@
+@use '../../global/b2b-styles';
+
+:host {
+  display: block;
+  padding: var(--b2b-size-15) var(--b2b-size-30) 5px var(--b2b-size-30);
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+
+:host(.b2b-flyout-menu__option:hover),
+:host(.b2b-flyout-menu__option:focus) {
+  background-color: var(--b2b-color-table-selected-hover);
+  outline: none;
+}
+
+:host(.b2b-flyout-menu__option--disabled) {
+  pointer-events: none;
+  color: var(--b2b-color-grey-200);
+}
+
+:host(.b2b-flyout-menu__option--separator) {
+  border-bottom: 1px solid var(--b2b-color-grey-200);
+}

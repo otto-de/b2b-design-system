@@ -88,6 +88,7 @@ export const iconTypes = [
  "b2b_icon-downloads",
  "b2b_icon-dress",
  "b2b_icon-dungarees",
+ "b2b_icon-duplicate",
  "b2b_icon-duration",
  "b2b_icon-e-invoice",
  "b2b_icon-edit-pad",
