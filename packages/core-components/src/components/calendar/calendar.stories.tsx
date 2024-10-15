@@ -4,7 +4,7 @@ import { getArgTypes } from '../../docs/config/utils';
 import { userEvent } from '@storybook/testing-library';
 
 const meta: Meta = {
-  title: 'Components/Interaction/Calendar',
+  title: 'Components/Form/Calendar',
   component: 'b2b-calendar',
   args: {
     disablePastDates: false,
