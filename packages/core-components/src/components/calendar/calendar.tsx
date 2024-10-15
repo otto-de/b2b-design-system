@@ -1,15 +1,21 @@
 import {
   Component,
-  Prop,
-  h,
-  Host,
+  Element,
   Event,
   EventEmitter,
-  Element,
-  State,
+  h,
+  Host,
   Listen,
+  Prop,
+  State,
 } from '@stencil/core';
 import { CalendarEventDetail } from '../../utils/interfaces/form.interface';
+import { CalendarView } from './calendar.types';
+import {
+  CalendarViewChangedEventDetail,
+  MonthSelectedEventDetail,
+  YearSelectedEventDetail,
+} from '../../utils/interfaces/interaction.interface';
 
 @Component({
   tag: 'b2b-calendar',
@@ -36,6 +42,7 @@ export class B2bCalendar {
   b2bSelected: EventEmitter<CalendarEventDetail>;
 
   @State() private showCalendar: boolean = false;
+  @State() private calendarView: CalendarView = CalendarView.Days;
 
   @State() selectedMonth: number = new Date().getMonth();
   @State() selectedYear: number = new Date().getFullYear();
@@ -73,6 +80,25 @@ export class B2bCalendar {
     }
   }
 
+  @Listen('b2b-calendar-view-changed')
+  handleCalendarViewChanged(
+    event: CustomEvent<CalendarViewChangedEventDetail>,
+  ) {
+    this.calendarView = event.detail.value;
+  }
+
+  @Listen('b2b-calendar-month-selected')
+  handleMonthSelected(event: CustomEvent<MonthSelectedEventDetail>) {
+    this.setCurrentMonth(event.detail.value);
+    this.calendarView = CalendarView.Days;
+  }
+
+  @Listen('b2b-calendar-year-selected')
+  handleYearSelected(event: CustomEvent<YearSelectedEventDetail>) {
+    this.setCurrentYear(event.detail.value);
+    this.calendarView = CalendarView.Days;
+  }
+
   private setCurrentMonth = (selectedMonth: number) => {
     this.selectedMonth = selectedMonth;
     this.clearDateInput();
@@ -86,6 +112,7 @@ export class B2bCalendar {
   };
   private showHideCalendar = () => {
     this.showCalendar = !this.showCalendar;
+    this.calendarView = CalendarView.Days;
   };
 
   private clearDateInput = () => {
@@ -121,6 +148,10 @@ export class B2bCalendar {
       closeIcon.focus();
     }
   }
+
+  private handleBackdropDismiss = () => {
+    this.showCalendar = false;
+  };
 
   render() {
     return (
@@ -178,18 +209,35 @@ export class B2bCalendar {
             'b2b-calendar-body': true,
             'b2b-calendar-body--hidden': !this.showCalendar,
           }}>
-          <b2b-calendar-header
-            selectedMonth={this.selectedMonth}
-            selectedYear={this.selectedYear}></b2b-calendar-header>
-          <b2b-calendar-days-header></b2b-calendar-days-header>
-          <b2b-calendar-days
-            selectedMonth={this.selectedMonth}
-            selectedYear={this.selectedYear}
-            selectedDay={this.selectedDay}
-            disableWeekends={this.disableWeekends}
-            disableFutureDates={this.disableFutureDates}
-            disablePastDates={this.disablePastDates}></b2b-calendar-days>
+          {this.calendarView === CalendarView.Days && (
+            <div>
+              <b2b-calendar-header
+                selectedMonth={this.selectedMonth}
+                selectedYear={this.selectedYear}></b2b-calendar-header>
+              <b2b-calendar-days-header></b2b-calendar-days-header>
+              <b2b-calendar-days
+                selectedMonth={this.selectedMonth}
+                selectedYear={this.selectedYear}
+                selectedDay={this.selectedDay}
+                disableWeekends={this.disableWeekends}
+                disableFutureDates={this.disableFutureDates}
+                disablePastDates={this.disablePastDates}></b2b-calendar-days>
+            </div>
+          )}
+          {this.calendarView === CalendarView.Months && (
+            <b2b-calendar-months
+              selectedMonth={this.selectedMonth}></b2b-calendar-months>
+          )}
+          {this.calendarView === CalendarView.Years && (
+            <b2b-calendar-years
+              selectedYear={this.selectedYear}></b2b-calendar-years>
+          )}
         </div>
+        {this.showCalendar && (
+          <div
+            class="b2b-calendar__backdrop"
+            onClick={this.handleBackdropDismiss}></div>
+        )}
       </Host>
     );
   }

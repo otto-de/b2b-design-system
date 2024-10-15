@@ -7,8 +7,9 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { Months } from './calendar.types';
+import { CalendarView, Months } from './calendar.types';
 import {
+  CalendarViewChangedEventDetail,
   NextMonth,
   PreviousMonth,
 } from '../../utils/interfaces/interaction.interface';
@@ -30,6 +31,9 @@ export class B2bCalendarHeader {
   /** Event emitted for next month click**/
   @Event({ eventName: 'b2b-calendar-next-month' })
   b2bCalendarNextMonth: EventEmitter<NextMonth>;
+  /** Event emitted for changing the calendar view **/
+  @Event({ eventName: 'b2b-calendar-view-changed' })
+  b2bCalendarViewChanged: EventEmitter<CalendarViewChangedEventDetail>;
   render() {
     return (
       <Host>
@@ -47,14 +51,20 @@ export class B2bCalendarHeader {
             size={'100'}
             align={'center'}
             class="b2b-calendar-month"
-            aria-live="polite">
+            aria-live="polite"
+            onClick={() => {
+              this.b2bCalendarViewChanged.emit({ value: CalendarView.Months });
+            }}>
             {Months[this.selectedMonth]}
           </b2b-headline>
           <b2b-headline
             size={'100'}
             align={'center'}
             class="b2b-calendar-year"
-            aria-live="polite">
+            aria-live="polite"
+            onClick={() => {
+              this.b2bCalendarViewChanged.emit({ value: CalendarView.Years });
+            }}>
             {this.selectedYear}
           </b2b-headline>
           <button

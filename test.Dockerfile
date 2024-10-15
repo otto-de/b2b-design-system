@@ -1,5 +1,7 @@
 # Use playwright image as a base
+
 FROM mcr.microsoft.com/playwright:v1.48.0-jammy as playwright
+
 
 WORKDIR /b2b
 
@@ -23,4 +25,3 @@ WORKDIR /b2b
 RUN npm i
 
 WORKDIR /b2b/packages/core-components
-

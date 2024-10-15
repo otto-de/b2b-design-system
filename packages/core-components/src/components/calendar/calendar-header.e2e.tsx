@@ -33,4 +33,32 @@ describe('B2B-Calendar-Header', () => {
 
     expect(nextMonthSpy).toHaveReceivedEvent();
   });
+
+  it('should emit months calendar view selected event', async () => {
+    const viewChangedSpy = await page.spyOnEvent('b2b-calendar-view-changed');
+
+    const clickableInputComponent = await page.find(
+      'b2b-calendar-header >>> .b2b-calendar-month',
+    );
+
+    await clickableInputComponent.click();
+    page.waitForChanges();
+
+    expect(viewChangedSpy).toHaveReceivedEvent();
+    expect(viewChangedSpy).toHaveReceivedEventDetail({ value: 'Months' });
+  });
+
+  it('should emit years calendar view selected event', async () => {
+    const viewChangedSpy = await page.spyOnEvent('b2b-calendar-view-changed');
+
+    const clickableInputComponent = await page.find(
+      'b2b-calendar-header >>> .b2b-calendar-year',
+    );
+
+    await clickableInputComponent.click();
+    page.waitForChanges();
+
+    expect(viewChangedSpy).toHaveReceivedEvent();
+    expect(viewChangedSpy).toHaveReceivedEventDetail({ value: 'Years' });
+  });
 });
