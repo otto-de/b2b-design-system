@@ -8,7 +8,7 @@ import {
   EventEmitter,
   Listen,
 } from '@stencil/core';
-import { Months } from './calendar.types';
+import { Months } from './date-picker.types';
 import { MonthSelectedEventDetail } from '../../utils/interfaces/interaction.interface';
 
 const keys = {
@@ -20,18 +20,18 @@ const keys = {
 };
 
 @Component({
-  tag: 'b2b-calendar-months',
-  styleUrl: 'calendar-months.scss',
+  tag: 'b2b-date-picker-months',
+  styleUrl: 'date-picker-months.scss',
   shadow: true,
 })
-export class B2bCalendarMonths {
-  @Element() host: HTMLB2bCalendarMonthsElement;
+export class B2bDatePickerMonths {
+  @Element() host: HTMLB2bDatePickerMonthsElement;
   /** Internal selected month */
   @Prop() selectedMonth: number;
 
   /** Event emitted on selecting month**/
-  @Event({ eventName: 'b2b-calendar-month-selected' })
-  b2bCalendarMonthSelected: EventEmitter<MonthSelectedEventDetail>;
+  @Event({ eventName: 'b2b-date-picker-month-selected' })
+  b2bDatePickerMonthSelected: EventEmitter<MonthSelectedEventDetail>;
 
   @Listen('keydown')
   handleKeyDown(event: KeyboardEvent) {
@@ -54,7 +54,7 @@ export class B2bCalendarMonths {
         break;
       case keys.ENTER:
         index = months.indexOf(currentMonth);
-        this.b2bCalendarMonthSelected.emit({
+        this.b2bDatePickerMonthSelected.emit({
           value: index,
         });
         break;
@@ -75,7 +75,7 @@ export class B2bCalendarMonths {
 
   private getAllMonths = (): HTMLDivElement[] => {
     return Array.from(
-      this.host.shadowRoot.querySelectorAll('.b2b-calendar-month'),
+      this.host.shadowRoot.querySelectorAll('.b2b-date-picker-month'),
     ) as HTMLDivElement[];
   };
 
@@ -92,16 +92,16 @@ export class B2bCalendarMonths {
     month.focus();
   };
 
-  private renderCalendarMonths = () => {
+  private renderDatePickerMonths = () => {
     let months = [];
     for (let i = 0; i < 12; i++) {
       months.push(
         <div
           class={{
-            'b2b-calendar-month': true,
-            'b2b-calendar-month--selected': this.selectedMonth === i,
+            'b2b-date-picker-month': true,
+            'b2b-date-picker-month--selected': this.selectedMonth === i,
           }}
-          onClick={() => this.b2bCalendarMonthSelected.emit({ value: i })}
+          onClick={() => this.b2bDatePickerMonthSelected.emit({ value: i })}
           tabIndex={this.selectedMonth === i ? 0 : -1}
           aria-label={`Month ${i + 1}`}>
           {Months[i]}
@@ -114,7 +114,9 @@ export class B2bCalendarMonths {
   render() {
     return (
       <Host>
-        <div class="b2b-calendar-months">{this.renderCalendarMonths()}</div>
+        <div class="b2b-date-picker-months">
+          {this.renderDatePickerMonths()}
+        </div>
       </Host>
     );
   }

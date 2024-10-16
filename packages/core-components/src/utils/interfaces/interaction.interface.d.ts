@@ -1,4 +1,4 @@
-import { CalendarView } from '../../components/calendar/calendar.types';
+import { DatePickerView } from '../../components/datePicker/date-picker.types';
 
 export type PaginationEventDirection = 'PREVIOUS' | 'NEXT';
 
@@ -15,7 +15,7 @@ export interface TabChangeEventDetail {
 export interface EscapePressed<T = any> {}
 export interface PreviousMonth<T = any> {}
 export interface NextMonth<T = any> {}
-export interface CalendarViewChangedEventDetail<T = CalendarView> {
+export interface DatePickerViewChangedEventDetail<T = DatePickerView> {
   value: T;
 }
 export interface MonthSelectedEventDetail<T = number> {

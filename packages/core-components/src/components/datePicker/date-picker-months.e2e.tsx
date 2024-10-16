@@ -1,16 +1,16 @@
 import { newE2EPage } from '@stencil/core/testing';
-import { Months } from './calendar.types';
+import { Months } from './date-picker.types';
 
-describe('B2B-Calendar-Months', () => {
+describe('B2B-Date-Picker-Months', () => {
   let page;
   beforeEach(async () => {
     page = await newE2EPage();
   });
 
   it('should list all months', async () => {
-    await page.setContent(`<b2b-calendar-months></b2b-calendar-months>`);
+    await page.setContent(`<b2b-date-picker-months></b2b-date-picker-months>`);
     const monthElements = (await page.findAll(
-      'b2b-calendar-months >>> .b2b-calendar-month',
+      'b2b-date-picker-months >>> .b2b-date-picker-month',
     )) as HTMLDivElement[];
 
     expect(monthElements.length).toBe(12);
@@ -21,23 +21,23 @@ describe('B2B-Calendar-Months', () => {
 
   it('should show the selected month', async () => {
     await page.setContent(
-      `<b2b-calendar-months selected-month="4"></b2b-calendar-months>`,
+      `<b2b-date-picker-months selected-month="4"></b2b-date-picker-months>`,
     );
     const selectedMonth = await page.find(
-      'b2b-calendar-months >>> .b2b-calendar-month--selected',
+      'b2b-date-picker-months >>> .b2b-date-picker-month--selected',
     );
     expect(selectedMonth.textContent).toBe(Months[4]);
   });
 
   it('should emit month selected event when new month is selected', async () => {
     await page.setContent(
-      `<b2b-calendar-months selected-month="10"></b2b-calendar-months>`,
+      `<b2b-date-picker-months selected-month="10"></b2b-date-picker-months>`,
     );
     const monthSelectedSpy = await page.spyOnEvent(
-      'b2b-calendar-month-selected',
+      'b2b-date-picker-month-selected',
     );
     const monthElement = await page.find(
-      'b2b-calendar-months >>> .b2b-calendar-month:nth-child(4)',
+      'b2b-date-picker-months >>> .b2b-date-picker-month:nth-child(4)',
     );
 
     await monthElement.click();
@@ -49,13 +49,13 @@ describe('B2B-Calendar-Months', () => {
 
   it('should emit month selected event when selecting the same month', async () => {
     await page.setContent(
-      `<b2b-calendar-months selected-month="3"></b2b-calendar-months>`,
+      `<b2b-date-picker-months selected-month="3"></b2b-date-picker-months>`,
     );
     const monthSelectedSpy = await page.spyOnEvent(
-      'b2b-calendar-month-selected',
+      'b2b-date-picker-month-selected',
     );
     const monthElement = await page.find(
-      'b2b-calendar-months >>> .b2b-calendar-month:nth-child(4)',
+      'b2b-date-picker-months >>> .b2b-date-picker-month:nth-child(4)',
     );
 
     await monthElement.click();

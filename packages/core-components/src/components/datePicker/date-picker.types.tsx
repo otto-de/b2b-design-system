@@ -15,7 +15,7 @@ export const Months = [
 
 export const Weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'] as const;
 
-export enum CalendarView {
+export enum DatePickerView {
   Days = 'Days',
   Months = 'Months',
   Years = 'Years',

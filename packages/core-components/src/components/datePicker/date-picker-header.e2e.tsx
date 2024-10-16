@@ -1,19 +1,19 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('B2B-Calendar-Header', () => {
+describe('B2B-Date-Picker-Header', () => {
   let page;
   beforeEach(async () => {
     page = await newE2EPage();
-    await page.setContent(`<b2b-calendar-header></b2b-calendar-header>`);
+    await page.setContent(`<b2b-date-picker-header></b2b-date-picker-header>`);
   });
 
   it('should emit previous button click event', async () => {
     const previousMonthSpy = await page.spyOnEvent(
-      'b2b-calendar-previous-month',
+      'b2b-date-picker-previous-month',
     );
 
     const clickableInputComponent = await page.find(
-      'b2b-calendar-header >>> .b2b-calendar-nav--left',
+      'b2b-date-picker-header >>> .b2b-date-picker-nav--left',
     );
 
     await clickableInputComponent.click();
@@ -22,10 +22,10 @@ describe('B2B-Calendar-Header', () => {
     expect(previousMonthSpy).toHaveReceivedEvent();
   });
   it('should emit next button click event', async () => {
-    const nextMonthSpy = await page.spyOnEvent('b2b-calendar-next-month');
+    const nextMonthSpy = await page.spyOnEvent('b2b-date-picker-next-month');
 
     const clickableInputComponent = await page.find(
-      'b2b-calendar-header >>> .b2b-calendar-nav--right',
+      'b2b-date-picker-header >>> .b2b-date-picker-nav--right',
     );
 
     await clickableInputComponent.click();
@@ -34,11 +34,13 @@ describe('B2B-Calendar-Header', () => {
     expect(nextMonthSpy).toHaveReceivedEvent();
   });
 
-  it('should emit months calendar view selected event', async () => {
-    const viewChangedSpy = await page.spyOnEvent('b2b-calendar-view-changed');
+  it('should emit months date picker view selected event', async () => {
+    const viewChangedSpy = await page.spyOnEvent(
+      'b2b-date-picker-view-changed',
+    );
 
     const clickableInputComponent = await page.find(
-      'b2b-calendar-header >>> .b2b-calendar-month',
+      'b2b-date-picker-header >>> .b2b-date-picker-month',
     );
 
     await clickableInputComponent.click();
@@ -48,11 +50,13 @@ describe('B2B-Calendar-Header', () => {
     expect(viewChangedSpy).toHaveReceivedEventDetail({ value: 'Months' });
   });
 
-  it('should emit years calendar view selected event', async () => {
-    const viewChangedSpy = await page.spyOnEvent('b2b-calendar-view-changed');
+  it('should emit years date picker view selected event', async () => {
+    const viewChangedSpy = await page.spyOnEvent(
+      'b2b-date-picker-view-changed',
+    );
 
     const clickableInputComponent = await page.find(
-      'b2b-calendar-header >>> .b2b-calendar-year',
+      'b2b-date-picker-header >>> .b2b-date-picker-year',
     );
 
     await clickableInputComponent.click();

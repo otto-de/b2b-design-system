@@ -9,21 +9,21 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { CalendarEventDetail } from '../../utils/interfaces/form.interface';
-import { CalendarView } from './calendar.types';
+import { DatePickerEventDetail } from '../../utils/interfaces/form.interface';
+import { DatePickerView } from './date-picker.types';
 import {
-  CalendarViewChangedEventDetail,
+  DatePickerViewChangedEventDetail,
   MonthSelectedEventDetail,
   YearSelectedEventDetail,
 } from '../../utils/interfaces/interaction.interface';
 
 @Component({
-  tag: 'b2b-calendar',
-  styleUrl: 'calendar.scss',
+  tag: 'b2b-date-picker',
+  styleUrl: 'date-picker.scss',
   shadow: true,
 })
-export class B2bCalendar {
-  @Element() host: HTMLB2bCalendarElement;
+export class B2bDatePicker {
+  @Element() host: HTMLB2bDatePickerElement;
 
   /** Whether the previous dates from the current date are disabled. By default, this is true. */
   @Prop() disablePastDates: boolean;
@@ -34,33 +34,33 @@ export class B2bCalendar {
   /** Whether the dates that fall on the weekend are disabled. By default, this is false. */
   @Prop() disableWeekends: boolean;
 
-  /** Label for the calendar component. */
+  /** Label for the date picker component. */
   @Prop() label: string = 'Zeitraum auswählen';
 
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
-  b2bSelected: EventEmitter<CalendarEventDetail>;
+  b2bSelected: EventEmitter<DatePickerEventDetail>;
 
-  @State() private showCalendar: boolean = false;
-  @State() private calendarView: CalendarView = CalendarView.Days;
+  @State() private showDatePicker: boolean = false;
+  @State() private datePickerView: DatePickerView = DatePickerView.Days;
 
   @State() selectedMonth: number = new Date().getMonth();
   @State() selectedYear: number = new Date().getFullYear();
   @State() selectedDay: number;
   @State() selectedDate: string = undefined;
 
-  @Listen('b2b-calendar-escape')
+  @Listen('b2b-date-picker-escape')
   handleEscapePress() {
-    this.showCalendar = false;
+    this.showDatePicker = false;
   }
 
   @Listen('b2b-date-selected')
   handleDateSelection(event: CustomEvent) {
     this.selectedDay = event.detail.selectedDate.getDate();
     this.setSelectedDate();
-    this.showCalendar = false;
+    this.showDatePicker = false;
   }
-  @Listen('b2b-calendar-previous-month')
+  @Listen('b2b-date-picker-previous-month')
   getPreviousMonth() {
     if (this.selectedMonth === 0) {
       this.setCurrentMonth(11);
@@ -70,7 +70,7 @@ export class B2bCalendar {
     }
   }
 
-  @Listen('b2b-calendar-next-month')
+  @Listen('b2b-date-picker-next-month')
   getNextMonth() {
     if (this.selectedMonth === 11) {
       this.setCurrentMonth(0);
@@ -80,23 +80,23 @@ export class B2bCalendar {
     }
   }
 
-  @Listen('b2b-calendar-view-changed')
-  handleCalendarViewChanged(
-    event: CustomEvent<CalendarViewChangedEventDetail>,
+  @Listen('b2b-date-picker-view-changed')
+  handleDatePickerViewChanged(
+    event: CustomEvent<DatePickerViewChangedEventDetail>,
   ) {
-    this.calendarView = event.detail.value;
+    this.datePickerView = event.detail.value;
   }
 
-  @Listen('b2b-calendar-month-selected')
+  @Listen('b2b-date-picker-month-selected')
   handleMonthSelected(event: CustomEvent<MonthSelectedEventDetail>) {
     this.setCurrentMonth(event.detail.value);
-    this.calendarView = CalendarView.Days;
+    this.datePickerView = DatePickerView.Days;
   }
 
-  @Listen('b2b-calendar-year-selected')
+  @Listen('b2b-date-picker-year-selected')
   handleYearSelected(event: CustomEvent<YearSelectedEventDetail>) {
     this.setCurrentYear(event.detail.value);
-    this.calendarView = CalendarView.Days;
+    this.datePickerView = DatePickerView.Days;
   }
 
   private setCurrentMonth = (selectedMonth: number) => {
@@ -110,9 +110,9 @@ export class B2bCalendar {
     this.clearDateInput();
     this.selectedDay = undefined;
   };
-  private showHideCalendar = () => {
-    this.showCalendar = !this.showCalendar;
-    this.calendarView = CalendarView.Days;
+  private showHideDatePicker = () => {
+    this.showDatePicker = !this.showDatePicker;
+    this.datePickerView = DatePickerView.Days;
   };
 
   private clearDateInput = () => {
@@ -150,40 +150,40 @@ export class B2bCalendar {
   }
 
   private handleBackdropDismiss = () => {
-    this.showCalendar = false;
+    this.showDatePicker = false;
   };
 
   render() {
     return (
       <Host>
-        <div class="b2b-calendar">
-          <div class="b2b-calendar-label">{this.label}</div>
+        <div class="b2b-date-picker">
+          <div class="b2b-date-picker-label">{this.label}</div>
           <div
             class={{
-              'b2b-calendar-input-wrapper': true,
-              'b2b-calendar-input-wrapper--opened': this.showCalendar,
+              'b2b-date-picker-input-wrapper': true,
+              'b2b-date-picker-input-wrapper--opened': this.showDatePicker,
             }}
             tabindex={0}
-            onClick={this.showHideCalendar}
+            onClick={this.showHideDatePicker}
             onKeyDown={event => {
               if (event.key === 'Enter') {
-                this.showHideCalendar();
+                this.showHideDatePicker();
               }
             }}>
-            <div class="b2b-calendar-selected-date">{this.selectedDate}</div>
+            <div class="b2b-date-picker-selected-date">{this.selectedDate}</div>
             <div class="b2b-icons">
               {this.selectedDate && (
                 <div
                   tabIndex={0}
                   onClick={() => {
                     this.clearDateInput();
-                    this.showHideCalendar();
+                    this.showHideDatePicker();
                   }}
                   class="b2b-close-icon"
                   onKeyDown={event => {
                     if (event.key === 'Enter') {
                       this.clearDateInput();
-                      this.showHideCalendar();
+                      this.showHideDatePicker();
                     }
                   }}>
                   <b2b-icon
@@ -196,7 +196,9 @@ export class B2bCalendar {
               <div tabindex={0}>
                 <b2b-icon
                   aria-label={
-                    this.showCalendar ? 'close calendar' : 'open calendar'
+                    this.showDatePicker
+                      ? 'close date picker'
+                      : 'open date picker'
                   }
                   icon="b2b_icon-event"
                   clickable={true}></b2b-icon>
@@ -206,36 +208,36 @@ export class B2bCalendar {
         </div>
         <div
           class={{
-            'b2b-calendar-body': true,
-            'b2b-calendar-body--hidden': !this.showCalendar,
+            'b2b-date-picker-body': true,
+            'b2b-date-picker-body--hidden': !this.showDatePicker,
           }}>
-          {this.calendarView === CalendarView.Days && (
+          {this.datePickerView === DatePickerView.Days && (
             <div>
-              <b2b-calendar-header
+              <b2b-date-picker-header
                 selectedMonth={this.selectedMonth}
-                selectedYear={this.selectedYear}></b2b-calendar-header>
-              <b2b-calendar-days-header></b2b-calendar-days-header>
-              <b2b-calendar-days
+                selectedYear={this.selectedYear}></b2b-date-picker-header>
+              <b2b-date-picker-days-header></b2b-date-picker-days-header>
+              <b2b-date-picker-days
                 selectedMonth={this.selectedMonth}
                 selectedYear={this.selectedYear}
                 selectedDay={this.selectedDay}
                 disableWeekends={this.disableWeekends}
                 disableFutureDates={this.disableFutureDates}
-                disablePastDates={this.disablePastDates}></b2b-calendar-days>
+                disablePastDates={this.disablePastDates}></b2b-date-picker-days>
             </div>
           )}
-          {this.calendarView === CalendarView.Months && (
-            <b2b-calendar-months
-              selectedMonth={this.selectedMonth}></b2b-calendar-months>
+          {this.datePickerView === DatePickerView.Months && (
+            <b2b-date-picker-months
+              selectedMonth={this.selectedMonth}></b2b-date-picker-months>
           )}
-          {this.calendarView === CalendarView.Years && (
-            <b2b-calendar-years
-              selectedYear={this.selectedYear}></b2b-calendar-years>
+          {this.datePickerView === DatePickerView.Years && (
+            <b2b-date-picker-years
+              selectedYear={this.selectedYear}></b2b-date-picker-years>
           )}
         </div>
-        {this.showCalendar && (
+        {this.showDatePicker && (
           <div
-            class="b2b-calendar__backdrop"
+            class="b2b-date-picker__backdrop"
             onClick={this.handleBackdropDismiss}></div>
         )}
       </Host>
