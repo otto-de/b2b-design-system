@@ -37,6 +37,9 @@ export class B2bDatePicker {
   /** Label for the date picker component. */
   @Prop() label: string = 'Zeitraum auswählen';
 
+  /** Default date picker date*/
+  @Prop() defaultDate: string = undefined;
+
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
@@ -48,6 +51,17 @@ export class B2bDatePicker {
   @State() selectedYear: number = new Date().getFullYear();
   @State() selectedDay: number;
   @State() selectedDate: string = undefined;
+
+  componentWillLoad() {
+    if (this.defaultDate != undefined) {
+      const [day, month, year] = this.defaultDate.split('.').map(Number);
+      this.selectedDay = day;
+      this.selectedMonth = month - 1;
+      this.selectedYear = year;
+      this.setSelectedDateForDisplay();
+      this.showDatePicker = true;
+    }
+  }
 
   @Listen('b2b-date-picker-escape')
   handleEscapePress() {
@@ -121,14 +135,7 @@ export class B2bDatePicker {
   };
 
   private setSelectedDate() {
-    if (this.selectedDay !== undefined) {
-      const formattedDay = this.selectedDay.toString().padStart(2, '0');
-      const formattedMonth = (this.selectedMonth + 1)
-        .toString()
-        .padStart(2, '0');
-      const formattedYear = this.selectedYear;
-      this.selectedDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
-    }
+    this.setSelectedDateForDisplay();
 
     this.b2bSelected.emit({
       selectedDate: new Date(
@@ -140,6 +147,17 @@ export class B2bDatePicker {
     setTimeout(() => {
       this.setFocusOnCloseIcon();
     }, 100);
+  }
+
+  private setSelectedDateForDisplay() {
+    if (this.selectedDay !== undefined) {
+      const formattedDay = this.selectedDay.toString().padStart(2, '0');
+      const formattedMonth = (this.selectedMonth + 1)
+        .toString()
+        .padStart(2, '0');
+      const formattedYear = this.selectedYear;
+      this.selectedDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
+    }
   }
 
   private setFocusOnCloseIcon() {

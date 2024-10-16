@@ -248,6 +248,10 @@ export namespace Components {
     }
     interface B2bDatePicker {
         /**
+          * Default date picker date
+         */
+        "defaultDate": string;
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates": boolean;
@@ -2478,6 +2482,10 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface B2bDatePicker {
+        /**
+          * Default date picker date
+         */
+        "defaultDate"?: string;
         /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
