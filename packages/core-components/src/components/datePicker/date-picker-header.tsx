@@ -7,40 +7,40 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { CalendarView, Months } from './calendar.types';
+import { DatePickerView, Months } from './date-picker.types';
 import {
-  CalendarViewChangedEventDetail,
+  DatePickerViewChangedEventDetail,
   NextMonth,
   PreviousMonth,
 } from '../../utils/interfaces/interaction.interface';
 
 @Component({
-  tag: 'b2b-calendar-header',
-  styleUrl: 'calendar-header.scss',
+  tag: 'b2b-date-picker-header',
+  styleUrl: 'date-picker-header.scss',
   shadow: true,
 })
-export class B2bCalendarHeader {
-  @Element() host: HTMLB2bCalendarHeaderElement;
+export class B2bDatePickerHeader {
+  @Element() host: HTMLB2bDatePickerHeaderElement;
   /** Internal selected month */
   @Prop() selectedMonth: number;
   /** Internal selected year */
   @Prop() selectedYear: number;
   /** Event emitted for previous month click**/
-  @Event({ eventName: 'b2b-calendar-previous-month' })
-  b2bCalendarPreviousMonth: EventEmitter<PreviousMonth>;
+  @Event({ eventName: 'b2b-date-picker-previous-month' })
+  b2bDatePickerPreviousMonth: EventEmitter<PreviousMonth>;
   /** Event emitted for next month click**/
-  @Event({ eventName: 'b2b-calendar-next-month' })
-  b2bCalendarNextMonth: EventEmitter<NextMonth>;
-  /** Event emitted for changing the calendar view **/
-  @Event({ eventName: 'b2b-calendar-view-changed' })
-  b2bCalendarViewChanged: EventEmitter<CalendarViewChangedEventDetail>;
+  @Event({ eventName: 'b2b-date-picker-next-month' })
+  b2bDatePickerNextMonth: EventEmitter<NextMonth>;
+  /** Event emitted for changing the date picker view **/
+  @Event({ eventName: 'b2b-date-picker-view-changed' })
+  b2bDatePickerViewChanged: EventEmitter<DatePickerViewChangedEventDetail>;
   render() {
     return (
       <Host>
-        <div class="b2b-calendar-header">
+        <div class="b2b-date-picker-header">
           <button
-            class="b2b-calendar-nav--left"
-            onClick={this.b2bCalendarPreviousMonth.emit}
+            class="b2b-date-picker-nav--left"
+            onClick={this.b2bDatePickerPreviousMonth.emit}
             onMouseOut={event => {
               (event.target as HTMLDivElement).blur();
             }}
@@ -50,26 +50,30 @@ export class B2bCalendarHeader {
           <b2b-headline
             size={'100'}
             align={'center'}
-            class="b2b-calendar-month"
+            class="b2b-date-picker-month"
             aria-live="polite"
             onClick={() => {
-              this.b2bCalendarViewChanged.emit({ value: CalendarView.Months });
+              this.b2bDatePickerViewChanged.emit({
+                value: DatePickerView.Months,
+              });
             }}>
             {Months[this.selectedMonth]}
           </b2b-headline>
           <b2b-headline
             size={'100'}
             align={'center'}
-            class="b2b-calendar-year"
+            class="b2b-date-picker-year"
             aria-live="polite"
             onClick={() => {
-              this.b2bCalendarViewChanged.emit({ value: CalendarView.Years });
+              this.b2bDatePickerViewChanged.emit({
+                value: DatePickerView.Years,
+              });
             }}>
             {this.selectedYear}
           </b2b-headline>
           <button
-            class="b2b-calendar-nav--right"
-            onClick={this.b2bCalendarNextMonth.emit}
+            class="b2b-date-picker-nav--right"
+            onClick={this.b2bDatePickerNextMonth.emit}
             onMouseOut={event => {
               (event.target as HTMLDivElement).blur();
             }}

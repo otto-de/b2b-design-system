@@ -45,6 +45,6 @@ export interface ToggleButtonEventDetail<T = any> {
 export interface ChipComponentEventDetail<T = any> {
   value: T;
 }
-export interface CalendarEventDetail<T = any> {
+export interface DatePickerEventDetail<T = any> {
   selectedDate: Date;
 }

@@ -1,7 +1,7 @@
 @use '../../global/b2b-styles';
 
 :host {
-  .b2b-calendar {
+  .b2b-date-picker {
     position: relative;
     z-index: 1000;
 
@@ -15,7 +15,7 @@
     }
   }
 
-  .b2b-calendar-input-wrapper {
+  .b2b-date-picker-input-wrapper {
     display: flex;
     box-sizing: border-box;
     height: var(--b2b-size-90);
@@ -31,20 +31,20 @@
     }
   }
 
-  .b2b-calendar-selected-date {
+  .b2b-date-picker-selected-date {
     flex: 1;
     align-self: center;
     font-size: var(--b2b-size-35);
   }
 
-  .b2b-calendar-label {
+  .b2b-date-picker-label {
     font-size: var(--b2b-size-35);
     color: var(--b2b-color-black-100);
     line-height: var(--b2b-size-copy-line-height-100);
     margin-bottom: var(--b2b-size-5);
   }
 
-  .b2b-calendar-body {
+  .b2b-date-picker-body {
     position: relative;
     z-index: 1000;
     border: var(--b2b-size-1) solid var(--b2b-color-black-100);

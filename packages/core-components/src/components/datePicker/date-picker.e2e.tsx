@@ -1,44 +1,44 @@
 import { newE2EPage } from '@stencil/core/testing';
 
 //ToDo Rewrite the tests so that the next, previous button and date selection scenarios are also tested
-describe('B2B-Calendar', () => {
+describe('B2B-Date-Picker', () => {
   let page;
   beforeEach(async () => {
     page = await newE2EPage();
-    await page.setContent(`<b2b-calendar></b2b-calendar>`);
+    await page.setContent(`<b2b-date-picker></b2b-date-picker>`);
   });
 
-  it('should render the calendar component', async () => {
-    const calendar = await page.find('b2b-calendar');
+  it('should render the date picker component', async () => {
+    const datePicker = await page.find('b2b-date-picker');
     const clickableInputComponent = await page.find(
-      'b2b-calendar >>> div.b2b-calendar-input-wrapper',
+      'b2b-date-picker >>> div.b2b-date-picker-input-wrapper',
     );
 
     expect(clickableInputComponent).not.toBeNull();
-    expect(calendar).not.toBeNull();
+    expect(datePicker).not.toBeNull();
   });
 
-  it('should render the datepicker component when calendar icon is clicked', async () => {
-    const calendar = await page.find('b2b-calendar');
+  it('should render the datepicker component when date picker icon is clicked', async () => {
+    const datePicker = await page.find('b2b-date-picker');
     const clickableInputComponent = await page.find(
-      'b2b-calendar >>> div.b2b-calendar-input-wrapper',
+      'b2b-date-picker >>> div.b2b-date-picker-input-wrapper',
     );
 
     await clickableInputComponent.click();
     await page.waitForChanges();
 
     const datePickerComponent = await page.find(
-      'b2b-calendar >>> .b2b-calendar-body',
+      'b2b-date-picker >>> .b2b-date-picker-body',
     );
     const datePickerHeader = await page.find(
-      'b2b-calendar >>> .b2b-calendar-body >>> b2b-calendar-header',
+      'b2b-date-picker >>> .b2b-date-picker-body >>> b2b-date-picker-header',
     );
     const datePickerDays = await page.find(
-      'b2b-calendar >>> .b2b-calendar-body >>> b2b-calendar-days',
+      'b2b-date-picker >>> .b2b-date-picker-body >>> b2b-date-picker-days',
     );
 
     expect(clickableInputComponent).not.toBeNull();
-    expect(calendar).not.toBeNull();
+    expect(datePicker).not.toBeNull();
 
     expect(datePickerComponent).not.toBeNull();
     expect(datePickerHeader).not.toBeNull();
@@ -51,7 +51,7 @@ describe('B2B-Calendar', () => {
   it('should disable past dates', async () => {
     page = await newE2EPage();
     await page.setContent(
-      `<b2b-calendar disable-past-dates=true></b2b-calendar>`,
+      `<b2b-date-picker disable-past-dates=true></b2b-date-picker>`,
     );
     const today = new Date();
     const yesterday = new Date(today);
@@ -61,14 +61,14 @@ describe('B2B-Calendar', () => {
     if (prevDay > 0 && prevDay >= 30) {
       const prevDayElement = await page.find({ text: prevDay.toString() });
       expect(prevDayElement.className).toBe(
-        'b2b-calendar-day b2b-calendar-day--disabled',
+        'b2b-date-picker-day b2b-date-picker-day--disabled',
       );
     }
   });
   it('should disable future dates', async () => {
     page = await newE2EPage();
     await page.setContent(
-      `<b2b-calendar disable-future-dates=true></b2b-calendar>`,
+      `<b2b-date-picker disable-future-dates=true></b2b-date-picker>`,
     );
     const today = new Date();
     const tomorrow = new Date(today);
@@ -78,14 +78,14 @@ describe('B2B-Calendar', () => {
     if (nextDay > 0 && nextDay !== 1) {
       const nextDayElement = await page.find({ text: nextDay.toString() });
       expect(nextDayElement.className).toBe(
-        'b2b-calendar-day b2b-calendar-day--disabled',
+        'b2b-date-picker-day b2b-date-picker-day--disabled',
       );
     }
   });
   it('should disable weekends dates', async () => {
     page = await newE2EPage();
     await page.setContent(
-      `<b2b-calendar disable-weekends=true></b2b-calendar>`,
+      `<b2b-date-picker disable-weekends=true></b2b-date-picker>`,
     );
     const previousSunday = new Date().getDate() - (new Date().getDay() % 0);
 
@@ -94,7 +94,7 @@ describe('B2B-Calendar', () => {
         text: previousSunday.toString(),
       });
       expect(prevDayElement.className).toBe(
-        'b2b-calendar-day b2b-calendar-day--disabled',
+        'b2b-date-picker-day b2b-date-picker-day--disabled',
       );
     }
   });

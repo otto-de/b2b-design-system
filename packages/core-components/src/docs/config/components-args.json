@@ -332,7 +332,7 @@
       "description": "The width of the button. Per default, it will fit the content"
     }
   },
-  "b2b-calendar": {
+  "b2b-date-picker": {
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -381,7 +381,7 @@
       "description": "Label for the calendar component."
     }
   },
-  "b2b-calendar-days": {
+  "b2b-date-picker-days": {
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -452,8 +452,8 @@
       "description": "Internal selected year"
     }
   },
-  "b2b-calendar-days-header": {},
-  "b2b-calendar-header": {
+  "b2b-date-picker-days-header": {},
+  "b2b-date-picker-header": {
     "selectedMonth": {
       "table": {
         "type": {
@@ -473,7 +473,7 @@
       "description": "Internal selected year"
     }
   },
-  "b2b-calendar-months": {
+  "b2b-date-picker-months": {
     "selectedMonth": {
       "table": {
         "type": {
@@ -484,7 +484,7 @@
       "description": "Internal selected month"
     }
   },
-  "b2b-calendar-years": {
+  "b2b-date-picker-years": {
     "selectedYear": {
       "table": {
         "type": {

@@ -1,4 +1,4 @@
-# b2b-calendar
+# b2b-date-picker
 
 
 
@@ -16,20 +16,20 @@
 
 | Event                         | Description                       | Type                                    |
 | ----------------------------- | --------------------------------- | --------------------------------------- |
-| `b2b-calendar-month-selected` | Event emitted on selecting month* | `CustomEvent<MonthSelectedEventDetail>` |
+| `b2b-date-picker-month-selected` | Event emitted on selecting month* | `CustomEvent<MonthSelectedEventDetail>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [b2b-calendar](.)
+ - [b2b-date-picker](.)
 
 ### Graph
 ```mermaid
 graph TD;
-  b2b-calendar --> b2b-calendar-months
-  style b2b-calendar-months fill:#f9f,stroke:#333,stroke-width:4px
+  b2b-date-picker --> b2b-date-picker-months
+  style b2b-date-picker-months fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

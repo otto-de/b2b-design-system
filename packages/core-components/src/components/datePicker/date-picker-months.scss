@@ -2,20 +2,15 @@
 @use '../../global/b2b-styles';
 
 :host {
-  .b2b-calendar-years {
+  .b2b-date-picker-months {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Display years in a grid */
-    padding: var(--b2b-size-30) var(--b2b-size-60) 0 var(--b2b-size-60);
+    grid-template-columns: repeat(3, 1fr); /* Display months in a grid */
+    padding: var(--b2b-size-40) var(--b2b-size-40) 0 var(--b2b-size-40);
     column-gap: var(--b2b-size-25);
     row-gap: var(--b2b-size-25);
-
-    // scrollable content
-    height: 250px;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 
-  .b2b-calendar-year {
+  .b2b-date-picker-month {
     height: var(--b2b-size-80);
     border-radius: 5px;
     text-align: center;
