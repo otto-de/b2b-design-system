@@ -260,6 +260,9 @@ export class B2bDatePicker {
             class="b2b-date-picker__backdrop"
             onClick={this.handleBackdropDismiss}></div>
         )}
+        {!this.showDatePicker && (
+          <span class="b2b-date-picker-hint">“Format: TT.MM.JJJJ”</span>
+        )}
       </Host>
     );
   }

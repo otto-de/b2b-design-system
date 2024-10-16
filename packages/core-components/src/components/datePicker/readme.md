@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property        | Attribute        | Description             | Type     | Default     |
-| --------------- | ---------------- | ----------------------- | -------- | ----------- |
-| `selectedMonth` | `selected-month` | Internal selected month | `number` | `undefined` |
+| Property       | Attribute       | Description            | Type     | Default     |
+| -------------- | --------------- | ---------------------- | -------- | ----------- |
+| `selectedYear` | `selected-year` | Internal selected year | `number` | `undefined` |
 
 
 ## Events
 
-| Event                         | Description                       | Type                                    |
-| ----------------------------- | --------------------------------- | --------------------------------------- |
-| `b2b-date-picker-month-selected` | Event emitted on selecting month* | `CustomEvent<MonthSelectedEventDetail>` |
+| Event                           | Description                      | Type                                           |
+| ------------------------------- | -------------------------------- | ---------------------------------------------- |
+| `b2b-date-picker-year-selected` | Event emitted on selecting year* | `CustomEvent<YearSelectedEventDetail<number>>` |
 
 
 ## Dependencies
@@ -28,8 +28,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  b2b-date-picker --> b2b-date-picker-months
-  style b2b-date-picker-months fill:#f9f,stroke:#333,stroke-width:4px
+  b2b-date-picker --> b2b-date-picker-years
+  style b2b-date-picker-years fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

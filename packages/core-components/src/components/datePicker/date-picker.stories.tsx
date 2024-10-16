@@ -11,7 +11,9 @@ const meta: Meta = {
     disableFutureDates: false,
     disableWeekends: false,
     label: 'Zeitraum auswählen',
-    defaultDate: undefined,
+    defaultDate: {
+      control: 'string',
+    },
   },
   argTypes: getArgTypes('b2b-date-picker'),
   render: ({ ...args }) => html` <div style="margin-left: 100px">
@@ -19,7 +21,9 @@ const meta: Meta = {
       label=${args.label}
       disable-past-dates=${args.disablePastDates}
       disable-future-dates=${args.disableFutureDates}
-      disable-weekends=${args.disableWeekends}></b2b-date-picker>
+      disable-weekends=${args.disableWeekends}>
+      default-date=${args.defaultDate}
+    </b2b-date-picker>
   </div>`,
 };
 
@@ -80,7 +84,7 @@ export const DisableWeekends: Story = {
 };
 
 export const DefaultDate: Story = {
-  args: { ...meta.args, defaultDate: '26.11.1996' },
+  args: { ...meta.args, default: '26.11.1996' }, // Pass defaultDate as a string
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
