@@ -121,13 +121,15 @@ export class B2bCalendar {
   };
 
   private setSelectedDate() {
-    if (this.selectedDay !== undefined)
-      this.selectedDate =
-        this.selectedDay +
-        '.' +
-        (this.selectedMonth + 1) +
-        '.' +
-        this.selectedYear;
+    if (this.selectedDay !== undefined) {
+      const formattedDay = this.selectedDay.toString().padStart(2, '0');
+      const formattedMonth = (this.selectedMonth + 1)
+        .toString()
+        .padStart(2, '0');
+      const formattedYear = this.selectedYear;
+      this.selectedDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
+    }
+
     this.b2bSelected.emit({
       selectedDate: new Date(
         this.selectedYear,
