@@ -19,15 +19,17 @@
     display: flex;
     box-sizing: border-box;
     height: var(--b2b-size-90);
-    border: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    border: var(--b2b-size-1) solid var(--b2b-color-grey-200);
     justify-content: flex-end;
     border-radius: var(--b2b-size-7);
     padding: var(--b2b-size-15) var(--b2b-size-20);
     max-width: 600px;
     background-color: var(--b2b-color-white-100);
+    transition: outline 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
     &--opened {
-      border-radius: var(--b2b-size-7) var(--b2b-size-7) 0 0;
+      outline: 2px solid -webkit-focus-ring-color;
+      outline-offset: -1px;
     }
   }
 
@@ -44,7 +46,6 @@
     margin-bottom: var(--b2b-size-5);
   }
 
-
   .b2b-date-picker-hint {
     font-size: var(--b2b-size-copy-50);
     line-height: var(--b2b-size-copy-line-height-75);
@@ -53,15 +54,17 @@
     color: var(--b2b-color-grey-300);
   }
 
-
   .b2b-date-picker-body {
     position: relative;
-    z-index: 1000;
-    border: var(--b2b-size-1) solid var(--b2b-color-black-100);
-    border-top: none;
+    border-right: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    border-left: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    border-bottom: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    border-top: 2px none -webkit-focus-ring-color;
+    outline-offset: -1px;
     width: 300px;
     box-sizing: border-box;
     padding-bottom: var(--b2b-size-40);
+    outline: none;
     background-color: var(--b2b-color-white-100);
 
     &--hidden {
