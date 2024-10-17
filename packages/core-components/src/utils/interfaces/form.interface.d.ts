@@ -1,3 +1,5 @@
+import { DatePickerView } from '../../components/date-picker/date-picker.types';
+
 export interface InputChangeEvent {
   value: string | undefined | null;
 }
@@ -47,4 +49,17 @@ export interface ChipComponentEventDetail<T = any> {
 }
 export interface DatePickerEventDetail<T = any> {
   selectedDate: Date;
+}
+
+export interface EscapePressed<T = any> {}
+export interface PreviousMonth<T = any> {}
+export interface NextMonth<T = any> {}
+export interface DatePickerViewChangedEventDetail<T = DatePickerView> {
+  value: T;
+}
+export interface MonthSelectedEventDetail<T = number> {
+  value: T;
+}
+export interface YearSelectedEventDetail<T = number> {
+  value: T;
 }

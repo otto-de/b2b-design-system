@@ -9,7 +9,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { YearSelectedEventDetail } from '../../utils/interfaces/interaction.interface';
+import { YearSelectedEventDetail } from '../../utils/interfaces/form.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',

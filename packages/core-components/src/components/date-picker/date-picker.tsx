@@ -15,7 +15,7 @@ import {
   DatePickerViewChangedEventDetail,
   MonthSelectedEventDetail,
   YearSelectedEventDetail,
-} from '../../utils/interfaces/interaction.interface';
+} from '../../utils/interfaces/form.interface';
 
 @Component({
   tag: 'b2b-date-picker',

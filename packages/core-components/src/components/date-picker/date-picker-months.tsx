@@ -9,7 +9,7 @@ import {
   Listen,
 } from '@stencil/core';
 import { Months } from './date-picker.types';
-import { MonthSelectedEventDetail } from '../../utils/interfaces/interaction.interface';
+import { MonthSelectedEventDetail } from '../../utils/interfaces/form.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',

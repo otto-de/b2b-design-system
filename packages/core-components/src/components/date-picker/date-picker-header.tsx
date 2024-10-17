@@ -12,7 +12,7 @@ import {
   DatePickerViewChangedEventDetail,
   NextMonth,
   PreviousMonth,
-} from '../../utils/interfaces/interaction.interface';
+} from '../../utils/interfaces/form.interface';
 
 @Component({
   tag: 'b2b-date-picker-header',
