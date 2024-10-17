@@ -23,7 +23,7 @@ Initial story: https://otto-eg.atlassian.net/browse/B2BDS-46
 
 ### Used by
 
- - [b2b-date-picker-header](../datePicker)
+ - [b2b-date-picker-header](../date-picker)
  - [b2b-modal](../modal)
 
 ### Graph

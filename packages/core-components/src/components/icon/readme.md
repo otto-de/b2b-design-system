@@ -21,8 +21,8 @@
 ### Used by
 
  - [b2b-alert](../alert)
- - [b2b-date-picker](../datePicker)
- - [b2b-date-picker-header](../datePicker)
+ - [b2b-date-picker](../date-picker)
+ - [b2b-date-picker-header](../date-picker)
  - [b2b-input-list](../input-list)
  - [b2b-modal](../modal)
  - [b2b-multiselect-dropdown](../multiselect-dropdown)

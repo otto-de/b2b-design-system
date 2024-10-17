@@ -1,4 +1,4 @@
-import { DatePickerView } from '../../components/datePicker/date-picker.types';
+import { DatePickerView } from '../../components/date-picker/date-picker.types';
 
 export type PaginationEventDirection = 'PREVIOUS' | 'NEXT';
 
