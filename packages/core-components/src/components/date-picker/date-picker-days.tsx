@@ -53,6 +53,26 @@ export class B2bDatePickerDays {
   /** Event emitted on escape press**/
   @Event({ eventName: 'b2b-date-picker-escape' })
   b2bDatePickerEscape: EventEmitter<EscapePressed>;
+  componentDidLoad() {
+    this.setFocusOnSelectedDayOrFirstDay();
+  }
+
+  private setFocusOnSelectedDayOrFirstDay() {
+    const dates = this.getAllDates();
+    if (dates.length > 0) {
+      if (this.today.getMonth() !== this.selectedMonth) {
+        if (this.selectedDay !== undefined) {
+          this.focusCurrentDate(dates[this.selectedDay - 1]);
+        } else {
+          this.focusCurrentDate(dates[0]);
+        }
+      }
+    }
+  }
+
+  componentWillLoad() {
+    this.setFocusOnSelectedDayOrFirstDay();
+  }
 
   /** Event emitted on selecting date**/
   @Event({ eventName: 'b2b-date-selected' })
@@ -66,8 +86,6 @@ export class B2bDatePickerDays {
       case keys.TAB:
         if (this.today.getMonth() === this.selectedMonth) {
           index = this.today.getDate() - 1;
-        } else {
-          index = 0;
         }
         break;
       case keys.ARROW_LEFT:

@@ -46,12 +46,19 @@ export class B2bDatePicker {
 
   @State() private showDatePicker: boolean = false;
   @State() private datePickerView: DatePickerView = DatePickerView.Days;
-
   @State() selectedMonth: number = new Date().getMonth();
   @State() selectedYear: number = new Date().getFullYear();
   @State() selectedDay: number;
   @State() selectedDate: string = undefined;
   @State() userInputDate: string = '';
+  @State() invalid: boolean = false;
+
+  private today = new Date();
+  private todayWithoutTime = new Date(
+    this.today.getFullYear(),
+    this.today.getMonth(),
+    this.today.getDate(),
+  );
 
   componentWillLoad() {
     if (this.defaultDate != undefined) {
@@ -75,6 +82,7 @@ export class B2bDatePicker {
     this.setSelectedDate();
     this.showDatePicker = false;
   }
+
   @Listen('b2b-date-picker-previous-month')
   getPreviousMonth() {
     if (this.selectedMonth === 0) {
@@ -86,42 +94,43 @@ export class B2bDatePicker {
   }
 
   private parseDateInput(dateString: string) {
-    console.log(
-      'dateString',
-      dateString.split('.').map(value => Number(value)),
-    );
+    if (dateString == '') {
+      this.invalid = false;
+      return;
+    }
     const [day, month, year] = dateString
       .split('.')
       .map(value => Number(value));
     if (this.isValidDate(day, month, year)) {
+      this.invalid = true;
       this.selectedDay = day;
       this.selectedMonth = month - 1;
       this.selectedYear = year;
       this.setSelectedDateForDisplay();
+      this.showDatePicker = true;
     } else {
-      this.clearDateInput(); // Clear on invalid date
+      this.showDatePicker = false;
+      this.invalid = true;
     }
   }
 
   private isValidDate(day: number, month: number, year: number): boolean {
-    console.log('day', day);
-    console.log('month', month);
-    console.log('year', year);
     const date = new Date(year, month - 1, day);
-    const currentDate = new Date();
 
     const isValidDay = day > 0 && day <= 31;
     const isValidMonth = month > 0 && month <= 12;
     const isValidYear = year > 0;
 
     let isValidRange = true;
-    if (this.disablePastDates && date < currentDate) {
+    if (this.disablePastDates && date < this.todayWithoutTime) {
       isValidRange = false;
     }
-    if (this.disableFutureDates && date > currentDate) {
+    if (this.disableFutureDates && date > this.todayWithoutTime) {
       isValidRange = false;
     }
-
+    if ((this.disableWeekends && date.getDay() == 0) || date.getDay() == 6) {
+      isValidRange = false;
+    }
     return isValidDay && isValidMonth && isValidYear && isValidRange;
   }
 
@@ -136,18 +145,46 @@ export class B2bDatePicker {
   }
 
   private handleInputChange = (event: any) => {
-    const value = event.target.value;
+    let value = event.target.value;
+    if (value.length > 10) {
+      value = value.slice(0, 10);
+    }
+
     this.userInputDate = value;
+    event.target.value = value;
 
     if (value.length === 10) {
-      // Assuming the format TT.MM.JJJJ
       this.parseDateInput(value);
       this.emitSelectedDate();
     }
   };
 
+  private handleKeyDown = (event: any) => {
+    if (event.key === 'Enter') {
+      let value = event.target.value;
+
+      if (value.length === 0) {
+        this.selectedDay = undefined;
+        this.userInputDate = undefined;
+      }
+
+      if (value.length === 10) {
+        this.parseDateInput(value);
+        this.emitSelectedDate();
+      } else {
+        this.invalid = true;
+      }
+    }
+  };
+
   private handleInputBlur = () => {
-    // Validate the input on blur
+    if (
+      this.selectedDay === undefined ||
+      this.selectedMonth === undefined ||
+      this.selectedYear === undefined
+    ) {
+      this.invalid = false;
+    }
     if (
       !this.isValidDate(
         this.selectedDay,
@@ -155,7 +192,7 @@ export class B2bDatePicker {
         this.selectedYear,
       )
     ) {
-      this.clearDateInput();
+      this.invalid = true;
     }
   };
 
@@ -166,12 +203,11 @@ export class B2bDatePicker {
   }
 
   private updateInputWithSelectedDate() {
-    console.log('I am here');
     const formattedDay = this.selectedDay.toString().padStart(2, '0');
     const formattedMonth = (this.selectedMonth + 1).toString().padStart(2, '0');
     const formattedYear = this.selectedYear;
-    this.selectedDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
-    this.userInputDate = this.selectedDate;
+    this.userInputDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
+    this.invalid = false;
   }
 
   @Listen('b2b-date-picker-next-month')
@@ -195,12 +231,29 @@ export class B2bDatePicker {
   handleMonthSelected(event: CustomEvent<MonthSelectedEventDetail>) {
     this.setCurrentMonth(event.detail.value);
     this.datePickerView = DatePickerView.Days;
+    this.invalid = false;
+    setTimeout(() => {
+      this.setFocusOnCalendarIcon();
+    }, 100);
   }
 
   @Listen('b2b-date-picker-year-selected')
   handleYearSelected(event: CustomEvent<YearSelectedEventDetail>) {
     this.setCurrentYear(event.detail.value);
     this.datePickerView = DatePickerView.Days;
+    this.invalid = false;
+    setTimeout(() => {
+      this.setFocusOnCalendarIcon();
+    }, 100);
+  }
+
+  private setFocusOnCalendarIcon() {
+    let eventIcon = this.host.shadowRoot.querySelector(
+      '.b2b-event-icon',
+    ) as HTMLDivElement;
+    if (eventIcon !== null) {
+      eventIcon.focus();
+    }
   }
 
   private setCurrentMonth = (selectedMonth: number) => {
@@ -220,8 +273,8 @@ export class B2bDatePicker {
   };
 
   private clearDateInput = () => {
-    this.selectedDate = undefined;
     this.selectedDay = undefined;
+    this.userInputDate = undefined;
   };
 
   private setSelectedDate() {
@@ -257,28 +310,36 @@ export class B2bDatePicker {
       <Host>
         <div class="b2b-date-picker">
           <div class="b2b-date-picker-label">{this.label}</div>
-          <input
-            type="text"
-            placeholder="TT.MM.JJJJ"
-            value={this.userInputDate}
-            onInput={this.handleInputChange}
-            onBlur={this.handleInputBlur}
-          />
           <div
             class={{
               'b2b-date-picker-input-wrapper': true,
               'b2b-date-picker-input-wrapper--opened': this.showDatePicker,
+              'b2b-date-picker-input-wrapper--error': this.invalid,
             }}
             tabindex={0}
-            onClick={this.showHideDatePicker}
             onKeyDown={event => {
               if (event.key === 'Enter') {
+                this.invalid = false;
                 this.showHideDatePicker();
               }
+            }}
+            onClick={() => {
+              this.invalid = false;
+              this.showHideDatePicker();
             }}>
-            <div class="b2b-date-picker-selected-date">{this.selectedDate}</div>
+            <input
+              type="text"
+              class={{
+                'b2b-date-picker-input': true,
+                'b2b-date-picker-input--error': this.invalid,
+              }}
+              value={this.userInputDate}
+              onInput={this.handleInputChange}
+              onKeyDown={this.handleKeyDown}
+              onBlur={this.handleInputBlur}
+            />
             <div class="b2b-icons">
-              {this.selectedDate && (
+              {this.userInputDate && (
                 <div
                   tabIndex={0}
                   onClick={() => {
@@ -299,7 +360,7 @@ export class B2bDatePicker {
                 </div>
               )}
 
-              <div tabindex={0}>
+              <div tabindex={0} class="b2b-event-icon">
                 <b2b-icon
                   aria-label={
                     this.showDatePicker
@@ -347,7 +408,15 @@ export class B2bDatePicker {
             onClick={this.handleBackdropDismiss}></div>
         )}
         {!this.showDatePicker && (
-          <span class="b2b-date-picker-hint">Format: TT.MM.JJJJ</span>
+          <span
+            class={{
+              'b2b-date-picker-hint': true,
+              'b2b-date-picker-hint--error': this.invalid,
+            }}>
+            {this.invalid
+              ? 'Format beachten: TT.MM.JJJJ'
+              : 'Format: TT.MM.JJJJ'}
+          </span>
         )}
       </Host>
     );

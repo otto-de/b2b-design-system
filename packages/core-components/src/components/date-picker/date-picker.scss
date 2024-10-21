@@ -18,9 +18,9 @@
   .b2b-date-picker-input-wrapper {
     display: flex;
     box-sizing: border-box;
-    height: var(--b2b-size-90);
+    height: var(--b2b-size-90); /* The height of the wrapper */
     border: var(--b2b-size-1) solid var(--b2b-color-grey-200);
-    justify-content: flex-end;
+    justify-content: flex-start; /* Aligns the input to the left */
     border-radius: var(--b2b-size-7);
     padding: var(--b2b-size-15) var(--b2b-size-20);
     max-width: 600px;
@@ -30,6 +30,27 @@
     &--opened {
       outline: 2px solid -webkit-focus-ring-color;
       outline-offset: -1px;
+    }
+
+    &--error {
+      background-color: var(--b2b-color-error-50);
+      border: 1px solid var(--b2b-color-error-100);
+      border-color: var(--b2b-color-error-100);
+    }
+
+    .b2b-date-picker-input {
+      border: none;
+      outline: none;
+      box-shadow: none;
+      box-sizing: border-box;
+      margin-left: 0;
+      padding-left: 0;
+      height: 100%;
+      width: 100%;
+
+      &--error {
+        background-color: var(--b2b-color-error-50);
+      }
     }
   }
 
@@ -52,6 +73,10 @@
     display: block;
     margin-top: var(--b2b-size-7);
     color: var(--b2b-color-grey-300);
+
+    &--error {
+      color: var(--b2b-color-error-100);
+    }
   }
 
   .b2b-date-picker-body {
@@ -85,5 +110,9 @@
     &--hidden {
       display: none;
     }
+  }
+
+  .b2b-event-icon {
+    display: block;
   }
 }

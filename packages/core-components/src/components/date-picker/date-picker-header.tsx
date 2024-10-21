@@ -51,11 +51,19 @@ export class B2bDatePickerHeader {
             size={'100'}
             align={'center'}
             class="b2b-date-picker-month"
-            aria-live="polite"
+            aria-label="select month"
+            tabindex={0}
             onClick={() => {
               this.b2bDatePickerViewChanged.emit({
                 value: DatePickerView.Months,
               });
+            }}
+            onKeyDown={event => {
+              if (event.key === 'Enter') {
+                this.b2bDatePickerViewChanged.emit({
+                  value: DatePickerView.Months,
+                });
+              }
             }}>
             {Months[this.selectedMonth]}
           </b2b-headline>
@@ -63,11 +71,19 @@ export class B2bDatePickerHeader {
             size={'100'}
             align={'center'}
             class="b2b-date-picker-year"
-            aria-live="polite"
+            aria-label="select year"
+            tabindex={0}
             onClick={() => {
               this.b2bDatePickerViewChanged.emit({
                 value: DatePickerView.Years,
               });
+            }}
+            onKeyDown={event => {
+              if (event.key === 'Enter') {
+                this.b2bDatePickerViewChanged.emit({
+                  value: DatePickerView.Years,
+                });
+              }
             }}>
             {this.selectedYear}
           </b2b-headline>

@@ -38,6 +38,12 @@
     &--selected {
       background-color: var(--b2b-color-black-100);
       color: var(--b2b-color-white-100);
+      pointer-events: none;
+        
+      &:hover,
+      &:focus {
+        background-color: var(--b2b-color-hover);
+      }
     }
   }
 }
