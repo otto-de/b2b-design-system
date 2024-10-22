@@ -267,13 +267,11 @@ export class B2bDatePicker {
 
   private setCurrentMonth = (selectedMonth: number) => {
     this.selectedMonth = selectedMonth;
-    this.clearDateInput();
     this.selectedDay = undefined;
   };
 
   private setCurrentYear = (selectedYear: number) => {
     this.selectedYear = selectedYear;
-    this.clearDateInput();
     this.selectedDay = undefined;
   };
   private showHideDatePicker = () => {
