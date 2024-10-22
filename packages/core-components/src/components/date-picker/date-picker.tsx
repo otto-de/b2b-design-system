@@ -67,7 +67,7 @@ export class B2bDatePicker {
       this.selectedMonth = month - 1;
       this.selectedYear = year;
       this.setSelectedDateForDisplay();
-      this.showDatePicker = true;
+      this.showDatePicker = false;
     }
   }
 
