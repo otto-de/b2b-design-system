@@ -157,9 +157,7 @@ export class B2bDatePicker {
     }
     this.userInputDate = value;
     event.target.value = value;
-    if (value.length === 0) {
-      this.clearDateInput();
-    }
+
     if (value.length === 10) {
       this.parseDateInput(value);
       this.emitSelectedDate();
