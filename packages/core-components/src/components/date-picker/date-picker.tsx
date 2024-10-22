@@ -94,15 +94,20 @@ export class B2bDatePicker {
   }
 
   private parseDateInput(dateString: string) {
-    if (dateString == '') {
-      this.invalid = false;
+    const regex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
+
+    if (dateString == '' || !regex.test(dateString)) {
+      this.invalid = true;
+      this.showDatePicker = false;
       return;
     }
+
     const [day, month, year] = dateString
       .split('.')
       .map(value => Number(value));
+
     if (this.isValidDate(day, month, year)) {
-      this.invalid = true;
+      this.invalid = false;
       this.selectedDay = day;
       this.selectedMonth = month - 1;
       this.selectedYear = year;
@@ -128,7 +133,7 @@ export class B2bDatePicker {
     if (this.disableFutureDates && date > this.todayWithoutTime) {
       isValidRange = false;
     }
-    if ((this.disableWeekends && date.getDay() == 0) || date.getDay() == 6) {
+    if (this.disableWeekends && (date.getDay() == 0 || date.getDay() == 6)) {
       isValidRange = false;
     }
     return isValidDay && isValidMonth && isValidYear && isValidRange;
@@ -146,13 +151,15 @@ export class B2bDatePicker {
 
   private handleInputChange = (event: any) => {
     let value = event.target.value;
+    value = value.replace(/[^0-9.]/g, '');
     if (value.length > 10) {
       value = value.slice(0, 10);
     }
-
     this.userInputDate = value;
     event.target.value = value;
-
+    if (value.length === 0) {
+      this.clearDateInput();
+    }
     if (value.length === 10) {
       this.parseDateInput(value);
       this.emitSelectedDate();
@@ -162,12 +169,9 @@ export class B2bDatePicker {
   private handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
       let value = event.target.value;
-
       if (value.length === 0) {
-        this.selectedDay = undefined;
-        this.userInputDate = undefined;
+        this.clearDateInput();
       }
-
       if (value.length === 10) {
         this.parseDateInput(value);
         this.emitSelectedDate();
@@ -175,23 +179,20 @@ export class B2bDatePicker {
         this.invalid = true;
       }
     }
+    if (event.key === 'Backspace') {
+      let value = event.target.value;
+
+      if (value.length === 0) {
+        this.clearDateInput();
+        this.invalid = false;
+      }
+    }
   };
 
   private handleInputBlur = () => {
-    if (
-      this.selectedDay === undefined ||
-      this.selectedMonth === undefined ||
-      this.selectedYear === undefined
-    ) {
-      this.invalid = false;
-    }
-    if (
-      !this.isValidDate(
-        this.selectedDay,
-        this.selectedMonth + 1,
-        this.selectedYear,
-      )
-    ) {
+    if (this.userInputDate && this.userInputDate.length === 10) {
+      this.parseDateInput(this.userInputDate);
+    } else {
       this.invalid = true;
     }
   };
@@ -319,12 +320,18 @@ export class B2bDatePicker {
             tabindex={0}
             onKeyDown={event => {
               if (event.key === 'Enter') {
-                this.invalid = false;
+                if (this.invalid) {
+                  this.invalid = false;
+                  this.clearDateInput();
+                }
                 this.showHideDatePicker();
               }
             }}
             onClick={() => {
-              this.invalid = false;
+              if (this.invalid) {
+                this.invalid = false;
+                this.clearDateInput();
+              }
               this.showHideDatePicker();
             }}>
             <input
