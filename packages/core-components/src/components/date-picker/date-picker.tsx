@@ -44,6 +44,10 @@ export class B2bDatePicker {
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
 
+  private readonly DISABLED_DATE_ERROR_MESSAGE =
+    'Auswahl nicht möglich, bitte gültiges Datum auswählen.';
+  private readonly FORMATTING_ERROR_MESSAGE = 'Format beachten: TT.MM.JJJJ.';
+
   @State() private showDatePicker: boolean = false;
   @State() private datePickerView: DatePickerView = DatePickerView.Days;
   @State() selectedMonth: number = new Date().getMonth();
@@ -52,6 +56,7 @@ export class B2bDatePicker {
   @State() selectedDate: string = undefined;
   @State() userInputDate: string = '';
   @State() invalid: boolean = false;
+  @State() errorMessage: string = this.FORMATTING_ERROR_MESSAGE;
 
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -99,6 +104,7 @@ export class B2bDatePicker {
     if (dateString == '' || !regex.test(dateString)) {
       this.invalid = true;
       this.showDatePicker = false;
+      this.errorMessage = this.FORMATTING_ERROR_MESSAGE;
       return;
     }
 
@@ -128,12 +134,15 @@ export class B2bDatePicker {
 
     let isValidRange = true;
     if (this.disablePastDates && date < this.todayWithoutTime) {
+      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
       isValidRange = false;
     }
     if (this.disableFutureDates && date > this.todayWithoutTime) {
+      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
       isValidRange = false;
     }
     if (this.disableWeekends && (date.getDay() == 0 || date.getDay() == 6)) {
+      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
       isValidRange = false;
     }
     return isValidDay && isValidMonth && isValidYear && isValidRange;
@@ -190,9 +199,10 @@ export class B2bDatePicker {
   private handleInputBlur = () => {
     if (this.userInputDate && this.userInputDate.length === 10) {
       this.parseDateInput(this.userInputDate);
-    } else {
-      this.invalid = true;
-    }
+    } else
+      this.invalid = !(
+        this.userInputDate === undefined || this.userInputDate.length === 0
+      );
   };
 
   private setSelectedDateForDisplay() {
@@ -418,9 +428,7 @@ export class B2bDatePicker {
               'b2b-date-picker-hint': true,
               'b2b-date-picker-hint--error': this.invalid,
             }}>
-            {this.invalid
-              ? 'Format beachten: TT.MM.JJJJ'
-              : 'Format: TT.MM.JJJJ'}
+            {this.invalid ? this.errorMessage : 'Format: TT.MM.JJJJ'}
           </span>
         )}
       </Host>
