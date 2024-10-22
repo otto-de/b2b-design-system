@@ -98,4 +98,97 @@ describe('B2B-Date-Picker', () => {
       );
     }
   });
+
+  describe('B2B-Date-Picker Input Field', () => {
+    let page;
+    beforeEach(async () => {
+      page = await newE2EPage();
+      await page.setContent(`<b2b-date-picker></b2b-date-picker>`);
+    });
+
+    it('should allow entering a date via the input field', async () => {
+      const inputField = await page.find(
+        'b2b-date-picker >>> input.b2b-date-picker-input',
+      );
+      expect(inputField).not.toBeNull();
+
+      await inputField.press('2');
+      await inputField.press('6');
+      await inputField.press('.');
+      await inputField.press('1');
+      await inputField.press('1');
+      await inputField.press('.');
+      await inputField.press('2');
+      await inputField.press('0');
+      await inputField.press('2');
+      await inputField.press('8');
+
+      await page.waitForChanges();
+
+      const inputValue = await inputField.getProperty('value');
+      expect(inputValue).toBe('26.11.2028');
+    });
+
+    it('should show error state when invalid date is entered', async () => {
+      const inputField = await page.find(
+        'b2b-date-picker >>> input.b2b-date-picker-input',
+      );
+
+      await inputField.press('3');
+      await inputField.press('2');
+      await inputField.press('.');
+      await inputField.press('.');
+      await inputField.press('.');
+      await inputField.press('.');
+      await inputField.press('2');
+      await inputField.press('0');
+      await inputField.press('2');
+      await inputField.press('4');
+
+      await page.waitForChanges();
+
+      const inputValue = await inputField.getProperty('value');
+      expect(inputValue).toBe('32....2024');
+
+      const errorHint = await page.find(
+        'b2b-date-picker >>> span.b2b-date-picker-hint--error',
+      );
+      expect(errorHint).not.toBeNull();
+    });
+
+    it('should handle keyboard input and clear invalid date', async () => {
+      const inputField = await page.find(
+        'b2b-date-picker >>> input.b2b-date-picker-input',
+      );
+
+      await inputField.press('3');
+      await inputField.press('2');
+      await inputField.press('.');
+      await inputField.press('1');
+      await inputField.press('1');
+      await inputField.press('.');
+      await inputField.press('2');
+      await inputField.press('0');
+      await inputField.press('2');
+      await inputField.press('4');
+
+      await page.waitForChanges();
+
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+      await inputField.press('Backspace');
+
+      await page.waitForChanges();
+
+      const clearedInputValue = await inputField.getProperty('value');
+      expect(clearedInputValue).toBe('');
+    });
+  });
 });
