@@ -680,17 +680,6 @@
     }
   },
   "b2b-date-picker": {
-    "defaultDate": {
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {
-          "summary": "undefined"
-        }
-      },
-      "description": "Default date picker date"
-    },
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -737,6 +726,17 @@
         }
       },
       "description": "Label for the date picker component."
+    },
+    "preSelectedDate": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "undefined"
+        }
+      },
+      "description": "Default date picker date"
     }
   },
   "b2b-date-picker-days": {

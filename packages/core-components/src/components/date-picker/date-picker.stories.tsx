@@ -11,7 +11,7 @@ const meta: Meta = {
     disableFutureDates: false,
     disableWeekends: false,
     label: 'Zeitraum auswählen',
-    defaultDate: {
+    preSelectedDate: {
       control: 'string',
     },
   },
@@ -22,7 +22,7 @@ const meta: Meta = {
       disable-past-dates=${args.disablePastDates}
       disable-future-dates=${args.disableFutureDates}
       disable-weekends=${args.disableWeekends}>
-      default-date=${args.defaultDate}
+      default-date=${args.preSelectedDate}
     </b2b-date-picker>
   </div>`,
 };
@@ -83,8 +83,8 @@ export const DisableWeekends: Story = {
   },
 };
 
-export const DefaultDate: Story = {
-  args: { ...meta.args, default: '26.11.1996' }, // Pass defaultDate as a string
+export const preSelectedDate: Story = {
+  args: { ...meta.args, default: '26.11.1996' }, // Pass preSelectedDate as a string
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');

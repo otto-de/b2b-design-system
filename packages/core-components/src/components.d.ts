@@ -248,10 +248,6 @@ export namespace Components {
     }
     interface B2bDatePicker {
         /**
-          * Default date picker date
-         */
-        "defaultDate": string;
-        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates": boolean;
@@ -267,6 +263,10 @@ export namespace Components {
           * Label for the date picker component.
          */
         "label": string;
+        /**
+          * Default date picker date
+         */
+        "preSelectedDate": string;
     }
     interface B2bDatePickerDays {
         /**
@@ -2483,10 +2483,6 @@ declare namespace LocalJSX {
     }
     interface B2bDatePicker {
         /**
-          * Default date picker date
-         */
-        "defaultDate"?: string;
-        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates"?: boolean;
@@ -2506,6 +2502,10 @@ declare namespace LocalJSX {
           * Emits the selected date as Date type.
          */
         "onB2b-selected"?: (event: B2bDatePickerCustomEvent<DatePickerEventDetail>) => void;
+        /**
+          * Default date picker date
+         */
+        "preSelectedDate"?: string;
     }
     interface B2bDatePickerDays {
         /**
