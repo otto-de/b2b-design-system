@@ -38,7 +38,7 @@ export class B2bDatePicker {
   @Prop() label: string = 'Zeitraum auswählen';
 
   /** Default date picker date*/
-  @Prop() preSelectedDate: string = undefined;
+  @Prop() preSelectedDate: string = '';
 
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
@@ -66,7 +66,7 @@ export class B2bDatePicker {
   );
 
   componentWillLoad() {
-    if (this.preSelectedDate != undefined) {
+    if (this.preSelectedDate !== undefined) {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
       this.selectedMonth = month - 1;

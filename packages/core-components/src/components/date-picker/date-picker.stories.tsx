@@ -11,20 +11,32 @@ const meta: Meta = {
     disableFutureDates: false,
     disableWeekends: false,
     label: 'Zeitraum auswählen',
-    preSelectedDate: {
-      control: 'string',
-    },
+    preSelectedDate: '',
   },
   argTypes: getArgTypes('b2b-date-picker'),
-  render: ({ ...args }) => html` <div style="margin-left: 100px">
+  render: ({ ...args }) => {
+    if (args.preSelectedDate === '') {
+      return html` <div style="margin-left: 100px">
     <b2b-date-picker
       label=${args.label}
       disable-past-dates=${args.disablePastDates}
       disable-future-dates=${args.disableFutureDates}
-      disable-weekends=${args.disableWeekends}>
-      default-date=${args.preSelectedDate}
+      disable-weekends=${args.disableWeekends}
+      .pre-selected-date="${args.preSelectedDate}"
     </b2b-date-picker>
-  </div>`,
+  </div>`;
+    } else {
+      return html` <div style="margin-left: 100px">
+    <b2b-date-picker
+      label=${args.label}
+      disable-past-dates=${args.disablePastDates}
+      disable-future-dates=${args.disableFutureDates}
+      disable-weekends=${args.disableWeekends}
+      pre-selected-date="${args.preSelectedDate}"
+    </b2b-date-picker>
+  </div>`;
+    }
+  },
 };
 
 export default meta;
@@ -84,7 +96,7 @@ export const DisableWeekends: Story = {
 };
 
 export const preSelectedDate: Story = {
-  args: { ...meta.args, default: '26.11.1996' }, // Pass preSelectedDate as a string
+  args: { ...meta.args, preSelectedDate: '26.11.1996' }, // Pass preSelectedDate as a string
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
