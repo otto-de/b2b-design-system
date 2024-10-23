@@ -127,6 +127,10 @@ export class B2bDatePicker {
     } else {
       this.showDatePicker = false;
       this.invalid = true;
+      this.focused = false;
+      this.selectedDay = this.todayWithoutTime.getDate();
+      this.selectedMonth = this.todayWithoutTime.getMonth();
+      this.selectedYear = this.todayWithoutTime.getFullYear();
     }
   }
 
@@ -188,7 +192,7 @@ export class B2bDatePicker {
       }
       let value = event.target.value;
       if (value.length === 0) {
-        this.clearDateInput();
+        this.invalid = false;
       }
       if (value.length === 10) {
         this.parseDateInput(value);
@@ -308,6 +312,7 @@ export class B2bDatePicker {
         this.selectedDay,
       ),
     });
+    this.invalid = false;
     setTimeout(() => {
       this.setFocusOnCloseIcon();
     }, 100);
@@ -338,25 +343,37 @@ export class B2bDatePicker {
                 this.focused || this.showDatePicker,
               'b2b-date-picker-input-wrapper--error': this.invalid,
             }}>
-            <input
-              type="text"
-              tabindex={0}
-              class={{
-                'b2b-date-picker-input': true,
-                'b2b-date-picker-input--error': this.invalid,
-              }}
-              value={this.userInputDate}
-              onInput={this.handleInputChange}
-              onKeyDown={this.handleKeyDown}
-              onBlur={this.handleInputBlur}
+            <div
+              class="b2b-date-picker-input-focus-wrapper"
               onClick={() => {
-                if (this.invalid) {
-                  this.invalid = false;
-                }
-                this.focused = true;
-                this.showHideDatePicker();
-              }}
-            />
+                this.moveFocusToInputComponent();
+              }}>
+              <input
+                type="text"
+                tabindex={0}
+                class={{
+                  'b2b-date-picker-input': true,
+                  'b2b-date-picker-input--error': this.invalid,
+                }}
+                value={this.userInputDate}
+                onInput={this.handleInputChange}
+                onKeyDown={this.handleKeyDown}
+                onBlur={this.handleInputBlur}
+                onClick={() => {
+                  if (this.invalid) {
+                    this.invalid = false;
+                  }
+                  this.focused = true;
+                  this.showHideDatePicker();
+                }}
+                onFocus={() => {
+                  if (this.invalid) {
+                    this.invalid = false;
+                  }
+                  this.focused = true;
+                }}
+              />
+            </div>
             <div class="b2b-icons">
               {this.userInputDate && (
                 <div
@@ -453,5 +470,19 @@ export class B2bDatePicker {
         )}
       </Host>
     );
+  }
+
+  private moveFocusToInputComponent() {
+    const inputElement = this.host.shadowRoot.querySelector(
+      'input.b2b-date-picker-input',
+    ) as HTMLInputElement;
+    if (inputElement !== undefined && !this.invalid) {
+      inputElement.focus();
+    }
+    if (this.invalid) {
+      this.invalid = false;
+    }
+    this.focused = true;
+    this.showHideDatePicker();
   }
 }
