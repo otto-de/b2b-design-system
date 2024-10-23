@@ -4,7 +4,7 @@ import { getArgTypes } from '../../docs/config/utils';
 import { userEvent } from '@storybook/testing-library';
 
 const meta: Meta = {
-  title: 'Components/Form/DatePicker',
+  title: 'Components/Form/Date Picker',
   component: 'b2b-date-picker',
   args: {
     disablePastDates: false,
