@@ -384,8 +384,8 @@ export class B2bDatePicker {
                 tabindex={0}
                 onClick={() => {
                   if (this.invalid) {
-                      this.invalid = false;
-                    }
+                    this.invalid = false;
+                  }
                   this.showHideDatePicker();
                 }}
                 onKeyDown={event => {
