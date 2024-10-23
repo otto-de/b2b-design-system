@@ -370,7 +370,6 @@ export class B2bDatePicker {
                     if (event.key === 'Enter') {
                       this.invalid = false;
                       this.clearDateInput();
-                      this.showHideDatePicker();
                     }
                   }}>
                   <b2b-icon
