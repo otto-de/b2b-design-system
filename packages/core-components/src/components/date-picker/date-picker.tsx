@@ -180,6 +180,11 @@ export class B2bDatePicker {
 
   private handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
+      this.showHideDatePicker();
+      if (this.invalid) {
+        this.invalid = false;
+        this.showDatePicker = false;
+      }
       let value = event.target.value;
       if (value.length === 0) {
         this.clearDateInput();
@@ -327,26 +332,10 @@ export class B2bDatePicker {
               'b2b-date-picker-input-wrapper': true,
               'b2b-date-picker-input-wrapper--opened': this.showDatePicker,
               'b2b-date-picker-input-wrapper--error': this.invalid,
-            }}
-            tabindex={0}
-            onKeyDown={event => {
-              if (event.key === 'Enter') {
-                if (this.invalid) {
-                  this.invalid = false;
-                  this.clearDateInput();
-                }
-                this.showHideDatePicker();
-              }
-            }}
-            onClick={() => {
-              if (this.invalid) {
-                this.invalid = false;
-                this.clearDateInput();
-              }
-              this.showHideDatePicker();
             }}>
             <input
               type="text"
+              tabindex={0}
               class={{
                 'b2b-date-picker-input': true,
                 'b2b-date-picker-input--error': this.invalid,
@@ -355,18 +344,26 @@ export class B2bDatePicker {
               onInput={this.handleInputChange}
               onKeyDown={this.handleKeyDown}
               onBlur={this.handleInputBlur}
+              onClick={() => {
+                if (this.invalid) {
+                  this.invalid = false;
+                }
+                this.showHideDatePicker();
+              }}
             />
             <div class="b2b-icons">
               {this.userInputDate && (
                 <div
                   tabIndex={0}
                   onClick={() => {
+                    this.invalid = false;
                     this.clearDateInput();
                     this.showHideDatePicker();
                   }}
                   class="b2b-close-icon"
                   onKeyDown={event => {
                     if (event.key === 'Enter') {
+                      this.invalid = false;
                       this.clearDateInput();
                       this.showHideDatePicker();
                     }
@@ -378,7 +375,19 @@ export class B2bDatePicker {
                 </div>
               )}
 
-              <div tabindex={0} class="b2b-event-icon">
+              <div
+                tabindex={0}
+                onClick={() => {
+                  this.showHideDatePicker();
+                }}
+                onKeyDown={event => {
+                  if (event.key === 'Enter') {
+                    this.invalid = false;
+                    this.clearDateInput();
+                    this.showHideDatePicker();
+                  }
+                }}
+                class="b2b-event-icon">
                 <b2b-icon
                   aria-label={
                     this.showDatePicker
