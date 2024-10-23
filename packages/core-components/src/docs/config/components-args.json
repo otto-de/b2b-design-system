@@ -332,169 +332,6 @@
       "description": "The width of the button. Per default, it will fit the content"
     }
   },
-  "b2b-calendar": {
-    "disableFutureDates": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {}
-      },
-      "description": "Whether the dates after the current date are disabled. By default, this is false."
-    },
-    "disablePastDates": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {}
-      },
-      "description": "Whether the previous dates from the current date are disabled. By default, this is true."
-    },
-    "disableWeekends": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {}
-      },
-      "description": "Whether the dates that fall on the weekend are disabled. By default, this is false."
-    },
-    "label": {
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {
-          "summary": "'Zeitraum auswählen'"
-        }
-      },
-      "description": "Label for the calendar component."
-    }
-  },
-  "b2b-calendar-days": {
-    "disableFutureDates": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": "Internal whether the dates after the current date are disabled. By default, this is false."
-    },
-    "disablePastDates": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": "Internal whether the dates previous to the current date are disabled. By default, this is true."
-    },
-    "disableWeekends": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": "Internal whether the weekends are disabled. By default, this is false."
-    },
-    "selectedDay": {
-      "table": {
-        "type": {
-          "summary": "number"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal selected day"
-    },
-    "selectedMonth": {
-      "table": {
-        "type": {
-          "summary": "number"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal selected month"
-    },
-    "selectedYear": {
-      "table": {
-        "type": {
-          "summary": "number"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal selected year"
-    }
-  },
-  "b2b-calendar-days-header": {},
-  "b2b-calendar-header": {
-    "selectedMonth": {
-      "table": {
-        "type": {
-          "summary": "number"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal selected month"
-    },
-    "selectedYear": {
-      "table": {
-        "type": {
-          "summary": "number"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal selected year"
-    }
-  },
-  "b2b-calendar-months": {
-    "selectedMonth": {
-      "table": {
-        "type": {
-          "summary": "number"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal selected month"
-    }
-  },
-  "b2b-calendar-years": {
-    "selectedYear": {
-      "table": {
-        "type": {
-          "summary": "number"
-        },
-        "defaultValue": {}
-      },
-      "description": "Internal selected year"
-    }
-  },
   "b2b-card": {
     "disabled": {
       "control": {
@@ -840,6 +677,180 @@
         "defaultValue": {}
       },
       "description": "It is only used when the chip component participates in a group"
+    }
+  },
+  "b2b-date-picker": {
+    "disableFutureDates": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {}
+      },
+      "description": "Whether the dates after the current date are disabled. By default, this is false."
+    },
+    "disablePastDates": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {}
+      },
+      "description": "Whether the previous dates from the current date are disabled. By default, this is true."
+    },
+    "disableWeekends": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {}
+      },
+      "description": "Whether the dates that fall on the weekend are disabled. By default, this is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Zeitraum auswählen'"
+        }
+      },
+      "description": "Label for the date picker component."
+    },
+    "preSelectedDate": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "undefined"
+        }
+      },
+      "description": "Default date picker date"
+    }
+  },
+  "b2b-date-picker-days": {
+    "disableFutureDates": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Internal whether the dates after the current date are disabled. By default, this is false."
+    },
+    "disablePastDates": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Internal whether the dates previous to the current date are disabled. By default, this is true."
+    },
+    "disableWeekends": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Internal whether the weekends are disabled. By default, this is false."
+    },
+    "selectedDay": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected day"
+    },
+    "selectedMonth": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected month"
+    },
+    "selectedYear": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected year"
+    }
+  },
+  "b2b-date-picker-days-header": {},
+  "b2b-date-picker-header": {
+    "selectedMonth": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected month"
+    },
+    "selectedYear": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected year"
+    }
+  },
+  "b2b-date-picker-months": {
+    "selectedMonth": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected month"
+    }
+  },
+  "b2b-date-picker-years": {
+    "selectedYear": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal selected year"
     }
   },
   "b2b-dropdown": {

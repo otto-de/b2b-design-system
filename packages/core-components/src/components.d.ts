@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BreadCrumbChangeEventDetail, CalendarViewChangedEventDetail, ColumnSortChangeEventDetail, EscapePressed, MonthSelectedEventDetail, NextMonth, PageChangeEventDetail, PreviousMonth, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail, YearSelectedEventDetail } from "./utils/interfaces/interaction.interface";
-import { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
+import { CheckboxEventDetail, ChipComponentEventDetail, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
 import { IconName as IconName2 } from "./components/icon-50/types";
@@ -15,8 +15,8 @@ import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowg
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
-export { BreadCrumbChangeEventDetail, CalendarViewChangedEventDetail, ColumnSortChangeEventDetail, EscapePressed, MonthSelectedEventDetail, NextMonth, PageChangeEventDetail, PreviousMonth, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail, YearSelectedEventDetail } from "./utils/interfaces/interaction.interface";
-export { CalendarEventDetail, CheckboxEventDetail, ChipComponentEventDetail, DateSelectedEventDetail, InputChangeEvent, InputClear, MultiSelectOptionEventDetail, OptionSelectedEventDetail, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail } from "./utils/interfaces/form.interface";
+export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
+export { CheckboxEventDetail, ChipComponentEventDetail, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
 export { IconName as IconName2 } from "./components/icon-50/types";
@@ -128,74 +128,6 @@ export namespace Components {
           * The width of the button. Per default, it will fit the content
          */
         "width": 'fit-content' | 'fit-container' | 'custom';
-    }
-    interface B2bCalendar {
-        /**
-          * Whether the dates after the current date are disabled. By default, this is false.
-         */
-        "disableFutureDates": boolean;
-        /**
-          * Whether the previous dates from the current date are disabled. By default, this is true.
-         */
-        "disablePastDates": boolean;
-        /**
-          * Whether the dates that fall on the weekend are disabled. By default, this is false.
-         */
-        "disableWeekends": boolean;
-        /**
-          * Label for the calendar component.
-         */
-        "label": string;
-    }
-    interface B2bCalendarDays {
-        /**
-          * Internal whether the dates after the current date are disabled. By default, this is false.
-         */
-        "disableFutureDates": boolean;
-        /**
-          * Internal whether the dates previous to the current date are disabled. By default, this is true.
-         */
-        "disablePastDates": boolean;
-        /**
-          * Internal whether the weekends are disabled. By default, this is false.
-         */
-        "disableWeekends": boolean;
-        /**
-          * Internal selected day
-         */
-        "selectedDay": number;
-        /**
-          * Internal selected month
-         */
-        "selectedMonth": number;
-        /**
-          * Internal selected year
-         */
-        "selectedYear": number;
-    }
-    interface B2bCalendarDaysHeader {
-    }
-    interface B2bCalendarHeader {
-        /**
-          * Internal selected month
-         */
-        "selectedMonth": number;
-        /**
-          * Internal selected year
-         */
-        "selectedYear": number;
-    }
-    interface B2bCalendarMonths {
-        /**
-          * Internal selected month
-         */
-        "selectedMonth": number;
-    }
-    interface B2bCalendarYears {
-        /**
-          * Internal selected year
-         */
-        "selectedYear": number;
     }
     interface B2bCard {
         /**
@@ -313,6 +245,78 @@ export namespace Components {
           * It is only used when the chip component participates in a group
          */
         "value"?: any;
+    }
+    interface B2bDatePicker {
+        /**
+          * Whether the dates after the current date are disabled. By default, this is false.
+         */
+        "disableFutureDates": boolean;
+        /**
+          * Whether the previous dates from the current date are disabled. By default, this is true.
+         */
+        "disablePastDates": boolean;
+        /**
+          * Whether the dates that fall on the weekend are disabled. By default, this is false.
+         */
+        "disableWeekends": boolean;
+        /**
+          * Label for the date picker component.
+         */
+        "label": string;
+        /**
+          * Default date picker date
+         */
+        "preSelectedDate": string;
+    }
+    interface B2bDatePickerDays {
+        /**
+          * Internal whether the dates after the current date are disabled. By default, this is false.
+         */
+        "disableFutureDates": boolean;
+        /**
+          * Internal whether the dates previous to the current date are disabled. By default, this is true.
+         */
+        "disablePastDates": boolean;
+        /**
+          * Internal whether the weekends are disabled. By default, this is false.
+         */
+        "disableWeekends": boolean;
+        /**
+          * Internal selected day
+         */
+        "selectedDay": number;
+        /**
+          * Internal selected month
+         */
+        "selectedMonth": number;
+        /**
+          * Internal selected year
+         */
+        "selectedYear": number;
+    }
+    interface B2bDatePickerDaysHeader {
+    }
+    interface B2bDatePickerHeader {
+        /**
+          * Internal selected month
+         */
+        "selectedMonth": number;
+        /**
+          * Internal selected year
+         */
+        "selectedYear": number;
+    }
+    interface B2bDatePickerMonths {
+        /**
+          * Internal selected month
+         */
+        "selectedMonth": number;
+    }
+    interface B2bDatePickerYears {
+        /**
+          * Internal selected year
+         */
+        "selectedYear": number;
     }
     interface B2bDropdown {
         /**
@@ -1233,26 +1237,6 @@ export interface B2bBreadcrumbItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bBreadcrumbItemElement;
 }
-export interface B2bCalendarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLB2bCalendarElement;
-}
-export interface B2bCalendarDaysCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLB2bCalendarDaysElement;
-}
-export interface B2bCalendarHeaderCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLB2bCalendarHeaderElement;
-}
-export interface B2bCalendarMonthsCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLB2bCalendarMonthsElement;
-}
-export interface B2bCalendarYearsCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLB2bCalendarYearsElement;
-}
 export interface B2bCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCardElement;
@@ -1268,6 +1252,26 @@ export interface B2bCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
 export interface B2bChipComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bChipComponentElement;
+}
+export interface B2bDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDatePickerElement;
+}
+export interface B2bDatePickerDaysCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDatePickerDaysElement;
+}
+export interface B2bDatePickerHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDatePickerHeaderElement;
+}
+export interface B2bDatePickerMonthsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDatePickerMonthsElement;
+}
+export interface B2bDatePickerYearsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDatePickerYearsElement;
 }
 export interface B2bDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1425,100 +1429,6 @@ declare global {
         prototype: HTMLB2bButtonElement;
         new (): HTMLB2bButtonElement;
     };
-    interface HTMLB2bCalendarElementEventMap {
-        "b2b-selected": CalendarEventDetail;
-    }
-    interface HTMLB2bCalendarElement extends Components.B2bCalendar, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCalendarElementEventMap>(type: K, listener: (this: HTMLB2bCalendarElement, ev: B2bCalendarCustomEvent<HTMLB2bCalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCalendarElementEventMap>(type: K, listener: (this: HTMLB2bCalendarElement, ev: B2bCalendarCustomEvent<HTMLB2bCalendarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLB2bCalendarElement: {
-        prototype: HTMLB2bCalendarElement;
-        new (): HTMLB2bCalendarElement;
-    };
-    interface HTMLB2bCalendarDaysElementEventMap {
-        "b2b-calendar-escape": EscapePressed;
-        "b2b-date-selected": DateSelectedEventDetail;
-    }
-    interface HTMLB2bCalendarDaysElement extends Components.B2bCalendarDays, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCalendarDaysElementEventMap>(type: K, listener: (this: HTMLB2bCalendarDaysElement, ev: B2bCalendarDaysCustomEvent<HTMLB2bCalendarDaysElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCalendarDaysElementEventMap>(type: K, listener: (this: HTMLB2bCalendarDaysElement, ev: B2bCalendarDaysCustomEvent<HTMLB2bCalendarDaysElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLB2bCalendarDaysElement: {
-        prototype: HTMLB2bCalendarDaysElement;
-        new (): HTMLB2bCalendarDaysElement;
-    };
-    interface HTMLB2bCalendarDaysHeaderElement extends Components.B2bCalendarDaysHeader, HTMLStencilElement {
-    }
-    var HTMLB2bCalendarDaysHeaderElement: {
-        prototype: HTMLB2bCalendarDaysHeaderElement;
-        new (): HTMLB2bCalendarDaysHeaderElement;
-    };
-    interface HTMLB2bCalendarHeaderElementEventMap {
-        "b2b-calendar-previous-month": PreviousMonth;
-        "b2b-calendar-next-month": NextMonth;
-        "b2b-calendar-view-changed": CalendarViewChangedEventDetail;
-    }
-    interface HTMLB2bCalendarHeaderElement extends Components.B2bCalendarHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCalendarHeaderElementEventMap>(type: K, listener: (this: HTMLB2bCalendarHeaderElement, ev: B2bCalendarHeaderCustomEvent<HTMLB2bCalendarHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCalendarHeaderElementEventMap>(type: K, listener: (this: HTMLB2bCalendarHeaderElement, ev: B2bCalendarHeaderCustomEvent<HTMLB2bCalendarHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLB2bCalendarHeaderElement: {
-        prototype: HTMLB2bCalendarHeaderElement;
-        new (): HTMLB2bCalendarHeaderElement;
-    };
-    interface HTMLB2bCalendarMonthsElementEventMap {
-        "b2b-calendar-month-selected": MonthSelectedEventDetail;
-    }
-    interface HTMLB2bCalendarMonthsElement extends Components.B2bCalendarMonths, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCalendarMonthsElementEventMap>(type: K, listener: (this: HTMLB2bCalendarMonthsElement, ev: B2bCalendarMonthsCustomEvent<HTMLB2bCalendarMonthsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCalendarMonthsElementEventMap>(type: K, listener: (this: HTMLB2bCalendarMonthsElement, ev: B2bCalendarMonthsCustomEvent<HTMLB2bCalendarMonthsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLB2bCalendarMonthsElement: {
-        prototype: HTMLB2bCalendarMonthsElement;
-        new (): HTMLB2bCalendarMonthsElement;
-    };
-    interface HTMLB2bCalendarYearsElementEventMap {
-        "b2b-calendar-year-selected": YearSelectedEventDetail;
-    }
-    interface HTMLB2bCalendarYearsElement extends Components.B2bCalendarYears, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLB2bCalendarYearsElementEventMap>(type: K, listener: (this: HTMLB2bCalendarYearsElement, ev: B2bCalendarYearsCustomEvent<HTMLB2bCalendarYearsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLB2bCalendarYearsElementEventMap>(type: K, listener: (this: HTMLB2bCalendarYearsElement, ev: B2bCalendarYearsCustomEvent<HTMLB2bCalendarYearsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLB2bCalendarYearsElement: {
-        prototype: HTMLB2bCalendarYearsElement;
-        new (): HTMLB2bCalendarYearsElement;
-    };
     interface HTMLB2bCardElementEventMap {
         "b2b-selected": void;
     }
@@ -1588,6 +1498,100 @@ declare global {
     var HTMLB2bChipComponentElement: {
         prototype: HTMLB2bChipComponentElement;
         new (): HTMLB2bChipComponentElement;
+    };
+    interface HTMLB2bDatePickerElementEventMap {
+        "b2b-selected": DatePickerEventDetail;
+    }
+    interface HTMLB2bDatePickerElement extends Components.B2bDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDatePickerElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerElement, ev: B2bDatePickerCustomEvent<HTMLB2bDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDatePickerElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerElement, ev: B2bDatePickerCustomEvent<HTMLB2bDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDatePickerElement: {
+        prototype: HTMLB2bDatePickerElement;
+        new (): HTMLB2bDatePickerElement;
+    };
+    interface HTMLB2bDatePickerDaysElementEventMap {
+        "b2b-date-picker-escape": EscapePressed;
+        "b2b-date-selected": DateSelectedEventDetail;
+    }
+    interface HTMLB2bDatePickerDaysElement extends Components.B2bDatePickerDays, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDatePickerDaysElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerDaysElement, ev: B2bDatePickerDaysCustomEvent<HTMLB2bDatePickerDaysElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDatePickerDaysElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerDaysElement, ev: B2bDatePickerDaysCustomEvent<HTMLB2bDatePickerDaysElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDatePickerDaysElement: {
+        prototype: HTMLB2bDatePickerDaysElement;
+        new (): HTMLB2bDatePickerDaysElement;
+    };
+    interface HTMLB2bDatePickerDaysHeaderElement extends Components.B2bDatePickerDaysHeader, HTMLStencilElement {
+    }
+    var HTMLB2bDatePickerDaysHeaderElement: {
+        prototype: HTMLB2bDatePickerDaysHeaderElement;
+        new (): HTMLB2bDatePickerDaysHeaderElement;
+    };
+    interface HTMLB2bDatePickerHeaderElementEventMap {
+        "b2b-date-picker-previous-month": PreviousMonth;
+        "b2b-date-picker-next-month": NextMonth;
+        "b2b-date-picker-view-changed": DatePickerViewChangedEventDetail;
+    }
+    interface HTMLB2bDatePickerHeaderElement extends Components.B2bDatePickerHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDatePickerHeaderElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerHeaderElement, ev: B2bDatePickerHeaderCustomEvent<HTMLB2bDatePickerHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDatePickerHeaderElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerHeaderElement, ev: B2bDatePickerHeaderCustomEvent<HTMLB2bDatePickerHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDatePickerHeaderElement: {
+        prototype: HTMLB2bDatePickerHeaderElement;
+        new (): HTMLB2bDatePickerHeaderElement;
+    };
+    interface HTMLB2bDatePickerMonthsElementEventMap {
+        "b2b-date-picker-month-selected": MonthSelectedEventDetail;
+    }
+    interface HTMLB2bDatePickerMonthsElement extends Components.B2bDatePickerMonths, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDatePickerMonthsElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerMonthsElement, ev: B2bDatePickerMonthsCustomEvent<HTMLB2bDatePickerMonthsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDatePickerMonthsElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerMonthsElement, ev: B2bDatePickerMonthsCustomEvent<HTMLB2bDatePickerMonthsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDatePickerMonthsElement: {
+        prototype: HTMLB2bDatePickerMonthsElement;
+        new (): HTMLB2bDatePickerMonthsElement;
+    };
+    interface HTMLB2bDatePickerYearsElementEventMap {
+        "b2b-date-picker-year-selected": YearSelectedEventDetail;
+    }
+    interface HTMLB2bDatePickerYearsElement extends Components.B2bDatePickerYears, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDatePickerYearsElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerYearsElement, ev: B2bDatePickerYearsCustomEvent<HTMLB2bDatePickerYearsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDatePickerYearsElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerYearsElement, ev: B2bDatePickerYearsCustomEvent<HTMLB2bDatePickerYearsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDatePickerYearsElement: {
+        prototype: HTMLB2bDatePickerYearsElement;
+        new (): HTMLB2bDatePickerYearsElement;
     };
     interface HTMLB2bDropdownElementEventMap {
         "b2b-change": string;
@@ -2096,6 +2100,10 @@ declare global {
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
+    var HTMLB2bToggleChipElement: {
+        prototype: HTMLB2bToggleChipElement;
+        new (): HTMLB2bToggleChipElement;
+    };
     interface HTMLB2bToggleGroupElementEventMap {
         "b2b-group-change": ToggleButtonEventDetail;
     }
@@ -2126,6 +2134,10 @@ declare global {
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
+    var HTMLB2bToggleSwitchElement: {
+        prototype: HTMLB2bToggleSwitchElement;
+        new (): HTMLB2bToggleSwitchElement;
+    };
     /**
      * The tooltip can display additional information, and will be visible based on
      * a specific trigger.
@@ -2150,23 +2162,26 @@ declare global {
     };
     interface HTMLB2bWizardStepElement extends Components.B2bWizardStep, HTMLStencilElement {
     }
-   
+    var HTMLB2bWizardStepElement: {
+        prototype: HTMLB2bWizardStepElement;
+        new (): HTMLB2bWizardStepElement;
+    };
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
         "b2b-breadcrumb": HTMLB2bBreadcrumbElement;
         "b2b-breadcrumb-item": HTMLB2bBreadcrumbItemElement;
         "b2b-button": HTMLB2bButtonElement;
-        "b2b-calendar": HTMLB2bCalendarElement;
-        "b2b-calendar-days": HTMLB2bCalendarDaysElement;
-        "b2b-calendar-days-header": HTMLB2bCalendarDaysHeaderElement;
-        "b2b-calendar-header": HTMLB2bCalendarHeaderElement;
-        "b2b-calendar-months": HTMLB2bCalendarMonthsElement;
-        "b2b-calendar-years": HTMLB2bCalendarYearsElement;
         "b2b-card": HTMLB2bCardElement;
         "b2b-checkbox": HTMLB2bCheckboxElement;
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
         "b2b-chip-component": HTMLB2bChipComponentElement;
+        "b2b-date-picker": HTMLB2bDatePickerElement;
+        "b2b-date-picker-days": HTMLB2bDatePickerDaysElement;
+        "b2b-date-picker-days-header": HTMLB2bDatePickerDaysHeaderElement;
+        "b2b-date-picker-header": HTMLB2bDatePickerHeaderElement;
+        "b2b-date-picker-months": HTMLB2bDatePickerMonthsElement;
+        "b2b-date-picker-years": HTMLB2bDatePickerYearsElement;
         "b2b-dropdown": HTMLB2bDropdownElement;
         "b2b-flyout-menu": HTMLB2bFlyoutMenuElement;
         "b2b-flyout-menu-option": HTMLB2bFlyoutMenuOptionElement;
@@ -2325,106 +2340,6 @@ declare namespace LocalJSX {
          */
         "width"?: 'fit-content' | 'fit-container' | 'custom';
     }
-    interface B2bCalendar {
-        /**
-          * Whether the dates after the current date are disabled. By default, this is false.
-         */
-        "disableFutureDates"?: boolean;
-        /**
-          * Whether the previous dates from the current date are disabled. By default, this is true.
-         */
-        "disablePastDates"?: boolean;
-        /**
-          * Whether the dates that fall on the weekend are disabled. By default, this is false.
-         */
-        "disableWeekends"?: boolean;
-        /**
-          * Label for the calendar component.
-         */
-        "label"?: string;
-        /**
-          * Emits the selected date as Date type.
-         */
-        "onB2b-selected"?: (event: B2bCalendarCustomEvent<CalendarEventDetail>) => void;
-    }
-    interface B2bCalendarDays {
-        /**
-          * Internal whether the dates after the current date are disabled. By default, this is false.
-         */
-        "disableFutureDates"?: boolean;
-        /**
-          * Internal whether the dates previous to the current date are disabled. By default, this is true.
-         */
-        "disablePastDates"?: boolean;
-        /**
-          * Internal whether the weekends are disabled. By default, this is false.
-         */
-        "disableWeekends"?: boolean;
-        /**
-          * Event emitted on escape press*
-         */
-        "onB2b-calendar-escape"?: (event: B2bCalendarDaysCustomEvent<EscapePressed>) => void;
-        /**
-          * Event emitted on selecting date*
-         */
-        "onB2b-date-selected"?: (event: B2bCalendarDaysCustomEvent<DateSelectedEventDetail>) => void;
-        /**
-          * Internal selected day
-         */
-        "selectedDay"?: number;
-        /**
-          * Internal selected month
-         */
-        "selectedMonth"?: number;
-        /**
-          * Internal selected year
-         */
-        "selectedYear"?: number;
-    }
-    interface B2bCalendarDaysHeader {
-    }
-    interface B2bCalendarHeader {
-        /**
-          * Event emitted for next month click*
-         */
-        "onB2b-calendar-next-month"?: (event: B2bCalendarHeaderCustomEvent<NextMonth>) => void;
-        /**
-          * Event emitted for previous month click*
-         */
-        "onB2b-calendar-previous-month"?: (event: B2bCalendarHeaderCustomEvent<PreviousMonth>) => void;
-        /**
-          * Event emitted for changing the calendar view *
-         */
-        "onB2b-calendar-view-changed"?: (event: B2bCalendarHeaderCustomEvent<CalendarViewChangedEventDetail>) => void;
-        /**
-          * Internal selected month
-         */
-        "selectedMonth"?: number;
-        /**
-          * Internal selected year
-         */
-        "selectedYear"?: number;
-    }
-    interface B2bCalendarMonths {
-        /**
-          * Event emitted on selecting month*
-         */
-        "onB2b-calendar-month-selected"?: (event: B2bCalendarMonthsCustomEvent<MonthSelectedEventDetail>) => void;
-        /**
-          * Internal selected month
-         */
-        "selectedMonth"?: number;
-    }
-    interface B2bCalendarYears {
-        /**
-          * Event emitted on selecting year*
-         */
-        "onB2b-calendar-year-selected"?: (event: B2bCalendarYearsCustomEvent<YearSelectedEventDetail>) => void;
-        /**
-          * Internal selected year
-         */
-        "selectedYear"?: number;
-    }
     interface B2bCard {
         /**
           * Disables the card. Per default, it is false
@@ -2565,6 +2480,110 @@ declare namespace LocalJSX {
           * It is only used when the chip component participates in a group
          */
         "value"?: any;
+    }
+    interface B2bDatePicker {
+        /**
+          * Whether the dates after the current date are disabled. By default, this is false.
+         */
+        "disableFutureDates"?: boolean;
+        /**
+          * Whether the previous dates from the current date are disabled. By default, this is true.
+         */
+        "disablePastDates"?: boolean;
+        /**
+          * Whether the dates that fall on the weekend are disabled. By default, this is false.
+         */
+        "disableWeekends"?: boolean;
+        /**
+          * Label for the date picker component.
+         */
+        "label"?: string;
+        /**
+          * Emits the selected date as Date type.
+         */
+        "onB2b-selected"?: (event: B2bDatePickerCustomEvent<DatePickerEventDetail>) => void;
+        /**
+          * Default date picker date
+         */
+        "preSelectedDate"?: string;
+    }
+    interface B2bDatePickerDays {
+        /**
+          * Internal whether the dates after the current date are disabled. By default, this is false.
+         */
+        "disableFutureDates"?: boolean;
+        /**
+          * Internal whether the dates previous to the current date are disabled. By default, this is true.
+         */
+        "disablePastDates"?: boolean;
+        /**
+          * Internal whether the weekends are disabled. By default, this is false.
+         */
+        "disableWeekends"?: boolean;
+        /**
+          * Event emitted on escape press*
+         */
+        "onB2b-date-picker-escape"?: (event: B2bDatePickerDaysCustomEvent<EscapePressed>) => void;
+        /**
+          * Event emitted on selecting date*
+         */
+        "onB2b-date-selected"?: (event: B2bDatePickerDaysCustomEvent<DateSelectedEventDetail>) => void;
+        /**
+          * Internal selected day
+         */
+        "selectedDay"?: number;
+        /**
+          * Internal selected month
+         */
+        "selectedMonth"?: number;
+        /**
+          * Internal selected year
+         */
+        "selectedYear"?: number;
+    }
+    interface B2bDatePickerDaysHeader {
+    }
+    interface B2bDatePickerHeader {
+        /**
+          * Event emitted for next month click*
+         */
+        "onB2b-date-picker-next-month"?: (event: B2bDatePickerHeaderCustomEvent<NextMonth>) => void;
+        /**
+          * Event emitted for previous month click*
+         */
+        "onB2b-date-picker-previous-month"?: (event: B2bDatePickerHeaderCustomEvent<PreviousMonth>) => void;
+        /**
+          * Event emitted for changing the date picker view *
+         */
+        "onB2b-date-picker-view-changed"?: (event: B2bDatePickerHeaderCustomEvent<DatePickerViewChangedEventDetail>) => void;
+        /**
+          * Internal selected month
+         */
+        "selectedMonth"?: number;
+        /**
+          * Internal selected year
+         */
+        "selectedYear"?: number;
+    }
+    interface B2bDatePickerMonths {
+        /**
+          * Event emitted on selecting month*
+         */
+        "onB2b-date-picker-month-selected"?: (event: B2bDatePickerMonthsCustomEvent<MonthSelectedEventDetail>) => void;
+        /**
+          * Internal selected month
+         */
+        "selectedMonth"?: number;
+    }
+    interface B2bDatePickerYears {
+        /**
+          * Event emitted on selecting year*
+         */
+        "onB2b-date-picker-year-selected"?: (event: B2bDatePickerYearsCustomEvent<YearSelectedEventDetail>) => void;
+        /**
+          * Internal selected year
+         */
+        "selectedYear"?: number;
     }
     interface B2bDropdown {
         /**
@@ -3598,16 +3617,16 @@ declare namespace LocalJSX {
         "b2b-breadcrumb": B2bBreadcrumb;
         "b2b-breadcrumb-item": B2bBreadcrumbItem;
         "b2b-button": B2bButton;
-        "b2b-calendar": B2bCalendar;
-        "b2b-calendar-days": B2bCalendarDays;
-        "b2b-calendar-days-header": B2bCalendarDaysHeader;
-        "b2b-calendar-header": B2bCalendarHeader;
-        "b2b-calendar-months": B2bCalendarMonths;
-        "b2b-calendar-years": B2bCalendarYears;
         "b2b-card": B2bCard;
         "b2b-checkbox": B2bCheckbox;
         "b2b-checkbox-group": B2bCheckboxGroup;
         "b2b-chip-component": B2bChipComponent;
+        "b2b-date-picker": B2bDatePicker;
+        "b2b-date-picker-days": B2bDatePickerDays;
+        "b2b-date-picker-days-header": B2bDatePickerDaysHeader;
+        "b2b-date-picker-header": B2bDatePickerHeader;
+        "b2b-date-picker-months": B2bDatePickerMonths;
+        "b2b-date-picker-years": B2bDatePickerYears;
         "b2b-dropdown": B2bDropdown;
         "b2b-flyout-menu": B2bFlyoutMenu;
         "b2b-flyout-menu-option": B2bFlyoutMenuOption;
@@ -3666,16 +3685,16 @@ declare module "@stencil/core" {
             "b2b-breadcrumb": LocalJSX.B2bBreadcrumb & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbElement>;
             "b2b-breadcrumb-item": LocalJSX.B2bBreadcrumbItem & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbItemElement>;
             "b2b-button": LocalJSX.B2bButton & JSXBase.HTMLAttributes<HTMLB2bButtonElement>;
-            "b2b-calendar": LocalJSX.B2bCalendar & JSXBase.HTMLAttributes<HTMLB2bCalendarElement>;
-            "b2b-calendar-days": LocalJSX.B2bCalendarDays & JSXBase.HTMLAttributes<HTMLB2bCalendarDaysElement>;
-            "b2b-calendar-days-header": LocalJSX.B2bCalendarDaysHeader & JSXBase.HTMLAttributes<HTMLB2bCalendarDaysHeaderElement>;
-            "b2b-calendar-header": LocalJSX.B2bCalendarHeader & JSXBase.HTMLAttributes<HTMLB2bCalendarHeaderElement>;
-            "b2b-calendar-months": LocalJSX.B2bCalendarMonths & JSXBase.HTMLAttributes<HTMLB2bCalendarMonthsElement>;
-            "b2b-calendar-years": LocalJSX.B2bCalendarYears & JSXBase.HTMLAttributes<HTMLB2bCalendarYearsElement>;
             "b2b-card": LocalJSX.B2bCard & JSXBase.HTMLAttributes<HTMLB2bCardElement>;
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
             "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
+            "b2b-date-picker": LocalJSX.B2bDatePicker & JSXBase.HTMLAttributes<HTMLB2bDatePickerElement>;
+            "b2b-date-picker-days": LocalJSX.B2bDatePickerDays & JSXBase.HTMLAttributes<HTMLB2bDatePickerDaysElement>;
+            "b2b-date-picker-days-header": LocalJSX.B2bDatePickerDaysHeader & JSXBase.HTMLAttributes<HTMLB2bDatePickerDaysHeaderElement>;
+            "b2b-date-picker-header": LocalJSX.B2bDatePickerHeader & JSXBase.HTMLAttributes<HTMLB2bDatePickerHeaderElement>;
+            "b2b-date-picker-months": LocalJSX.B2bDatePickerMonths & JSXBase.HTMLAttributes<HTMLB2bDatePickerMonthsElement>;
+            "b2b-date-picker-years": LocalJSX.B2bDatePickerYears & JSXBase.HTMLAttributes<HTMLB2bDatePickerYearsElement>;
             "b2b-dropdown": LocalJSX.B2bDropdown & JSXBase.HTMLAttributes<HTMLB2bDropdownElement>;
             "b2b-flyout-menu": LocalJSX.B2bFlyoutMenu & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuElement>;
             "b2b-flyout-menu-option": LocalJSX.B2bFlyoutMenuOption & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuOptionElement>;

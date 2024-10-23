@@ -9,7 +9,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { YearSelectedEventDetail } from '../../utils/interfaces/interaction.interface';
+import { YearSelectedEventDetail } from '../../utils/interfaces/form.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -20,20 +20,20 @@ const keys = {
 };
 
 @Component({
-  tag: 'b2b-calendar-years',
-  styleUrl: 'calendar-years.scss',
+  tag: 'b2b-date-picker-years',
+  styleUrl: 'date-picker-years.scss',
   shadow: true,
 })
-export class B2bCalendarYears {
-  @Element() host: HTMLB2bCalendarYearsElement;
+export class B2bDatePickerYears {
+  @Element() host: HTMLB2bDatePickerYearsElement;
   /** Internal selected year */
   @Prop() selectedYear: number;
 
   @State() private yearsRange: number[] = [];
 
   /** Event emitted on selecting year**/
-  @Event({ eventName: 'b2b-calendar-year-selected' })
-  b2bCalendarYearSelected: EventEmitter<YearSelectedEventDetail>;
+  @Event({ eventName: 'b2b-date-picker-year-selected' })
+  b2bDatePickerYearSelected: EventEmitter<YearSelectedEventDetail>;
 
   @Listen('keydown')
   handleKeyDown(event: KeyboardEvent) {
@@ -56,7 +56,7 @@ export class B2bCalendarYears {
         break;
       case keys.ENTER:
         index = years.indexOf(currentYear);
-        this.b2bCalendarYearSelected.emit({
+        this.b2bDatePickerYearSelected.emit({
           value: this.yearsRange[index],
         });
         break;
@@ -89,7 +89,7 @@ export class B2bCalendarYears {
 
   private getAllYears = (): HTMLDivElement[] => {
     return Array.from(
-      this.host.shadowRoot.querySelectorAll('.b2b-calendar-year'),
+      this.host.shadowRoot.querySelectorAll('.b2b-date-picker-year'),
     ) as HTMLDivElement[];
   };
 
@@ -108,7 +108,7 @@ export class B2bCalendarYears {
 
   private scrollToYear = (year: number) => {
     const grid = this.host.shadowRoot.querySelector(
-      '.b2b-calendar-years',
+      '.b2b-date-picker-years',
     ) as HTMLDivElement;
     if (grid !== null) {
       const yearElements = grid.children;
@@ -126,17 +126,17 @@ export class B2bCalendarYears {
     }
   };
 
-  private renderCalendarYears = () => {
+  private renderDatePickerYears = () => {
     let years = [];
     for (const year of this.yearsRange) {
       years.push(
         <div
           class={{
-            'b2b-calendar-year': true,
-            'b2b-calendar-year--selected': this.selectedYear === year,
+            'b2b-date-picker-year': true,
+            'b2b-date-picker-year--selected': this.selectedYear === year,
           }}
           onClick={() =>
-            this.b2bCalendarYearSelected.emit({
+            this.b2bDatePickerYearSelected.emit({
               value: year,
             })
           }
@@ -152,7 +152,7 @@ export class B2bCalendarYears {
   render() {
     return (
       <Host>
-        <div class="b2b-calendar-years">{this.renderCalendarYears()}</div>
+        <div class="b2b-date-picker-years">{this.renderDatePickerYears()}</div>
       </Host>
     );
   }

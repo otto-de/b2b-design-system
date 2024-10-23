@@ -2,7 +2,7 @@
 @use '../../global/b2b-styles';
 
 :host {
-  .b2b-calendar-months {
+  .b2b-date-picker-months {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Display months in a grid */
     padding: var(--b2b-size-40) var(--b2b-size-40) 0 var(--b2b-size-40);
@@ -10,7 +10,7 @@
     row-gap: var(--b2b-size-25);
   }
 
-  .b2b-calendar-month {
+  .b2b-date-picker-month {
     height: var(--b2b-size-80);
     border-radius: 5px;
     text-align: center;
@@ -33,6 +33,11 @@
     &--selected {
       background-color: var(--b2b-color-black-100);
       color: var(--b2b-color-white-100);
+
+      &:hover,
+      &:focus {
+        background-color: var(--b2b-color-black-100);
+      }
     }
   }
 }

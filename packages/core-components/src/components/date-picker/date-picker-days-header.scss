@@ -2,12 +2,12 @@
 
 :root,
 :host {
-  .b2b-calendar-days-header {
+  .b2b-date-picker-days-header {
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* Display days in a grid */
     padding: 0 var(--b2b-size-40) 0 var(--b2b-size-40);
 
-    .b2b-calendar-day {
+    .b2b-date-picker-day {
       width: var(--b2b-size-90);
       height: var(--b2b-size-55);
       border-radius: 5px;
