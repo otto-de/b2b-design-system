@@ -49,6 +49,7 @@ export class B2bDatePicker {
   private readonly FORMATTING_ERROR_MESSAGE = 'Format beachten: TT.MM.JJJJ.';
 
   @State() private showDatePicker: boolean = false;
+  @State() private focused: boolean = false;
   @State() private datePickerView: DatePickerView = DatePickerView.Days;
   @State() selectedMonth: number = new Date().getMonth();
   @State() selectedYear: number = new Date().getFullYear();
@@ -123,7 +124,6 @@ export class B2bDatePicker {
       this.selectedMonth = month - 1;
       this.selectedYear = year;
       this.setSelectedDateForDisplay();
-      this.showDatePicker = true;
     } else {
       this.showDatePicker = false;
       this.invalid = true;
@@ -164,6 +164,8 @@ export class B2bDatePicker {
   }
 
   private handleInputChange = (event: any) => {
+    this.focused = true;
+    this.invalid = false;
     let value = event.target.value;
     value = value.replace(/[^0-9.]/g, '');
     if (value.length > 10) {
@@ -174,7 +176,6 @@ export class B2bDatePicker {
 
     if (value.length === 10) {
       this.parseDateInput(value);
-      this.emitSelectedDate();
     }
   };
 
@@ -192,6 +193,8 @@ export class B2bDatePicker {
       if (value.length === 10) {
         this.parseDateInput(value);
         this.emitSelectedDate();
+        this.showDatePicker = false;
+        this.focused = false;
       } else {
         this.invalid = true;
       }
@@ -207,6 +210,7 @@ export class B2bDatePicker {
   };
 
   private handleInputBlur = () => {
+    this.focused = false;
     if (this.userInputDate && this.userInputDate.length === 10) {
       this.parseDateInput(this.userInputDate);
     } else
@@ -330,7 +334,8 @@ export class B2bDatePicker {
           <div
             class={{
               'b2b-date-picker-input-wrapper': true,
-              'b2b-date-picker-input-wrapper--opened': this.showDatePicker,
+              'b2b-date-picker-input-wrapper--focused':
+                this.focused || this.showDatePicker,
               'b2b-date-picker-input-wrapper--error': this.invalid,
             }}>
             <input
@@ -348,6 +353,7 @@ export class B2bDatePicker {
                 if (this.invalid) {
                   this.invalid = false;
                 }
+                this.focused = true;
                 this.showHideDatePicker();
               }}
             />
@@ -358,7 +364,6 @@ export class B2bDatePicker {
                   onClick={() => {
                     this.invalid = false;
                     this.clearDateInput();
-                    this.showHideDatePicker();
                   }}
                   class="b2b-close-icon"
                   onKeyDown={event => {
@@ -378,12 +383,16 @@ export class B2bDatePicker {
               <div
                 tabindex={0}
                 onClick={() => {
+                  if (this.invalid) {
+                      this.invalid = false;
+                    }
                   this.showHideDatePicker();
                 }}
                 onKeyDown={event => {
                   if (event.key === 'Enter') {
-                    this.invalid = false;
-                    this.clearDateInput();
+                    if (this.invalid) {
+                      this.invalid = false;
+                    }
                     this.showHideDatePicker();
                   }
                 }}

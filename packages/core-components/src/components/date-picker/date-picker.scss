@@ -27,7 +27,7 @@
     background-color: var(--b2b-color-white-100);
     transition: outline 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
-    &--opened {
+    &--focused {
       outline: 2px solid -webkit-focus-ring-color;
       outline-offset: -1px;
     }
