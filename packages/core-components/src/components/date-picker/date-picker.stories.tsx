@@ -4,7 +4,7 @@ import { getArgTypes } from '../../docs/config/utils';
 import { userEvent } from '@storybook/testing-library';
 
 const meta: Meta = {
-  title: 'Components/Form/DatePicker',
+  title: 'Components/Form/Date Picker',
   component: 'b2b-date-picker',
   args: {
     disablePastDates: false,
@@ -13,28 +13,29 @@ const meta: Meta = {
     label: 'Zeitraum auswählen',
     preSelectedDate: '',
   },
-  argTypes: getArgTypes('b2b-date-picker'),
+  argTypes: {
+    ...getArgTypes('b2b-date-picker'),
+    preSelectedDate: { control: false },
+  },
   render: ({ ...args }) => {
     if (args.preSelectedDate === '') {
       return html` <div style="margin-left: 100px">
-    <b2b-date-picker
-      label=${args.label}
-      disable-past-dates=${args.disablePastDates}
-      disable-future-dates=${args.disableFutureDates}
-      disable-weekends=${args.disableWeekends}
-      .pre-selected-date="${args.preSelectedDate}"
-    </b2b-date-picker>
-  </div>`;
+        <b2b-date-picker
+          label=${args.label}
+          disable-past-dates=${args.disablePastDates}
+          disable-future-dates=${args.disableFutureDates}
+          disable-weekends=${args.disableWeekends}
+          .pre-selected-date="${args.preSelectedDate}"></b2b-date-picker>
+      </div>`;
     } else {
       return html` <div style="margin-left: 100px">
-    <b2b-date-picker
-      label=${args.label}
-      disable-past-dates=${args.disablePastDates}
-      disable-future-dates=${args.disableFutureDates}
-      disable-weekends=${args.disableWeekends}
-      pre-selected-date="${args.preSelectedDate}"
-    </b2b-date-picker>
-  </div>`;
+        <b2b-date-picker
+          label=${args.label}
+          disable-past-dates=${args.disablePastDates}
+          disable-future-dates=${args.disableFutureDates}
+          disable-weekends=${args.disableWeekends}
+          pre-selected-date="${args.preSelectedDate}"></b2b-date-picker>
+      </div>`;
     }
   },
 };
@@ -96,14 +97,5 @@ export const DisableWeekends: Story = {
 };
 
 export const preSelectedDate: Story = {
-  args: { ...meta.args, preSelectedDate: '26.11.1996' }, // Pass preSelectedDate as a string
-  play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
-      );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
-  },
+  args: { ...meta.args, preSelectedDate: '26.11.1996' },
 };
