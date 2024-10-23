@@ -383,6 +383,9 @@ export class B2bDatePicker {
               <div
                 tabindex={0}
                 onClick={() => {
+                  if (this.invalid) {
+                      this.invalid = false;
+                    }
                   this.showHideDatePicker();
                 }}
                 onKeyDown={event => {
@@ -390,7 +393,6 @@ export class B2bDatePicker {
                     if (this.invalid) {
                       this.invalid = false;
                     }
-                    this.invalid = false;
                     this.showHideDatePicker();
                   }
                 }}
