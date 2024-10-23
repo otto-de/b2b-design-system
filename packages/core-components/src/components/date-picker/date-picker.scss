@@ -15,6 +15,15 @@
     }
   }
 
+  .b2b-date-picker-input-focus-wrapper {
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      cursor: text;
+    }
+  }
+
   .b2b-date-picker-input-wrapper {
     display: flex;
     box-sizing: border-box;
@@ -46,7 +55,7 @@
       margin-left: 0;
       padding-left: 0;
       height: 100%;
-      width: 100%;
+      width: fit-content;
       color: var(--b2b-color-black-100);
       font-size: var(--b2b-size-35);
       line-height: var(--b2b-size-copy-line-height-100);
