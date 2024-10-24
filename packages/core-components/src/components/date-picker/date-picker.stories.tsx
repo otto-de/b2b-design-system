@@ -30,7 +30,7 @@ const meta: Meta = {
           show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
     } else {
-      return html` <div style="margin-left: 100px">
+      return html` <div style="margin-left: 2px">
         <b2b-date-picker
           label=${args.label}
           disable-past-dates=${args.disablePastDates}
