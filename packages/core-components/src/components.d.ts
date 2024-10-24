@@ -66,6 +66,16 @@ export namespace Components {
          */
         "target": 'self' | 'blank' | 'parent' | 'top';
     }
+    interface B2bBackgroundBox {
+        /**
+          * Fixes width to 1212px. Per default, it is false
+         */
+        "fixedWidth": boolean;
+        /**
+          * Whether the box should have a padding. Per default, padding is enabled
+         */
+        "noPadding": boolean;
+    }
     interface B2bBreadcrumb {
     }
     interface B2bBreadcrumbItem {
@@ -1389,6 +1399,12 @@ declare global {
         prototype: HTMLB2bAnchorElement;
         new (): HTMLB2bAnchorElement;
     };
+    interface HTMLB2bBackgroundBoxElement extends Components.B2bBackgroundBox, HTMLStencilElement {
+    }
+    var HTMLB2bBackgroundBoxElement: {
+        prototype: HTMLB2bBackgroundBoxElement;
+        new (): HTMLB2bBackgroundBoxElement;
+    };
     interface HTMLB2bBreadcrumbElementEventMap {
         "b2b-selected": BreadCrumbChangeEventDetail;
     }
@@ -2169,6 +2185,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "b2b-alert": HTMLB2bAlertElement;
         "b2b-anchor": HTMLB2bAnchorElement;
+        "b2b-background-box": HTMLB2bBackgroundBoxElement;
         "b2b-breadcrumb": HTMLB2bBreadcrumbElement;
         "b2b-breadcrumb-item": HTMLB2bBreadcrumbItemElement;
         "b2b-button": HTMLB2bButtonElement;
@@ -2275,6 +2292,16 @@ declare namespace LocalJSX {
           * The target the URL will be opened into. The default is self.
          */
         "target"?: 'self' | 'blank' | 'parent' | 'top';
+    }
+    interface B2bBackgroundBox {
+        /**
+          * Fixes width to 1212px. Per default, it is false
+         */
+        "fixedWidth"?: boolean;
+        /**
+          * Whether the box should have a padding. Per default, padding is enabled
+         */
+        "noPadding"?: boolean;
     }
     interface B2bBreadcrumb {
         /**
@@ -3614,6 +3641,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "b2b-alert": B2bAlert;
         "b2b-anchor": B2bAnchor;
+        "b2b-background-box": B2bBackgroundBox;
         "b2b-breadcrumb": B2bBreadcrumb;
         "b2b-breadcrumb-item": B2bBreadcrumbItem;
         "b2b-button": B2bButton;
@@ -3682,6 +3710,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "b2b-alert": LocalJSX.B2bAlert & JSXBase.HTMLAttributes<HTMLB2bAlertElement>;
             "b2b-anchor": LocalJSX.B2bAnchor & JSXBase.HTMLAttributes<HTMLB2bAnchorElement>;
+            "b2b-background-box": LocalJSX.B2bBackgroundBox & JSXBase.HTMLAttributes<HTMLB2bBackgroundBoxElement>;
             "b2b-breadcrumb": LocalJSX.B2bBreadcrumb & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbElement>;
             "b2b-breadcrumb-item": LocalJSX.B2bBreadcrumbItem & JSXBase.HTMLAttributes<HTMLB2bBreadcrumbItemElement>;
             "b2b-button": LocalJSX.B2bButton & JSXBase.HTMLAttributes<HTMLB2bButtonElement>;

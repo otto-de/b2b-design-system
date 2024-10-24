@@ -141,6 +141,36 @@
       "description": "The target the URL will be opened into. The default is self."
     }
   },
+  "b2b-background-box": {
+    "fixedWidth": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Fixes width to 1212px. Per default, it is false"
+    },
+    "noPadding": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the box should have a padding. Per default, padding is enabled"
+    }
+  },
   "b2b-breadcrumb": {},
   "b2b-breadcrumb-item": {
     "active": {
