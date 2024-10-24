@@ -1,3 +1,22 @@
+# [1.17.0](https://github.com/otto-de/b2b-design-system/compare/v1.16.0...v1.17.0) (2024-10-24)
+
+
+### Bug Fixes
+
+* **DatePicker:** [BLA-996] Fix the error handling scenario ([#506](https://github.com/otto-de/b2b-design-system/issues/506)) ([75267c8](https://github.com/otto-de/b2b-design-system/commit/75267c8db153f59e8194441c19b20339a22bd359))
+
+
+### Features
+
+* **Calendar:** [BLA-694] add months and years views to calendar ([fbd12ef](https://github.com/otto-de/b2b-design-system/commit/fbd12ef9fa7743a8ace947da71b7730ec4353fbf))
+* **DatePicker:** [BLA-853] Date picker improvements ([24b0344](https://github.com/otto-de/b2b-design-system/commit/24b034450d71665db75df406549b52497001403c))
+* **DatePicker:** [BLA-996] Close date picker when there is a formatting issue ([22b0b30](https://github.com/otto-de/b2b-design-system/commit/22b0b30628e87f2116f66a0ab3206c381078bba8))
+* **DatePicker:** [BLA-996] focus out on blur ([044c763](https://github.com/otto-de/b2b-design-system/commit/044c7630fd763684252fdcc225cea4a9db494cfc))
+* **DatePicker:** [BLA-996] Loose focus on selection of date ([d61072f](https://github.com/otto-de/b2b-design-system/commit/d61072f93e3725b42200803ea115355fd64db48d))
+* **DatePicker:** [BLA-996] Provide prop to choose to show or hide hint message ([5434b44](https://github.com/otto-de/b2b-design-system/commit/5434b44bb58f3f9db2265a1b423fd2b500aa4d60))
+* **DatePicker:** [BLA-996] Should not remove selected date when enter is pressed ([44e47dd](https://github.com/otto-de/b2b-design-system/commit/44e47ddb20781ced271707be92eb3d9fa2d63573))
+* **DatePicker:** [BLA-996] Should not remove selected date when enter is pressed ([7577107](https://github.com/otto-de/b2b-design-system/commit/757710743c391182ed8f193d79e25cd69c21f3a7))
+
 # [1.16.0](https://github.com/otto-de/b2b-design-system/compare/v1.15.1...v1.16.0) (2024-10-09)
 
 
