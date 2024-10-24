@@ -208,6 +208,8 @@ export class B2bDatePicker {
         this.focused = false;
       } else {
         this.invalid = true;
+        this.focused = false;
+        this.showDatePicker = false;
       }
     }
     if (event.key === 'Backspace') {
