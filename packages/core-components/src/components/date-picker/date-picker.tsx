@@ -382,6 +382,9 @@ export class B2bDatePicker {
                 onInput={this.handleInputChange}
                 onKeyDown={this.handleKeyDown}
                 onFocus={this.handleInputFocus}
+                onBlur={() => {
+                  this.focused = false;
+                }}
               />
             </div>
             <div class="b2b-icons">
