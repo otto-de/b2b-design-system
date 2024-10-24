@@ -1,0 +1,21 @@
+@use '../../global/b2b-styles';
+
+:host(.b2b-background-box) {
+  display: block;
+  background: var(--b2b-color-background-box);
+  border: var(--b2b-size-1) solid var(--b2b-color-border-100);
+  padding: calc(0.75rem * 2);
+}
+
+:host(.b2b-background-box--fixed-width.b2b-background-box--no-padding) {
+  width: 75.75rem;
+  padding: unset;
+}
+
+:host(.b2b-background-box--fixed-width) {
+  width: 72.75rem;
+}
+
+:host(.b2b-background-box--no-padding) {
+  padding: unset;
+}

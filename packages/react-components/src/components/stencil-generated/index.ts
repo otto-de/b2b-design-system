@@ -10,6 +10,7 @@ import { defineCustomElements } from '@otto-de/b2b-core-components/dist/loader';
 defineCustomElements();
 export const B2bAlert = /*@__PURE__*/createReactComponent<JSX.B2bAlert, HTMLB2bAlertElement>('b2b-alert');
 export const B2bAnchor = /*@__PURE__*/createReactComponent<JSX.B2bAnchor, HTMLB2bAnchorElement>('b2b-anchor');
+export const B2bBackgroundBox = /*@__PURE__*/createReactComponent<JSX.B2bBackgroundBox, HTMLB2bBackgroundBoxElement>('b2b-background-box');
 export const B2bBreadcrumb = /*@__PURE__*/createReactComponent<JSX.B2bBreadcrumb, HTMLB2bBreadcrumbElement>('b2b-breadcrumb');
 export const B2bBreadcrumbItem = /*@__PURE__*/createReactComponent<JSX.B2bBreadcrumbItem, HTMLB2bBreadcrumbItemElement>('b2b-breadcrumb-item');
 export const B2bButton = /*@__PURE__*/createReactComponent<JSX.B2bButton, HTMLB2bButtonElement>('b2b-button');
