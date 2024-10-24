@@ -737,6 +737,20 @@
         }
       },
       "description": "Default date picker date"
+    },
+    "showHint": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Whether to show hint message or not."
     }
   },
   "b2b-date-picker-days": {
