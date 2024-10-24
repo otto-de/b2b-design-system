@@ -4,7 +4,9 @@ describe('B2B-Background-Box', () => {
   let page;
   it('should render background box component', async () => {
     page = await newE2EPage();
-    await page.setContent(`<b2b-background-box><b2b-paragraph>Background box component</b2b-paragraph></b2b-background-box>`);
+    await page.setContent(
+      `<b2b-background-box><b2b-paragraph>Background box component</b2b-paragraph></b2b-background-box>`,
+    );
     const element = await page.find('b2b-background-box');
     expect(element).not.toBeNull();
     const style = await element.getComputedStyle();
@@ -14,7 +16,9 @@ describe('B2B-Background-Box', () => {
 
   it('should display content with padding', async () => {
     page = await newE2EPage();
-    await page.setContent(`<b2b-background-box>Background box component</b2b-background-box>`);
+    await page.setContent(
+      `<b2b-background-box>Background box component</b2b-background-box>`,
+    );
     const element = await page.find('b2b-background-box');
 
     expect(element).toEqualText('Background box component');
@@ -24,7 +28,9 @@ describe('B2B-Background-Box', () => {
 
   it('should display content without padding', async () => {
     page = await newE2EPage();
-    await page.setContent(`<b2b-background-box no-padding='true'>Background box component</b2b-background-box>`);
+    await page.setContent(
+      `<b2b-background-box no-padding='true'>Background box component</b2b-background-box>`,
+    );
     const element = await page.find('b2b-background-box');
 
     expect(element).toEqualText('Background box component');
@@ -34,7 +40,9 @@ describe('B2B-Background-Box', () => {
 
   it('should set fixed width', async () => {
     page = await newE2EPage();
-    await page.setContent(`<b2b-background-box fixed-width='true' no-padding='true'>Background box component</b2b-background-box>`);
+    await page.setContent(
+      `<b2b-background-box fixed-width='true' no-padding='true'>Background box component</b2b-background-box>`,
+    );
     const element = await page.find('b2b-background-box');
 
     expect(element).toEqualText('Background box component');
