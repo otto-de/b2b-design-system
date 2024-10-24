@@ -95,6 +95,7 @@ export class B2bDatePicker {
     this.selectedDay = event.detail.selectedDate.getDate();
     this.setSelectedDate();
     this.showDatePicker = false;
+    this.focused = false;
   }
 
   @Listen('b2b-date-picker-previous-month')
