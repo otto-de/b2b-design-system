@@ -277,6 +277,10 @@ export namespace Components {
           * Default date picker date
          */
         "preSelectedDate": string;
+        /**
+          * Whether to show hint message or not.
+         */
+        "showHint": boolean;
     }
     interface B2bDatePickerDays {
         /**
@@ -2533,6 +2537,10 @@ declare namespace LocalJSX {
           * Default date picker date
          */
         "preSelectedDate"?: string;
+        /**
+          * Whether to show hint message or not.
+         */
+        "showHint"?: boolean;
     }
     interface B2bDatePickerDays {
         /**

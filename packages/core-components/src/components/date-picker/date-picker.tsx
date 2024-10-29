@@ -40,6 +40,9 @@ export class B2bDatePicker {
   /** Default date picker date*/
   @Prop() preSelectedDate: string = undefined;
 
+  /** Whether to show hint message or not. */
+  @Prop() showHint: boolean = true;
+
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
@@ -92,6 +95,7 @@ export class B2bDatePicker {
     this.selectedDay = event.detail.selectedDate.getDate();
     this.setSelectedDate();
     this.showDatePicker = false;
+    this.focused = false;
   }
 
   @Listen('b2b-date-picker-previous-month')
@@ -106,8 +110,11 @@ export class B2bDatePicker {
 
   private parseDateInput(dateString: string) {
     const regex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
-
-    if (dateString == '' || !regex.test(dateString)) {
+    if (dateString == '' || dateString === undefined) {
+      this.invalid = false;
+      return;
+    }
+    if (!regex.test(dateString)) {
       this.invalid = true;
       this.showDatePicker = false;
       this.errorMessage = this.FORMATTING_ERROR_MESSAGE;
@@ -201,6 +208,8 @@ export class B2bDatePicker {
         this.focused = false;
       } else {
         this.invalid = true;
+        this.focused = false;
+        this.showDatePicker = false;
       }
     }
     if (event.key === 'Backspace') {
@@ -213,14 +222,12 @@ export class B2bDatePicker {
     }
   };
 
-  private handleInputBlur = () => {
-    this.focused = false;
-    if (this.userInputDate && this.userInputDate.length === 10) {
-      this.parseDateInput(this.userInputDate);
-    } else
-      this.invalid = !(
-        this.userInputDate === undefined || this.userInputDate.length === 0
-      );
+  private handleInputFocus = () => {
+    this.parseDateInput(this.userInputDate);
+    if (this.invalid) {
+      this.invalid = false;
+    }
+    this.focused = true;
   };
 
   private setSelectedDateForDisplay() {
@@ -331,6 +338,25 @@ export class B2bDatePicker {
     this.showDatePicker = false;
   };
 
+  private moveFocusToInputComponent() {
+    const inputElement = this.host.shadowRoot.querySelector(
+      'input.b2b-date-picker-input',
+    ) as HTMLInputElement;
+    if (inputElement !== undefined && !this.invalid) {
+      inputElement.focus();
+      this.focused = true;
+      this.showHideDatePicker();
+      return;
+    }
+    if (this.showDatePicker || this.invalid) {
+      inputElement.blur();
+      this.invalid = false;
+      this.focused = false;
+      this.showHideDatePicker();
+      return;
+    }
+  }
+
   render() {
     return (
       <Host>
@@ -358,19 +384,9 @@ export class B2bDatePicker {
                 value={this.userInputDate}
                 onInput={this.handleInputChange}
                 onKeyDown={this.handleKeyDown}
-                onBlur={this.handleInputBlur}
-                onClick={() => {
-                  if (this.invalid) {
-                    this.invalid = false;
-                  }
-                  this.focused = true;
-                  this.showHideDatePicker();
-                }}
-                onFocus={() => {
-                  if (this.invalid) {
-                    this.invalid = false;
-                  }
-                  this.focused = true;
+                onFocus={this.handleInputFocus}
+                onBlur={() => {
+                  this.focused = false;
                 }}
               />
             </div>
@@ -465,24 +481,12 @@ export class B2bDatePicker {
               'b2b-date-picker-hint': true,
               'b2b-date-picker-hint--error': this.invalid,
             }}>
-            {this.invalid ? this.errorMessage : 'Format: TT.MM.JJJJ'}
+            {this.invalid
+              ? this.errorMessage
+              : this.showHint && 'Format: TT.MM.JJJJ'}
           </span>
         )}
       </Host>
     );
-  }
-
-  private moveFocusToInputComponent() {
-    const inputElement = this.host.shadowRoot.querySelector(
-      'input.b2b-date-picker-input',
-    ) as HTMLInputElement;
-    if (inputElement !== undefined && !this.invalid) {
-      inputElement.focus();
-    }
-    if (this.invalid) {
-      this.invalid = false;
-    }
-    this.focused = true;
-    this.showHideDatePicker();
   }
 }

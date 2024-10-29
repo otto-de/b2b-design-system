@@ -12,6 +12,7 @@ const meta: Meta = {
     disableWeekends: false,
     label: 'Zeitraum auswählen',
     preSelectedDate: '',
+    showHint: true,
   },
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
@@ -25,16 +26,18 @@ const meta: Meta = {
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
-          .pre-selected-date="${args.preSelectedDate}"></b2b-date-picker>
+          .pre-selected-date="${args.preSelectedDate}"
+          show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
     } else {
-      return html` <div style="margin-left: 100px">
+      return html` <div style="margin-left: 2px">
         <b2b-date-picker
           label=${args.label}
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
-          pre-selected-date="${args.preSelectedDate}"></b2b-date-picker>
+          pre-selected-date="${args.preSelectedDate}"
+          show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
     }
   },
@@ -98,4 +101,8 @@ export const DisableWeekends: Story = {
 
 export const preSelectedDate: Story = {
   args: { ...meta.args, preSelectedDate: '26.11.1996' },
+};
+
+export const WithoutHintMessage: Story = {
+  args: { ...meta.args, showHint: false },
 };
