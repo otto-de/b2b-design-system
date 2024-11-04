@@ -13,6 +13,12 @@
   outline: none;
 }
 
+:host(.b2b-flyout-menu__option--disabled):hover,
+:host(.b2b-flyout-menu__option--disabled:focus) {
+  background-color: transparent; // Reset background to avoid highlighting
+  color: var(--b2b-color-grey-200); // Optional: maintain the disabled text color
+}
+
 :host(.b2b-flyout-menu__option--disabled) {
   pointer-events: none;
   color: var(--b2b-color-grey-200);
