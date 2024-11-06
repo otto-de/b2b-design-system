@@ -14,10 +14,11 @@ COPY ./CHANGELOG.md /b2b
 
 
 # Install chromium-browser
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get update && \
-    apt-get install -y chromium-browser
+RUN apt-get update && \
+    apt-get install -y chromium-browser || \
+    (sleep 10 && apt-get update && apt-get install -y chromium-browser) && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 
 
