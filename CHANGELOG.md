@@ -1,3 +1,16 @@
+# [1.18.0](https://github.com/otto-de/b2b-design-system/compare/v1.17.0...v1.18.0) (2024-11-08)
+
+
+### Bug Fixes
+
+* **FlyoutMenu:** [BLA-1003] Close flyout menu on click of the icon ([f016fbf](https://github.com/otto-de/b2b-design-system/commit/f016fbfcd9d11f4995dd61a28d6391728139aa1d))
+* **Icon100:** [BLA-1020] Update the light bulb icon with the correct onw ([#509](https://github.com/otto-de/b2b-design-system/issues/509)) ([dbf0896](https://github.com/otto-de/b2b-design-system/commit/dbf089636f4ee648aebdaff953d4fc820a41c3db))
+
+
+### Features
+
+* **core:** [NEPTUNE-4379] add background-box component ([c2e4c65](https://github.com/otto-de/b2b-design-system/commit/c2e4c652147b476de28483889c3ee528f292d27c))
+
 # [1.17.0](https://github.com/otto-de/b2b-design-system/compare/v1.16.0...v1.17.0) (2024-10-24)
 
 
