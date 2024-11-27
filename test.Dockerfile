@@ -1,6 +1,6 @@
 # Use playwright image as a base
 
-FROM mcr.microsoft.com/playwright:v1.48.0-jammy as playwright
+FROM mcr.microsoft.com/playwright:v1.49.0-jammy AS playwright
 
 
 WORKDIR /b2b
@@ -22,6 +22,6 @@ RUN apt-get update && \
 
 
 WORKDIR /b2b
-RUN npm i
+RUN npm i --verbose
 
 WORKDIR /b2b/packages/core-components
