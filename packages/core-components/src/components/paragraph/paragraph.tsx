@@ -19,6 +19,12 @@ export class ParagraphComponent {
   /** The alignment of the text. */
   @Prop() align: 'left' | 'right' | 'center' = 'left';
 
+  /** Whether or not the paragraph has a bottom margin. Defaults to true. */
+  @Prop() margin: boolean = true;
+
+  /** The color of the paragraph. Defaults to black. */
+  @Prop() variant: 'black-100' | 'grey-400' = 'black-100';
+
   render() {
     return (
       <p
@@ -27,6 +33,8 @@ export class ParagraphComponent {
           ['b2b-paragraph--size-' + this.size]: true,
           ['b2b-paragraph--weight-' + this.weight]: true,
           ['b2b-paragraph--align-' + this.align]: true,
+          ['b2b-paragraph--no-margin']: !this.margin,
+          ['b2b-paragraph--variant-' + this.variant]: true,
         }}>
         <slot></slot>
       </p>

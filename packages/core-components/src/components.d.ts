@@ -740,9 +740,17 @@ export namespace Components {
          */
         "align": 'left' | 'right' | 'center';
         /**
+          * Whether or not the paragraph has a bottom margin. Defaults to true.
+         */
+        "margin": boolean;
+        /**
           * The size of the text.
          */
         "size": '50' | '100';
+        /**
+          * The color of the paragraph. Defaults to black.
+         */
+        "variant": 'black' | 'grey';
         /**
           * The weight of the text.
          */
@@ -3076,9 +3084,17 @@ declare namespace LocalJSX {
          */
         "align"?: 'left' | 'right' | 'center';
         /**
+          * Whether or not the paragraph has a bottom margin. Defaults to true.
+         */
+        "margin"?: boolean;
+        /**
           * The size of the text.
          */
         "size"?: '50' | '100';
+        /**
+          * The color of the paragraph. Defaults to black.
+         */
+        "variant"?: 'black' | 'grey';
         /**
           * The weight of the text.
          */
