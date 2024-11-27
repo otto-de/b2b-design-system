@@ -750,7 +750,7 @@ export namespace Components {
         /**
           * The color of the paragraph. Defaults to black.
          */
-        "variant": 'black' | 'grey';
+        "variant": 'black-100' | 'grey-400';
         /**
           * The weight of the text.
          */
@@ -3094,7 +3094,7 @@ declare namespace LocalJSX {
         /**
           * The color of the paragraph. Defaults to black.
          */
-        "variant"?: 'black' | 'grey';
+        "variant"?: 'black-100' | 'grey-400';
         /**
           * The weight of the text.
          */
