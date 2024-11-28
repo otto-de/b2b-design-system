@@ -44,4 +44,15 @@ describe('b2b-checkbox', () => {
 
     expect(element).toHaveClass('b2b-checkbox--checked');
   });
+
+  it('use label slot if provided', async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      '<b2b-checkbox><span slot="label">Custom label</span></b2b-checkbox>',
+    );
+
+    const element = await page.find('span');
+
+    expect(element).toEqualText('Custom label');
+  });
 });
