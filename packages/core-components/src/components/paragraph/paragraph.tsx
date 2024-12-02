@@ -25,9 +25,15 @@ export class ParagraphComponent {
   /** The color of the paragraph. Defaults to black. */
   @Prop() variant: 'black-100' | 'grey-400' = 'black-100';
 
+  /** The positioning of the paragraph in the page flow. Defaults to native block behavior. */
+  @Prop() display: 'inline' | 'inline-block' | 'block' = 'block';
+
   render() {
     return (
       <p
+        style={{
+          display: this.display,
+        }}
         class={{
           'b2b-paragraph': true,
           ['b2b-paragraph--size-' + this.size]: true,
