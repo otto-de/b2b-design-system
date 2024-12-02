@@ -336,6 +336,7 @@ export class B2bDatePicker {
 
   private handleBackdropDismiss = () => {
     this.showDatePicker = false;
+    this.parseDateInput(this.userInputDate);
   };
 
   private moveFocusToInputComponent() {
