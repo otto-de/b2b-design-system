@@ -73,16 +73,6 @@ export class B2bMultiSelectDropdown {
     this.b2bChange.emit(newValues);
   }
 
-  @Watch('selectedValues')
-  handleSelectedValues(newValues: string | string[]) {
-    if (typeof newValues === 'string') {
-      this.selectedValues = this.parseStringToArray(newValues);
-    }
-    this.currentSelectedValues = (this.selectedValues as string[]).filter(
-      value => (this.optionsList as string[]).includes(value),
-    );
-  }
-
   private parseProps() {
     if (typeof this.selectedValues === 'string') {
       this.selectedValues = this.parseStringToArray(this.selectedValues);
