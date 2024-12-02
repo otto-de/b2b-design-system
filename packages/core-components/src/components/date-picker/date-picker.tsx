@@ -146,7 +146,8 @@ export class B2bDatePicker {
 
     const isValidDay = date.getDate() === day;
     const isValidMonth = date.getMonth() + 1 === month;
-    const isValidYear = date.getFullYear() === year;
+    const isValidYear =
+      date.getFullYear() === year && year >= 1900 && year <= 2100;
 
     if (!isValidDay || !isValidMonth || !isValidYear) {
       this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
