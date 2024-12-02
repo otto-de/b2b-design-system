@@ -25,10 +25,10 @@ export class B2bMultiSelectDropdown {
   @Prop({ reflect: true }) placeholder: string;
 
   /** The initial values to be selected in the dropdown. */
-  @Prop() selectedValues: string[] = [];
+  @Prop() selectedValues: string | string[] = [];
 
   /** The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. */
-  @Prop() optionsList: string[] = [];
+  @Prop() optionsList: string | string[] = [];
 
   /** The placeholder shown in the search bar. */
   @Prop() searchPlaceholder: string;
@@ -50,23 +50,50 @@ export class B2bMultiSelectDropdown {
   @State() hasOptionList = this.optionsList.length > 0;
 
   componentWillLoad() {
-    this.currentSelectedValues = this.selectedValues.filter(value =>
-      this.optionsList.includes(value),
+    this.parseProps();
+    this.currentSelectedValues = (this.selectedValues as string[]).filter(
+      value => this.optionsList.includes(value),
     );
   }
 
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
-  watchPropHandler(newList: string[]) {
-    this.hasOptionList = newList.length > 0;
+  watchPropHandler(newList: string | string[]) {
+    if (typeof newList === 'string') {
+      this.optionsList = this.parseStringToArray(newList);
+    }
+    this.hasOptionList = (this.optionsList as string[]).length > 0;
     if (this.hasOptionList) {
-      this.currentList = newList;
+      this.currentList = this.optionsList as string[];
     }
   }
 
   @Watch('currentSelectedValues')
   handleSelectedValuesChange(newValues: string[]) {
     this.b2bChange.emit(newValues);
+  }
+
+  @Watch('selectedValues')
+  handleSelectedValues(newValues: string | string[]) {
+    if (typeof newValues === 'string') {
+      this.selectedValues = this.parseStringToArray(newValues);
+    }
+    this.currentSelectedValues = (this.selectedValues as string[]).filter(
+      value => (this.optionsList as string[]).includes(value),
+    );
+  }
+
+  private parseProps() {
+    if (typeof this.selectedValues === 'string') {
+      this.selectedValues = this.parseStringToArray(this.selectedValues);
+    }
+    if (typeof this.optionsList === 'string') {
+      this.optionsList = this.parseStringToArray(this.optionsList);
+    }
+  }
+
+  private parseStringToArray(value: string): string[] {
+    return JSON.parse(value.replace(/'/g, '"'));
   }
 
   componentDidUpdate() {
@@ -78,7 +105,7 @@ export class B2bMultiSelectDropdown {
   private handleInput = event => {
     this.value = event.target.value.toLowerCase();
     if (this.value !== '') {
-      const filteredList = this.optionsList.filter(
+      const filteredList = (this.optionsList as string[]).filter(
         option => option.toLowerCase().indexOf(this.value) > -1,
       );
       this.currentList = filteredList;
@@ -275,7 +302,7 @@ export class B2bMultiSelectDropdown {
                 this.handleSelectAll
               }></b2b-multiselect-option>
             {this.hasOptionList &&
-              this.currentList.map(option => (
+              (this.currentList as string[]).map(option => (
                 <b2b-multiselect-option
                   onB2b-option-selected={this.handleSelectedChange}
                   option={option}></b2b-multiselect-option>
