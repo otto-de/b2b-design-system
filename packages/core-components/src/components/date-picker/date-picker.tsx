@@ -144,9 +144,14 @@ export class B2bDatePicker {
   private isValidDate(day: number, month: number, year: number): boolean {
     const date = new Date(year, month - 1, day);
 
-    const isValidDay = day > 0 && day <= 31;
-    const isValidMonth = month > 0 && month <= 12;
-    const isValidYear = year > 0;
+    const isValidDay = date.getDate() === day;
+    const isValidMonth = date.getMonth() + 1 === month;
+    const isValidYear = date.getFullYear() === year;
+
+    if (!isValidDay || !isValidMonth || !isValidYear) {
+      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
+      return false;
+    }
 
     let isValidRange = true;
     if (this.disablePastDates && date < this.todayWithoutTime) {
@@ -161,7 +166,8 @@ export class B2bDatePicker {
       this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
       isValidRange = false;
     }
-    return isValidDay && isValidMonth && isValidYear && isValidRange;
+
+    return isValidRange;
   }
 
   private emitSelectedDate() {
