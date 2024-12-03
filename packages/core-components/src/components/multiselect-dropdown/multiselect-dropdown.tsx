@@ -50,7 +50,7 @@ export class B2bMultiSelectDropdown {
   @State() hasOptionList = this.optionsList.length > 0;
 
   componentWillLoad() {
-    this.parseProps();
+    this.parseSelectedValuesAndOptionsList();
     this.currentSelectedValues = (this.selectedValues as string[]).filter(
       value => this.optionsList.includes(value),
     );
@@ -70,7 +70,7 @@ export class B2bMultiSelectDropdown {
     this.b2bChange.emit(newValues);
   }
 
-  private parseProps() {
+  private parseSelectedValuesAndOptionsList() {
     if (typeof this.selectedValues === 'string') {
       this.selectedValues = this.parseStringToArray(this.selectedValues);
     }
