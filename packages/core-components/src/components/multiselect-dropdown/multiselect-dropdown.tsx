@@ -58,13 +58,10 @@ export class B2bMultiSelectDropdown {
 
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
-  watchPropHandler(newList: string | string[]) {
-    if (typeof newList === 'string') {
-      this.optionsList = this.parseStringToArray(newList);
-    }
-    this.hasOptionList = (this.optionsList as string[]).length > 0;
+  watchPropHandler(newList: string[]) {
+    this.hasOptionList = newList.length > 0;
     if (this.hasOptionList) {
-      this.currentList = this.optionsList as string[];
+      this.currentList = newList;
     }
   }
 

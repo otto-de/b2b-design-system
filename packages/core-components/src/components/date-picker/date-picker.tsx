@@ -100,6 +100,7 @@ export class B2bDatePicker {
 
   @Listen('b2b-date-picker-previous-month')
   getPreviousMonth() {
+    this.invalid = false;
     if (this.selectedMonth === 0) {
       this.setCurrentMonth(11);
       this.setCurrentYear(this.selectedYear - 1);
@@ -116,7 +117,6 @@ export class B2bDatePicker {
     }
     if (!regex.test(dateString)) {
       this.invalid = true;
-      this.showDatePicker = false;
       this.errorMessage = this.FORMATTING_ERROR_MESSAGE;
       return;
     }
@@ -194,6 +194,9 @@ export class B2bDatePicker {
 
     if (value.length === 10) {
       this.parseDateInput(value);
+      if (this.invalid) {
+        this.showDatePicker = false;
+      }
     }
   };
 
@@ -253,6 +256,7 @@ export class B2bDatePicker {
 
   @Listen('b2b-date-picker-next-month')
   getNextMonth() {
+    this.invalid = false;
     if (this.selectedMonth === 11) {
       this.setCurrentMonth(0);
       this.setCurrentYear(this.selectedYear + 1);
@@ -341,9 +345,15 @@ export class B2bDatePicker {
     }
   }
 
+  private handleFocusOut() {
+    if (this.userInputDate === '' || this.invalid) {
+      return;
+    }
+    this.parseDateInput(this.userInputDate);
+  }
+
   private handleBackdropDismiss = () => {
     this.showDatePicker = false;
-    this.parseDateInput(this.userInputDate);
   };
 
   private moveFocusToInputComponent() {
@@ -395,6 +405,7 @@ export class B2bDatePicker {
                 onFocus={this.handleInputFocus}
                 onBlur={() => {
                   this.focused = false;
+                  this.handleFocusOut();
                 }}
               />
             </div>
