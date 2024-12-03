@@ -168,7 +168,7 @@ export class CheckboxComponent {
                 id={this.name}
                 required={this.required}
                 disabled={this.disabled}>
-                {this.label}
+                <slot name="label">{this.label}</slot>
               </b2b-input-label>
             )}
           </div>
