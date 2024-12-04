@@ -683,7 +683,7 @@ export namespace Components {
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
-        "optionsList": string[];
+        "optionsList": string | string[];
         /**
           * The placeholder shown in the input field.
          */
@@ -699,7 +699,7 @@ export namespace Components {
         /**
           * The initial values to be selected in the dropdown.
          */
-        "selectedValues": string[];
+        "selectedValues": string | string[];
     }
     interface B2bMultiselectOption {
         "indeterminate"?: boolean;
@@ -3019,7 +3019,7 @@ declare namespace LocalJSX {
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
-        "optionsList"?: string[];
+        "optionsList"?: string | string[];
         /**
           * The placeholder shown in the input field.
          */
@@ -3035,7 +3035,7 @@ declare namespace LocalJSX {
         /**
           * The initial values to be selected in the dropdown.
          */
-        "selectedValues"?: string[];
+        "selectedValues"?: string | string[];
     }
     interface B2bMultiselectOption {
         "indeterminate"?: boolean;

@@ -100,6 +100,7 @@ export class B2bDatePicker {
 
   @Listen('b2b-date-picker-previous-month')
   getPreviousMonth() {
+    this.invalid = false;
     if (this.selectedMonth === 0) {
       this.setCurrentMonth(11);
       this.setCurrentYear(this.selectedYear - 1);
@@ -116,7 +117,6 @@ export class B2bDatePicker {
     }
     if (!regex.test(dateString)) {
       this.invalid = true;
-      this.showDatePicker = false;
       this.errorMessage = this.FORMATTING_ERROR_MESSAGE;
       return;
     }
@@ -144,9 +144,15 @@ export class B2bDatePicker {
   private isValidDate(day: number, month: number, year: number): boolean {
     const date = new Date(year, month - 1, day);
 
-    const isValidDay = day > 0 && day <= 31;
-    const isValidMonth = month > 0 && month <= 12;
-    const isValidYear = year > 0;
+    const isValidDay = date.getDate() === day;
+    const isValidMonth = date.getMonth() + 1 === month;
+    const isValidYear =
+      date.getFullYear() === year && year >= 1900 && year <= 2100;
+
+    if (!isValidDay || !isValidMonth || !isValidYear) {
+      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
+      return false;
+    }
 
     let isValidRange = true;
     if (this.disablePastDates && date < this.todayWithoutTime) {
@@ -161,7 +167,8 @@ export class B2bDatePicker {
       this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
       isValidRange = false;
     }
-    return isValidDay && isValidMonth && isValidYear && isValidRange;
+
+    return isValidRange;
   }
 
   private emitSelectedDate() {
@@ -187,6 +194,9 @@ export class B2bDatePicker {
 
     if (value.length === 10) {
       this.parseDateInput(value);
+      if (this.invalid) {
+        this.showDatePicker = false;
+      }
     }
   };
 
@@ -246,6 +256,7 @@ export class B2bDatePicker {
 
   @Listen('b2b-date-picker-next-month')
   getNextMonth() {
+    this.invalid = false;
     if (this.selectedMonth === 11) {
       this.setCurrentMonth(0);
       this.setCurrentYear(this.selectedYear + 1);
@@ -334,6 +345,13 @@ export class B2bDatePicker {
     }
   }
 
+  private handleFocusOut() {
+    if (this.userInputDate === '' || this.invalid) {
+      return;
+    }
+    this.parseDateInput(this.userInputDate);
+  }
+
   private handleBackdropDismiss = () => {
     this.showDatePicker = false;
   };
@@ -387,6 +405,7 @@ export class B2bDatePicker {
                 onFocus={this.handleInputFocus}
                 onBlur={() => {
                   this.focused = false;
+                  this.handleFocusOut();
                 }}
               />
             </div>
