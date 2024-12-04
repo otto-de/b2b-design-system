@@ -1,3 +1,16 @@
+# [1.19.0](https://github.com/otto-de/b2b-design-system/compare/v1.18.0...v1.19.0) (2024-12-04)
+
+
+### Bug Fixes
+
+* **MultiselectDropdown:** [BLA-1038] Fix the multi select drop down option list prop to adhere to vue js ([#516](https://github.com/otto-de/b2b-design-system/issues/516)) ([c42a88c](https://github.com/otto-de/b2b-design-system/commit/c42a88c0b9d4fa645ae1c4089e8bbe3513b8ca04))
+
+
+### Features
+
+* **Checkbox:** [JELLY-8594] add label slot ([#514](https://github.com/otto-de/b2b-design-system/issues/514)) ([f47a23b](https://github.com/otto-de/b2b-design-system/commit/f47a23b1794235936d4903efa18c64c2698fec21))
+* **Paragraph:** [BLA-705] optional bottom margin and grey-400 variant ([d360173](https://github.com/otto-de/b2b-design-system/commit/d360173b6d424f124d2be806266b7a0a1b409a8c))
+
 # [1.18.0](https://github.com/otto-de/b2b-design-system/compare/v1.17.0...v1.18.0) (2024-11-08)
 
 
