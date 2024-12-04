@@ -193,36 +193,6 @@ export class TableRowComponent {
     }
   };
 
-  // private getAccordionColumns = () => {
-  //   if (this.accordionType != undefined) {
-  //     switch (this.accordionType) {
-  //       case TableAccordionRowTypes.HEADER:
-  //         return (
-  //           <b2b-table-header class="b2b-table-row__control-cell--accordion"></b2b-table-header>
-  //         );
-  //       case TableAccordionRowTypes.PARENT:
-  //         return (
-  //           <b2b-table-cell>
-  //             <button
-  //               onClick={this.toggleOpen}
-  //               class={{
-  //                 'b2b-table-row__accordion-icon': true,
-  //                 'b2b-table-row__accordion-icon--open': this.isOpen,
-  //               }}>
-  //               <b2b-icon
-  //                 icon="b2b_icon-arrow-right"
-  //                 clickable={true}></b2b-icon>
-  //             </button>
-  //           </b2b-table-cell>
-  //         );
-  //       case TableAccordionRowTypes.CHILD:
-  //         return (
-  //           <b2b-table-cell class="b2b-table-row__control-cell--accordion"></b2b-table-cell>
-  //         );
-  //     }
-  //   }
-  // };
-
   render() {
     return (
       <Host

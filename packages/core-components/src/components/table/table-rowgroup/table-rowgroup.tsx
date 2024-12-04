@@ -127,22 +127,6 @@ export class TableRowgroupComponent {
     }
   }
 
-  // private addAccordionControlColumn = () => {
-  //   const firstRow = getFirstRow(this.host);
-
-  //   if (this.type === TableRowgroupTypes.HEADER) {
-  //     firstRow && (firstRow.accordionType = TableAccordionRowTypes.HEADER);
-  //   } else {
-  //     firstRow && (firstRow.accordionType = TableAccordionRowTypes.PARENT);
-  //   }
-
-  //   const children = getRemainingRows(this.host);
-  //   children &&
-  //     children.forEach(child => {
-  //       child.accordionType = TableAccordionRowTypes.CHILD;
-  //     });
-  // };
-
   private addCheckboxColumn = () => {
     const children = getAllRows(this.host);
     children.forEach(child => (child.selectable = true));
