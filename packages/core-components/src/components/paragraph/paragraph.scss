@@ -2,7 +2,6 @@
 
 .b2b-paragraph {
   font-family: var(--b2b-font-family-default);
-  color: var(--b2b-color-copy-default);
   margin: 0 0 var(--b2b-size-30);
 
   &--size-50 {
@@ -33,5 +32,17 @@
 
   &--align-center {
     text-align: center;
+  }
+
+  &--variant-black-100 {
+    color: var(--b2b-color-copy-default);
+  }
+
+  &--variant-grey-400 {
+    color: var(--b2b-color-grey-400);
+  }
+
+  &--no-margin {
+    margin: 0;
   }
 }

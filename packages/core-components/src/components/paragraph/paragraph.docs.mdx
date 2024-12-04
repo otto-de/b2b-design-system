@@ -18,9 +18,7 @@ This component can be used to render running text. Its a wrapper around the `<p>
 
 ### Example
 
-<Canvas withSource="open" withToolbar={false}>
-  <Story id="components-content-paragraph--story-010-default" />
-</Canvas>
+<Canvas of={ParagraphStories.Default} />
 
 NOTE: All attributes are optional. The component can simply be used like this without specifying any attributes:
 
@@ -32,31 +30,40 @@ NOTE: All attributes are optional. The component can simply be used like this wi
 
 ### Weight
 
-<Canvas withSource="closed" withToolbar={false}>
-  <Story id="components-content-paragraph--story-020-bold" />
-</Canvas>
+<Canvas of={ParagraphStories.Bold} />
 
 ### Size
 
 Can be used for hints and asterisk texts, among others.
 
-<Canvas withSource="closed" withToolbar={false}>
-  <Story id="components-content-paragraph--story-030-small" />
-</Canvas>
+<Canvas of={ParagraphStories.Small} />
 
 ### Align
 
 #### Center aligned text
 
-<Canvas withSource="closed" withToolbar={false}>
-  <Story id="components-content-paragraph--story-040-center" />
-</Canvas>
+<Canvas of={ParagraphStories.CenterAligned} />
 
 #### Right aligned text
 
-<Canvas withSource="closed" withToolbar={false}>
-  <Story id="components-content-paragraph--story-050-right" />
-</Canvas>
+<Canvas of={ParagraphStories.RightAligned} />
+
+### Margin
+
+#### No Bottom Margin
+
+<Canvas of={ParagraphStories.NoBottomMargin} />
+
+### Variant
+
+#### Grey
+
+<Canvas of={ParagraphStories.GreyVariant} />
+
+### Display
+
+Per default, the `b2b-paragraph` mimicks the native HTML `display` value, which is `block`.
+You can set it to `inline`
 
 ## Attributes
 
