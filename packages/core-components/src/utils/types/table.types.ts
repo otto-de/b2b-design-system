@@ -36,14 +36,6 @@ export const TableSortDirections = {
 export type TableSortDirections =
   (typeof TableSortDirections)[keyof typeof TableSortDirections];
 
-export const TableAccordionRowTypes = {
-  PARENT: 'parent',
-  CHILD: 'child',
-  HEADER: 'header',
-} as const;
-export type TableAccordionRowTypes =
-  (typeof TableAccordionRowTypes)[keyof typeof TableAccordionRowTypes];
-
 export const TableCheckboxTypes = {
   HEADER: 'header',
   ROW: 'row',
