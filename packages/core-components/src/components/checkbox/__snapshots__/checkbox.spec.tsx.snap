@@ -4,7 +4,7 @@ exports[`should apply an error style if it is marked as invalid. 1`] = `
 <b2b-checkbox>
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--error">
-      <div class="b2b-checkbox-items">
+      <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           <slot name="label">
@@ -24,7 +24,7 @@ exports[`should disable the checkbox 1`] = `
 <b2b-checkbox disabled="">
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--disabled">
-      <div class="b2b-checkbox-items">
+      <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" disabled="" type="checkbox">
         <b2b-input-label disabled="">
           <slot name="label">
@@ -41,7 +41,7 @@ exports[`should render a hint if  invalid and disabled are true at the same time
 <b2b-checkbox disabled="">
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--disabled">
-      <div class="b2b-checkbox-items">
+      <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" disabled="" type="checkbox">
         <b2b-input-label disabled="">
           <slot name="label">
@@ -61,7 +61,7 @@ exports[`should render a hint message if a hint string is specified 1`] = `
 <b2b-checkbox>
   <mock:shadow-root>
     <div class="b2b-checkbox">
-      <div class="b2b-checkbox-items">
+      <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           <slot name="label">
@@ -81,7 +81,7 @@ exports[`should render an error message if an error is specified and it is marke
 <b2b-checkbox>
   <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--error">
-      <div class="b2b-checkbox-items">
+      <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           <slot name="label">
@@ -101,7 +101,7 @@ exports[`should render the checkbox 1`] = `
 <b2b-checkbox>
   <mock:shadow-root>
     <div class="b2b-checkbox">
-      <div class="b2b-checkbox-items">
+      <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
         <b2b-input-label>
           <slot name="label">
