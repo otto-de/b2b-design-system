@@ -89,6 +89,7 @@ export const story070LabelSlot: StoryObj = {
   render: ({}) =>
     html`<b2b-checkbox><span slot="label">Label Slot</span></b2b-input>`,
 };
+story070LabelSlot.storyName = 'Label slot';
 
 const controls = {};
 const inputCheckboxArgs = getArgTypes('b2b-checkbox', controls);
