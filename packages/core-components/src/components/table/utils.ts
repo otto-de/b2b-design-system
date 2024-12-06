@@ -55,3 +55,9 @@ export function getFirstRow(
     return firstRow as HTMLB2bTableRowElement;
   }
 }
+
+export function isFirstRow(el: HTMLElement) {
+  // attr is nullable so
+  // eslint-disable-next-line @stencil-community/strict-boolean-conditions
+  return el.previousElementSibling ? false : true;
+}

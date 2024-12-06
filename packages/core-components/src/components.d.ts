@@ -11,7 +11,7 @@ import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
 import { IconName as IconName2 } from "./components/icon-50/types";
 import { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-import { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+import { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
@@ -21,7 +21,7 @@ export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
 export { IconName as IconName2 } from "./components/icon-50/types";
 export { BeforeCloseEventDetail } from "./utils/interfaces/status.interface";
-export { ContentAlignment, TableAccordionRowTypes, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
+export { ContentAlignment, TableColourOptions, TableRowgroupTypes, TableSizes, TableSortDirections } from "./utils/types/table.types";
 export { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 export { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
@@ -740,6 +740,10 @@ export namespace Components {
          */
         "align": 'left' | 'right' | 'center';
         /**
+          * The positioning of the paragraph in the page flow. Defaults to native block behavior.
+         */
+        "display": 'inline' | 'inline-block' | 'block';
+        /**
           * Whether or not the paragraph has a bottom margin. Defaults to true.
          */
         "margin": boolean;
@@ -990,7 +994,6 @@ export namespace Components {
         "totalCols"?: number;
     }
     interface B2bTableRow {
-        "accordionType": TableAccordionRowTypes;
         /**
           * If a selectable row is currently checked. Per default, it is false.
          */
@@ -3084,6 +3087,10 @@ declare namespace LocalJSX {
          */
         "align"?: 'left' | 'right' | 'center';
         /**
+          * The positioning of the paragraph in the page flow. Defaults to native block behavior.
+         */
+        "display"?: 'inline' | 'inline-block' | 'block';
+        /**
           * Whether or not the paragraph has a bottom margin. Defaults to true.
          */
         "margin"?: boolean;
@@ -3370,7 +3377,6 @@ declare namespace LocalJSX {
         "totalCols"?: number;
     }
     interface B2bTableRow {
-        "accordionType"?: TableAccordionRowTypes;
         /**
           * If a selectable row is currently checked. Per default, it is false.
          */

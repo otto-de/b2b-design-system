@@ -245,18 +245,20 @@ describe('B2B-Table', () => {
     page = await newE2EPage();
     await page.setContent(tableWithAccordion);
     const firstRow = await page.find('#test-parent');
-    const type = await firstRow.getProperty('accordionType');
+    const arrowCell = await firstRow.find('b2b-table-row__accordion-icon');
 
-    expect(type).toEqualText('parent');
+    expect(arrowCell).toBeDefined();
   });
 
   it('should render all rows as accordion children when they are in the same rowgroup of type body in which accordion is true', async () => {
     page = await newE2EPage();
     await page.setContent(tableWithAccordion);
-    const firstRow = await page.find('#test-child');
-    const type = await firstRow.getProperty('accordionType');
+    const childRow = await page.find('#test-child');
+    const controlCell = await childRow.find(
+      '.b2b-table-row__control-cell--accordion',
+    );
 
-    expect(type).toEqualText('child');
+    expect(controlCell).toBeDefined();
   });
 
   it('should add an extra column for controls if accordion is true on a rowgroup', async () => {
