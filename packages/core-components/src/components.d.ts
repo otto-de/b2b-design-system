@@ -77,6 +77,10 @@ export namespace Components {
         "noPadding": boolean;
     }
     interface B2bBreadcrumb {
+        /**
+          * Vertical padding for the breadcrumb component
+         */
+        "paddingVertical": number;
     }
     interface B2bBreadcrumbItem {
         /**
@@ -2323,6 +2327,10 @@ declare namespace LocalJSX {
           * Emits the value of the currently selected item whenever an item is selected.
          */
         "onB2b-selected"?: (event: B2bBreadcrumbCustomEvent<BreadCrumbChangeEventDetail>) => void;
+        /**
+          * Vertical padding for the breadcrumb component
+         */
+        "paddingVertical"?: number;
     }
     interface B2bBreadcrumbItem {
         /**

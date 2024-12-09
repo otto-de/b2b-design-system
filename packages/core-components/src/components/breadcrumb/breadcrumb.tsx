@@ -2,6 +2,7 @@ import {
   Component,
   Host,
   h,
+  Prop,
   Event,
   EventEmitter,
   Element,
@@ -16,6 +17,9 @@ import { BreadCrumbChangeEventDetail } from '../../utils/interfaces/interaction.
 })
 export class B2bBreadCrumbComponent {
   @Element() host: HTMLB2bBreadcrumbElement;
+
+  /** Vertical padding for the breadcrumb component */
+  @Prop() paddingVertical: number = 0; // Default value is 0px
 
   /** Emits the value of the currently selected item whenever an item is selected. */
   @Event({ eventName: 'b2b-selected' })
@@ -40,7 +44,10 @@ export class B2bBreadCrumbComponent {
 
   render() {
     return (
-      <Host>
+      <Host
+        style={{
+          '--b2b-breadcrumb-padding-vertical': `${this.paddingVertical}px`,
+        }}>
         <div class="b2b-breadcrumb-nav">
           <slot></slot>
         </div>

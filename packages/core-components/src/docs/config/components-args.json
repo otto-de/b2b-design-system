@@ -171,7 +171,19 @@
       "description": "Whether the box should have a padding. Per default, padding is enabled"
     }
   },
-  "b2b-breadcrumb": {},
+  "b2b-breadcrumb": {
+    "paddingVertical": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "0"
+        }
+      },
+      "description": "Vertical padding for the breadcrumb component"
+    }
+  },
   "b2b-breadcrumb-item": {
     "active": {
       "control": {
