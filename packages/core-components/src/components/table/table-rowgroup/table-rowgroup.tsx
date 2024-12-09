@@ -10,7 +10,6 @@ import {
   EventEmitter,
 } from '@stencil/core';
 import {
-  TableAccordionRowTypes,
   TableRowgroupTypes,
   TableSizes,
 } from '../../../utils/types/table.types';
@@ -23,6 +22,7 @@ import {
   getFirstRow,
   getAllRows,
   getRemainingRows,
+  isFirstRow,
 } from '../utils';
 import { TableAccordionSelectedEventDetail } from '../../../utils/interfaces/content.interface';
 
@@ -73,10 +73,7 @@ export class TableRowgroupComponent {
     const target = event.target;
     const table = this.host.closest('b2b-table');
     const parentValue = getFirstRow(this.host).value ?? 'header';
-    if (
-      this.accordion &&
-      target.accordionType === TableAccordionRowTypes.PARENT
-    ) {
+    if (this.accordion && isFirstRow(target) && parentValue != 'header') {
       const children = getRemainingRows(this.host);
       this.toggleSelectAll(event, children);
     } else if (this.type === TableRowgroupTypes.HEADER) {
@@ -106,9 +103,7 @@ export class TableRowgroupComponent {
     children: HTMLB2bTableRowElement[],
   ) => {
     this.toggleList(children, event);
-    const rows = children.filter(
-      child => child.accordionType !== TableAccordionRowTypes.PARENT,
-    );
+    const rows = children.filter(child => !isFirstRow(child));
     this.selectedValues = [...rows]
       .filter(child => child.checked)
       .map(child => child.value);
@@ -131,22 +126,6 @@ export class TableRowgroupComponent {
       firstRow.setAttribute('highlight', 'false');
     }
   }
-
-  private addAccordionControlColumn = () => {
-    const firstRow = getFirstRow(this.host);
-
-    if (this.type === TableRowgroupTypes.HEADER) {
-      firstRow && (firstRow.accordionType = TableAccordionRowTypes.HEADER);
-    } else {
-      firstRow && (firstRow.accordionType = TableAccordionRowTypes.PARENT);
-    }
-
-    const children = getRemainingRows(this.host);
-    children &&
-      children.forEach(child => {
-        child.accordionType = TableAccordionRowTypes.CHILD;
-      });
-  };
 
   private addCheckboxColumn = () => {
     const children = getAllRows(this.host);
@@ -192,7 +171,6 @@ export class TableRowgroupComponent {
 
   componentWillLoad() {
     if (this.accordion) {
-      this.addAccordionControlColumn();
       this.toggleInitialVisibility();
     }
 

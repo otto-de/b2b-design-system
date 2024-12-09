@@ -33,13 +33,13 @@ export class FlyoutMenuComponent {
     }
     // Manual event handler registration for focus events
     this.triggerEl = children[0] as HTMLElement;
-    this.triggerEl.addEventListener('click', this.openMenu, true);
+    this.triggerEl.addEventListener('click', this.toggleMenu, true);
     this.triggerEl.addEventListener('blur', this.blurMenu, true);
   }
 
   disconnectedCallback() {
     if (Boolean(this.triggerEl)) {
-      this.triggerEl.removeEventListener('click', this.openMenu, true);
+      this.triggerEl.removeEventListener('click', this.toggleMenu, true);
       this.triggerEl.removeEventListener('blur', this.blurMenu, true);
     }
   }
@@ -80,8 +80,8 @@ export class FlyoutMenuComponent {
         this.triggerEl.tagName.toLowerCase() &&
       event.key === 'Enter'
     ) {
-      this.openMenu();
-    } else if (Object.values(keys).includes(event.key)) {
+      this.toggleMenu();
+    } else if (Object.values(keys).includes(event.key) && this.opened) {
       this.navigateMenu(event);
     }
   }
@@ -102,8 +102,8 @@ export class FlyoutMenuComponent {
     this.closeMenu();
   };
 
-  private openMenu = () => {
-    this.opened = true;
+  private toggleMenu = () => {
+    this.opened = !this.opened;
   };
 
   private navigateMenu(event: KeyboardEvent) {
@@ -132,6 +132,20 @@ export class FlyoutMenuComponent {
         return;
     }
 
+    while (index >= 0 && index < options.length) {
+      const option = options[index];
+      if (!option.classList.contains('b2b-flyout-menu__option--disabled')) {
+        this.setCurrentOption(option);
+        option.focus();
+        return;
+      }
+      if (event.key === keys.ARROW_UP) {
+        index--;
+      } else {
+        index++;
+      }
+    }
+
     if (index < 0) {
       index = options.length - 1;
     }
@@ -153,16 +167,15 @@ export class FlyoutMenuComponent {
    * to the options. We only close the menu if the next element receiving focus
    * (relatedTarget) is not a menu option.
    */
-  private blurMenu = event => {
+  private blurMenu = (event: FocusEvent) => {
     event.preventDefault();
-    let target = event.relatedTarget
-      ? event.relatedTarget.nodeName.toLowerCase()
-      : '';
-    if (target === 'b2b-flyout-menu-option') {
+    const target = event.relatedTarget as HTMLElement;
+    if (target && target.tagName.toLowerCase() === 'b2b-flyout-menu-option') {
       return;
-    } else {
-      this.closeMenu();
     }
+    setTimeout(() => {
+      this.closeMenu();
+    }, 150);
   };
 
   render() {

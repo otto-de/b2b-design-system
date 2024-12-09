@@ -24,7 +24,7 @@ import * as CheckboxStories from './checkbox.stories';
 
 The label of the checkbox which appears on the right hand side next to it. This is the only
 required property. It is not the same as the checkbox value, which indicates its programmatical
-value.
+value. If you need custom content like bold text or a link, use the named slot label.
 
 ### Required
 
@@ -84,6 +84,14 @@ checkbox is currently checked.
   value: T;
   checked: boolean;
 }`
+
+## Slots
+
+### Label
+
+If you need the label to contain something other than plain text you may use the label slot like so:
+
+<Canvas of={CheckboxStories.story070LabelSlot} sourceState="shown" />
 
 ## Attributes
 

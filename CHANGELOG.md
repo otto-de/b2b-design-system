@@ -1,3 +1,139 @@
+# [1.19.0](https://github.com/otto-de/b2b-design-system/compare/v1.18.0...v1.19.0) (2024-12-04)
+
+
+### Bug Fixes
+
+* **MultiselectDropdown:** [BLA-1038] Fix the multi select drop down option list prop to adhere to vue js ([#516](https://github.com/otto-de/b2b-design-system/issues/516)) ([c42a88c](https://github.com/otto-de/b2b-design-system/commit/c42a88c0b9d4fa645ae1c4089e8bbe3513b8ca04))
+
+
+### Features
+
+* **Checkbox:** [JELLY-8594] add label slot ([#514](https://github.com/otto-de/b2b-design-system/issues/514)) ([f47a23b](https://github.com/otto-de/b2b-design-system/commit/f47a23b1794235936d4903efa18c64c2698fec21))
+* **Paragraph:** [BLA-705] optional bottom margin and grey-400 variant ([d360173](https://github.com/otto-de/b2b-design-system/commit/d360173b6d424f124d2be806266b7a0a1b409a8c))
+
+# [1.18.0](https://github.com/otto-de/b2b-design-system/compare/v1.17.0...v1.18.0) (2024-11-08)
+
+
+### Bug Fixes
+
+* **FlyoutMenu:** [BLA-1003] Close flyout menu on click of the icon ([f016fbf](https://github.com/otto-de/b2b-design-system/commit/f016fbfcd9d11f4995dd61a28d6391728139aa1d))
+* **Icon100:** [BLA-1020] Update the light bulb icon with the correct onw ([#509](https://github.com/otto-de/b2b-design-system/issues/509)) ([dbf0896](https://github.com/otto-de/b2b-design-system/commit/dbf089636f4ee648aebdaff953d4fc820a41c3db))
+
+
+### Features
+
+* **core:** [NEPTUNE-4379] add background-box component ([c2e4c65](https://github.com/otto-de/b2b-design-system/commit/c2e4c652147b476de28483889c3ee528f292d27c))
+
+# [1.17.0](https://github.com/otto-de/b2b-design-system/compare/v1.16.0...v1.17.0) (2024-10-24)
+
+
+### Bug Fixes
+
+* **DatePicker:** [BLA-996] Fix the error handling scenario ([#506](https://github.com/otto-de/b2b-design-system/issues/506)) ([75267c8](https://github.com/otto-de/b2b-design-system/commit/75267c8db153f59e8194441c19b20339a22bd359))
+
+
+### Features
+
+* **Calendar:** [BLA-694] add months and years views to calendar ([fbd12ef](https://github.com/otto-de/b2b-design-system/commit/fbd12ef9fa7743a8ace947da71b7730ec4353fbf))
+* **DatePicker:** [BLA-853] Date picker improvements ([24b0344](https://github.com/otto-de/b2b-design-system/commit/24b034450d71665db75df406549b52497001403c))
+* **DatePicker:** [BLA-996] Close date picker when there is a formatting issue ([22b0b30](https://github.com/otto-de/b2b-design-system/commit/22b0b30628e87f2116f66a0ab3206c381078bba8))
+* **DatePicker:** [BLA-996] focus out on blur ([044c763](https://github.com/otto-de/b2b-design-system/commit/044c7630fd763684252fdcc225cea4a9db494cfc))
+* **DatePicker:** [BLA-996] Loose focus on selection of date ([d61072f](https://github.com/otto-de/b2b-design-system/commit/d61072f93e3725b42200803ea115355fd64db48d))
+* **DatePicker:** [BLA-996] Provide prop to choose to show or hide hint message ([5434b44](https://github.com/otto-de/b2b-design-system/commit/5434b44bb58f3f9db2265a1b423fd2b500aa4d60))
+* **DatePicker:** [BLA-996] Should not remove selected date when enter is pressed ([44e47dd](https://github.com/otto-de/b2b-design-system/commit/44e47ddb20781ced271707be92eb3d9fa2d63573))
+* **DatePicker:** [BLA-996] Should not remove selected date when enter is pressed ([7577107](https://github.com/otto-de/b2b-design-system/commit/757710743c391182ed8f193d79e25cd69c21f3a7))
+
+# [1.16.0](https://github.com/otto-de/b2b-design-system/compare/v1.15.1...v1.16.0) (2024-10-09)
+
+
+### Bug Fixes
+
+* **FlyoutMenuOption:** added shadow:true & css ([#498](https://github.com/otto-de/b2b-design-system/issues/498)) ([08eb1c6](https://github.com/otto-de/b2b-design-system/commit/08eb1c6cf6986803fbb9a4db847ce71b4b4cc372))
+
+
+### Features
+
+* **Icons:** [BLA-969] Added duplicate icon for Icon and Icon 100 components ([db7dce9](https://github.com/otto-de/b2b-design-system/commit/db7dce966a0effcc1d5cf0b9626c2e279106610a))
+
+## [1.15.1](https://github.com/otto-de/b2b-design-system/compare/v1.15.0...v1.15.1) (2024-09-19)
+
+
+### Bug Fixes
+
+* **Calendar:** [BLA-682] fix Pagination issue and calendar ([51834f5](https://github.com/otto-de/b2b-design-system/commit/51834f51e7094ed2c8a5f5fc4bd56aa6fa20c1f6))
+
+# [1.15.0](https://github.com/otto-de/b2b-design-system/compare/v1.14.1...v1.15.0) (2024-09-10)
+
+
+### Bug Fixes
+
+* **Input:** [BLA-936] Change B2b Input label colour to b2b-black-100 ([5014910](https://github.com/otto-de/b2b-design-system/commit/501491002b21ff8d437770c7af6fd846b76e4088))
+* **toolTip:** [BLA-899] BUG - Focus Tooltip shows error in Storybook ([c812137](https://github.com/otto-de/b2b-design-system/commit/c8121378315e3121c861725e96f14ad40c7da19f))
+
+
+### Features
+
+* **Tokens:** [BLA-704] Add a new color token for hover effect ([ae26b31](https://github.com/otto-de/b2b-design-system/commit/ae26b31a9d7381e7caeef8850c6c7a1cfd71a4be))
+
+## [1.14.1](https://github.com/otto-de/b2b-design-system/compare/v1.14.0...v1.14.1) (2024-09-04)
+
+
+### Bug Fixes
+
+* **Icons:** [BLA-775] Change icon to have chat icon ([b933859](https://github.com/otto-de/b2b-design-system/commit/b9338590166ed75c7d51dfba459504c3f6f9b7b5))
+
+
+### Reverts
+
+* Revert "fix(Input): [BLA-869] Inputs with a Pre- and Suffix (Improvement)" ([da0e187](https://github.com/otto-de/b2b-design-system/commit/da0e187c17ee5d4889c4b1e7ee76f7c01ea6bdd9))
+
+# [1.14.0](https://github.com/otto-de/b2b-design-system/compare/v1.13.0...v1.14.0) (2024-09-04)
+
+
+### Bug Fixes
+
+* **Input:** [BLA-869] Inputs with a Pre- and Suffix (Improvement) ([42e2598](https://github.com/otto-de/b2b-design-system/commit/42e2598ab9aa4181028f3b47ed943d09c1246145))
+
+
+### Features
+
+* **Icons:** [BLA-775] Update Icons to Storybook ([a412997](https://github.com/otto-de/b2b-design-system/commit/a412997b79550d170b249331bb634ead035143f5))
+
+# [1.13.0](https://github.com/otto-de/b2b-design-system/compare/v1.12.4...v1.13.0) (2024-09-03)
+
+
+### Features
+
+* **Icons:** [BLA-775] Update Icons to Storybook ([9075bb6](https://github.com/otto-de/b2b-design-system/commit/9075bb6ef9165955caddcd2eb01519a826a75bfd))
+
+## [1.12.4](https://github.com/otto-de/b2b-design-system/compare/v1.12.3...v1.12.4) (2024-09-03)
+
+
+### Bug Fixes
+
+* **Icons:** [BLA-775] Update Icons to Storybook ([ff41809](https://github.com/otto-de/b2b-design-system/commit/ff418094d3b5e99f321585d4b93684894a8f4e4a))
+
+## [1.12.3](https://github.com/otto-de/b2b-design-system/compare/v1.12.2...v1.12.3) (2024-09-02)
+
+
+### Bug Fixes
+
+* **Icons:** [BLA-775] Update Icons to Storybook ([137949a](https://github.com/otto-de/b2b-design-system/commit/137949a7b785e496b2ec9462090dd3c07bed476f))
+
+## [1.12.2](https://github.com/otto-de/b2b-design-system/compare/v1.12.1...v1.12.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* **FlyoutMenu:** [BLA-SCOUT] Emit option select event after slight delay ([862eef4](https://github.com/otto-de/b2b-design-system/commit/862eef494ed212a0dd0794af039bb37c24e9dc1f))
+
+## [1.12.1](https://github.com/otto-de/b2b-design-system/compare/v1.12.0...v1.12.1) (2024-07-31)
+
+
+### Bug Fixes
+
+* **Table:** [BLA-882] selected table hover effect color correction ([692a771](https://github.com/otto-de/b2b-design-system/commit/692a771e44e5c1fe66082d05e0f846a39c720aab))
+
 # [1.12.0](https://github.com/otto-de/b2b-design-system/compare/v1.11.1...v1.12.0) (2024-07-16)
 
 

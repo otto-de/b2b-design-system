@@ -19,7 +19,7 @@ exports[`B2B Input Group should not render a group error if the group is invalid
       </b2b-input-label>
       <div class="b2b-input__wrapper b2b-input__wrapper--disabled">
         <slot name="start"></slot>
-        <input class="b2b-input__native-input" disabled="" type="text">
+        <input class="b2b-input__native-input b2b-input__native-input--align-left b2b-input__native-input--disabled" disabled="" type="text">
         <slot name="end"></slot>
       </div>
     </mock:shadow-root>
@@ -70,7 +70,7 @@ exports[`B2B Input Group should render a group error if one is specified and the
       </b2b-input-label>
       <div class="b2b-input__wrapper">
         <slot name="start"></slot>
-        <input class="b2b-input__native-input" type="text">
+        <input class="b2b-input__native-input b2b-input__native-input--align-left" type="text">
         <slot name="end"></slot>
       </div>
     </mock:shadow-root>
@@ -121,7 +121,7 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
       </b2b-input-label>
       <div class="b2b-input__wrapper">
         <slot name="start"></slot>
-        <input class="b2b-input__native-input" type="text">
+        <input class="b2b-input__native-input b2b-input__native-input--align-left" type="text">
         <slot name="end"></slot>
       </div>
     </mock:shadow-root>
@@ -169,7 +169,7 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
       </b2b-input-label>
       <div class="b2b-input__wrapper">
         <slot name="start"></slot>
-        <input class="b2b-input__native-input" type="text">
+        <input class="b2b-input__native-input b2b-input__native-input--align-left" type="text">
         <slot name="end"></slot>
       </div>
     </mock:shadow-root>

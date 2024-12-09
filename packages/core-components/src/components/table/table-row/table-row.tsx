@@ -11,7 +11,6 @@ import {
   Listen,
 } from '@stencil/core';
 import {
-  TableAccordionRowTypes,
   TableColourOptions,
   TableSizes,
 } from '../../../utils/types/table.types';
@@ -19,6 +18,7 @@ import {
   B2bCheckboxCustomEvent,
   CheckboxEventDetail,
 } from '../../../components';
+import { isFirstRow } from '../utils';
 
 @Component({
   tag: 'b2b-table-row',
@@ -33,9 +33,6 @@ export class TableRowComponent {
 
   /** Background color of the row. Use it semantically. This color selection have hover states **/
   @Prop() color: TableColourOptions = 'default';
-
-  /** @internal Determined by the parent rowgroup for accordion rowgroups. */
-  @Prop() accordionType: TableAccordionRowTypes;
 
   /** @internal Whether the parent rowgroup is selectable. */
   @Prop() selectable: boolean;
@@ -114,8 +111,13 @@ export class TableRowComponent {
   };
 
   private getRowColor = () => {
-    if (this.accordionType === TableAccordionRowTypes.PARENT)
+    if (
+      this.isAccordion() &&
+      isFirstRow(this.hostElement) &&
+      !this.isHeader()
+    ) {
       return TableColourOptions.GROUP;
+    }
     return this.color;
   };
 
@@ -126,11 +128,21 @@ export class TableRowComponent {
   };
 
   private getParentRowGroup = () => {
-    return this.hostElement.closest('b2b-table-rowgroup');
+    return this.hostElement.closest(
+      'b2b-table-rowgroup',
+    ) as HTMLB2bTableRowgroupElement;
+  };
+
+  private isAccordion = () => {
+    return this.getParentRowGroup().hasAttribute('accordion');
+  };
+
+  private isHeader = () => {
+    return this.getParentRowGroup().type === 'header';
   };
 
   private getCheckbox = () => {
-    let parent = this.getParentRowGroup();
+    const parent = this.getParentRowGroup();
     if (this.shouldAddCheckbox()) {
       if (parent.type === 'header') {
         return (
@@ -156,32 +168,28 @@ export class TableRowComponent {
   };
 
   private getAccordionColumns = () => {
-    if (this.accordionType != undefined) {
-      switch (this.accordionType) {
-        case TableAccordionRowTypes.HEADER:
-          return (
-            <b2b-table-header class="b2b-table-row__control-cell--accordion"></b2b-table-header>
-          );
-        case TableAccordionRowTypes.PARENT:
-          return (
-            <b2b-table-cell>
-              <button
-                onClick={this.toggleOpen}
-                class={{
-                  'b2b-table-row__accordion-icon': true,
-                  'b2b-table-row__accordion-icon--open': this.isOpen,
-                }}>
-                <b2b-icon
-                  icon="b2b_icon-arrow-right"
-                  clickable={true}></b2b-icon>
-              </button>
-            </b2b-table-cell>
-          );
-        case TableAccordionRowTypes.CHILD:
-          return (
-            <b2b-table-cell class="b2b-table-row__control-cell--accordion"></b2b-table-cell>
-          );
+    if (this.isAccordion() && !this.isHeader()) {
+      if (isFirstRow(this.hostElement)) {
+        return (
+          <b2b-table-cell>
+            <button
+              onClick={this.toggleOpen}
+              class={{
+                'b2b-table-row__accordion-icon': true,
+                'b2b-table-row__accordion-icon--open': this.isOpen,
+              }}>
+              <b2b-icon icon="b2b_icon-arrow-right" clickable={true}></b2b-icon>
+            </button>
+          </b2b-table-cell>
+        );
       }
+      return (
+        <b2b-table-cell class="b2b-table-row__control-cell--accordion"></b2b-table-cell>
+      );
+    } else if (this.isAccordion() && this.isHeader()) {
+      return (
+        <b2b-table-header class="b2b-table-row__control-cell--accordion"></b2b-table-header>
+      );
     }
   };
 

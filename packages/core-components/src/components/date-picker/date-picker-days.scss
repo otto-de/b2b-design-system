@@ -1,0 +1,53 @@
+@use 'sass:color';
+@use '../../global/b2b-styles';
+
+.b2b-date-picker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Display days in a grid */
+  padding: 0 var(--b2b-size-40) 0 var(--b2b-size-40);
+
+  .b2b-date-picker-day {
+    width: var(--b2b-size-90);
+    height: var(--b2b-size-90);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--b2b-font-weight-normal);
+    color: var(--b2b-color-black-100);
+    font-size: var(--b2b-size-35);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--b2b-color-hover);
+    }
+
+    &--disabled {
+      border-radius: 5px;
+      color: var(--b2b-color-grey-200);
+      pointer-events: none;
+    }
+
+    &--today {
+      border: 1px solid var(--b2b-color-black-50);
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--selected {
+      background-color: var(--b2b-color-black-100);
+      color: var(--b2b-color-white-100);
+      pointer-events: none;
+      width: 100%;
+    }
+
+    &--focussed {
+      background-color: var(--b2b-color-hover);
+    }
+  }
+}

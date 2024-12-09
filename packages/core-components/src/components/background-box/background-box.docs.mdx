@@ -1,0 +1,47 @@
+import {
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+  Meta,
+} from '@storybook/blocks';
+import * as BackgroundBoxStories from './background-box.stories';
+
+<Meta of={BackgroundBoxStories} />
+
+# Background Box Component
+
+<Canvas of={BackgroundBoxStories.Default} />
+
+The BackgroundBox is a utility component designed to serve as a container for other components, featuring a white background and a border.
+
+The BackgroundBox component adjusts its width and padding based on two properties: fixedWidth and noPadding. The height of the box depends on its internal content.
+
+NOTE: fixedWidth and noPadding are optional. The component can simply be used like this without specifying any properties aside from the label:
+
+<Source
+  code={`<b2b-background-box><b2b-headline>Background Box</b2b-headline></b2b-background-box>`}
+/>
+
+## Properties
+
+### fixedWidth
+
+The Background Box component can be configured to have fixedWidth. When fixedWidth is true, the box has a fixed width of 1212px; otherwise, it fills the available width.
+
+<Canvas of={BackgroundBoxStories.FixedWidth} />
+
+### noPadding
+
+The noPadding property controls internal spacing. If true, no padding is applied; if false, a default padding of 24px is added.
+
+<Canvas of={BackgroundBoxStories.NoPadding} />
+
+<br />
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />

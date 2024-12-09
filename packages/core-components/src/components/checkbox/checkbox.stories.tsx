@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, Story, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
@@ -81,6 +81,15 @@ story060Required.args = {
   required: true,
 };
 story060Required.storyName = 'Required';
+
+export const story070LabelSlot: StoryObj = {
+  args: {
+    ...defaultArgs,
+  },
+  render: ({}) =>
+    html`<b2b-checkbox><span slot="label">Label Slot</span></b2b-input>`,
+};
+story070LabelSlot.storyName = 'Label slot';
 
 const controls = {};
 const inputCheckboxArgs = getArgTypes('b2b-checkbox', controls);

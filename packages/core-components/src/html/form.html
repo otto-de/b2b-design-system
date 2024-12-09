@@ -33,9 +33,12 @@
           placeholder="Please select..."
           search-placeholder="Search"
           select-all-label="Select All"
-          label="Hylian fruits and vegetables"></b2b-multiselect-dropdown>
+          label="Hylian fruits and vegetables"
+          options-list="['Swift Carrot','Hydromelon','Skyshroom','Fortified Pumpkin','Hyrule Herb','Hylian Shroom','Mighty Banana','Endura Carrot','Golden Apple']"
+          selected-values="['Hydromelon', 'Skyshroom']"></b2b-multiselect-dropdown>
       </div>
     </div>
+
     <div class="content-container">
       <b2b-headline size="200">Input list</b2b-headline>
       <div style="width: 40%">
@@ -60,19 +63,6 @@
             'result4',
             'result4',
           ];
-          const el = document.getElementById('multiselect');
-          el.optionsList = [
-            'Swift Carrot',
-            'Hydromelon',
-            'Skyshroom',
-            'Fortified Pumpkin',
-            'Hyrule Herb',
-            'Hylian Shroom',
-            'Mighty Banana',
-            'Endura Carrot',
-            'Golden Apple',
-          ];
-          el.selectedValues = ['Hydromelon', 'Skyshroom'];
         </script>
       </div>
 
@@ -233,6 +223,7 @@
         label="Label"
         name="myInput"
         value="I have a value!"
+        input-text-align="right"
         ><b2b-icon icon="b2b_icon-search" slot="end" clickable></b2b-icon
       ></b2b-input>
       <b2b-input
@@ -259,6 +250,7 @@
       <b2b-input
         hint="this is a hint for a disabled input"
         placeholder="placeholder"
+        value="this is a hint for a disabled input"
         disabled="true"
         label="Label"></b2b-input>
       <b2b-input
@@ -319,6 +311,15 @@
         hint="I am a hint"></b2b-checkbox>
       <b2b-checkbox
         label="Checkbox with a very long label. Checkbox with a very long label. Checkbox with a very long label. Checkbox with a very long label."></b2b-checkbox>
+      <b2b-checkbox
+        label="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></b2b-checkbox>
+      <b2b-checkbox
+        ><span slot="label"
+          >This is a custom label
+          <b2b-icon-100
+            icon="b2b_icon-paper-plane"
+            size="24"></b2b-icon-100></span
+      ></b2b-checkbox>
     </div>
 
     <div class="content-container">
@@ -385,6 +386,11 @@
         value="single"
         name="singular"
         disabled></b2b-radio-button>
+    </div>
+
+    <div class="content-container" width="300px">
+      <b2b-headline size="200">Date picker</b2b-headline>
+      <b2b-date-picker disable-future-dates></b2b-date-picker>
     </div>
   </body>
 </html>

@@ -42,7 +42,7 @@
     .border {
       border-left: 1px solid var(--b2b-color-grey-300);
       height: 100%;
-      margin: 0 12px;
+      margin: 0 8px;
     }
 
     .b2b-input__native-input {
@@ -59,6 +59,22 @@
       width: 0;
 
       &::placeholder {
+        color: var(--b2b-color-grey-300);
+      }
+
+      &--align-left {
+        text-align: left;
+      }
+
+      &--align-right {
+        text-align: right;
+      }
+
+      &--align-center {
+        text-align: center;
+      }
+
+      &--disabled {
         color: var(--b2b-color-grey-300);
       }
     }

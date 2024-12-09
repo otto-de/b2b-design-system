@@ -30,6 +30,11 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
       - name: Start Containers
         run: docker-compose up --abort-on-container-exit --build
       
