@@ -22,7 +22,6 @@ export const story010Default = Template.bind({});
 story010Default.args = { ...defaultArgs };
 story010Default.storyName = 'Default Breadcrumb';
 
-//Story: Padding Vertical Example
 export const story020PaddingVertical = Template.bind({});
 story020PaddingVertical.args = {
   ...defaultArgs,
