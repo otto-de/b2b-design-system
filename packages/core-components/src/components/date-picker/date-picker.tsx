@@ -132,7 +132,6 @@ export class B2bDatePicker {
       this.selectedYear = year;
       this.setSelectedDateForDisplay();
     } else {
-      this.showDatePicker = false;
       this.invalid = true;
       this.focused = false;
       this.selectedDay = this.todayWithoutTime.getDate();
