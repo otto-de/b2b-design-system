@@ -8,7 +8,6 @@ const Template: Story = ({ href, active, paddingVertical }) => {
       <b2b-breadcrumb-item href="${href}">Start</b2b-breadcrumb-item>
       <b2b-breadcrumb-item>Weiter</b2b-breadcrumb-item>
       <b2b-breadcrumb-item active="${active}">Ende</b2b-breadcrumb-item>
-      <b2b-breadcrumb-item padding-vertical="0">padding</b2b-breadcrumb-item>
     </b2b-breadcrumb>
   `;
 };
