@@ -8,7 +8,6 @@ const Template: Story = ({ href, active, paddingVertical }) => {
       <b2b-breadcrumb-item href="${href}">Start</b2b-breadcrumb-item>
       <b2b-breadcrumb-item>Weiter</b2b-breadcrumb-item>
       <b2b-breadcrumb-item active="${active}">Ende</b2b-breadcrumb-item>
-      <b2b-breadcrumb padding-vertical="0">padding</b2b-breadcrumb>
     </b2b-breadcrumb>
   `;
 };
@@ -22,6 +21,14 @@ const defaultArgs = {
 export const story010Default = Template.bind({});
 story010Default.args = { ...defaultArgs };
 story010Default.storyName = 'Default Breadcrumb';
+
+//Story: Padding Vertical Example
+export const story020PaddingVertical = Template.bind({});
+story020PaddingVertical.args = {
+  ...defaultArgs,
+  paddingVertical: 20, // Example with custom paddingVertical
+};
+story020PaddingVertical.storyName = 'Breadcrumb with Custom Vertical Padding';
 
 const breadcrumbArgs = getArgTypes('b2b-breadcrumb');
 
