@@ -6,8 +6,8 @@
     z-index: 99;
     display: flex;
     flex-flow: row nowrap;
-    padding-top: var(--b2b-breadcrumb-padding-vertical, 0px);
-    padding-bottom: var(--b2b-breadcrumb-padding-vertical, 0px);
+    padding-top: var(--b2b-breadcrumb-padding-vertical, 0);
+    padding-bottom: var(--b2b-breadcrumb-padding-vertical, 0);
     height: var(--b2b-size-90);
     margin-bottom: 1.125rem;
     border-bottom: var(--b2b-size-border-width-50) solid
