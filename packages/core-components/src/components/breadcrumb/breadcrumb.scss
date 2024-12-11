@@ -6,7 +6,8 @@
     z-index: 99;
     display: flex;
     flex-flow: row nowrap;
-    padding: 0.75rem 0;
+    padding-top: var(--b2b-breadcrumb-padding-vertical, 0);
+    padding-bottom: var(--b2b-breadcrumb-padding-vertical, 0);
     height: var(--b2b-size-90);
     margin-bottom: 1.125rem;
     border-bottom: var(--b2b-size-border-width-50) solid
@@ -16,7 +17,7 @@
       font-size: var(--b2b-size-copy-125);
       line-height: var(--b2b-size-copy-line-height-125);
       display: inline-flex;
-      color: var(--b2b-color-grey-400);
+      color: var(--b2b-color-copy-secondary);
       cursor: pointer;
 
       & a {
