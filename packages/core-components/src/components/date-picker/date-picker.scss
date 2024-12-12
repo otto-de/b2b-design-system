@@ -3,7 +3,7 @@
 :host {
   .b2b-date-picker {
     position: relative;
-    z-index: 1000;
+    z-index: 300;
 
     &__backdrop {
       position: fixed;
@@ -105,7 +105,7 @@
     padding-bottom: var(--b2b-size-40);
     outline: none;
     background-color: var(--b2b-color-white-100);
-    z-index: 900;
+    z-index: 200;
 
     &--hidden {
       display: none;

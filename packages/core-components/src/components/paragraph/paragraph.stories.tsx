@@ -86,7 +86,7 @@ export const NoBottomMargin: Story = {
 export const GreyVariant: Story = {
   args: {
     ...meta.args,
-    variant: 'grey',
+    variant: 'grey-400',
   },
 };
 

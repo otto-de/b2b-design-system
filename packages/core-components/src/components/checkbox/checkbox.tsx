@@ -149,7 +149,7 @@ export class CheckboxComponent {
             'b2b-checkbox--standalone': this.standalone,
             'b2b-checkbox--indeterminate': this.indeterminate,
           }}>
-          <div class="b2b-checkbox-items">
+          <div class="b2b-checkbox__items">
             {this.renderIcon()}
             <input
               class="b2b-checkbox__input"
