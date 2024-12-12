@@ -1,3 +1,21 @@
+# [1.20.0](https://github.com/otto-de/b2b-design-system/compare/v1.19.0...v1.20.0) (2024-12-12)
+
+
+### Bug Fixes
+
+* **Checkbox:** use correct class for multi-line label alignment ([#518](https://github.com/otto-de/b2b-design-system/issues/518)) ([758f462](https://github.com/otto-de/b2b-design-system/commit/758f462e73f8817e69b41320047ee99bdba01556))
+* **DatePicker:** [BLA-SCOUT] Reduce the date picker z-index ([9181df0](https://github.com/otto-de/b2b-design-system/commit/9181df0b2426d8893f0c0c7830a67d5e028c5358))
+* **Datepicker:** fix date picker focus issue ([fc89a28](https://github.com/otto-de/b2b-design-system/commit/fc89a286b89e06d201b48eaaa35eefe1c26d36e6))
+* **Icon 50:** fixed inherit variant of icon by removing fill attr in svg files ([#490](https://github.com/otto-de/b2b-design-system/issues/490)) ([60731e7](https://github.com/otto-de/b2b-design-system/commit/60731e7c8bd48775d933e2396346b98e60bfee24))
+* **Modal:** [BLA-SCOUT] Increase the modal z-index to have a higher value ([5659845](https://github.com/otto-de/b2b-design-system/commit/5659845d9fccd9f2255d8260749e7bbb1593018b))
+* **Table:** [GC-2220] accordion table rows now add control cells correctly on each first render ([#517](https://github.com/otto-de/b2b-design-system/issues/517)) ([1a71693](https://github.com/otto-de/b2b-design-system/commit/1a71693e6124dbeb169edce66c60e60697dac502))
+
+
+### Features
+
+* **Breadcrumb:** [BLA-1021] make padding configurable ([3826540](https://github.com/otto-de/b2b-design-system/commit/382654045dd408e33ccc7c5c22f3d3bf1327d519))
+* **Breadcrumb:** [BLA-1021] make padding configurable ([656e718](https://github.com/otto-de/b2b-design-system/commit/656e718a5664f7789ba0419e086183f33f40931c))
+
 # [1.19.0](https://github.com/otto-de/b2b-design-system/compare/v1.18.0...v1.19.0) (2024-12-04)
 
 
