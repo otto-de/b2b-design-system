@@ -172,7 +172,7 @@
     }
   },
   "b2b-breadcrumb": {
-    "paddingVertical": {
+    "paddingBottom": {
       "table": {
         "type": {
           "summary": "number"
@@ -181,7 +181,18 @@
           "summary": "0"
         }
       },
-      "description": "Vertical padding for the breadcrumb component"
+      "description": "Padding for the bottom of the breadcrumb component"
+    },
+    "paddingTop": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "0"
+        }
+      },
+      "description": "Padding for the top of the breadcrumb component"
     }
   },
   "b2b-breadcrumb-item": {
@@ -2571,9 +2582,16 @@
       "description": "The maximum amount of chips visible. Adjust this depending on available size of the dropdown."
     },
     "optionsList": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
       "table": {
         "type": {
-          "summary": "string[]"
+          "summary": "string"
         },
         "defaultValue": {
           "summary": "[]"
@@ -2609,9 +2627,16 @@
       "description": "The string displayed as the select all label."
     },
     "selectedValues": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
       "table": {
         "type": {
-          "summary": "string[]"
+          "summary": "string"
         },
         "defaultValue": {
           "summary": "[]"
@@ -2711,6 +2736,39 @@
       },
       "description": "The alignment of the text."
     },
+    "display": {
+      "options": [
+        "block",
+        "inline",
+        "inline-block"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'block'"
+        }
+      },
+      "description": "The positioning of the paragraph in the page flow. Defaults to native block behavior."
+    },
+    "margin": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Whether or not the paragraph has a bottom margin. Defaults to true."
+    },
     "size": {
       "options": [
         "100",
@@ -2728,6 +2786,24 @@
         }
       },
       "description": "The size of the text."
+    },
+    "variant": {
+      "options": [
+        "black-100",
+        "grey-400"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'black-100'"
+        }
+      },
+      "description": "The color of the paragraph. Defaults to black."
     },
     "weight": {
       "options": [
