@@ -78,9 +78,13 @@ export namespace Components {
     }
     interface B2bBreadcrumb {
         /**
-          * Vertical padding for the breadcrumb component
+          * Padding for the bottom of the breadcrumb component
          */
-        "paddingVertical": number;
+        "paddingBottom": number;
+        /**
+          * Padding for the top of the breadcrumb component
+         */
+        "paddingTop": number;
     }
     interface B2bBreadcrumbItem {
         /**
@@ -2328,9 +2332,13 @@ declare namespace LocalJSX {
          */
         "onB2b-selected"?: (event: B2bBreadcrumbCustomEvent<BreadCrumbChangeEventDetail>) => void;
         /**
-          * Vertical padding for the breadcrumb component
+          * Padding for the bottom of the breadcrumb component
          */
-        "paddingVertical"?: number;
+        "paddingBottom"?: number;
+        /**
+          * Padding for the top of the breadcrumb component
+         */
+        "paddingTop"?: number;
     }
     interface B2bBreadcrumbItem {
         /**

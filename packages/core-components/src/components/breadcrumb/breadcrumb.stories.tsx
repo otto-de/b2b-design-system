@@ -2,9 +2,11 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ href, active, paddingVertical }) => {
+const Template: Story = ({ href, active, paddingTop, paddingBottom }) => {
   return html`
-    <b2b-breadcrumb padding-vertical="${paddingVertical}">
+    <b2b-breadcrumb
+      padding-top="${paddingTop}"
+      padding-bottom="${paddingBottom}">
       <b2b-breadcrumb-item href="${href}">Start</b2b-breadcrumb-item>
       <b2b-breadcrumb-item>Weiter</b2b-breadcrumb-item>
       <b2b-breadcrumb-item active="${active}">Ende</b2b-breadcrumb-item>
@@ -15,19 +17,21 @@ const Template: Story = ({ href, active, paddingVertical }) => {
 const defaultArgs = {
   href: 'https://www.otto.de',
   active: true,
-  paddingVertical: 0, // Default padding in px
+  paddingTop: 0, // Default padding top in px
+  paddingBottom: 0, // Default padding bottom in px
 };
 
 export const story010Default = Template.bind({});
 story010Default.args = { ...defaultArgs };
 story010Default.storyName = 'Default Breadcrumb';
 
-export const story020PaddingVertical = Template.bind({});
-story020PaddingVertical.args = {
+export const story020PaddingTopBottom = Template.bind({});
+story020PaddingTopBottom.args = {
   ...defaultArgs,
-  paddingVertical: 20, // Example with custom paddingVertical
+  paddingTop: 10, // Example with custom padding top
+  paddingBottom: 15, // Example with custom padding bottom
 };
-story020PaddingVertical.storyName = 'Breadcrumb with Custom Vertical Padding';
+story020PaddingTopBottom.storyName = 'Custom Padding';
 
 const breadcrumbArgs = getArgTypes('b2b-breadcrumb');
 

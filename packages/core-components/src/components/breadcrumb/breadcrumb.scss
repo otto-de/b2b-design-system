@@ -2,40 +2,39 @@
 @use '../../global/b2b-styles';
 
 :host {
-  .b2b-breadcrumb-nav {
-    z-index: 99;
-    display: flex;
-    flex-flow: row nowrap;
-    padding-top: var(--b2b-breadcrumb-padding-vertical, 0);
-    padding-bottom: var(--b2b-breadcrumb-padding-vertical, 0);
-    height: var(--b2b-size-90);
-    margin-bottom: 1.125rem;
-    border-bottom: var(--b2b-size-border-width-50) solid
-      var(--b2b-color-grey-200);
+  display: block;
+}
 
-    &__item {
-      font-size: var(--b2b-size-copy-125);
-      line-height: var(--b2b-size-copy-line-height-125);
-      display: inline-flex;
-      color: var(--b2b-color-copy-secondary);
-      cursor: pointer;
+.b2b-breadcrumb-nav {
+  z-index: 99;
+  display: flex;
+  flex-flow: row nowrap;
+  height: var(--b2b-size-90);
+  margin-bottom: 1.125rem;
+  border-bottom: var(--b2b-size-border-width-50) solid var(--b2b-color-grey-200);
 
-      & a {
-        color: var(--b2b-color-grey-400);
-        text-decoration: none;
-      }
+  &__item {
+    font-size: var(--b2b-size-copy-125);
+    line-height: var(--b2b-size-copy-line-height-125);
+    display: inline-flex;
+    color: var(--b2b-color-copy-secondary);
+    cursor: pointer;
 
+    & a {
+      color: var(--b2b-color-grey-400);
+      text-decoration: none;
+    }
+
+    &:hover,
+    a:hover {
+      color: var(--b2b-color-red-100);
+    }
+
+    &--active {
       &:hover,
       a:hover {
-        color: var(--b2b-color-red-100);
-      }
-
-      &--active {
-        &:hover,
-        a:hover {
-          cursor: default;
-          color: var(--b2b-color-grey-400);
-        }
+        cursor: default;
+        color: var(--b2b-color-grey-400);
       }
     }
   }

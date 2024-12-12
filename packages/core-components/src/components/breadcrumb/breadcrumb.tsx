@@ -18,8 +18,11 @@ import { BreadCrumbChangeEventDetail } from '../../utils/interfaces/interaction.
 export class B2bBreadCrumbComponent {
   @Element() host: HTMLB2bBreadcrumbElement;
 
-  /** Vertical padding for the breadcrumb component */
-  @Prop() paddingVertical: number = 0; // Default value is 0px
+  /** Padding for the top of the breadcrumb component */
+  @Prop() paddingTop: number = 0; // Default value is 0px
+
+  /** Padding for the bottom of the breadcrumb component */
+  @Prop() paddingBottom: number = 0; // Default value is 0px
 
   /** Emits the value of the currently selected item whenever an item is selected. */
   @Event({ eventName: 'b2b-selected' })
@@ -38,7 +41,7 @@ export class B2bBreadCrumbComponent {
 
   private updateActiveItem = (newItem: HTMLB2bBreadcrumbItemElement) => {
     this.getBreadcrumbItems()
-      .filter(x => x.value != newItem.value)
+      .filter(x => x.value !== newItem.value)
       .forEach(x => (x.active = false));
   };
 
@@ -46,7 +49,8 @@ export class B2bBreadCrumbComponent {
     return (
       <Host
         style={{
-          '--b2b-breadcrumb-padding-vertical': `${this.paddingVertical}px`,
+          paddingTop: `${this.paddingTop}px`,
+          paddingBottom: `${this.paddingBottom}px`,
         }}>
         <div class="b2b-breadcrumb-nav">
           <slot></slot>
