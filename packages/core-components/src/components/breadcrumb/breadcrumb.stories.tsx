@@ -31,8 +31,7 @@ story020PaddingTopBottom.args = {
   paddingTop: 10, // Example with custom padding top
   paddingBottom: 15, // Example with custom padding bottom
 };
-story020PaddingTopBottom.storyName =
-  'Breadcrumb with Custom Top & Bottom Padding';
+story020PaddingTopBottom.storyName = 'Custom Padding';
 
 const breadcrumbArgs = getArgTypes('b2b-breadcrumb');
 
