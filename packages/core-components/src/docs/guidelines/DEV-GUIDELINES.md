@@ -16,6 +16,16 @@ If you are part of an Otto team, feel free to make a PR from a fork of this repo
 
 If you are an external contributor, please first create an issue in GitHub to find a great task you can contribute to. If is a simple change, feel free to make a PR from a fork of this repo.
 
+## Maintainers
+This project is maintained by:
+```
+Mohsen Gaeini <Mohsen.Gaeini@otto.de>,
+Geethanjali Govindaraj <geethag@thoughtworks.com>,
+Barath Kumar <barath.kumar1@thoughtworks.com>,
+Vishwa Priya J <vishprij@thoughtworks.com>,
+Bharat Patel <bharat.patel@thoughtworks.com>
+```
+
 ## Technical Overview
 This project is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) that makes use
 of [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces#using-workspaces) containing the source code of the 3 packages we distribute:
