@@ -17,14 +17,12 @@ If you are part of an Otto team, feel free to make a PR from a fork of this repo
 If you are an external contributor, please first create an issue in GitHub to find a great task you can contribute to. If is a simple change, feel free to make a PR from a fork of this repo.
 
 ## Maintainers
-This project is maintained by:
-```
-Mohsen Gaeini <Mohsen.Gaeini@otto.de>,
-Geethanjali Govindaraj <geethag@thoughtworks.com>,
-Barath Kumar <barath.kumar1@thoughtworks.com>,
-Vishwa Priya J <vishprij@thoughtworks.com>,
-Bharat Patel <bharat.patel@thoughtworks.com>
-```
+This project is maintained by [MAINTAINERS](MAINTAINERS)
+
+## License
+This project is licensed under the [LICENSE](..%2F..%2F..%2F..%2F..%2FLICENSE)
+## Project lifecycle state
+This project lifestyle state here [OSSMETADATA](OSSMETADATA)
 
 
 ## Technical Overview
