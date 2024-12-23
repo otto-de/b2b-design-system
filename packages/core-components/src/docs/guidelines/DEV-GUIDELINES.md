@@ -20,7 +20,7 @@ If you are an external contributor, please first create an issue in GitHub to fi
 This project is maintained by [MAINTAINERS](MAINTAINERS)
 
 ## License
-This project is licensed under the [LICENSE](..%2F..%2F..%2F..%2F..%2FLICENSE)
+This project is licensed under the [LICENSE](LICENSE)
 ## Project lifecycle state
 This project lifestyle state here [OSSMETADATA](OSSMETADATA)
 
