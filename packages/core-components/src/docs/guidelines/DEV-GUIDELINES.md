@@ -17,12 +17,13 @@ If you are part of an Otto team, feel free to make a PR from a fork of this repo
 If you are an external contributor, please first create an issue in GitHub to find a great task you can contribute to. If is a simple change, feel free to make a PR from a fork of this repo.
 
 ## Maintainers
-This project is maintained by [MAINTAINERS](MAINTAINERS)
+This project is maintained by [MAINTAINERS](https://github.com/otto-de/b2b-design-system/blob/main/MAINTAINERS)
 
 ## License
-This project is licensed under the [LICENSE](LICENSE)
+This project is licensed under the [LICENSE](https://github.com/otto-de/b2b-design-system/blob/main/LICENSE)
+
 ## Project lifecycle state
-This project lifestyle state here [OSSMETADATA](OSSMETADATA)
+This project lifestyle state here [OSSMETADATA](https://github.com/otto-de/b2b-design-system/blob/main/OSSMETADATA)
 
 
 ## Technical Overview

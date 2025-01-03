@@ -1,5 +1,7 @@
 # OTTO B2B DESIGN SYSTEM
 
+![OSS Lifecycle](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2Fotto-de%2Fb2b-design-system%2Fblob%2Fmain%2FOSSMETADATA)
+
 ## About
 
 The B2B Design System is the library of components used to build the Otto Marketplace.
