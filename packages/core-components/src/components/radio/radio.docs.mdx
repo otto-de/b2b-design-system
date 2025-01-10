@@ -23,7 +23,7 @@ import * as RadioStories from './radio.stories';
 
 The label of the radio button which appears on the right hand side next to it. This is a
 required property. It is not the same as the radio button value, which indicates its programmatical
-value.
+value. If you need custom content like bold text or a link, use the named slot label.
 
 ### Required
 
@@ -83,6 +83,14 @@ radio button is currently checked.
   value: T;
   checked: boolean;
 }`
+
+## Slots
+
+### Label
+
+If you need the label to contain something other than plain text you may use the label slot like so:
+
+<Canvas of={RadioStories.story060LabelSlot} sourceState="shown" />
 
 ## Attributes
 

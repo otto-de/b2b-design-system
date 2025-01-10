@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, Story, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
@@ -73,6 +73,17 @@ story050Required.args = {
   required: true,
 };
 story050Required.storyName = 'Required';
+
+export const story060LabelSlot: StoryObj = {
+  args: {
+    ...defaultArgs,
+  },
+  render: ({}) =>
+    html`<b2b-radio-button name="default-group"
+      ><span slot="label">Label Slot</span></b2b-radio-button
+    >`,
+};
+story060LabelSlot.storyName = 'Label slot';
 
 const controls = {};
 const radioButtonArgs = getArgTypes('b2b-radio-button', controls);
