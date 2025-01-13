@@ -374,6 +374,43 @@
           value="two"
           name="group2"></b2b-radio-button>
       </b2b-radio-group>
+      <b2b-radio-group
+        hint="This is a hint"
+        error="This is an error"
+        alignment="horizontal"
+        name="group3"
+        required>
+        <span slot="label">This is a custom radio group label</span>
+        <b2b-radio-button id="yes" value="one" name="group3">
+          <span slot="label">This is a custom radio button label</span>
+        </b2b-radio-button>
+        <b2b-radio-button id="no" value="two" name="group3">
+          <span slot="label">This is a custom radio button label</span>
+        </b2b-radio-button>
+      </b2b-radio-group>
+      <b2b-radio-group
+        hint="This is a hint"
+        error="This is an error"
+        alignment="horizontal"
+        name="group4"
+        label="This should be ignored"
+        required>
+        <span slot="label">This is another custom radio group label</span>
+        <b2b-radio-button
+          id="yes"
+          value="one"
+          name="group4"
+          label="This should be ignored">
+          <span slot="label">This is another custom radio button label</span>
+        </b2b-radio-button>
+        <b2b-radio-button
+          id="no"
+          value="two"
+          name="group4"
+          label="This should be ignored">
+          <span slot="label">This is another custom radio button label</span>
+        </b2b-radio-button>
+      </b2b-radio-group>
       <b2b-radio-button
         label="Singular radio"
         value="single"

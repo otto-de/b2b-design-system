@@ -69,6 +69,8 @@ export class RadioButtonGroupComponent {
     this.toggleAllDisabled();
   }
 
+  private labelSlot: HTMLElement;
+
   private toggleAllDisabled = () => {
     let nodes = this.getChildNodes();
 
@@ -112,6 +114,10 @@ export class RadioButtonGroupComponent {
     });
   };
 
+  componentWillLoad() {
+    this.labelSlot = this.host.querySelector('[slot="label"]');
+  }
+
   componentDidLoad() {
     this.toggleAllError();
     this.toggleAllDisabled();
@@ -127,9 +133,9 @@ export class RadioButtonGroupComponent {
             'b2b-radio-group--error': this.invalid && !this.disabled,
             [`b2b-radio-group--${this.alignment}`]: true,
           }}>
-          {this.label && (
+          {(this.label || this.labelSlot) && (
             <b2b-input-label id={this.name} required={this.required}>
-              {this.label}
+              <slot name="label">{this.label}</slot>
             </b2b-input-label>
           )}
           <fieldset>

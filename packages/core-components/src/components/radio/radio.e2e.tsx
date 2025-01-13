@@ -48,4 +48,15 @@ describe('b2b-radio', () => {
 
     expect(spy).not.toHaveReceivedEvent();
   });
+
+  it('should use label slot if provided', async () => {
+    await page.setContent(`
+      <b2b-radio-button value="one">
+        <span slot="label">Custom label</span>
+      </b2b-radio-button>`);
+
+    const element = await page.find('span');
+
+    expect(element).toEqualText('Custom label');
+  });
 });
