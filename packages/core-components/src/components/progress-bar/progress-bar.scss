@@ -4,6 +4,8 @@
   width: 100%;
 
   .b2b-progress-bar {
+    font-family: var(--b2b-font-family-default);
+
     &__left-side {
       display: flex;
       flex-direction: row-reverse;
