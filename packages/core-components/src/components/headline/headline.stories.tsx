@@ -2,8 +2,11 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const template: Story = ({ size, align, slot }) => {
-  return html`<b2b-headline size="${size}" align="${align}">
+const template: Story = ({ size, align, slot, noMargin }) => {
+  return html`<b2b-headline
+    size="${size}"
+    align="${align}"
+    no-margin="${noMargin}">
     ${slot}
   </b2b-headline>`;
 };
@@ -12,6 +15,7 @@ const defaultArgs = {
   size: '400',
   align: 'left',
   slot: 'Headline',
+  noMargin: false,
 };
 
 export const story010Default = template.bind({});
@@ -21,6 +25,15 @@ story010Default.storyName = 'Default Headline 400';
 export const story030Size200 = template.bind({});
 story030Size200.args = { ...defaultArgs, size: 200, slot: 'Headline 200' };
 story030Size200.storyName = 'Headline 200';
+
+export const story030Size2002 = template.bind({});
+story030Size200.args = {
+  ...defaultArgs,
+  size: 200,
+  slot: 'Headline 200',
+  noMargin: true,
+};
+story030Size200.storyName = 'Headline 2002';
 
 export const story040Size100 = template.bind({});
 story040Size100.args = { ...defaultArgs, size: 100, slot: 'Headline 100' };
