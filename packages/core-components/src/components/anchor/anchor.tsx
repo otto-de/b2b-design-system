@@ -19,6 +19,9 @@ export class AnchorComponent {
   /** The size of the link. Per default, it is inherited from the parent element. If specified to 100, the font size is 14px. */
   @Prop() size: 'inherit' | '100' = 'inherit';
 
+  /** The hoverColor of the link. Per default, it is set to b2b-color-red-100. If specified as inherit, it is inherited from the parent element. */
+  @Prop() hoverColor: 'inherit' | 'default' = 'default';
+
   render() {
     return (
       <Host>
@@ -29,6 +32,7 @@ export class AnchorComponent {
           class={{
             'b2b-anchor': true,
             [`b2b-anchor--${this.size}`]: true,
+            [`b2b-anchor-hover--${this.hoverColor}`]: true,
           }}>
           <slot></slot>
         </a>
