@@ -18,11 +18,6 @@
     z-index: 1001;
     position: relative;
 
-    &:hover {
-      color: var(--b2b-color-red-100);
-      cursor: pointer;
-    }
-
     &--100 {
       font-size: var(--b2b-size-copy-100);
     }
@@ -30,5 +25,19 @@
     &--inherit {
       font-size: inherit;
     }
+
+    &-hover--default{
+      &:hover {
+        color: var(--b2b-color-red-100);
+        cursor: pointer;
+      }
+    }
+    &-hover--inherit {
+      &:hover {
+        color: inherit;
+        cursor: pointer;
+      }
+    }
+
   }
 }

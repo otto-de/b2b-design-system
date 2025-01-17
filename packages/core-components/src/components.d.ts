@@ -54,6 +54,10 @@ export namespace Components {
          */
         "download": string;
         /**
+          * The hoverColor of the link. Per default, it is set to b2b-color-red-100. If specified as inherit, it is inherited from the parent element.
+         */
+        "hoverColor": 'inherit' | 'default';
+        /**
           * The URL or URL fragment the anchor points to. This is required.
          */
         "href": string;
@@ -2303,6 +2307,10 @@ declare namespace LocalJSX {
           * If set to true, the browser will attempt to donwload and save the URL instead of opening it. The name of the created file defaults to the URL string, but can be changed by the user.
          */
         "download"?: string;
+        /**
+          * The hoverColor of the link. Per default, it is set to b2b-color-red-100. If specified as inherit, it is inherited from the parent element.
+         */
+        "hoverColor"?: 'inherit' | 'default';
         /**
           * The URL or URL fragment the anchor points to. This is required.
          */

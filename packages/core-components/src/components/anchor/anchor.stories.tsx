@@ -1,12 +1,13 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, Story, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ href, download, size, target }) => {
+const Template: Story = ({ href, download, size, target, hoverColor }) => {
   return html` <b2b-anchor
     href="${href}"
     download="${download}"
     size="${size}"
+    hover-color="${hoverColor}"
     target="${target}">
     Click me!
   </b2b-anchor>`;
@@ -17,6 +18,7 @@ const defaultArgs = {
   download: null,
   target: 'blank',
   size: 'inherit',
+  hoverColor: 'default',
 };
 
 export const story010Default = Template.bind({});
@@ -31,11 +33,29 @@ export const story030TargetBlank = Template.bind({});
 story030TargetBlank.args = { ...defaultArgs, target: 'blank' };
 story030TargetBlank.storyName = 'Target Blank';
 
+export const story040BlueHoverColor: StoryObj = {
+  args: {
+    ...defaultArgs,
+    hoverColor: 'inherit',
+  },
+  render: ({}) =>
+    html`<div style="color:blue; ">
+      <b2b-anchor
+        href="https://www.otto.de"
+        target="blank"
+        hover-color="inherit"
+        >Anchor Hover Color Change</b2b-anchor
+      >
+    </div>`,
+};
+story040BlueHoverColor.storyName = 'Hover Color Inherit';
+
 const controls = {
   href: 'string',
   download: 'string',
   size: 'radio',
   target: 'radio',
+  hoverColor: 'radio',
 };
 
 const anchorArgs = getArgTypes('b2b-anchor', controls);
