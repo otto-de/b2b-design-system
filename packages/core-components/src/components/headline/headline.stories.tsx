@@ -2,8 +2,11 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const template: Story = ({ size, align, slot }) => {
-  return html`<b2b-headline size="${size}" align="${align}">
+const template: Story = ({ size, align, slot, noMargin }) => {
+  return html`<b2b-headline
+    size="${size}"
+    align="${align}"
+    no-margin="${noMargin}">
     ${slot}
   </b2b-headline>`;
 };
@@ -12,6 +15,7 @@ const defaultArgs = {
   size: '400',
   align: 'left',
   slot: 'Headline',
+  noMargin: false,
 };
 
 export const story010Default = template.bind({});
@@ -41,6 +45,14 @@ story060Right.args = {
   slot: 'Headline aligned to the Right',
 };
 story060Right.storyName = 'Right aligned';
+
+export const story070NoMargin = template.bind({});
+story070NoMargin.args = {
+  ...defaultArgs,
+  noMargin: true,
+  slot: 'Headline 100 without margin',
+};
+story070NoMargin.storyName = 'Headline 100 without Margin';
 
 const argTypes = getArgTypes('b2b-headline');
 
