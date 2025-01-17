@@ -22,6 +22,9 @@ export class AnchorComponent {
   /** The hoverColor of the link. Per default, it is set to b2b-color-red-100. If specified as inherit, it is inherited from the parent element. */
   @Prop() hoverColor: 'inherit' | 'default' = 'default';
 
+  /** The underlineText of the link. If set to false, the link text will not be underlined. */
+  @Prop() underlineText: boolean = true;
+
   render() {
     return (
       <Host>
@@ -33,6 +36,7 @@ export class AnchorComponent {
             'b2b-anchor': true,
             [`b2b-anchor--${this.size}`]: true,
             [`b2b-anchor-hover--${this.hoverColor}`]: true,
+            'b2b-anchor--underline-text': this.underlineText,
           }}>
           <slot></slot>
         </a>

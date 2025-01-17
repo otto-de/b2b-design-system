@@ -11,7 +11,6 @@
   .b2b-anchor {
     font-family: var(--b2b-font-family-default);
     color: var(--b2b-color-copy-default);
-    text-decoration: underline;
     transition: all 0.3s ease;
 
     // related to B2BDS-237
@@ -32,12 +31,20 @@
         cursor: pointer;
       }
     }
-    
+
     &-hover--inherit {
       &:hover {
         color: inherit;
         cursor: pointer;
       }
+    }
+
+    &--underline-text {
+      text-decoration: underline;
+    }
+
+    &:not(.b2b-anchor--underline-text) {
+      text-decoration: none;
     }
   }
 }

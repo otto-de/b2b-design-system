@@ -157,6 +157,20 @@
         }
       },
       "description": "The target the URL will be opened into. The default is self."
+    },
+    "underlineText": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "The underlineText of the link. If set to false, the link text will not be underlined."
     }
   },
   "b2b-background-box": {

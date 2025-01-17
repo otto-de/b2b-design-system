@@ -2,13 +2,21 @@ import { Meta, Story, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ href, download, size, target, hoverColor }) => {
+const Template: Story = ({
+  href,
+  download,
+  size,
+  target,
+  hoverColor,
+  underlineText,
+}) => {
   return html` <b2b-anchor
     href="${href}"
     download="${download}"
     size="${size}"
     hover-color="${hoverColor}"
-    target="${target}">
+    target="${target}"
+    underline-text="${underlineText}">
     Click me!
   </b2b-anchor>`;
 };
@@ -50,12 +58,17 @@ export const story040BlueHoverColor: StoryObj = {
 };
 story040BlueHoverColor.storyName = 'Hover Color Inherit';
 
+export const story050NoUnderline = Template.bind({});
+story050NoUnderline.args = { ...defaultArgs, underlineText: false };
+story050NoUnderline.storyName = 'No underline';
+
 const controls = {
   href: 'string',
   download: 'string',
   size: 'radio',
   target: 'radio',
   hoverColor: 'radio',
+  underlineText: 'radio',
 };
 
 const anchorArgs = getArgTypes('b2b-anchor', controls);

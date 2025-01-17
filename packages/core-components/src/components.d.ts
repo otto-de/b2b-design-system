@@ -69,6 +69,10 @@ export namespace Components {
           * The target the URL will be opened into. The default is self.
          */
         "target": 'self' | 'blank' | 'parent' | 'top';
+        /**
+          * The underlineText of the link. If set to false, the link text will not be underlined.
+         */
+        "underlineText": boolean;
     }
     interface B2bBackgroundBox {
         /**
@@ -2323,6 +2327,10 @@ declare namespace LocalJSX {
           * The target the URL will be opened into. The default is self.
          */
         "target"?: 'self' | 'blank' | 'parent' | 'top';
+        /**
+          * The underlineText of the link. If set to false, the link text will not be underlined.
+         */
+        "underlineText"?: boolean;
     }
     interface B2bBackgroundBox {
         /**
