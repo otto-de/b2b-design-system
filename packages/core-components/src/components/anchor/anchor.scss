@@ -26,18 +26,18 @@
       font-size: inherit;
     }
 
-    &-hover--default{
+    &-hover--default {
       &:hover {
         color: var(--b2b-color-red-100);
         cursor: pointer;
       }
     }
+    
     &-hover--inherit {
       &:hover {
         color: inherit;
         cursor: pointer;
       }
     }
-
   }
 }
