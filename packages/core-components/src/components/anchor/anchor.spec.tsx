@@ -15,7 +15,7 @@ it('should render the anchor component with default values', async () => {
   expect(page.root).toEqualHtml(`
     <b2b-anchor>
       <mock:shadow-root>
-        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--inherit b2b-anchor-hover--default" target="_self">
+        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--inherit b2b-anchor-hover--default b2b-anchor--underline-text" target="_self">
           <slot></slot>
         </a>
       </mock:shadow-root>
@@ -36,7 +36,7 @@ it('should change the font size of the anchor component if specified', async () 
   expect(page.root).toEqualHtml(`
     <b2b-anchor>
       <mock:shadow-root>
-        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--100 b2b-anchor-hover--default" target="_self">
+        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--100 b2b-anchor-hover--default b2b-anchor--underline-text" target="_self">
           <slot></slot>
         </a>
       </mock:shadow-root>
@@ -57,7 +57,7 @@ it('should change the download string if specified', async () => {
   expect(page.root).toEqualHtml(`
     <b2b-anchor>
       <mock:shadow-root>
-        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--inherit b2b-anchor-hover--default" target="_self" download="This is a test download">
+        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--inherit b2b-anchor-hover--default b2b-anchor--underline-text" target="_self" download="This is a test download">
           <slot></slot>
         </a>
       </mock:shadow-root>
@@ -78,7 +78,7 @@ it('should change the target property if specified', async () => {
   expect(page.root).toEqualHtml(`
     <b2b-anchor>
       <mock:shadow-root>
-        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--inherit b2b-anchor-hover--default" target="_parent">
+        <a href="https://www.otto.de" class="b2b-anchor b2b-anchor--inherit b2b-anchor-hover--default b2b-anchor--underline-text" target="_parent">
           <slot></slot>
         </a>
       </mock:shadow-root>

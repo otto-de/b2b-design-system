@@ -34,7 +34,7 @@ describe('B2B-Alert', () => {
   it('should not render text in a small alert', async () => {
     const page = await newE2EPage();
 
-    await page.setContent(`<b2b-alert opened>test</b2b-alert>`);
+    await page.setContent(`<b2b-alert opened size="small">test</b2b-alert>`);
 
     const element = await page.find('b2b-alert >>> p');
 
@@ -85,7 +85,7 @@ describe('B2B-Alert', () => {
 
   it('should not render a close button in a small alert', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<b2b-alert opened>test</b2b-alert>`);
+    await page.setContent(`<b2b-alert opened size="small">test</b2b-alert>`);
 
     const element = await page.find('b2b-alert >>> div.b2b-alert__close-icon');
 
