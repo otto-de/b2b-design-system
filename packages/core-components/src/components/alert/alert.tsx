@@ -19,7 +19,7 @@ export class AlertComponent {
   @Prop() type: 'info' | 'success' | 'warning' | 'error' = 'info';
 
   /** The size of the alert. Per default it is large. If set to small, the alert will only have an icon. */
-  @Prop() size: 'large' | 'small' = 'small';
+  @Prop() size: 'large' | 'small' = 'large';
 
   /** Whether the alert is currently open. Set to true to display the alert. */
   @Prop({ mutable: true }) opened: boolean = false;
