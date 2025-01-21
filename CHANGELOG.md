@@ -1,3 +1,20 @@
+# [1.21.0](https://github.com/otto-de/b2b-design-system/compare/v1.20.0...v1.21.0) (2025-01-21)
+
+
+### Bug Fixes
+
+* **Alert:** [BLA-SCOUT] Make the large as default value for size ([6332c1b](https://github.com/otto-de/b2b-design-system/commit/6332c1b85133e7bb6c2c6432b785eebaa4646979))
+* **Icon100:** [BLA-SCOUT] Update the icon to adapt the fill color ([eac80a6](https://github.com/otto-de/b2b-design-system/commit/eac80a6ed85bcd0dc002f0d11e6bc3db7931a0d0))
+* **ProgressBar:** [SCOUT] add missing progress bar font ([#526](https://github.com/otto-de/b2b-design-system/issues/526)) ([ad96022](https://github.com/otto-de/b2b-design-system/commit/ad960228b9858c99c3a60fb12104ccd0b0e91df9))
+
+
+### Features
+
+* **Anchor:** [BLA-1055] B2B-Anchor make hover color inheritable ([7c06b93](https://github.com/otto-de/b2b-design-system/commit/7c06b9364fdaaa66bbb1f36d8f2fca842a83e8c9))
+* **Anchor:** [BLA-1055] B2B-Anchor make hover color inheritable ([e4f6875](https://github.com/otto-de/b2b-design-system/commit/e4f687514083e2d298f88b5edbbcbad2e42e42e7))
+* **Anchor:** [BLA-SCOUT] Add no underline feature to anchor ([3a37e92](https://github.com/otto-de/b2b-design-system/commit/3a37e9271cc8d515f99ea4b70de70085991f7e9e))
+* **Radio:** [JELLY-8960] add label slot to radio button and group ([#524](https://github.com/otto-de/b2b-design-system/issues/524)) ([dbbf0a2](https://github.com/otto-de/b2b-design-system/commit/dbbf0a2763c0ffda323339361a7cb5095a4d613c))
+
 # [1.20.0](https://github.com/otto-de/b2b-design-system/compare/v1.19.0...v1.20.0) (2024-12-12)
 
 
