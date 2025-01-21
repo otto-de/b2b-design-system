@@ -52,7 +52,7 @@ story070NoMargin.args = {
   noMargin: true,
   slot: 'Headline 100 without margin',
 };
-story070NoMargin.storyName = 'Headline 100 without Margin';
+story070NoMargin.storyName = 'Headline without Margin';
 
 const argTypes = getArgTypes('b2b-headline');
 
