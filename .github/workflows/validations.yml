@@ -76,11 +76,4 @@ jobs:
         run: npm run lint
 
       - name: Test
-        run: |
-          npm test
-          if [ $? -ne 0 ]; then
-            echo "Tests failed. Exiting..."
-            exit 1
-          fi
-        env:
-          CI: true
+        run: npm run test
