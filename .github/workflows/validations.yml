@@ -47,6 +47,29 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
+      - name: Install Chromium dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 \
+            libatk1.0-0 \
+            libx11-xcb1 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxrandr2 \
+            libgbm1 \
+            libasound2 \
+            libpangocairo-1.0-0 \
+            libgtk-3-0 \
+            libxcb-dri3-0
+
+      - name: Set environment variables
+        run: |
+          export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=false
+
+      - name: Install Dependencies
+        run: npm ci
+
       - name: Build
         run: npm run build
 
@@ -55,3 +78,5 @@ jobs:
 
       - name: Test
         run: npm test
+        env:
+          CI: true
