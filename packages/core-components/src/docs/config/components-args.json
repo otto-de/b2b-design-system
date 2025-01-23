@@ -783,6 +783,24 @@
       },
       "description": "The dates that are part of this array are disabled. By default, this is an empty array."
     },
+    "disableEvery": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "Disable the days of the week specified here."
+    },
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -867,6 +885,17 @@
         }
       },
       "description": "Internal the dates that are part of this array are disabled. By default, this is an empty array."
+    },
+    "disableEvery": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "Internal the specific days of the week that need to be disabled"
     },
     "disableFutureDates": {
       "control": {

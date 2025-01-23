@@ -15,6 +15,7 @@ export class DateUtils {
       disableFutureDates?: boolean;
       disableWeekends?: boolean;
       todayWithoutTime?: Date;
+      disableEvery?: string[];
     },
   ): boolean {
     const {
@@ -23,6 +24,7 @@ export class DateUtils {
       disableFutureDates = false,
       disableWeekends = false,
       todayWithoutTime = new Date(),
+      disableEvery = [],
     } = options;
 
     const isExplicitlyDisabled =
@@ -31,12 +33,32 @@ export class DateUtils {
         this.isSameDate(disabledDate, givenDate),
       );
 
+    const dayNameToIndex: Record<string, number> = {
+      Sun: 0,
+      Mon: 1,
+      Tue: 2,
+      Wed: 3,
+      Thu: 4,
+      Fri: 5,
+      Sat: 6,
+    };
+
     const isPastDate = disablePastDates && givenDate < todayWithoutTime;
     const isFutureDate = disableFutureDates && givenDate > todayWithoutTime;
     const isWeekend =
       disableWeekends && (givenDate.getDay() === 0 || givenDate.getDay() === 6);
 
-    return isExplicitlyDisabled || isPastDate || isFutureDate || isWeekend;
+    const isDayToDisable =
+      disableEvery.length > 0 &&
+      disableEvery.some(day => dayNameToIndex[day] === givenDate.getDay());
+
+    return (
+      isExplicitlyDisabled ||
+      isPastDate ||
+      isFutureDate ||
+      isWeekend ||
+      isDayToDisable
+    );
   }
 
   static parseStringToDateArray(value: string): Date[] {

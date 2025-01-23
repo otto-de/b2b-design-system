@@ -278,6 +278,18 @@ export namespace Components {
          */
         "disableDates": string | string[];
         /**
+          * Disable the days of the week specified here.
+         */
+        "disableEvery": | 'Mon'
+    | 'Tue'
+    | 'Wed'
+    | 'Thu'
+    | 'Fri'
+    | 'Sat'
+    | 'Sun'
+    | string
+    | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates": boolean;
@@ -307,6 +319,10 @@ export namespace Components {
           * Internal the dates that are part of this array are disabled. By default, this is an empty array.
          */
         "disableDates": Date[];
+        /**
+          * Internal the specific days of the week that need to be disabled
+         */
+        "disableEvery": string[];
         /**
           * Internal whether the dates after the current date are disabled. By default, this is false.
          */
@@ -2569,6 +2585,18 @@ declare namespace LocalJSX {
          */
         "disableDates"?: string | string[];
         /**
+          * Disable the days of the week specified here.
+         */
+        "disableEvery"?: | 'Mon'
+    | 'Tue'
+    | 'Wed'
+    | 'Thu'
+    | 'Fri'
+    | 'Sat'
+    | 'Sun'
+    | string
+    | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates"?: boolean;
@@ -2602,6 +2630,10 @@ declare namespace LocalJSX {
           * Internal the dates that are part of this array are disabled. By default, this is an empty array.
          */
         "disableDates"?: Date[];
+        /**
+          * Internal the specific days of the week that need to be disabled
+         */
+        "disableEvery"?: string[];
         /**
           * Internal whether the dates after the current date are disabled. By default, this is false.
          */

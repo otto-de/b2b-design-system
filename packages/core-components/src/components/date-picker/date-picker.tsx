@@ -47,6 +47,18 @@ export class B2bDatePicker {
   /** Whether to show hint message or not. */
   @Prop() showHint: boolean = true;
 
+  /** Disable the days of the week specified here. */
+  @Prop() disableEvery:
+    | 'Mon'
+    | 'Tue'
+    | 'Wed'
+    | 'Thu'
+    | 'Fri'
+    | 'Sat'
+    | 'Sun'
+    | string
+    | string[] = [];
+
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
@@ -66,6 +78,7 @@ export class B2bDatePicker {
   @State() invalid: boolean = false;
   @State() errorMessage: string = this.FORMATTING_ERROR_MESSAGE;
   @State() datesToBeDisabled: Date[] = [];
+  @State() normalizedDisableEvery: string[] = [];
 
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -96,8 +109,21 @@ export class B2bDatePicker {
     }
   }
 
+  private normalizeDisableEvery(value: string | string[]): string[] {
+    if (Array.isArray(value)) {
+      return value;
+    }
+    if (typeof value === 'string') {
+      return value.split(',').map(day => day.trim());
+    }
+    return [];
+  }
+
   componentWillLoad() {
-    this.parseDisableDates();
+    if (this.disableDates !== '' || this.disableDates.length > 0) {
+      this.parseDisableDates();
+    }
+    this.normalizedDisableEvery = this.normalizeDisableEvery(this.disableEvery);
     if (this.preSelectedDate !== undefined) {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
@@ -194,6 +220,7 @@ export class B2bDatePicker {
         disableFutureDates: this.disableFutureDates,
         disableWeekends: this.disableWeekends,
         todayWithoutTime: todayWithoutTime,
+        disableEvery: this.normalizedDisableEvery,
       })
     ) {
       this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
@@ -509,7 +536,10 @@ export class B2bDatePicker {
                 disableWeekends={this.disableWeekends}
                 disableFutureDates={this.disableFutureDates}
                 disablePastDates={this.disablePastDates}
-                disableDates={this.datesToBeDisabled}></b2b-date-picker-days>
+                disableDates={this.datesToBeDisabled}
+                disableEvery={
+                  this.normalizedDisableEvery
+                }></b2b-date-picker-days>
             </div>
           )}
           {this.datePickerView === DatePickerView.Months && (

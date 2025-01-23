@@ -427,10 +427,18 @@
 
     <div class="content-container" width="300px">
       <b2b-headline size="200">Date picker</b2b-headline>
-      <b2b-date-picker
-        id="date-picker"
-        disable-weekends
-        disable-dates="21.01.2025,10.01.2025"></b2b-date-picker>
+      <b2b-date-picker disable-dates="21.01.2025,10.01.2025"></b2b-date-picker>
     </div>
+
+    <div class="content-container" width="300px">
+      <b2b-headline size="200"
+        >Date picker disabling specific days</b2b-headline
+      >
+      <b2b-date-picker id="date-picker"></b2b-date-picker>
+    </div>
+    <script>
+      const datepickerEl = document.getElementById('date-picker');
+      datepickerEl.disableEvery = ['Mon', 'Tue'];
+    </script>
   </body>
 </html>

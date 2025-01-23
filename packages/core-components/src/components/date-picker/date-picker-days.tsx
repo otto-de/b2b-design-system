@@ -46,6 +46,8 @@ export class B2bDatePickerDays {
   @Prop() disableWeekends: boolean = false;
   /** Internal the dates that are part of this array are disabled. By default, this is an empty array.  */
   @Prop() disableDates: Date[] = [];
+  /** Internal the specific days of the week that need to be disabled */
+  @Prop() disableEvery: string[] = [];
   @State() disabled: boolean = false;
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -201,6 +203,7 @@ export class B2bDatePickerDays {
         disableFutureDates: this.disableFutureDates,
         disableWeekends: this.disableWeekends,
         todayWithoutTime: this.todayWithoutTime,
+        disableEvery: this.disableEvery,
       });
       days.push(
         <div

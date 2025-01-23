@@ -14,6 +14,7 @@ const meta: Meta = {
     label: 'Zeitraum auswählen',
     preSelectedDate: '',
     showHint: true,
+    disableEvery: [],
   },
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
@@ -29,6 +30,7 @@ const meta: Meta = {
           disable-weekends=${args.disableWeekends}
           disable-dates=${args.disableDates}
           .pre-selected-date="${args.preSelectedDate}"
+          disable-every=${args.disableEvery}
           show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
     } else {
@@ -40,6 +42,7 @@ const meta: Meta = {
           disable-weekends=${args.disableWeekends}
           disable-dates=${args.disableDates}
           pre-selected-date="${args.preSelectedDate}"
+          disable-every=${args.disableEvery}
           show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
     }
@@ -107,6 +110,23 @@ export const DisableDates: Story = {
     ...meta.args,
     disableWeekends: true,
     disableDates: ['21.01.2025', '10.01.2025'],
+  },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
+    }, 500);
+  },
+};
+
+export const DisableEvery: Story = {
+  args: {
+    ...meta.args,
+    disableWeekends: true,
+    disableEvery: ['Mon', 'Tue'],
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
