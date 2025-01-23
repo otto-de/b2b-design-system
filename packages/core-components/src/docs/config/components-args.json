@@ -877,6 +877,17 @@
       },
       "description": "Label for the date picker component."
     },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The placeholder shown in the date picker."
+    },
     "preSelectedDate": {
       "table": {
         "type": {

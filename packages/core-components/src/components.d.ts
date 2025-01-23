@@ -318,6 +318,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * The placeholder shown in the date picker.
+         */
+        "placeholder": string;
+        /**
           * Default date picker date
          */
         "preSelectedDate": string;
@@ -2648,6 +2652,10 @@ declare namespace LocalJSX {
           * Emits the selected date as Date type.
          */
         "onB2b-selected"?: (event: B2bDatePickerCustomEvent<DatePickerEventDetail>) => void;
+        /**
+          * The placeholder shown in the date picker.
+         */
+        "placeholder"?: string;
         /**
           * Default date picker date
          */

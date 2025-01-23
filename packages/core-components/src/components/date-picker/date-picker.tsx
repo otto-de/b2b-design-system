@@ -68,6 +68,9 @@ export class B2bDatePicker {
   /** Hint text that should be displayed when showHint is true */
   @Prop() hint: string = 'Format: TT.MM.JJJJ';
 
+  /** The placeholder shown in the date picker. */
+  @Prop({ reflect: true }) placeholder: string = null;
+
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
@@ -497,6 +500,7 @@ export class B2bDatePicker {
                   this.focused = false;
                   this.handleFocusOut();
                 }}
+                placeholder={this.placeholder}
               />
             </div>
             <div class="b2b-icons">
