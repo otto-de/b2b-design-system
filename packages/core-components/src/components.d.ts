@@ -310,6 +310,10 @@ export namespace Components {
          */
         "disableWeekends": boolean;
         /**
+          * Hint text that should be displayed when showHint is true
+         */
+        "hint": string;
+        /**
           * Label for the date picker component.
          */
         "label": string;
@@ -2632,6 +2636,10 @@ declare namespace LocalJSX {
           * Whether the dates that fall on the weekend are disabled. By default, this is false.
          */
         "disableWeekends"?: boolean;
+        /**
+          * Hint text that should be displayed when showHint is true
+         */
+        "hint"?: string;
         /**
           * Label for the date picker component.
          */

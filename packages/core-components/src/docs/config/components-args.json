@@ -855,6 +855,17 @@
       },
       "description": "Whether the dates that fall on the weekend are disabled. By default, this is false."
     },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Format: TT.MM.JJJJ'"
+        }
+      },
+      "description": "Hint text that should be displayed when showHint is true"
+    },
     "label": {
       "table": {
         "type": {

@@ -65,6 +65,9 @@ export class B2bDatePicker {
   /** All the dates until the given specified date will be disabled. */
   @Prop() disableDatesFrom: string;
 
+  /** Hint text that should be displayed when showHint is true */
+  @Prop() hint: string = 'Format: TT.MM.JJJJ';
+
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
@@ -593,9 +596,7 @@ export class B2bDatePicker {
               'b2b-date-picker-hint': true,
               'b2b-date-picker-hint--error': this.invalid,
             }}>
-            {this.invalid
-              ? this.errorMessage
-              : this.showHint && 'Format: TT.MM.JJJJ'}
+            {this.invalid ? this.errorMessage : this.showHint && this.hint}
           </span>
         )}
       </Host>

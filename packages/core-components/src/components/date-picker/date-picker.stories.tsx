@@ -17,6 +17,7 @@ const meta: Meta = {
     disableEvery: [],
     disableDatesUntil: '',
     disableDatesFrom: '',
+    hint: 'Format: TT.MM.JJJJ',
   },
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
@@ -35,7 +36,8 @@ const meta: Meta = {
           disable-every=${args.disableEvery}
           disable-dates-until=${args.disableDatesUntil}
           disable-dates-from=${args.disableDatesFrom}
-          show-hint=${args.showHint}></b2b-date-picker>
+          show-hint=${args.showHint}
+          hint=${args.hint}></b2b-date-picker>
       </div>`;
     } else {
       return html` <div style="margin-left: 2px">
@@ -49,7 +51,8 @@ const meta: Meta = {
           disable-every=${args.disableEvery}
           disable-dates-until=${args.disableDatesUntil}
           disable-dates-from=${args.disableDatesFrom}
-          show-hint=${args.showHint}></b2b-date-picker>
+          show-hint=${args.showHint}
+          hint=${args.hint}></b2b-date-picker>
       </div>`;
     }
   },
@@ -165,6 +168,23 @@ export const DisableDatesFrom: Story = {
   args: {
     ...meta.args,
     disableDatesFrom: '20.01.2025',
+  },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
+    }, 500);
+  },
+};
+
+export const WithCustomHintMessage: Story = {
+  args: {
+    ...meta.args,
+    showHint: true,
+    hint: 'This is a long hint text message which is longer than the normal default hint message',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
