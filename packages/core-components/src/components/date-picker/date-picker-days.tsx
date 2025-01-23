@@ -11,6 +11,7 @@ import {
 } from '@stencil/core';
 import { DateSelectedEventDetail } from '../../utils/interfaces/form.interface';
 import { EscapePressed } from '../../utils/interfaces/form.interface';
+import { DateUtils } from '../../utils/datepicker/date-picker-util';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -164,37 +165,6 @@ export class B2bDatePickerDays {
     }
   };
 
-  private isSameDate = (date1: Date, date2: Date): boolean => {
-    return (
-      date1.getFullYear() === date2.getFullYear() &&
-      date1.getMonth() === date2.getMonth() &&
-      date1.getDate() === date2.getDate()
-    );
-  };
-
-  private isDisabledDate = (givenDate: Date): boolean => {
-    const datesToBeDisabled =
-      (this.disableDates && this.disableDates.length) > 0
-        ? this.disableDates.map(date => new Date(date))
-        : [];
-
-    const isExplicitlyDisabled =
-      datesToBeDisabled.length > 0 &&
-      datesToBeDisabled.some(disabledDate =>
-        this.isSameDate(disabledDate, givenDate),
-      );
-
-    const isPastDate =
-      this.disablePastDates && givenDate < this.todayWithoutTime;
-    const isFutureDate =
-      this.disableFutureDates && givenDate > this.todayWithoutTime;
-    const isWeekend =
-      this.disableWeekends &&
-      (givenDate.getDay() === 0 || givenDate.getDay() === 6);
-
-    return isExplicitlyDisabled || isPastDate || isFutureDate || isWeekend;
-  };
-
   private handleClick = (event: MouseEvent) => {
     /** Remove focus from the clicked element */
     (event.target as HTMLDivElement).blur();
@@ -225,7 +195,13 @@ export class B2bDatePickerDays {
     /** Populate days array with day numbers. */
     for (let i = 1; i <= daysInMonth; i++) {
       let givenDate = new Date(this.selectedYear, this.selectedMonth, i);
-      let disabled = this.isDisabledDate(givenDate);
+      let disabled = DateUtils.isDisabledDate(givenDate, {
+        disableDates: this.disableDates,
+        disablePastDates: this.disablePastDates,
+        disableFutureDates: this.disableFutureDates,
+        disableWeekends: this.disableWeekends,
+        todayWithoutTime: this.todayWithoutTime,
+      });
       days.push(
         <div
           class={{

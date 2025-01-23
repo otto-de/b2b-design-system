@@ -16,6 +16,7 @@ import {
   MonthSelectedEventDetail,
   YearSelectedEventDetail,
 } from '../../utils/interfaces/form.interface';
+import { DateUtils } from '../../utils/datepicker/date-picker-util';
 
 @Component({
   tag: 'b2b-date-picker',
@@ -64,7 +65,7 @@ export class B2bDatePicker {
   @State() userInputDate: string = '';
   @State() invalid: boolean = false;
   @State() errorMessage: string = this.FORMATTING_ERROR_MESSAGE;
-  @State() datesToBeDisabled: string[] = [];
+  @State() datesToBeDisabled: Date[] = [];
 
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -73,14 +74,25 @@ export class B2bDatePicker {
     this.today.getDate(),
   );
 
-  private parseStringToArray(value: string): string[] {
+  private parseStringToArrayOfDates(value: string): Date[] {
     const dateArray = value.split(',');
-    return dateArray.map(date => date.trim()).filter(Boolean);
+    const dateStringArray = dateArray.map(date => date.trim()).filter(Boolean);
+    return dateStringArray.map(date => {
+      const [day, month, year] = date.split('.').map(Number);
+      return new Date(year, month - 1, day);
+    });
   }
 
   private parseDisableDates() {
     if (typeof this.disableDates === 'string') {
-      this.datesToBeDisabled = this.parseStringToArray(this.disableDates);
+      this.datesToBeDisabled = this.parseStringToArrayOfDates(
+        this.disableDates,
+      );
+    } else {
+      this.datesToBeDisabled = this.disableDates.map(date => {
+        const [day, month, year] = date.split('.').map(Number);
+        return new Date(year, month - 1, day);
+      });
     }
   }
 
@@ -158,6 +170,11 @@ export class B2bDatePicker {
 
   private isValidDate(day: number, month: number, year: number): boolean {
     const date = new Date(year, month - 1, day);
+    const todayWithoutTime = new Date(
+      this.today.getFullYear(),
+      this.today.getMonth(),
+      this.today.getDate(),
+    );
 
     const isValidDay = date.getDate() === day;
     const isValidMonth = date.getMonth() + 1 === month;
@@ -170,19 +187,18 @@ export class B2bDatePicker {
     }
 
     let isValidRange = true;
-    if (this.disablePastDates && date < this.todayWithoutTime) {
+    if (
+      DateUtils.isDisabledDate(date, {
+        disableDates: this.datesToBeDisabled,
+        disablePastDates: this.disablePastDates,
+        disableFutureDates: this.disableFutureDates,
+        disableWeekends: this.disableWeekends,
+        todayWithoutTime: todayWithoutTime,
+      })
+    ) {
       this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
       isValidRange = false;
     }
-    if (this.disableFutureDates && date > this.todayWithoutTime) {
-      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
-      isValidRange = false;
-    }
-    if (this.disableWeekends && (date.getDay() == 0 || date.getDay() == 6)) {
-      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
-      isValidRange = false;
-    }
-
     return isValidRange;
   }
 
@@ -493,16 +509,7 @@ export class B2bDatePicker {
                 disableWeekends={this.disableWeekends}
                 disableFutureDates={this.disableFutureDates}
                 disablePastDates={this.disablePastDates}
-                disableDates={
-                  this.datesToBeDisabled &&
-                  this.datesToBeDisabled.length > 0 &&
-                  this.datesToBeDisabled.map(dateString => {
-                    const [day, month, year] = dateString
-                      .split('.')
-                      .map(Number);
-                    return new Date(year, month - 1, day);
-                  })
-                }></b2b-date-picker-days>
+                disableDates={this.datesToBeDisabled}></b2b-date-picker-days>
             </div>
           )}
           {this.datePickerView === DatePickerView.Months && (
