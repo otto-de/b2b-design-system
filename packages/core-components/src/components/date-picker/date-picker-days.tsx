@@ -43,6 +43,8 @@ export class B2bDatePickerDays {
   @Prop() disableFutureDates: boolean = false;
   /** Internal whether the weekends are disabled. By default, this is false.  */
   @Prop() disableWeekends: boolean = false;
+  /** Internal the dates that are part of this array are disabled. By default, this is an empty array.  */
+  @Prop() disableDates: Date[] = [];
   @State() disabled: boolean = false;
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -162,16 +164,35 @@ export class B2bDatePickerDays {
     }
   };
 
-  private isDisabledDate = (givenDate: Date) => {
-    if (this.disablePastDates) {
-      if (givenDate < this.todayWithoutTime) return true;
-    } else if (this.disableFutureDates) {
-      if (givenDate > this.todayWithoutTime) return true;
-    } else if (this.disableWeekends) {
-      if (givenDate.getDay() == 0 || givenDate.getDay() == 6) return true;
-    } else {
-      return false;
-    }
+  private isSameDate = (date1: Date, date2: Date): boolean => {
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
+    );
+  };
+
+  private isDisabledDate = (givenDate: Date): boolean => {
+    const datesToBeDisabled =
+      (this.disableDates && this.disableDates.length) > 0
+        ? this.disableDates.map(date => new Date(date))
+        : [];
+
+    const isExplicitlyDisabled =
+      datesToBeDisabled.length > 0 &&
+      datesToBeDisabled.some(disabledDate =>
+        this.isSameDate(disabledDate, givenDate),
+      );
+
+    const isPastDate =
+      this.disablePastDates && givenDate < this.todayWithoutTime;
+    const isFutureDate =
+      this.disableFutureDates && givenDate > this.todayWithoutTime;
+    const isWeekend =
+      this.disableWeekends &&
+      (givenDate.getDay() === 0 || givenDate.getDay() === 6);
+
+    return isExplicitlyDisabled || isPastDate || isFutureDate || isWeekend;
   };
 
   private handleClick = (event: MouseEvent) => {

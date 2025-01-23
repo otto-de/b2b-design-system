@@ -34,8 +34,11 @@ export class B2bDatePicker {
   /** Whether the dates that fall on the weekend are disabled. By default, this is false. */
   @Prop() disableWeekends: boolean;
 
+  /** The dates that are part of this array are disabled. By default, this is an empty array. */
+  @Prop() disableDates: string | string[] = [];
+
   /** Label for the date picker component. */
-  @Prop() label: string = 'Zeitraum auswählen';
+  @Prop() label: string = 'Zeitpunkt auswählen';
 
   /** Default date picker date*/
   @Prop() preSelectedDate: string = undefined;
@@ -61,6 +64,7 @@ export class B2bDatePicker {
   @State() userInputDate: string = '';
   @State() invalid: boolean = false;
   @State() errorMessage: string = this.FORMATTING_ERROR_MESSAGE;
+  @State() datesToBeDisabled: string[] = [];
 
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -69,7 +73,19 @@ export class B2bDatePicker {
     this.today.getDate(),
   );
 
+  private parseStringToArray(value: string): string[] {
+    const dateArray = value.split(',');
+    return dateArray.map(date => date.trim()).filter(Boolean);
+  }
+
+  private parseDisableDates() {
+    if (typeof this.disableDates === 'string') {
+      this.datesToBeDisabled = this.parseStringToArray(this.disableDates);
+    }
+  }
+
   componentWillLoad() {
+    this.parseDisableDates();
     if (this.preSelectedDate !== undefined) {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
@@ -476,7 +492,17 @@ export class B2bDatePicker {
                 selectedDay={this.selectedDay}
                 disableWeekends={this.disableWeekends}
                 disableFutureDates={this.disableFutureDates}
-                disablePastDates={this.disablePastDates}></b2b-date-picker-days>
+                disablePastDates={this.disablePastDates}
+                disableDates={
+                  this.datesToBeDisabled &&
+                  this.datesToBeDisabled.length > 0 &&
+                  this.datesToBeDisabled.map(dateString => {
+                    const [day, month, year] = dateString
+                      .split('.')
+                      .map(Number);
+                    return new Date(year, month - 1, day);
+                  })
+                }></b2b-date-picker-days>
             </div>
           )}
           {this.datePickerView === DatePickerView.Months && (

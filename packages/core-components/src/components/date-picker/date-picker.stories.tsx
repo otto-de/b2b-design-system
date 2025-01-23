@@ -10,6 +10,7 @@ const meta: Meta = {
     disablePastDates: false,
     disableFutureDates: false,
     disableWeekends: false,
+    disableDates: [],
     label: 'Zeitraum auswählen',
     preSelectedDate: '',
     showHint: true,
@@ -26,6 +27,7 @@ const meta: Meta = {
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
+          disable-dates=${args.disableDates}
           .pre-selected-date="${args.preSelectedDate}"
           show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
@@ -36,6 +38,7 @@ const meta: Meta = {
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
+          disable-dates=${args.disableDates}
           pre-selected-date="${args.preSelectedDate}"
           show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
@@ -88,6 +91,23 @@ export const DisableFutureDates: Story = {
 
 export const DisableWeekends: Story = {
   args: { ...meta.args, disableWeekends: true },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
+    }, 500);
+  },
+};
+
+export const DisableDates: Story = {
+  args: {
+    ...meta.args,
+    disableWeekends: true,
+    disableDates: ['21.01.2025', '10.01.2025'],
+  },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');

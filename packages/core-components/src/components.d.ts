@@ -274,6 +274,10 @@ export namespace Components {
     }
     interface B2bDatePicker {
         /**
+          * The dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates": string | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates": boolean;
@@ -299,6 +303,10 @@ export namespace Components {
         "showHint": boolean;
     }
     interface B2bDatePickerDays {
+        /**
+          * Internal the dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates": Date[];
         /**
           * Internal whether the dates after the current date are disabled. By default, this is false.
          */
@@ -2557,6 +2565,10 @@ declare namespace LocalJSX {
     }
     interface B2bDatePicker {
         /**
+          * The dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates"?: string | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates"?: boolean;
@@ -2586,6 +2598,10 @@ declare namespace LocalJSX {
         "showHint"?: boolean;
     }
     interface B2bDatePickerDays {
+        /**
+          * Internal the dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates"?: Date[];
         /**
           * Internal whether the dates after the current date are disabled. By default, this is false.
          */

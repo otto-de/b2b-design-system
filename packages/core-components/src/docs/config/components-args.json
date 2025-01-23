@@ -55,7 +55,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "'small'"
+          "summary": "'large'"
         }
       },
       "description": "The size of the alert. Per default it is large. If set to small, the alert will only have an icon."
@@ -765,6 +765,24 @@
     }
   },
   "b2b-date-picker": {
+    "disableDates": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The dates that are part of this array are disabled. By default, this is an empty array."
+    },
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -807,7 +825,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "'Zeitraum auswählen'"
+          "summary": "'Zeitpunkt auswählen'"
         }
       },
       "description": "Label for the date picker component."
@@ -839,6 +857,17 @@
     }
   },
   "b2b-date-picker-days": {
+    "disableDates": {
+      "table": {
+        "type": {
+          "summary": "Date[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "Internal the dates that are part of this array are disabled. By default, this is an empty array."
+    },
     "disableFutureDates": {
       "control": {
         "type": "boolean"

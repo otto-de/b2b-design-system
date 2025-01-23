@@ -427,7 +427,10 @@
 
     <div class="content-container" width="300px">
       <b2b-headline size="200">Date picker</b2b-headline>
-      <b2b-date-picker disable-future-dates></b2b-date-picker>
+      <b2b-date-picker
+        id="date-picker"
+        disable-weekends
+        disable-dates="21.01.2025,10.01.2025"></b2b-date-picker>
     </div>
   </body>
 </html>
