@@ -59,6 +59,12 @@ export class B2bDatePicker {
     | string
     | string[] = [];
 
+  /** All the dates until the given specified date will be disabled. */
+  @Prop() disableDatesUntil: string;
+
+  /** All the dates until the given specified date will be disabled. */
+  @Prop() disableDatesFrom: string;
+
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
@@ -79,6 +85,8 @@ export class B2bDatePicker {
   @State() errorMessage: string = this.FORMATTING_ERROR_MESSAGE;
   @State() datesToBeDisabled: Date[] = [];
   @State() normalizedDisableEvery: string[] = [];
+  @State() normalizedDisableDatesUntil: Date;
+  @State() normalizedDisableDatesFrom: Date;
 
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -119,11 +127,30 @@ export class B2bDatePicker {
     return [];
   }
 
+  private normalizeDisableDatesUntilAndFrom(givenDate: string): Date {
+    const [day, month, year] = givenDate.split('.').map(Number);
+    return new Date(year, month - 1, day);
+  }
+
   componentWillLoad() {
     if (this.disableDates !== '' || this.disableDates.length > 0) {
       this.parseDisableDates();
     }
-    this.normalizedDisableEvery = this.normalizeDisableEvery(this.disableEvery);
+    if (this.disableEvery !== '' || this.disableEvery.length > 0) {
+      this.normalizedDisableEvery = this.normalizeDisableEvery(
+        this.disableEvery,
+      );
+    }
+    if (this.disableDatesUntil !== '' && this.disableDatesUntil !== undefined) {
+      this.normalizedDisableDatesUntil = this.normalizeDisableDatesUntilAndFrom(
+        this.disableDatesUntil,
+      );
+    }
+    if (this.disableDatesFrom !== '' && this.disableDatesFrom !== undefined) {
+      this.normalizedDisableDatesFrom = this.normalizeDisableDatesUntilAndFrom(
+        this.disableDatesFrom,
+      );
+    }
     if (this.preSelectedDate !== undefined) {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
@@ -221,6 +248,8 @@ export class B2bDatePicker {
         disableWeekends: this.disableWeekends,
         todayWithoutTime: todayWithoutTime,
         disableEvery: this.normalizedDisableEvery,
+        disableDatesUntil: this.normalizedDisableDatesUntil,
+        disableDatesFrom: this.normalizedDisableDatesFrom,
       })
     ) {
       this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
@@ -537,8 +566,10 @@ export class B2bDatePicker {
                 disableFutureDates={this.disableFutureDates}
                 disablePastDates={this.disablePastDates}
                 disableDates={this.datesToBeDisabled}
-                disableEvery={
-                  this.normalizedDisableEvery
+                disableDatesUntil={this.normalizedDisableDatesUntil}
+                disableEvery={this.normalizedDisableEvery}
+                disableDatesFrom={
+                  this.normalizedDisableDatesFrom
                 }></b2b-date-picker-days>
             </div>
           )}

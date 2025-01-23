@@ -15,6 +15,8 @@ const meta: Meta = {
     preSelectedDate: '',
     showHint: true,
     disableEvery: [],
+    disableDatesUntil: '',
+    disableDatesFrom: '',
   },
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
@@ -31,6 +33,8 @@ const meta: Meta = {
           disable-dates=${args.disableDates}
           .pre-selected-date="${args.preSelectedDate}"
           disable-every=${args.disableEvery}
+          disable-dates-until=${args.disableDatesUntil}
+          disable-dates-from=${args.disableDatesFrom}
           show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
     } else {
@@ -43,6 +47,8 @@ const meta: Meta = {
           disable-dates=${args.disableDates}
           pre-selected-date="${args.preSelectedDate}"
           disable-every=${args.disableEvery}
+          disable-dates-until=${args.disableDatesUntil}
+          disable-dates-from=${args.disableDatesFrom}
           show-hint=${args.showHint}></b2b-date-picker>
       </div>`;
     }
@@ -127,6 +133,38 @@ export const DisableEvery: Story = {
     ...meta.args,
     disableWeekends: true,
     disableEvery: ['Mon', 'Tue'],
+  },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
+    }, 500);
+  },
+};
+
+export const DisableDatesUntil: Story = {
+  args: {
+    ...meta.args,
+    disableDatesUntil: '20.01.2025',
+  },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
+    }, 500);
+  },
+};
+
+export const DisableDatesFrom: Story = {
+  args: {
+    ...meta.args,
+    disableDatesFrom: '20.01.2025',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {

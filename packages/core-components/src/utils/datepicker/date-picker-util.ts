@@ -6,7 +6,6 @@ export class DateUtils {
       date1.getDate() === date2.getDate()
     );
   }
-
   static isDisabledDate(
     givenDate: Date,
     options: {
@@ -16,6 +15,8 @@ export class DateUtils {
       disableWeekends?: boolean;
       todayWithoutTime?: Date;
       disableEvery?: string[];
+      disableDatesUntil?: Date;
+      disableDatesFrom?: Date;
     },
   ): boolean {
     const {
@@ -25,13 +26,9 @@ export class DateUtils {
       disableWeekends = false,
       todayWithoutTime = new Date(),
       disableEvery = [],
+      disableDatesUntil,
+      disableDatesFrom,
     } = options;
-
-    const isExplicitlyDisabled =
-      disableDates.length > 0 &&
-      disableDates.some(disabledDate =>
-        this.isSameDate(disabledDate, givenDate),
-      );
 
     const dayNameToIndex: Record<string, number> = {
       Sun: 0,
@@ -43,6 +40,12 @@ export class DateUtils {
       Sat: 6,
     };
 
+    const isExplicitlyDisabled =
+      disableDates.length > 0 &&
+      disableDates.some(disabledDate =>
+        this.isSameDate(disabledDate, givenDate),
+      );
+
     const isPastDate = disablePastDates && givenDate < todayWithoutTime;
     const isFutureDate = disableFutureDates && givenDate > todayWithoutTime;
     const isWeekend =
@@ -52,12 +55,17 @@ export class DateUtils {
       disableEvery.length > 0 &&
       disableEvery.some(day => dayNameToIndex[day] === givenDate.getDay());
 
+    const isBeforeDisableUntil = givenDate <= disableDatesUntil;
+    const isAfterDisableFrom = givenDate >= disableDatesFrom;
+
     return (
       isExplicitlyDisabled ||
       isPastDate ||
       isFutureDate ||
       isWeekend ||
-      isDayToDisable
+      isDayToDisable ||
+      isBeforeDisableUntil ||
+      isAfterDisableFrom
     );
   }
 

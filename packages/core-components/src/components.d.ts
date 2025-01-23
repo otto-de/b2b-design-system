@@ -278,6 +278,14 @@ export namespace Components {
          */
         "disableDates": string | string[];
         /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesFrom": string;
+        /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil": string;
+        /**
           * Disable the days of the week specified here.
          */
         "disableEvery": | 'Mon'
@@ -319,6 +327,14 @@ export namespace Components {
           * Internal the dates that are part of this array are disabled. By default, this is an empty array.
          */
         "disableDates": Date[];
+        /**
+          * Internal all the dates from the given specified date will be disabled.
+         */
+        "disableDatesFrom": Date;
+        /**
+          * Internal all the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil": Date;
         /**
           * Internal the specific days of the week that need to be disabled
          */
@@ -2585,6 +2601,14 @@ declare namespace LocalJSX {
          */
         "disableDates"?: string | string[];
         /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesFrom"?: string;
+        /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil"?: string;
+        /**
           * Disable the days of the week specified here.
          */
         "disableEvery"?: | 'Mon'
@@ -2630,6 +2654,14 @@ declare namespace LocalJSX {
           * Internal the dates that are part of this array are disabled. By default, this is an empty array.
          */
         "disableDates"?: Date[];
+        /**
+          * Internal all the dates from the given specified date will be disabled.
+         */
+        "disableDatesFrom"?: Date;
+        /**
+          * Internal all the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil"?: Date;
         /**
           * Internal the specific days of the week that need to be disabled
          */

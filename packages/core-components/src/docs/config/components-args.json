@@ -783,6 +783,24 @@
       },
       "description": "The dates that are part of this array are disabled. By default, this is an empty array."
     },
+    "disableDatesFrom": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "All the dates until the given specified date will be disabled."
+    },
+    "disableDatesUntil": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "All the dates until the given specified date will be disabled."
+    },
     "disableEvery": {
       "options": [
         null,
@@ -885,6 +903,24 @@
         }
       },
       "description": "Internal the dates that are part of this array are disabled. By default, this is an empty array."
+    },
+    "disableDatesFrom": {
+      "table": {
+        "type": {
+          "summary": "Date"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal all the dates from the given specified date will be disabled."
+    },
+    "disableDatesUntil": {
+      "table": {
+        "type": {
+          "summary": "Date"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal all the dates until the given specified date will be disabled."
     },
     "disableEvery": {
       "table": {

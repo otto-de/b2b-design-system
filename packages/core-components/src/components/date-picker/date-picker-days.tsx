@@ -48,6 +48,10 @@ export class B2bDatePickerDays {
   @Prop() disableDates: Date[] = [];
   /** Internal the specific days of the week that need to be disabled */
   @Prop() disableEvery: string[] = [];
+  /** Internal all the dates until the given specified date will be disabled. */
+  @Prop() disableDatesUntil: Date;
+  /** Internal all the dates from the given specified date will be disabled. */
+  @Prop() disableDatesFrom: Date;
   @State() disabled: boolean = false;
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -204,6 +208,8 @@ export class B2bDatePickerDays {
         disableWeekends: this.disableWeekends,
         todayWithoutTime: this.todayWithoutTime,
         disableEvery: this.disableEvery,
+        disableDatesUntil: this.disableDatesUntil,
+        disableDatesFrom: this.disableDatesFrom,
       });
       days.push(
         <div
