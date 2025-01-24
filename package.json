@@ -20,8 +20,7 @@
     "build-react-components": "npm run build --workspace=@otto-de/b2b-react-components",
     "build": "npm-run-all build-tokens build-core-components build-react-components",
     "lint": "npm run lint --workspace=@otto-de/b2b-core-components",
-    "test": "npm run test --workspace=@otto-de/b2b-core-components",
-    "test-ci": "npm run test-ci --workspace=@otto-de/b2b-core-components",
+    "test": "node test-runner.js",
     "prepare": "node scripts/prepare.mjs",
     "preinstall": "npx force-resolutions"
   },
