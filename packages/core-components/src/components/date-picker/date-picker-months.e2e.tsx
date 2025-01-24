@@ -1,5 +1,5 @@
 import { newE2EPage } from '@stencil/core/testing';
-import { Months } from './date-picker.types';
+import { MonthsGerman } from './date-picker.types';
 
 describe('B2B-Date-Picker-Months', () => {
   let page;
@@ -15,7 +15,7 @@ describe('B2B-Date-Picker-Months', () => {
 
     expect(monthElements.length).toBe(12);
     monthElements.forEach((monthElement, index) => {
-      expect(monthElement.textContent).toBe(Months[index]);
+      expect(monthElement.textContent).toBe(MonthsGerman[index]);
     });
   });
 
@@ -26,7 +26,7 @@ describe('B2B-Date-Picker-Months', () => {
     const selectedMonth = await page.find(
       'b2b-date-picker-months >>> .b2b-date-picker-month--selected',
     );
-    expect(selectedMonth.textContent).toBe(Months[4]);
+    expect(selectedMonth.textContent).toBe(MonthsGerman[4]);
   });
 
   it('should emit month selected event when new month is selected', async () => {

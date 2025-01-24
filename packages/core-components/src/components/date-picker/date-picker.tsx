@@ -74,6 +74,9 @@ export class B2bDatePicker {
   /** The placeholder shown in the date picker. */
   @Prop({ reflect: true }) placeholder: string = null;
 
+  /** The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german */
+  @Prop() language: 'de' | 'en' = 'de';
+
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
@@ -571,9 +574,11 @@ export class B2bDatePicker {
           {this.datePickerView === DatePickerView.Days && (
             <div>
               <b2b-date-picker-header
+                language={this.language}
                 selectedMonth={this.selectedMonth}
                 selectedYear={this.selectedYear}></b2b-date-picker-header>
-              <b2b-date-picker-days-header></b2b-date-picker-days-header>
+              <b2b-date-picker-days-header
+                language={this.language}></b2b-date-picker-days-header>
               <b2b-date-picker-days
                 selectedMonth={this.selectedMonth}
                 selectedYear={this.selectedYear}
@@ -591,6 +596,7 @@ export class B2bDatePicker {
           )}
           {this.datePickerView === DatePickerView.Months && (
             <b2b-date-picker-months
+              language={this.language}
               selectedMonth={this.selectedMonth}></b2b-date-picker-months>
           )}
           {this.datePickerView === DatePickerView.Years && (

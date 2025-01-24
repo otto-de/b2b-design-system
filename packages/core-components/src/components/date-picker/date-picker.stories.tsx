@@ -20,6 +20,7 @@ const meta: Meta = {
     hint: 'Format: TT.MM.JJJJ',
     placeholder: '',
     width: 300,
+    language: 'de',
   },
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
@@ -42,7 +43,8 @@ const meta: Meta = {
           show-hint=${args.showHint}
           hint=${args.hint}
           placeholder=${args.placeholder}
-          width=${args.width}></b2b-date-picker>
+          width=${args.width}
+          language=${args.language}></b2b-date-picker>
       </div>`;
     } else {
       return html` <div style="margin-left: 2px">
@@ -59,7 +61,8 @@ const meta: Meta = {
           show-hint=${args.showHint}
           hint=${args.hint}
           placeholder=${args.placeholder}
-          width=${args.width}></b2b-date-picker>
+          width=${args.width}
+          language=${args.language}></b2b-date-picker>
       </div>`;
     }
   },
@@ -224,6 +227,22 @@ export const WithWidth: Story = {
   args: {
     ...meta.args,
     width: 500,
+  },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
+    }, 500);
+  },
+};
+
+export const EnglishDatepicker: Story = {
+  args: {
+    ...meta.args,
+    language: 'en',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {

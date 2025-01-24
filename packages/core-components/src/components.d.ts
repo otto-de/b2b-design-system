@@ -318,6 +318,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
+        /**
           * The placeholder shown in the date picker.
          */
         "placeholder": string;
@@ -377,8 +381,16 @@ export namespace Components {
         "selectedYear": number;
     }
     interface B2bDatePickerDaysHeader {
+        /**
+          * Internal the language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
     }
     interface B2bDatePickerHeader {
+        /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
         /**
           * Internal selected month
          */
@@ -389,6 +401,10 @@ export namespace Components {
         "selectedYear": number;
     }
     interface B2bDatePickerMonths {
+        /**
+          * Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
         /**
           * Internal selected month
          */
@@ -2653,6 +2669,10 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
+        /**
           * Emits the selected date as Date type.
          */
         "onB2b-selected"?: (event: B2bDatePickerCustomEvent<DatePickerEventDetail>) => void;
@@ -2724,8 +2744,16 @@ declare namespace LocalJSX {
         "selectedYear"?: number;
     }
     interface B2bDatePickerDaysHeader {
+        /**
+          * Internal the language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
     }
     interface B2bDatePickerHeader {
+        /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
         /**
           * Event emitted for next month click*
          */
@@ -2748,6 +2776,10 @@ declare namespace LocalJSX {
         "selectedYear"?: number;
     }
     interface B2bDatePickerMonths {
+        /**
+          * Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
         /**
           * Event emitted on selecting month*
          */

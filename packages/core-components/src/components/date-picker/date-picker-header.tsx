@@ -7,7 +7,11 @@ import {
   Event,
   EventEmitter,
 } from '@stencil/core';
-import { DatePickerView, Months } from './date-picker.types';
+import {
+  DatePickerView,
+  MonthsGerman,
+  MonthsEnglish,
+} from './date-picker.types';
 import {
   DatePickerViewChangedEventDetail,
   NextMonth,
@@ -34,7 +38,10 @@ export class B2bDatePickerHeader {
   /** Event emitted for changing the date picker view **/
   @Event({ eventName: 'b2b-date-picker-view-changed' })
   b2bDatePickerViewChanged: EventEmitter<DatePickerViewChangedEventDetail>;
+  /** The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german */
+  @Prop() language: 'de' | 'en' = 'de';
   render() {
+    const Months = this.language === 'en' ? MonthsEnglish : MonthsGerman;
     return (
       <Host>
         <div class="b2b-date-picker-header">

@@ -877,6 +877,24 @@
       },
       "description": "Label for the date picker component."
     },
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    },
     "placeholder": {
       "table": {
         "type": {
@@ -919,7 +937,7 @@
           "summary": "number"
         },
         "defaultValue": {
-          "summary": "600"
+          "summary": "300"
         }
       },
       "description": "The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px."
@@ -1036,8 +1054,45 @@
       "description": "Internal selected year"
     }
   },
-  "b2b-date-picker-days-header": {},
+  "b2b-date-picker-days-header": {
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "Internal the language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    }
+  },
   "b2b-date-picker-header": {
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    },
     "selectedMonth": {
       "table": {
         "type": {
@@ -1058,6 +1113,24 @@
     }
   },
   "b2b-date-picker-months": {
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    },
     "selectedMonth": {
       "table": {
         "type": {
