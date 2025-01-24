@@ -50,12 +50,13 @@ describe('b2b-radio', () => {
   });
 
   it('should use label slot if provided', async () => {
-    await page.setContent(`
+    const slotPage = await newE2EPage();
+    await slotPage.setContent(`
       <b2b-radio-button value="one">
         <span slot="label">Custom label</span>
       </b2b-radio-button>`);
 
-    const element = await page.find('span');
+    const element = await slotPage.find('span');
 
     expect(element).toEqualText('Custom label');
   });

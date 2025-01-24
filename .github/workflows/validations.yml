@@ -47,6 +47,9 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
+      - name: Install Dependencies
+        run: npm ci
+
       - name: Build
         run: npm run build
 
@@ -54,4 +57,5 @@ jobs:
         run: npm run lint
 
       - name: Test
-        run: npm test
+        run: npm run test
+        continue-on-error: false

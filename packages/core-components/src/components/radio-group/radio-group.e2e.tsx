@@ -100,8 +100,9 @@ describe('B2B-Radio-Group', () => {
     expect(error).not.toBeDefined;
   });
 
-  it('should use label slot if provided', async () => {
-    await page.setContent(`
+  it('should use label slot if provided ', async () => {
+    const slotPage = await newE2EPage();
+    await slotPage.setContent(`
       <b2b-radio-group name="test-group">
           <span slot="label">Custom label</span>
           <b2b-radio-button label="one" value="one" name="test-group" id="one" hint="test" error="test"></b2b-radio-button>
@@ -109,7 +110,7 @@ describe('B2B-Radio-Group', () => {
       </b2b-radio-group>
   `);
 
-    const element = await page.find('span');
+    const element = await slotPage.find('span');
 
     expect(element).toEqualText('Custom label');
   });
