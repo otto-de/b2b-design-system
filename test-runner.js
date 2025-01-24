@@ -3,7 +3,6 @@ const { exec } = require('child_process');
 const stencilTestCommand = 'npm run test --workspace=@otto-de/b2b-core-components';
 
 exec(stencilTestCommand, (error, stdout, stderr) => {
-  console.log('abcd');
   console.log(stdout);
   console.error(stderr);
 
