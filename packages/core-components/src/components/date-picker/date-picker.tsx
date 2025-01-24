@@ -47,6 +47,9 @@ export class B2bDatePicker {
   /** Whether to show hint message or not. */
   @Prop() showHint: boolean = true;
 
+  /** The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px. */
+  @Prop() width: number = 300;
+
   /** Disable the days of the week specified here. */
   @Prop() disableEvery:
     | 'Mon'
@@ -108,6 +111,10 @@ export class B2bDatePicker {
       const [day, month, year] = date.split('.').map(Number);
       return new Date(year, month - 1, day);
     });
+  }
+
+  private isWithWithinLimit() {
+    return this.width >= 300 && this.width <= 600;
   }
 
   private parseDisableDates() {
@@ -469,11 +476,13 @@ export class B2bDatePicker {
   }
 
   render() {
+    if (!this.isWithWithinLimit()) return null;
     return (
       <Host>
         <div class="b2b-date-picker">
           <div class="b2b-date-picker-label">{this.label}</div>
           <div
+            style={{ width: `${this.width}px` }}
             class={{
               'b2b-date-picker-input-wrapper': true,
               'b2b-date-picker-input-wrapper--focused':

@@ -329,6 +329,10 @@ export namespace Components {
           * Whether to show hint message or not.
          */
         "showHint": boolean;
+        /**
+          * The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px.
+         */
+        "width": number;
     }
     interface B2bDatePickerDays {
         /**
@@ -2664,6 +2668,10 @@ declare namespace LocalJSX {
           * Whether to show hint message or not.
          */
         "showHint"?: boolean;
+        /**
+          * The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px.
+         */
+        "width"?: number;
     }
     interface B2bDatePickerDays {
         /**

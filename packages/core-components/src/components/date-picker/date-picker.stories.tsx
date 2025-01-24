@@ -19,10 +19,12 @@ const meta: Meta = {
     disableDatesFrom: '',
     hint: 'Format: TT.MM.JJJJ',
     placeholder: '',
+    width: 300,
   },
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
     preSelectedDate: { control: false },
+    width: { control: { type: 'range', min: 300, max: 600, step: 1 } },
   },
   render: ({ ...args }) => {
     if (args.preSelectedDate === '') {
@@ -39,7 +41,8 @@ const meta: Meta = {
           disable-dates-from=${args.disableDatesFrom}
           show-hint=${args.showHint}
           hint=${args.hint}
-          placeholder=${args.placeholder}></b2b-date-picker>
+          placeholder=${args.placeholder}
+          width=${args.width}></b2b-date-picker>
       </div>`;
     } else {
       return html` <div style="margin-left: 2px">
@@ -55,7 +58,8 @@ const meta: Meta = {
           disable-dates-from=${args.disableDatesFrom}
           show-hint=${args.showHint}
           hint=${args.hint}
-          placeholder=${args.placeholder}></b2b-date-picker>
+          placeholder=${args.placeholder}
+          width=${args.width}></b2b-date-picker>
       </div>`;
     }
   },
@@ -204,6 +208,22 @@ export const WithPlaceholder: Story = {
   args: {
     ...meta.args,
     placeholder: 'this is date picker',
+  },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
+    }, 500);
+  },
+};
+
+export const WithWidth: Story = {
+  args: {
+    ...meta.args,
+    width: 500,
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {

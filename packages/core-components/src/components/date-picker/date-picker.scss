@@ -32,7 +32,6 @@
     justify-content: flex-start; /* Aligns the input to the left */
     border-radius: var(--b2b-size-7);
     padding: var(--b2b-size-15) var(--b2b-size-20);
-    max-width: 600px;
     background-color: var(--b2b-color-white-100);
     transition: outline 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
@@ -55,7 +54,6 @@
       margin-left: 0;
       padding-left: 0;
       height: 100%;
-      width: 100%;
       color: var(--b2b-color-black-100);
       font-size: var(--b2b-size-35);
       line-height: var(--b2b-size-copy-line-height-100);
