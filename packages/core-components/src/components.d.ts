@@ -288,13 +288,13 @@ export namespace Components {
         /**
           * Disable the days of the week specified here.
          */
-        "disableEvery": | 'Mon'
-    | 'Tue'
-    | 'Wed'
-    | 'Thu'
-    | 'Fri'
-    | 'Sat'
-    | 'Sun'
+        "disableEvery": | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
     | string
     | string[];
         /**
@@ -2623,13 +2623,13 @@ declare namespace LocalJSX {
         /**
           * Disable the days of the week specified here.
          */
-        "disableEvery"?: | 'Mon'
-    | 'Tue'
-    | 'Wed'
-    | 'Thu'
-    | 'Fri'
-    | 'Sat'
-    | 'Sun'
+        "disableEvery"?: | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
     | string
     | string[];
         /**

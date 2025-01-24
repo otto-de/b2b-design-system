@@ -31,13 +31,13 @@ export class DateUtils {
     } = options;
 
     const dayNameToIndex: Record<string, number> = {
-      Sun: 0,
-      Mon: 1,
-      Tue: 2,
-      Wed: 3,
-      Thu: 4,
-      Fri: 5,
-      Sat: 6,
+      So: 0,
+      Mo: 1,
+      Di: 2,
+      Mi: 3,
+      Do: 4,
+      Fr: 5,
+      Sa: 6,
     };
 
     const isExplicitlyDisabled =

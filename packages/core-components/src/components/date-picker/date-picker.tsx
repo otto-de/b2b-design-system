@@ -52,13 +52,13 @@ export class B2bDatePicker {
 
   /** Disable the days of the week specified here. */
   @Prop() disableEvery:
-    | 'Mon'
-    | 'Tue'
-    | 'Wed'
-    | 'Thu'
-    | 'Fri'
-    | 'Sat'
-    | 'Sun'
+    | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
     | string
     | string[] = [];
 
