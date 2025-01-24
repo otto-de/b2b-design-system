@@ -6,8 +6,12 @@ exec(stencilTestCommand, (error, stdout, stderr) => {
   console.log(stdout);
   console.error(stderr);
 
+  console.log('STDOUT:', stdout);
+  console.log('STDERR:', stderr);
 
-  const hasFailures = /FAILED|FAILURE|FAILURES|Error/i.test(stdout) || /FAILED|FAILURE|FAILURES|Error/i.test(stderr);
+  const testFailureRegex = /Tests:.*\bfailed\b|Test Suites:.*\bfailed\b/i;
+
+  const hasFailures = testFailureRegex.test(stdout) || testFailureRegex.test(stderr);
 
   if (hasFailures) {
     console.error('Test failures detected!');
