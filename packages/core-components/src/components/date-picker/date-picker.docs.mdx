@@ -66,7 +66,9 @@ All the dates that are given as part of this prop will be disabled by default th
 
 ### DisableEvery
 
-The days of the week specified as part of the list will be disabled. By default, this array is an empty list.
+Specifies the days of the week to be disabled. The value can include any of the following short forms for days, in either German or English:
+'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', 'Tu', 'We', 'Th', 'Su'.
+By default, this array is empty.
 
 <Canvas of={DatePickerStories.DisableEvery} />
 
@@ -96,7 +98,7 @@ WithPlaceholder text that should be displayed. By default, this will be empty st
 
 ### WithWidth
 
-The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px. By default, this is 300px.
+The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px. By default, this is 600px.
 
 <Canvas of={DatePickerStories.WithWidth} />
 

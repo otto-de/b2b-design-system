@@ -32,10 +32,14 @@ export class DateUtils {
 
     const dayNameToIndex: Record<string, number> = {
       So: 0,
+      Su: 0,
       Mo: 1,
       Di: 2,
+      Tu: 2,
       Mi: 3,
+      We: 3,
       Do: 4,
+      Th: 4,
       Fr: 5,
       Sa: 6,
     };

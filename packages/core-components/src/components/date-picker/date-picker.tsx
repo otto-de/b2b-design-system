@@ -47,8 +47,8 @@ export class B2bDatePicker {
   /** Whether to show hint message or not. */
   @Prop() showHint: boolean = true;
 
-  /** The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px. */
-  @Prop() width: number = 300;
+  /** The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px. */
+  @Prop() width: number = 250;
 
   /** Disable the days of the week specified here. */
   @Prop() disableEvery:
@@ -59,6 +59,10 @@ export class B2bDatePicker {
     | 'Fr'
     | 'Sa'
     | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
     | string
     | string[] = [];
 
@@ -117,7 +121,7 @@ export class B2bDatePicker {
   }
 
   private isWithWithinLimit() {
-    return this.width >= 300 && this.width <= 600;
+    return this.width >= 250 && this.width <= 600;
   }
 
   private parseDisableDates() {

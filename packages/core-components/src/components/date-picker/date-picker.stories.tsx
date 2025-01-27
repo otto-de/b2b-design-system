@@ -19,13 +19,13 @@ const meta: Meta = {
     disableDatesFrom: '',
     hint: 'Format: TT.MM.JJJJ',
     placeholder: '',
-    width: 300,
+    width: 600,
     language: 'de',
   },
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
     preSelectedDate: { control: false },
-    width: { control: { type: 'range', min: 300, max: 600, step: 1 } },
+    width: { control: { type: 'range', min: 250, max: 600, step: 1 } },
   },
   render: ({ ...args }) => {
     if (args.preSelectedDate === '') {
@@ -78,7 +78,7 @@ export const Default: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -91,7 +91,7 @@ export const DisablePastDates: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -104,7 +104,7 @@ export const DisableFutureDates: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -117,7 +117,7 @@ export const DisableWeekends: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -134,7 +134,7 @@ export const DisableDates: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -151,7 +151,7 @@ export const DisableEvery: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -167,7 +167,7 @@ export const DisableDatesUntil: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -183,7 +183,7 @@ export const DisableDatesFrom: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -200,7 +200,7 @@ export const WithCustomHintMessage: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -216,7 +216,7 @@ export const WithPlaceholder: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -232,7 +232,7 @@ export const WithWidth: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
@@ -248,7 +248,7 @@ export const EnglishDatepicker: Story = {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
       const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-wrapper',
+        '.b2b-date-picker-input-focus-wrapper',
       );
       await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);

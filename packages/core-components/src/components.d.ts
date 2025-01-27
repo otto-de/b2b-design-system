@@ -295,6 +295,10 @@ export namespace Components {
     | 'Fr'
     | 'Sa'
     | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
     | string
     | string[];
         /**
@@ -334,7 +338,7 @@ export namespace Components {
          */
         "showHint": boolean;
         /**
-          * The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px.
+          * The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px.
          */
         "width": number;
     }
@@ -2646,6 +2650,10 @@ declare namespace LocalJSX {
     | 'Fr'
     | 'Sa'
     | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
     | string
     | string[];
         /**
@@ -2689,7 +2697,7 @@ declare namespace LocalJSX {
          */
         "showHint"?: boolean;
         /**
-          * The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px.
+          * The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px.
          */
         "width"?: number;
     }

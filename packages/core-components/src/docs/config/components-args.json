@@ -937,10 +937,10 @@
           "summary": "number"
         },
         "defaultValue": {
-          "summary": "300"
+          "summary": "250"
         }
       },
-      "description": "The width of the input field of the date picker in pixel. Minimum is 300, maximum is 600px."
+      "description": "The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px."
     }
   },
   "b2b-date-picker-days": {
