@@ -25,7 +25,6 @@ This project is licensed under the [LICENSE](https://github.com/otto-de/b2b-desi
 ## Project lifecycle state
 This project lifestyle state here [OSSMETADATA](https://github.com/otto-de/b2b-design-system/blob/main/OSSMETADATA)
 
-
 ## Technical Overview
 This project is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) that makes use
 of [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces#using-workspaces) containing the source code of the 3 packages we distribute:
