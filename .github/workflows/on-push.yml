@@ -2,7 +2,7 @@ name: On Push
 on:
   push:
     branches:
-      - main
+      - BLA-1014
       - beta
 
 jobs:
