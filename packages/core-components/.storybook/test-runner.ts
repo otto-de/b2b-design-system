@@ -17,14 +17,14 @@ const ignoredStories = [
   'design-tokens-color--story-010-color-tokens',
   'design-tokens-font--story-010-font-tokens',
   'design-tokens-size--story-010-size-tokens',
-  'components-form-date-picker--disable-dates-diff',
-  'components-form-date-picker--disable-dates-from-diff',
-  'components-form-date-picker--disable-dates-until-diff',
-  'components-form-date-picker--disable-every-diff',
-  'components-form-date-picker--english-datepicker-diff',
+  'components-form-date-picker--disable-dates',
+  'components-form-date-picker--disable-dates',
+  'components-form-date-picker--disable-dates',
+  'components-form-date-picker--disable-days',
+  'components-form-date-picker--english-datepicker',
   'components-form-date-picker--without-hint-message',
-  'components-form-date-picker--with-placeholder-diff',
-  'components-form-date-picker--with-width-diff',
+  'components-form-date-picker--with-placeholder',
+  'components-form-date-picker--with-width',
 ];
 
 module.exports = {
