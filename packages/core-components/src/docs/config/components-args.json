@@ -2814,9 +2814,16 @@
       "description": "The maximum amount of chips visible. Adjust this depending on available size of the dropdown."
     },
     "optionsList": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
       "table": {
         "type": {
-          "summary": "string[]"
+          "summary": "string"
         },
         "defaultValue": {
           "summary": "[]"

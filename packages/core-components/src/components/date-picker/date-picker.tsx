@@ -115,17 +115,7 @@ export class B2bDatePicker {
     return this.width >= 300 && this.width <= 600;
   }
 
-  private normalizeDisableDates(value: string | string[]): string[] {
-    if (Array.isArray(value)) {
-      return value;
-    }
-    if (typeof value === 'string') {
-      return JSON.parse(value);
-    }
-    return [];
-  }
-
-  private normalizeDisableEvery(value: string | string[]): string[] {
+  private normalizeArrayInput(value: string | string[]): string[] {
     if (Array.isArray(value)) {
       return value;
     }
@@ -142,16 +132,14 @@ export class B2bDatePicker {
 
   componentWillLoad() {
     if (this.disableDates !== '' || this.disableDates.length > 0) {
-      const dateString = this.normalizeDisableDates(this.disableDates);
+      const dateString = this.normalizeArrayInput(this.disableDates);
       this.datesToBeDisabled = dateString.map(date => {
         const [day, month, year] = date.split('.').map(Number);
         return new Date(year, month - 1, day);
       });
     }
     if (this.disableDays !== '' || this.disableDays.length > 0) {
-      this.normalizedDisableEvery = this.normalizeDisableEvery(
-        this.disableDays,
-      );
+      this.normalizedDisableEvery = this.normalizeArrayInput(this.disableDays);
     }
     if (this.disableDatesUntil !== '' && this.disableDatesUntil !== undefined) {
       this.normalizedDisableDatesUntil = this.normalizeDisableDatesUntilAndFrom(
