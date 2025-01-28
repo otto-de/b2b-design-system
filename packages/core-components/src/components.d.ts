@@ -288,7 +288,7 @@ export namespace Components {
         /**
           * Disable the days of the week specified here.
          */
-        "disableEvery": | 'Mo'
+        "disableDays": | 'Mo'
     | 'Di'
     | 'Mi'
     | 'Do'
@@ -771,7 +771,7 @@ export namespace Components {
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
-        "optionsList": string | string[];
+        "optionsList": string[];
         /**
           * The placeholder shown in the input field.
          */
@@ -2643,7 +2643,7 @@ declare namespace LocalJSX {
         /**
           * Disable the days of the week specified here.
          */
-        "disableEvery"?: | 'Mo'
+        "disableDays"?: | 'Mo'
     | 'Di'
     | 'Mi'
     | 'Do'
@@ -3198,7 +3198,7 @@ declare namespace LocalJSX {
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
-        "optionsList"?: string | string[];
+        "optionsList"?: string[];
         /**
           * The placeholder shown in the input field.
          */

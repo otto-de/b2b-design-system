@@ -9,13 +9,13 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { DatePickerEventDetail } from '../../utils/interfaces/form.interface';
-import { DatePickerView } from './date-picker.types';
 import {
+  DatePickerEventDetail,
   DatePickerViewChangedEventDetail,
   MonthSelectedEventDetail,
   YearSelectedEventDetail,
 } from '../../utils/interfaces/form.interface';
+import { DatePickerView } from './date-picker.types';
 import { DateUtils } from '../../utils/datepicker/date-picker-util';
 
 @Component({
@@ -48,10 +48,10 @@ export class B2bDatePicker {
   @Prop() showHint: boolean = true;
 
   /** The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px. */
-  @Prop() width: number = 250;
+  @Prop() width: number = 300;
 
   /** Disable the days of the week specified here. */
-  @Prop() disableEvery:
+  @Prop() disableDays:
     | 'Mo'
     | 'Di'
     | 'Mi'
@@ -111,30 +111,18 @@ export class B2bDatePicker {
     this.today.getDate(),
   );
 
-  private parseStringToArrayOfDates(value: string): Date[] {
-    const dateArray = value.split(',');
-    const dateStringArray = dateArray.map(date => date.trim()).filter(Boolean);
-    return dateStringArray.map(date => {
-      const [day, month, year] = date.split('.').map(Number);
-      return new Date(year, month - 1, day);
-    });
-  }
-
   private isWithWithinLimit() {
-    return this.width >= 250 && this.width <= 600;
+    return this.width >= 300 && this.width <= 600;
   }
 
-  private parseDisableDates() {
-    if (typeof this.disableDates === 'string') {
-      this.datesToBeDisabled = this.parseStringToArrayOfDates(
-        this.disableDates,
-      );
-    } else {
-      this.datesToBeDisabled = this.disableDates.map(date => {
-        const [day, month, year] = date.split('.').map(Number);
-        return new Date(year, month - 1, day);
-      });
+  private normalizeDisableDates(value: string | string[]): string[] {
+    if (Array.isArray(value)) {
+      return value;
     }
+    if (typeof value === 'string') {
+      return JSON.parse(value);
+    }
+    return [];
   }
 
   private normalizeDisableEvery(value: string | string[]): string[] {
@@ -142,7 +130,7 @@ export class B2bDatePicker {
       return value;
     }
     if (typeof value === 'string') {
-      return value.split(',').map(day => day.trim());
+      return JSON.parse(value);
     }
     return [];
   }
@@ -154,11 +142,15 @@ export class B2bDatePicker {
 
   componentWillLoad() {
     if (this.disableDates !== '' || this.disableDates.length > 0) {
-      this.parseDisableDates();
+      const dateString = this.normalizeDisableDates(this.disableDates);
+      this.datesToBeDisabled = dateString.map(date => {
+        const [day, month, year] = date.split('.').map(Number);
+        return new Date(year, month - 1, day);
+      });
     }
-    if (this.disableEvery !== '' || this.disableEvery.length > 0) {
+    if (this.disableDays !== '' || this.disableDays.length > 0) {
       this.normalizedDisableEvery = this.normalizeDisableEvery(
-        this.disableEvery,
+        this.disableDays,
       );
     }
     if (this.disableDatesUntil !== '' && this.disableDatesUntil !== undefined) {

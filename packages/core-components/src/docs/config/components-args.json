@@ -801,7 +801,7 @@
       },
       "description": "All the dates until the given specified date will be disabled."
     },
-    "disableEvery": {
+    "disableDays": {
       "options": [
         null,
         null
@@ -937,7 +937,7 @@
           "summary": "number"
         },
         "defaultValue": {
-          "summary": "250"
+          "summary": "300"
         }
       },
       "description": "The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px."
@@ -2814,16 +2814,9 @@
       "description": "The maximum amount of chips visible. Adjust this depending on available size of the dropdown."
     },
     "optionsList": {
-      "options": [
-        null,
-        null
-      ],
-      "control": {
-        "type": "radio"
-      },
       "table": {
         "type": {
-          "summary": "string"
+          "summary": "string[]"
         },
         "defaultValue": {
           "summary": "[]"

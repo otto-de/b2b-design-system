@@ -34,10 +34,23 @@
           search-placeholder="Search"
           select-all-label="Select All"
           label="Hylian fruits and vegetables"
-          options-list="['Swift Carrot','Hydromelon','Skyshroom','Fortified Pumpkin','Hyrule Herb','Hylian Shroom','Mighty Banana','Endura Carrot','Golden Apple']"
           selected-values="['Hydromelon', 'Skyshroom']"></b2b-multiselect-dropdown>
       </div>
     </div>
+    <script>
+      const multiselect = document.getElementById('multiselect');
+      multiselect.optionsList = [
+        'Swift Carrot',
+        'Hydromelon',
+        'Skyshroom',
+        'Fortified Pumpkin',
+        'Hyrule Herb',
+        'Hylian Shroom',
+        'Mighty Banana',
+        'Endura Carrot',
+        'Golden Apple',
+      ];
+    </script>
 
     <div class="content-container">
       <b2b-headline size="200">Input list</b2b-headline>
@@ -428,8 +441,8 @@
     <div class="content-container" width="300px">
       <b2b-headline size="200">Date picker</b2b-headline>
       <b2b-date-picker
-        disable-dates="21.01.2025,10.01.2025"
-        hint="Hi this is the hint message for date picker"></b2b-date-picker>
+        hint="Hi this is the hint message for date picker"
+        width="500"></b2b-date-picker>
       <b2b-headline size="200">Disable Dates Until</b2b-headline>
       <b2b-date-picker disable-dates-until="21.01.2025"></b2b-date-picker>
       <b2b-headline size="200">Disable Dates From</b2b-headline>
@@ -449,6 +462,15 @@
     <script>
       const datepickerEl = document.getElementById('date-picker');
       datepickerEl.disableEvery = ['Mo', 'Di'];
+    </script>
+
+    <div class="content-container" width="300px">
+      <b2b-headline size="200">Date picker Disable dates</b2b-headline>
+      <b2b-date-picker id="date-picker-disable-days"></b2b-date-picker>
+    </div>
+    <script>
+      const datepickerEl1 = document.getElementById('date-picker-disable-days');
+      datepickerEl1.disableDates = ['21.01.2025', '10.01.2025'];
     </script>
   </body>
 </html>

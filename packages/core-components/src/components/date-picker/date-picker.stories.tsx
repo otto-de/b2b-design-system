@@ -14,7 +14,7 @@ const meta: Meta = {
     label: 'Zeitraum auswählen',
     preSelectedDate: '',
     showHint: true,
-    disableEvery: [],
+    disableDays: [],
     disableDatesUntil: '',
     disableDatesFrom: '',
     hint: 'Format: TT.MM.JJJJ',
@@ -25,7 +25,7 @@ const meta: Meta = {
   argTypes: {
     ...getArgTypes('b2b-date-picker'),
     preSelectedDate: { control: false },
-    width: { control: { type: 'range', min: 250, max: 600, step: 1 } },
+    width: { control: { type: 'range', min: 300, max: 600, step: 1 } },
   },
   render: ({ ...args }) => {
     if (args.preSelectedDate === '') {
@@ -37,7 +37,7 @@ const meta: Meta = {
           disable-weekends=${args.disableWeekends}
           disable-dates=${args.disableDates}
           .pre-selected-date="${args.preSelectedDate}"
-          disable-every=${args.disableEvery}
+          disable-days=${args.disableDays}
           disable-dates-until=${args.disableDatesUntil}
           disable-dates-from=${args.disableDatesFrom}
           show-hint=${args.showHint}
@@ -55,7 +55,7 @@ const meta: Meta = {
           disable-weekends=${args.disableWeekends}
           disable-dates=${args.disableDates}
           pre-selected-date="${args.preSelectedDate}"
-          disable-every=${args.disableEvery}
+          disable-days=${args.disableDays}
           disable-dates-until=${args.disableDatesUntil}
           disable-dates-from=${args.disableDatesFrom}
           show-hint=${args.showHint}
@@ -128,7 +128,7 @@ export const DisableDates: Story = {
   args: {
     ...meta.args,
     disableWeekends: true,
-    disableDates: ['21.01.2025', '10.01.2025'],
+    disableDates: '["21.01.2025", "10.01.2025"]',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
@@ -141,11 +141,11 @@ export const DisableDates: Story = {
   },
 };
 
-export const DisableEvery: Story = {
+export const DisableDays: Story = {
   args: {
     ...meta.args,
     disableWeekends: true,
-    disableEvery: ['Mon', 'Tue'],
+    disableDays: ['Mo', 'Tu'],
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
