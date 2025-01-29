@@ -80,7 +80,7 @@ export class B2bMultiSelectDropdown {
   }
 
   private parseStringToArray(value: string): string[] {
-    return JSON.parse(value.replace(/'/g, '"'));
+    return JSON.parse(value);
   }
 
   componentDidUpdate() {

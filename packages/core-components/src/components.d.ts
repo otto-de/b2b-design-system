@@ -274,6 +274,34 @@ export namespace Components {
     }
     interface B2bDatePicker {
         /**
+          * The dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates": string | string[];
+        /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesFrom": string;
+        /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil": string;
+        /**
+          * Disable the days of the week specified here.
+         */
+        "disableDays": | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
+    | string
+    | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates": boolean;
@@ -286,9 +314,21 @@ export namespace Components {
          */
         "disableWeekends": boolean;
         /**
+          * Hint text that should be displayed when showHint is true
+         */
+        "hint": string;
+        /**
           * Label for the date picker component.
          */
         "label": string;
+        /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
+        /**
+          * The placeholder shown in the date picker.
+         */
+        "placeholder": string;
         /**
           * Default date picker date
          */
@@ -297,8 +337,28 @@ export namespace Components {
           * Whether to show hint message or not.
          */
         "showHint": boolean;
+        /**
+          * The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px.
+         */
+        "width": number;
     }
     interface B2bDatePickerDays {
+        /**
+          * Internal the dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates": Date[];
+        /**
+          * Internal all the dates from the given specified date will be disabled.
+         */
+        "disableDatesFrom": Date;
+        /**
+          * Internal all the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil": Date;
+        /**
+          * Internal the specific days of the week that need to be disabled
+         */
+        "disableEvery": string[];
         /**
           * Internal whether the dates after the current date are disabled. By default, this is false.
          */
@@ -325,8 +385,16 @@ export namespace Components {
         "selectedYear": number;
     }
     interface B2bDatePickerDaysHeader {
+        /**
+          * Internal the language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
     }
     interface B2bDatePickerHeader {
+        /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
         /**
           * Internal selected month
          */
@@ -337,6 +405,10 @@ export namespace Components {
         "selectedYear": number;
     }
     interface B2bDatePickerMonths {
+        /**
+          * Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language": 'de' | 'en';
         /**
           * Internal selected month
          */
@@ -2557,6 +2629,34 @@ declare namespace LocalJSX {
     }
     interface B2bDatePicker {
         /**
+          * The dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates"?: string | string[];
+        /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesFrom"?: string;
+        /**
+          * All the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil"?: string;
+        /**
+          * Disable the days of the week specified here.
+         */
+        "disableDays"?: | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
+    | string
+    | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates"?: boolean;
@@ -2569,13 +2669,25 @@ declare namespace LocalJSX {
          */
         "disableWeekends"?: boolean;
         /**
+          * Hint text that should be displayed when showHint is true
+         */
+        "hint"?: string;
+        /**
           * Label for the date picker component.
          */
         "label"?: string;
         /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
+        /**
           * Emits the selected date as Date type.
          */
         "onB2b-selected"?: (event: B2bDatePickerCustomEvent<DatePickerEventDetail>) => void;
+        /**
+          * The placeholder shown in the date picker.
+         */
+        "placeholder"?: string;
         /**
           * Default date picker date
          */
@@ -2584,8 +2696,28 @@ declare namespace LocalJSX {
           * Whether to show hint message or not.
          */
         "showHint"?: boolean;
+        /**
+          * The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px.
+         */
+        "width"?: number;
     }
     interface B2bDatePickerDays {
+        /**
+          * Internal the dates that are part of this array are disabled. By default, this is an empty array.
+         */
+        "disableDates"?: Date[];
+        /**
+          * Internal all the dates from the given specified date will be disabled.
+         */
+        "disableDatesFrom"?: Date;
+        /**
+          * Internal all the dates until the given specified date will be disabled.
+         */
+        "disableDatesUntil"?: Date;
+        /**
+          * Internal the specific days of the week that need to be disabled
+         */
+        "disableEvery"?: string[];
         /**
           * Internal whether the dates after the current date are disabled. By default, this is false.
          */
@@ -2620,8 +2752,16 @@ declare namespace LocalJSX {
         "selectedYear"?: number;
     }
     interface B2bDatePickerDaysHeader {
+        /**
+          * Internal the language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
     }
     interface B2bDatePickerHeader {
+        /**
+          * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
         /**
           * Event emitted for next month click*
          */
@@ -2644,6 +2784,10 @@ declare namespace LocalJSX {
         "selectedYear"?: number;
     }
     interface B2bDatePickerMonths {
+        /**
+          * Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
+         */
+        "language"?: 'de' | 'en';
         /**
           * Event emitted on selecting month*
          */

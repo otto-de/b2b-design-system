@@ -11,6 +11,7 @@ import {
 } from '@stencil/core';
 import { DateSelectedEventDetail } from '../../utils/interfaces/form.interface';
 import { EscapePressed } from '../../utils/interfaces/form.interface';
+import { DateUtils } from '../../utils/datepicker/date-picker-util';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -43,6 +44,14 @@ export class B2bDatePickerDays {
   @Prop() disableFutureDates: boolean = false;
   /** Internal whether the weekends are disabled. By default, this is false.  */
   @Prop() disableWeekends: boolean = false;
+  /** Internal the dates that are part of this array are disabled. By default, this is an empty array.  */
+  @Prop() disableDates: Date[] = [];
+  /** Internal the specific days of the week that need to be disabled */
+  @Prop() disableEvery: string[] = [];
+  /** Internal all the dates until the given specified date will be disabled. */
+  @Prop() disableDatesUntil: Date;
+  /** Internal all the dates from the given specified date will be disabled. */
+  @Prop() disableDatesFrom: Date;
   @State() disabled: boolean = false;
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -162,18 +171,6 @@ export class B2bDatePickerDays {
     }
   };
 
-  private isDisabledDate = (givenDate: Date) => {
-    if (this.disablePastDates) {
-      if (givenDate < this.todayWithoutTime) return true;
-    } else if (this.disableFutureDates) {
-      if (givenDate > this.todayWithoutTime) return true;
-    } else if (this.disableWeekends) {
-      if (givenDate.getDay() == 0 || givenDate.getDay() == 6) return true;
-    } else {
-      return false;
-    }
-  };
-
   private handleClick = (event: MouseEvent) => {
     /** Remove focus from the clicked element */
     (event.target as HTMLDivElement).blur();
@@ -204,7 +201,16 @@ export class B2bDatePickerDays {
     /** Populate days array with day numbers. */
     for (let i = 1; i <= daysInMonth; i++) {
       let givenDate = new Date(this.selectedYear, this.selectedMonth, i);
-      let disabled = this.isDisabledDate(givenDate);
+      let disabled = DateUtils.isDisabledDate(givenDate, {
+        disableDates: this.disableDates,
+        disablePastDates: this.disablePastDates,
+        disableFutureDates: this.disableFutureDates,
+        disableWeekends: this.disableWeekends,
+        todayWithoutTime: this.todayWithoutTime,
+        disableEvery: this.disableEvery,
+        disableDatesUntil: this.disableDatesUntil,
+        disableDatesFrom: this.disableDatesFrom,
+      });
       days.push(
         <div
           class={{

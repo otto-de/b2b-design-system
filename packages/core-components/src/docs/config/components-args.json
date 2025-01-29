@@ -55,7 +55,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "'small'"
+          "summary": "'large'"
         }
       },
       "description": "The size of the alert. Per default it is large. If set to small, the alert will only have an icon."
@@ -765,6 +765,60 @@
     }
   },
   "b2b-date-picker": {
+    "disableDates": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "The dates that are part of this array are disabled. By default, this is an empty array."
+    },
+    "disableDatesFrom": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "All the dates until the given specified date will be disabled."
+    },
+    "disableDatesUntil": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "All the dates until the given specified date will be disabled."
+    },
+    "disableDays": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "Disable the days of the week specified here."
+    },
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -801,16 +855,56 @@
       },
       "description": "Whether the dates that fall on the weekend are disabled. By default, this is false."
     },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Format: TT.MM.JJJJ'"
+        }
+      },
+      "description": "Hint text that should be displayed when showHint is true"
+    },
     "label": {
       "table": {
         "type": {
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "'Zeitraum auswählen'"
+          "summary": "'Zeitpunkt auswählen'"
         }
       },
       "description": "Label for the date picker component."
+    },
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The placeholder shown in the date picker."
     },
     "preSelectedDate": {
       "table": {
@@ -836,9 +930,60 @@
         }
       },
       "description": "Whether to show hint message or not."
+    },
+    "width": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "300"
+        }
+      },
+      "description": "The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px."
     }
   },
   "b2b-date-picker-days": {
+    "disableDates": {
+      "table": {
+        "type": {
+          "summary": "Date[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "Internal the dates that are part of this array are disabled. By default, this is an empty array."
+    },
+    "disableDatesFrom": {
+      "table": {
+        "type": {
+          "summary": "Date"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal all the dates from the given specified date will be disabled."
+    },
+    "disableDatesUntil": {
+      "table": {
+        "type": {
+          "summary": "Date"
+        },
+        "defaultValue": {}
+      },
+      "description": "Internal all the dates until the given specified date will be disabled."
+    },
+    "disableEvery": {
+      "table": {
+        "type": {
+          "summary": "string[]"
+        },
+        "defaultValue": {
+          "summary": "[]"
+        }
+      },
+      "description": "Internal the specific days of the week that need to be disabled"
+    },
     "disableFutureDates": {
       "control": {
         "type": "boolean"
@@ -909,8 +1054,45 @@
       "description": "Internal selected year"
     }
   },
-  "b2b-date-picker-days-header": {},
+  "b2b-date-picker-days-header": {
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "Internal the language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    }
+  },
   "b2b-date-picker-header": {
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    },
     "selectedMonth": {
       "table": {
         "type": {
@@ -931,6 +1113,24 @@
     }
   },
   "b2b-date-picker-months": {
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german"
+    },
     "selectedMonth": {
       "table": {
         "type": {

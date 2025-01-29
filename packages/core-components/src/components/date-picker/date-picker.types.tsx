@@ -1,4 +1,4 @@
-export const Months = [
+export const MonthsGerman = [
   'Jan',
   'Feb',
   'Mär',
@@ -13,7 +13,40 @@ export const Months = [
   'Dez',
 ] as const;
 
-export const Weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'] as const;
+export const WeekdaysGerman = [
+  'Mo',
+  'Di',
+  'Mi',
+  'Do',
+  'Fr',
+  'Sa',
+  'So',
+] as const;
+
+export const WeekdaysEnglish = [
+  'Mo',
+  'Tu',
+  'We',
+  'Th',
+  'Fr',
+  'Sa',
+  'Su',
+] as const;
+
+export const MonthsEnglish = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
 
 export enum DatePickerView {
   Days = 'Days',

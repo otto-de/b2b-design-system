@@ -8,7 +8,7 @@ import {
   EventEmitter,
   Listen,
 } from '@stencil/core';
-import { Months } from './date-picker.types';
+import { MonthsGerman, MonthsEnglish } from './date-picker.types';
 import { MonthSelectedEventDetail } from '../../utils/interfaces/form.interface';
 
 const keys = {
@@ -28,6 +28,9 @@ export class B2bDatePickerMonths {
   @Element() host: HTMLB2bDatePickerMonthsElement;
   /** Internal selected month */
   @Prop() selectedMonth: number;
+
+  /** Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german */
+  @Prop() language: 'de' | 'en' = 'de';
 
   /** Event emitted on selecting month**/
   @Event({ eventName: 'b2b-date-picker-month-selected' })
@@ -94,6 +97,7 @@ export class B2bDatePickerMonths {
 
   private renderDatePickerMonths = () => {
     let months = [];
+    const Months = this.language === 'en' ? MonthsEnglish : MonthsGerman;
     for (let i = 0; i < 12; i++) {
       months.push(
         <div

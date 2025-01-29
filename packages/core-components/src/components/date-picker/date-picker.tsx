@@ -9,13 +9,14 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { DatePickerEventDetail } from '../../utils/interfaces/form.interface';
-import { DatePickerView } from './date-picker.types';
 import {
+  DatePickerEventDetail,
   DatePickerViewChangedEventDetail,
   MonthSelectedEventDetail,
   YearSelectedEventDetail,
 } from '../../utils/interfaces/form.interface';
+import { DatePickerView } from './date-picker.types';
+import { DateUtils } from '../../utils/datepicker/date-picker-util';
 
 @Component({
   tag: 'b2b-date-picker',
@@ -34,14 +35,51 @@ export class B2bDatePicker {
   /** Whether the dates that fall on the weekend are disabled. By default, this is false. */
   @Prop() disableWeekends: boolean;
 
+  /** The dates that are part of this array are disabled. By default, this is an empty array. */
+  @Prop() disableDates: string | string[] = [];
+
   /** Label for the date picker component. */
-  @Prop() label: string = 'Zeitraum auswählen';
+  @Prop() label: string = 'Zeitpunkt auswählen';
 
   /** Default date picker date*/
   @Prop() preSelectedDate: string = undefined;
 
   /** Whether to show hint message or not. */
   @Prop() showHint: boolean = true;
+
+  /** The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px. */
+  @Prop() width: number = 300;
+
+  /** Disable the days of the week specified here. */
+  @Prop() disableDays:
+    | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
+    | string
+    | string[] = [];
+
+  /** All the dates until the given specified date will be disabled. */
+  @Prop() disableDatesUntil: string;
+
+  /** All the dates until the given specified date will be disabled. */
+  @Prop() disableDatesFrom: string;
+
+  /** Hint text that should be displayed when showHint is true */
+  @Prop() hint: string = 'Format: TT.MM.JJJJ';
+
+  /** The placeholder shown in the date picker. */
+  @Prop({ reflect: true }) placeholder: string = null;
+
+  /** The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german */
+  @Prop() language: 'de' | 'en' = 'de';
 
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
@@ -61,6 +99,10 @@ export class B2bDatePicker {
   @State() userInputDate: string = '';
   @State() invalid: boolean = false;
   @State() errorMessage: string = this.FORMATTING_ERROR_MESSAGE;
+  @State() datesToBeDisabled: Date[] = [];
+  @State() normalizedDisableEvery: string[] = [];
+  @State() normalizedDisableDatesUntil: Date;
+  @State() normalizedDisableDatesFrom: Date;
 
   private today = new Date();
   private todayWithoutTime = new Date(
@@ -69,7 +111,46 @@ export class B2bDatePicker {
     this.today.getDate(),
   );
 
+  private isWithWithinLimit() {
+    return this.width >= 300 && this.width <= 600;
+  }
+
+  private normalizeArrayInput(value: string | string[]): string[] {
+    if (Array.isArray(value)) {
+      return value;
+    }
+    if (typeof value === 'string') {
+      return JSON.parse(value);
+    }
+    return [];
+  }
+
+  private normalizeDisableDatesUntilAndFrom(givenDate: string): Date {
+    const [day, month, year] = givenDate.split('.').map(Number);
+    return new Date(year, month - 1, day);
+  }
+
   componentWillLoad() {
+    if (this.disableDates !== '' || this.disableDates.length > 0) {
+      const dateString = this.normalizeArrayInput(this.disableDates);
+      this.datesToBeDisabled = dateString.map(date => {
+        const [day, month, year] = date.split('.').map(Number);
+        return new Date(year, month - 1, day);
+      });
+    }
+    if (this.disableDays !== '' || this.disableDays.length > 0) {
+      this.normalizedDisableEvery = this.normalizeArrayInput(this.disableDays);
+    }
+    if (this.disableDatesUntil !== '' && this.disableDatesUntil !== undefined) {
+      this.normalizedDisableDatesUntil = this.normalizeDisableDatesUntilAndFrom(
+        this.disableDatesUntil,
+      );
+    }
+    if (this.disableDatesFrom !== '' && this.disableDatesFrom !== undefined) {
+      this.normalizedDisableDatesFrom = this.normalizeDisableDatesUntilAndFrom(
+        this.disableDatesFrom,
+      );
+    }
     if (this.preSelectedDate !== undefined) {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
@@ -142,6 +223,11 @@ export class B2bDatePicker {
 
   private isValidDate(day: number, month: number, year: number): boolean {
     const date = new Date(year, month - 1, day);
+    const todayWithoutTime = new Date(
+      this.today.getFullYear(),
+      this.today.getMonth(),
+      this.today.getDate(),
+    );
 
     const isValidDay = date.getDate() === day;
     const isValidMonth = date.getMonth() + 1 === month;
@@ -154,19 +240,21 @@ export class B2bDatePicker {
     }
 
     let isValidRange = true;
-    if (this.disablePastDates && date < this.todayWithoutTime) {
+    if (
+      DateUtils.isDisabledDate(date, {
+        disableDates: this.datesToBeDisabled,
+        disablePastDates: this.disablePastDates,
+        disableFutureDates: this.disableFutureDates,
+        disableWeekends: this.disableWeekends,
+        todayWithoutTime: todayWithoutTime,
+        disableEvery: this.normalizedDisableEvery,
+        disableDatesUntil: this.normalizedDisableDatesUntil,
+        disableDatesFrom: this.normalizedDisableDatesFrom,
+      })
+    ) {
       this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
       isValidRange = false;
     }
-    if (this.disableFutureDates && date > this.todayWithoutTime) {
-      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
-      isValidRange = false;
-    }
-    if (this.disableWeekends && (date.getDay() == 0 || date.getDay() == 6)) {
-      this.errorMessage = this.DISABLED_DATE_ERROR_MESSAGE;
-      isValidRange = false;
-    }
-
     return isValidRange;
   }
 
@@ -375,11 +463,13 @@ export class B2bDatePicker {
   }
 
   render() {
+    if (!this.isWithWithinLimit()) return null;
     return (
       <Host>
         <div class="b2b-date-picker">
           <div class="b2b-date-picker-label">{this.label}</div>
           <div
+            style={{ width: `${this.width}px` }}
             class={{
               'b2b-date-picker-input-wrapper': true,
               'b2b-date-picker-input-wrapper--focused':
@@ -406,6 +496,7 @@ export class B2bDatePicker {
                   this.focused = false;
                   this.handleFocusOut();
                 }}
+                placeholder={this.placeholder}
               />
             </div>
             <div class="b2b-icons">
@@ -467,20 +558,29 @@ export class B2bDatePicker {
           {this.datePickerView === DatePickerView.Days && (
             <div>
               <b2b-date-picker-header
+                language={this.language}
                 selectedMonth={this.selectedMonth}
                 selectedYear={this.selectedYear}></b2b-date-picker-header>
-              <b2b-date-picker-days-header></b2b-date-picker-days-header>
+              <b2b-date-picker-days-header
+                language={this.language}></b2b-date-picker-days-header>
               <b2b-date-picker-days
                 selectedMonth={this.selectedMonth}
                 selectedYear={this.selectedYear}
                 selectedDay={this.selectedDay}
                 disableWeekends={this.disableWeekends}
                 disableFutureDates={this.disableFutureDates}
-                disablePastDates={this.disablePastDates}></b2b-date-picker-days>
+                disablePastDates={this.disablePastDates}
+                disableDates={this.datesToBeDisabled}
+                disableDatesUntil={this.normalizedDisableDatesUntil}
+                disableEvery={this.normalizedDisableEvery}
+                disableDatesFrom={
+                  this.normalizedDisableDatesFrom
+                }></b2b-date-picker-days>
             </div>
           )}
           {this.datePickerView === DatePickerView.Months && (
             <b2b-date-picker-months
+              language={this.language}
               selectedMonth={this.selectedMonth}></b2b-date-picker-months>
           )}
           {this.datePickerView === DatePickerView.Years && (
@@ -499,9 +599,7 @@ export class B2bDatePicker {
               'b2b-date-picker-hint': true,
               'b2b-date-picker-hint--error': this.invalid,
             }}>
-            {this.invalid
-              ? this.errorMessage
-              : this.showHint && 'Format: TT.MM.JJJJ'}
+            {this.invalid ? this.errorMessage : this.showHint && this.hint}
           </span>
         )}
       </Host>

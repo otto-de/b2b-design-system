@@ -58,6 +58,56 @@ Unlike other components teams will not be able to edit the hint message of the c
 
 <Canvas of={DatePickerStories.WithoutHintMessage} />
 
+### DisableDates
+
+All the dates that are given as part of this prop will be disabled by default this will be an empty array. This prop works in conjunction with other properties, such as disabledDays, to provide a comprehensive mechanism for managing non-selectable dates. When used together, the combined set of dates and days will be disabled.
+
+<Canvas of={DatePickerStories.DisableDates} />
+
+### DisableDays
+
+Specifies the days of the week to be disabled. The value can include any of the following short forms for days, in either German or English:
+'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', 'Tu', 'We', 'Th', 'Su'.
+By default, this array is empty.
+
+<Canvas of={DatePickerStories.DisableDays} />
+
+### DisableDatesUntil
+
+All the dates until the given specified date will be disabled. By default, this is a empty string .
+
+<Canvas of={DatePickerStories.DisableDatesUntil} />
+
+### DisableDatesFrom
+
+All the dates until the given specified date will be disabled. By default, this is a empty string .
+
+<Canvas of={DatePickerStories.DisableDatesFrom} />
+
+### WithCustomHintMessage
+
+Hint text that should be displayed when showHint is true. By default, this will be Format: TT.MM.JJJJ.
+
+<Canvas of={DatePickerStories.WithCustomHintMessage} />
+
+### WithPlaceholder
+
+WithPlaceholder text that should be displayed. By default, this will be empty string.
+
+<Canvas of={DatePickerStories.WithPlaceholder} />
+
+### WithWidth
+
+The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px. By default, this is 600px.
+
+<Canvas of={DatePickerStories.WithWidth} />
+
+### EnglishDatepicker
+
+The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german.
+
+<Canvas of={DatePickerStories.EnglishDatepicker} />
+
 <br />
 
 ## Events
