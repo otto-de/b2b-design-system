@@ -196,30 +196,12 @@ export const WithCustomHintMessage: Story = {
     showHint: true,
     hint: 'This is a long hint text message which is longer than the normal default hint message',
   },
-  play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-focus-wrapper',
-      );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
-  },
 };
 
 export const WithPlaceholder: Story = {
   args: {
     ...meta.args,
     placeholder: 'this is date picker',
-  },
-  play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
-        '.b2b-date-picker-input-focus-wrapper',
-      );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
   },
 };
 
