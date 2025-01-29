@@ -145,7 +145,7 @@ export const DisableDays: Story = {
   args: {
     ...meta.args,
     disableWeekends: true,
-    disableDays: ['Mo', 'Tu'],
+    disableDays: '["Mo", "Tu"]',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
