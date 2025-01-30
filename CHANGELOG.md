@@ -1,3 +1,15 @@
+# [1.22.0](https://github.com/otto-de/b2b-design-system/compare/v1.21.0...v1.22.0) (2025-01-30)
+
+
+### Bug Fixes
+
+* **Table:** [BLA-SCOUT] Fix table accordion rendering logic to adhere to async render ([c24f731](https://github.com/otto-de/b2b-design-system/commit/c24f73155f8f1d2a85f4cf38a15b164d4b61ffa6))
+
+
+### Features
+
+* **Datepicker:** [BLA-1014] Add the datepicker improvement props for disabling dates, showing hint messages and localisation ([#531](https://github.com/otto-de/b2b-design-system/issues/531)) ([eed6dd3](https://github.com/otto-de/b2b-design-system/commit/eed6dd355162c748c2526f5ec8a8375ac483a04e))
+
 # [1.21.0](https://github.com/otto-de/b2b-design-system/compare/v1.20.0...v1.21.0) (2025-01-21)
 
 
