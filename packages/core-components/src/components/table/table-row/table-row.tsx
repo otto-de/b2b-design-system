@@ -98,7 +98,7 @@ export class TableRowComponent {
   }
 
   disconnectedCallback() {
-    if (this.observer) {
+    if (this.observer !== undefined && this.observer !== null) {
       this.observer.disconnect();
       this.observer = null;
     }
