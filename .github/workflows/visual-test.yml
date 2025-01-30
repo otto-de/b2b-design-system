@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -37,10 +37,10 @@ jobs:
 
       - name: Start Containers
         run: docker-compose up --abort-on-container-exit --build
-      
+
       - name: Upload visual test results
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: visual-regression-differences
           path: ./packages/core-components/__snapshots__/__diff_output__
