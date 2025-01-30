@@ -44,7 +44,7 @@ export class TableRowgroupComponent {
   /** Renders the rowgroup as an accordion. Both header and body must have accordion set to true.
    * One table can contain multiple rowgroups of type body, each of which represents an accordion row with children.
    */
-  @Prop() accordion = false;
+  @Prop({ reflect: true }) accordion = false;
 
   /** If the rows in the rowgroup can be selected via checkmark. Per default, it is false. */
   @Prop() selectable = false;

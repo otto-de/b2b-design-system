@@ -3574,7 +3574,7 @@ declare namespace LocalJSX {
          */
         "onB2b-open"?: (event: B2bTableRowCustomEvent<boolean>) => void;
         /**
-          * Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status.
+          * Emits if the row is selectable and if it is selected or unselected. Emits both unique value and the checkbox status.
          */
         "onB2b-row-selected"?: (event: B2bTableRowCustomEvent<CheckboxEventDetail1>) => void;
         "selectable"?: boolean;

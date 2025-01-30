@@ -21,7 +21,7 @@
 | Event              | Description                                                                                                                        | Type                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | `b2b-open`         | Emits if the parent rowgroup is an accordion and the row is a top-level accordion row. Determines if the child rows will be shown. | `CustomEvent<boolean>`                  |
-| `b2b-row-selected` | Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status.                  | `CustomEvent<CheckboxEventDetail<any>>` |
+| `b2b-row-selected` | Emits if the row is selectable and if it is selected or unselected. Emits both unique value and the checkbox status.               | `CustomEvent<CheckboxEventDetail<any>>` |
 
 
 ## Methods

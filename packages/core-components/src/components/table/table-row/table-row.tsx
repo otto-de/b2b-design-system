@@ -53,9 +53,13 @@ export class TableRowComponent {
   @Event({ eventName: 'b2b-open' })
   b2bOpen: EventEmitter<boolean>;
 
-  /** Emits if the row is selectable and it is selected or unselected. Emits both unique value and the checkbox status. */
+  /** Emits if the row is selectable and if it is selected or unselected. Emits both unique value and the checkbox status. */
   @Event({ eventName: 'b2b-row-selected' })
   b2bSelected: EventEmitter<CheckboxEventDetail>;
+
+  private parentRowGroup: HTMLB2bTableRowgroupElement | null = null;
+  @State() isAccordionValue: boolean = false;
+  private observer: MutationObserver | null = null;
 
   @State() isOpen = false;
 
@@ -90,6 +94,31 @@ export class TableRowComponent {
         'You need to associate a value with the row as a unique identifier.',
       );
     }
+    this.findParentAndObserve();
+  }
+
+  disconnectedCallback() {
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+    }
+  }
+
+  private findParentAndObserve() {
+    this.parentRowGroup = this.hostElement.closest(
+      'b2b-table-rowgroup',
+    ) as HTMLB2bTableRowgroupElement;
+
+    if (this.parentRowGroup !== undefined && this.parentRowGroup !== null) {
+      this.observer = new MutationObserver(() => {
+        this.isAccordionValue =
+          this.parentRowGroup?.hasAttribute('accordion') || false;
+      });
+
+      this.observer.observe(this.parentRowGroup, { attributes: true });
+    } else {
+      console.warn('Parent b2b-table-rowgroup not found!');
+    }
   }
 
   private toggleOpen = () => {
@@ -112,7 +141,7 @@ export class TableRowComponent {
 
   private getRowColor = () => {
     if (
-      this.isAccordion() &&
+      this.isAccordionValue &&
       isFirstRow(this.hostElement) &&
       !this.isHeader()
     ) {
@@ -131,10 +160,6 @@ export class TableRowComponent {
     return this.hostElement.closest(
       'b2b-table-rowgroup',
     ) as HTMLB2bTableRowgroupElement;
-  };
-
-  private isAccordion = () => {
-    return this.getParentRowGroup().hasAttribute('accordion');
   };
 
   private isHeader = () => {
@@ -168,7 +193,7 @@ export class TableRowComponent {
   };
 
   private getAccordionColumns = () => {
-    if (this.isAccordion() && !this.isHeader()) {
+    if (this.isAccordionValue && !this.isHeader()) {
       if (isFirstRow(this.hostElement)) {
         return (
           <b2b-table-cell>
@@ -186,7 +211,7 @@ export class TableRowComponent {
       return (
         <b2b-table-cell class="b2b-table-row__control-cell--accordion"></b2b-table-cell>
       );
-    } else if (this.isAccordion() && this.isHeader()) {
+    } else if (this.isAccordionValue && this.isHeader()) {
       return (
         <b2b-table-header class="b2b-table-row__control-cell--accordion"></b2b-table-header>
       );
