@@ -59,7 +59,6 @@ export class TableRowComponent {
 
   private parentRowGroup: HTMLB2bTableRowgroupElement | null = null;
   @State() isAccordionValue: boolean = false;
-  private observer: MutationObserver | null = null;
 
   @State() isOpen = false;
 
@@ -97,25 +96,13 @@ export class TableRowComponent {
     this.findParentAndObserve();
   }
 
-  disconnectedCallback() {
-    if (this.observer !== undefined && this.observer !== null) {
-      this.observer.disconnect();
-      this.observer = null;
-    }
-  }
-
   private findParentAndObserve() {
     this.parentRowGroup = this.hostElement.closest(
       'b2b-table-rowgroup',
     ) as HTMLB2bTableRowgroupElement;
-
     if (this.parentRowGroup !== undefined && this.parentRowGroup !== null) {
-      this.observer = new MutationObserver(() => {
-        this.isAccordionValue =
-          this.parentRowGroup?.hasAttribute('accordion') || false;
-      });
-
-      this.observer.observe(this.parentRowGroup, { attributes: true });
+      this.isAccordionValue =
+        this.parentRowGroup?.hasAttribute('accordion') || false;
     } else {
       console.warn('Parent b2b-table-rowgroup not found!');
     }

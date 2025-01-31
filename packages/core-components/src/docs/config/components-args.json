@@ -2259,7 +2259,9 @@
         "b2b_logo-carrier-dhl",
         "b2b_logo-carrier-gls",
         "b2b_logo-carrier-hermes",
-        "b2b_logo-carrier-ups"
+        "b2b_logo-carrier-ups",
+        "b2b_icon-bullet-list",
+        "b2b_icon-ordered-list"
       ],
       "control": {
         "type": "radio"
