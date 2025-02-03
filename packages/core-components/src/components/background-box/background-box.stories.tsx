@@ -5,11 +5,22 @@ import { getArgTypes } from '../../docs/config/utils';
 const meta: Meta = {
   title: 'Components/Utilities/Background Box',
   component: 'b2b-background-box',
-  args: { fixedWidth: false, noPadding: false },
+  args: {
+    fixedWidth: false,
+    noPadding: false,
+    borderTop: 'default',
+    borderRight: 'default',
+    borderBottom: 'default',
+    borderLeft: 'default',
+  },
   argTypes: getArgTypes('b2b-background-box'),
   render: ({ ...args }) => html` <b2b-background-box
     fixed-width="${args.fixedWidth}"
-    no-padding="${args.noPadding}">
+    no-padding="${args.noPadding}"
+    border-top="${args.borderTop}"
+    border-right="${args.borderRight}"
+    border-bottom="${args.borderBottom}"
+    border-left="${args.borderLeft}">
     <b2b-paragraph>
       The BackgroundBox component adjusts its width and padding based on two
       properties: fixedWidth and noPadding. When fixedWidth is true, the box has
@@ -27,6 +38,10 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: { ...meta.args },
+};
+
+export const BorderControl: Story = {
+  args: { ...meta.args, borderTop: 'none' },
 };
 
 export const FixedWidth: Story = {

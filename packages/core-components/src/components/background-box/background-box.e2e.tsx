@@ -49,4 +49,35 @@ describe('B2B-Background-Box', () => {
     const style = await element.getComputedStyle();
     expect(style.width).toBe('1212px');
   });
+  it('should remove specific borders when set to none', async () => {
+    page = await newE2EPage();
+    await page.setContent(
+      `<b2b-background-box border-top="none" border-right="none">Background box component</b2b-background-box>`,
+    );
+    const element = await page.find('b2b-background-box');
+    const style = await element.getComputedStyle();
+    expect(style.borderTop).toBe('0px none rgb(0, 0, 0)');
+    expect(style.borderRight).toBe('0px none rgb(0, 0, 0)');
+    expect(style.borderBottom).toBe('1px solid rgb(196, 196, 196)');
+    expect(style.borderLeft).toBe('1px solid rgb(196, 196, 196)');
+  });
+
+  it('should remove all borders when all set to none', async () => {
+    page = await newE2EPage();
+    await page.setContent(
+      `<b2b-background-box
+        border-top="none"
+        border-right="none"
+        border-bottom="none"
+        border-left="none">
+        Background box component
+      </b2b-background-box>`,
+    );
+    const element = await page.find('b2b-background-box');
+    const style = await element.getComputedStyle();
+    expect(style.borderTop).toBe('0px none rgb(0, 0, 0)');
+    expect(style.borderRight).toBe('0px none rgb(0, 0, 0)');
+    expect(style.borderBottom).toBe('0px none rgb(0, 0, 0)');
+    expect(style.borderLeft).toBe('0px none rgb(0, 0, 0)');
+  });
 });

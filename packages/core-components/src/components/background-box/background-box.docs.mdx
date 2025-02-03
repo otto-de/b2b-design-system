@@ -16,9 +16,9 @@ import * as BackgroundBoxStories from './background-box.stories';
 
 The BackgroundBox is a utility component designed to serve as a container for other components, featuring a white background and a border.
 
-The BackgroundBox component adjusts its width and padding based on two properties: fixedWidth and noPadding. The height of the box depends on its internal content.
+The BackgroundBox component adjusts its width (fixedWidth), padding (noPadding), and border visibility (borderTop, borderRight, borderBottom, borderLeft). The height depends on its internal content.
 
-NOTE: fixedWidth and noPadding are optional. The component can simply be used like this without specifying any properties aside from the label:
+NOTE: All properties are optional. The component can simply be used like this without specifying any properties aside from the label:
 
 <Source
   code={`<b2b-background-box><b2b-headline>Background Box</b2b-headline></b2b-background-box>`}
@@ -37,6 +37,14 @@ The Background Box component can be configured to have fixedWidth. When fixedWid
 The noPadding property controls internal spacing. If true, no padding is applied; if false, a default padding of 24px is added.
 
 <Canvas of={BackgroundBoxStories.NoPadding} />
+
+### Border Control
+
+Customize border visibility with border-\*properties (top, right, bottom, left). Set any border to "none" to hide it.
+
+#### borderTop
+
+<Canvas of={BackgroundBoxStories.BorderControl} />
 
 <br />
 

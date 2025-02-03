@@ -174,6 +174,78 @@
     }
   },
   "b2b-background-box": {
+    "borderBottom": {
+      "options": [
+        "default",
+        "none"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'default'"
+        }
+      },
+      "description": "Whether the box should have a bottom border. Per default, the border is enabled"
+    },
+    "borderLeft": {
+      "options": [
+        "default",
+        "none"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'default'"
+        }
+      },
+      "description": "Whether the box should have a left border. Per default, the border is enabled"
+    },
+    "borderRight": {
+      "options": [
+        "default",
+        "none"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'default'"
+        }
+      },
+      "description": "Whether the box should have a right border. Per default, the border is enabled"
+    },
+    "borderTop": {
+      "options": [
+        "default",
+        "none"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'default'"
+        }
+      },
+      "description": "Whether the box should have a top border. Per default, the border is enabled"
+    },
     "fixedWidth": {
       "control": {
         "type": "boolean"
