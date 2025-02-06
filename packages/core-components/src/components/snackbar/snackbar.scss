@@ -48,19 +48,19 @@
   }
 
   &--info {
-    background-color: #78ACE0;
+    background-color: #78ace0;
   }
 
   &--warning {
-    background-color: #F9C659;
+    background-color: #f9c659;
   }
 
   &--error {
-    background-color: #FA5F5F;
+    background-color: #fa5f5f;
   }
 
   &--success {
-    background-color: #97D955;
+    background-color: #97d955;
   }
 
   &__close-icon {
@@ -73,19 +73,19 @@
     border-radius: var(--b2b-size-7);
 
     &--success:hover {
-      background-color: #85BF4B;
+      background-color: #85bf4b;
     }
 
     &--warning:hover {
-      background-color: #E0B350;
+      background-color: #e0b350;
     }
 
     &--error:hover {
-      background-color: #E05555;
+      background-color: #e05555;
     }
 
     &--info:hover {
-      background-color: #6B99C7;
+      background-color: #6b99c7;
     }
   }
 
@@ -131,19 +131,19 @@
     }
 
     &--success:hover {
-        background-color: #85BF4B;
+      background-color: #85bf4b;
     }
 
     &--warning:hover {
-        background-color: #E0B350;
+      background-color: #e0b350;
     }
 
     &--error:hover {
-        background-color: #E05555;
+      background-color: #e05555;
     }
 
     &--info:hover {
-        background-color: #6B99C7;
+      background-color: #6b99c7;
     }
   }
 }
