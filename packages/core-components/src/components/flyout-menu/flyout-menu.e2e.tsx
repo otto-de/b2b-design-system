@@ -7,7 +7,7 @@ describe('B2B-FlyoutMenu', () => {
     page = await newE2EPage();
     await page.setContent(`
       <b2b-flyout-menu>
-        <b2b-icon icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon>
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
         <b2b-flyout-menu-option slot='option' option='option1' >
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option slot='option' option='option2' >
@@ -29,7 +29,7 @@ describe('B2B-FlyoutMenu', () => {
   });
 
   it('should show the menu when icon is clicked', async () => {
-    const iconContainer = await page.find('b2b-icon');
+    const iconContainer = await page.find('b2b-icon-100');
 
     iconContainer.click();
     await page.waitForChanges();
@@ -39,7 +39,7 @@ describe('B2B-FlyoutMenu', () => {
   });
 
   it('should hide the menu when it loses focus', async () => {
-    const iconContainer = await page.find('b2b-icon');
+    const iconContainer = await page.find('b2b-icon-100');
 
     iconContainer.click();
     await page.waitForChanges();
@@ -59,7 +59,7 @@ describe('B2B-FlyoutMenu', () => {
   /** Test is extremely flaky due to unknown global interaction. Test suite runs fine in isolation, so skipping for now. */
   xit('should emit the selected event when a menu option is clicked', async () => {
     const optionSelectedEventSpy = await page.spyOnEvent('b2b-option-selected');
-    const icon = await page.find('b2b-icon >>> div');
+    const icon = await page.find('b2b-icon-100 >>> div');
 
     await icon.click();
     await page.waitForChanges();
@@ -77,7 +77,7 @@ describe('B2B-FlyoutMenu', () => {
 
   it('should disable an option when disabled is true', async () => {
     const optionSelectedEventSpy = await page.spyOnEvent('b2b-option-selected');
-    const icon = await page.find('b2b-icon');
+    const icon = await page.find('b2b-icon-100');
 
     icon.click();
     await page.waitForChanges();
@@ -93,7 +93,7 @@ describe('B2B-FlyoutMenu', () => {
   });
 
   it('should display separator after an option when separator is true', async () => {
-    const icon = await page.find('b2b-icon');
+    const icon = await page.find('b2b-icon-100');
 
     icon.click();
     await page.waitForChanges();

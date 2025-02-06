@@ -25,7 +25,7 @@
 graph TD;
   b2b-wizard-step --> b2b-wizard-icon
   b2b-wizard-icon --> b2b-rounded-icon
-  b2b-wizard-icon --> b2b-icon
+  b2b-wizard-icon --> b2b-icon-100
   style b2b-wizard-step fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

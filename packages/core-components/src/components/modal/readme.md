@@ -34,13 +34,13 @@ Initial story: https://otto-eg.atlassian.net/browse/B2BDS-53
 ### Depends on
 
 - [b2b-headline](../headline)
-- [b2b-icon](../icon)
+- [b2b-icon-100](../icon-100)
 
 ### Graph
 ```mermaid
 graph TD;
   b2b-modal --> b2b-headline
-  b2b-modal --> b2b-icon
+  b2b-modal --> b2b-icon-100
   style b2b-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

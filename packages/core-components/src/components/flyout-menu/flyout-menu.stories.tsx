@@ -9,11 +9,11 @@ const meta: Meta = {
   argTypes: getArgTypes('b2b-flyout-menu'),
   render: ({ ...args }) => html` <div style="margin-left: 100px">
     <b2b-flyout-menu>
-      <b2b-icon
+      <b2b-icon-100
         icon="b2b_icon-ellipsis"
         slot="trigger"
         clickable
-        focusable></b2b-icon>
+        focusable></b2b-icon-100>
       <b2b-flyout-menu-option
         slot="option"
         option="Delete"
@@ -56,11 +56,11 @@ export const AllStates: Story = {
   args: { ...meta.args, disabled: true, separator: true },
   render: ({ ...args }) => html` <div style="margin-left: 100px">
     <b2b-flyout-menu opened="true">
-      <b2b-icon
+      <b2b-icon-100
         icon="b2b_icon-ellipsis"
         slot="trigger"
         clickable
-        focusable></b2b-icon>
+        focusable></b2b-icon-100>
       <b2b-flyout-menu-option
         slot="option"
         option="Delete"

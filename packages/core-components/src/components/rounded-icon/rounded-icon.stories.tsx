@@ -5,7 +5,7 @@ import { html } from 'lit-html';
 const TemplateIcon: Story = ({ color, contentColor, iconName }) => {
   return html`<div>
     <b2b-rounded-icon color="${color}" content-color="${contentColor}">
-      <b2b-icon slot="icon" icon="${iconName}"></b2b-icon>
+      <b2b-icon-100 slot="icon" icon="${iconName}"></b2b-icon-100>
     </b2b-rounded-icon>
   </div>`;
 };

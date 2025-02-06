@@ -175,10 +175,12 @@ export class ModalComponent {
                   onMouseLeave={this.toggleIconHover}
                   onClick={this.handleClickDismiss}
                   ref={el => (this.closeButton = el)}>
-                  <b2b-icon
+                  <b2b-icon-100
                     clickable
                     icon="b2b_icon-close"
-                    color={this.iconHover ? 'primary' : 'secondary'}></b2b-icon>
+                    color={
+                      this.iconHover ? 'primary' : 'secondary'
+                    }></b2b-icon-100>
                 </button>
               </div>
             </div>

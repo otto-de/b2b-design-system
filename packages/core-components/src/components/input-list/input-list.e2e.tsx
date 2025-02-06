@@ -44,7 +44,7 @@ describe('B2B-InputList', () => {
 
     let inputValue = inputList.getAttribute('value');
     expect(inputValue).toBe(null);
-    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
     expect(closeIcon).toBeNull();
   });
 
@@ -59,7 +59,7 @@ describe('B2B-InputList', () => {
 
     let inputValue = inputList.getAttribute('value');
     expect(inputValue).toBe('b2b');
-    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
     expect(closeIcon).toBeNull();
   });
 
@@ -280,7 +280,7 @@ describe('B2B-InputList', () => {
     await setOptionsList();
     await typeInput();
 
-    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
 
     expect(closeIcon).not.toBeNull();
   });
@@ -288,7 +288,7 @@ describe('B2B-InputList', () => {
   it('should not show the close icon if the input is empty', async () => {
     await setOptionsList();
 
-    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
 
     expect(closeIcon).toBeNull();
   });
@@ -301,7 +301,7 @@ describe('B2B-InputList', () => {
     let inputValue = await input.getAttribute('value');
     expect(inputValue).toBe('8');
 
-    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
 
     closeIcon.click();
     await page.waitForChanges();
@@ -314,7 +314,7 @@ describe('B2B-InputList', () => {
     const onInputEventSpy = await page.spyOnEvent('b2b-clear');
     await typeInput();
 
-    const closeIcon = await page.find('b2b-input-list >>> b2b-icon');
+    const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
     closeIcon.click();
     await page.waitForChanges();
 

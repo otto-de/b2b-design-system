@@ -64,7 +64,7 @@ export const IconStart: Story = {
     disabled="${args.disabled}"
     loading="${args.loading}"
     type="${args.type}">
-    <b2b-icon slot="start" icon="b2b_icon-check" size="100"></b2b-icon>
+    <b2b-icon-100 slot="start" icon="b2b_icon-check"></b2b-icon-100>
     ${args.label}
   </b2b-button>`,
 };
@@ -81,7 +81,7 @@ export const IconEnd: Story = {
     loading="${args.loading}"
     type="${args.type}">
     ${args.label}
-    <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
+    <b2b-icon-100 slot="end" icon="b2b_icon-check"></b2b-icon-100>
   </b2b-button>`,
 };
 
@@ -111,7 +111,7 @@ export const IconOnly: Story = {
     disabled="${args.disabled}"
     loading="${args.loading}"
     type="${args.type}">
-    <b2b-icon slot="end" icon="b2b_icon-search" size="100"></b2b-icon>
+    <b2b-icon-100 slot="end" icon="b2b_icon-search"></b2b-icon-100>
   </b2b-button>`,
 };
 

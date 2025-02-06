@@ -90,7 +90,7 @@ export class ButtonComponent {
     if (children.length === 1) {
       // even no chars or child nodes will return white space, so we need to trim
       if (this.hostElement.textContent.trim().length === 0) {
-        if (children[0].tagName.toLowerCase() === 'b2b-icon') {
+        if (children[0].tagName.toLowerCase() === 'b2b-icon-100') {
           return true;
         } else if (children[0].tagName.toLowerCase() === 'i') {
           return true;

@@ -514,10 +514,10 @@ export class B2bDatePicker {
                       this.clearDateInput();
                     }
                   }}>
-                  <b2b-icon
+                  <b2b-icon-100
                     icon="b2b_icon-close"
                     aria-label="clear input"
-                    clickable={true}></b2b-icon>
+                    clickable={true}></b2b-icon-100>
                 </div>
               )}
 
@@ -538,14 +538,14 @@ export class B2bDatePicker {
                   }
                 }}
                 class="b2b-event-icon">
-                <b2b-icon
+                <b2b-icon-100
                   aria-label={
                     this.showDatePicker
                       ? 'close date picker'
                       : 'open date picker'
                   }
                   icon="b2b_icon-event"
-                  clickable={true}></b2b-icon>
+                  clickable={true}></b2b-icon-100>
               </div>
             </div>
           </div>

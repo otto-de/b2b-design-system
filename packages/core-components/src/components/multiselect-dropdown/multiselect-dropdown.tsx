@@ -261,7 +261,7 @@ export class B2bMultiSelectDropdown {
               {this.renderChips()}
             </div>
           )}
-          <b2b-icon icon="b2b_icon-arrow-down"></b2b-icon>
+          <b2b-icon-100 icon="b2b_icon-arrow-down"></b2b-icon-100>
         </div>
         <div
           class={{
