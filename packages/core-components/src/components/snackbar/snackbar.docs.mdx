@@ -1,0 +1,56 @@
+import * as SnackbarStories from './snackbar.stories';
+import { Meta, ArgsTable, Primary, PRIMARY_STORY } from '@storybook/blocks';
+
+<Meta of={SnackbarStories} />
+
+# Snackbar Component
+
+The snackbar allows the user to view brief, contextual feedback and actions in response to their recent interactions.
+Check below to see the available variants.
+
+## Properties
+
+### Type
+
+**_Info:_** Use for providing neutral, informative messages that don’t require immediate action, such as general information.
+
+**_Error:_** Use to notify the user about a problem or failure, such as an invalid action or error that requires attention or correction.
+
+**_Warning:_** Use to alert the user about a potential issue or cautionary message, usually to warn about possible consequences of a user action.
+
+**_Success:_** Use to confirm that an action was completed successfully, such as a successful submission, upload, or other positive feedback.
+
+### Timed
+
+This property allows you to set the snackbar to be auto hidden after certain amount of time. By default, it is false.
+Please note, that snackbars of type `error` cannot be timed.
+
+### Duration
+
+If you set `timed` as true, using this property you can define the interval after which the snackbar will be hidden. Default is 5000ms.
+
+### Action
+
+If you want your snackbar to have an action button, set `hasAction` to true. By default, it is false.
+
+#### Action Label
+
+Provide a description of what your action will do using `actionLabel` property.
+
+#### On Action
+
+With this property you can provide the function that will be executed when user clicks on the action label.
+
+### Close Button
+
+Per default, all snackbars have a close button. By setting `hasCloseButton` to false, you can remove it.
+
+### Underlined
+
+Description of your snackbar can be either underlined or **bold**. By default, all snackbars' description is in bold, if you want it to be underlined, set `isUnderlined` to true.
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
