@@ -18,8 +18,80 @@
       type="text/css"
       href="/build/b2b-core-components.css" />
     <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+    <style>
+      b2b-grid-col {
+        background: #ffd998;
+      }
+    </style>
   </head>
   <body>
+    <div>
+      <h1>Grid with 12 columns with column-gap=24 OK</h1>
+      <b2b-grid>
+        <b2b-grid-row column-gap="24">
+          <b2b-grid-col>1</b2b-grid-col>
+          <b2b-grid-col>2</b2b-grid-col>
+          <b2b-grid-col>3</b2b-grid-col>
+          <b2b-grid-col>4</b2b-grid-col>
+          <b2b-grid-col>5</b2b-grid-col>
+          <b2b-grid-col>6</b2b-grid-col>
+          <b2b-grid-col>7</b2b-grid-col>
+          <b2b-grid-col>8</b2b-grid-col>
+          <b2b-grid-col>9</b2b-grid-col>
+          <b2b-grid-col>10</b2b-grid-col>
+          <b2b-grid-col>11</b2b-grid-col>
+          <b2b-grid-col>12</b2b-grid-col>
+        </b2b-grid-row>
+      </b2b-grid>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <div>
+      <h1>Grid with 12 columns with column-gap=16 NOT WORKING</h1>
+      <b2b-grid>
+        <b2b-grid-row column-gap="16">
+          <b2b-grid-col>1</b2b-grid-col>
+          <b2b-grid-col>2</b2b-grid-col>
+          <b2b-grid-col>3</b2b-grid-col>
+          <b2b-grid-col>4</b2b-grid-col>
+          <b2b-grid-col>5</b2b-grid-col>
+          <b2b-grid-col>6</b2b-grid-col>
+          <b2b-grid-col>7</b2b-grid-col>
+          <b2b-grid-col>8</b2b-grid-col>
+          <b2b-grid-col>9</b2b-grid-col>
+          <b2b-grid-col>10</b2b-grid-col>
+          <b2b-grid-col>11</b2b-grid-col>
+          <b2b-grid-col>12</b2b-grid-col>
+        </b2b-grid-row>
+      </b2b-grid>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <div>
+      <h1>Grid with 12 columns with column-span=3 column-gap=24 OK</h1>
+      <b2b-grid>
+        <b2b-grid-row column-gap="24">
+          <b2b-grid-col span="3">1</b2b-grid-col>
+          <b2b-grid-col span="3">2</b2b-grid-col>
+          <b2b-grid-col span="3">3</b2b-grid-col>
+          <b2b-grid-col span="3">4</b2b-grid-col>
+        </b2b-grid-row>
+      </b2b-grid>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <div>
+      <h1>Grid with 12 columns with column-span=3 column-gap=16 NOT WORKING</h1>
+      <b2b-grid>
+        <b2b-grid-row column-gap="16">
+          <b2b-grid-col span="3">1</b2b-grid-col>
+          <b2b-grid-col span="3">2</b2b-grid-col>
+          <b2b-grid-col span="3">3</b2b-grid-col>
+          <b2b-grid-col span="3">4</b2b-grid-col>
+        </b2b-grid-row>
+      </b2b-grid>
+    </div>
+
     <div
       class="content-container"
       style="background-color: #f4f4f4; max-width: 1400px">
