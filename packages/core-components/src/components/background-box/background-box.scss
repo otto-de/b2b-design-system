@@ -19,3 +19,19 @@
 :host(.b2b-background-box--no-padding) {
   padding: unset;
 }
+
+:host(.b2b-background-box--hide-border-top) {
+  border-top: 0;
+}
+
+:host(.b2b-background-box--hide-border-right) {
+  border-right: 0;
+}
+
+:host(.b2b-background-box--hide-border-bottom) {
+  border-bottom: 0;
+}
+
+:host(.b2b-background-box--hide-border-left) {
+  border-left: 0;
+}

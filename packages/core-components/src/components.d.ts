@@ -76,6 +76,22 @@ export namespace Components {
     }
     interface B2bBackgroundBox {
         /**
+          * Whether the box should have a bottom border. Per default, the border is enabled
+         */
+        "borderBottom": 'default' | 'none';
+        /**
+          * Whether the box should have a left border. Per default, the border is enabled
+         */
+        "borderLeft": 'default' | 'none';
+        /**
+          * Whether the box should have a right border. Per default, the border is enabled
+         */
+        "borderRight": 'default' | 'none';
+        /**
+          * Whether the box should have a top border. Per default, the border is enabled
+         */
+        "borderTop": 'default' | 'none';
+        /**
           * Fixes width to 1212px. Per default, it is false
          */
         "fixedWidth": boolean;
@@ -2405,6 +2421,22 @@ declare namespace LocalJSX {
         "underlineText"?: boolean;
     }
     interface B2bBackgroundBox {
+        /**
+          * Whether the box should have a bottom border. Per default, the border is enabled
+         */
+        "borderBottom"?: 'default' | 'none';
+        /**
+          * Whether the box should have a left border. Per default, the border is enabled
+         */
+        "borderLeft"?: 'default' | 'none';
+        /**
+          * Whether the box should have a right border. Per default, the border is enabled
+         */
+        "borderRight"?: 'default' | 'none';
+        /**
+          * Whether the box should have a top border. Per default, the border is enabled
+         */
+        "borderTop"?: 'default' | 'none';
         /**
           * Fixes width to 1212px. Per default, it is false
          */

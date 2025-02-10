@@ -11,6 +11,14 @@ export class BackgroundBoxComponent {
   @Prop() fixedWidth: boolean = false;
   /** Whether the box should have a padding. Per default, padding is enabled */
   @Prop() noPadding: boolean = false;
+  /** Whether the box should have a top border. Per default, the border is enabled */
+  @Prop() borderTop: 'default' | 'none' = 'default';
+  /** Whether the box should have a right border. Per default, the border is enabled */
+  @Prop() borderRight: 'default' | 'none' = 'default';
+  /** Whether the box should have a bottom border. Per default, the border is enabled */
+  @Prop() borderBottom: 'default' | 'none' = 'default';
+  /** Whether the box should have a left border. Per default, the border is enabled */
+  @Prop() borderLeft: 'default' | 'none' = 'default';
 
   render() {
     return (
@@ -19,6 +27,11 @@ export class BackgroundBoxComponent {
           'b2b-background-box': true,
           'b2b-background-box--fixed-width': this.fixedWidth,
           'b2b-background-box--no-padding': this.noPadding,
+          'b2b-background-box--hide-border-top': this.borderTop === 'none',
+          'b2b-background-box--hide-border-right': this.borderRight === 'none',
+          'b2b-background-box--hide-border-bottom':
+            this.borderBottom === 'none',
+          'b2b-background-box--hide-border-left': this.borderLeft === 'none',
         }}>
         <slot></slot>
       </Host>
