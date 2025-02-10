@@ -23,13 +23,13 @@
 ### Depends on
 
 - [b2b-rounded-icon](../rounded-icon)
-- [b2b-icon](../icon)
+- [b2b-icon-100](../icon-100)
 
 ### Graph
 ```mermaid
 graph TD;
   b2b-wizard-icon --> b2b-rounded-icon
-  b2b-wizard-icon --> b2b-icon
+  b2b-wizard-icon --> b2b-icon-100
   b2b-wizard-step --> b2b-wizard-icon
   style b2b-wizard-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

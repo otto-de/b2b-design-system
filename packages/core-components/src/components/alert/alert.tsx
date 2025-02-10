@@ -41,7 +41,7 @@ export class AlertComponent {
 
   private chooseIcon = () => {
     const iconName: IconName = `b2b_icon-${this.type}`;
-    return <b2b-icon icon={iconName}></b2b-icon>;
+    return <b2b-icon-100 icon={iconName}></b2b-icon-100>;
   };
 
   private close = () => {

@@ -31,7 +31,7 @@
 
 - [b2b-chip-component](../chip)
 - [b2b-input-label](../input-label)
-- [b2b-icon](../icon)
+- [b2b-icon-100](../icon-100)
 - [b2b-multiselect-option](multiselect-option)
 
 ### Graph
@@ -39,7 +39,7 @@
 graph TD;
   b2b-multiselect-dropdown --> b2b-chip-component
   b2b-multiselect-dropdown --> b2b-input-label
-  b2b-multiselect-dropdown --> b2b-icon
+  b2b-multiselect-dropdown --> b2b-icon-100
   b2b-multiselect-dropdown --> b2b-multiselect-option
   b2b-multiselect-option --> b2b-checkbox
   b2b-checkbox --> b2b-input-label

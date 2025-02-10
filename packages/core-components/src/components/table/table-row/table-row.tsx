@@ -190,7 +190,9 @@ export class TableRowComponent {
                 'b2b-table-row__accordion-icon': true,
                 'b2b-table-row__accordion-icon--open': this.isOpen,
               }}>
-              <b2b-icon icon="b2b_icon-arrow-right" clickable={true}></b2b-icon>
+              <b2b-icon-100
+                icon="b2b_icon-arrow-right"
+                clickable={true}></b2b-icon-100>
             </button>
           </b2b-table-cell>
         );

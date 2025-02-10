@@ -29,7 +29,7 @@
 - [b2b-input-group](../input-group)
 - [b2b-input-list](../input-list)
 - [b2b-button](../button)
-- [b2b-icon](../icon)
+- [b2b-icon-100](../icon-100)
 
 ### Graph
 ```mermaid
@@ -37,9 +37,9 @@ graph TD;
   b2b-search --> b2b-input-group
   b2b-search --> b2b-input-list
   b2b-search --> b2b-button
-  b2b-search --> b2b-icon
+  b2b-search --> b2b-icon-100
   b2b-input-list --> b2b-input
-  b2b-input-list --> b2b-icon
+  b2b-input-list --> b2b-icon-100
   b2b-input-list --> b2b-input-list-option
   b2b-input --> b2b-input-label
   b2b-button --> b2b-spinner

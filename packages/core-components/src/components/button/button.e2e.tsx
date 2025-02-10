@@ -71,7 +71,7 @@ describe('B2B-Button', () => {
   it('should reduce padding on the button if there is only an icon', async () => {
     page = await newE2EPage();
     await page.setContent(`<b2b-button variant="primary" size="100">
-    <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
+    <b2b-icon-100 slot="end" icon="b2b_icon-check"></b2b-icon-100>
   </b2b-button>`);
 
     const button = await page.find('b2b-button');
@@ -82,7 +82,7 @@ describe('B2B-Button', () => {
     page = await newE2EPage();
     await page.setContent(`<b2b-button variant="primary" size="100">
     <span>Hello World</span>
-    <b2b-icon slot="end" icon="b2b_icon-check" size="100"></b2b-icon>
+    <b2b-icon-100 slot="end" icon="b2b_icon-check"></b2b-icon-100>
   </b2b-button>`);
 
     const button = await page.find('b2b-button');

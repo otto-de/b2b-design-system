@@ -29,7 +29,7 @@ export class WizardIconComponent {
               color="var(--b2b-color-success-50)"
               content-color="var(--b2b-color-success-100)">
               {this.checkIcon ? (
-                <b2b-icon slot="icon" icon="b2b_icon-check"></b2b-icon>
+                <b2b-icon-100 slot="icon" icon="b2b_icon-check"></b2b-icon-100>
               ) : (
                 <span slot="text">{this.step}</span>
               )}

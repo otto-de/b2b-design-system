@@ -77,7 +77,7 @@ const CustomSearchTemplate: Story = ({ placeholder, optionsList }) => {
         <option value="one">Option 2</option>
       </b2b-dropdown>
       <b2b-button slot="end" variant="primary">
-        <b2b-icon icon="b2b_icon-search"></b2b-icon>
+        <b2b-icon-100 icon="b2b_icon-search"></b2b-icon-100>
       </b2b-button>
     </b2b-input-group>
   </div>`;

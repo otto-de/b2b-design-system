@@ -50,7 +50,7 @@ Type: `Promise<void>`
 - [b2b-table-header](../table-header)
 - [b2b-checkbox](../../checkbox)
 - [b2b-table-cell](../table-cell)
-- [b2b-icon](../../icon)
+- [b2b-icon-100](../../icon-100)
 
 ### Graph
 ```mermaid
@@ -58,7 +58,7 @@ graph TD;
   b2b-table-row --> b2b-table-header
   b2b-table-row --> b2b-checkbox
   b2b-table-row --> b2b-table-cell
-  b2b-table-row --> b2b-icon
+  b2b-table-row --> b2b-icon-100
   b2b-checkbox --> b2b-input-label
   style b2b-table-row fill:#f9f,stroke:#333,stroke-width:4px
 ```

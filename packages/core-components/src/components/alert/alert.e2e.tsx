@@ -96,10 +96,10 @@ describe('B2B-Alert', () => {
     const page = await newE2EPage();
 
     await page.setContent(
-      `<b2b-alert opened custom-icon><b2b-icon icon="b2b_icon-menu"></b2b-icon></b2b-alert>`,
+      `<b2b-alert opened custom-icon><b2b-icon-100 icon="b2b_icon-menu"></b2b-icon-100></b2b-alert>`,
     );
 
-    const element = await page.find('b2b-icon');
+    const element = await page.find('b2b-icon-100');
 
     expect(element).not.toBeNull();
   });

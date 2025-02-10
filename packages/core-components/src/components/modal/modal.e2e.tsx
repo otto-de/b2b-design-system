@@ -73,7 +73,7 @@ describe('b2b-modal', () => {
     const modalDiv = await page.find('b2b-modal >>> div');
     expect(await modalDiv.isVisible()).toBe(true);
 
-    const closeIcon = await page.find('b2b-modal >>> b2b-icon');
+    const closeIcon = await page.find('b2b-modal >>> b2b-icon-100');
 
     const closeIconColorBefore = await closeIcon.getProperty('color');
     expect(closeIconColorBefore).toBe('secondary');
@@ -96,7 +96,7 @@ describe('b2b-modal', () => {
     const b2bBeforeClose = await page.spyOnEvent('b2b-before-close');
     const b2bClose = await page.spyOnEvent('b2b-close');
 
-    const closeIcon = await page.find('b2b-modal >>> b2b-icon');
+    const closeIcon = await page.find('b2b-modal >>> b2b-icon-100');
 
     await closeIcon.click();
     expect(b2bBeforeClose).toHaveReceivedEvent();

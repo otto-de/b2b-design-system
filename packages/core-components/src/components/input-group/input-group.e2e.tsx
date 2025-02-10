@@ -16,7 +16,7 @@ describe('B2B Input Group', () => {
           <option value="one">€</option>
           <option value="one">$</option>
         </b2b-dropdown>
-        <b2b-button slot="end" variant="primary" disabled><b2b-icon icon="b2b_icon-search"></b2b-icon></b2b-button>
+        <b2b-button slot="end" variant="primary" disabled><b2b-icon-100 icon="b2b_icon-search"></b2b-icon-100></b2b-button>
       </b2b-input-group>`);
   });
 

@@ -221,13 +221,13 @@ export class InputListComponent {
             placeholder={this.placeholder}
             required={this.required}>
             {!(this.disabled || this.groupDisabled) && Boolean(this.value) && (
-              <b2b-icon
+              <b2b-icon-100
                 icon="b2b_icon-close"
                 aria-label="reset"
                 slot="end"
                 tabIndex={0}
                 onMouseDown={this.resetInput}
-                onKeyDown={this.resetInput}></b2b-icon>
+                onKeyDown={this.resetInput}></b2b-icon-100>
             )}
           </b2b-input>
           {this.isElementFocused && Boolean(this.value) ? (
