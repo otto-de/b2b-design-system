@@ -10,6 +10,7 @@
 | Property         | Attribute          | Description                                                                                  | Type                                          | Default     |
 | ---------------- | ------------------ | -------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
 | `actionLabel`    | `action-label`     | Text for the Call-to-Action link.                                                            | `string`                                      | `undefined` |
+| `description`    | `description`      | Text on the snackbar.                                                                        | `string`                                      | `undefined` |
 | `duration`       | `duration`         | How long is snackbar shown. Default value is 5000 ms.                                        | `number`                                      | `5000`      |
 | `hasAction`      | `has-action`       | Whether the snackbar has a Call-to-Action. Per default, it is false.                         | `boolean`                                     | `false`     |
 | `hasCloseButton` | `has-close-button` | Whether the snackbar has a close button. Per default, it is true.                            | `boolean`                                     | `true`      |

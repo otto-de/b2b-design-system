@@ -990,6 +990,10 @@ export namespace Components {
          */
         "actionLabel": string;
         /**
+          * Text on the snackbar.
+         */
+        "description": string;
+        /**
           * How long is snackbar shown. Default value is 5000 ms.
          */
         "duration": number;
@@ -3504,6 +3508,10 @@ declare namespace LocalJSX {
           * Text for the Call-to-Action link.
          */
         "actionLabel"?: string;
+        /**
+          * Text on the snackbar.
+         */
+        "description"?: string;
         /**
           * How long is snackbar shown. Default value is 5000 ms.
          */

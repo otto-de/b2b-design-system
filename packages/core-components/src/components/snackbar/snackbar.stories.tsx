@@ -12,6 +12,7 @@ const meta: Meta = {
   component: 'b2b-snackbar',
   args: {
     type: 'info',
+    description: `This is a snackbar`,
     opened: true,
     timed: false,
     duration: 5000,
@@ -37,6 +38,7 @@ const meta: Meta = {
       <b2b-button @click=${hideSnackbar}>Hide Snackbar</b2b-button>
       <hr />
       <b2b-snackbar
+        description="${args.description}"
         type="${args.type}"
         opened="${args.opened}"
         timed="${args.timed}"
@@ -44,9 +46,7 @@ const meta: Meta = {
         has-close-button="${args.hasCloseButton}"
         has-action="${args.hasAction}"
         action-label="${args.actionLabel}"
-        is-underlined="${args.isUnderlined}"
-        >This is a ${args.type} snackbar</b2b-snackbar
-      >`;
+        is-underlined="${args.isUnderlined}"></b2b-snackbar>`;
   },
 };
 
@@ -61,6 +61,7 @@ export const InfoSnackbar: Story = {
   args: {
     ...meta.args,
     type: 'info',
+    description: 'This is an info snackbar',
   },
   play: async () => {
     await showSnackBar();
@@ -71,6 +72,7 @@ export const SuccessSnackbar: Story = {
   args: {
     ...meta.args,
     type: 'success',
+    description: 'This is a success snackbar',
   },
   play: async () => {
     await showSnackBar();
@@ -81,6 +83,7 @@ export const WarningSnackbar: Story = {
   args: {
     ...meta.args,
     type: 'warning',
+    description: 'This is a warning snackbar',
   },
   play: async () => {
     await showSnackBar();
@@ -91,6 +94,7 @@ export const ErrorSnackbar: Story = {
   args: {
     ...meta.args,
     type: 'error',
+    description: 'This is an error snackbar',
   },
   play: async () => {
     await showSnackBar();
@@ -103,6 +107,7 @@ export const TimedSnackbar: Story = {
     type: 'info',
     timed: true,
     duration: 3000,
+    description: 'This is timed snackbar',
   },
   play: async () => {
     await showSnackBar();

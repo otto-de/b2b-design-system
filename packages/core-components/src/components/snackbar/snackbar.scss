@@ -5,8 +5,7 @@
   font-family: var(--b2b-font-family-default);
   font-size: var(--b2b-size-copy-100);
   line-height: var(--b2b-size-copy-line-height-100);
-  --font-color: var(--b2b-color-copy-default);
-  flex-shrink: 0;
+  color: var(--b2b-color-copy-default);
   max-width: 1000px;
   min-width: 270px;
   max-height: 56px;
@@ -91,18 +90,19 @@
 
   &__content {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex: 1 1 auto;
+
+    p {
+      width: 100%;
+      margin-top: 14.5px;
+      margin-bottom: 12.5px;
+      font-weight: var(--b2b-font-weight-bold);
+    }
 
     &__description {
-      display: flex;
-      align-items: center;
-      font-weight: var(--b2b-font-weight-bold);
       padding-right: var(--b2b-size-padding-50);
-      margin: 0;
-      text-overflow: ellipsis;
-      width: 100%;
       overflow: hidden;
+      text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -114,20 +114,24 @@
   }
 
   &__action {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: var(--b2b-size-15) var(--b2b-size-padding-50) 5px;
-    font-size: var(--b2b-size-copy-100);
     cursor: pointer;
     border-radius: var(--b2b-size-7);
     text-align: right;
     margin-right: var(--b2b-size-25);
+    user-select: none;
+    padding-top: 6.5px;
+
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
 
     a {
       text-decoration: underline;
       font-weight: var(--b2b-font-weight-normal);
+      max-height: var(--b2b-size-copy-line-height-100);
+      max-width: 100%;
     }
 
     &--success:hover {

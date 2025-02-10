@@ -9,10 +9,13 @@ declare global {
 describe('B2B-Snackbar', () => {
   it('should render the snackbar component', async () => {
     const page = await newE2EPage();
-    await page.setContent(`<b2b-snackbar></b2b-snackbar>`);
+    await page.setContent(`<b2b-snackbar description="test"></b2b-snackbar>`);
 
-    const element = await page.find('b2b-snackbar');
+    const element = await page.find(
+      'b2b-snackbar >>> .b2b-snackbar__content__description',
+    );
     expect(element).not.toBeNull();
+    expect(element.textContent).toBe('test');
   });
 
   it('should not be opened by default', async () => {
@@ -41,7 +44,7 @@ describe('B2B-Snackbar', () => {
     const page = await newE2EPage();
 
     await page.setContent(
-      `<b2b-snackbar opened has-action="true" action-label="Call to action">test</b2b-snackbar>`,
+      `<b2b-snackbar opened has-action="true" action-label="Call to action"></b2b-snackbar>`,
     );
 
     await page.waitForChanges();
@@ -86,7 +89,7 @@ describe('B2B-Snackbar', () => {
   it('should not render a close button if set to false', async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<b2b-snackbar opened has-close-button="false">Test</b2b-snackbar>`,
+      `<b2b-snackbar opened has-close-button="false"></b2b-snackbar>`,
     );
 
     const element = await page.find(
@@ -98,7 +101,7 @@ describe('B2B-Snackbar', () => {
   it('if snackbar is of type error, cannot be timed', async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<b2b-snackbar opened type="error" timed="true" duration="1000">Test</b2b-snackbar>`,
+      `<b2b-snackbar opened type="error" timed="true" duration="1000"></b2b-snackbar>`,
     );
 
     const element = await page.find('b2b-snackbar >>> div');

@@ -1,5 +1,6 @@
 import * as SnackbarStories from './snackbar.stories';
 import { Meta, ArgsTable, Primary, PRIMARY_STORY } from '@storybook/blocks';
+import { Canvas } from '@storybook/addon-docs';
 
 <Meta of={SnackbarStories} />
 
@@ -8,7 +9,13 @@ import { Meta, ArgsTable, Primary, PRIMARY_STORY } from '@storybook/blocks';
 The snackbar allows the user to view brief, contextual feedback and actions in response to their recent interactions.
 Check below to see the available variants.
 
+<Canvas of={SnackbarStories.WarningSnackbar} />
+
 ## Properties
+
+### Description
+
+This is where you can define the text that will be shown in snackbar.
 
 ### Type
 
@@ -28,6 +35,8 @@ Please note, that snackbars of type `error` cannot be timed.
 ### Duration
 
 If you set `timed` as true, using this property you can define the interval after which the snackbar will be hidden. Default is 5000ms.
+
+_Note_: when user hovers over the snackbar, timeout is paused and resumes once the mouse leaves.
 
 ### Action
 

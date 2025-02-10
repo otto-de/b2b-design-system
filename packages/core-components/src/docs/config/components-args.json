@@ -3439,6 +3439,15 @@
       },
       "description": "Text for the Call-to-Action link."
     },
+    "description": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Text on the snackbar."
+    },
     "duration": {
       "table": {
         "type": {

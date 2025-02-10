@@ -14,6 +14,9 @@ import {
   shadow: true,
 })
 export class SnackbarComponent {
+  /** Text on the snackbar. */
+  @Prop() description: string;
+
   /** The type of snackbar. Default is info. */
   @Prop() type: 'info' | 'success' | 'warning' | 'error' = 'info';
 
@@ -154,7 +157,7 @@ export class SnackbarComponent {
                 'b2b-snackbar__content__description--underlined':
                   this.isUnderlined,
               }}>
-              <slot></slot>
+              {this.description}
             </p>
           </div>
           {this.isActionPresent() && (
