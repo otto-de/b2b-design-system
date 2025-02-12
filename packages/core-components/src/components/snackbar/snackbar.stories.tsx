@@ -19,7 +19,7 @@ const meta: Meta = {
     hasCloseButton: true,
     hasAction: true,
     actionLabel: 'Call to Action',
-    isUnderlined: true,
+    isUnderlined: false,
   },
   argTypes: getArgTypes('b2b-snackbar'),
   render: ({ ...args }) => {
