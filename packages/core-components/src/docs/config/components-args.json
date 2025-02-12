@@ -4142,24 +4142,6 @@
         "defaultValue": {}
       },
       "description": "The value associated with the toggle chip. This is emitted when the chip is interacted with."
-    },
-    "variant": {
-      "options": [
-        "grey",
-        "white"
-      ],
-      "control": {
-        "type": "radio"
-      },
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {
-          "summary": "'grey'"
-        }
-      },
-      "description": "The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey"
     }
   },
   "b2b-toggle-group": {

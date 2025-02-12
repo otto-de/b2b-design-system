@@ -23,7 +23,7 @@
 
     &:hover,
     &:focus {
-      background-color: var(--b2b-color-hover);
+      background-color: var(--b2b-color-hover-default);
     }
   }
 
@@ -43,7 +43,7 @@
     &:hover,
     &:focus {
       cursor: pointer;
-      background-color: var(--b2b-color-hover);
+      background-color: var(--b2b-color-hover-default);
     }
   }
 
@@ -63,7 +63,7 @@
     &:hover,
     &:focus {
       cursor: pointer;
-      background-color: var(--b2b-color-hover);
+      background-color: var(--b2b-color-hover-default);
     }
   }
 }

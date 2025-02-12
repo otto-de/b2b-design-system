@@ -23,49 +23,63 @@
 
     &__label {
       display: inline-block;
-      padding: var(--b2b-size-15) var(--b2b-size-25) 5px var(--b2b-size-25);
+      border: 1px solid var(--b2b-color-grey-200);
+      padding: var(--b2b-size-15) var(--b2b-size-30) 5px var(--b2b-size-30);
       border-radius: var(--b2b-size-50);
       color: var(--b2b-color-black-100);
+      background-color: var(--b2b-color-white-100);
 
       &:hover {
-        background-color: var(--b2b-color-hover);
+        background-color:var(--b2b-color-hover-default);
         color: var(--b2b-color-black-100);
         cursor: pointer;
         transition: all 0.3s ease;
       }
 
-      &--grey {
-        background-color: var(--b2b-color-grey-100);
-      }
-
-      &--white {
-        background-color: var(--b2b-color-white-100);
-
-        &.b2b-toggle-chip__label--disabled {
-          background-color: var(--b2b-color-white-100);
-
-          &:hover {
-            background-color: var(--b2b-color-white-100);
-          }
-        }
+      &:active {
+        background-color:#D4E0EB;
+        color: var(--b2b-color-black-100);
+        transition: all 0.3s ease; 
       }
 
       &--active {
         color: var(--b2b-color-white-100);
         background-color: var(--b2b-color-black-100);
+        border: 1px solid var(--b2b-color-black-100);
+
+        &:hover {
+          cursor: pointer;
+          background-color: var(--b2b-color-hover-black);
+          border: 1px solid var(--b2b-color-hover-black);
+          color: var(--b2b-color-grey-100);
+        }
       }
 
       &--disabled {
-        background-color: var(--b2b-color-grey-100);
-        color: var(--b2b-color-grey-300);
+        background-color: var(--b2b-color-grey-25);
+        color: var(--b2b-color-grey-200);
         user-select: none;
 
         &:hover {
           cursor: default;
-          background-color: var(--b2b-color-grey-100);
-          color: var(--b2b-color-grey-300);
+          background-color: var(--b2b-color-grey-25);
+          color: var(--b2b-color-grey-200);
         }
       }
+
+      &--active-disabled {
+        background-color: var(--b2b-color-black-100);
+        border: 1px solid var(--b2b-color-black-100);
+        color: var(--b2b-color-grey-200);
+        &:hover {
+          cursor: default;
+          background-color: var(--b2b-color-black-100);
+          color: var(--b2b-color-grey-200);
+        }
+
+
+      }
+  
     }
   }
 }
