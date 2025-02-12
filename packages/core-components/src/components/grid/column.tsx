@@ -25,22 +25,11 @@ export class B2bGridColumnComponent {
   /** The alignment of text placed inside of a column. Note that this will apply to all children. */
   @Prop() textAlign: 'left' | 'center' | 'right' = 'left';
 
-  private calculateGrowDimension = (growth: number | undefined) => {
-    const gap = this.hostElement.closest('b2b-grid-row').columnGap;
-
-    // if a span is not specified, we still need to subtract gap width and a growth factor of 1
-    let growthFactor: string;
-    if (gap > 0 && growth != undefined) {
-      growthFactor = `- ${gap - 2 * growth}px`;
-    } else if (gap <= 0 && growth != undefined) {
-      growthFactor = '';
-    } else {
-      growthFactor = `- ${gap - 2}px`;
-    }
-    const flexGrow = growth == undefined ? 1 : 0;
-    const width = growth == undefined ? 1 : growth;
+  private calculateGrowDimension = (span: number | undefined) => {
+    const colSpan = span ?? 1;
+    const flex = (colSpan / 12) * 100;
     return {
-      ['flex']: `${flexGrow} 0 calc(${(width / 12) * 100}% ${growthFactor})`,
+      ['flex']: `${flex}`,
     };
   };
 

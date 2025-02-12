@@ -73,7 +73,7 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  args: { ...meta.args },
+  args: { ...meta.args, preSelectedDate: '01.01.2025' },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
@@ -112,7 +112,7 @@ export const DisableFutureDates: Story = {
 };
 
 export const DisableWeekends: Story = {
-  args: { ...meta.args, disableWeekends: true },
+  args: { ...meta.args, disableWeekends: true, preSelectedDate: '01.01.2025' },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
@@ -127,8 +127,8 @@ export const DisableWeekends: Story = {
 export const DisableDates: Story = {
   args: {
     ...meta.args,
-    disableWeekends: true,
-    disableDates: '["21.01.2025", "10.01.2025"]',
+    preSelectedDate: '01.01.2025',
+    disableDates: '["10.01.2025", "21.01.2025"]',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
@@ -144,7 +144,7 @@ export const DisableDates: Story = {
 export const DisableDays: Story = {
   args: {
     ...meta.args,
-    disableWeekends: true,
+    preSelectedDate: '01.01.2025',
     disableDays: '["Mo", "Tu"]',
   },
   play: async ({ canvasElement }) => {
@@ -161,6 +161,7 @@ export const DisableDays: Story = {
 export const DisableDatesUntil: Story = {
   args: {
     ...meta.args,
+    preSelectedDate: '26.01.2025',
     disableDatesUntil: '20.01.2025',
   },
   play: async ({ canvasElement }) => {
@@ -177,7 +178,8 @@ export const DisableDatesUntil: Story = {
 export const DisableDatesFrom: Story = {
   args: {
     ...meta.args,
-    disableDatesFrom: '20.01.2025',
+    preSelectedDate: '01.01.2025',
+    disableDatesFrom: '10.01.2025',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
@@ -201,6 +203,7 @@ export const WithCustomHintMessage: Story = {
 export const WithPlaceholder: Story = {
   args: {
     ...meta.args,
+    preSelectedDate: '01.01.2025',
     placeholder: 'this is date picker',
   },
 };
@@ -209,6 +212,7 @@ export const WithWidth: Story = {
   args: {
     ...meta.args,
     width: 500,
+    preSelectedDate: '01.01.2025',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
@@ -225,6 +229,7 @@ export const EnglishDatepicker: Story = {
   args: {
     ...meta.args,
     language: 'en',
+    preSelectedDate: '01.01.2025',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
