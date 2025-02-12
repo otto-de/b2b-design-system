@@ -165,5 +165,38 @@
         label-type="below"
         label-position="left" />
     </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Snackbar</b2b-headline>
+      <div class="variant-container">
+        <b2b-button id="snackbar-button">Open Snackbar</b2b-button>
+        <b2b-snackbar
+          id="success-snackbar"
+          is-underlined="true"
+          type="success"
+          has-close-button="true"
+          timed="false"
+          duration="5000"
+          has-action="true"
+          action-label="Nutzer neu anlegen"
+          description="Short description for the snackbar"></b2b-snackbar>
+        <script>
+          const snackbar = document.getElementById('success-snackbar');
+          function handleActionClick() {
+            snackbar.type === 'success'
+              ? (snackbar.type = 'error')
+              : (snackbar.type = 'success');
+          }
+
+          snackbar.addEventListener('b2b-action-click', () => {
+            handleActionClick();
+          });
+          const snackbarButton = document.getElementById('snackbar-button');
+          snackbarButton.addEventListener('click', () => {
+            snackbar.opened = !snackbar.opened;
+          });
+        </script>
+      </div>
+    </div>
   </body>
 </html>

@@ -3501,6 +3501,127 @@
       "description": "The alignment of the separator. Per default it is horizontal."
     }
   },
+  "b2b-snackbar": {
+    "actionLabel": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Text for the Call-to-Action link."
+    },
+    "description": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Text on the snackbar."
+    },
+    "duration": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "5000"
+        }
+      },
+      "description": "How long is snackbar shown. Default value is 5000 ms."
+    },
+    "hasAction": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the snackbar has a Call-to-Action. Per default, it is false."
+    },
+    "hasCloseButton": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Whether the snackbar has a close button. Per default, it is true."
+    },
+    "isUnderlined": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the description is underlined. If false, then it is bold."
+    },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the snackbar is currently visible. Set to true to display the snackbar."
+    },
+    "timed": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Whether snackbar is show for limited time. Default is true. Error snackbars cannot be timed."
+    },
+    "type": {
+      "options": [
+        "error",
+        "info",
+        "success",
+        "warning"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'info'"
+        }
+      },
+      "description": "The type of snackbar. Default is info."
+    }
+  },
   "b2b-spinner": {
     "color": {
       "options": [

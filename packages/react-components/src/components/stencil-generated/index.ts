@@ -53,6 +53,7 @@ export const B2bRoundedIcon = /*@__PURE__*/createReactComponent<JSX.B2bRoundedIc
 export const B2bScrollableContainer = /*@__PURE__*/createReactComponent<JSX.B2bScrollableContainer, HTMLB2bScrollableContainerElement>('b2b-scrollable-container');
 export const B2bSearch = /*@__PURE__*/createReactComponent<JSX.B2bSearch, HTMLB2bSearchElement>('b2b-search');
 export const B2bSeparator = /*@__PURE__*/createReactComponent<JSX.B2bSeparator, HTMLB2bSeparatorElement>('b2b-separator');
+export const B2bSnackbar = /*@__PURE__*/createReactComponent<JSX.B2bSnackbar, HTMLB2bSnackbarElement>('b2b-snackbar');
 export const B2bSpinner = /*@__PURE__*/createReactComponent<JSX.B2bSpinner, HTMLB2bSpinnerElement>('b2b-spinner');
 export const B2bTab = /*@__PURE__*/createReactComponent<JSX.B2bTab, HTMLB2bTabElement>('b2b-tab');
 export const B2bTabGroup = /*@__PURE__*/createReactComponent<JSX.B2bTabGroup, HTMLB2bTabGroupElement>('b2b-tab-group');

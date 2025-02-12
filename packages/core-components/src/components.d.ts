@@ -1000,6 +1000,44 @@ export namespace Components {
          */
         "alignment": 'vertical' | 'horizontal';
     }
+    interface B2bSnackbar {
+        /**
+          * Text for the Call-to-Action link.
+         */
+        "actionLabel": string;
+        /**
+          * Text on the snackbar.
+         */
+        "description": string;
+        /**
+          * How long is snackbar shown. Default value is 5000 ms.
+         */
+        "duration": number;
+        /**
+          * Whether the snackbar has a Call-to-Action. Per default, it is false.
+         */
+        "hasAction": boolean;
+        /**
+          * Whether the snackbar has a close button. Per default, it is true.
+         */
+        "hasCloseButton": boolean;
+        /**
+          * Whether the description is underlined. If false, then it is bold.
+         */
+        "isUnderlined": boolean;
+        /**
+          * Whether the snackbar is currently visible. Set to true to display the snackbar.
+         */
+        "opened": boolean;
+        /**
+          * Whether snackbar is show for limited time. Default is true. Error snackbars cannot be timed.
+         */
+        "timed": boolean;
+        /**
+          * The type of snackbar. Default is info.
+         */
+        "type": 'info' | 'success' | 'warning' | 'error';
+    }
     /**
      * Spinner component to display loading indicator.
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-70
@@ -1449,6 +1487,10 @@ export interface B2bRadioGroupCustomEvent<T> extends CustomEvent<T> {
 export interface B2bSearchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bSearchElement;
+}
+export interface B2bSnackbarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bSnackbarElement;
 }
 export interface B2bTabCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2057,6 +2099,24 @@ declare global {
         prototype: HTMLB2bSeparatorElement;
         new (): HTMLB2bSeparatorElement;
     };
+    interface HTMLB2bSnackbarElementEventMap {
+        "b2b-close": void;
+        "b2b-action-click": void;
+    }
+    interface HTMLB2bSnackbarElement extends Components.B2bSnackbar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bSnackbarElementEventMap>(type: K, listener: (this: HTMLB2bSnackbarElement, ev: B2bSnackbarCustomEvent<HTMLB2bSnackbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bSnackbarElementEventMap>(type: K, listener: (this: HTMLB2bSnackbarElement, ev: B2bSnackbarCustomEvent<HTMLB2bSnackbarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bSnackbarElement: {
+        prototype: HTMLB2bSnackbarElement;
+        new (): HTMLB2bSnackbarElement;
+    };
     /**
      * Spinner component to display loading indicator.
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-70
@@ -2347,6 +2407,7 @@ declare global {
         "b2b-scrollable-container": HTMLB2bScrollableContainerElement;
         "b2b-search": HTMLB2bSearchElement;
         "b2b-separator": HTMLB2bSeparatorElement;
+        "b2b-snackbar": HTMLB2bSnackbarElement;
         "b2b-spinner": HTMLB2bSpinnerElement;
         "b2b-tab": HTMLB2bTabElement;
         "b2b-tab-group": HTMLB2bTabGroupElement;
@@ -3471,6 +3532,52 @@ declare namespace LocalJSX {
          */
         "alignment"?: 'vertical' | 'horizontal';
     }
+    interface B2bSnackbar {
+        /**
+          * Text for the Call-to-Action link.
+         */
+        "actionLabel"?: string;
+        /**
+          * Text on the snackbar.
+         */
+        "description"?: string;
+        /**
+          * How long is snackbar shown. Default value is 5000 ms.
+         */
+        "duration"?: number;
+        /**
+          * Whether the snackbar has a Call-to-Action. Per default, it is false.
+         */
+        "hasAction"?: boolean;
+        /**
+          * Whether the snackbar has a close button. Per default, it is true.
+         */
+        "hasCloseButton"?: boolean;
+        /**
+          * Whether the description is underlined. If false, then it is bold.
+         */
+        "isUnderlined"?: boolean;
+        /**
+          * Emits whenever the CTA is clicked.
+         */
+        "onB2b-action-click"?: (event: B2bSnackbarCustomEvent<void>) => void;
+        /**
+          * Emits whenever the snackbar is closed.
+         */
+        "onB2b-close"?: (event: B2bSnackbarCustomEvent<void>) => void;
+        /**
+          * Whether the snackbar is currently visible. Set to true to display the snackbar.
+         */
+        "opened"?: boolean;
+        /**
+          * Whether snackbar is show for limited time. Default is true. Error snackbars cannot be timed.
+         */
+        "timed"?: boolean;
+        /**
+          * The type of snackbar. Default is info.
+         */
+        "type"?: 'info' | 'success' | 'warning' | 'error';
+    }
     /**
      * Spinner component to display loading indicator.
      * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-70
@@ -3922,6 +4029,7 @@ declare namespace LocalJSX {
         "b2b-scrollable-container": B2bScrollableContainer;
         "b2b-search": B2bSearch;
         "b2b-separator": B2bSeparator;
+        "b2b-snackbar": B2bSnackbar;
         "b2b-spinner": B2bSpinner;
         "b2b-tab": B2bTab;
         "b2b-tab-group": B2bTabGroup;
@@ -4007,6 +4115,7 @@ declare module "@stencil/core" {
             "b2b-scrollable-container": LocalJSX.B2bScrollableContainer & JSXBase.HTMLAttributes<HTMLB2bScrollableContainerElement>;
             "b2b-search": LocalJSX.B2bSearch & JSXBase.HTMLAttributes<HTMLB2bSearchElement>;
             "b2b-separator": LocalJSX.B2bSeparator & JSXBase.HTMLAttributes<HTMLB2bSeparatorElement>;
+            "b2b-snackbar": LocalJSX.B2bSnackbar & JSXBase.HTMLAttributes<HTMLB2bSnackbarElement>;
             /**
              * Spinner component to display loading indicator.
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-70
