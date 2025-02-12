@@ -25,13 +25,13 @@
   transform: translateX(-50%);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 250ms ease-out, visibility 0s linear 400ms;
+  transition: opacity 400ms ease-out, visibility 0s linear 400ms;
 
   &--opened {
     transform: translateX(-50%);
     opacity: 1;
     visibility: visible;
-    transition: opacity 300ms ease-out;
+    transition: opacity 200ms ease-in;
   }
 
   &--success__icon,
@@ -114,18 +114,18 @@
   }
 
   &__action {
-    padding: var(--b2b-size-15) var(--b2b-size-padding-50) 5px;
-    cursor: pointer;
-    border-radius: var(--b2b-size-7);
-    text-align: right;
-    margin-right: var(--b2b-size-25);
-    user-select: none;
-    padding-top: 6.5px;
-
     display: inline-block;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    max-width: 150px;
+
+    padding: 5.5px var(--b2b-size-padding-50);
+    margin: 9px var(--b2b-size-25) 7px 0;
+    border-radius: var(--b2b-size-7);
+    text-align: right;
+    user-select: none;
+    cursor: pointer;
 
     a {
       text-decoration: underline;

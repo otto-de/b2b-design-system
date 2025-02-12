@@ -46,9 +46,17 @@ If you want your snackbar to have an action button, set `hasAction` to true. By 
 
 Provide a description of what your action will do using `actionLabel` property.
 
-#### On Action
+#### On Action Click
 
-With this property you can provide the function that will be executed when user clicks on the action label.
+If you have set `hasAction` as true, when the user clicks on the Call-to-action, the `b2b-action-click` event will be emitted.
+By listening to it, you can perform a particular action. See the example below:
+
+```jsx
+<B2bSnackbar
+  type="error"
+  has-action="true"
+  onB2b-action-click={onActionClicked()}></B2bSnackbar>
+```
 
 ### Close Button
 

@@ -1010,10 +1010,6 @@ export namespace Components {
          */
         "isUnderlined": boolean;
         /**
-          * Function passed that is called when clicking on CTA.
-         */
-        "onActionClick": () => void;
-        /**
           * Whether the snackbar is currently visible. Set to true to display the snackbar.
          */
         "opened": boolean;
@@ -2089,6 +2085,7 @@ declare global {
     };
     interface HTMLB2bSnackbarElementEventMap {
         "b2b-close": void;
+        "b2b-action-click": void;
     }
     interface HTMLB2bSnackbarElement extends Components.B2bSnackbar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLB2bSnackbarElementEventMap>(type: K, listener: (this: HTMLB2bSnackbarElement, ev: B2bSnackbarCustomEvent<HTMLB2bSnackbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3529,9 +3526,9 @@ declare namespace LocalJSX {
          */
         "isUnderlined"?: boolean;
         /**
-          * Function passed that is called when clicking on CTA.
+          * Emits whenever the CTA is clicked.
          */
-        "onActionClick"?: () => void;
+        "onB2b-action-click"?: (event: B2bSnackbarCustomEvent<void>) => void;
         /**
           * Emits whenever the snackbar is closed.
          */

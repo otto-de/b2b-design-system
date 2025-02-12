@@ -1,11 +1,5 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-declare global {
-  interface Window {
-    handleActionClickMock: () => void;
-  }
-}
-
 describe('B2B-Snackbar', () => {
   it('should render the snackbar component', async () => {
     const page = await newE2EPage();
@@ -48,23 +42,16 @@ describe('B2B-Snackbar', () => {
     );
 
     await page.waitForChanges();
+    const b2bActionClick = await page.spyOnEvent('b2b-action-click');
 
     const snackbar = await page.find('b2b-snackbar');
     expect(await snackbar.isVisible()).toBe(true);
-
-    const handleActionClickMock = jest.fn();
-    await page.exposeFunction('handleActionClickMock', handleActionClickMock);
-
-    await page.evaluate(() => {
-      const snackbar = document.querySelector('b2b-snackbar');
-      snackbar.onActionClick = () => window.handleActionClickMock();
-    });
 
     const cta = await page.find('b2b-snackbar >>> div.b2b-snackbar__action');
     expect(cta).not.toBeNull();
     await cta.click();
 
-    expect(handleActionClickMock).toHaveBeenCalled();
+    expect(b2bActionClick).toHaveReceivedEvent();
   });
 
   it('should render snackbar that disappears after certain amount of time', async () => {

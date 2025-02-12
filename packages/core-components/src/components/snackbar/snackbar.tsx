@@ -38,15 +38,16 @@ export class SnackbarComponent {
   /** Text for the Call-to-Action link. */
   @Prop() actionLabel: string;
 
-  /** Function passed that is called when clicking on CTA. */
-  @Prop() onActionClick: () => void;
-
   /** Whether the description is underlined. If false, then it is bold. */
   @Prop() isUnderlined: boolean = false;
 
   /** Emits whenever the snackbar is closed. */
   @Event({ eventName: 'b2b-close' })
   b2bClose: EventEmitter<void>;
+
+  /** Emits whenever the CTA is clicked. */
+  @Event({ eventName: 'b2b-action-click' })
+  b2bActionClick: EventEmitter<void>;
 
   private timeoutId: number;
   private startTime: number;
@@ -133,7 +134,7 @@ export class SnackbarComponent {
   };
 
   private handleActionClick = () => {
-    this.onActionClick();
+    this.b2bActionClick.emit();
   };
 
   render() {

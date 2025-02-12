@@ -187,8 +187,10 @@
               ? (snackbar.type = 'error')
               : (snackbar.type = 'success');
           }
-          snackbar.onActionClick = handleActionClick;
 
+          snackbar.addEventListener('b2b-action-click', () => {
+            handleActionClick();
+          });
           const snackbarButton = document.getElementById('snackbar-button');
           snackbarButton.addEventListener('click', () => {
             snackbar.opened = !snackbar.opened;

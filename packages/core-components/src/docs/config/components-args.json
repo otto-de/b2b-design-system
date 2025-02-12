@@ -3501,15 +3501,6 @@
       },
       "description": "Whether the description is underlined. If false, then it is bold."
     },
-    "onActionClick": {
-      "table": {
-        "type": {
-          "summary": "() => void"
-        },
-        "defaultValue": {}
-      },
-      "description": "Function passed that is called when clicking on CTA."
-    },
     "opened": {
       "control": {
         "type": "boolean"
