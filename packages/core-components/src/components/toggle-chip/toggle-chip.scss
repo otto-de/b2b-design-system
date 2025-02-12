@@ -30,16 +30,16 @@
       background-color: var(--b2b-color-white-100);
 
       &:hover {
-        background-color:var(--b2b-color-hover-default);
+        background-color: var(--b2b-color-hover-default);
         color: var(--b2b-color-black-100);
         cursor: pointer;
         transition: all 0.3s ease;
       }
 
       &:active {
-        background-color:#D4E0EB;
+        background-color: #d4e0eb;
         color: var(--b2b-color-black-100);
-        transition: all 0.3s ease; 
+        transition: all 0.3s ease;
       }
 
       &--active {
@@ -76,10 +76,7 @@
           background-color: var(--b2b-color-black-100);
           color: var(--b2b-color-grey-200);
         }
-
-
       }
-  
     }
   }
 }
