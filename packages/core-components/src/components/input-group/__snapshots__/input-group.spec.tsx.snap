@@ -15,7 +15,9 @@ exports[`B2B Input Group should not render a group error if the group is invalid
   <b2b-input class="b2b-input" disabled="" type="text">
     <mock:shadow-root>
       <b2b-input-label>
-        Search Term
+        <slot name="label">
+          Search Term
+        </slot>
       </b2b-input-label>
       <div class="b2b-input__wrapper b2b-input__wrapper--disabled">
         <slot name="start"></slot>
@@ -66,7 +68,9 @@ exports[`B2B Input Group should render a group error if one is specified and the
   <b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
     <mock:shadow-root>
       <b2b-input-label>
-        Search Term
+        <slot name="label">
+          Search Term
+        </slot>
       </b2b-input-label>
       <div class="b2b-input__wrapper">
         <slot name="start"></slot>
@@ -117,7 +121,9 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
   <b2b-input class="b2b-input" type="text">
     <mock:shadow-root>
       <b2b-input-label>
-        Search Term
+        <slot name="label">
+          Search Term
+        </slot>
       </b2b-input-label>
       <div class="b2b-input__wrapper">
         <slot name="start"></slot>
@@ -165,7 +171,9 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
   <b2b-input class="b2b-input" type="text">
     <mock:shadow-root>
       <b2b-input-label>
-        Search Term
+        <slot name="label">
+          Search Term
+        </slot>
       </b2b-input-label>
       <div class="b2b-input__wrapper">
         <slot name="start"></slot>
