@@ -27,7 +27,7 @@ export class B2BToggleChipComponent {
   b2bSelected: EventEmitter<ToggleChipEventDetail>;
 
   private onClick = () => {
-    if (this.disabled || (this.active && this.disabled)) {
+    if (this.disabled) {
       return;
     }
 
@@ -41,7 +41,7 @@ export class B2BToggleChipComponent {
   };
 
   private onKeyDown = (ev: KeyboardEvent) => {
-    if (this.disabled || (this.active && this.disabled)) {
+    if (this.disabled) {
       return;
     }
     if (ev.key === 'Enter') {
@@ -66,13 +66,13 @@ export class B2BToggleChipComponent {
           }}>
           <input
             aria-labelledby={this.name}
-            tabindex={this.disabled || (this.active && this.disabled) ? -1 : 0}
+            tabindex={this.disabled ? -1 : 0}
             class={{
               'b2b-toggle-chip__input': true,
             }}
             type="checkbox"
             checked={this.active && !this.disabled}
-            disabled={this.disabled || (this.active && this.disabled)}
+            disabled={this.disabled}
             name={this.name}
             value={this.value}></input>
           <label

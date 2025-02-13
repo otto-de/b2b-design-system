@@ -1,43 +1,57 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ label, name, active, disabled }) => {
-  return html` <b2b-toggle-chip
-    label="${label}"
-    name="${name}"
-    active="${active}""
-    disabled="${disabled}">
-  </b2b-toggle-chip>`;
-};
-
-const defaultArgs = {
-  label: 'B2B Design System',
-  name: 'Toggle Chip',
-  active: false,
-  disabled: false,
-};
-
-export const story010Default = Template.bind({});
-story010Default.args = defaultArgs;
-story010Default.storyName = 'Default Toggle Chip';
-
-export const story020Disabled = Template.bind({});
-story020Disabled.args = { ...defaultArgs, disabled: true };
-story020Disabled.storyName = 'Toggle Chip Disabled';
-
-export const story030Active = Template.bind({});
-story030Active.args = { ...defaultArgs, active: true };
-story030Active.storyName = 'Toggle Chip Active';
-
-export const story040ActiveDisabled = Template.bind({});
-story040ActiveDisabled.args = { ...defaultArgs, active: true, disabled: true };
-story040ActiveDisabled.storyName = 'Toggle Chip Active Disabled';
-
-const toggleChipArgs = getArgTypes('b2b-toggle-chip');
-
-export default {
+const meta: Meta = {
   title: 'Components/Interaction/Toggle Chip',
-  argTypes: toggleChipArgs,
-  viewMode: 'docs',
-} as Meta;
+  component: 'b2b-toggle-chip',
+  args: {
+    label: 'B2B Design System',
+    name: 'Toggle Chip',
+    active: false,
+    disabled: false,
+  },
+  argTypes: getArgTypes('b2b-toggle-chip'),
+  render: ({ ...args }) => html` <b2b-toggle-chip
+      label="${args.label}"
+      name="${args.name}"
+      active="${args.active}""
+      disabled="${args.disabled}">
+    </b2b-toggle-chip>`,
+};
+
+export default meta;
+
+type Story = StoryObj;
+
+export const story010Default: Story = {
+  name: 'Default Toggle Chip',
+  args: {
+    ...meta.args,
+  },
+};
+
+export const story020Disabled: Story = {
+  name: 'Toggle Chip Disabled',
+  args: {
+    ...meta.args,
+    disabled: true,
+  },
+};
+
+export const story030Active: Story = {
+  name: 'Toggle Chip Active',
+  args: {
+    ...meta.args,
+    active: true,
+  },
+};
+
+export const story040ActiveDisabled: Story = {
+  name: 'Toggle Chip Active Disabled',
+  args: {
+    ...meta.args,
+    active: true,
+    disabled: true,
+  },
+};
