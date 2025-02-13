@@ -16,9 +16,9 @@ import * as GridStories from './grid.stories';
 
 # Grid Component
 
-<Canvas of={GridStories.story010Grid} sourceState="shown" />
+<Canvas of={GridStories.story030TextAlign} sourceState="shown" />
 
-You can use the grid component to help in crafting layouts following design briefings that use grids.
+You can use the grid component to help in crafting layouts following design briefings that use grids. When using it in containers of limited sizes, try to use less columns so that they won't wrap because there won't be enough space.
 
 ## Properties
 
@@ -35,7 +35,6 @@ If not specified, it defaults to 24px. Since it is of type number, you do not ne
 # Grid Row
 
 A grid consists of at least one row, with columns that can have individual spans adding up to a total of 12.
-The columns will be arranged in a single row and will not wrap to the next line, even if their total span exceeds 12.
 
 ### Row Properties
 
