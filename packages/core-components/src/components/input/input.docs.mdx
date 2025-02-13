@@ -16,12 +16,14 @@ import * as InputStories from './input.stories';
 
 <Canvas of={InputStories.AllPropertiesSpecified} sourceState="shown" />
 
-### Slots
+## Slots
 
-In addition to regular user input, the Input Component also provides two slots for prefixed (or suffixed) text as well as icons.
-If you want to add text, please use a `<span>` tag as this will automatically add a border to separate it from the user input.
+The Input Component provides several slots to enhance its functionality and appearance.
+You can use these slots to add prefixed or suffixed text, icons, or even customize the label.
 
-Note that it is not necessary to use B2B Icons, the slots work with any icon.
+If you want to add text in the `Start` or `End` slots, please use a `<span>` tag as this
+will automatically add a border to separate it from the user input. Note that it is not necessary to use B2B Icons,
+the slots work with any icon.
 
 ### Start
 
@@ -34,6 +36,12 @@ You can add an icon or prefixed text here like so:
 You can add an icon or a suffix like so:
 
 <Canvas of={InputStories.Suffix} sourceState="shown" />
+
+### Label
+
+If you need the label to contain something other than plain text you may use the label slot like so:
+
+<Canvas of={InputStories.Label} sourceState="shown" />
 
 ## Properties
 

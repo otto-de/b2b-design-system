@@ -57,4 +57,17 @@ describe('B2B-Input', () => {
 
     expect(onInputEventSpy).toHaveReceivedEventDetail({ value: '' });
   });
+
+  it('should use label slot when provided', async () => {
+    const slotPage = await newE2EPage();
+    await slotPage.setContent(`
+      <b2b-input>
+        <span slot="label">Label Slot</span>
+      </b2b-input>
+    `);
+
+    const labelElement = await slotPage.find('span');
+
+    expect(labelElement).toEqualText('Label Slot');
+  });
 });

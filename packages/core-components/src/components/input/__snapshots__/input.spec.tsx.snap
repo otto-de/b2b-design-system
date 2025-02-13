@@ -4,7 +4,9 @@ exports[`should apply an error style to the host element if invalid is set to tr
 <b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
   <mock:shadow-root>
     <b2b-input-label>
-      test
+      <slot name="label">
+        test
+      </slot>
     </b2b-input-label>
     <div class="b2b-input__wrapper">
       <slot name="start"></slot>
@@ -22,7 +24,9 @@ exports[`should render a hint if invalid and disabled are true at the same time 
 <b2b-input class="b2b-input" disabled="" invalid="" type="text">
   <mock:shadow-root>
     <b2b-input-label>
-      test
+      <slot name="label">
+        test
+      </slot>
     </b2b-input-label>
     <div class="b2b-input__wrapper b2b-input__wrapper--disabled">
       <slot name="start"></slot>
@@ -40,7 +44,9 @@ exports[`should render a hint message if a hint string is specified 1`] = `
 <b2b-input class="b2b-input" type="text">
   <mock:shadow-root>
     <b2b-input-label>
-      test
+      <slot name="label">
+        test
+      </slot>
     </b2b-input-label>
     <div class="b2b-input__wrapper">
       <slot name="start"></slot>
@@ -58,7 +64,9 @@ exports[`should render an error message if an error is specified and the input i
 <b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
   <mock:shadow-root>
     <b2b-input-label>
-      test
+      <slot name="label">
+        test
+      </slot>
     </b2b-input-label>
     <div class="b2b-input__wrapper">
       <slot name="start"></slot>
@@ -76,7 +84,9 @@ exports[`should render the input 1`] = `
 <b2b-input class="b2b-input" type="text">
   <mock:shadow-root>
     <b2b-input-label>
-      test
+      <slot name="label">
+        test
+      </slot>
     </b2b-input-label>
     <div class="b2b-input__wrapper">
       <slot name="start"></slot>
@@ -91,7 +101,9 @@ exports[`should render with a placeholder 1`] = `
 <b2b-input class="b2b-input" placeholder="test placeholder" type="text">
   <mock:shadow-root>
     <b2b-input-label>
-      test
+      <slot name="label">
+        test
+      </slot>
     </b2b-input-label>
     <div class="b2b-input__wrapper">
       <slot name="start"></slot>

@@ -88,6 +88,8 @@ export class InputComponent {
 
   private focusableElement: HTMLElement;
 
+  private labelSlot: HTMLElement;
+
   /** Manually set focus to the element */
   @Method()
   async setFocus() {
@@ -157,6 +159,10 @@ export class InputComponent {
     return false;
   };
 
+  componentWillLoad() {
+    this.labelSlot = this.hostElement.querySelector('[slot="label"]');
+  }
+
   render() {
     return (
       <Host
@@ -164,9 +170,9 @@ export class InputComponent {
           'b2b-input': true,
           'b2b-input--error': this.invalid && !this.disabled,
         }}>
-        {this.label && (
+        {(this.label || this.labelSlot) && (
           <b2b-input-label id={this.name} required={this.required}>
-            {this.label}
+            <slot name="label">{this.label}</slot>
           </b2b-input-label>
         )}
         <div
