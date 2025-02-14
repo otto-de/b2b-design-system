@@ -16,9 +16,6 @@ export class B2BToggleChipComponent {
   /** The name of the toggle chip. Use it to group toggle buttons together and assign the label to the input element for better accessibility. This is required. */
   @Prop({ reflect: true }) name!: string;
 
-  /** The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey*/
-  @Prop() variant: 'grey' | 'white' = 'grey';
-
   /** Whether or not the chip is currently active. Per default, it is false. */
   @Prop({ mutable: true }) active: boolean = false;
 
@@ -83,9 +80,10 @@ export class B2BToggleChipComponent {
             tabIndex={-1}
             class={{
               'b2b-toggle-chip__label': true,
-              [`b2b-toggle-chip__label--${this.variant}`]: true,
-              'b2b-toggle-chip__label--active': this.active,
+              'b2b-toggle-chip__label--active': this.active && !this.disabled,
               'b2b-toggle-chip__label--disabled': this.disabled,
+              'b2b-toggle-chip__label--active-disabled':
+                this.active && this.disabled,
             }}>
             {this.label}
           </label>

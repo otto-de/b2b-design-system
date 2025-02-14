@@ -42,7 +42,8 @@
       "100": { "value": "#003264" }
     },
     "hover": {
-      "value": "#E6F4FF"
+      "default": { "value": "#E6F4FF" },
+      "black": { "value": "#3B3B3B" }
     }
   }
 }

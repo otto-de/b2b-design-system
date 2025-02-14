@@ -1290,10 +1290,6 @@ export namespace Components {
           * The value associated with the toggle chip. This is emitted when the chip is interacted with.
          */
         "value": any;
-        /**
-          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey
-         */
-        "variant": 'grey' | 'white';
     }
     interface B2bToggleGroup {
         /**
@@ -3874,10 +3870,6 @@ declare namespace LocalJSX {
           * The value associated with the toggle chip. This is emitted when the chip is interacted with.
          */
         "value": any;
-        /**
-          * The color scheme of the toggle button. Use white for grey backgrounds and grey for white backgrounds. Per default, it is grey
-         */
-        "variant"?: 'grey' | 'white';
     }
     interface B2bToggleGroup {
         /**

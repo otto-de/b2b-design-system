@@ -1,0 +1,62 @@
+import {
+  Story,
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Source,
+  Canvas,
+  Meta,
+} from '@storybook/blocks';
+
+import dedent from 'ts-dedent';
+
+import * as ToggleChipStories from './toggle-chip.stories';
+
+<Meta of={ToggleChipStories} />
+
+# Toggle Chip
+
+<Canvas columns={3} withSource="open" withToolbar={false}>
+  <Story id="components-interaction-toggle-chip--story-010-default" />
+</Canvas>
+
+The Toggle Chip component is like a button, allowing users to toggle between active
+and inactive states.
+
+<br />
+
+## Properties
+
+### Label
+
+The visible text displayed inside the chip.
+
+### Name
+
+The identifier for the input element, useful for form submission or accessibility.
+
+### Active
+
+A boolean state indicating whether the chip is currently selected. Default is set to false.
+
+### Disabled
+
+A boolean state that indicates whether the chip is clickable. Default is set to false.
+
+## Events
+
+### b2b-selected
+
+This event is emitted with current value whenever the toggle chip is selected.
+
+```typescript
+export interface ToggleChipEventDetail<T = string> {
+  value: T;
+}
+```
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
