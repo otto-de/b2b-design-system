@@ -106,21 +106,12 @@
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-
-      &--underlined {
-        text-decoration: underline;
-        font-weight: var(--b2b-font-weight-normal) !important;
-      }
     }
   }
 
   &__action {
-    display: inline-block;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    display: flex;
     white-space: nowrap;
-    max-width: 150px;
-
     padding: 5.5px var(--b2b-size-padding-50);
     margin: 9px var(--b2b-size-25) 7px 0;
     border-radius: var(--b2b-size-7);
