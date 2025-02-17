@@ -3545,34 +3545,6 @@
       },
       "description": "Whether the snackbar has a Call-to-Action. Per default, it is false."
     },
-    "hasCloseButton": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "true"
-        }
-      },
-      "description": "Whether the snackbar has a close button. Per default, it is true."
-    },
-    "isUnderlined": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": "Whether the description is underlined. If false, then it is bold."
-    },
     "opened": {
       "control": {
         "type": "boolean"
