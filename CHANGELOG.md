@@ -1,3 +1,19 @@
+# [1.23.0](https://github.com/otto-de/b2b-design-system/compare/v1.22.0...v1.23.0) (2025-02-18)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1177] | Fix Grid column wrap bug ([33445b2](https://github.com/otto-de/b2b-design-system/commit/33445b2205acf4c776e264faaefdeccbbf9ac24f))
+* **Grid:** [BLA-1177] | Fix Grid column wrap bug ([b060271](https://github.com/otto-de/b2b-design-system/commit/b0602710f292fa22f6993495a27ff5216a53e229))
+* **snackbar:** [NEPTUNE-4514] make close btn mandatory, remove is-underlined and fix CTA styling ([#540](https://github.com/otto-de/b2b-design-system/issues/540)) ([17c14f8](https://github.com/otto-de/b2b-design-system/commit/17c14f8cb83f083f2ac17a61f4ded610ebf6a28e))
+
+
+### Features
+
+* **BackgroundBox:** [NEPTUNE-4563] add border styles  ([#533](https://github.com/otto-de/b2b-design-system/issues/533)) ([d3a0c0e](https://github.com/otto-de/b2b-design-system/commit/d3a0c0ef38cde337292cc0bbcaef2afa6ffd3ba8))
+* **input:** add input label slot ([d4f0c06](https://github.com/otto-de/b2b-design-system/commit/d4f0c0667f5e18961842b3060beb34ec6da72e8c))
+* **Snackbar:** [NEPTUNE-4514] Adds Snackbar component ([#534](https://github.com/otto-de/b2b-design-system/issues/534)) ([b045a60](https://github.com/otto-de/b2b-design-system/commit/b045a60ca6f7b898496742c5300d83b4fc7b5980))
+
 # [1.22.0](https://github.com/otto-de/b2b-design-system/compare/v1.21.0...v1.22.0) (2025-01-30)
 
 
