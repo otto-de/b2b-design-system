@@ -1018,14 +1018,6 @@ export namespace Components {
          */
         "hasAction": boolean;
         /**
-          * Whether the snackbar has a close button. Per default, it is true.
-         */
-        "hasCloseButton": boolean;
-        /**
-          * Whether the description is underlined. If false, then it is bold.
-         */
-        "isUnderlined": boolean;
-        /**
           * Whether the snackbar is currently visible. Set to true to display the snackbar.
          */
         "opened": boolean;
@@ -3545,14 +3537,6 @@ declare namespace LocalJSX {
           * Whether the snackbar has a Call-to-Action. Per default, it is false.
          */
         "hasAction"?: boolean;
-        /**
-          * Whether the snackbar has a close button. Per default, it is true.
-         */
-        "hasCloseButton"?: boolean;
-        /**
-          * Whether the description is underlined. If false, then it is bold.
-         */
-        "isUnderlined"?: boolean;
         /**
           * Emits whenever the CTA is clicked.
          */

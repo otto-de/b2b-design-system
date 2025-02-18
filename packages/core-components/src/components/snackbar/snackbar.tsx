@@ -29,17 +29,11 @@ export class SnackbarComponent {
   /** How long is snackbar shown. Default value is 5000 ms. */
   @Prop() duration: number = 5000;
 
-  /** Whether the snackbar has a close button. Per default, it is true.*/
-  @Prop() hasCloseButton: boolean = true;
-
   /** Whether the snackbar has a Call-to-Action. Per default, it is false. */
   @Prop() hasAction: boolean = false;
 
   /** Text for the Call-to-Action link. */
   @Prop() actionLabel: string;
-
-  /** Whether the description is underlined. If false, then it is bold. */
-  @Prop() isUnderlined: boolean = false;
 
   /** Emits whenever the snackbar is closed. */
   @Event({ eventName: 'b2b-close' })
@@ -104,10 +98,6 @@ export class SnackbarComponent {
     this.b2bClose.emit();
   };
 
-  private canClose = () => {
-    return this.hasCloseButton;
-  };
-
   private isActionPresent = () => {
     return this.hasAction;
   };
@@ -152,14 +142,7 @@ export class SnackbarComponent {
             <span class={{ [`b2b-snackbar--${this.type}__icon`]: true }}>
               {this.chooseIcon()}
             </span>
-            <p
-              class={{
-                'b2b-snackbar__content__description': true,
-                'b2b-snackbar__content__description--underlined':
-                  this.isUnderlined,
-              }}>
-              {this.description}
-            </p>
+            <p class="b2b-snackbar__content__description">{this.description}</p>
           </div>
           {this.isActionPresent() && (
             <div
@@ -171,19 +154,17 @@ export class SnackbarComponent {
               <a>{this.actionLabel}</a>
             </div>
           )}
-          {this.canClose() && (
-            <div
-              class={{
-                'b2b-snackbar__close-icon': true,
-                [`b2b-snackbar__close-icon--${this.type}`]: true,
-              }}
-              onClick={this.close}>
-              <b2b-icon-100
-                clickable={true}
-                size={24}
-                icon="b2b_icon-close"></b2b-icon-100>
-            </div>
-          )}
+          <div
+            class={{
+              'b2b-snackbar__close-icon': true,
+              [`b2b-snackbar__close-icon--${this.type}`]: true,
+            }}
+            onClick={this.close}>
+            <b2b-icon-100
+              clickable={true}
+              size={24}
+              icon="b2b_icon-close"></b2b-icon-100>
+          </div>
         </div>
       </Host>
     );

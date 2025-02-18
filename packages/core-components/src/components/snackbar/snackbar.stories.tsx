@@ -16,10 +16,8 @@ const meta: Meta = {
     opened: true,
     timed: false,
     duration: 5000,
-    hasCloseButton: true,
     hasAction: true,
     actionLabel: 'Call to Action',
-    isUnderlined: false,
   },
   argTypes: getArgTypes('b2b-snackbar'),
   render: ({ ...args }) => {
@@ -43,10 +41,8 @@ const meta: Meta = {
         opened="${args.opened}"
         timed="${args.timed}"
         duration="${args.duration}"
-        has-close-button="${args.hasCloseButton}"
         has-action="${args.hasAction}"
-        action-label="${args.actionLabel}"
-        is-underlined="${args.isUnderlined}"></b2b-snackbar>`;
+        action-label="${args.actionLabel}"></b2b-snackbar>`;
   },
 };
 

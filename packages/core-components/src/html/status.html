@@ -172,9 +172,7 @@
         <b2b-button id="snackbar-button">Open Snackbar</b2b-button>
         <b2b-snackbar
           id="success-snackbar"
-          is-underlined="true"
           type="success"
-          has-close-button="true"
           timed="false"
           duration="5000"
           has-action="true"
@@ -187,7 +185,6 @@
               ? (snackbar.type = 'error')
               : (snackbar.type = 'success');
           }
-
           snackbar.addEventListener('b2b-action-click', () => {
             handleActionClick();
           });

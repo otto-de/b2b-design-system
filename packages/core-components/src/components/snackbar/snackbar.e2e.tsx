@@ -73,18 +73,6 @@ describe('B2B-Snackbar', () => {
     expect(isOpened).toBe(false);
   });
 
-  it('should not render a close button if set to false', async () => {
-    const page = await newE2EPage();
-    await page.setContent(
-      `<b2b-snackbar opened has-close-button="false"></b2b-snackbar>`,
-    );
-
-    const element = await page.find(
-      'b2b-snackbar >>> div.b2b-snackbar__close-icon',
-    );
-    expect(element).toBeNull();
-  });
-
   it('if snackbar is of type error, cannot be timed', async () => {
     const page = await newE2EPage();
     await page.setContent(
