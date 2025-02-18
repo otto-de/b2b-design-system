@@ -53,7 +53,7 @@ const meta: Meta = {
 
 type Story = StoryObj;
 
-export const DefaultHoverToolTip: Story = {
+export const DefaultHoverTooltip: Story = {
   args: { ...meta.args },
 };
 
@@ -113,7 +113,7 @@ export const LongRightTooltip: Story = {
 };
 
 const tooltipArgs = getArgTypes('b2b-tooltip');
-export const BlockTooltipStory: Story = {
+export const BlockTooltip: Story = {
   ...meta, // Inherit metadata from meta if necessary
   args: {
     ...meta.args, // Use existing meta args
@@ -130,7 +130,6 @@ export const BlockTooltipStory: Story = {
       <b2b-input style="width: 300px"></b2b-input>
     </b2b-tooltip>
   `,
-  storyName: 'Block Element', // Give a custom name for the story
   parameters: {
     controls: { hideNoControlsWarning: true }, // Hide the "no controls" warning
     docs: {

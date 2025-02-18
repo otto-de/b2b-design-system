@@ -16,13 +16,9 @@ import * as GridStories from './grid.stories';
 
 # Grid Component
 
-<Canvas columns={3} withSource="closed" withToolbar={false}>
-  <Story id="components-utilities-grid--story-030-text-align"></Story>
-</Canvas>
+<Canvas of={GridStories.story030TextAlign} sourceState="shown" />
 
-You can use the grid component to help in crafting layouts following design briefings that use grids.
-This grid is not responsive, so when using it in containers of limited sizes, try to use less columns so that they
-won't wrap because there won't be enough space.
+You can use the grid component to help in crafting layouts following design briefings that use grids. When using it in containers of limited sizes, try to use less columns so that they won't wrap because there won't be enough space.
 
 ## Properties
 
@@ -38,10 +34,7 @@ If not specified, it defaults to 24px. Since it is of type number, you do not ne
 
 # Grid Row
 
-A grid consists of at least one row that can hold an indefinite amount of columns.
-The maximum number of columns that are displayed in the same row is 12 for single-span columns.
-Columns with a `span` greater than one count towards the maximum equal to their `span` width.
-All additional columns will overflow to the next line.
+A grid consists of at least one row, with columns that can have individual spans adding up to a total of 12.
 
 ### Row Properties
 
@@ -59,7 +52,7 @@ Please note that if you're writing vanilla HTML, you need to use kebap-case inst
 
 ### Row Gap
 
-The gap between a given row and the previouss / next row. Per default it is 24px wide. You do not need to supply the `px` at the end.
+The gap between a given row and the previous / next row. Per default it is 24px wide. You do not need to supply the `px` at the end.
 Please note that if you're writing vanilla HTML, you need to use kebap-case instead of the original camelCase.
 
 <Source
