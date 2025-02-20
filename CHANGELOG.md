@@ -1,3 +1,10 @@
+## [1.23.1](https://github.com/otto-de/b2b-design-system/compare/v1.23.0...v1.23.1) (2025-02-20)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1199] Calculate and set span for columns from parent ([8d3868c](https://github.com/otto-de/b2b-design-system/commit/8d3868c9cf8afb30657f8485cca10a74fde9bf10))
+
 # [1.23.0](https://github.com/otto-de/b2b-design-system/compare/v1.22.0...v1.23.0) (2025-02-18)
 
 
