@@ -16,7 +16,7 @@
       overflow: hidden;
       position: absolute !important;
       width: 1px;
-      
+
       &:focus + label {
         outline: 2px solid -webkit-focus-ring-color;
         z-index: 1;
@@ -74,6 +74,7 @@
         background-color: var(--b2b-color-black-100);
         border: 1px solid var(--b2b-color-black-100);
         color: var(--b2b-color-grey-300);
+        
         &:hover {
           cursor: default;
           background-color: var(--b2b-color-black-100);
