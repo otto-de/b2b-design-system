@@ -26,11 +26,12 @@ export class B2bGridColumnComponent {
   @Prop() textAlign: 'left' | 'center' | 'right' = 'left';
 
   private calculateGrowDimension = (span: number | undefined) => {
-    const colSpan = span ?? 1;
-    const flex = (colSpan / 12) * 100;
-    return {
-      ['flex']: `${flex}`,
-    };
+    if (span !== undefined) {
+      const flex = (span / 12) * 100;
+      return {
+        ['flex']: `${flex}`,
+      };
+    }
   };
 
   render() {
