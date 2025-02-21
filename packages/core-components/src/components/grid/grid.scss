@@ -4,16 +4,8 @@
   box-sizing: border-box;
 }
 
-:host(.b2b-grid-row) {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 :host(.b2b-grid-col) {
   display: flex;
   flex-direction: column;
-}
-
-.b2b-grid-col > .b2b-grid-row {
-  flex: 1;
+  min-width: 0;
 }

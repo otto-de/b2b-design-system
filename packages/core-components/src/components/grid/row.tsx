@@ -46,20 +46,21 @@ export class B2bGridRowComponent {
 
     const remainingSpan = 12 - totalSpan;
 
-    if (remainingSpan == 12) {
-      if (columnsWithoutSpan.length > 0) {
-        columnsWithoutSpan.forEach(column => {
-          column.setAttribute('span', '1');
-        });
-      }
+    if (remainingSpan == 0) {
+      columnsWithoutSpan.forEach(column => {
+        column.style.width = '100%';
+      });
+      return;
     }
 
     if (columnsWithoutSpan.length > 0) {
-      const flexPerColumn =
-        ((remainingSpan / 12) * 100) / columnsWithoutSpan.length;
+      const spanPerColumn = Math.floor(
+        remainingSpan / columnsWithoutSpan.length,
+      );
 
       columnsWithoutSpan.forEach(column => {
-        column.style.flex = `${flexPerColumn}%`;
+        column.setAttribute('span', spanPerColumn.toString());
+        column.style.width = `${(spanPerColumn / 12) * 100}%`;
       });
     }
   }
