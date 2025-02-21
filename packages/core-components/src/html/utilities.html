@@ -18,6 +18,11 @@
       type="text/css"
       href="/build/b2b-core-components.css" />
     <link rel="stylesheet" type="text/css" href="./dev-styles.css" />
+    <style>
+      b2b-grid-col {
+        background: #ffd998;
+      }
+    </style>
   </head>
   <body>
     <div
@@ -232,6 +237,15 @@
             </b2b-grid-row>
           </b2b-grid-col>
         </b2b-grid-row>
+        <b2b-grid-row>
+          <b2b-grid-col span="6"
+            ><div class="grid-test-box"></div
+          ></b2b-grid-col>
+          <b2b-grid-col span="6"
+            ><div class="grid-test-box"></div
+          ></b2b-grid-col>
+          <b2b-grid-col><div class="grid-test-box"></div></b2b-grid-col>
+        </b2b-grid-row>
       </b2b-grid>
     </div>
     <b2b-background-box fixed-width="true" no-padding="false">
@@ -294,6 +308,25 @@
           </b2b-grid-col>
         </b2b-grid-row>
       </b2b-grid>
+      <div>
+        <h1>Bug: Grid with column width issue</h1>
+        <b2b-grid>
+          <b2b-grid-row>
+            <b2b-grid-col span="2">Col 1</b2b-grid-col>
+            <b2b-grid-col>
+              <b2b-grid-row>
+                <b2b-grid-col>Row 1 Col 1</b2b-grid-col>
+                <b2b-grid-col>Row 1 Col 2</b2b-grid-col>
+              </b2b-grid-row>
+              <b2b-grid-row>
+                <b2b-grid-col>Row 2 Col 1</b2b-grid-col>
+                <b2b-grid-col>Row 2 Col 2</b2b-grid-col>
+              </b2b-grid-row>
+            </b2b-grid-col>
+          </b2b-grid-row>
+        </b2b-grid>
+        <br /><br /><br />
+      </div>
     </b2b-background-box>
   </body>
 </html>
