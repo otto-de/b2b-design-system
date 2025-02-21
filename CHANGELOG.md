@@ -1,3 +1,10 @@
+## [1.23.2](https://github.com/otto-de/b2b-design-system/compare/v1.23.1...v1.23.2) (2025-02-21)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1199] Consider only the direct children of the row while calculating span ([63c952e](https://github.com/otto-de/b2b-design-system/commit/63c952e96080e484ee0433863ec2940b42b20f36))
+
 ## [1.23.1](https://github.com/otto-de/b2b-design-system/compare/v1.23.0...v1.23.1) (2025-02-20)
 
 
