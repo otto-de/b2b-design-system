@@ -1,3 +1,10 @@
+## [1.23.3](https://github.com/otto-de/b2b-design-system/compare/v1.23.2...v1.23.3) (2025-02-21)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1199] The column that doesnt fit in the current row should move to the next line ([4bf5ae0](https://github.com/otto-de/b2b-design-system/commit/4bf5ae0d6cde774a36ee6ea4adf386a2a464caab))
+
 ## [1.23.2](https://github.com/otto-de/b2b-design-system/compare/v1.23.1...v1.23.2) (2025-02-21)
 
 
