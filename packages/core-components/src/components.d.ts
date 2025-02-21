@@ -491,7 +491,7 @@ export namespace Components {
     }
     interface B2bGridCol {
         /**
-          * How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. Up to single 12 columns fit in one row.
+          * How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. We recommend explicitly defining the span in scenarios where the distribution of 12 spans across columns is clear. Up to single 12 columns fit in one row.
          */
         "span": | 1
     | 2
@@ -2959,7 +2959,7 @@ declare namespace LocalJSX {
     }
     interface B2bGridCol {
         /**
-          * How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. Up to single 12 columns fit in one row.
+          * How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. We recommend explicitly defining the span in scenarios where the distribution of 12 spans across columns is clear. Up to single 12 columns fit in one row.
          */
         "span"?: | 1
     | 2
