@@ -31,7 +31,7 @@ export class B2bGridRowComponent {
   }
 
   private adjustColumnFlex() {
-    const columns = this.hostElement.querySelectorAll('b2b-grid-col');
+    const columns = this.hostElement.querySelectorAll(':scope > b2b-grid-col');
     let totalSpan = 0;
     let columnsWithoutSpan: HTMLElement[] = [];
 
