@@ -3662,6 +3662,35 @@
       "description": "The size of the spinner."
     }
   },
+  "b2b-shimmer": {
+    "loading": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        }
+      },
+      "description": "Whether the shimmer effect is shown or not."
+    },
+    "height": {
+      "table": {
+        "type": {
+          "summary": "number"
+        }
+      },
+      "description": "The height of the shimmer effect in px."
+    },
+    "width": {
+      "table": {
+        "type": {
+          "summary": "number"
+        }
+      },
+      "description": "The width of the shimmer effect im px."
+    }
+  },
   "b2b-tab": {
     "disabled": {
       "control": {

@@ -1,0 +1,23 @@
+import {
+  ArgsTable,
+  PRIMARY_STORY,
+  Primary,
+  Canvas,
+  Meta,
+} from '@storybook/blocks';
+
+import * as ShimmerStories from './shimmer.stories';
+
+<Meta of={ShimmerStories} />
+
+# Shimmer
+
+The shimmer effect is an animated placeholder while the actual content is being loaded.
+
+<Canvas of={ShimmerStories.story020Default} sourceState="shown" />
+
+## Attributes
+
+<ArgsTable story={PRIMARY_STORY} />
+Changes made to the attributes in the above table will reflect in the example below:
+<Primary />
