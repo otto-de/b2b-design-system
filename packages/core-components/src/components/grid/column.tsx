@@ -40,6 +40,7 @@ export class B2bGridColumnComponent {
         style={{
           ...this.calculateGrowDimension(this.span),
           ['text-align']: `${this.textAlign}`,
+          ['min-width']: '1px',
         }}>
         <slot></slot>
       </Host>
