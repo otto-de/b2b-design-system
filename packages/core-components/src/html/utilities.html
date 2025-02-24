@@ -327,6 +327,38 @@
         </b2b-grid>
         <br /><br /><br />
       </div>
+
+      <div>
+        <h1>Grid with nested grid</h1>
+        <b2b-grid margin="0">
+          <b2b-grid-row row-gap="0" column-gap="24">
+            <b2b-grid-col span="8">
+              <b2b-grid>
+                <b2b-grid-row>
+                  <b2b-grid-col span="12">
+                    <div class="grid-test-box"></div>
+                  </b2b-grid-col>
+                  <b2b-grid-col>
+                    <div class="grid-test-box"></div>
+                  </b2b-grid-col>
+                </b2b-grid-row>
+              </b2b-grid>
+            </b2b-grid-col>
+            <b2b-grid-col span="4">
+              <b2b-grid>
+                <b2b-grid-row>
+                  <b2b-grid-col span="12">
+                    <div class="grid-test-box"></div>
+                  </b2b-grid-col>
+                  <b2b-grid-col>
+                    <div class="grid-test-box"></div>
+                  </b2b-grid-col>
+                </b2b-grid-row>
+              </b2b-grid>
+            </b2b-grid-col>
+          </b2b-grid-row>
+        </b2b-grid>
+      </div>
     </b2b-background-box>
   </body>
 </html>
