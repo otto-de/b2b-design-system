@@ -1,3 +1,10 @@
+## [1.23.4](https://github.com/otto-de/b2b-design-system/compare/v1.23.3...v1.23.4) (2025-02-24)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1199] Add default column width so that the column doesnt collapses ([704453c](https://github.com/otto-de/b2b-design-system/commit/704453c51915a321a027d7f9ee6359b3022894f5))
+
 ## [1.23.3](https://github.com/otto-de/b2b-design-system/compare/v1.23.2...v1.23.3) (2025-02-21)
 
 
