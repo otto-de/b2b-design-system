@@ -31,10 +31,3 @@ export const story010Default: Story = {
     ...meta.args,
   },
 };
-
-export const story020Default: Story = {
-  name: 'Default',
-  args: {
-    ...meta.args,
-  },
-};

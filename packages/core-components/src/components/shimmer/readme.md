@@ -5,18 +5,13 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-The shimmer effect is an animated placeholder while the actual content that is being loaded.
-
-
 ## Properties
 
-| Property             | Attribute | Description                                                      | Type      | Default      |
-|----------------------|-----------|------------------------------------------------------------------|-----------|--------------|
-| `loading` (required) | `loading` | Toogle between showing the loaded content or the shimmer effect. | `boolean` | `undefined`  |
-| `width` (required)   | `width`   | The width in pixels of the shimmer effect. This is required.     | `number`  | `undefined`  |
-| `height` (required)  | `height`  | The height in pixels of the shimmer effect. This is required.    | `number`  | `undefined`  |
+| Property  | Attribute | Description                                 | Type      | Default     |
+| --------- | --------- | ------------------------------------------- | --------- | ----------- |
+| `height`  | `height`  | The height of the shimmer effect in px.     | `number`  | `undefined` |
+| `loading` | `loading` | Whether the shimmer effect is shown or not. | `boolean` | `undefined` |
+| `width`   | `width`   | The width of the shimmer effect im px.      | `number`  | `undefined` |
 
 
 ----------------------------------------------
