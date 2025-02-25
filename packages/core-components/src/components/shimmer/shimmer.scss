@@ -1,0 +1,29 @@
+@use '../../global/b2b-styles';
+
+.b2b-shimmer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--b2b-color-grey-150);
+    animation: b2b-shimmer 2s infinite;
+  }
+}
+
+@keyframes b2b-shimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
