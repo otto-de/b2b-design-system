@@ -1000,6 +1000,20 @@ export namespace Components {
          */
         "alignment": 'vertical' | 'horizontal';
     }
+    interface B2bShimmer {
+        /**
+          * The height of the shimmer effect in px.
+         */
+        "height": number;
+        /**
+          * Whether the shimmer effect is shown or not.
+         */
+        "loading": boolean;
+        /**
+          * The width of the shimmer effect im px.
+         */
+        "width": number;
+    }
     interface B2bSnackbar {
         /**
           * Text for the Call-to-Action link.
@@ -2087,6 +2101,12 @@ declare global {
         prototype: HTMLB2bSeparatorElement;
         new (): HTMLB2bSeparatorElement;
     };
+    interface HTMLB2bShimmerElement extends Components.B2bShimmer, HTMLStencilElement {
+    }
+    var HTMLB2bShimmerElement: {
+        prototype: HTMLB2bShimmerElement;
+        new (): HTMLB2bShimmerElement;
+    };
     interface HTMLB2bSnackbarElementEventMap {
         "b2b-close": void;
         "b2b-action-click": void;
@@ -2395,6 +2415,7 @@ declare global {
         "b2b-scrollable-container": HTMLB2bScrollableContainerElement;
         "b2b-search": HTMLB2bSearchElement;
         "b2b-separator": HTMLB2bSeparatorElement;
+        "b2b-shimmer": HTMLB2bShimmerElement;
         "b2b-snackbar": HTMLB2bSnackbarElement;
         "b2b-spinner": HTMLB2bSpinnerElement;
         "b2b-tab": HTMLB2bTabElement;
@@ -3520,6 +3541,20 @@ declare namespace LocalJSX {
          */
         "alignment"?: 'vertical' | 'horizontal';
     }
+    interface B2bShimmer {
+        /**
+          * The height of the shimmer effect in px.
+         */
+        "height"?: number;
+        /**
+          * Whether the shimmer effect is shown or not.
+         */
+        "loading"?: boolean;
+        /**
+          * The width of the shimmer effect im px.
+         */
+        "width"?: number;
+    }
     interface B2bSnackbar {
         /**
           * Text for the Call-to-Action link.
@@ -4005,6 +4040,7 @@ declare namespace LocalJSX {
         "b2b-scrollable-container": B2bScrollableContainer;
         "b2b-search": B2bSearch;
         "b2b-separator": B2bSeparator;
+        "b2b-shimmer": B2bShimmer;
         "b2b-snackbar": B2bSnackbar;
         "b2b-spinner": B2bSpinner;
         "b2b-tab": B2bTab;
@@ -4091,6 +4127,7 @@ declare module "@stencil/core" {
             "b2b-scrollable-container": LocalJSX.B2bScrollableContainer & JSXBase.HTMLAttributes<HTMLB2bScrollableContainerElement>;
             "b2b-search": LocalJSX.B2bSearch & JSXBase.HTMLAttributes<HTMLB2bSearchElement>;
             "b2b-separator": LocalJSX.B2bSeparator & JSXBase.HTMLAttributes<HTMLB2bSeparatorElement>;
+            "b2b-shimmer": LocalJSX.B2bShimmer & JSXBase.HTMLAttributes<HTMLB2bShimmerElement>;
             "b2b-snackbar": LocalJSX.B2bSnackbar & JSXBase.HTMLAttributes<HTMLB2bSnackbarElement>;
             /**
              * Spinner component to display loading indicator.
