@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/otto-de/b2b-design-system/compare/v1.23.4...v1.24.0) (2025-02-27)
+
+
+### Features
+
+* **core:** add shimmer effect component ([6abbbfd](https://github.com/otto-de/b2b-design-system/commit/6abbbfd7c9f06e7ed14efb8d0491faef96db1a63))
+
 ## [1.23.4](https://github.com/otto-de/b2b-design-system/compare/v1.23.3...v1.23.4) (2025-02-24)
 
 
