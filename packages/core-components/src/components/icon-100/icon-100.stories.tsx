@@ -25,12 +25,13 @@ const meta: Meta = {
     ...iconControls,
     size: { control: { type: 'range', min: 24, max: 96, step: 1 } },
   },
-  render: ({ ...args }) => html`<b2b-icon-100
-    icon="${args.icon}"
-    color="${args.color}"
-    size="${args.size}"
-    clickable="${args.clickable}"
-    focusable="${args.focusable}"></b2b-icon-100>`,
+  render: ({ ...args }) =>
+    html`<b2b-icon-100
+      icon="${args.icon}"
+      color="${args.color}"
+      size="${args.size}"
+      clickable="${args.clickable}"
+      focusable="${args.focusable}"></b2b-icon-100>`,
 };
 
 export default meta;

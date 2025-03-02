@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ type }) => {
+const Template: StoryFn = ({ type }) => {
   return html`<b2b-label type="${type}">Label</b2b-label>`;
 };
 

@@ -1,14 +1,8 @@
-import {
-  Meta,
-  Controls,
-  Primary,
-  ArgsTable,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Meta, Controls, Primary, ArgTypes } from '@storybook/blocks';
 
 import * as AlertStories from './alert.stories';
 
-<Meta of={AlertStories} />
+<Meta of={AlertStories} title="Status & Feedback" />
 
 # Alert Component
 
@@ -54,6 +48,6 @@ that come with the different alert types.
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={AlertStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

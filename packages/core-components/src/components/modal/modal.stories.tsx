@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
-import { screen } from '@storybook/testing-library';
+import { Meta, StoryFn } from '@storybook/web-components';
+import { screen } from '@storybook/test';
 import { getArgTypes } from '../../docs/config/utils';
 import { useArgs } from '@storybook/preview-api';
 import { html } from 'lit-html';
 
-const Template: Story = ({
+const Template: StoryFn = ({
   opened,
   variant,
   heading,

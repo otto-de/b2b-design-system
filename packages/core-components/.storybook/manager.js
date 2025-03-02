@@ -1,4 +1,4 @@
-import { addons } from '@storybook/addons';
+import { addons } from '@storybook/manager-api';
 import customTheme from './b2b-theme';
 import favicon from './public/favicon.svg';
 

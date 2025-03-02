@@ -19,20 +19,21 @@ const meta: Meta = {
     inputTextAlign: 'left',
   },
   argTypes: getArgTypes('b2b-input'),
-  render: ({ ...args }) => html`<div style="width: 400px;">
-    <b2b-input
-      label="${args.label}"
-      required="${args.required}"
-      type="${args.defaultType}"
-      disabled="${args.disabled}"
-      placeholder="${args.placeholder}"
-      value="${args.value}"
-      hint="${args.hint}"
-      error="${args.error}"
-      autofocus="${args.autofocus}"
-      invalid=${args.invalid}
-      input-text-align="${args.inputTextAlign}"></b2b-input>
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="width: 400px;">
+      <b2b-input
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.defaultType}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
+        invalid=${args.invalid}
+        input-text-align="${args.inputTextAlign}"></b2b-input>
+    </div>`,
 };
 export default meta;
 
@@ -91,21 +92,22 @@ export const Prefix: Story = {
     ...meta.args,
     label: 'Label',
   },
-  render: ({ ...args }) => html`<div style="width: 400px;">
-    <b2b-input
-      label="${args.label}"
-      required="${args.required}"
-      type="${args.type}"
-      disabled="${args.disabled}"
-      placeholder="${args.placeholder}"
-      value="${args.value}"
-      hint="${args.hint}"
-      error="${args.error}"
-      autofocus="${args.autofocus}"
-      invalid=${args.invalid}
-      ><span slot="start">Registration Number</span></b2b-input
-    >
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="width: 400px;">
+      <b2b-input
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
+        invalid=${args.invalid}
+        ><span slot="start">Registration Number</span></b2b-input
+      >
+    </div>`,
 };
 
 export const Suffix: Story = {
@@ -135,42 +137,44 @@ export const PrefixAndSuffix: Story = {
     ...meta.args,
     label: 'Label',
   },
-  render: ({ ...args }) => html`<div style="width: 400px;">
-    <b2b-input
-      label="${args.label}"
-      required="${args.required}"
-      type="${args.type}"
-      disabled="${args.disabled}"
-      placeholder="${args.placeholder}"
-      value="${args.value}"
-      hint="${args.hint}"
-      error="${args.error}"
-      autofocus="${args.autofocus}"
-      invalid=${args.invalid}>
-      <b2b-icon-100 icon="b2b_icon-search" slot="start"></b2b-icon-100
-      ><span slot="end">Registration Number</span></b2b-input
-    >
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="width: 400px;">
+      <b2b-input
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
+        invalid=${args.invalid}>
+        <b2b-icon-100 icon="b2b_icon-search" slot="start"></b2b-icon-100
+        ><span slot="end">Registration Number</span></b2b-input
+      >
+    </div>`,
 };
 
 export const Label: Story = {
   args: {
     ...meta.args,
   },
-  render: ({ ...args }) => html`<div style="width: 400px;">
-    <b2b-input
-      required="${args.required}"
-      type="${args.type}"
-      disabled="${args.disabled}"
-      placeholder="${args.placeholder}"
-      value="${args.value}"
-      hint="${args.hint}"
-      error="${args.error}"
-      autofocus="${args.autofocus}"
-      invalid=${args.invalid}
-      ><span slot="label">Custom label</span></b2b-input
-    >
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="width: 400px;">
+      <b2b-input
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
+        invalid=${args.invalid}
+        ><span slot="label">Custom label</span></b2b-input
+      >
+    </div>`,
 };
 
 export const AllPropertiesSpecified: Story = {

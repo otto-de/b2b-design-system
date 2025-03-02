@@ -1,5 +1,6 @@
-import { Meta, Source, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, Source, Canvas, Story } from '@storybook/blocks';
 import dedent from 'ts-dedent';
+import * as InputGroupStories from '../../../src/components/input-group/input-group.stories';
 
 <b2b-alert type='warning' opened='true' size='large' has-close-button='false'>
 The documentation and resources, including icons, JS, and CSS files, <strong>will no longer be available</strong> at https://design-system.live.b2b.platform.otto.de, https://portal.otto.market and https://internal.otto.market <strong>after 3 months</strong>.
@@ -95,9 +96,7 @@ Here is an example of different types of width used. Here we have a parent `div`
 styles and a `dropdown` component that uses `fit-content` so that it does not expand based on available space but
 content.
 
-<Canvas columns={3} withSource="open" withToolbar={false}>
-  <Story id="components-form-input-group--story-010-default" />
-</Canvas>
+<Canvas of={InputGroupStories.story010Default} />
 
 <br />
 

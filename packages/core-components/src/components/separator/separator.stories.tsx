@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ alignment }) => {
+const Template: StoryFn = ({ alignment }) => {
   const content = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse massa urna, accumsan id viverra et, mollis sit amet sem.`;
   const styles =
     alignment === 'vertical'

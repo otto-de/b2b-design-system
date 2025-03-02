@@ -10,7 +10,7 @@ services:
       dockerfile: test.Dockerfile
     ports:
       - "6006:6006"
-    command: npm run storybook -- -h 0.0.0.0
+    command: npm run storybook -- --no-open -h 0.0.0.0
     working_dir: /b2b/packages/core-components
     volumes:
       - ./packages/core-components/__snapshots__:/b2b/packages/core-components/__snapshots__

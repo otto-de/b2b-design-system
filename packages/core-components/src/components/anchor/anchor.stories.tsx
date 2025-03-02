@@ -1,8 +1,8 @@
-import { Meta, Story, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({
+const Template: StoryFn = ({
   href,
   download,
   size,

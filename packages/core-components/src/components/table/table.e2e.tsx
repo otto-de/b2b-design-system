@@ -3,7 +3,8 @@ import { newE2EPage } from '@stencil/core/testing';
 describe('B2B-Table', () => {
   let page;
   beforeEach(async () => {
-    page = await newE2EPage({ timeout: 10000 });
+    page = await newE2EPage();
+    page.setDefaultTimeout(10000);
     await page.setContent(`
       <b2b-table size='equal'>
         <b2b-table-rowgroup type='header'>

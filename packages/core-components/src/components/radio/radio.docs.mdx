@@ -1,11 +1,4 @@
-import {
-  Story,
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Canvas,
-  Meta,
-} from '@storybook/blocks';
+import { Story, ArgTypes, Primary, Canvas, Meta } from '@storybook/blocks';
 
 import * as RadioStories from './radio.stories';
 
@@ -94,6 +87,6 @@ If you need the label to contain something other than plain text you may use the
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={RadioStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

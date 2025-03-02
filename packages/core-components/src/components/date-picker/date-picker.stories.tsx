@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
-import { userEvent } from '@storybook/testing-library';
+import { userEvent } from '@storybook/test';
 
 const meta: Meta = {
   title: 'Components/Form/Date Picker',

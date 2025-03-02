@@ -1,11 +1,4 @@
-import {
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Source,
-  Canvas,
-  Meta,
-} from '@storybook/blocks';
+import { ArgTypes, Primary, Source, Canvas, Meta } from '@storybook/blocks';
 import * as DatePickerStories from './date-picker.stories';
 
 <Meta of={DatePickerStories} />
@@ -121,6 +114,6 @@ listen to this.
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={DatePickerStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

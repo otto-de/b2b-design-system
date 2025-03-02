@@ -2,7 +2,7 @@ import { getArgTypes } from '../../docs/config/utils';
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { useArgs } from '@storybook/preview-api';
-import { screen } from '@storybook/testing-library';
+import { screen } from '@storybook/test';
 getArgTypes('b2b-snackbar');
 
 type Story = StoryObj;

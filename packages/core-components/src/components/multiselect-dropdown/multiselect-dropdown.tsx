@@ -121,7 +121,7 @@ export class B2bMultiSelectDropdown {
           <b2b-chip-component
             label="..."
             class="b2b-multiselect-dropdown__option--show-more-button"
-            has-close-button="false"
+            hasCloseButton
             onClick={this.handleOverflowOptionsClick}></b2b-chip-component>
         );
       } else {

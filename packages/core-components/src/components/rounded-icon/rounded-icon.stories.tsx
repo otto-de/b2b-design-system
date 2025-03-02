@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const TemplateIcon: Story = ({ color, contentColor, iconName }) => {
+const TemplateIcon: StoryFn = ({ color, contentColor, iconName }) => {
   return html`<div>
     <b2b-rounded-icon color="${color}" content-color="${contentColor}">
       <b2b-icon-100 slot="icon" icon="${iconName}"></b2b-icon-100>
@@ -18,7 +18,7 @@ story010Icon.args = {
 };
 story010Icon.storyName = 'Icon Content';
 
-const TemplateText: Story = ({ color, contentColor, textContent }) => {
+const TemplateText: StoryFn = ({ color, contentColor, textContent }) => {
   return html`<div>
     <b2b-rounded-icon color="${color}" content-color="${contentColor}">
       <span slot="text">${textContent}</span>

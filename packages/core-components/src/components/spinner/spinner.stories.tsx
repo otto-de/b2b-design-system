@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const Template: Story = ({ size, color }) => {
+const Template: StoryFn = ({ size, color }) => {
   return html` <b2b-spinner size="${size}" color="${color}"></b2b-spinner>`;
 };
 

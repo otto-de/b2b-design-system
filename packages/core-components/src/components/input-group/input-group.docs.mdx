@@ -1,10 +1,10 @@
 import {
   Story,
-  ArgsTable,
-  PRIMARY_STORY,
+  ArgTypes,
   Primary,
   Canvas,
   Meta,
+  Controls,
 } from '@storybook/blocks';
 
 import * as InputGroupStories from './input-group.stories';
@@ -92,6 +92,7 @@ this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-wi
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={InputGroupStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />
+<Controls />

@@ -1,11 +1,4 @@
-import {
-  Story,
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Canvas,
-  Meta,
-} from '@storybook/blocks';
+import { Story, ArgTypes, Primary, Canvas, Meta } from '@storybook/blocks';
 
 import * as AnchorStories from './anchor.stories';
 
@@ -64,6 +57,6 @@ If specified to `top`, the target will open in the IFrame that is closest to the
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={AnchorStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

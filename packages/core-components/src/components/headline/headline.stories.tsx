@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const template: Story = ({ size, align, slot, noMargin }) => {
+const template: StoryFn = ({ size, align, slot, noMargin }) => {
   return html`<b2b-headline
     size="${size}"
     align="${align}"

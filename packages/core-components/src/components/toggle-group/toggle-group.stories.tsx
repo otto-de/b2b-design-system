@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const Template: Story = ({ name, disabled, singleDisabled }) => {
+const Template: StoryFn = ({ name, disabled, singleDisabled }) => {
   return html`
     <b2b-toggle-group name="${name}" disabled="${disabled}">
       <b2b-toggle-button

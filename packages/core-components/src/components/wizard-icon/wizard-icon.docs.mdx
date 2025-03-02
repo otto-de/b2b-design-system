@@ -1,10 +1,4 @@
-import {
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Story,
-  Meta,
-} from '@storybook/blocks';
+import { ArgTypes, Primary, Story, Meta } from '@storybook/blocks';
 
 import * as WizardIconStories from './wizard-icon.stories';
 
@@ -40,6 +34,6 @@ If set to false, it will show the step number.
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={WizardIconStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />
