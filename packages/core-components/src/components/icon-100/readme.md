@@ -20,12 +20,30 @@
 
 ### Used by
 
+ - [b2b-alert](../alert)
+ - [b2b-date-picker](../date-picker)
+ - [b2b-date-picker-header](../date-picker)
+ - [b2b-input-list](../input-list)
+ - [b2b-modal](../modal)
+ - [b2b-multiselect-dropdown](../multiselect-dropdown)
+ - [b2b-search](../search)
  - [b2b-snackbar](../snackbar)
+ - [b2b-table-row](../table/table-row)
+ - [b2b-wizard-icon](../wizard-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  b2b-alert --> b2b-icon-100
+  b2b-date-picker --> b2b-icon-100
+  b2b-date-picker-header --> b2b-icon-100
+  b2b-input-list --> b2b-icon-100
+  b2b-modal --> b2b-icon-100
+  b2b-multiselect-dropdown --> b2b-icon-100
+  b2b-search --> b2b-icon-100
   b2b-snackbar --> b2b-icon-100
+  b2b-table-row --> b2b-icon-100
+  b2b-wizard-icon --> b2b-icon-100
   style b2b-icon-100 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

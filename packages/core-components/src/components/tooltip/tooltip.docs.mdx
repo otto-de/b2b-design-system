@@ -1,10 +1,4 @@
-import {
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Canvas,
-  Meta,
-} from '@storybook/blocks';
+import { ArgTypes, Primary, Canvas, Meta } from '@storybook/blocks';
 
 import * as TooltipStories from './tooltip.stories';
 
@@ -64,6 +58,6 @@ called `content`.
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={TooltipStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

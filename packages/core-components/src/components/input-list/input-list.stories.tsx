@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
-import { userEvent } from '@storybook/testing-library';
+import { userEvent } from '@storybook/test';
 
 const meta: Meta = {
   title: 'Components/Form/Input List',
@@ -14,15 +14,16 @@ const meta: Meta = {
     disabled: false,
   },
   argTypes: getArgTypes('b2b-input-list'),
-  render: ({ ...args }) => html`<div style="height: 130px; width: 300px">
-    <b2b-input-list
-      data-testid="element"
-      label="${args.label}"
-      required="${args.required}"
-      placeholder="${args.placeholder}"
-      disabled="${args.disabled}"
-      .optionsList=${args.optionsList}></b2b-input-list>
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="height: 130px; width: 300px">
+      <b2b-input-list
+        data-testid="element"
+        label="${args.label}"
+        required="${args.required}"
+        placeholder="${args.placeholder}"
+        disabled="${args.disabled}"
+        .optionsList=${args.optionsList}></b2b-input-list>
+    </div>`,
 };
 export default meta;
 
@@ -52,27 +53,28 @@ export const CustomList: Story = {
   args: {
     ...meta.args,
   },
-  render: ({ ...args }) => html`<div style="height: 130px; width: 300px">
-    <b2b-input-list
-      data-testid="element"
-      label="${args.label}"
-      required="${args.required}"
-      placeholder="${args.placeholder}"
-      disabled="${args.disabled}"
-      .optionsList=${args.optionsList}
-      ><ul>
-        <li>Option 1</li>
-        <li>
-          Option 2
-          <ul>
-            <li>Option 2.1</li>
-            <li>Option 2.2</li>
-          </ul>
-        </li>
-        <li>Option 3</li>
-      </ul></b2b-input-list
-    >
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="height: 130px; width: 300px">
+      <b2b-input-list
+        data-testid="element"
+        label="${args.label}"
+        required="${args.required}"
+        placeholder="${args.placeholder}"
+        disabled="${args.disabled}"
+        .optionsList=${args.optionsList}
+        ><ul>
+          <li>Option 1</li>
+          <li>
+            Option 2
+            <ul>
+              <li>Option 2.1</li>
+              <li>Option 2.2</li>
+            </ul>
+          </li>
+          <li>Option 3</li>
+        </ul></b2b-input-list
+      >
+    </div>`,
 };
 
 export const DisabledWithoutSelectedOption: Story = {
@@ -87,26 +89,27 @@ export const disabledWithSelectedOption: Story = {
     ...meta.args,
     disabled: true,
   },
-  render: ({ ...args }) => html`<div style="height: 130px; width: 300px">
-    <b2b-input-list
-      data-testid="element"
-      label="${args.label}"
-      value="${args.optionsList[0]}"
-      required="${args.required}"
-      placeholder="${args.placeholder}"
-      disabled="${args.disabled}"
-      .optionsList=${args.optionsList}
-      ><ul>
-        <li>Option 1</li>
-        <li>
-          Option 2
-          <ul>
-            <li>Option 2.1</li>
-            <li>Option 2.2</li>
-          </ul>
-        </li>
-        <li>Option 3</li>
-      </ul></b2b-input-list
-    >
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="height: 130px; width: 300px">
+      <b2b-input-list
+        data-testid="element"
+        label="${args.label}"
+        value="${args.optionsList[0]}"
+        required="${args.required}"
+        placeholder="${args.placeholder}"
+        disabled="${args.disabled}"
+        .optionsList=${args.optionsList}
+        ><ul>
+          <li>Option 1</li>
+          <li>
+            Option 2
+            <ul>
+              <li>Option 2.1</li>
+              <li>Option 2.2</li>
+            </ul>
+          </li>
+          <li>Option 3</li>
+        </ul></b2b-input-list
+      >
+    </div>`,
 };

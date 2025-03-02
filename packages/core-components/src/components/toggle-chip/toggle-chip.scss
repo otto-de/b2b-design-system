@@ -16,7 +16,7 @@
       overflow: hidden;
       position: absolute !important;
       width: 1px;
-      
+
       &:focus + label {
         outline: 2px solid -webkit-focus-ring-color;
         z-index: 1;

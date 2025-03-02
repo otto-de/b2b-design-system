@@ -12,11 +12,12 @@ const meta: Meta = {
     state: true,
   },
   argTypes: getArgTypes('b2b-toggle-switch'),
-  render: ({ ...args }) => html`<b2b-toggle-switch
-    label="${args.label}"
-    disabled="${args.disabled}"
-    label-position="${args.labelPosition}"
-    state="${args.state}" />`,
+  render: ({ ...args }) =>
+    html`<b2b-toggle-switch
+      label="${args.label}"
+      disabled="${args.disabled}"
+      label-position="${args.labelPosition}"
+      state="${args.state}" />`,
 };
 
 export default meta;

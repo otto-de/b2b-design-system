@@ -9,7 +9,7 @@
 ## Properties
 
 | Property       | Attribute       | Description                                                                     | Type                  | Default     |
-|----------------|-----------------|---------------------------------------------------------------------------------|-----------------------|-------------|
+| -------------- | --------------- | ------------------------------------------------------------------------------- | --------------------- | ----------- |
 | `borderBottom` | `border-bottom` | Whether the box should have a bottom border. Per default, the border is enabled | `"default" \| "none"` | `'default'` |
 | `borderLeft`   | `border-left`   | Whether the box should have a left border. Per default, the border is enabled   | `"default" \| "none"` | `'default'` |
 | `borderRight`  | `border-right`  | Whether the box should have a right border. Per default, the border is enabled  | `"default" \| "none"` | `'default'` |

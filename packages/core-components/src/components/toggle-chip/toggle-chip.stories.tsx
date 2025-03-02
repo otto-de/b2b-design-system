@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { getArgTypes } from '../../docs/config/utils';
+//import { getArgTypes } from '../../docs/config/utils';
+import { B2BToggleChipComponent } from './toggle-chip';
 
-const meta: Meta = {
+const meta: Meta<B2BToggleChipComponent> = {
   title: 'Components/Interaction/Toggle Chip',
   component: 'b2b-toggle-chip',
   args: {
@@ -11,7 +12,20 @@ const meta: Meta = {
     active: false,
     disabled: false,
   },
-  argTypes: getArgTypes('b2b-toggle-chip'),
+  argTypes: {
+    label: {
+      control: 'text',
+    },
+    name: {
+      control: 'text',
+    },
+    active: {
+      control: 'boolean',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+  },
   render: ({ ...args }) => html` <b2b-toggle-chip
       label="${args.label}"
       name="${args.name}"
@@ -22,7 +36,7 @@ const meta: Meta = {
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<B2BToggleChipComponent>;
 
 export const story010Default: Story = {
   name: 'Default Toggle Chip',

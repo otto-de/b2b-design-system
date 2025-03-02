@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ disabled, href, target }) => {
+const Template: StoryFn = ({ disabled, href, target }) => {
   return html`<b2b-card disabled="${disabled}" href=${href} target="${target}">
     <b2b-headline size="100">An Interactive Card</b2b-headline>
     <b2b-paragraph

@@ -1,11 +1,4 @@
-import {
-  Story,
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Canvas,
-  Meta,
-} from '@storybook/blocks';
+import { Story, ArgTypes, Primary, Canvas, Meta } from '@storybook/blocks';
 
 import * as TextareaStories from './textarea.stories';
 
@@ -106,6 +99,6 @@ this [quick guideline](?path=/story/guidelines-form-usage--page#form-elements-wi
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={TextareaStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

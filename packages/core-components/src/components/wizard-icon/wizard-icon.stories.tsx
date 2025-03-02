@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const TemplateIcon: Story = ({ state, step, checkIcon }) => {
+const TemplateIcon: StoryFn = ({ state, step, checkIcon }) => {
   return html`<div>
     <b2b-wizard-icon state="${state}" step="${step}" check-icon="${checkIcon}">
     </b2b-wizard-icon>

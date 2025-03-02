@@ -24,16 +24,17 @@ const meta: Meta = {
     optionsList: { table: { disable: true } },
     selectedValues: { table: { disable: true } },
   },
-  render: ({ ...args }) => html`<div style="width: 400px">
-    <b2b-multiselect-dropdown
-      label=${args.label}
-      max-options-visible=${args.maxOptionsVisible}
-      select-all-label=${args.selectAllLabel}
-      placeholder=${args.placeholder}
-      search-placeholder=${args.searchPlaceholder}
-      .optionsList=${args.optionsList}>
-    </b2b-multiselect-dropdown>
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}>
+      </b2b-multiselect-dropdown>
+    </div>`,
 };
 export default meta;
 
@@ -47,15 +48,16 @@ export const InitialSelectedValues: Story = {
   args: {
     ...meta.args,
   },
-  render: ({ ...args }) => html`<div style="width: 400px">
-    <b2b-multiselect-dropdown
-      label=${args.label}
-      max-options-visible=${args.maxOptionsVisible}
-      select-all-label=${args.selectAllLabel}
-      placeholder=${args.placeholder}
-      search-placeholder=${args.searchPlaceholder}
-      .optionsList=${args.optionsList}
-      .selectedValues=${args.selectedValues}>
-    </b2b-multiselect-dropdown>
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}>
+      </b2b-multiselect-dropdown>
+    </div>`,
 };

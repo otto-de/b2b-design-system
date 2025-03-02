@@ -1,11 +1,4 @@
-import {
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Source,
-  Canvas,
-  Meta,
-} from '@storybook/blocks';
+import { ArgTypes, Primary, Source, Canvas, Meta } from '@storybook/blocks';
 import * as BackgroundBoxStories from './background-box.stories';
 
 <Meta of={BackgroundBoxStories} />
@@ -50,6 +43,6 @@ Customize border visibility with border-\*properties (top, right, bottom, left).
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={BackgroundBoxStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

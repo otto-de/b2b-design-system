@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ href, active, paddingTop, paddingBottom }) => {
+const Template: StoryFn = ({ href, active, paddingTop, paddingBottom }) => {
   return html`
     <b2b-breadcrumb
       padding-top="${paddingTop}"

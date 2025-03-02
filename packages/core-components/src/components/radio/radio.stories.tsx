@@ -1,8 +1,8 @@
-import { Meta, Story, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const Template: Story = ({
+const Template: StoryFn = ({
   label,
   required,
   name,

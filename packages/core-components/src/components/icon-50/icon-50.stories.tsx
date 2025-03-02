@@ -23,11 +23,12 @@ const meta: Meta = {
   argTypes: {
     ...iconControls,
   },
-  render: ({ ...args }) => html`<b2b-icon-50
-    icon="${args.icon}"
-    color="${args.color}"
-    clickable="${args.clickable}"
-    focusable="${args.focusable}"></b2b-icon-50>`,
+  render: ({ ...args }) =>
+    html`<b2b-icon-50
+      icon="${args.icon}"
+      color="${args.color}"
+      clickable="${args.clickable}"
+      focusable="${args.focusable}"></b2b-icon-50>`,
 };
 
 export default meta;

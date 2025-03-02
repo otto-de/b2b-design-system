@@ -16,13 +16,14 @@ const meta: Meta = {
     hasCloseButton: true,
   },
   argTypes: getArgTypes('b2b-chip-component'),
-  render: ({ ...args }) => html`<b2b-chip-component
-    label="${args.label}"
-    type="${args.type}"
-    label-style="${args.labelStyle}"
-    disabled="${args.disabled}"
-    value="${args.value}"
-    has-close-button="${args.hasCloseButton}" />`,
+  render: ({ ...args }) =>
+    html`<b2b-chip-component
+      label="${args.label}"
+      type="${args.type}"
+      label-style="${args.labelStyle}"
+      disabled="${args.disabled}"
+      value="${args.value}"
+      has-close-button="${args.hasCloseButton}" />`,
 };
 
 export default meta;
@@ -59,16 +60,17 @@ export const story040WithTruncatedText: Story = {
     ...meta.args,
     label: 'Chip with truncated label',
   },
-  render: ({ ...args }) => html`<div
-    style="width: 170px; border: 1px solid grey; border-radius: 3px; padding: 6px;">
-    <b2b-chip-component
-      label="${args.label}"
-      type="${args.type}"
-      label-style="${args.labelStyle}"
-      disabled="${args.disabled}"
-      value="${args.value}"
-      has-close-button="${args.hasCloseButton}" />
-  </div>`,
+  render: ({ ...args }) =>
+    html`<div
+      style="width: 170px; border: 1px solid grey; border-radius: 3px; padding: 6px;">
+      <b2b-chip-component
+        label="${args.label}"
+        type="${args.type}"
+        label-style="${args.labelStyle}"
+        disabled="${args.disabled}"
+        value="${args.value}"
+        has-close-button="${args.hasCloseButton}" />
+    </div>`,
 };
 
 export const story050SuccessChip: Story = {

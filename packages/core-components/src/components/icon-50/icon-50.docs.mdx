@@ -1,10 +1,4 @@
-import {
-  ArgsTable,
-  Primary,
-  Canvas,
-  Meta,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { ArgTypes, Primary, Canvas, Meta } from '@storybook/blocks';
 
 import * as IconStories from './icon-50.stories';
 
@@ -87,7 +81,7 @@ in your styles:
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={IconStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />
 
