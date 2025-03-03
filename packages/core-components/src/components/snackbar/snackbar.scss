@@ -12,12 +12,10 @@
   min-height: 48px;
   box-shadow: 0 var(--b2b-size-1) var(--b2b-size-10) 0 #00000040;
   width: max-content;
-
   z-index: 10000;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-
   display: flex;
   position: fixed;
   bottom: var(--b2b-size-100);
