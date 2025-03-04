@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const Template: Story = ({ testWidth, testHeight, testWhiteSpace }) => {
+const Template: StoryFn = ({ testWidth, testHeight, testWhiteSpace }) => {
   return html`
     <b2b-scrollable-container
       style=${`width: ${testWidth}; height: ${testHeight}`}>

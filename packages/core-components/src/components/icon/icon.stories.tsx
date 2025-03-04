@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 import { iconTypes } from './types';
 import './../../global/icon.stories.scss';
 
-const Template: Story = ({ icon, color, variant }) => {
+const Template: StoryFn = ({ icon, color, variant }) => {
   return html`<b2b-icon
     icon="${icon}"
     color="${color}"
@@ -34,7 +34,7 @@ story030Inverse.parameters = {
   },
 };
 
-export const story035Inherit: Story = ({ icon, color, variant }) => {
+export const story035Inherit: StoryFn = ({ icon, color, variant }) => {
   return html` <div style="color: red;">
     <b2b-icon icon="${icon}" color="${color}" variant="${variant}" />
   </div>`;
@@ -54,7 +54,7 @@ export const story050Size100 = Template.bind({});
 story050Size100.args = defaultArgs;
 story050Size100.storyName = 'Variant 100';
 
-export const story070AllIcons: Story = ({ color, variant }) => {
+export const story070AllIcons: StoryFn = ({ color, variant }) => {
   // not using a self-closing tag as that messes up with the display order of the icon and paragraph
   const icons = iconTypes.map(icon => {
     return html`

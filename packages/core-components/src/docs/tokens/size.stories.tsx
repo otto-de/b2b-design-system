@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import allTokens from '@otto-de/b2b-tokens/build/js/default.json';
 
@@ -40,7 +40,7 @@ const tokenTable = (tokenGroup, groupName?) => {
   `;
 };
 
-const SizeTokens: Story = ({}) => {
+const SizeTokens: StoryFn = ({}) => {
   return html`
     <b2b-headline>Size</b2b-headline>
     <br />

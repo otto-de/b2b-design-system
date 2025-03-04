@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { screen } from '@storybook/testing-library';
+import { screen } from '@storybook/test';
 import { getArgTypes } from '../../docs/config/utils';
 import { useArgs } from '@storybook/preview-api';
 
-const Template: Story = ({
+const Template: StoryFn = ({
   type,
   opened,
   size,
@@ -45,7 +45,6 @@ const defaultArgs = {
   customIcon: false,
 };
 
-// for snapshot testing
 const openAlert = async () => {
   const openAlertButton = screen.getByText('Open Alert');
   await openAlertButton.click();

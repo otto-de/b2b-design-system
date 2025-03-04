@@ -1,7 +1,6 @@
 import {
   Story,
-  ArgsTable,
-  PRIMARY_STORY,
+  ArgTypes,
   Primary,
   Source,
   Canvas,
@@ -10,7 +9,7 @@ import {
 
 import * as ButtonStories from './button.stories';
 
-<Meta of={ButtonStories} />
+<Meta title="Components/Button" of={ButtonStories} />
 
 # Button Component
 
@@ -119,6 +118,6 @@ or by applying a CSS class to the button host element.
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={ButtonStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

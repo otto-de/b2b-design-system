@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const Template: Story = ({ totalPages, activePage }) => {
+const Template: StoryFn = ({ totalPages, activePage }) => {
   return html`<b2b-pagination
     total-pages="${totalPages}"
     active-page="${activePage}"></b2b-pagination>`;

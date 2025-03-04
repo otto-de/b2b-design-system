@@ -1,10 +1,4 @@
-import {
-  Meta,
-  Canvas,
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-} from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes, Primary } from '@storybook/blocks';
 import * as ProgressBarStories from './progress-bar.stories';
 
 <Meta of={ProgressBarStories} />
@@ -35,6 +29,6 @@ This property controls whether the label should be rendered on the right or left
 
 ## Attributes
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={ProgressBarStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

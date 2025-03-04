@@ -1,11 +1,11 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 import { useArgs } from '@storybook/preview-api';
 import dedent from 'ts-dedent';
 import fruits from './stories.data.json';
 
-const Template: Story = ({ placeholder, optionsList, disabled }) => {
+const Template: StoryFn = ({ placeholder, optionsList, disabled }) => {
   const [_, updateArgs] = useArgs();
   const onInput = event => {
     // Read user input
@@ -65,7 +65,7 @@ story020SearchDisabled.args = {
   disabled: true,
 };
 
-const CustomSearchTemplate: Story = ({ placeholder, optionsList }) => {
+const CustomSearchTemplate: StoryFn = ({ placeholder, optionsList }) => {
   return html`<div style="width: 500px; height: 130px;">
     <b2b-input-group>
       <b2b-input-list

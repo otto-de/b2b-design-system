@@ -7,29 +7,30 @@ const meta: Meta = {
   component: 'b2b-flyout-menu',
   args: { disabled: false, separator: false },
   argTypes: getArgTypes('b2b-flyout-menu'),
-  render: ({ ...args }) => html` <div style="margin-left: 100px">
-    <b2b-flyout-menu>
-      <b2b-icon-100
-        icon="b2b_icon-ellipsis"
-        slot="trigger"
-        clickable
-        focusable></b2b-icon-100>
-      <b2b-flyout-menu-option
-        slot="option"
-        option="Delete"
-        disabled="${args.disabled}">
-      </b2b-flyout-menu-option>
-      <b2b-flyout-menu-option
-        slot="option"
-        option="Pause"
-        separator="${args.separator}">
-      </b2b-flyout-menu-option>
-      <b2b-flyout-menu-option slot="option" option="Copy">
-      </b2b-flyout-menu-option>
-      <b2b-flyout-menu-option slot="option" option="Share">
-      </b2b-flyout-menu-option>
-    </b2b-flyout-menu>
-  </div>`,
+  render: ({ ...args }) =>
+    html` <div style="margin-left: 100px">
+      <b2b-flyout-menu>
+        <b2b-icon-100
+          icon="b2b_icon-ellipsis"
+          slot="trigger"
+          clickable
+          focusable></b2b-icon-100>
+        <b2b-flyout-menu-option
+          slot="option"
+          option="Delete"
+          disabled="${args.disabled}">
+        </b2b-flyout-menu-option>
+        <b2b-flyout-menu-option
+          slot="option"
+          option="Pause"
+          separator="${args.separator}">
+        </b2b-flyout-menu-option>
+        <b2b-flyout-menu-option slot="option" option="Copy">
+        </b2b-flyout-menu-option>
+        <b2b-flyout-menu-option slot="option" option="Share">
+        </b2b-flyout-menu-option>
+      </b2b-flyout-menu>
+    </div>`,
 };
 
 export default meta;
@@ -54,27 +55,28 @@ export const Separator: Story = {
  */
 export const AllStates: Story = {
   args: { ...meta.args, disabled: true, separator: true },
-  render: ({ ...args }) => html` <div style="margin-left: 100px">
-    <b2b-flyout-menu opened="true">
-      <b2b-icon-100
-        icon="b2b_icon-ellipsis"
-        slot="trigger"
-        clickable
-        focusable></b2b-icon-100>
-      <b2b-flyout-menu-option
-        slot="option"
-        option="Delete"
-        disabled="${args.disabled}">
-      </b2b-flyout-menu-option>
-      <b2b-flyout-menu-option
-        slot="option"
-        option="Pause"
-        separator="${args.separator}">
-      </b2b-flyout-menu-option>
-      <b2b-flyout-menu-option slot="option" option="Copy">
-      </b2b-flyout-menu-option>
-      <b2b-flyout-menu-option slot="option" option="Share">
-      </b2b-flyout-menu-option>
-    </b2b-flyout-menu>
-  </div>`,
+  render: ({ ...args }) =>
+    html` <div style="margin-left: 100px">
+      <b2b-flyout-menu opened="true">
+        <b2b-icon-100
+          icon="b2b_icon-ellipsis"
+          slot="trigger"
+          clickable
+          focusable></b2b-icon-100>
+        <b2b-flyout-menu-option
+          slot="option"
+          option="Delete"
+          disabled="${args.disabled}">
+        </b2b-flyout-menu-option>
+        <b2b-flyout-menu-option
+          slot="option"
+          option="Pause"
+          separator="${args.separator}">
+        </b2b-flyout-menu-option>
+        <b2b-flyout-menu-option slot="option" option="Copy">
+        </b2b-flyout-menu-option>
+        <b2b-flyout-menu-option slot="option" option="Share">
+        </b2b-flyout-menu-option>
+      </b2b-flyout-menu>
+    </div>`,
 };

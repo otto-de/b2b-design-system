@@ -1,11 +1,4 @@
-import {
-  Story,
-  ArgsTable,
-  PRIMARY_STORY,
-  Primary,
-  Canvas,
-  Meta,
-} from '@storybook/addon-docs';
+import { Story, ArgTypes, Primary, Canvas, Meta } from '@storybook/addon-docs';
 
 import * as BreadCrumbStories from './breadcrumb.stories';
 
@@ -49,6 +42,6 @@ The `paddingTop` and `paddingBottom` properties allow you to adjust the top and 
 This fires when an item is clicked on or navigated to via keyboard. It does not fire when an href property is specified as the browser
 takes care of navigation.
 
-<ArgsTable story={PRIMARY_STORY} />
+<ArgTypes of={BreadCrumbStories} />
 Changes made to the attributes in the above table will reflect in the example below:
 <Primary />

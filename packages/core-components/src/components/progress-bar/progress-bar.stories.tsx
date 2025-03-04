@@ -12,11 +12,12 @@ const meta: Meta = {
     labelPosition: 'left',
   },
   argTypes: getArgTypes('b2b-progress-bar'),
-  render: ({ ...args }) => html`<b2b-progress-bar
-    progress="${args.progress}"
-    label="${args.label}"
-    label-type="${args.labelType}"
-    label-position="${args.labelPosition}" />`,
+  render: ({ ...args }) =>
+    html`<b2b-progress-bar
+      progress="${args.progress}"
+      label="${args.label}"
+      label-type="${args.labelType}"
+      label-position="${args.labelPosition}" />`,
 };
 
 export default meta;

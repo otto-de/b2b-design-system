@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
-const Template: Story = ({ activeStep, checkIcon }) => {
+const Template: StoryFn = ({ activeStep, checkIcon }) => {
   return html`<b2b-wizard active-step="${activeStep}" check-icon="${checkIcon}">
     <b2b-wizard-step>Step 1</b2b-wizard-step>
     <b2b-wizard-step>Step 2</b2b-wizard-step>
@@ -15,7 +15,7 @@ export const story010Wizard = Template.bind({});
 story010Wizard.args = { activeStep: '2', checkIcon: true };
 story010Wizard.storyName = 'Default';
 
-const StatesTemplate: Story = ({ step }) => {
+const StatesTemplate: StoryFn = ({ step }) => {
   return html`
     <b2b-wizard-step step="${step}" state="default">Default</b2b-wizard-step>
     <b2b-wizard-step step="${step}" state="completed"
