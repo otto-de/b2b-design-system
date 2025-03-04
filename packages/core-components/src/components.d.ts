@@ -92,9 +92,9 @@ export namespace Components {
          */
         "borderTop": 'default' | 'none';
         /**
-          * Fixes width to 1212px. Per default, it is false
+          * Sets max width to 1212px. Per default, it is false
          */
-        "fixedWidth": boolean;
+        "maxWidth": boolean;
         /**
           * Whether the box should have a padding. Per default, padding is enabled
          */
@@ -2508,9 +2508,9 @@ declare namespace LocalJSX {
          */
         "borderTop"?: 'default' | 'none';
         /**
-          * Fixes width to 1212px. Per default, it is false
+          * Sets max width to 1212px. Per default, it is false
          */
-        "fixedWidth"?: boolean;
+        "maxWidth"?: boolean;
         /**
           * Whether the box should have a padding. Per default, padding is enabled
          */
