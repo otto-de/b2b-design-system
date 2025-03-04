@@ -17,17 +17,17 @@ it('should render the background box with default values', async () => {
 		`);
 });
 
-it('should render the background box with fixed width', async () => {
+it('should render the background box with max width', async () => {
   const page = await newSpecPage({
     components: [BackgroundBoxComponent],
     template: () => (
-      <b2b-background-box fixed-width={true}>
+      <b2b-background-box max-width={true}>
         B2B Background Box
       </b2b-background-box>
     ),
   });
   expect(page.root).toEqualHtml(`
-    <b2b-background-box class="b2b-background-box b2b-background-box--fixed-width" fixed-width="">
+    <b2b-background-box class="b2b-background-box b2b-background-box--max-width" max-width="">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
