@@ -38,16 +38,16 @@ describe('B2B-Background-Box', () => {
     expect(style.padding).toBe('0px');
   });
 
-  it('should set fixed width', async () => {
+  it('should set max width', async () => {
     page = await newE2EPage();
     await page.setContent(
-      `<b2b-background-box fixed-width='true' no-padding='true'>Background box component</b2b-background-box>`,
+      `<b2b-background-box max-width='true' no-padding='true'>Background box component</b2b-background-box>`,
     );
     const element = await page.find('b2b-background-box');
 
     expect(element).toEqualText('Background box component');
     const style = await element.getComputedStyle();
-    expect(style.width).toBe('1212px');
+    expect(style.maxWidth).toBe('1212px');
   });
   it('should remove specific borders when set to none', async () => {
     page = await newE2EPage();

@@ -7,8 +7,8 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
 })
 export class BackgroundBoxComponent {
   @Element() host: HTMLB2bBackgroundBoxElement;
-  /** Fixes width to 1212px. Per default, it is false */
-  @Prop() fixedWidth: boolean = false;
+  /** Sets max width to 1212px. Per default, it is false */
+  @Prop() maxWidth: boolean = false;
   /** Whether the box should have a padding. Per default, padding is enabled */
   @Prop() noPadding: boolean = false;
   /** Whether the box should have a top border. Per default, the border is enabled */
@@ -25,7 +25,7 @@ export class BackgroundBoxComponent {
       <Host
         class={{
           'b2b-background-box': true,
-          'b2b-background-box--fixed-width': this.fixedWidth,
+          'b2b-background-box--max-width': this.maxWidth,
           'b2b-background-box--no-padding': this.noPadding,
           'b2b-background-box--hide-border-top': this.borderTop === 'none',
           'b2b-background-box--hide-border-right': this.borderRight === 'none',
