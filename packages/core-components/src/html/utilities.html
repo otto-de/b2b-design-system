@@ -27,22 +27,36 @@
   <body>
     <div>
       <h1>Bug: Grid with column width issue</h1>
-      <b2b-grid>
-        <b2b-grid-row>
-          <b2b-grid-col span="2">Col 1</b2b-grid-col>
-          <!-- Try defining a span of 10 explicitly here and it will work as expected -->
-          <b2b-grid-col>
-            <b2b-grid-row>
-              <b2b-grid-col>Row 1 Col 1</b2b-grid-col>
-              <b2b-grid-col>Row 1 Col 2</b2b-grid-col>
-            </b2b-grid-row>
-            <b2b-grid-row>
-              <b2b-grid-col>Row 2 Col 1</b2b-grid-col>
-              <b2b-grid-col>Row 2 Col 2</b2b-grid-col>
-            </b2b-grid-row>
-          </b2b-grid-col>
-        </b2b-grid-row>
-      </b2b-grid>
+      <div>
+        <b2b-grid margin="0">
+          <b2b-grid-row row-gap="0">
+            <b2b-grid-col span="3">
+              <b2b-card>hello1</b2b-card>
+            </b2b-grid-col>
+            <b2b-grid-col span="3">
+              <b2b-card>hello2</b2b-card>
+            </b2b-grid-col>
+            <b2b-grid-col span="3">
+              <b2b-card>hello3</b2b-card>
+            </b2b-grid-col>
+            <b2b-grid-col span="3">
+              <b2b-card>hello4</b2b-card>
+            </b2b-grid-col>
+            <b2b-grid-col span="3">
+              <b2b-card>hello5</b2b-card>
+            </b2b-grid-col>
+            <b2b-grid-col span="3">
+              <b2b-card>hello6</b2b-card>
+            </b2b-grid-col>
+            <b2b-grid-col span="3">
+              <b2b-card>hello6</b2b-card>
+            </b2b-grid-col>
+            <b2b-grid-col span="3">
+              <b2b-card>hello6</b2b-card>
+            </b2b-grid-col>
+          </b2b-grid-row>
+        </b2b-grid>
+      </div>
       <br /><br /><br />
     </div>
 
