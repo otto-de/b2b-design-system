@@ -41,6 +41,9 @@ export class B2bDatePicker {
   /** Label for the date picker component. */
   @Prop() label: string = 'Zeitpunkt auswählen';
 
+  /** Adds an asterisk at the end of the label to signify that the field is required. */
+  @Prop({ reflect: true }) required: boolean = false;
+
   /** Default date picker date*/
   @Prop() preSelectedDate: string = undefined;
 
@@ -467,7 +470,9 @@ export class B2bDatePicker {
     return (
       <Host>
         <div class="b2b-date-picker">
-          <div class="b2b-date-picker-label">{this.label}</div>
+          <b2b-input-label id={this.label} required={this.required}>
+            {this.label}
+          </b2b-input-label>
           <div
             style={{ width: `${this.width}px` }}
             class={{
