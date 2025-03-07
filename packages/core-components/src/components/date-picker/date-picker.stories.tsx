@@ -7,6 +7,7 @@ const meta: Meta = {
   title: 'Components/Form/Date Picker',
   component: 'b2b-date-picker',
   args: {
+    required: false,
     disablePastDates: false,
     disableFutureDates: false,
     disableWeekends: false,
@@ -32,6 +33,7 @@ const meta: Meta = {
       return html` <div style="margin-left: 2px">
         <b2b-date-picker
           label=${args.label}
+          required=${args.required}
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
@@ -50,6 +52,7 @@ const meta: Meta = {
       return html` <div style="margin-left: 2px">
         <b2b-date-picker
           label=${args.label}
+          required=${args.required}
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
