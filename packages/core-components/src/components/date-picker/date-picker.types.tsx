@@ -48,8 +48,10 @@ export const MonthsEnglish = [
   'Dec',
 ];
 
-export enum DatePickerView {
+const enum DatePickerView {
   Days = 'Days',
   Months = 'Months',
   Years = 'Years',
 }
+
+export { DatePickerView };

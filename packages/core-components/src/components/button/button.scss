@@ -54,7 +54,7 @@
         }
 
         &.loading::after {
-          border: 0.125rem solid rgba(var( --b2b-color-white-100), 0.5);;
+          border: 0.125rem solid rgba(var(--b2b-color-white-100), 0.5);
           border-top: 0.125rem solid var(--b2b-color-red-100);
         }
 
