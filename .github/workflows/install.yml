@@ -28,5 +28,8 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
+      - name: Install sass-embedded
+        run: npm i -D sass-embedded
+
       - name: Install dependencies
         run: cd ./node_modules || npm ci
