@@ -28,6 +28,9 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
+      - name: rebuild sass-emebedded
+        run: npm rebuild sass-embedded
+
       - name: Build all workspaces
         run: npm run build -ws
 
