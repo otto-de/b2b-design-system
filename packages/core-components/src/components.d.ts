@@ -350,6 +350,10 @@ export namespace Components {
          */
         "preSelectedDate": string;
         /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required": boolean;
+        /**
           * Whether to show hint message or not.
          */
         "showHint": boolean;
@@ -2794,6 +2798,10 @@ declare namespace LocalJSX {
           * Default date picker date
          */
         "preSelectedDate"?: string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required"?: boolean;
         /**
           * Whether to show hint message or not.
          */
