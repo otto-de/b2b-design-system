@@ -19,6 +19,7 @@
 
  - [b2b-checkbox](../checkbox)
  - [b2b-checkbox-group](../checkbox-group)
+ - [b2b-date-picker](../date-picker)
  - [b2b-dropdown](../dropdown)
  - [b2b-input](../input)
  - [b2b-multiselect-dropdown](../multiselect-dropdown)
@@ -31,6 +32,7 @@
 graph TD;
   b2b-checkbox --> b2b-input-label
   b2b-checkbox-group --> b2b-input-label
+  b2b-date-picker --> b2b-input-label
   b2b-dropdown --> b2b-input-label
   b2b-input --> b2b-input-label
   b2b-multiselect-dropdown --> b2b-input-label
