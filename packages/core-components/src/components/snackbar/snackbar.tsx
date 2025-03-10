@@ -141,7 +141,7 @@ export class SnackbarComponent {
             [`b2b-snackbar--${this.type}`]: true,
             'b2b-snackbar--opened': this.opened,
           }}
-          style={{ minWidth: this.width }}>
+          style={{ width: this.width }}>
           <div class="b2b-snackbar__content">
             <span class={{ [`b2b-snackbar--${this.type}__icon`]: true }}>
               {this.chooseIcon()}

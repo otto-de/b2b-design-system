@@ -16,7 +16,7 @@
 | `opened`      | `opened`       | Whether the snackbar is currently visible. Set to true to display the snackbar.              | `boolean`                                     | `false`     |
 | `timed`       | `timed`        | Whether snackbar is show for limited time. Default is true. Error snackbars cannot be timed. | `boolean`                                     | `true`      |
 | `type`        | `type`         | The type of snackbar. Default is info.                                                       | `"error" \| "info" \| "success" \| "warning"` | `'info'`    |
-| `width`       | `width`        | Width of the snackbar in px, Default value is 270px*                                         | `string`                                      | `'270px'`   |
+| `width`       | `width`        | Width of the snackbar in px, Default value is 270px.                                         | `string`                                      | `'270px'`   |
 
 
 ## Events
