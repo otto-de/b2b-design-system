@@ -619,10 +619,6 @@ export namespace Components {
      */
     interface B2bInput {
         /**
-          * When setting the autofocus to true, the input element will be focused when the page loads.
-         */
-        "autofocus": boolean;
-        /**
           * Simulate the native behavior of type="search" to emit an empty string when the input is cleared
          */
         "clearInput": () => Promise<void>;
@@ -634,6 +630,10 @@ export namespace Components {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        /**
+          * When setting the autofocus to true, the input element will be focused when the page loads.
+         */
+        "focusOnLoad": boolean;
         "groupDisabled": boolean;
         /**
           * The hint text that appears underneath the input field.
@@ -1198,10 +1198,6 @@ export namespace Components {
      */
     interface B2bTextarea {
         /**
-          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
-         */
-        "autofocus": boolean;
-        /**
           * Whether or not the textarea is disabled. Per default it is false.
          */
         "disabled": boolean;
@@ -1209,6 +1205,10 @@ export namespace Components {
           * An optional error message that is displayed when the textarea is invalid. Per default it is undefined.
          */
         "error"?: string;
+        /**
+          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
+         */
+        "focusOnLoad": boolean;
         /**
           * The height of the text area
          */
@@ -3108,10 +3108,6 @@ declare namespace LocalJSX {
      */
     interface B2bInput {
         /**
-          * When setting the autofocus to true, the input element will be focused when the page loads.
-         */
-        "autofocus"?: boolean;
-        /**
           * Whether or not the input is disabled. Default is false.
          */
         "disabled"?: boolean;
@@ -3119,6 +3115,10 @@ declare namespace LocalJSX {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        /**
+          * When setting the autofocus to true, the input element will be focused when the page loads.
+         */
+        "focusOnLoad"?: boolean;
         "groupDisabled"?: boolean;
         /**
           * The hint text that appears underneath the input field.
@@ -3771,10 +3771,6 @@ declare namespace LocalJSX {
      */
     interface B2bTextarea {
         /**
-          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
-         */
-        "autofocus"?: boolean;
-        /**
           * Whether or not the textarea is disabled. Per default it is false.
          */
         "disabled"?: boolean;
@@ -3782,6 +3778,10 @@ declare namespace LocalJSX {
           * An optional error message that is displayed when the textarea is invalid. Per default it is undefined.
          */
         "error"?: string;
+        /**
+          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
+         */
+        "focusOnLoad"?: boolean;
         /**
           * The height of the text area
          */
