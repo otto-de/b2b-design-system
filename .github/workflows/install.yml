@@ -28,11 +28,5 @@ jobs:
             ./packages/**/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
-      - name: Install sass-embedded
-        run: npm install sass-embedded-linux-x64 --save-dev
-
-      - name: check sass-embedded version
-        run: npm list sass-embedded-linux-x64
-
       - name: Install dependencies
         run: cd ./node_modules || npm ci
