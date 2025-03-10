@@ -7,15 +7,16 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                  | Type                                          | Default     |
-| ------------- | -------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
-| `actionLabel` | `action-label` | Text for the Call-to-Action link.                                                            | `string`                                      | `undefined` |
-| `description` | `description`  | Text on the snackbar.                                                                        | `string`                                      | `undefined` |
-| `duration`    | `duration`     | How long is snackbar shown. Default value is 5000 ms.                                        | `number`                                      | `5000`      |
-| `hasAction`   | `has-action`   | Whether the snackbar has a Call-to-Action. Per default, it is false.                         | `boolean`                                     | `false`     |
-| `opened`      | `opened`       | Whether the snackbar is currently visible. Set to true to display the snackbar.              | `boolean`                                     | `false`     |
-| `timed`       | `timed`        | Whether snackbar is show for limited time. Default is true. Error snackbars cannot be timed. | `boolean`                                     | `true`      |
-| `type`        | `type`         | The type of snackbar. Default is info.                                                       | `"error" \| "info" \| "success" \| "warning"` | `'info'`    |
+| Property      | Attribute      | Description                                                                                                                               | Type                                          | Default     |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `actionLabel` | `action-label` | Text for the Call-to-Action link.                                                                                                         | `string`                                      | `undefined` |
+| `description` | `description`  | Text on the snackbar.                                                                                                                     | `string`                                      | `undefined` |
+| `duration`    | `duration`     | How long is snackbar shown. Default value is 5000 ms.                                                                                     | `number`                                      | `5000`      |
+| `hasAction`   | `has-action`   | Whether the snackbar has a Call-to-Action. Per default, it is false.                                                                      | `boolean`                                     | `false`     |
+| `opened`      | `opened`       | Whether the snackbar is currently visible. Set to true to display the snackbar.                                                           | `boolean`                                     | `false`     |
+| `timed`       | `timed`        | Whether snackbar is show for limited time. Default is true. Error snackbars cannot be timed.                                              | `boolean`                                     | `true`      |
+| `type`        | `type`         | The type of snackbar. Default is info.                                                                                                    | `"error" \| "info" \| "success" \| "warning"` | `'info'`    |
+| `width`       | `width`        | Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content. | `string`                                      | `undefined` |
 
 
 ## Events

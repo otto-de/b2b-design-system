@@ -18,6 +18,7 @@ const meta: Meta = {
     duration: 5000,
     hasAction: true,
     actionLabel: 'Call to Action',
+    width: 'auto',
   },
   argTypes: getArgTypes('b2b-snackbar'),
   render: ({ ...args }) => {
@@ -42,7 +43,8 @@ const meta: Meta = {
         timed="${args.timed}"
         duration="${args.duration}"
         has-action="${args.hasAction}"
-        action-label="${args.actionLabel}"></b2b-snackbar>`;
+        action-label="${args.actionLabel}"
+        width="${args.width}"></b2b-snackbar>`;
   },
 };
 
