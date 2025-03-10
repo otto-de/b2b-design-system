@@ -35,8 +35,8 @@ export class SnackbarComponent {
   /** Text for the Call-to-Action link. */
   @Prop() actionLabel: string;
 
-  /** Width of the snackbar in px, Default value is 270px. */
-  @Prop() width: string = '270px';
+  /** Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content. */
+  @Prop() width: string;
 
   /** Emits whenever the snackbar is closed. */
   @Event({ eventName: 'b2b-close' })
@@ -141,7 +141,7 @@ export class SnackbarComponent {
             [`b2b-snackbar--${this.type}`]: true,
             'b2b-snackbar--opened': this.opened,
           }}
-          style={{ width: this.width }}>
+          style={this.width ? { width: this.width } : { width: 'auto' }}>
           <div class="b2b-snackbar__content">
             <span class={{ [`b2b-snackbar--${this.type}__icon`]: true }}>
               {this.chooseIcon()}

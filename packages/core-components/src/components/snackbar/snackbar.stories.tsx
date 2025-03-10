@@ -18,7 +18,7 @@ const meta: Meta = {
     duration: 5000,
     hasAction: true,
     actionLabel: 'Call to Action',
-    width: '270px',
+    width: 'auto',
   },
   argTypes: getArgTypes('b2b-snackbar'),
   render: ({ ...args }) => {
@@ -106,7 +106,6 @@ export const TimedSnackbar: Story = {
     timed: true,
     duration: 3000,
     description: 'This is timed snackbar',
-    width: '270px',
   },
   play: async () => {
     await showSnackBar();
