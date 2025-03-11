@@ -111,3 +111,15 @@ export const TimedSnackbar: Story = {
     await showSnackBar();
   },
 };
+
+export const WithWidth: Story = {
+  args: {
+    ...meta.args,
+    type: 'info',
+    description: 'This is a snackbar with custom width',
+    width: '800px',
+  },
+  play: async () => {
+    await showSnackBar();
+  },
+};
