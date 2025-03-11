@@ -30,39 +30,130 @@ export class B2bGridRowComponent {
     this.adjustColumnFlex();
   }
 
+  private calculateRowsAndsSpaceForColumnsWithSpan(
+    columns: HTMLElement[],
+    currentRowTotal: number,
+    rows: HTMLElement[][],
+    currentRow: HTMLElement[],
+  ) {
+    columns.forEach(column => {
+      let span = parseInt(column.getAttribute('span'), 10);
+
+      if (currentRowTotal + span > 12) {
+        rows.push(currentRow);
+        currentRow = [];
+        currentRowTotal = 0;
+      }
+
+      currentRow.push(column);
+      currentRowTotal += span;
+    });
+
+    if (currentRow.length > 0) {
+      rows.push(currentRow);
+    }
+  }
+
   private adjustColumnFlex() {
     const columns = this.hostElement.querySelectorAll(':scope > b2b-grid-col');
     let totalSpan = 0;
     let columnsWithoutSpan: HTMLElement[] = [];
+    let columnsWithSpan: HTMLElement[] = [];
 
     columns.forEach((column: any) => {
       const span = column.getAttribute('span');
       if (span) {
         totalSpan += parseInt(span, 10);
+        columnsWithSpan.push(column);
       } else {
         columnsWithoutSpan.push(column);
       }
     });
 
-    const remainingSpan = 12 - totalSpan;
-
-    if (remainingSpan == 0) {
-      columnsWithoutSpan.forEach(column => {
-        column.style.width = '100%';
-      });
+    if (totalSpan > 12 && columnsWithoutSpan.length === 0) {
+      this.handleOverflowingColumns(columnsWithSpan);
       return;
     }
 
     if (columnsWithoutSpan.length > 0) {
-      const spanPerColumn = Math.floor(
-        remainingSpan / columnsWithoutSpan.length,
+      this.handleRowsWithColumnsWithoutSpan(
+        columnsWithoutSpan,
+        columnsWithSpan,
+        totalSpan,
+      );
+      return;
+    }
+  }
+
+  private handleOverflowingColumns(columns: HTMLElement[]) {
+    let rows: HTMLElement[][] = [];
+    let currentRow: HTMLElement[] = [];
+    let currentRowTotal = 0;
+    this.calculateRowsAndsSpaceForColumnsWithSpan(
+      columns,
+      currentRowTotal,
+      rows,
+      currentRow,
+    );
+
+    rows.forEach(row => {
+      row.forEach(column => {
+        let span = parseInt(column.getAttribute('span'), 10);
+        let widthPercentage = (span / 12) * 100;
+
+        column.style.flex = `0 0 calc(${widthPercentage}% - ${this.columnGap}px)`;
+        column.style.maxWidth = `calc(${widthPercentage}% - ${this.columnGap}px)`;
+      });
+    });
+  }
+
+  private handleRowsWithColumnsWithoutSpan(
+    columnsWithoutSpan: HTMLElement[],
+    columnsWithSpan: HTMLElement[],
+    totalSpan: number,
+  ) {
+    let remainingSpan = 12 - totalSpan <= 0 ? 12 : 12 - totalSpan;
+    let rows: HTMLElement[][] = [];
+    let currentRow: HTMLElement[] = [];
+    let currentRowTotal = 0;
+
+    this.calculateRowsAndsSpaceForColumnsWithSpan(
+      columnsWithSpan,
+      currentRowTotal,
+      rows,
+      currentRow,
+    );
+
+    columnsWithoutSpan.forEach(column => {
+      let spanPerColumn = Math.max(
+        1,
+        Math.floor(remainingSpan / columnsWithoutSpan.length),
       );
 
-      columnsWithoutSpan.forEach(column => {
-        column.setAttribute('span', spanPerColumn.toString());
-        column.style.width = `${(spanPerColumn / 12) * 100}%`;
-      });
+      if (currentRowTotal + spanPerColumn > 12) {
+        rows.push(currentRow);
+        currentRow = [];
+        currentRowTotal = 0;
+      }
+
+      column.setAttribute('span', spanPerColumn.toString());
+      currentRow.push(column);
+      currentRowTotal += spanPerColumn;
+    });
+
+    if (currentRow.length > 0) {
+      rows.push(currentRow);
     }
+
+    rows.forEach(row => {
+      row.forEach(column => {
+        let span = parseInt(column.getAttribute('span'), 10) || 1;
+        let widthPercentage = (span / 12) * 100;
+
+        column.style.flex = `0 0 calc(${widthPercentage}% - ${this.columnGap}px)`;
+        column.style.maxWidth = `calc(${widthPercentage}% - ${this.columnGap}px)`;
+      });
+    });
   }
 
   render() {
