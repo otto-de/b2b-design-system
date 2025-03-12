@@ -32,9 +32,17 @@ export namespace Components {
          */
         "customIcon": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "custom-icon"?: boolean;
+        /**
           * Whether or not the alert has a close button. Per default it is true. Note that errors and small alerts cannot be closed.
          */
         "hasCloseButton": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "has-close-button"?: boolean;
         /**
           * Whether the alert is currently open. Set to true to display the alert.
          */
@@ -58,6 +66,10 @@ export namespace Components {
          */
         "hoverColor": 'inherit' | 'default';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "hover-color"?: 'inherit' | 'default';
+        /**
           * The URL or URL fragment the anchor points to. This is required.
          */
         "href": string;
@@ -73,6 +85,10 @@ export namespace Components {
           * The underlineText of the link. If set to false, the link text will not be underlined.
          */
         "underlineText": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "underline-text"?: boolean;
     }
     interface B2bBackgroundBox {
         /**
@@ -80,13 +96,25 @@ export namespace Components {
          */
         "borderBottom": 'default' | 'none';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-bottom"?: 'default' | 'none';
+        /**
           * Whether the box should have a left border. Per default, the border is enabled
          */
         "borderLeft": 'default' | 'none';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-left"?: 'default' | 'none';
+        /**
           * Whether the box should have a right border. Per default, the border is enabled
          */
         "borderRight": 'default' | 'none';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-right"?: 'default' | 'none';
         /**
           * Whether the box should have a top border. Per default, the border is enabled
          */
@@ -99,6 +127,10 @@ export namespace Components {
           * Whether the box should have a padding. Per default, padding is enabled
          */
         "noPadding": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "no-padding"?: boolean;
     }
     interface B2bBreadcrumb {
         /**
@@ -106,9 +138,17 @@ export namespace Components {
          */
         "paddingBottom": number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "padding-bottom"?: number;
+        /**
           * Padding for the top of the breadcrumb component
          */
         "paddingTop": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "padding-top"?: number;
     }
     interface B2bBreadcrumbItem {
         /**
@@ -138,6 +178,10 @@ export namespace Components {
          */
         "download"?: string;
         "groupDisabled": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
         /**
           * An optional anchor. If specified, the button will render an anchor element that can be use for navigation or download files
          */
@@ -199,6 +243,10 @@ export namespace Components {
          */
         "error"?: string;
         "groupDisabled": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
@@ -272,6 +320,10 @@ export namespace Components {
          */
         "hasCloseButton": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "has-close-button"?: boolean;
+        /**
           * The text content of the chip. It is required.
          */
         "label": string;
@@ -279,6 +331,10 @@ export namespace Components {
           * The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set.
          */
         "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-style"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
         /**
           * The type of chip to represent states like success, info, warn and error. Uses default style if not set.
          */
@@ -294,13 +350,25 @@ export namespace Components {
          */
         "disableDates": string | string[];
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-dates"?: string | string[];
+        /**
           * All the dates until the given specified date will be disabled.
          */
         "disableDatesFrom": string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-dates-from"?: string;
+        /**
           * All the dates until the given specified date will be disabled.
          */
         "disableDatesUntil": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-dates-until"?: string;
         /**
           * Disable the days of the week specified here.
          */
@@ -318,17 +386,45 @@ export namespace Components {
     | string
     | string[];
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-days"?: | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
+    | string
+    | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-future-dates"?: boolean;
         /**
           * Whether the previous dates from the current date are disabled. By default, this is true.
          */
         "disablePastDates": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-past-dates"?: boolean;
+        /**
           * Whether the dates that fall on the weekend are disabled. By default, this is false.
          */
         "disableWeekends": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-weekends"?: boolean;
         /**
           * Hint text that should be displayed when showHint is true
          */
@@ -350,9 +446,21 @@ export namespace Components {
          */
         "preSelectedDate": string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "pre-selected-date"?: string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required": boolean;
+        /**
           * Whether to show hint message or not.
          */
         "showHint": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "show-hint"?: boolean;
         /**
           * The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px.
          */
@@ -380,25 +488,49 @@ export namespace Components {
          */
         "disableFutureDates": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-future-dates"?: boolean;
+        /**
           * Internal whether the dates previous to the current date are disabled. By default, this is true.
          */
         "disablePastDates": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-past-dates"?: boolean;
         /**
           * Internal whether the weekends are disabled. By default, this is false.
          */
         "disableWeekends": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-weekends"?: boolean;
+        /**
           * Internal selected day
          */
         "selectedDay": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-day"?: number;
         /**
           * Internal selected month
          */
         "selectedMonth": number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-month"?: number;
+        /**
           * Internal selected year
          */
         "selectedYear": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-year"?: number;
     }
     interface B2bDatePickerDaysHeader {
         /**
@@ -416,9 +548,17 @@ export namespace Components {
          */
         "selectedMonth": number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-month"?: number;
+        /**
           * Internal selected year
          */
         "selectedYear": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-year"?: number;
     }
     interface B2bDatePickerMonths {
         /**
@@ -429,12 +569,20 @@ export namespace Components {
           * Internal selected month
          */
         "selectedMonth": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-month"?: number;
     }
     interface B2bDatePickerYears {
         /**
           * Internal selected year
          */
         "selectedYear": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-year"?: number;
     }
     interface B2bDropdown {
         /**
@@ -509,6 +657,10 @@ export namespace Components {
           * The alignment of text placed inside of a column. Note that this will apply to all children.
          */
         "textAlign": 'left' | 'center' | 'right';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "text-align"?: 'left' | 'center' | 'right';
     }
     interface B2bGridRow {
         /**
@@ -516,9 +668,17 @@ export namespace Components {
          */
         "alignItems": 'stretch' | 'flex-start' | 'center' | 'flex-end';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "align-items"?: 'stretch' | 'flex-start' | 'center' | 'flex-end';
+        /**
           * The spacing in between individual columns in px. The higher the gap, the smaller the columns will be.
          */
         "columnGap": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "column-gap"?: number;
         /**
           * Horizontal alignment of columns.
          */
@@ -532,6 +692,10 @@ export namespace Components {
           * The spacing between individual rows in px.
          */
         "rowGap": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "row-gap"?: number;
     }
     /**
      * Headline component to render hading tags content.
@@ -546,6 +710,10 @@ export namespace Components {
           * Whether the headline should have a margin. Per default, margins are enabled.
          */
         "noMargin": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "no-margin"?: boolean;
         /**
           * Each variant has a different hierarchical order, where 1 is the highest level. 400 will render to `<h1>`, 200 to `<h2>` and 100 to `<h3>`
          */
@@ -619,10 +787,6 @@ export namespace Components {
      */
     interface B2bInput {
         /**
-          * When setting the autofocus to true, the input element will be focused when the page loads.
-         */
-        "autofocus": boolean;
-        /**
           * Simulate the native behavior of type="search" to emit an empty string when the input is cleared
          */
         "clearInput": () => Promise<void>;
@@ -634,7 +798,19 @@ export namespace Components {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        /**
+          * When setting the autofocus to true, the input element will be focused when the page loads.
+         */
+        "focusOnLoad": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "focus-on-load"?: boolean;
         "groupDisabled": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
         /**
           * The hint text that appears underneath the input field.
          */
@@ -643,6 +819,10 @@ export namespace Components {
           * The alignment of the text.
          */
         "inputTextAlign": 'left' | 'right' | 'center';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "input-text-align"?: 'left' | 'right' | 'center';
         /**
           * Whether the input is currently invalid. If true, the input is rendered with error styles. Per default it is false.
          */
@@ -717,6 +897,10 @@ export namespace Components {
         "disabled": boolean;
         "groupDisabled": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
+        /**
           * The input label.
          */
         "label": string;
@@ -759,9 +943,17 @@ export namespace Components {
          */
         "backdropDismiss": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "backdrop-dismiss"?: boolean;
+        /**
           * A boolean to indicate whether the modal can be dismissed by pressing the escape key on the keyboard
          */
         "escDismiss": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "esc-dismiss"?: boolean;
         /**
           * The title for the modal. This is required.
          */
@@ -785,9 +977,17 @@ export namespace Components {
          */
         "maxOptionsVisible": number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "max-options-visible"?: number;
+        /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
         "optionsList": string | string[];
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "options-list"?: string | string[];
         /**
           * The placeholder shown in the input field.
          */
@@ -797,13 +997,25 @@ export namespace Components {
          */
         "searchPlaceholder": string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "search-placeholder"?: string;
+        /**
           * The string displayed as the select all label.
          */
         "selectAllLabel": string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "select-all-label"?: string;
+        /**
           * The initial values to be selected in the dropdown.
          */
         "selectedValues": string | string[];
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-values"?: string | string[];
     }
     interface B2bMultiselectOption {
         "indeterminate"?: boolean;
@@ -822,17 +1034,33 @@ export namespace Components {
          */
         "activePage": number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "active-page"?: number;
+        /**
           * (optional) translation to 'Go to next page'
          */
         "ariaLabelNextPage": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "aria-label-next-page"?: string;
         /**
           * (optional) translation to 'Go to previous page'
          */
         "ariaLabelPreviousPage": string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "aria-label-previous-page"?: string;
+        /**
           * The total number of pages to calculate the length of pagination component
          */
         "totalPages": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "total-pages"?: number;
     }
     /**
      * Paragraph component to render text content.
@@ -874,9 +1102,17 @@ export namespace Components {
          */
         "labelPosition"?: 'left' | 'right';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-position"?: 'left' | 'right';
+        /**
           * Whether the label should be displayed below or on the side of the progress bar.
          */
         "labelType"?: 'below' | 'side';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-type"?: 'below' | 'side';
         /**
           * The percentage of progress from 0 to 100.
          */
@@ -966,6 +1202,10 @@ export namespace Components {
          */
         "borderColor": string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-color"?: string;
+        /**
           * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
          */
         "color": string;
@@ -973,6 +1213,10 @@ export namespace Components {
           * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
          */
         "contentColor": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "content-color"?: string;
     }
     interface B2bScrollableContainer {
     }
@@ -1020,6 +1264,10 @@ export namespace Components {
          */
         "actionLabel": string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "action-label"?: string;
+        /**
           * Text on the snackbar.
          */
         "description": string;
@@ -1032,6 +1280,10 @@ export namespace Components {
          */
         "hasAction": boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "has-action"?: boolean;
+        /**
           * Whether the snackbar is currently visible. Set to true to display the snackbar.
          */
         "opened": boolean;
@@ -1043,6 +1295,10 @@ export namespace Components {
           * The type of snackbar. Default is info.
          */
         "type": 'info' | 'success' | 'warning' | 'error';
+        /**
+          * Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content.
+         */
+        "width": string;
     }
     /**
      * Spinner component to display loading indicator.
@@ -1077,6 +1333,10 @@ export namespace Components {
           * Determines if the Tab Group will do it's own navigation. Per default, it will use internal navigation. Set it to true if you want to use external, route-based navigation.
          */
         "useRouter": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "use-router"?: boolean;
     }
     interface B2bTabPanel {
     }
@@ -1108,7 +1368,15 @@ export namespace Components {
           * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "text-wrap"?: boolean;
         "totalCols"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "total-cols"?: number;
     }
     interface B2bTableHeader {
         /**
@@ -1119,6 +1387,10 @@ export namespace Components {
           * Alignment of the content of the cell, by default is to the left. *
          */
         "contentAlign": ContentAlignment;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "content-align"?: ContentAlignment;
         /**
           * adds a border to the right of the header. *
          */
@@ -1136,10 +1408,22 @@ export namespace Components {
          */
         "sortDirection": TableSortDirections;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "sort-direction"?: TableSortDirections;
+        /**
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */
         "sortId"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "sort-id"?: string;
         "totalCols"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "total-cols"?: number;
     }
     interface B2bTableRow {
         /**
@@ -1198,10 +1482,6 @@ export namespace Components {
      */
     interface B2bTextarea {
         /**
-          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
-         */
-        "autofocus": boolean;
-        /**
           * Whether or not the textarea is disabled. Per default it is false.
          */
         "disabled": boolean;
@@ -1209,6 +1489,14 @@ export namespace Components {
           * An optional error message that is displayed when the textarea is invalid. Per default it is undefined.
          */
         "error"?: string;
+        /**
+          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
+         */
+        "focusOnLoad": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "focus-on-load"?: boolean;
         /**
           * The height of the text area
          */
@@ -1229,6 +1517,10 @@ export namespace Components {
           * The maximum input length. Characters entered after that will not be appended to the input value.
          */
         "maxLength"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "max-length"?: number;
         /**
           * The name of the textarea. This is used to programmatically group it into a form.
          */
@@ -1321,6 +1613,10 @@ export namespace Components {
          */
         "labelPosition": 'left' | 'right';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-position"?: 'left' | 'right';
+        /**
           * The toggle name. Use this if the toggle switch is used in a form group.
          */
         "name"?: string;
@@ -1357,9 +1653,17 @@ export namespace Components {
          */
         "activeStep": WizardSteps | '0';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "active-step"?: WizardSteps | '0';
+        /**
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "check-icon"?: boolean;
         /**
           * By default, is false, where the wizard will handle steps states. If set to true, steps state must be handled manually.
          */
@@ -1370,6 +1674,10 @@ export namespace Components {
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "check-icon"?: boolean;
         /**
           * The state of the step
          */
@@ -1384,6 +1692,10 @@ export namespace Components {
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "check-icon"?: boolean;
         /**
           * Use when wizard has property custom true. The state of the step
          */
@@ -2444,9 +2756,17 @@ declare namespace LocalJSX {
          */
         "customIcon"?: boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "custom-icon"?: boolean;
+        /**
           * Whether or not the alert has a close button. Per default it is true. Note that errors and small alerts cannot be closed.
          */
         "hasCloseButton"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "has-close-button"?: boolean;
         /**
           * Emits whenever the alert is closed.
          */
@@ -2474,6 +2794,10 @@ declare namespace LocalJSX {
          */
         "hoverColor"?: 'inherit' | 'default';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "hover-color"?: 'inherit' | 'default';
+        /**
           * The URL or URL fragment the anchor points to. This is required.
          */
         "href": string;
@@ -2489,6 +2813,10 @@ declare namespace LocalJSX {
           * The underlineText of the link. If set to false, the link text will not be underlined.
          */
         "underlineText"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "underline-text"?: boolean;
     }
     interface B2bBackgroundBox {
         /**
@@ -2496,13 +2824,25 @@ declare namespace LocalJSX {
          */
         "borderBottom"?: 'default' | 'none';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-bottom"?: 'default' | 'none';
+        /**
           * Whether the box should have a left border. Per default, the border is enabled
          */
         "borderLeft"?: 'default' | 'none';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-left"?: 'default' | 'none';
+        /**
           * Whether the box should have a right border. Per default, the border is enabled
          */
         "borderRight"?: 'default' | 'none';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-right"?: 'default' | 'none';
         /**
           * Whether the box should have a top border. Per default, the border is enabled
          */
@@ -2515,6 +2855,10 @@ declare namespace LocalJSX {
           * Whether the box should have a padding. Per default, padding is enabled
          */
         "noPadding"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "no-padding"?: boolean;
     }
     interface B2bBreadcrumb {
         /**
@@ -2526,9 +2870,17 @@ declare namespace LocalJSX {
          */
         "paddingBottom"?: number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "padding-bottom"?: number;
+        /**
           * Padding for the top of the breadcrumb component
          */
         "paddingTop"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "padding-top"?: number;
     }
     interface B2bBreadcrumbItem {
         /**
@@ -2559,6 +2911,10 @@ declare namespace LocalJSX {
          */
         "download"?: string;
         "groupDisabled"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
         /**
           * An optional anchor. If specified, the button will render an anchor element that can be use for navigation or download files
          */
@@ -2620,6 +2976,10 @@ declare namespace LocalJSX {
          */
         "error"?: string;
         "groupDisabled"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
         /**
           * The hint text belonging to the checkbox. It is undefined by default. If an error is specified, it will be shown instead of the hint.
          */
@@ -2709,6 +3069,10 @@ declare namespace LocalJSX {
          */
         "hasCloseButton"?: boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "has-close-button"?: boolean;
+        /**
           * The text content of the chip. It is required.
          */
         "label": string;
@@ -2716,6 +3080,10 @@ declare namespace LocalJSX {
           * The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set.
          */
         "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-style"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
         /**
           * This event will be triggered when the chip element is closed
          */
@@ -2735,13 +3103,25 @@ declare namespace LocalJSX {
          */
         "disableDates"?: string | string[];
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-dates"?: string | string[];
+        /**
           * All the dates until the given specified date will be disabled.
          */
         "disableDatesFrom"?: string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-dates-from"?: string;
+        /**
           * All the dates until the given specified date will be disabled.
          */
         "disableDatesUntil"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-dates-until"?: string;
         /**
           * Disable the days of the week specified here.
          */
@@ -2759,17 +3139,45 @@ declare namespace LocalJSX {
     | string
     | string[];
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-days"?: | 'Mo'
+    | 'Di'
+    | 'Mi'
+    | 'Do'
+    | 'Fr'
+    | 'Sa'
+    | 'So'
+    | 'Tu'
+    | 'We'
+    | 'Th'
+    | 'Su'
+    | string
+    | string[];
+        /**
           * Whether the dates after the current date are disabled. By default, this is false.
          */
         "disableFutureDates"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-future-dates"?: boolean;
         /**
           * Whether the previous dates from the current date are disabled. By default, this is true.
          */
         "disablePastDates"?: boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-past-dates"?: boolean;
+        /**
           * Whether the dates that fall on the weekend are disabled. By default, this is false.
          */
         "disableWeekends"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-weekends"?: boolean;
         /**
           * Hint text that should be displayed when showHint is true
          */
@@ -2795,9 +3203,21 @@ declare namespace LocalJSX {
          */
         "preSelectedDate"?: string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "pre-selected-date"?: string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required"?: boolean;
+        /**
           * Whether to show hint message or not.
          */
         "showHint"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "show-hint"?: boolean;
         /**
           * The width of the input field of the date picker in pixel. Minimum is 250, maximum is 600px.
          */
@@ -2825,13 +3245,25 @@ declare namespace LocalJSX {
          */
         "disableFutureDates"?: boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-future-dates"?: boolean;
+        /**
           * Internal whether the dates previous to the current date are disabled. By default, this is true.
          */
         "disablePastDates"?: boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-past-dates"?: boolean;
+        /**
           * Internal whether the weekends are disabled. By default, this is false.
          */
         "disableWeekends"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-weekends"?: boolean;
         /**
           * Event emitted on escape press*
          */
@@ -2845,13 +3277,25 @@ declare namespace LocalJSX {
          */
         "selectedDay"?: number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-day"?: number;
+        /**
           * Internal selected month
          */
         "selectedMonth"?: number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-month"?: number;
+        /**
           * Internal selected year
          */
         "selectedYear"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-year"?: number;
     }
     interface B2bDatePickerDaysHeader {
         /**
@@ -2881,9 +3325,17 @@ declare namespace LocalJSX {
          */
         "selectedMonth"?: number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-month"?: number;
+        /**
           * Internal selected year
          */
         "selectedYear"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-year"?: number;
     }
     interface B2bDatePickerMonths {
         /**
@@ -2898,6 +3350,10 @@ declare namespace LocalJSX {
           * Internal selected month
          */
         "selectedMonth"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-month"?: number;
     }
     interface B2bDatePickerYears {
         /**
@@ -2908,6 +3364,10 @@ declare namespace LocalJSX {
           * Internal selected year
          */
         "selectedYear"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-year"?: number;
     }
     interface B2bDropdown {
         /**
@@ -2998,6 +3458,10 @@ declare namespace LocalJSX {
           * The alignment of text placed inside of a column. Note that this will apply to all children.
          */
         "textAlign"?: 'left' | 'center' | 'right';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "text-align"?: 'left' | 'center' | 'right';
     }
     interface B2bGridRow {
         /**
@@ -3005,9 +3469,17 @@ declare namespace LocalJSX {
          */
         "alignItems"?: 'stretch' | 'flex-start' | 'center' | 'flex-end';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "align-items"?: 'stretch' | 'flex-start' | 'center' | 'flex-end';
+        /**
           * The spacing in between individual columns in px. The higher the gap, the smaller the columns will be.
          */
         "columnGap"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "column-gap"?: number;
         /**
           * Horizontal alignment of columns.
          */
@@ -3021,6 +3493,10 @@ declare namespace LocalJSX {
           * The spacing between individual rows in px.
          */
         "rowGap"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "row-gap"?: number;
     }
     /**
      * Headline component to render hading tags content.
@@ -3035,6 +3511,10 @@ declare namespace LocalJSX {
           * Whether the headline should have a margin. Per default, margins are enabled.
          */
         "noMargin"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "no-margin"?: boolean;
         /**
           * Each variant has a different hierarchical order, where 1 is the highest level. 400 will render to `<h1>`, 200 to `<h2>` and 100 to `<h3>`
          */
@@ -3108,10 +3588,6 @@ declare namespace LocalJSX {
      */
     interface B2bInput {
         /**
-          * When setting the autofocus to true, the input element will be focused when the page loads.
-         */
-        "autofocus"?: boolean;
-        /**
           * Whether or not the input is disabled. Default is false.
          */
         "disabled"?: boolean;
@@ -3119,7 +3595,19 @@ declare namespace LocalJSX {
           * The error message that is shown if the input is invalid.
          */
         "error"?: string;
+        /**
+          * When setting the autofocus to true, the input element will be focused when the page loads.
+         */
+        "focusOnLoad"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "focus-on-load"?: boolean;
         "groupDisabled"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
         /**
           * The hint text that appears underneath the input field.
          */
@@ -3128,6 +3616,10 @@ declare namespace LocalJSX {
           * The alignment of the text.
          */
         "inputTextAlign"?: 'left' | 'right' | 'center';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "input-text-align"?: 'left' | 'right' | 'center';
         /**
           * Whether the input is currently invalid. If true, the input is rendered with error styles. Per default it is false.
          */
@@ -3210,6 +3702,10 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "groupDisabled"?: boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "group-disabled"?: boolean;
+        /**
           * The input label.
          */
         "label"?: string;
@@ -3260,9 +3756,17 @@ declare namespace LocalJSX {
          */
         "backdropDismiss"?: boolean;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "backdrop-dismiss"?: boolean;
+        /**
           * A boolean to indicate whether the modal can be dismissed by pressing the escape key on the keyboard
          */
         "escDismiss"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "esc-dismiss"?: boolean;
         /**
           * The title for the modal. This is required.
          */
@@ -3294,6 +3798,10 @@ declare namespace LocalJSX {
          */
         "maxOptionsVisible"?: number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "max-options-visible"?: number;
+        /**
           * Emits when there is a change to the currently selected values.
          */
         "onB2b-selected"?: (event: B2bMultiselectDropdownCustomEvent<string[]>) => void;
@@ -3301,6 +3809,10 @@ declare namespace LocalJSX {
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
         "optionsList"?: string | string[];
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "options-list"?: string | string[];
         /**
           * The placeholder shown in the input field.
          */
@@ -3310,13 +3822,25 @@ declare namespace LocalJSX {
          */
         "searchPlaceholder"?: string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "search-placeholder"?: string;
+        /**
           * The string displayed as the select all label.
          */
         "selectAllLabel"?: string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "select-all-label"?: string;
+        /**
           * The initial values to be selected in the dropdown.
          */
         "selectedValues"?: string | string[];
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "selected-values"?: string | string[];
     }
     interface B2bMultiselectOption {
         "indeterminate"?: boolean;
@@ -3339,13 +3863,25 @@ declare namespace LocalJSX {
          */
         "activePage"?: number;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "active-page"?: number;
+        /**
           * (optional) translation to 'Go to next page'
          */
         "ariaLabelNextPage"?: string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "aria-label-next-page"?: string;
+        /**
           * (optional) translation to 'Go to previous page'
          */
         "ariaLabelPreviousPage"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "aria-label-previous-page"?: string;
         /**
           * Will emit every time a page changes, by clicking back, next or any specific page. \ Emits a PageChangeEventDetail that includes lastSelectedPage, currentPage and direction. Direction is only when clicking back or next.
          */
@@ -3354,6 +3890,10 @@ declare namespace LocalJSX {
           * The total number of pages to calculate the length of pagination component
          */
         "totalPages"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "total-pages"?: number;
     }
     /**
      * Paragraph component to render text content.
@@ -3395,9 +3935,17 @@ declare namespace LocalJSX {
          */
         "labelPosition"?: 'left' | 'right';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-position"?: 'left' | 'right';
+        /**
           * Whether the label should be displayed below or on the side of the progress bar.
          */
         "labelType"?: 'below' | 'side';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-type"?: 'below' | 'side';
         /**
           * The percentage of progress from 0 to 100.
          */
@@ -3503,6 +4051,10 @@ declare namespace LocalJSX {
          */
         "borderColor"?: string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "border-color"?: string;
+        /**
           * The color of the circle around the icon or text. Use any type including hex, rgb or css custom properties as long as you pass it as a string
          */
         "color"?: string;
@@ -3510,6 +4062,10 @@ declare namespace LocalJSX {
           * The color of the text or icon within the circle. Use any type including hex, rgb or css custom properties as long as you pass it as a string
          */
         "contentColor"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "content-color"?: string;
     }
     interface B2bScrollableContainer {
     }
@@ -3561,6 +4117,10 @@ declare namespace LocalJSX {
          */
         "actionLabel"?: string;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "action-label"?: string;
+        /**
           * Text on the snackbar.
          */
         "description"?: string;
@@ -3572,6 +4132,10 @@ declare namespace LocalJSX {
           * Whether the snackbar has a Call-to-Action. Per default, it is false.
          */
         "hasAction"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "has-action"?: boolean;
         /**
           * Emits whenever the CTA is clicked.
          */
@@ -3592,6 +4156,10 @@ declare namespace LocalJSX {
           * The type of snackbar. Default is info.
          */
         "type"?: 'info' | 'success' | 'warning' | 'error';
+        /**
+          * Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content.
+         */
+        "width"?: string;
     }
     /**
      * Spinner component to display loading indicator.
@@ -3634,6 +4202,10 @@ declare namespace LocalJSX {
           * Determines if the Tab Group will do it's own navigation. Per default, it will use internal navigation. Set it to true if you want to use external, route-based navigation.
          */
         "useRouter"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "use-router"?: boolean;
     }
     interface B2bTabPanel {
     }
@@ -3669,7 +4241,15 @@ declare namespace LocalJSX {
           * Whether text should wrap or truncate. It will only truncate when table size is equal *
          */
         "textWrap"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "text-wrap"?: boolean;
         "totalCols"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "total-cols"?: number;
     }
     interface B2bTableHeader {
         /**
@@ -3680,6 +4260,10 @@ declare namespace LocalJSX {
           * Alignment of the content of the cell, by default is to the left. *
          */
         "contentAlign"?: ContentAlignment;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "content-align"?: ContentAlignment;
         /**
           * adds a border to the right of the header. *
          */
@@ -3701,10 +4285,22 @@ declare namespace LocalJSX {
          */
         "sortDirection"?: TableSortDirections;
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "sort-direction"?: TableSortDirections;
+        /**
           * Optional string to uniquely represent the header, this id will be emitted by the table b2b-sort-change event. If not provided, the event will emit the header textContent.
          */
         "sortId"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "sort-id"?: string;
         "totalCols"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "total-cols"?: number;
     }
     interface B2bTableRow {
         /**
@@ -3771,10 +4367,6 @@ declare namespace LocalJSX {
      */
     interface B2bTextarea {
         /**
-          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
-         */
-        "autofocus"?: boolean;
-        /**
           * Whether or not the textarea is disabled. Per default it is false.
          */
         "disabled"?: boolean;
@@ -3782,6 +4374,14 @@ declare namespace LocalJSX {
           * An optional error message that is displayed when the textarea is invalid. Per default it is undefined.
          */
         "error"?: string;
+        /**
+          * Whether or not the textarea should be automatically focused on page load. Per default it is false.
+         */
+        "focusOnLoad"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "focus-on-load"?: boolean;
         /**
           * The height of the text area
          */
@@ -3802,6 +4402,10 @@ declare namespace LocalJSX {
           * The maximum input length. Characters entered after that will not be appended to the input value.
          */
         "maxLength"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "max-length"?: number;
         /**
           * The name of the textarea. This is used to programmatically group it into a form.
          */
@@ -3918,6 +4522,10 @@ declare namespace LocalJSX {
          */
         "labelPosition"?: 'left' | 'right';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-position"?: 'left' | 'right';
+        /**
           * The toggle name. Use this if the toggle switch is used in a form group.
          */
         "name"?: string;
@@ -3958,9 +4566,17 @@ declare namespace LocalJSX {
          */
         "activeStep"?: WizardSteps | '0';
         /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "active-step"?: WizardSteps | '0';
+        /**
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "check-icon"?: boolean;
         /**
           * By default, is false, where the wizard will handle steps states. If set to true, steps state must be handled manually.
          */
@@ -3971,6 +4587,10 @@ declare namespace LocalJSX {
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "check-icon"?: boolean;
         /**
           * The state of the step
          */
@@ -3985,6 +4605,10 @@ declare namespace LocalJSX {
           * Defaults to true. It will show a checkmark icon when a step is completed. Set as false to show the step number
          */
         "checkIcon"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "check-icon"?: boolean;
         /**
           * Use when wizard has property custom true. The state of the step
          */

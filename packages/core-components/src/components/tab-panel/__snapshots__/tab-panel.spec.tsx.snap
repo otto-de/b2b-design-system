@@ -2,11 +2,11 @@
 
 exports[`should match the snapshot 1`] = `
 <b2b-tab-panel id="b2b-tab-panel-0" role="tabpanel">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="b2b-tab-panel">
       <slot></slot>
     </div>
-  </mock:shadow-root>
+  </template>
   Tab 1
 </b2b-tab-panel>
 `;
