@@ -2,7 +2,7 @@
 
 exports[`B2B Input Group should not render a group error if the group is invalid and disabled 1`] = `
 <b2b-input-group>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="b2b-input-wrapper">
       <slot name="start"></slot>
       <slot></slot>
@@ -11,9 +11,9 @@ exports[`B2B Input Group should not render a group error if the group is invalid
     <span class="b2b-input-wrapper__hint">
       A group hint
     </span>
-  </mock:shadow-root>
+  </template>
   <b2b-input class="b2b-input" disabled="" type="text">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <b2b-input-label>
         <slot name="label">
           Search Term
@@ -24,10 +24,10 @@ exports[`B2B Input Group should not render a group error if the group is invalid
         <input class="b2b-input__native-input b2b-input__native-input--align-left b2b-input__native-input--disabled" disabled="" type="text">
         <slot name="end"></slot>
       </div>
-    </mock:shadow-root>
+    </template>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <select class="b2b-dropdown__select" disabled="">
         <option>
           Select an option...
@@ -39,10 +39,10 @@ exports[`B2B Input Group should not render a group error if the group is invalid
           Data Set 2
         </option>
       </select>
-    </mock:shadow-root>
+    </template>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100 b2b-button--fit-content" disabled="">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <button class="b2b-button--primary" disabled="" type="button">
         <span>
           <slot name="start"></slot>
@@ -50,7 +50,7 @@ exports[`B2B Input Group should not render a group error if the group is invalid
           <slot name="end"></slot>
         </span>
       </button>
-    </mock:shadow-root>
+    </template>
     Search
   </b2b-button>
 </b2b-input-group>
@@ -58,7 +58,7 @@ exports[`B2B Input Group should not render a group error if the group is invalid
 
 exports[`B2B Input Group should render a group error if one is specified and the group is invalid 1`] = `
 <b2b-input-group>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="b2b-input-wrapper">
       <slot name="start"></slot>
       <slot></slot>
@@ -67,9 +67,9 @@ exports[`B2B Input Group should render a group error if one is specified and the
     <span class="b2b-input-wrapper__hint b2b-input-wrapper__hint--error">
       A group error
     </span>
-  </mock:shadow-root>
+  </template>
   <b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <b2b-input-label>
         <slot name="label">
           Search Term
@@ -80,10 +80,10 @@ exports[`B2B Input Group should render a group error if one is specified and the
         <input class="b2b-input__native-input b2b-input__native-input--align-left" type="text">
         <slot name="end"></slot>
       </div>
-    </mock:shadow-root>
+    </template>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <select class="b2b-dropdown__select">
         <option>
           Select an option...
@@ -95,10 +95,10 @@ exports[`B2B Input Group should render a group error if one is specified and the
           Data Set 2
         </option>
       </select>
-    </mock:shadow-root>
+    </template>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100 b2b-button--fit-content">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <button class="b2b-button--primary" type="button">
         <span>
           <slot name="start"></slot>
@@ -106,7 +106,7 @@ exports[`B2B Input Group should render a group error if one is specified and the
           <slot name="end"></slot>
         </span>
       </button>
-    </mock:shadow-root>
+    </template>
     Search
   </b2b-button>
 </b2b-input-group>
@@ -114,7 +114,7 @@ exports[`B2B Input Group should render a group error if one is specified and the
 
 exports[`B2B Input Group should render a group hint if it is specified 1`] = `
 <b2b-input-group>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="b2b-input-wrapper">
       <slot name="start"></slot>
       <slot></slot>
@@ -123,9 +123,9 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
     <span class="b2b-input-wrapper__hint">
       A group hint
     </span>
-  </mock:shadow-root>
+  </template>
   <b2b-input class="b2b-input" type="text">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <b2b-input-label>
         <slot name="label">
           Search Term
@@ -136,10 +136,10 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
         <input class="b2b-input__native-input b2b-input__native-input--align-left" type="text">
         <slot name="end"></slot>
       </div>
-    </mock:shadow-root>
+    </template>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <select class="b2b-dropdown__select">
         <option>
           Select an option...
@@ -151,10 +151,10 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
           Data Set 2
         </option>
       </select>
-    </mock:shadow-root>
+    </template>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100 b2b-button--fit-content">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <button class="b2b-button--primary" type="button">
         <span>
           <slot name="start"></slot>
@@ -162,7 +162,7 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
           <slot name="end"></slot>
         </span>
       </button>
-    </mock:shadow-root>
+    </template>
     Search
   </b2b-button>
 </b2b-input-group>
@@ -170,15 +170,15 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
 
 exports[`B2B Input Group should render content wrapped in the input group 1`] = `
 <b2b-input-group>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="b2b-input-wrapper">
       <slot name="start"></slot>
       <slot></slot>
       <slot name="end"></slot>
     </div>
-  </mock:shadow-root>
+  </template>
   <b2b-input class="b2b-input" type="text">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <b2b-input-label>
         <slot name="label">
           Search Term
@@ -189,10 +189,10 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
         <input class="b2b-input__native-input b2b-input__native-input--align-left" type="text">
         <slot name="end"></slot>
       </div>
-    </mock:shadow-root>
+    </template>
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <select class="b2b-dropdown__select">
         <option>
           Select an option...
@@ -204,10 +204,10 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
           Data Set 2
         </option>
       </select>
-    </mock:shadow-root>
+    </template>
   </b2b-dropdown>
   <b2b-button class="b2b-button--100 b2b-button--fit-content">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <button class="b2b-button--primary" type="button">
         <span>
           <slot name="start"></slot>
@@ -215,7 +215,7 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
           <slot name="end"></slot>
         </span>
       </button>
-    </mock:shadow-root>
+    </template>
     Search
   </b2b-button>
 </b2b-input-group>

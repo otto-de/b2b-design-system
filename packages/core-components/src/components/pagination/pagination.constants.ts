@@ -1,5 +1,7 @@
-export enum PaginationConstants {
+const enum PaginationConstants {
   DOTS = '...',
   BACK = '‹',
   NEXT = '›',
 }
+
+export { PaginationConstants };
