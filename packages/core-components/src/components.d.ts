@@ -1047,6 +1047,10 @@ export namespace Components {
           * The type of snackbar. Default is info.
          */
         "type": 'info' | 'success' | 'warning' | 'error';
+        /**
+          * Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content.
+         */
+        "width": string;
     }
     /**
      * Spinner component to display loading indicator.
@@ -3600,6 +3604,10 @@ declare namespace LocalJSX {
           * The type of snackbar. Default is info.
          */
         "type"?: 'info' | 'success' | 'warning' | 'error';
+        /**
+          * Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content.
+         */
+        "width"?: string;
     }
     /**
      * Spinner component to display loading indicator.

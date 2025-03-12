@@ -3638,6 +3638,15 @@
         }
       },
       "description": "The type of snackbar. Default is info."
+    },
+    "width": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content."
     }
   },
   "b2b-spinner": {
