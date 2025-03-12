@@ -2,7 +2,7 @@
 
 exports[`should apply an error style to the host element if an error is specified and the select is set to invalid 1`] = `
 <b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       test
     </b2b-input-label>
@@ -14,13 +14,13 @@ exports[`should apply an error style to the host element if an error is specifie
     <span>
       This is a test error
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-dropdown>
 `;
 
 exports[`should disable the dropdown 1`] = `
 <b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       test
     </b2b-input-label>
@@ -29,13 +29,13 @@ exports[`should disable the dropdown 1`] = `
         Select an option...
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </b2b-dropdown>
 `;
 
 exports[`should render a hint if  invalid and disabled are true at the same time 1`] = `
 <b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="" invalid="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       test
     </b2b-input-label>
@@ -47,13 +47,13 @@ exports[`should render a hint if  invalid and disabled are true at the same time
     <span>
       this is a test hint
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-dropdown>
 `;
 
 exports[`should render a hint if a hint string is specified 1`] = `
 <b2b-dropdown class="b2b-dropdown">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       test
     </b2b-input-label>
@@ -65,13 +65,13 @@ exports[`should render a hint if a hint string is specified 1`] = `
     <span>
       This is a test hint
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-dropdown>
 `;
 
 exports[`should render an error message if an error is specified and the select is set to invalid 1`] = `
 <b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       test
     </b2b-input-label>
@@ -83,13 +83,13 @@ exports[`should render an error message if an error is specified and the select 
     <span>
       This is a test error
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-dropdown>
 `;
 
 exports[`should render the dropdown 1`] = `
 <b2b-dropdown class="b2b-dropdown">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       test
     </b2b-input-label>
@@ -98,13 +98,13 @@ exports[`should render the dropdown 1`] = `
         Select an option...
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </b2b-dropdown>
 `;
 
 exports[`should render the dropdown with options 1`] = `
 <b2b-dropdown class="b2b-dropdown">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       test
     </b2b-input-label>
@@ -113,7 +113,7 @@ exports[`should render the dropdown with options 1`] = `
         Select an option...
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <option>
     An option
   </option>

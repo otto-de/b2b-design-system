@@ -15,12 +15,13 @@ const meta: Meta = {
   argTypes: {
     ...getArgTypes('b2b-shimmer'),
   },
-  render: ({ ...args }) => html`<b2b-shimmer
-    loading="${args.loading}"
-    width="${args.width}"
-    height="${args.height}">
-    This is the mean content which takes a while to load.
-  </b2b-shimmer>`,
+  render: ({ ...args }) =>
+    html`<b2b-shimmer
+      loading="${args.loading}"
+      width="${args.width}"
+      height="${args.height}">
+      This is the mean content which takes a while to load.
+    </b2b-shimmer>`,
 };
 
 export default meta;

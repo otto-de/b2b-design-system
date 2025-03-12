@@ -91,7 +91,7 @@ $special-grey: #b1b1b1;
 
       .b2b-toggle__switch::after {
         background-color: var(--b2b-color-white-100);
-        transform: translateX($transition-size);
+        transform: translateX(var(--b2b-size-50));
       }
     }
 
