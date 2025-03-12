@@ -23,7 +23,9 @@
   transform: translateX(-50%);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 400ms ease-out, visibility 0s linear 400ms;
+  transition:
+    opacity 400ms ease-out,
+    visibility 0s linear 400ms;
 
   &--opened {
     transform: translateX(-50%);

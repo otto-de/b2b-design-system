@@ -55,7 +55,7 @@ describe('B2B-Radio-Group', () => {
   });
 
   it('should not emit an event when the checked radio is already selected', async () => {
-    const firstRadio = await page.find({ text: 'one' });
+    const firstRadio = await page.find('b2b-radio-button[label="one"]');
     const changeSpy = await page.spyOnEvent('b2b-group-change');
 
     await firstRadio.click();
