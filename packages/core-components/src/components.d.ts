@@ -120,17 +120,9 @@ export namespace Components {
          */
         "borderTop": 'default' | 'none';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "border-top"?: 'default' | 'none';
-        /**
           * Sets max width to 1212px. Per default, it is false
          */
         "maxWidth": boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "max-width"?: boolean;
         /**
           * Whether the box should have a padding. Per default, padding is enabled
          */
@@ -2856,17 +2848,9 @@ declare namespace LocalJSX {
          */
         "borderTop"?: 'default' | 'none';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "border-top"?: 'default' | 'none';
-        /**
           * Sets max width to 1212px. Per default, it is false
          */
         "maxWidth"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "max-width"?: boolean;
         /**
           * Whether the box should have a padding. Per default, padding is enabled
          */
