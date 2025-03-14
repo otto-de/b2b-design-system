@@ -15,7 +15,7 @@
     line-height: var(--b2b-size-copy-line-height-75);
     font-family: var(--b2b-font-family-default);
     white-space: normal;
-    word-break: break-word;
+    overflow-wrap: break-word;
     max-width: 100%;
   }
 
