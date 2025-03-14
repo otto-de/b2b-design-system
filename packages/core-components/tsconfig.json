@@ -10,6 +10,7 @@
     "target": "es2017",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "types": ["@stencil/core", "jest", "node"],
     "jsx": "react",
     "jsxFactory": "h",
     "resolveJsonModule": true
