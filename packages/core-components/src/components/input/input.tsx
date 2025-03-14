@@ -90,6 +90,8 @@ export class InputComponent {
 
   private labelSlot: HTMLElement;
 
+  private hintSlot: HTMLElement;
+
   /** Manually set focus to the element */
   @Method()
   async setFocus() {
@@ -161,6 +163,7 @@ export class InputComponent {
 
   componentWillLoad() {
     this.labelSlot = this.hostElement.querySelector('[slot="label"]');
+    this.hintSlot = this.hostElement.querySelector('[slot="hint"]');
   }
 
   render() {
@@ -204,9 +207,11 @@ export class InputComponent {
           {this.hasTextSuffix && <div class="border"></div>}
           <slot name="end"></slot>
         </div>
-        {(this.hint !== undefined && !this.invalid) ||
-        (this.hint !== undefined && this.disabled) ? (
-          <span>{this.hint}</span>
+        {(this.hint !== undefined || this.hintSlot) &&
+        (!this.invalid || this.disabled) ? (
+          <span>
+            <slot name="hint">{this.hint}</slot>
+          </span>
         ) : (
           ''
         )}

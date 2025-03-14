@@ -70,4 +70,17 @@ describe('B2B-Input', () => {
 
     expect(labelElement).toEqualText('Label Slot');
   });
+
+  it('should use hint slot when provided', async () => {
+    const slotPage = await newE2EPage();
+    await slotPage.setContent(`
+      <b2b-input>
+        <span slot="hint">Hint Slot</span>
+      </b2b-input>
+    `);
+
+    const hintElement = await slotPage.find('span');
+
+    expect(hintElement).toEqualText('Hint Slot');
+  });
 });
