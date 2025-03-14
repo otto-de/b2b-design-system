@@ -119,7 +119,7 @@
   }
 }
 
-::slotted(span) {
+::slotted(span:not([slot='hint'], [slot='label'])) {
   font-size: var(--b2b-size-copy-100);
   cursor: default;
   user-select: none;

@@ -177,6 +177,27 @@ export const Label: Story = {
     </div>`,
 };
 
+export const HintSlot: Story = {
+  args: {
+    ...meta.args,
+  },
+  render: ({ ...args }) =>
+    html`<div style="width: 400px;">
+      <b2b-input
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
+        invalid=${args.invalid}
+        ><span slot="hint">Custom hint</span></b2b-input
+      >
+    </div>`,
+};
+
 export const AllPropertiesSpecified: Story = {
   args: {
     ...meta.args,
