@@ -252,7 +252,19 @@
         placeholder="placeholder"
         label="Label"
         value="I have a value!">
-        <span slot="hint">I am a custom hint</span>
+        <span slot="hint"
+          >I am a custom hint
+          <b2b-anchor href="https://example.com">with a link.</b2b-anchor></span
+        >
+      </b2b-input>
+      <b2b-input
+        placeholder="placeholder"
+        label="Label"
+        value="I have a value!">
+        <span slot="hint"
+          >I am a custom hint with unsupported elements:
+          <b2b-icon-100 icon="b2b_icon-paper-plane" size="24"></b2b-icon-100>
+        </span>
       </b2b-input>
       <b2b-input
         placeholder="placeholder"

@@ -75,12 +75,37 @@ describe('B2B-Input', () => {
     const slotPage = await newE2EPage();
     await slotPage.setContent(`
       <b2b-input>
-        <span slot="hint">Hint Slot</span>
+        <span slot="hint">Hint Slot<b2b-anchor href="https://example.com">Hello World!</b2b-anchor></span>
       </b2b-input>
     `);
 
-    const hintElement = await slotPage.find('span');
+    await slotPage.waitForChanges();
 
-    expect(hintElement).toEqualText('Hint Slot');
+    const outerHTML = await slotPage.evaluate(() => {
+      const span = document.querySelector('span[slot="hint"]');
+      return span.outerHTML;
+    });
+
+    expect(outerHTML).toBe(
+      '<span slot="hint">Hint Slot<b2b-anchor href="https://example.com" class="hydrated">Hello World!</b2b-anchor></span>',
+    );
+  });
+
+  it('should not display unsupported elements in the hint slot', async () => {
+    const slotPage = await newE2EPage();
+    await slotPage.setContent(`
+      <b2b-input>
+        <span slot="hint">Hint Slot<div>This should be removed</div></span>
+      </b2b-input>
+    `);
+
+    await slotPage.waitForChanges();
+
+    const outerHTML = await slotPage.evaluate(() => {
+      const span = document.querySelector('span[slot="hint"]');
+      return span.outerHTML;
+    });
+
+    expect(outerHTML).toBe('<span slot="hint">Hint Slot</span>');
   });
 });
