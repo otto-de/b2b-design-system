@@ -7,15 +7,17 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                                             | Type      | Default     |
-| ---------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled` | `disabled` | Whether the select as a whole is disabled. Per default it is false.                                                     | `boolean` | `false`     |
-| `error`    | `error`    | An optional error message for the dropdown. This will only appear if invalid is set to true.                            | `string`  | `undefined` |
-| `hint`     | `hint`     | An optional hint text for the dropdown.                                                                                 | `string`  | `undefined` |
-| `invalid`  | `invalid`  | Whether the select is currently invalid. Per default it is false.                                                       | `boolean` | `false`     |
-| `label`    | `label`    | The dropdown label.                                                                                                     | `string`  | `undefined` |
-| `name`     | `name`     | The name of the select. This is used to associate the label to the dropdown element. It is important for accessibility. | `string`  | `undefined` |
-| `required` | `required` | Adds an asterisk at the end of the label to signify that the field is required.                                         | `boolean` | `false`     |
+| Property           | Attribute           | Description                                                                                                             | Type      | Default                 |
+| ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------- |
+| `disabled`         | `disabled`          | Whether the select as a whole is disabled. Per default it is false.                                                     | `boolean` | `false`                 |
+| `error`            | `error`             | An optional error message for the dropdown. This will only appear if invalid is set to true.                            | `string`  | `undefined`             |
+| `hint`             | `hint`              | An optional hint text for the dropdown.                                                                                 | `string`  | `undefined`             |
+| `invalid`          | `invalid`           | Whether the select is currently invalid. Per default it is false.                                                       | `boolean` | `false`                 |
+| `label`            | `label`             | The dropdown label.                                                                                                     | `string`  | `undefined`             |
+| `name`             | `name`              | The name of the select. This is used to associate the label to the dropdown element. It is important for accessibility. | `string`  | `undefined`             |
+| `placeholder`      | `placeholder`       | Placeholder text for the dropdown.                                                                                      | `string`  | `'Select an option...'` |
+| `placeholderValue` | `placeholder-value` | Value for the placeholder. Defaults to an empty string but can be customized.                                           | `string`  | `''`                    |
+| `required`         | `required`          | Adds an asterisk at the end of the label to signify that the field is required.                                         | `boolean` | `false`                 |
 
 
 ## Events
