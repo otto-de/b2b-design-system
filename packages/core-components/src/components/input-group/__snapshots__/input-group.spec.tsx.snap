@@ -29,6 +29,9 @@ exports[`B2B Input Group should not render a group error if the group is invalid
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="">
     <template shadowrootmode="open">
       <select class="b2b-dropdown__select" disabled="">
+        <option>
+          Select an option...
+        </option>
         <option value="data-1">
           Data Set 1
         </option>
@@ -82,6 +85,9 @@ exports[`B2B Input Group should render a group error if one is specified and the
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
     <template shadowrootmode="open">
       <select class="b2b-dropdown__select">
+        <option>
+          Select an option...
+        </option>
         <option value="data-1">
           Data Set 1
         </option>
@@ -135,6 +141,9 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
   <b2b-dropdown class="b2b-dropdown">
     <template shadowrootmode="open">
       <select class="b2b-dropdown__select">
+        <option>
+          Select an option...
+        </option>
         <option value="data-1">
           Data Set 1
         </option>
@@ -185,6 +194,9 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
   <b2b-dropdown class="b2b-dropdown">
     <template shadowrootmode="open">
       <select class="b2b-dropdown__select">
+        <option>
+          Select an option...
+        </option>
         <option value="data-1">
           Data Set 1
         </option>

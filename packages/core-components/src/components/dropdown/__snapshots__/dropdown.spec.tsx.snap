@@ -6,7 +6,11 @@ exports[`should apply an error style to the host element if an error is specifie
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select"></select>
+    <select class="b2b-dropdown__select">
+      <option>
+        Select an option...
+      </option>
+    </select>
     <span>
       This is a test error
     </span>
@@ -20,7 +24,11 @@ exports[`should disable the dropdown 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select" disabled=""></select>
+    <select class="b2b-dropdown__select" disabled="">
+      <option>
+        Select an option...
+      </option>
+    </select>
   </template>
 </b2b-dropdown>
 `;
@@ -31,7 +39,11 @@ exports[`should render a hint if  invalid and disabled are true at the same time
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select" disabled=""></select>
+    <select class="b2b-dropdown__select" disabled="">
+      <option>
+        Select an option...
+      </option>
+    </select>
     <span>
       this is a test hint
     </span>
@@ -45,7 +57,11 @@ exports[`should render a hint if a hint string is specified 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select"></select>
+    <select class="b2b-dropdown__select">
+      <option>
+        Select an option...
+      </option>
+    </select>
     <span>
       This is a test hint
     </span>
@@ -59,7 +75,11 @@ exports[`should render an error message if an error is specified and the select 
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select"></select>
+    <select class="b2b-dropdown__select">
+      <option>
+        Select an option...
+      </option>
+    </select>
     <span>
       This is a test error
     </span>
@@ -73,7 +93,11 @@ exports[`should render the dropdown 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select"></select>
+    <select class="b2b-dropdown__select">
+      <option>
+        Select an option...
+      </option>
+    </select>
   </template>
 </b2b-dropdown>
 `;
@@ -85,6 +109,9 @@ exports[`should render the dropdown with options 1`] = `
       test
     </b2b-input-label>
     <select class="b2b-dropdown__select">
+      <option>
+        Select an option...
+      </option>
       <option>
         An option
       </option>
