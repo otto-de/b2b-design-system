@@ -35,7 +35,6 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      externalRuntime: false,
     },
     {
       type: 'dist-hydrate-script',
@@ -77,6 +76,6 @@ export const config: Config = {
   ],
   testing: {
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
-    browserHeadless: 'shell',
+    browserHeadless: true,
   },
 };

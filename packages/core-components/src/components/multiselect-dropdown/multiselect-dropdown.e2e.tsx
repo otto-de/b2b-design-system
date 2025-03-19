@@ -55,9 +55,7 @@ describe('B2B-Multiselect-Dropdown', () => {
     await multiselect.click();
     await page.waitForChanges();
 
-    const opt = await page.find(
-      `b2b-multiselect-dropdown >>> b2b-multiselect-option >>> b2b-checkbox[value="${optionsList[0]}"]`,
-    );
+    const opt = await page.find({ text: optionsList[0] });
 
     await opt.click();
 
@@ -83,9 +81,7 @@ describe('B2B-Multiselect-Dropdown', () => {
     await multiselect.click();
     await page.waitForChanges();
 
-    const opt = await page.find(
-      `b2b-multiselect-dropdown >>> b2b-multiselect-option >>> b2b-checkbox[value="Select All"]`,
-    );
+    const opt = await page.find({ text: 'Select All' });
 
     await opt.click();
     await page.waitForChanges();
@@ -107,9 +103,7 @@ describe('B2B-Multiselect-Dropdown', () => {
     await multiselect.click();
     await page.waitForChanges();
 
-    const opt = await page.find(
-      `b2b-multiselect-dropdown >>> b2b-multiselect-option >>> b2b-checkbox[value="Select All"]`,
-    );
+    const opt = await page.find({ text: 'Select All' });
 
     await opt.click();
     await page.waitForChanges();

@@ -2,7 +2,7 @@
 
 exports[`should apply an error style if it is marked as invalid. 1`] = `
 <b2b-checkbox>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--error">
       <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
@@ -16,13 +16,13 @@ exports[`should apply an error style if it is marked as invalid. 1`] = `
         this is an error
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-checkbox>
 `;
 
 exports[`should disable the checkbox 1`] = `
 <b2b-checkbox disabled="">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--disabled">
       <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" disabled="" type="checkbox">
@@ -33,13 +33,13 @@ exports[`should disable the checkbox 1`] = `
         </b2b-input-label>
       </div>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-checkbox>
 `;
 
 exports[`should render a hint if  invalid and disabled are true at the same time 1`] = `
 <b2b-checkbox disabled="">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--disabled">
       <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" disabled="" type="checkbox">
@@ -53,13 +53,13 @@ exports[`should render a hint if  invalid and disabled are true at the same time
         this is a test hint
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-checkbox>
 `;
 
 exports[`should render a hint message if a hint string is specified 1`] = `
 <b2b-checkbox>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-checkbox">
       <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
@@ -73,13 +73,13 @@ exports[`should render a hint message if a hint string is specified 1`] = `
         this is a hint
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-checkbox>
 `;
 
 exports[`should render an error message if an error is specified and it is marked as invalid 1`] = `
 <b2b-checkbox>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-checkbox b2b-checkbox--error">
       <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
@@ -93,13 +93,13 @@ exports[`should render an error message if an error is specified and it is marke
         this is an error
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-checkbox>
 `;
 
 exports[`should render the checkbox 1`] = `
 <b2b-checkbox>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-checkbox">
       <div class="b2b-checkbox__items">
         <input class="b2b-checkbox__input" type="checkbox">
@@ -110,6 +110,6 @@ exports[`should render the checkbox 1`] = `
         </b2b-input-label>
       </div>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-checkbox>
 `;

@@ -989,20 +989,6 @@
       },
       "description": "Default date picker date"
     },
-    "required": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": "Adds an asterisk at the end of the label to signify that the field is required."
-    },
     "showHint": {
       "control": {
         "type": "boolean"
@@ -2470,6 +2456,20 @@
     }
   },
   "b2b-input": {
+    "autofocus": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "When setting the autofocus to true, the input element will be focused when the page loads."
+    },
     "disabled": {
       "control": {
         "type": "boolean"
@@ -2492,20 +2492,6 @@
         "defaultValue": {}
       },
       "description": "The error message that is shown if the input is invalid."
-    },
-    "focusOnLoad": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": "When setting the autofocus to true, the input element will be focused when the page loads."
     },
     "hint": {
       "table": {
@@ -3638,15 +3624,6 @@
         }
       },
       "description": "The type of snackbar. Default is info."
-    },
-    "width": {
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {}
-      },
-      "description": "Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content."
     }
   },
   "b2b-spinner": {
@@ -4101,6 +4078,20 @@
     }
   },
   "b2b-textarea": {
+    "autofocus": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the textarea should be automatically focused on page load. Per default it is false."
+    },
     "disabled": {
       "control": {
         "type": "boolean"
@@ -4123,20 +4114,6 @@
         "defaultValue": {}
       },
       "description": "An optional error message that is displayed when the textarea is invalid. Per default it is undefined."
-    },
-    "focusOnLoad": {
-      "control": {
-        "type": "boolean"
-      },
-      "table": {
-        "type": {
-          "summary": "boolean"
-        },
-        "defaultValue": {
-          "summary": "false"
-        }
-      },
-      "description": "Whether or not the textarea should be automatically focused on page load. Per default it is false."
     },
     "height": {
       "table": {

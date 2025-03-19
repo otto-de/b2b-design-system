@@ -19,7 +19,6 @@ const ignoredStories = [
   'design-tokens-size--story-010-size-tokens',
   'components-form-date-picker--disable-past-dates',
   'components-form-date-picker--disable-future-dates',
-  'components-status-feedback-shimmer--story-010-default',
 ];
 
 module.exports = {
