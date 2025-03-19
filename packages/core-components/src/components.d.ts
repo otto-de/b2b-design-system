@@ -350,6 +350,10 @@ export namespace Components {
          */
         "preSelectedDate": string;
         /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required": boolean;
+        /**
           * Whether to show hint message or not.
          */
         "showHint": boolean;
@@ -1043,6 +1047,10 @@ export namespace Components {
           * The type of snackbar. Default is info.
          */
         "type": 'info' | 'success' | 'warning' | 'error';
+        /**
+          * Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content.
+         */
+        "width": string;
     }
     /**
      * Spinner component to display loading indicator.
@@ -2795,6 +2803,10 @@ declare namespace LocalJSX {
          */
         "preSelectedDate"?: string;
         /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required"?: boolean;
+        /**
           * Whether to show hint message or not.
          */
         "showHint"?: boolean;
@@ -3592,6 +3604,10 @@ declare namespace LocalJSX {
           * The type of snackbar. Default is info.
          */
         "type"?: 'info' | 'success' | 'warning' | 'error';
+        /**
+          * Width of the snackbar can be specified in px. If not provided, the default value is auto, which will adjust the width to fit the content.
+         */
+        "width"?: string;
     }
     /**
      * Spinner component to display loading indicator.
