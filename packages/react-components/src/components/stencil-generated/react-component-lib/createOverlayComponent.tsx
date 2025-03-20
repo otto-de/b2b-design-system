@@ -1,4 +1,4 @@
-import React, {ForwardedRef} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { OverlayEventDetail } from './interfaces';
@@ -136,14 +136,7 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
     }
   }
 
-  return React.forwardRef<OverlayType, Props>(
-    (props, ref) => {
-      return (
-        <Overlay
-          {...(props as Props & { forwardedRef?: ForwardedRef<OverlayType> })}
-          forwardedRef={ref as ForwardedRef<OverlayType>}
-        />
-      );
-    }
-  );
+  return React.forwardRef<OverlayType, Props>((props, ref) => {
+    return <Overlay {...props} forwardedRef={ref} />;
+  });
 };

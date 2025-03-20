@@ -19,8 +19,7 @@
     display: inline-block;
     position: relative;
     vertical-align: top;
-    box-shadow:
-      inset 0 1px 0 var(--b2b-color-grey-400),
+    box-shadow: inset 0 1px 0 var(--b2b-color-grey-400),
       inset 0 -1px 0 var(--b2b-color-grey-400),
       inset -1px 0 0 var(--b2b-color-grey-400),
       inset 1px 0 0 var(--b2b-color-grey-400);
@@ -32,8 +31,7 @@
 
     &:checked {
       background-color: var(--b2b-color-black-50);
-      box-shadow:
-        inset 0 1px 0 var(--b2b-color-black-50),
+      box-shadow: inset 0 1px 0 var(--b2b-color-black-50),
         inset 0 -1px 0 var(--b2b-color-black-50),
         inset -1px 0 0 var(--b2b-color-black-50),
         inset 1px 0 0 var(--b2b-color-black-50);
@@ -67,8 +65,7 @@
   &--error {
     .b2b-radio-input {
       background-color: var(--b2b-color-error-50);
-      box-shadow:
-        inset 0 1px 0 var(--b2b-color-error-100),
+      box-shadow: inset 0 1px 0 var(--b2b-color-error-100),
         inset 0 -1px 0 var(--b2b-color-error-100),
         inset -1px 0 0 var(--b2b-color-error-100),
         inset 1px 0 0 var(--b2b-color-error-100);
@@ -87,8 +84,7 @@
 
   &--disabled {
     .b2b-radio-input {
-      box-shadow:
-        inset 0 1px 0 var(--b2b-color-grey-300),
+      box-shadow: inset 0 1px 0 var(--b2b-color-grey-300),
         inset 0 -1px 0 var(--b2b-color-grey-300),
         inset -1px 0 0 var(--b2b-color-grey-300),
         inset 1px 0 0 var(--b2b-color-grey-300);

@@ -37,7 +37,7 @@ export class B2BTextareaComponent {
   @Prop({ reflect: true }) invalid: boolean = false;
 
   /** Whether or not the textarea should be automatically focused on page load. Per default it is false. */
-  @Prop({ reflect: true }) focusOnLoad: boolean = false;
+  @Prop({ reflect: true }) autofocus: boolean = false;
 
   /** If and how the textarea is resizable. Per default it is resizable in both directions. */
   @Prop({ reflect: true }) resize?:
@@ -129,7 +129,7 @@ export class B2BTextareaComponent {
           name={this.name}
           placeholder={this.placeholder}
           disabled={this.disabled}
-          autoFocus={this.focusOnLoad}
+          autoFocus={this.autofocus}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onInput={this.onInput}
