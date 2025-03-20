@@ -61,7 +61,7 @@ export class InputComponent {
   @Prop() error?: string;
 
   /** When setting the autofocus to true, the input element will be focused when the page loads. */
-  @Prop() focusOnLoad = false;
+  @Prop() autofocus = false;
 
   /** @internal Whether the parent input group is disabled. Per default, it is false. */
   @Prop() groupDisabled = false;
@@ -108,7 +108,7 @@ export class InputComponent {
     if (form != null) {
       form.addEventListener('formdata', this.handleFormData);
     }
-    if (this.focusOnLoad) {
+    if (this.autofocus) {
       this.hasFocus = true;
     }
     this.getSlottedText();
@@ -195,7 +195,7 @@ export class InputComponent {
             value={this.value}
             name={this.name}
             disabled={this.disabled || this.groupDisabled}
-            autoFocus={this.focusOnLoad}
+            autoFocus={this.autofocus}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             onInput={this.onInput}

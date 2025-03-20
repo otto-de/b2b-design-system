@@ -36,7 +36,7 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Start Containers
-        run: docker-compose up --abort-on-container-exit --build --remove-orphans
+        run: docker-compose up --abort-on-container-exit --build
 
       - name: Upload visual test results
         if: failure()
