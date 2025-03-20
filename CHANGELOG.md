@@ -1,3 +1,10 @@
+## [1.26.1](https://github.com/otto-de/b2b-design-system/compare/v1.26.0...v1.26.1) (2025-03-20)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-SCOUT] Fix the span adjustment of columns having span less than 12 ([f68b1e4](https://github.com/otto-de/b2b-design-system/commit/f68b1e4be4c07c4ccfda2ac18de2436ebf5824f3))
+
 # [1.26.0](https://github.com/otto-de/b2b-design-system/compare/v1.25.0...v1.26.0) (2025-03-20)
 
 
