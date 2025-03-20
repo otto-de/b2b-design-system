@@ -34,7 +34,9 @@ exports[`should render a hint if invalid and disabled are true at the same time 
       <slot name="end"></slot>
     </div>
     <span>
-      This is a test hint
+      <slot name="hint">
+        This is a test hint
+      </slot>
     </span>
   </mock:shadow-root>
 </b2b-input>
@@ -54,7 +56,9 @@ exports[`should render a hint message if a hint string is specified 1`] = `
       <slot name="end"></slot>
     </div>
     <span>
-      This is a test hint
+      <slot name="hint">
+        This is a test hint
+      </slot>
     </span>
   </mock:shadow-root>
 </b2b-input>
