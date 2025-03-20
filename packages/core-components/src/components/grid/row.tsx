@@ -83,6 +83,21 @@ export class B2bGridRowComponent {
       );
       return;
     }
+
+    if (totalSpan < 12 && columnsWithoutSpan.length === 0) {
+      this.handleNonOverflowingColumnsWithSpan(columnsWithSpan);
+      return;
+    }
+  }
+
+  private handleNonOverflowingColumnsWithSpan(columnsWithSpan: HTMLElement[]) {
+    columnsWithSpan.forEach(column => {
+      let span = parseInt(column.getAttribute('span'), 10);
+      let widthPercentage = (span / 12) * 100;
+
+      column.style.flex = `0 0 calc(${widthPercentage}% - ${this.columnGap}px)`;
+      column.style.maxWidth = `calc(${widthPercentage}% - ${this.columnGap}px)`;
+    });
   }
 
   private handleOverflowingColumns(columns: HTMLElement[]) {
