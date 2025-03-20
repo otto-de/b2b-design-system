@@ -25,6 +25,12 @@ export class DropdownComponent {
   /** The name of the select. This is used to associate the label to the dropdown element. It is important for accessibility. */
   @Prop({ reflect: true }) name?: string;
 
+  /** Placeholder text for the dropdown. */
+  @Prop() placeholder: string = 'Select an option...';
+
+  /** Value for the placeholder. Defaults to an empty string but can be customized. */
+  @Prop() placeholderValue: string = '';
+
   /** Whether the select as a whole is disabled. Per default it is false. */
   @Prop({ reflect: true }) disabled = false;
 
@@ -86,6 +92,14 @@ export class DropdownComponent {
   componentDidRender() {
     let options = this.hostElement.querySelectorAll('option');
     const selectElement = this.getSelectElement();
+
+    selectElement.innerHTML = '';
+    const placeholderOption = document.createElement('option');
+    placeholderOption.value = this.placeholderValue;
+    placeholderOption.textContent = this.placeholder;
+    placeholderOption.disabled = true;
+    placeholderOption.selected = true;
+    selectElement.append(placeholderOption);
     selectElement.append(...options);
   }
 

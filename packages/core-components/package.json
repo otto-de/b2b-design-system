@@ -29,6 +29,7 @@
     "test": "stencil test --spec --e2e",
     "test-ci": "stencil test --spec --e2e --ci",
     "test.watch": "stencil test --spec --e2e --watch",
+    "update-snapshots": "stencil test --spec --updateSnapshot",
     "generate": "stencil generate",
     "lint": "eslint \"src/**/*{.ts,.tsx}\" && stylelint \"src/**/*{.scss,.css}\"",
     "lint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix && stylelint \"src/**/*{.scss,.css}\" --fix",

@@ -25,7 +25,7 @@
     border: 1px solid var(--b2b-color-grey-200);
     border-right: var(--b2b-border-right);
     border-radius: var(--b2b-border-radius);
-    padding: 7px 11px 6px;
+    padding: 7px 10px 6px;
     padding-right: calc(1.75rem + 6px);
     height: var(--b2b-size-90);
     line-height: var(--b2b-size-copy-line-height-100);
@@ -43,7 +43,7 @@
 
   b2b-input-label {
     display: block;
-    margin-bottom: var(--b2b-size-10);
+    margin-bottom: var(--b2b-size-5);
   }
 
   span {

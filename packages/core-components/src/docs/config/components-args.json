@@ -1303,6 +1303,28 @@
       },
       "description": "The name of the select. This is used to associate the label to the dropdown element. It is important for accessibility."
     },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Select an option...'"
+        }
+      },
+      "description": "Placeholder text for the dropdown."
+    },
+    "placeholderValue": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "''"
+        }
+      },
+      "description": "Value for the placeholder. Defaults to an empty string but can be customized."
+    },
     "required": {
       "control": {
         "type": "boolean"
