@@ -1,3 +1,18 @@
+# [1.26.0](https://github.com/otto-de/b2b-design-system/compare/v1.25.0...v1.26.0) (2025-03-20)
+
+
+### Bug Fixes
+
+* **backgroundBox:** [NEPTUNE-4597] add max width attribute ([#546](https://github.com/otto-de/b2b-design-system/issues/546)) ([f27aea3](https://github.com/otto-de/b2b-design-system/commit/f27aea3da56c2b981d3da37b5e020bf7dbd07085))
+* **Datepicker:** [BLA-1209] Add required property ([#547](https://github.com/otto-de/b2b-design-system/issues/547)) ([c49ee91](https://github.com/otto-de/b2b-design-system/commit/c49ee91169e07f4d633be296617d42d0edd9ba6a))
+* **Grid:** [BLA-1208] Adds logic to handle the overflowing columns ([#549](https://github.com/otto-de/b2b-design-system/issues/549)) ([1bacf1c](https://github.com/otto-de/b2b-design-system/commit/1bacf1cd6901b98389a53ffc731dd1adee6654e8))
+* **snackbar:** [NEPTUNE-4601] add width prop for snackbar ([#550](https://github.com/otto-de/b2b-design-system/issues/550)) ([84bdf9e](https://github.com/otto-de/b2b-design-system/commit/84bdf9e543465c2a94330249921273d15c2a58d0))
+
+
+### Features
+
+* **input:** [JELLY-9427] Add input hint slot ([#554](https://github.com/otto-de/b2b-design-system/issues/554)) ([84656e6](https://github.com/otto-de/b2b-design-system/commit/84656e681cc7c948634011f9ab36cd1604590591))
+
 # [1.24.0](https://github.com/otto-de/b2b-design-system/compare/v1.23.4...v1.24.0) (2025-02-27)
 
 
