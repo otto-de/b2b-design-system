@@ -54,7 +54,7 @@
         }
 
         &.loading::after {
-          border: 0.125rem solid rgba(var(--b2b-color-white-100), 0.5);
+          border: 0.125rem solid rgba(#ffff, 0.5);
           border-top: 0.125rem solid var(--b2b-color-red-100);
         }
 
@@ -75,7 +75,7 @@
         }
 
         &.loading::after {
-          border: 0.125rem solid rgba(var(--b2b-color-black-50), 0.2);
+          border: 0.125rem solid rgba(#333, 0.2);
           border-top: 0.125rem solid var(--b2b-color-copy-default);
         }
 

@@ -7,9 +7,7 @@
   margin: 0;
 
   li {
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   li:first-child:not(.b2b-pagination__first-item) {

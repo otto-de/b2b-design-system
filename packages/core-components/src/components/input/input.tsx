@@ -61,7 +61,7 @@ export class InputComponent {
   @Prop() error?: string;
 
   /** When setting the autofocus to true, the input element will be focused when the page loads. */
-  @Prop() focusOnLoad = false;
+  @Prop() autofocus = false;
 
   /** @internal Whether the parent input group is disabled. Per default, it is false. */
   @Prop() groupDisabled = false;
@@ -90,6 +90,8 @@ export class InputComponent {
 
   private labelSlot: HTMLElement;
 
+  private hintSlot: HTMLElement;
+
   /** Manually set focus to the element */
   @Method()
   async setFocus() {
@@ -108,7 +110,7 @@ export class InputComponent {
     if (form != null) {
       form.addEventListener('formdata', this.handleFormData);
     }
-    if (this.focusOnLoad) {
+    if (this.autofocus) {
       this.hasFocus = true;
     }
     this.getSlottedText();
@@ -159,8 +161,36 @@ export class InputComponent {
     return false;
   };
 
+  private processHintSlotContent() {
+    if (this.hintSlot === null || this.hintSlot === undefined) return;
+
+    const disallowedElements = this.hintSlot.querySelectorAll(
+      ':not(b2b-anchor, b, strong, i, em, span)',
+    );
+    disallowedElements.forEach(element => {
+      if (element.nodeType === Node.ELEMENT_NODE) {
+        (element as HTMLElement).remove();
+      }
+    });
+  }
+
+  private filterHintSlotContent() {
+    this.processHintSlotContent();
+    if (this.hintSlot !== null && this.hintSlot !== undefined) {
+      const observer = new MutationObserver(() =>
+        this.processHintSlotContent(),
+      );
+      observer.observe(this.hintSlot, { childList: true, subtree: true });
+    }
+  }
+
   componentWillLoad() {
     this.labelSlot = this.hostElement.querySelector('[slot="label"]');
+    this.hintSlot = this.hostElement.querySelector('[slot="hint"]');
+  }
+
+  componentDidLoad() {
+    this.filterHintSlotContent();
   }
 
   render() {
@@ -195,7 +225,7 @@ export class InputComponent {
             value={this.value}
             name={this.name}
             disabled={this.disabled || this.groupDisabled}
-            autoFocus={this.focusOnLoad}
+            autoFocus={this.autofocus}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             onInput={this.onInput}
@@ -204,9 +234,11 @@ export class InputComponent {
           {this.hasTextSuffix && <div class="border"></div>}
           <slot name="end"></slot>
         </div>
-        {(this.hint !== undefined && !this.invalid) ||
-        (this.hint !== undefined && this.disabled) ? (
-          <span>{this.hint}</span>
+        {(this.hint !== undefined || this.hintSlot) &&
+        (!this.invalid || this.disabled) ? (
+          <span>
+            <slot name="hint">{this.hint}</slot>
+          </span>
         ) : (
           ''
         )}

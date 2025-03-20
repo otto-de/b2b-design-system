@@ -24,8 +24,10 @@ export const config: Config = {
     // Typings for output targets were changed in Stencil 3, this doesn't affect builds or functionality of the react lib
     // @ts-ignore
     reactOutputTarget({
-      outDir: '../react-components/src/components/stencil-generated',
-      customElementsDir: 'dist/components',
+      componentCorePackage: '@otto-de/b2b-core-components',
+      proxiesFile:
+        '../react-components/src/components/stencil-generated/index.ts',
+      includeDefineCustomElements: true,
     }),
     {
       type: 'dist',
@@ -33,7 +35,6 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      externalRuntime: false,
     },
     {
       type: 'dist-hydrate-script',
@@ -75,6 +76,6 @@ export const config: Config = {
   ],
   testing: {
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
-    browserHeadless: 'shell',
+    browserHeadless: true,
   },
 };
