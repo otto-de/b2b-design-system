@@ -110,13 +110,13 @@ export class B2bGridRowComponent {
     return (
       <Host
         style={{
-          'justify-content': this.justify,
-          'gap': `${this.columnGap}px`,
-          'margin': `${this.rowGap}px 0`,
-          'align-items': this.alignItems,
-          'display': 'flex',
-          'flex-wrap': 'wrap',
-          'box-sizing': 'border-box',
+          ['justify-content']: `${this.justify}`,
+          ['gap']: `${this.columnGap}px`,
+          ['margin']: `${this.rowGap}px 0`,
+          ['align-items']: `${this.alignItems}`,
+          ['display']: 'flex',
+          ['flex-wrap']: 'wrap',
+          ['box-sizing']: 'border-box',
         }}>
         <slot></slot>
       </Host>
