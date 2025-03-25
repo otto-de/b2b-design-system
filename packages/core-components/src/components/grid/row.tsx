@@ -7,10 +7,15 @@ import { Component, Prop, h, Host, Element } from '@stencil/core';
 export class B2bGridRowComponent {
   @Element() hostElement: HTMLB2bGridRowElement;
 
+  /** The spacing in between individual columns in px. The higher the gap, the smaller the columns will be. */
   @Prop() columnGap: number = 24;
+  /** The spacing between individual rows in px. */
   @Prop() rowGap: number = 24;
+  /** Vertical alignment of columns. This requires the row to have a defined height. */
   @Prop() alignItems: 'stretch' | 'flex-start' | 'center' | 'flex-end' =
     'stretch';
+
+  /** Horizontal alignment of columns. */
   @Prop() justify:
     | 'start'
     | 'end'
