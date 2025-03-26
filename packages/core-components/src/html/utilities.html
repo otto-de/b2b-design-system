@@ -164,6 +164,10 @@
     <div class="content-container">
       <h1>Grid Component</h1>
       <b2b-grid>
+        <h3>
+          Grid with 4 cols one with span = 9 other columns should occupy the
+          remaining span 3 equally
+        </h3>
         <b2b-grid-row>
           <b2b-grid-col span="9" text-align="center"
             ><div class="grid-test-box">
@@ -182,6 +186,7 @@
           <b2b-grid-col><div class="grid-test-box"></div></b2b-grid-col>
           <b2b-grid-col><div class="grid-test-box"></div></b2b-grid-col>
         </b2b-grid-row>
+        <h3>Grid with equal span 2 for all columns</h3>
         <b2b-grid-row>
           <b2b-grid-col span="2"
             ><div class="grid-test-box"><b2b-input></b2b-input></div
@@ -202,6 +207,7 @@
             ><div class="grid-test-box"></div
           ></b2b-grid-col>
         </b2b-grid-row>
+        <h3>Row with justify end and each of the column having span 1</h3>
         <b2b-grid-row justify="end">
           <b2b-grid-col span="1"
             ><div class="grid-test-box--small"></div
@@ -213,12 +219,20 @@
             ><div class="grid-test-box--small"></div
           ></b2b-grid-col>
         </b2b-grid-row>
+        <h3>
+          Row with one column having span 3 and other covering the remaining
+          span 9
+        </h3>
         <b2b-grid-row>
           <b2b-grid-col span="3"
             ><div class="grid-test-box"></div
           ></b2b-grid-col>
           <b2b-grid-col><div class="grid-test-box"></div></b2b-grid-col>
         </b2b-grid-row>
+        <h3>
+          Nested row with each column having a row with 2 columns (span is not
+          specified in any columns)
+        </h3>
         <b2b-grid-row>
           <b2b-grid-col>
             <b2b-grid-row>
@@ -237,6 +251,10 @@
             </b2b-grid-row>
           </b2b-grid-col>
         </b2b-grid-row>
+        <h3>
+          Row with 3 columns out of which 2 have span of 6 each and one does not
+          have span it will overflow to the next row
+        </h3>
         <b2b-grid-row>
           <b2b-grid-col span="6"
             ><div class="grid-test-box"></div
@@ -248,7 +266,10 @@
         </b2b-grid-row>
       </b2b-grid>
       <div>
-        <h1>Bug: Grid with column width issue</h1>
+        <h3>
+          All 9 columns 8 having span = 3 one does not have span should overflow
+          to the next row
+        </h3>
         <div>
           <b2b-grid margin="0">
             <b2b-grid-row row-gap="0">
@@ -268,16 +289,16 @@
                 <b2b-card>hello5</b2b-card>
               </b2b-grid-col>
               <b2b-grid-col span="3">
-                <b2b-card>hello5</b2b-card>
+                <b2b-card>hello6</b2b-card>
               </b2b-grid-col>
               <b2b-grid-col span="3">
-                <b2b-card>hello5</b2b-card>
+                <b2b-card>hello7</b2b-card>
               </b2b-grid-col>
               <b2b-grid-col span="3">
-                <b2b-card>hello5</b2b-card>
+                <b2b-card>hello8</b2b-card>
               </b2b-grid-col>
               <b2b-grid-col>
-                <b2b-card>hello5</b2b-card>
+                <b2b-card>hello9</b2b-card>
               </b2b-grid-col>
             </b2b-grid-row>
           </b2b-grid>
