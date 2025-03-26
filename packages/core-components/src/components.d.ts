@@ -92,17 +92,9 @@ export namespace Components {
          */
         "borderTop": 'default' | 'none';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "border-top"?: 'default' | 'none';
-        /**
           * Sets max width to 1212px. Per default, it is false
          */
         "maxWidth": boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "max-width"?: boolean;
         /**
           * Whether the box should have a padding. Per default, padding is enabled
          */
@@ -481,10 +473,6 @@ export namespace Components {
           * Value for the placeholder. Defaults to an empty string but can be customized.
          */
         "placeholderValue": string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "placeholder-value"?: string;
         /**
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
@@ -2536,17 +2524,9 @@ declare namespace LocalJSX {
          */
         "borderTop"?: 'default' | 'none';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "border-top"?: 'default' | 'none';
-        /**
           * Sets max width to 1212px. Per default, it is false
          */
         "maxWidth"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "max-width"?: boolean;
         /**
           * Whether the box should have a padding. Per default, padding is enabled
          */
@@ -2994,10 +2974,6 @@ declare namespace LocalJSX {
           * Value for the placeholder. Defaults to an empty string but can be customized.
          */
         "placeholderValue"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "placeholder-value"?: string;
         /**
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
