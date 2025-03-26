@@ -1,3 +1,10 @@
+## [1.26.2](https://github.com/otto-de/b2b-design-system/compare/v1.26.1...v1.26.2) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1269] Remove the column gap that was added to the las… ([#559](https://github.com/otto-de/b2b-design-system/issues/559)) ([38e822b](https://github.com/otto-de/b2b-design-system/commit/38e822b78af4ad3b15dcf6da941132802d2ee04f))
+
 ## [1.26.1](https://github.com/otto-de/b2b-design-system/compare/v1.26.0...v1.26.1) (2025-03-20)
 
 
