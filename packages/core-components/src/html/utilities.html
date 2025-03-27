@@ -26,33 +26,15 @@
   </head>
   <body>
     <div>
-      <h1>Bug: Grid with column width issue</h1>
+      <h1>Bug: Grid with column styling issue</h1>
       <div>
         <b2b-grid margin="0">
-          <b2b-grid-row row-gap="0">
+          <b2b-grid-row>
             <b2b-grid-col span="3">
-              <b2b-card>hello1</b2b-card>
+              <b2b-card>Dummy</b2b-card>
             </b2b-grid-col>
-            <b2b-grid-col span="3">
-              <b2b-card>hello2</b2b-card>
-            </b2b-grid-col>
-            <b2b-grid-col span="3">
-              <b2b-card>hello3</b2b-card>
-            </b2b-grid-col>
-            <b2b-grid-col span="3">
-              <b2b-card>hello4</b2b-card>
-            </b2b-grid-col>
-            <b2b-grid-col span="3">
-              <b2b-card>hello5</b2b-card>
-            </b2b-grid-col>
-            <b2b-grid-col span="3">
-              <b2b-card>hello6</b2b-card>
-            </b2b-grid-col>
-            <b2b-grid-col span="3">
-              <b2b-card>hello6</b2b-card>
-            </b2b-grid-col>
-            <b2b-grid-col span="3">
-              <b2b-card>hello6</b2b-card>
+            <b2b-grid-col span="9" style="margin-left: 15px">
+              This content should have a margin; not the column itself
             </b2b-grid-col>
           </b2b-grid-row>
         </b2b-grid>
