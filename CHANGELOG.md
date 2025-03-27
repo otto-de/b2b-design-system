@@ -1,3 +1,10 @@
+## [1.26.3](https://github.com/otto-de/b2b-design-system/compare/v1.26.2...v1.26.3) (2025-03-27)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1269] Refrain from setting the maxwidth attribute for column ([ff7d224](https://github.com/otto-de/b2b-design-system/commit/ff7d2245840ac995346f730eadd58412697139fb))
+
 ## [1.26.2](https://github.com/otto-de/b2b-design-system/compare/v1.26.1...v1.26.2) (2025-03-26)
 
 
