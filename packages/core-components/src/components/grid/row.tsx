@@ -99,9 +99,6 @@ export class B2bGridRowComponent {
         column.style.flex = `0 0 calc(${widthPercentage}% - ${
           this.columnGap * (1 - 1 / columnCount)
         }px)`;
-        column.style.maxWidth = `calc(${widthPercentage}% - ${
-          this.columnGap * (1 - 1 / columnCount)
-        }px)`;
       });
     });
   }
