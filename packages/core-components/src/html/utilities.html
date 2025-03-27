@@ -25,6 +25,38 @@
     </style>
   </head>
   <body>
+    <div>
+      <h2>Actual Result: Grid with column styling issue</h2>
+      <div>
+        <b2b-grid margin="0">
+          <b2b-grid-row>
+            <b2b-grid-col span="3">Dummy</b2b-grid-col>
+            <b2b-grid-col span="9" style="margin-left: 15px">
+              This content should have a margin; not the column itself
+            </b2b-grid-col>
+          </b2b-grid-row>
+        </b2b-grid>
+      </div>
+      <br /><br /><br />
+    </div>
+
+    <div>
+      <h2>Expected Result: Grid with column styling issue</h2>
+      <div>
+        <b2b-grid margin="0">
+          <b2b-grid-row>
+            <b2b-grid-col span="3">Dummy</b2b-grid-col>
+            <b2b-grid-col span="9">
+              <span style="margin-left: 15px">
+                This content should have a margin; not the column itself
+              </span>
+            </b2b-grid-col>
+          </b2b-grid-row>
+        </b2b-grid>
+      </div>
+      <br /><br /><br />
+    </div>
+
     <div
       class="content-container"
       style="background-color: #f4f4f4; max-width: 1400px">
