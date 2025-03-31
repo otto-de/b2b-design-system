@@ -753,6 +753,17 @@
     }
   },
   "b2b-chip-component": {
+    "customMargin": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'8px'"
+        }
+      },
+      "description": "It is used to customise the margin of chip component"
+    },
     "disabled": {
       "control": {
         "type": "boolean"

@@ -34,6 +34,9 @@ export class B2bChipComponent {
   /** It is only used when the chip component participates in a group */
   @Prop({ reflect: true }) value?: any;
 
+  /** It is used to customise the margin of chip component */
+  @Prop() customMargin: string = '8px';
+
   /** This event will be triggered when the chip element is closed */
   @Event({ eventName: 'b2b-close' })
   b2bClose: EventEmitter<ChipComponentEventDetail>;
