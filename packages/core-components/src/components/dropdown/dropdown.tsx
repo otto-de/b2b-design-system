@@ -92,6 +92,7 @@ export class DropdownComponent {
   componentDidRender() {
     let options = this.hostElement.querySelectorAll('option');
     const selectElement = this.getSelectElement();
+    const selectedValue = selectElement.value;
 
     selectElement.innerHTML = '';
     const placeholderOption = document.createElement('option');
@@ -100,7 +101,16 @@ export class DropdownComponent {
     placeholderOption.disabled = true;
     placeholderOption.selected = true;
     selectElement.append(placeholderOption);
-    selectElement.append(...options);
+    options.forEach(option => {
+      const optionElement = document.createElement('option');
+      optionElement.value = option.value;
+      optionElement.textContent = option.label;
+      selectElement.appendChild(optionElement);
+    });
+
+    if ([...selectElement.options].some(opt => opt.value === selectedValue)) {
+      selectElement.value = selectedValue;
+    }
   }
 
   render() {
