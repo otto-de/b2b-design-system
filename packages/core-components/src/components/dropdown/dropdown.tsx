@@ -89,10 +89,9 @@ export class DropdownComponent {
   };
 
   // we need to attach the options to the correct element here
-  componentDidRender() {
+  componentDidLoad() {
     let options = this.hostElement.querySelectorAll('option');
     const selectElement = this.getSelectElement();
-    const selectedValue = selectElement.value;
 
     selectElement.innerHTML = '';
     const placeholderOption = document.createElement('option');
@@ -101,16 +100,7 @@ export class DropdownComponent {
     placeholderOption.disabled = true;
     placeholderOption.selected = true;
     selectElement.append(placeholderOption);
-    options.forEach(option => {
-      const optionElement = document.createElement('option');
-      optionElement.value = option.value;
-      optionElement.textContent = option.label;
-      selectElement.appendChild(optionElement);
-    });
-
-    if ([...selectElement.options].some(opt => opt.value === selectedValue)) {
-      selectElement.value = selectedValue;
-    }
+    selectElement.append(...options);
   }
 
   render() {

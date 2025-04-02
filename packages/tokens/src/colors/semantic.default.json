@@ -1,7 +1,7 @@
 {
   "color": {
     "background": {
-      "page": { "value": "{color.grey.25}" },
+      "page": { "value": "{color.grey.10}" },
       "box": { "value": "{color.white.100}" },
       "card": { "value": "{color.white.100}" },
       "overlay": { "value": "{color.black.100}" },
