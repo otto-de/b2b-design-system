@@ -14,10 +14,12 @@ const meta: Meta = {
     disabled: false,
     value: '',
     hasCloseButton: true,
+    customMargin: '',
   },
   argTypes: getArgTypes('b2b-chip-component'),
   render: ({ ...args }) =>
     html`<b2b-chip-component
+      custom-margin="${args.customMargin}"
       label="${args.label}"
       type="${args.type}"
       label-style="${args.labelStyle}"
@@ -142,5 +144,23 @@ export const story063StrikethroughLabel: Story = {
     ...meta.args,
     labelStyle: 'strikethrough',
     label: 'Chip with strikethrough style',
+  },
+};
+
+export const story070CustomMargin: Story = {
+  name: 'Custom Margin',
+  args: {
+    ...meta.args,
+    label: 'Chip with Custom Margin',
+    customMargin: '12px',
+  },
+};
+
+export const story071NoMargin: Story = {
+  name: 'No Margin',
+  args: {
+    ...meta.args,
+    label: 'Chip with No Margin',
+    customMargin: '0px',
   },
 };

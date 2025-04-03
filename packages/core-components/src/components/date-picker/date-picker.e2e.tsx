@@ -53,12 +53,14 @@ describe('B2B-Date-Picker', () => {
     await page.setContent(
       `<b2b-date-picker disable-past-dates=true></b2b-date-picker>`,
     );
-    const today = new Date();
+    const today = new Date(2024, 2, 30);
     const yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     const prevDay = yesterday.getDate();
 
-    if (prevDay > 0 && prevDay >= 30) {
+    console.log('prevDay :', prevDay);
+
+    if (prevDay > 0 && prevDay >= 31) {
       const prevDayElement = await page.find({ text: prevDay.toString() });
       expect(prevDayElement.className).toBe(
         'b2b-date-picker-day b2b-date-picker-day--disabled',

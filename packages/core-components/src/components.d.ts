@@ -264,6 +264,10 @@ export namespace Components {
     }
     interface B2bChipComponent {
         /**
+          * It is used to customise the margin of chip component
+         */
+        "customMargin": string;
+        /**
           * Whether the chip is disabled.
          */
         "disabled": boolean;
@@ -2716,6 +2720,10 @@ declare namespace LocalJSX {
         "required"?: boolean;
     }
     interface B2bChipComponent {
+        /**
+          * It is used to customise the margin of chip component
+         */
+        "customMargin"?: string;
         /**
           * Whether the chip is disabled.
          */
