@@ -89,7 +89,7 @@ export class DropdownComponent {
   };
 
   // we need to attach the options to the correct element here
-  componentDidRender() {
+  componentDidLoad() {
     let options = this.hostElement.querySelectorAll('option');
     const selectElement = this.getSelectElement();
 

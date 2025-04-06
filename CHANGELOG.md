@@ -1,3 +1,15 @@
+# [1.27.0](https://github.com/otto-de/b2b-design-system/compare/v1.26.3...v1.27.0) (2025-04-03)
+
+
+### Bug Fixes
+
+* **dropdown:** [BLA-1293] Fix dropdown option and update b2b-color-background-page ([#565](https://github.com/otto-de/b2b-design-system/issues/565)) ([750e74b](https://github.com/otto-de/b2b-design-system/commit/750e74b310b31cc2a8aa82faae1b9c808c929c9d))
+
+
+### Features
+
+* **chip:** [BLA-1272] Add custom margin for chip component ([#564](https://github.com/otto-de/b2b-design-system/issues/564)) ([92045e1](https://github.com/otto-de/b2b-design-system/commit/92045e15b58672e7a67f3bf2cb4ef90f6bfcfd43))
+
 ## [1.26.3](https://github.com/otto-de/b2b-design-system/compare/v1.26.2...v1.26.3) (2025-03-27)
 
 

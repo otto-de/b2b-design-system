@@ -8,6 +8,7 @@
       "100": { "value": "#FFFFFF" }
     },
     "grey": {
+      "10": { "value": "#F0F0F0" },
       "25": { "value": "#F6F6F6" },
       "50": { "value": "#EEEEEE" },
       "100": { "value": "#E6E6E6" },
