@@ -21,7 +21,7 @@ export class SnackbarComponent {
   @Prop() type: 'info' | 'success' | 'warning' | 'error' = 'info';
 
   /** Whether the snackbar is currently visible. Set to true to display the snackbar. */
-  @Prop({ mutable: true }) opened: boolean = false;
+  @Prop({ mutable: true, reflect: true }) opened: boolean = false;
 
   /** Whether snackbar is show for limited time. Default is true. Error snackbars cannot be timed. */
   @Prop() timed: boolean = true;
@@ -52,23 +52,28 @@ export class SnackbarComponent {
 
   @Watch('opened')
   onVisibleChange(newValue: boolean) {
+    if (newValue) {
+      this.open();
+    }
+  }
+
+  componentWillLoad() {
+    this.onVisibleChange(this.opened);
+  }
+
+  private open() {
     if (this.timed && this.type !== 'error') {
-      if (newValue) {
-        this.remainingTime = this.duration;
-        this.startTimer();
-      } else {
-        this.clearTimer();
-      }
+      this.remainingTime = this.duration;
+      this.startTimer();
     }
   }
 
   private startTimer() {
+    this.clearTimer();
     if (this.timed && this.type !== 'error') {
-      this.clearTimer();
-
       this.startTime = Date.now();
       this.timeoutId = window.setTimeout(() => {
-        this.opened = false;
+        this.close();
       }, this.remainingTime);
     }
   }
@@ -99,6 +104,9 @@ export class SnackbarComponent {
   private close = () => {
     this.opened = false;
     this.b2bClose.emit();
+    if (this.timed && this.type !== 'error') {
+      this.clearTimer();
+    }
   };
 
   private isActionPresent = () => {
