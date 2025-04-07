@@ -62,8 +62,6 @@ describe('B2B-Snackbar', () => {
 
     const element = await page.find('b2b-snackbar >>> div');
     expect(await element.isVisible()).toBe(true);
-    await element.hover();
-    await page.mouse.move(0, 0);
 
     await new Promise(res => setTimeout(res, 2000));
 

@@ -13,7 +13,7 @@ const meta: Meta = {
   args: {
     type: 'info',
     description: `This is a snackbar`,
-    opened: true,
+    opened: false,
     timed: false,
     duration: 5000,
     hasAction: true,
@@ -31,12 +31,13 @@ const meta: Meta = {
       updateArgs({ opened: false });
     };
 
-    return html` <b2b-button variant="primary" @click=${showSnackBar}
+    return html` <b2b-button @click=${showSnackBar} variant="primary"
         >Show Snackbar</b2b-button
       >
       <b2b-button @click=${hideSnackbar}>Hide Snackbar</b2b-button>
       <hr />
       <b2b-snackbar
+        @b2b-close=${hideSnackbar}
         description="${args.description}"
         type="${args.type}"
         opened="${args.opened}"
