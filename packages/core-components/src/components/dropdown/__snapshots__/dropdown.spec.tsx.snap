@@ -6,11 +6,11 @@ exports[`should apply an error style to the host element if an error is specifie
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select">
-      <option>
+    <div aria-expanded="false" class="b2b-dropdown__wrapper">
+      <div class="b2b-dropdown__select" role="combobox">
         Select an option...
-      </option>
-    </select>
+      </div>
+    </div>
     <span>
       This is a test error
     </span>
@@ -24,11 +24,11 @@ exports[`should disable the dropdown 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select" disabled="">
-      <option>
+    <div aria-expanded="false" class="b2b-dropdown__wrapper">
+      <div class="b2b-dropdown__select" role="combobox">
         Select an option...
-      </option>
-    </select>
+      </div>
+    </div>
   </mock:shadow-root>
 </b2b-dropdown>
 `;
@@ -39,11 +39,11 @@ exports[`should render a hint if  invalid and disabled are true at the same time
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select" disabled="">
-      <option>
+    <div aria-expanded="false" class="b2b-dropdown__wrapper">
+      <div class="b2b-dropdown__select" role="combobox">
         Select an option...
-      </option>
-    </select>
+      </div>
+    </div>
     <span>
       this is a test hint
     </span>
@@ -57,11 +57,11 @@ exports[`should render a hint if a hint string is specified 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select">
-      <option>
+    <div aria-expanded="false" class="b2b-dropdown__wrapper">
+      <div class="b2b-dropdown__select" role="combobox">
         Select an option...
-      </option>
-    </select>
+      </div>
+    </div>
     <span>
       This is a test hint
     </span>
@@ -75,11 +75,11 @@ exports[`should render an error message if an error is specified and the select 
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select">
-      <option>
+    <div aria-expanded="false" class="b2b-dropdown__wrapper">
+      <div class="b2b-dropdown__select" role="combobox">
         Select an option...
-      </option>
-    </select>
+      </div>
+    </div>
     <span>
       This is a test error
     </span>
@@ -93,11 +93,11 @@ exports[`should render the dropdown 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select">
-      <option>
+    <div aria-expanded="false" class="b2b-dropdown__wrapper">
+      <div class="b2b-dropdown__select" role="combobox">
         Select an option...
-      </option>
-    </select>
+      </div>
+    </div>
   </mock:shadow-root>
 </b2b-dropdown>
 `;
@@ -108,14 +108,14 @@ exports[`should render the dropdown with options 1`] = `
     <b2b-input-label>
       test
     </b2b-input-label>
-    <select class="b2b-dropdown__select">
-      <option>
+    <div aria-expanded="false" class="b2b-dropdown__wrapper">
+      <div class="b2b-dropdown__select" role="combobox">
         Select an option...
-      </option>
-      <option>
-        An option
-      </option>
-    </select>
+      </div>
+    </div>
   </mock:shadow-root>
+  <option>
+    An option
+  </option>
 </b2b-dropdown>
 `;
