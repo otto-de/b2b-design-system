@@ -19,6 +19,10 @@ const meta: Meta = {
     maxOptionsVisible: 8,
     selectedValues: ['Watermelon', 'Banana'],
     required: false,
+    hint: '',
+    disabled: false,
+    invalid: false,
+    errorMessage: '',
   },
   argTypes: {
     ...multiselectArgs,
@@ -34,7 +38,11 @@ const meta: Meta = {
         placeholder=${args.placeholder}
         search-placeholder=${args.searchPlaceholder}
         .optionsList=${args.optionsList}
-        required=${args.required}>
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
       </b2b-multiselect-dropdown>
     </div>`,
 };
@@ -60,7 +68,11 @@ export const InitialSelectedValues: Story = {
         search-placeholder=${args.searchPlaceholder}
         .optionsList=${args.optionsList}
         .selectedValues=${args.selectedValues}
-        required=${args.required}>
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
       </b2b-multiselect-dropdown>
     </div>`,
 };
@@ -80,7 +92,107 @@ export const Required: Story = {
         search-placeholder=${args.searchPlaceholder}
         .optionsList=${args.optionsList}
         .selectedValues=${args.selectedValues}
-        required=${args.required}>
+        required=${args.required}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
+      </b2b-multiselect-dropdown>
+    </div>`,
+};
+
+export const Hint: Story = {
+  args: {
+    ...meta.args,
+    hint: 'please select a value',
+  },
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
+      </b2b-multiselect-dropdown>
+    </div>`,
+};
+
+export const Disabled: Story = {
+  args: {
+    ...meta.args,
+    disabled: true,
+  },
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
+      </b2b-multiselect-dropdown>
+    </div>`,
+};
+
+export const Invalid: Story = {
+  args: {
+    ...meta.args,
+    invalid: true,
+  },
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
+      </b2b-multiselect-dropdown>
+    </div>`,
+};
+
+export const InvalidWithErrorMessage: Story = {
+  args: {
+    ...meta.args,
+    invalid: true,
+    errorMessage: 'error has occurred',
+  },
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
       </b2b-multiselect-dropdown>
     </div>`,
 };

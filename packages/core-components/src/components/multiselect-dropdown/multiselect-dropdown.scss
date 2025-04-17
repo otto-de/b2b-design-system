@@ -8,6 +8,17 @@
     display: block;
   }
 
+  span {
+    display: block;
+    color: var(--b2b-color-grey-300);
+    font-size: var(--b2b-size-copy-50);
+    line-height: var(--b2b-size-copy-line-height-75);
+    font-family: var(--b2b-font-family-default);
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
   .b2b-multiselect-dropdown {
     position: relative;
     display: flex;
@@ -22,8 +33,28 @@
     background-color: var(--b2b-color-white-100);
 
     &--open {
-      border-radius: var(--b2b-size-border-no-radius-bottom);
-      border-bottom: 0;
+      z-index: 1001;
+      outline: 2px solid -webkit-focus-ring-color;
+      outline-offset: -1px;
+    }
+
+    &--error {
+      background-color: var(--b2b-color-error-50);
+
+      .b2b-chip-component {
+        background-color: var(--b2b-color-error-100);
+        color: var(--b2b-color-white-100);
+      }
+    }
+
+    &--focused {
+      z-index: 1001;
+      outline: 2px solid var(--b2b-color-error-100);
+      outline-offset: -1px;
+    }
+
+    &.b2b-multiselect-dropdown--open.b2b-multiselect-dropdown--error {
+      border-color: var(--b2b-color-error-100);
     }
 
     &__chip-container {
@@ -97,4 +128,43 @@
       }
     }
   }
+
+  .b2b-multiselect-dropdown--error {
+    border: 1px solid var(--b2b-color-error-100);
+    background-color: var(--b2b-color-error-50);
+
+    .b2b-chip-component {
+      background-color: var(--b2b-color-error-100);
+      color: var(--b2b-color-white-100);
+    }
+  }
+
+  .b2b-multiselect-dropdown--disabled {
+    color: var(--b2b-color-grey-250);
+    background-color: var(--b2b-color-grey-25);
+    border: 1px solid var(--b2b-color-grey-200);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .b2b-multiselect-dropdown__chip-container {
+      opacity: 0.5;
+    }
+
+    .b2b-multiselect-dropdown__placeholder {
+      color: var(--b2b-color-grey-300);
+    }
+  }
+
+  .b2b-multiselect-dropdown__error-message {
+    margin-top: var(--b2b-size-5);
+    color: var(--b2b-color-error-100);
+    font-size: var(--b2b-size-copy-50);
+    line-height: var(--b2b-size-copy-line-height-75);
+    font-family: var(--b2b-font-family-default);
+    display: block;
+  }
+}
+
+:host(.b2b-multiselect-dropdown--error) span {
+  color: var(--b2b-color-error-100);
 }

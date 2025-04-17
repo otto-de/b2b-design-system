@@ -9,6 +9,10 @@
 
 | Property             | Attribute             | Description                                                                                                                                 | Type                 | Default     |
 | -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------- |
+| `disabled`           | `disabled`            | Whether or not the field is disabled. Default is false.                                                                                     | `boolean`            | `false`     |
+| `errorMessage`       | `error-message`       | The error message that is shown if the multi select dropdown is invalid.                                                                    | `string`             | `undefined` |
+| `hint`               | `hint`                | The hint text that appears underneath the multi select dropdown field.                                                                      | `string`             | `undefined` |
+| `invalid`            | `invalid`             | Adds an asterisk at the end of the label to signify that the field is required.                                                             | `boolean`            | `false`     |
 | `label` _(required)_ | `label`               | The input label.                                                                                                                            | `string`             | `undefined` |
 | `maxOptionsVisible`  | `max-options-visible` | The maximum amount of chips visible. Adjust this depending on available size of the dropdown.                                               | `number`             | `8`         |
 | `optionsList`        | `options-list`        | The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. | `string \| string[]` | `[]`        |

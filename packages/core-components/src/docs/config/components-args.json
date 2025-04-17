@@ -2982,6 +2982,52 @@
     }
   },
   "b2b-multiselect-dropdown": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether or not the field is disabled. Default is false."
+    },
+    "errorMessage": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The error message that is shown if the multi select dropdown is invalid."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The hint text that appears underneath the multi select dropdown field."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
     "label": {
       "table": {
         "type": {
