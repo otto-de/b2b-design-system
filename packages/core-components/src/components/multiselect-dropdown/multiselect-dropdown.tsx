@@ -42,6 +42,18 @@ export class B2bMultiSelectDropdown {
   /** Adds an asterisk at the end of the label to signify that the field is required. */
   @Prop({ reflect: true }) required: boolean = false;
 
+  /** Adds an asterisk at the end of the label to signify that the field is required. */
+  @Prop({ reflect: true }) invalid: boolean = false;
+
+  /** The error message that is shown if the multi select dropdown is invalid. */
+  @Prop() errorMessage?: string;
+
+  /** The hint text that appears underneath the multi select dropdown field. */
+  @Prop() hint?: string;
+
+  /** Whether or not the field is disabled. Default is false. */
+  @Prop({ reflect: true }) disabled: boolean = false;
+
   /** Emits when there is a change to the currently selected values. */
   @Event({ eventName: 'b2b-selected' })
   b2bChange: EventEmitter<string[]>;
@@ -108,6 +120,9 @@ export class B2bMultiSelectDropdown {
   }
 
   private handleInput = event => {
+    if (this.disabled) {
+      return;
+    }
     this.value = event.target.value.toLowerCase();
     if (this.value !== '') {
       const filteredList = (this.optionsList as string[]).filter(
@@ -188,6 +203,7 @@ export class B2bMultiSelectDropdown {
   };
 
   private setElementOnFocus = () => {
+    if (this.disabled) return;
     this.isElementFocused = true;
   };
 
@@ -196,6 +212,7 @@ export class B2bMultiSelectDropdown {
   };
 
   private resetFocus = () => {
+    if (this.disabled) return;
     const el = this.hostElement.shadowRoot.querySelector(
       '.b2b-multiselect-dropdown',
     ) as HTMLElement;
@@ -204,6 +221,11 @@ export class B2bMultiSelectDropdown {
 
   private handleMouseDown = (event: MouseEvent) => {
     /** Keep dropdown open if a tag is removed */
+    if (this.disabled) {
+      event.preventDefault();
+      return;
+    }
+
     if (this.isElementFocused) {
       event.preventDefault();
     } else {
@@ -212,6 +234,8 @@ export class B2bMultiSelectDropdown {
   };
 
   private handleKeyDown = (event: KeyboardEvent) => {
+    if (this.disabled) return;
+
     if (event.key === 'Enter') {
       event.preventDefault();
       this.resetFocus();
@@ -266,6 +290,10 @@ export class B2bMultiSelectDropdown {
           class={{
             'b2b-multiselect-dropdown': true,
             'b2b-multiselect-dropdown--open': this.isElementFocused,
+            'b2b-multiselect-dropdown--error': this.invalid && !this.disabled,
+            'b2b-multiselect-dropdown--disabled': this.disabled,
+            'b2b-multiselect-dropdown--focused':
+              this.invalid && this.isElementFocused,
           }}
           tabindex={0}
           role="combobox"
@@ -314,6 +342,19 @@ export class B2bMultiSelectDropdown {
               ))}
           </div>
         </div>
+        {(this.hint !== undefined && !this.invalid) ||
+        (this.hint !== undefined && this.disabled) ? (
+          <span>{this.hint}</span>
+        ) : (
+          ''
+        )}
+        {this.errorMessage !== undefined && this.invalid && !this.disabled ? (
+          <span class="b2b-multiselect-dropdown__error-message">
+            {this.errorMessage}
+          </span>
+        ) : (
+          ''
+        )}
       </Host>
     );
   }
