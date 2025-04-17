@@ -809,6 +809,10 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required": boolean;
+        /**
           * The placeholder shown in the search bar.
          */
         "searchPlaceholder": string;
@@ -3341,6 +3345,10 @@ declare namespace LocalJSX {
           * The placeholder shown in the input field.
          */
         "placeholder"?: string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required"?: boolean;
         /**
           * The placeholder shown in the search bar.
          */
