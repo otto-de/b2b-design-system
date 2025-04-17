@@ -793,6 +793,22 @@ export namespace Components {
     }
     interface B2bMultiselectDropdown {
         /**
+          * Whether or not the field is disabled. Default is false.
+         */
+        "disabled": boolean;
+        /**
+          * The error message that is shown if the multi select dropdown is invalid.
+         */
+        "errorMessage"?: string;
+        /**
+          * The hint text that appears underneath the multi select dropdown field.
+         */
+        "hint"?: string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "invalid": boolean;
+        /**
           * The input label.
          */
         "label": string;
@@ -3325,6 +3341,22 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'large';
     }
     interface B2bMultiselectDropdown {
+        /**
+          * Whether or not the field is disabled. Default is false.
+         */
+        "disabled"?: boolean;
+        /**
+          * The error message that is shown if the multi select dropdown is invalid.
+         */
+        "errorMessage"?: string;
+        /**
+          * The hint text that appears underneath the multi select dropdown field.
+         */
+        "hint"?: string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "invalid"?: boolean;
         /**
           * The input label.
          */
