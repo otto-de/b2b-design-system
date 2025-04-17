@@ -49,8 +49,23 @@ export class B2bMultiSelectDropdown {
   @State() isElementFocused = false;
   @State() hasOptionList = this.optionsList.length > 0;
 
+  private parsePropToArray(value: string | string[]): string[] {
+    if (Array.isArray(value)) return value;
+
+    try {
+      return JSON.parse(value);
+    } catch {
+      return value
+        .split(',')
+        .map(v => v.trim())
+        .filter(Boolean);
+    }
+  }
+
   componentWillLoad() {
-    this.parseSelectedValuesAndOptionsList();
+    this.selectedValues = this.parsePropToArray(this.selectedValues);
+    this.optionsList = this.parsePropToArray(this.optionsList);
+    this.currentList = this.optionsList;
     this.currentSelectedValues = (this.selectedValues as string[]).filter(
       value => this.optionsList.includes(value),
     );
@@ -58,29 +73,29 @@ export class B2bMultiSelectDropdown {
 
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
-  watchPropHandler(newList: string[]) {
-    this.hasOptionList = newList.length > 0;
+  watchPropHandler(newList: string[] | string) {
+    this.optionsList = this.parsePropToArray(newList);
+    this.hasOptionList = this.optionsList.length > 0;
     if (this.hasOptionList) {
-      this.currentList = newList;
+      this.currentList = this.optionsList;
+      this.currentSelectedValues = (this.selectedValues as string[]).filter(
+        value => this.optionsList.includes(value),
+      );
     }
+  }
+
+  /** Needed to trigger a re-render for async data */
+  @Watch('selectedValues')
+  handleSelectedValuesChangeFromOutside(newVal: string | string[]) {
+    this.selectedValues = this.parsePropToArray(newVal);
+    this.currentSelectedValues = this.selectedValues.filter(val =>
+      (this.optionsList as string[]).includes(val),
+    );
   }
 
   @Watch('currentSelectedValues')
   handleSelectedValuesChange(newValues: string[]) {
     this.b2bChange.emit(newValues);
-  }
-
-  private parseSelectedValuesAndOptionsList() {
-    if (typeof this.selectedValues === 'string') {
-      this.selectedValues = this.parseStringToArray(this.selectedValues);
-    }
-    if (typeof this.optionsList === 'string') {
-      this.optionsList = this.parseStringToArray(this.optionsList);
-    }
-  }
-
-  private parseStringToArray(value: string): string[] {
-    return JSON.parse(value);
   }
 
   componentDidUpdate() {
@@ -252,15 +267,15 @@ export class B2bMultiSelectDropdown {
           tabindex={0}
           role="combobox"
           aria-expanded={this.isElementFocused}>
-          {this.currentSelectedValues.length === 0 ? (
-            <span class="b2b-multiselect-dropdown__placeholder">
-              {this.placeholder}
-            </span>
-          ) : (
-            <div class="b2b-multiselect-dropdown__chip-container">
-              {this.renderChips()}
-            </div>
-          )}
+          <div class="b2b-multiselect-dropdown__chip-container">
+            {this.currentSelectedValues.length === 0 ? (
+              <span class="b2b-multiselect-dropdown__placeholder">
+                {this.placeholder}
+              </span>
+            ) : (
+              this.renderChips()
+            )}
+          </div>
           <b2b-icon-100 icon="b2b_icon-arrow-down"></b2b-icon-100>
         </div>
         <div
