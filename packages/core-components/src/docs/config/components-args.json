@@ -3029,6 +3029,20 @@
       },
       "description": "The placeholder shown in the input field."
     },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
     "searchPlaceholder": {
       "table": {
         "type": {

@@ -18,6 +18,7 @@ const meta: Meta = {
     selectAllLabel: 'Select All',
     maxOptionsVisible: 8,
     selectedValues: ['Watermelon', 'Banana'],
+    required: false,
   },
   argTypes: {
     ...multiselectArgs,
@@ -32,7 +33,8 @@ const meta: Meta = {
         select-all-label=${args.selectAllLabel}
         placeholder=${args.placeholder}
         search-placeholder=${args.searchPlaceholder}
-        .optionsList=${args.optionsList}>
+        .optionsList=${args.optionsList}
+        required=${args.required}>
       </b2b-multiselect-dropdown>
     </div>`,
 };
@@ -57,7 +59,28 @@ export const InitialSelectedValues: Story = {
         placeholder=${args.placeholder}
         search-placeholder=${args.searchPlaceholder}
         .optionsList=${args.optionsList}
-        .selectedValues=${args.selectedValues}>
+        .selectedValues=${args.selectedValues}
+        required=${args.required}>
+      </b2b-multiselect-dropdown>
+    </div>`,
+};
+
+export const Required: Story = {
+  args: {
+    ...meta.args,
+    required: true,
+  },
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}
+        required=${args.required}>
       </b2b-multiselect-dropdown>
     </div>`,
 };

@@ -39,6 +39,9 @@ export class B2bMultiSelectDropdown {
   /** The maximum amount of chips visible. Adjust this depending on available size of the dropdown. */
   @Prop() maxOptionsVisible: number = 8;
 
+  /** Adds an asterisk at the end of the label to signify that the field is required. */
+  @Prop({ reflect: true }) required: boolean = false;
+
   /** Emits when there is a change to the currently selected values. */
   @Event({ eventName: 'b2b-selected' })
   b2bChange: EventEmitter<string[]>;
@@ -258,7 +261,7 @@ export class B2bMultiSelectDropdown {
         onBlur={this.setElementOnBlur}
         onClick={this.handleMouseDown}
         onKeyDown={this.handleKeyDown}>
-        <b2b-input-label>{this.label}</b2b-input-label>
+        <b2b-input-label required={this.required}>{this.label}</b2b-input-label>
         <div
           class={{
             'b2b-multiselect-dropdown': true,
