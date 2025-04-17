@@ -8,6 +8,7 @@ import {
   Listen,
   Prop,
   State,
+  Watch,
 } from '@stencil/core';
 import {
   DatePickerEventDetail,
@@ -123,7 +124,14 @@ export class B2bDatePicker {
       return value;
     }
     if (typeof value === 'string') {
-      return JSON.parse(value);
+      try {
+        return JSON.parse(value);
+      } catch {
+        return value
+          .split(',')
+          .map(v => v.trim())
+          .filter(Boolean);
+      }
     }
     return [];
   }
@@ -134,27 +142,32 @@ export class B2bDatePicker {
   }
 
   componentWillLoad() {
-    if (this.disableDates !== '' || this.disableDates.length > 0) {
-      const dateString = this.normalizeArrayInput(this.disableDates);
-      this.datesToBeDisabled = dateString.map(date => {
+    const disableDatesArray = this.normalizeArrayInput(this.disableDates);
+    if (disableDatesArray.length > 0) {
+      this.datesToBeDisabled = disableDatesArray.map(date => {
         const [day, month, year] = date.split('.').map(Number);
         return new Date(year, month - 1, day);
       });
     }
-    if (this.disableDays !== '' || this.disableDays.length > 0) {
-      this.normalizedDisableEvery = this.normalizeArrayInput(this.disableDays);
+
+    const disableDaysArray = this.normalizeArrayInput(this.disableDays);
+    if (disableDaysArray.length > 0) {
+      this.normalizedDisableEvery = disableDaysArray;
     }
-    if (this.disableDatesUntil !== '' && this.disableDatesUntil !== undefined) {
+
+    if (this.disableDatesUntil && this.disableDatesUntil !== '') {
       this.normalizedDisableDatesUntil = this.normalizeDisableDatesUntilAndFrom(
         this.disableDatesUntil,
       );
     }
-    if (this.disableDatesFrom !== '' && this.disableDatesFrom !== undefined) {
+
+    if (this.disableDatesFrom && this.disableDatesFrom !== '') {
       this.normalizedDisableDatesFrom = this.normalizeDisableDatesUntilAndFrom(
         this.disableDatesFrom,
       );
     }
-    if (this.preSelectedDate !== undefined) {
+
+    if (this.preSelectedDate) {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
       this.selectedMonth = month - 1;
@@ -162,9 +175,10 @@ export class B2bDatePicker {
       this.setSelectedDateForDisplay();
       this.showDatePicker = false;
     } else {
+      const today = new Date();
       this.selectedDay = undefined;
-      this.selectedMonth = new Date().getMonth();
-      this.selectedYear = new Date().getFullYear();
+      this.selectedMonth = today.getMonth();
+      this.selectedYear = today.getFullYear();
       this.userInputDate = '';
     }
   }
@@ -191,6 +205,20 @@ export class B2bDatePicker {
     } else {
       this.setCurrentMonth(this.selectedMonth - 1);
     }
+  }
+
+  @Watch('disableDates')
+  handleDisableDatesChanged(newVal: string | string[]) {
+    const parsed = this.normalizeArrayInput(newVal);
+    this.datesToBeDisabled = parsed.map(date => {
+      const [day, month, year] = date.split('.').map(Number);
+      return new Date(year, month - 1, day);
+    });
+  }
+
+  @Watch('disableDays')
+  handleDisableDaysChanged(newVal: string | string[]) {
+    this.normalizedDisableEvery = this.normalizeArrayInput(newVal);
   }
 
   private parseDateInput(dateString: string) {
