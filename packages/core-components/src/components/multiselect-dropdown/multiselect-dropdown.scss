@@ -96,7 +96,10 @@
       overflow-y: auto;
       margin: 0;
       background-color: var(--b2b-color-white-100);
-      border: solid 1px var(--b2b-color-grey-200);
+      border-right: var(--b2b-size-1) solid var(--b2b-color-black-100);
+      border-left: var(--b2b-size-1) solid var(--b2b-color-black-100);
+      border-bottom: var(--b2b-size-1) solid var(--b2b-color-black-100);
+      border-top: 2px none -webkit-focus-ring-color;
       box-sizing: border-box;
       z-index: 10;
     }
