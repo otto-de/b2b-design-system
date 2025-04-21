@@ -805,7 +805,7 @@ export namespace Components {
          */
         "hint"?: string;
         /**
-          * Adds an asterisk at the end of the label to signify that the field is required.
+          * Whether the multi select dropdown is currently invalid. Per default, it is false.
          */
         "invalid": boolean;
         /**
@@ -3354,7 +3354,7 @@ declare namespace LocalJSX {
          */
         "hint"?: string;
         /**
-          * Adds an asterisk at the end of the label to signify that the field is required.
+          * Whether the multi select dropdown is currently invalid. Per default, it is false.
          */
         "invalid"?: boolean;
         /**
