@@ -104,8 +104,9 @@ export const TimedSnackbar: Story = {
   args: {
     ...meta.args,
     type: 'info',
+    opened: true,
     timed: true,
-    duration: 3000,
+    duration: 10000,
     description: 'This is timed snackbar',
   },
   play: async () => {

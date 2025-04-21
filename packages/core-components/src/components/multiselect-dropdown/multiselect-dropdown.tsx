@@ -42,7 +42,7 @@ export class B2bMultiSelectDropdown {
   /** Adds an asterisk at the end of the label to signify that the field is required. */
   @Prop({ reflect: true }) required: boolean = false;
 
-  /** Adds an asterisk at the end of the label to signify that the field is required. */
+  /** Whether the multi select dropdown is currently invalid. Per default, it is false. */
   @Prop({ reflect: true }) invalid: boolean = false;
 
   /** The error message that is shown if the multi select dropdown is invalid. */

@@ -82,22 +82,6 @@ export const Required: Story = {
     ...meta.args,
     required: true,
   },
-  render: ({ ...args }) =>
-    html`<div style="width: 400px">
-      <b2b-multiselect-dropdown
-        label=${args.label}
-        max-options-visible=${args.maxOptionsVisible}
-        select-all-label=${args.selectAllLabel}
-        placeholder=${args.placeholder}
-        search-placeholder=${args.searchPlaceholder}
-        .optionsList=${args.optionsList}
-        .selectedValues=${args.selectedValues}
-        required=${args.required}
-        disabled=${args.disabled}
-        invalid=${args.invalid}
-        error-message=${args.errorMessage}>
-      </b2b-multiselect-dropdown>
-    </div>`,
 };
 
 export const Hint: Story = {
@@ -105,23 +89,6 @@ export const Hint: Story = {
     ...meta.args,
     hint: 'please select a value',
   },
-  render: ({ ...args }) =>
-    html`<div style="width: 400px">
-      <b2b-multiselect-dropdown
-        label=${args.label}
-        max-options-visible=${args.maxOptionsVisible}
-        select-all-label=${args.selectAllLabel}
-        placeholder=${args.placeholder}
-        search-placeholder=${args.searchPlaceholder}
-        .optionsList=${args.optionsList}
-        .selectedValues=${args.selectedValues}
-        required=${args.required}
-        hint=${args.hint}
-        disabled=${args.disabled}
-        invalid=${args.invalid}
-        error-message=${args.errorMessage}>
-      </b2b-multiselect-dropdown>
-    </div>`,
 };
 
 export const Disabled: Story = {
@@ -129,23 +96,6 @@ export const Disabled: Story = {
     ...meta.args,
     disabled: true,
   },
-  render: ({ ...args }) =>
-    html`<div style="width: 400px">
-      <b2b-multiselect-dropdown
-        label=${args.label}
-        max-options-visible=${args.maxOptionsVisible}
-        select-all-label=${args.selectAllLabel}
-        placeholder=${args.placeholder}
-        search-placeholder=${args.searchPlaceholder}
-        .optionsList=${args.optionsList}
-        .selectedValues=${args.selectedValues}
-        required=${args.required}
-        hint=${args.hint}
-        disabled=${args.disabled}
-        invalid=${args.invalid}
-        error-message=${args.errorMessage}>
-      </b2b-multiselect-dropdown>
-    </div>`,
 };
 
 export const Invalid: Story = {
@@ -153,23 +103,6 @@ export const Invalid: Story = {
     ...meta.args,
     invalid: true,
   },
-  render: ({ ...args }) =>
-    html`<div style="width: 400px">
-      <b2b-multiselect-dropdown
-        label=${args.label}
-        max-options-visible=${args.maxOptionsVisible}
-        select-all-label=${args.selectAllLabel}
-        placeholder=${args.placeholder}
-        search-placeholder=${args.searchPlaceholder}
-        .optionsList=${args.optionsList}
-        .selectedValues=${args.selectedValues}
-        required=${args.required}
-        hint=${args.hint}
-        disabled=${args.disabled}
-        invalid=${args.invalid}
-        error-message=${args.errorMessage}>
-      </b2b-multiselect-dropdown>
-    </div>`,
 };
 
 export const InvalidWithErrorMessage: Story = {
@@ -178,21 +111,4 @@ export const InvalidWithErrorMessage: Story = {
     invalid: true,
     errorMessage: 'error has occurred',
   },
-  render: ({ ...args }) =>
-    html`<div style="width: 400px">
-      <b2b-multiselect-dropdown
-        label=${args.label}
-        max-options-visible=${args.maxOptionsVisible}
-        select-all-label=${args.selectAllLabel}
-        placeholder=${args.placeholder}
-        search-placeholder=${args.searchPlaceholder}
-        .optionsList=${args.optionsList}
-        .selectedValues=${args.selectedValues}
-        required=${args.required}
-        hint=${args.hint}
-        disabled=${args.disabled}
-        invalid=${args.invalid}
-        error-message=${args.errorMessage}>
-      </b2b-multiselect-dropdown>
-    </div>`,
 };
