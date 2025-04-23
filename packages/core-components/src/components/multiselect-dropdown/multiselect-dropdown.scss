@@ -53,10 +53,6 @@
       outline-offset: -1px;
     }
 
-    &.b2b-multiselect-dropdown--open.b2b-multiselect-dropdown--error {
-      border-color: var(--b2b-color-error-100);
-    }
-
     &__chip-container {
       display: flex;
       flex-flow: row wrap;
