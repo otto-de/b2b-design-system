@@ -28,8 +28,8 @@ exports[`B2B Input Group should not render a group error if the group is invalid
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--disabled" disabled="">
     <mock:shadow-root>
-      <div aria-expanded="false" class="b2b-dropdown__wrapper">
-        <div class="b2b-dropdown__select" role="combobox">
+      <div class="b2b-dropdown__wrapper">
+        <div aria-expanded="false" class="b2b-dropdown__select" role="combobox">
           Select an option...
         </div>
       </div>
@@ -84,8 +84,8 @@ exports[`B2B Input Group should render a group error if one is specified and the
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown b2b-dropdown--error" invalid="">
     <mock:shadow-root>
-      <div aria-expanded="false" class="b2b-dropdown__wrapper">
-        <div class="b2b-dropdown__select" role="combobox">
+      <div class="b2b-dropdown__wrapper">
+        <div aria-expanded="false" class="b2b-dropdown__select" role="combobox">
           Select an option...
         </div>
       </div>
@@ -140,8 +140,8 @@ exports[`B2B Input Group should render a group hint if it is specified 1`] = `
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown">
     <mock:shadow-root>
-      <div aria-expanded="false" class="b2b-dropdown__wrapper">
-        <div class="b2b-dropdown__select" role="combobox">
+      <div class="b2b-dropdown__wrapper">
+        <div aria-expanded="false" class="b2b-dropdown__select" role="combobox">
           Select an option...
         </div>
       </div>
@@ -193,8 +193,8 @@ exports[`B2B Input Group should render content wrapped in the input group 1`] = 
   </b2b-input>
   <b2b-dropdown class="b2b-dropdown">
     <mock:shadow-root>
-      <div aria-expanded="false" class="b2b-dropdown__wrapper">
-        <div class="b2b-dropdown__select" role="combobox">
+      <div class="b2b-dropdown__wrapper">
+        <div aria-expanded="false" class="b2b-dropdown__select" role="combobox">
           Select an option...
         </div>
       </div>
