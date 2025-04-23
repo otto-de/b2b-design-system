@@ -68,112 +68,133 @@ export class DropdownComponent {
     disabled: boolean;
   }[] = [];
 
-  private onSelect = (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
-    const value = target.getAttribute('data-value');
-    const label = target.textContent;
-    this.focused = true;
+  private selectEl!: HTMLDivElement;
+  private truncatedText = '';
 
-    if (value) {
-      this.selectedText = label || '';
-      this.selectedValue = value;
-      // this.value = value;
-      this.b2bChange.emit(value);
-
-      this.options = this.options.map(option => ({
-        ...option,
-        selected: option.value === value,
-      }));
-
-      this.isOpen = false;
-    }
-  };
-
-  private onFocus = (ev: FocusEvent) => {
-    this.b2bFocus.emit(ev);
-    this.focused = true;
-  };
-
-  private onBlur = (ev: FocusEvent) => {
-    this.b2bBlur.emit(ev);
-  };
-
-  private toggleDropdown = () => {
-    if (!this.disabled) {
-      this.isOpen = !this.isOpen;
-    }
-  };
-
-  private closeDropdown = () => {
-    this.isOpen = false;
-  };
-
-  private onClickOutside = (ev: MouseEvent) => {
-    if (this.hostElement && !this.hostElement.contains(ev.target as Node)) {
-      this.closeDropdown();
-      this.focused = false;
-    }
-  };
+  componentWillLoad() {
+    this.selectedValue = this.placeholderValue || '';
+    this.selectedText = '';
+  }
 
   componentDidLoad() {
+    this.initializeOptions();
+    this.updateTruncatedText();
     document.addEventListener('click', this.onClickOutside);
-    const trigger = this.hostElement.querySelector(
-      '.b2b-dropdown__select',
-    ) as HTMLElement;
-    const options = this.hostElement.querySelector(
-      '.b2b-dropdown__options',
-    ) as HTMLElement;
-
-    if (trigger && options) {
-      options.style.width = `${trigger.offsetWidth}px`; // Dynamically match the width of the trigger
-    }
+    window.addEventListener('resize', this.updateTruncatedText);
   }
 
   disconnectedCallback() {
     document.removeEventListener('click', this.onClickOutside);
+    window.removeEventListener('resize', this.updateTruncatedText);
   }
 
   @Watch('isOpen')
   watchDropdownState() {
-    if (this.isOpen) {
-      this.closeOtherDropdowns();
+    if (this.isOpen) this.closeOtherDropdowns();
+  }
+
+  private initializeOptions() {
+    const nativeOptions = Array.from(
+      this.hostElement.querySelectorAll('option'),
+    );
+    this.options = nativeOptions.map(opt => ({
+      value: opt.value,
+      label: opt.textContent?.trim() || '',
+      selected: opt.hasAttribute('selected'),
+      disabled: opt.hasAttribute('disabled'),
+    }));
+
+    const selected = this.options.find(o => o.selected);
+    if (selected) {
+      this.selectedValue = selected.value;
+      this.selectedText = selected.label;
     }
   }
 
+  private onClickOutside = (ev: MouseEvent) => {
+    if (!this.hostElement.contains(ev.target as Node)) this.isOpen = false;
+  };
+
+  private toggleDropdown = () => {
+    if (!this.disabled) this.isOpen = !this.isOpen;
+  };
+
+  private onFocus = (ev: FocusEvent) => {
+    this.focused = true;
+    this.b2bFocus.emit(ev);
+  };
+
+  private onBlur = (ev: FocusEvent) => {
+    this.focused = false;
+    this.b2bBlur.emit(ev);
+  };
+
   private closeOtherDropdowns() {
-    // Close any other dropdowns on the page if they are open
-    const otherDropdowns = document.querySelectorAll('b2b-dropdown');
-    otherDropdowns.forEach(dropdown => {
-      if (dropdown !== this.hostElement) {
-        (dropdown as any).isOpen = false;
-      }
+    const others = document.querySelectorAll('b2b-dropdown');
+    others.forEach(el => {
+      if (el !== this.hostElement) (el as any).isOpen = false;
     });
   }
 
-  componentWillLoad() {
-    const options = Array.from(this.hostElement.querySelectorAll('option'));
-    this.options = options.map(option => ({
-      value: option.value,
-      label: option.textContent || '',
-      selected: option.hasAttribute('selected'),
-      disabled: option.hasAttribute('disabled'),
-    }));
+  private onSelect = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    const value = target.getAttribute('data-value');
+    const label = target.textContent?.trim();
 
-    const selectedOption = this.options.find(option => option.selected);
-    this.selectedText = selectedOption?.label || this.placeholder;
-    this.selectedValue = selectedOption?.value;
-  }
+    if (value) {
+      this.selectedValue = value;
+      this.selectedText = label || '';
+      this.b2bChange.emit(value);
+
+      this.options = this.options.map(opt => ({
+        ...opt,
+        selected: opt.value === value,
+      }));
+
+      this.isOpen = false;
+      this.updateTruncatedText();
+    }
+  };
+
+  private updateTruncatedText = () => {
+    if (!this.selectEl) return;
+
+    const rawText = this.selectedText || this.placeholder;
+    const style = window.getComputedStyle(this.selectEl);
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+    const availableWidth =
+      this.selectEl.clientWidth - parseFloat(style.paddingRight || '0') - 24;
+
+    if (ctx.measureText(rawText).width <= availableWidth) {
+      this.truncatedText = rawText;
+      return;
+    }
+
+    let truncated = '';
+    for (let i = 0; i < rawText.length; i++) {
+      const test = rawText.slice(0, i + 1) + '…';
+      if (ctx.measureText(test).width > availableWidth) break;
+      truncated = rawText.slice(0, i + 1);
+    }
+
+    this.truncatedText = truncated + '…';
+  };
 
   render() {
-    const options = Array.from(this.hostElement.children).filter(
-      child => child.nodeName.toLowerCase() === 'option',
-    ) as HTMLOptionElement[];
+    const hasError = this.invalid && !this.disabled;
+    const showHint = this.hint && (!this.invalid || this.disabled);
+    const showError = this.error && hasError;
 
     return (
       <Host
         class={{
           'b2b-dropdown': true,
-          'b2b-dropdown--error': this.invalid && !this.disabled,
+          'b2b-dropdown--error': hasError,
           'b2b-dropdown--disabled': this.disabled,
         }}>
         {this.label && (
@@ -181,57 +202,49 @@ export class DropdownComponent {
             {this.label}
           </b2b-input-label>
         )}
+
         <div
-          class={{
-            'b2b-dropdown__wrapper': true,
-            'b2b-dropdown__wrapper--focused': this.focused,
-          }}
+          class="b2b-dropdown__wrapper"
           onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          aria-expanded={this.isOpen ? 'true' : 'false'}>
+          onBlur={this.onBlur}>
           <div
             class={{
               'b2b-dropdown__select': true,
               'b2b-dropdown__select--open': this.isOpen,
+              'b2b-dropdown__select--focused': this.focused,
             }}
+            ref={el => (this.selectEl = el as HTMLDivElement)}
             onClick={this.toggleDropdown}
             role="combobox"
-            aria-labelledby={this.name}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}>
-            {this.selectedText || this.placeholder}
+            aria-expanded={`${this.isOpen}`}
+            aria-labelledby={this.name}>
+            {this.selectedText ? this.truncatedText : this.placeholder}
           </div>
 
           {this.isOpen && (
             <div class="b2b-dropdown__options" role="listbox">
-              {options.map(option => (
+              {this.options.map(option => (
                 <div
-                  class={`b2b-dropdown__option ${
-                    option.selected ? 'b2b-dropdown__option--selected' : ''
-                  } ${option.disabled ? 'b2b-dropdown__option--disabled' : ''}`}
+                  key={option.value}
+                  class={{
+                    'b2b-dropdown__option': true,
+                    'b2b-dropdown__option--selected': option.selected,
+                    'b2b-dropdown__option--disabled': option.disabled,
+                  }}
                   data-value={option.value}
                   onClick={!option.disabled ? this.onSelect : undefined}
                   role="option"
                   aria-selected={option.selected ? 'true' : 'false'}
                   aria-disabled={option.disabled ? 'true' : 'false'}>
-                  {option.textContent}
+                  {option.label}
                 </div>
               ))}
             </div>
           )}
         </div>
 
-        {(this.hint !== undefined && !this.invalid) ||
-        (this.hint !== undefined && this.disabled) ? (
-          <span>{this.hint}</span>
-        ) : (
-          ''
-        )}
-        {this.error !== undefined && this.invalid && !this.disabled ? (
-          <span>{this.error}</span>
-        ) : (
-          ''
-        )}
+        {showHint && <span>{this.hint}</span>}
+        {showError && <span>{this.error}</span>}
       </Host>
     );
   }
