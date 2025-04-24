@@ -1448,7 +1448,7 @@
           "summary": "'left'"
         }
       },
-      "description": "The alignment of text placed inside of a column. Note that this will apply to all children."
+      "description": "The alignment of text placed inside a column. Note that this will apply to all children."
     }
   },
   "b2b-grid-row": {

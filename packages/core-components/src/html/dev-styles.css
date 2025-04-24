@@ -97,3 +97,8 @@ h1 {
   background-color: #ffdde3;
   height: 100px;
 }
+
+.grid-col-style {
+  border: 1px solid red;
+  box-sizing: border-box;
+}
