@@ -65,7 +65,9 @@
     background-color: var(--b2b-color-white-100);
     max-height: 200px;
     margin: 0;
-    border: solid 1px var(--b2b-color-grey-200);
+    border-right: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    border-left: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    border-bottom: var(--b2b-size-1) solid var(--b2b-color-black-100);
     margin-top: 0;
     border-top: none;
     text-align: left;
