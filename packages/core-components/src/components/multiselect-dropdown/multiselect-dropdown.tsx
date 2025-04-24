@@ -62,6 +62,7 @@ export class B2bMultiSelectDropdown {
   @State() currentList = this.optionsList;
   @State() value = '';
   @State() isElementFocused = false;
+  @State() isOpen = false;
   @State() hasOptionList = this.optionsList.length > 0;
 
   private parsePropToArray(value: string | string[]): string[] {
@@ -185,6 +186,7 @@ export class B2bMultiSelectDropdown {
       el => el !== event.detail.value,
     );
     this.updateOption(event.detail.value);
+    this.isOpen = true;
     this.resetFocus();
   };
 
@@ -207,7 +209,15 @@ export class B2bMultiSelectDropdown {
     this.isElementFocused = true;
   };
 
-  private setElementOnBlur = () => {
+  private setElementOnBlur = (event?: FocusEvent) => {
+    const nextFocusedElement = event?.relatedTarget as Node | null;
+
+    if (!nextFocusedElement || !this.hostElement.contains(nextFocusedElement)) {
+      this.isOpen = false;
+    } else {
+      this.isOpen = true;
+    }
+
     this.isElementFocused = false;
   };
 
@@ -289,7 +299,7 @@ export class B2bMultiSelectDropdown {
         <div
           class={{
             'b2b-multiselect-dropdown': true,
-            'b2b-multiselect-dropdown--open': this.isElementFocused,
+            'b2b-multiselect-dropdown--open': this.isOpen,
             'b2b-multiselect-dropdown--error': this.invalid && !this.disabled,
             'b2b-multiselect-dropdown--disabled': this.disabled,
             'b2b-multiselect-dropdown--focused':
@@ -297,6 +307,7 @@ export class B2bMultiSelectDropdown {
           }}
           tabindex={0}
           role="combobox"
+          onClick={() => (this.isOpen = !this.isOpen)}
           aria-expanded={this.isElementFocused}>
           <div class="b2b-multiselect-dropdown__chip-container">
             {this.currentSelectedValues.length === 0 ? (
@@ -312,8 +323,7 @@ export class B2bMultiSelectDropdown {
         <div
           class={{
             'b2b-multiselect-dropdown__options-container': true,
-            'b2b-multiselect-dropdown__options-container--visible':
-              this.isElementFocused,
+            'b2b-multiselect-dropdown__options-container--visible': this.isOpen,
           }}>
           <div
             class="b2b-multiselect-dropdown__options"
@@ -344,7 +354,7 @@ export class B2bMultiSelectDropdown {
         </div>
         {(this.hint !== undefined && !this.invalid) ||
         (this.hint !== undefined && this.disabled) ? (
-          <span>{this.hint}</span>
+          <span class="b2b-multiselect-dropdown__hint">{this.hint}</span>
         ) : (
           ''
         )}
