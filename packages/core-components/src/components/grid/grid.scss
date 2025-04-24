@@ -3,9 +3,3 @@
   margin: 0 auto;
   box-sizing: border-box;
 }
-
-:host(.b2b-grid-col) {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}

@@ -522,7 +522,7 @@ export namespace Components {
     | 11
     | 12;
         /**
-          * The alignment of text placed inside of a column. Note that this will apply to all children.
+          * The alignment of text placed inside a column. Note that this will apply to all children.
          */
         "textAlign": 'left' | 'center' | 'right';
     }
@@ -3031,7 +3031,7 @@ declare namespace LocalJSX {
     | 11
     | 12;
         /**
-          * The alignment of text placed inside of a column. Note that this will apply to all children.
+          * The alignment of text placed inside a column. Note that this will apply to all children.
          */
         "textAlign"?: 'left' | 'center' | 'right';
     }

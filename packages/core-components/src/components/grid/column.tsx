@@ -22,7 +22,7 @@ export class B2bGridColumnComponent {
     | 11
     | 12;
 
-  /** The alignment of text placed inside of a column. Note that this will apply to all children. */
+  /** The alignment of text placed inside a column. Note that this will apply to all children. */
   @Prop() textAlign: 'left' | 'center' | 'right' = 'left';
 
   private calculateGrowDimension = (span: number | undefined) => {
@@ -40,7 +40,6 @@ export class B2bGridColumnComponent {
         style={{
           ...this.calculateGrowDimension(this.span),
           ['text-align']: `${this.textAlign}`,
-          ['min-width']: '1px',
         }}>
         <slot></slot>
       </Host>
