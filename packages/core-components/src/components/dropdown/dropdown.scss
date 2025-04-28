@@ -59,6 +59,7 @@
       z-index: 9999;
     }
   }
+
   .b2b-dropdown__options {
     display: block;
     background-color: var(--b2b-color-white-100);
@@ -89,6 +90,7 @@
     display: block;
     width: 100%;
     box-sizing: border-box;
+
     &:hover {
       background-color: var(--b2b-color-hover-default);
     }

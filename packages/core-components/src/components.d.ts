@@ -446,6 +446,10 @@ export namespace Components {
     }
     interface B2bDropdown {
         /**
+          * Method to programmatically clear selection of the dropdown.
+         */
+        "clearSelection": () => Promise<void>;
+        /**
           * Whether the select as a whole is disabled. Per default it is false.
          */
         "disabled": boolean;

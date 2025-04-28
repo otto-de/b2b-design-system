@@ -8,6 +8,7 @@ import {
   Element,
   State,
   Watch,
+  Method,
 } from '@stencil/core';
 
 @Component({
@@ -56,6 +57,19 @@ export class DropdownComponent {
   /** Emits whenever the dropdown loses focus. */
   @Event({ eventName: 'b2b-blur' })
   b2bBlur: EventEmitter<FocusEvent>;
+
+  /** Method to programmatically clear selection of the dropdown. */
+  @Method()
+  async clearSelection() {
+    this.selectedValue = this.placeholderValue || '';
+    this.selectedText = this.placeholder || 'Select an option...';
+    this.options = this.options.map(opt => ({
+      ...opt,
+      selected: false,
+    }));
+    this.isOpen = false;
+    this.updateTruncatedText();
+  }
 
   @State() isOpen: boolean = false;
   @State() private focused: boolean = false;
