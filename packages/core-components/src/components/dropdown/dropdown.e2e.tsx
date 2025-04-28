@@ -62,4 +62,15 @@ describe('B2B-Dropdown', () => {
 
     expect(element).toHaveClass('b2b-dropdown--error');
   });
+
+  it('should clear the selection and reset to placeholder', async () => {
+    const dropdown = await page.find('b2b-dropdown');
+    await dropdown.callMethod('clearSelection');
+    await page.waitForChanges();
+    const selectedTextElementAfter = await dropdown.shadowRoot.querySelector(
+      '.b2b-dropdown__select',
+    );
+    expect(selectedTextElementAfter).not.toBeNull();
+    expect(selectedTextElementAfter.textContent).toBe('Select an option...');
+  });
 });
