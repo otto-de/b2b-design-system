@@ -1,3 +1,20 @@
+# [1.28.0](https://github.com/otto-de/b2b-design-system/compare/v1.27.0...v1.28.0) (2025-04-29)
+
+
+### Bug Fixes
+
+* **Grid:** [BLA-1307] Fix the grid component responsiveness ([#569](https://github.com/otto-de/b2b-design-system/issues/569)) ([be52539](https://github.com/otto-de/b2b-design-system/commit/be5253922cde01e236d862ef2e5257c2b7a44597))
+* **MultiselectDropdown:** [BLA-1320] Handle the asynchronous loading of selected options ([bcc4219](https://github.com/otto-de/b2b-design-system/commit/bcc421925578220a20a2a1101f8d7e95e97b3ffd))
+* **snackbar:** [NEPTUNE-4648] Fix opened attribute update ([#566](https://github.com/otto-de/b2b-design-system/issues/566)) ([b4388b3](https://github.com/otto-de/b2b-design-system/commit/b4388b32b92f7158f10181ad73ffb13f5fcfbabe))
+
+
+### Features
+
+* **Datepicker:** [BLA-1320] Handle asynchronous rendering for array props ([32d67d0](https://github.com/otto-de/b2b-design-system/commit/32d67d0d20ba26145062de9ece3ec1ec5dfb29c7))
+* **MultiselectDropdown:** [BLA-1320] Adds hint invalid and error message props ([d13109d](https://github.com/otto-de/b2b-design-system/commit/d13109d6dd85e5ac6463f438956155862eb4c863))
+* **MultiselectDropdown:** [BLA-1320] Adds pro to add hint invalid and disabled states ([78759db](https://github.com/otto-de/b2b-design-system/commit/78759db08bdedb88055df5c21b15350bf90003e8))
+* **MultiselectDropdown:** [BLA-1320] Adds required attribute to multiselect dropdown ([ab3af1a](https://github.com/otto-de/b2b-design-system/commit/ab3af1adbe1c0316b6b41dc0f28cef51fe4e42e6))
+
 # [1.27.0](https://github.com/otto-de/b2b-design-system/compare/v1.26.3...v1.27.0) (2025-04-03)
 
 
