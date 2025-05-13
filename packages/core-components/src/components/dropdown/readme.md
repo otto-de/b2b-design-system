@@ -29,6 +29,19 @@
 | `b2b-focus`  | Emits whenever the dropdown receives focus.       | `CustomEvent<FocusEvent>` |
 
 
+## Methods
+
+### `clearSelection() => Promise<void>`
+
+Method to programmatically clear selection of the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

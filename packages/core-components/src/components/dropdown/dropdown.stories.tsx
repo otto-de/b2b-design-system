@@ -24,6 +24,12 @@ const Template: StoryFn = ({
     <option value="orange">Orange</option>
     <option value="banana">Banana</option>
     <option value="pineapple">Pineapple</option>
+    <option value="grapes">Grapes</option>
+    <option value="watermelon">Watermelon</option>
+    <option value="papaya">Papaya</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="kiwi">Kiwi</option>
+    <option value="pomegranate">Pomegranate</option>
     <option value="apple" disabled>Apple</option>
   </b2b-dropdown>`;
 };
