@@ -48,7 +48,7 @@
       outline: 2px solid -webkit-focus-ring-color;
       border-radius: var(--b2b-border-radius);
       outline-offset: -1px;
-      z-index: 9999;
+      z-index: 300;
     }
 
     &--open {
@@ -56,14 +56,15 @@
       outline: 2px solid -webkit-focus-ring-color;
       border-radius: var(--b2b-border-radius);
       outline-offset: -1px;
-      z-index: 9999;
+      z-index: 1001;
     }
   }
 
   .b2b-dropdown__options {
     display: block;
     background-color: var(--b2b-color-white-100);
-    max-height: 200px;
+    max-height: calc(8 * 36px);
+    overflow-y: auto;
     margin: 0;
     border-right: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-left: var(--b2b-size-1) solid var(--b2b-color-black-100);
@@ -76,7 +77,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
     box-sizing: border-box;
     white-space: pre-wrap;
   }
