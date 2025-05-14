@@ -1,3 +1,11 @@
+## [1.28.1](https://github.com/otto-de/b2b-design-system/compare/v1.28.0...v1.28.1) (2025-05-14)
+
+
+### Bug Fixes
+
+* **core:** move stencil-eslint-plugin to devDependencies ([#571](https://github.com/otto-de/b2b-design-system/issues/571)) ([e76fbf3](https://github.com/otto-de/b2b-design-system/commit/e76fbf303cea2fa42a223464adbbf383a54f3674))
+* **Dropdown:** [BLA-1362] fix the dropdown options not fitting to the container ([a89aa7d](https://github.com/otto-de/b2b-design-system/commit/a89aa7d7807bdd1b38cdc1a84b011d489b9106dc))
+
 # [1.28.0](https://github.com/otto-de/b2b-design-system/compare/v1.27.0...v1.28.0) (2025-04-29)
 
 
