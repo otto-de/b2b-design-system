@@ -58,6 +58,8 @@ export class DropdownComponent {
   @Event({ eventName: 'b2b-blur' })
   b2bBlur: EventEmitter<FocusEvent>;
 
+  private mutationObserver?: MutationObserver;
+
   /** Method to programmatically clear selection of the dropdown. */
   @Method()
   async clearSelection() {
@@ -90,16 +92,41 @@ export class DropdownComponent {
     this.selectedText = '';
   }
 
+  private refreshOptions() {
+    const optionElements = Array.from(
+      this.hostElement.querySelectorAll('option'),
+    );
+    this.options = optionElements.map(option => ({
+      value: option.getAttribute('value') || '',
+      label: option.textContent?.trim() || '',
+      selected: option.hasAttribute('selected'),
+      disabled: option.hasAttribute('disabled'),
+    }));
+  }
+
   componentDidLoad() {
     this.initializeOptions();
     this.updateTruncatedText();
     document.addEventListener('click', this.onClickOutside);
     window.addEventListener('resize', this.updateTruncatedText);
+    this.refreshOptions();
+    if (typeof MutationObserver !== 'undefined') {
+      this.mutationObserver = new MutationObserver(() => {
+        this.refreshOptions();
+      });
+      this.mutationObserver.observe(this.hostElement, {
+        childList: true,
+        subtree: true,
+      });
+    }
   }
 
   disconnectedCallback() {
     document.removeEventListener('click', this.onClickOutside);
     window.removeEventListener('resize', this.updateTruncatedText);
+    if (this.mutationObserver) {
+      this.mutationObserver.disconnect();
+    }
   }
 
   @Watch('isOpen')

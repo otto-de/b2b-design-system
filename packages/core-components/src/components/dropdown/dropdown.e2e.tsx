@@ -73,4 +73,46 @@ describe('B2B-Dropdown', () => {
     expect(selectedTextElementAfter).not.toBeNull();
     expect(selectedTextElementAfter.textContent).toBe('Select an option...');
   });
+
+  it('should render dynamically added <option> elements using MutationObserver', async () => {
+    const page = await newE2EPage({
+      html: `<b2b-dropdown label="Fruits"></b2b-dropdown>`,
+    });
+
+    await page.evaluate(() => {
+      const dropdown = document.querySelector('b2b-dropdown');
+      const opt1 = document.createElement('option');
+      opt1.value = 'apple';
+      opt1.textContent = 'Apple';
+
+      const opt2 = document.createElement('option');
+      opt2.value = 'banana';
+      opt2.textContent = 'Banana';
+
+      dropdown.appendChild(opt1);
+      dropdown.appendChild(opt2);
+    });
+
+    const count = await page.evaluate(async () => {
+      const dropdown = document.querySelector('b2b-dropdown');
+      if (!dropdown) return -1;
+
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      const options = dropdown.querySelectorAll('option');
+      return options.length;
+    });
+
+    expect(count).toBe(2);
+    const dropdownPage = await page.$('b2b-dropdown');
+
+    const renderedOptions = await dropdownPage.$$('option');
+
+    const texts = await Promise.all(
+      renderedOptions.map(opt => opt.evaluate(el => el.textContent?.trim())),
+    );
+
+    expect(texts).toContain('Apple');
+    expect(texts).toContain('Banana');
+  });
 });
