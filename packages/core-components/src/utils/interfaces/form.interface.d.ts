@@ -26,6 +26,8 @@ export interface DateSelectedEventDetail {
   selectedDate: Date;
 }
 
+export interface DateClear<T = any> {}
+
 export interface MultiSelectOptionEventDetail {
   selected: boolean;
   selectedOption: string;
