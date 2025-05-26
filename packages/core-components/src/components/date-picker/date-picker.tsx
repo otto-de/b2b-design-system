@@ -11,6 +11,7 @@ import {
   Watch,
 } from '@stencil/core';
 import {
+  DateClear,
   DatePickerEventDetail,
   DatePickerViewChangedEventDetail,
   MonthSelectedEventDetail,
@@ -88,6 +89,10 @@ export class B2bDatePicker {
   /** Emits the selected date as Date type. */
   @Event({ eventName: 'b2b-selected' })
   b2bSelected: EventEmitter<DatePickerEventDetail>;
+
+  /** Emits when the user clicks the clear button. */
+  @Event({ eventName: 'b2b-clear' })
+  b2bClear: EventEmitter<DateClear>;
 
   private readonly DISABLED_DATE_ERROR_MESSAGE =
     'Auswahl nicht möglich, bitte gültiges Datum auswählen.';
@@ -436,6 +441,7 @@ export class B2bDatePicker {
   private clearDateInput = () => {
     this.selectedDay = undefined;
     this.userInputDate = undefined;
+    this.b2bClear.emit();
   };
 
   private setSelectedDate() {

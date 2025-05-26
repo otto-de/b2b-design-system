@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-import { CheckboxEventDetail, ChipComponentEventDetail, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
+import { CheckboxEventDetail, ChipComponentEventDetail, DateClear, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
 import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
 import { IconName as IconName2 } from "./components/icon-50/types";
@@ -16,7 +16,7 @@ import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-export { CheckboxEventDetail, ChipComponentEventDetail, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
+export { CheckboxEventDetail, ChipComponentEventDetail, DateClear, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
 export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
 export { IconName as IconName2 } from "./components/icon-50/types";
@@ -1724,6 +1724,7 @@ declare global {
     };
     interface HTMLB2bDatePickerElementEventMap {
         "b2b-selected": DatePickerEventDetail;
+        "b2b-clear": DateClear;
     }
     interface HTMLB2bDatePickerElement extends Components.B2bDatePicker, HTMLStencilElement {
         addEventListener<K extends keyof HTMLB2bDatePickerElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerElement, ev: B2bDatePickerCustomEvent<HTMLB2bDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2830,6 +2831,10 @@ declare namespace LocalJSX {
           * The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german
          */
         "language"?: 'de' | 'en';
+        /**
+          * Emits when the user clicks the clear button.
+         */
+        "onB2b-clear"?: (event: B2bDatePickerCustomEvent<DateClear>) => void;
         /**
           * Emits the selected date as Date type.
          */
