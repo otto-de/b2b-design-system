@@ -1,6 +1,9 @@
 @use '../../global/b2b-styles';
 
-:host {
+:host{
+  position: relative;
+}
+
   .b2b-date-picker {
     position: relative;
     z-index: 300;
@@ -92,18 +95,18 @@
   }
 
   .b2b-date-picker-body {
-    position: relative;
+    position: absolute;
     border-right: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-left: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-bottom: var(--b2b-size-1) solid var(--b2b-color-black-100);
-    border-top: 2px none -webkit-focus-ring-color;
     outline-offset: -1px;
     width: 300px;
     box-sizing: border-box;
+    margin-top: 1px;
     padding-bottom: var(--b2b-size-40);
     outline: none;
     background-color: var(--b2b-color-white-100);
-    z-index: 200;
+    z-index: 400;
 
     &--hidden {
       display: none;
@@ -127,4 +130,4 @@
   .b2b-event-icon {
     display: block;
   }
-}
+
