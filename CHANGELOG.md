@@ -1,3 +1,15 @@
+# [1.29.0](https://github.com/otto-de/b2b-design-system/compare/v1.28.1...v1.29.0) (2025-05-27)
+
+
+### Bug Fixes
+
+* **dropdown:** [BLA-1382] Fix dropdown asynchronous load of option data ([#573](https://github.com/otto-de/b2b-design-system/issues/573)) ([8a61340](https://github.com/otto-de/b2b-design-system/commit/8a6134036b64ae0c43f7a1444d79fa09efeb5d03))
+
+
+### Features
+
+* **Datepicker:** [BLA-1404] Emit an event when clear icon is clicked ([048ba3b](https://github.com/otto-de/b2b-design-system/commit/048ba3b3e90b09be5d501f37da92ec49e112343b))
+
 ## [1.28.1](https://github.com/otto-de/b2b-design-system/compare/v1.28.0...v1.28.1) (2025-05-14)
 
 
