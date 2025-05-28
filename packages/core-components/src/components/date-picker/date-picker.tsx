@@ -226,6 +226,33 @@ export class B2bDatePicker {
     this.normalizedDisableEvery = this.normalizeArrayInput(newVal);
   }
 
+  @Watch('disableDatesUntil')
+  handleDisableDatesUntilChanged(newVal: string) {
+    this.normalizedDisableDatesUntil =
+      this.normalizeDisableDatesUntilAndFrom(newVal);
+  }
+
+  @Watch('disableDatesFrom')
+  handleDisableDatesFromChanged(newVal: string) {
+    this.normalizedDisableDatesFrom =
+      this.normalizeDisableDatesUntilAndFrom(newVal);
+  }
+
+  @Watch('disablePastDates')
+  handleDisablePastDatesChanged(newVal: boolean) {
+    this.disablePastDates = newVal;
+  }
+
+  @Watch('disableFutureDates')
+  handleDisableFutureDatesChanged(newVal: boolean) {
+    this.disableFutureDates = newVal;
+  }
+
+  @Watch('disableWeekends')
+  handleDisableWeekendsChanged(newVal: boolean) {
+    this.disableWeekends = newVal;
+  }
+
   private parseDateInput(dateString: string) {
     const regex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
     if (dateString == '' || dateString === undefined) {
