@@ -77,7 +77,7 @@ import type { EventName, StencilReactComponent } from '@stencil/react-output-tar
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
 
-type B2bAlertEvents = { onB2bClose: EventName<CustomEvent<void>> };
+export type B2bAlertEvents = { onB2bClose: EventName<CustomEvent<void>> };
 
 export const B2bAlert: StencilReactComponent<B2bAlertElement, B2bAlertEvents> = /*@__PURE__*/ createComponent<B2bAlertElement, B2bAlertEvents>({
     tagName: 'b2b-alert',
@@ -88,7 +88,7 @@ export const B2bAlert: StencilReactComponent<B2bAlertElement, B2bAlertEvents> = 
     defineCustomElement: defineB2bAlert
 });
 
-type B2bAnchorEvents = NonNullable<unknown>;
+export type B2bAnchorEvents = NonNullable<unknown>;
 
 export const B2bAnchor: StencilReactComponent<B2bAnchorElement, B2bAnchorEvents> = /*@__PURE__*/ createComponent<B2bAnchorElement, B2bAnchorEvents>({
     tagName: 'b2b-anchor',
@@ -99,7 +99,7 @@ export const B2bAnchor: StencilReactComponent<B2bAnchorElement, B2bAnchorEvents>
     defineCustomElement: defineB2bAnchor
 });
 
-type B2bBackgroundBoxEvents = NonNullable<unknown>;
+export type B2bBackgroundBoxEvents = NonNullable<unknown>;
 
 export const B2bBackgroundBox: StencilReactComponent<B2bBackgroundBoxElement, B2bBackgroundBoxEvents> = /*@__PURE__*/ createComponent<B2bBackgroundBoxElement, B2bBackgroundBoxEvents>({
     tagName: 'b2b-background-box',
@@ -110,7 +110,7 @@ export const B2bBackgroundBox: StencilReactComponent<B2bBackgroundBoxElement, B2
     defineCustomElement: defineB2bBackgroundBox
 });
 
-type B2bBreadcrumbEvents = { onB2bSelected: EventName<B2bBreadcrumbCustomEvent<BreadCrumbChangeEventDetail>> };
+export type B2bBreadcrumbEvents = { onB2bSelected: EventName<B2bBreadcrumbCustomEvent<BreadCrumbChangeEventDetail>> };
 
 export const B2bBreadcrumb: StencilReactComponent<B2bBreadcrumbElement, B2bBreadcrumbEvents> = /*@__PURE__*/ createComponent<B2bBreadcrumbElement, B2bBreadcrumbEvents>({
     tagName: 'b2b-breadcrumb',
@@ -121,7 +121,7 @@ export const B2bBreadcrumb: StencilReactComponent<B2bBreadcrumbElement, B2bBread
     defineCustomElement: defineB2bBreadcrumb
 });
 
-type B2bBreadcrumbItemEvents = NonNullable<unknown>;
+export type B2bBreadcrumbItemEvents = NonNullable<unknown>;
 
 export const B2bBreadcrumbItem: StencilReactComponent<B2bBreadcrumbItemElement, B2bBreadcrumbItemEvents> = /*@__PURE__*/ createComponent<B2bBreadcrumbItemElement, B2bBreadcrumbItemEvents>({
     tagName: 'b2b-breadcrumb-item',
@@ -132,7 +132,7 @@ export const B2bBreadcrumbItem: StencilReactComponent<B2bBreadcrumbItemElement, 
     defineCustomElement: defineB2bBreadcrumbItem
 });
 
-type B2bButtonEvents = NonNullable<unknown>;
+export type B2bButtonEvents = NonNullable<unknown>;
 
 export const B2bButton: StencilReactComponent<B2bButtonElement, B2bButtonEvents> = /*@__PURE__*/ createComponent<B2bButtonElement, B2bButtonEvents>({
     tagName: 'b2b-button',
@@ -143,7 +143,7 @@ export const B2bButton: StencilReactComponent<B2bButtonElement, B2bButtonEvents>
     defineCustomElement: defineB2bButton
 });
 
-type B2bCardEvents = { onB2bSelected: EventName<CustomEvent<void>> };
+export type B2bCardEvents = { onB2bSelected: EventName<CustomEvent<void>> };
 
 export const B2bCard: StencilReactComponent<B2bCardElement, B2bCardEvents> = /*@__PURE__*/ createComponent<B2bCardElement, B2bCardEvents>({
     tagName: 'b2b-card',
@@ -154,7 +154,7 @@ export const B2bCard: StencilReactComponent<B2bCardElement, B2bCardEvents> = /*@
     defineCustomElement: defineB2bCard
 });
 
-type B2bCheckboxEvents = {
+export type B2bCheckboxEvents = {
     onB2bFocus: EventName<B2bCheckboxCustomEvent<FocusEvent>>,
     onB2bBlur: EventName<B2bCheckboxCustomEvent<FocusEvent>>,
     onB2bChange: EventName<B2bCheckboxCustomEvent<CheckboxEventDetail>>
@@ -173,7 +173,7 @@ export const B2bCheckbox: StencilReactComponent<B2bCheckboxElement, B2bCheckboxE
     defineCustomElement: defineB2bCheckbox
 });
 
-type B2bCheckboxGroupEvents = { onB2bGroupChange: EventName<B2bCheckboxGroupCustomEvent<CheckboxEventDetail>> };
+export type B2bCheckboxGroupEvents = { onB2bGroupChange: EventName<B2bCheckboxGroupCustomEvent<CheckboxEventDetail>> };
 
 export const B2bCheckboxGroup: StencilReactComponent<B2bCheckboxGroupElement, B2bCheckboxGroupEvents> = /*@__PURE__*/ createComponent<B2bCheckboxGroupElement, B2bCheckboxGroupEvents>({
     tagName: 'b2b-checkbox-group',
@@ -184,7 +184,7 @@ export const B2bCheckboxGroup: StencilReactComponent<B2bCheckboxGroupElement, B2
     defineCustomElement: defineB2bCheckboxGroup
 });
 
-type B2bChipComponentEvents = { onB2bClose: EventName<B2bChipComponentCustomEvent<ChipComponentEventDetail>> };
+export type B2bChipComponentEvents = { onB2bClose: EventName<B2bChipComponentCustomEvent<ChipComponentEventDetail>> };
 
 export const B2bChipComponent: StencilReactComponent<B2bChipComponentElement, B2bChipComponentEvents> = /*@__PURE__*/ createComponent<B2bChipComponentElement, B2bChipComponentEvents>({
     tagName: 'b2b-chip-component',
@@ -195,7 +195,7 @@ export const B2bChipComponent: StencilReactComponent<B2bChipComponentElement, B2
     defineCustomElement: defineB2bChipComponent
 });
 
-type B2bDatePickerEvents = { onB2bSelected: EventName<B2bDatePickerCustomEvent<DatePickerEventDetail>> };
+export type B2bDatePickerEvents = { onB2bSelected: EventName<B2bDatePickerCustomEvent<DatePickerEventDetail>> };
 
 export const B2bDatePicker: StencilReactComponent<B2bDatePickerElement, B2bDatePickerEvents> = /*@__PURE__*/ createComponent<B2bDatePickerElement, B2bDatePickerEvents>({
     tagName: 'b2b-date-picker',
@@ -206,7 +206,7 @@ export const B2bDatePicker: StencilReactComponent<B2bDatePickerElement, B2bDateP
     defineCustomElement: defineB2bDatePicker
 });
 
-type B2bDatePickerDaysEvents = {
+export type B2bDatePickerDaysEvents = {
     onB2bDatePickerEscape: EventName<B2bDatePickerDaysCustomEvent<EscapePressed>>,
     onB2bDateSelected: EventName<B2bDatePickerDaysCustomEvent<DateSelectedEventDetail>>
 };
@@ -223,7 +223,7 @@ export const B2bDatePickerDays: StencilReactComponent<B2bDatePickerDaysElement, 
     defineCustomElement: defineB2bDatePickerDays
 });
 
-type B2bDatePickerDaysHeaderEvents = NonNullable<unknown>;
+export type B2bDatePickerDaysHeaderEvents = NonNullable<unknown>;
 
 export const B2bDatePickerDaysHeader: StencilReactComponent<B2bDatePickerDaysHeaderElement, B2bDatePickerDaysHeaderEvents> = /*@__PURE__*/ createComponent<B2bDatePickerDaysHeaderElement, B2bDatePickerDaysHeaderEvents>({
     tagName: 'b2b-date-picker-days-header',
@@ -234,7 +234,7 @@ export const B2bDatePickerDaysHeader: StencilReactComponent<B2bDatePickerDaysHea
     defineCustomElement: defineB2bDatePickerDaysHeader
 });
 
-type B2bDatePickerHeaderEvents = {
+export type B2bDatePickerHeaderEvents = {
     onB2bDatePickerPreviousMonth: EventName<B2bDatePickerHeaderCustomEvent<PreviousMonth>>,
     onB2bDatePickerNextMonth: EventName<B2bDatePickerHeaderCustomEvent<NextMonth>>,
     onB2bDatePickerViewChanged: EventName<B2bDatePickerHeaderCustomEvent<DatePickerViewChangedEventDetail>>
@@ -253,7 +253,7 @@ export const B2bDatePickerHeader: StencilReactComponent<B2bDatePickerHeaderEleme
     defineCustomElement: defineB2bDatePickerHeader
 });
 
-type B2bDatePickerMonthsEvents = { onB2bDatePickerMonthSelected: EventName<B2bDatePickerMonthsCustomEvent<MonthSelectedEventDetail>> };
+export type B2bDatePickerMonthsEvents = { onB2bDatePickerMonthSelected: EventName<B2bDatePickerMonthsCustomEvent<MonthSelectedEventDetail>> };
 
 export const B2bDatePickerMonths: StencilReactComponent<B2bDatePickerMonthsElement, B2bDatePickerMonthsEvents> = /*@__PURE__*/ createComponent<B2bDatePickerMonthsElement, B2bDatePickerMonthsEvents>({
     tagName: 'b2b-date-picker-months',
@@ -264,7 +264,7 @@ export const B2bDatePickerMonths: StencilReactComponent<B2bDatePickerMonthsEleme
     defineCustomElement: defineB2bDatePickerMonths
 });
 
-type B2bDatePickerYearsEvents = { onB2bDatePickerYearSelected: EventName<B2bDatePickerYearsCustomEvent<YearSelectedEventDetail>> };
+export type B2bDatePickerYearsEvents = { onB2bDatePickerYearSelected: EventName<B2bDatePickerYearsCustomEvent<YearSelectedEventDetail>> };
 
 export const B2bDatePickerYears: StencilReactComponent<B2bDatePickerYearsElement, B2bDatePickerYearsEvents> = /*@__PURE__*/ createComponent<B2bDatePickerYearsElement, B2bDatePickerYearsEvents>({
     tagName: 'b2b-date-picker-years',
@@ -275,7 +275,7 @@ export const B2bDatePickerYears: StencilReactComponent<B2bDatePickerYearsElement
     defineCustomElement: defineB2bDatePickerYears
 });
 
-type B2bDropdownEvents = {
+export type B2bDropdownEvents = {
     onB2bChange: EventName<CustomEvent<string>>,
     onB2bFocus: EventName<B2bDropdownCustomEvent<FocusEvent>>,
     onB2bBlur: EventName<B2bDropdownCustomEvent<FocusEvent>>
@@ -294,7 +294,7 @@ export const B2bDropdown: StencilReactComponent<B2bDropdownElement, B2bDropdownE
     defineCustomElement: defineB2bDropdown
 });
 
-type B2bFlyoutMenuEvents = NonNullable<unknown>;
+export type B2bFlyoutMenuEvents = NonNullable<unknown>;
 
 export const B2bFlyoutMenu: StencilReactComponent<B2bFlyoutMenuElement, B2bFlyoutMenuEvents> = /*@__PURE__*/ createComponent<B2bFlyoutMenuElement, B2bFlyoutMenuEvents>({
     tagName: 'b2b-flyout-menu',
@@ -305,7 +305,7 @@ export const B2bFlyoutMenu: StencilReactComponent<B2bFlyoutMenuElement, B2bFlyou
     defineCustomElement: defineB2bFlyoutMenu
 });
 
-type B2bFlyoutMenuOptionEvents = { onB2bOptionSelected: EventName<B2bFlyoutMenuOptionCustomEvent<OptionSelectedEventDetail>> };
+export type B2bFlyoutMenuOptionEvents = { onB2bOptionSelected: EventName<B2bFlyoutMenuOptionCustomEvent<OptionSelectedEventDetail>> };
 
 export const B2bFlyoutMenuOption: StencilReactComponent<B2bFlyoutMenuOptionElement, B2bFlyoutMenuOptionEvents> = /*@__PURE__*/ createComponent<B2bFlyoutMenuOptionElement, B2bFlyoutMenuOptionEvents>({
     tagName: 'b2b-flyout-menu-option',
@@ -316,7 +316,7 @@ export const B2bFlyoutMenuOption: StencilReactComponent<B2bFlyoutMenuOptionEleme
     defineCustomElement: defineB2bFlyoutMenuOption
 });
 
-type B2bGridEvents = NonNullable<unknown>;
+export type B2bGridEvents = NonNullable<unknown>;
 
 export const B2bGrid: StencilReactComponent<B2bGridElement, B2bGridEvents> = /*@__PURE__*/ createComponent<B2bGridElement, B2bGridEvents>({
     tagName: 'b2b-grid',
@@ -327,7 +327,7 @@ export const B2bGrid: StencilReactComponent<B2bGridElement, B2bGridEvents> = /*@
     defineCustomElement: defineB2bGrid
 });
 
-type B2bGridColEvents = NonNullable<unknown>;
+export type B2bGridColEvents = NonNullable<unknown>;
 
 export const B2bGridCol: StencilReactComponent<B2bGridColElement, B2bGridColEvents> = /*@__PURE__*/ createComponent<B2bGridColElement, B2bGridColEvents>({
     tagName: 'b2b-grid-col',
@@ -338,7 +338,7 @@ export const B2bGridCol: StencilReactComponent<B2bGridColElement, B2bGridColEven
     defineCustomElement: defineB2bGridCol
 });
 
-type B2bGridRowEvents = NonNullable<unknown>;
+export type B2bGridRowEvents = NonNullable<unknown>;
 
 export const B2bGridRow: StencilReactComponent<B2bGridRowElement, B2bGridRowEvents> = /*@__PURE__*/ createComponent<B2bGridRowElement, B2bGridRowEvents>({
     tagName: 'b2b-grid-row',
@@ -349,7 +349,7 @@ export const B2bGridRow: StencilReactComponent<B2bGridRowElement, B2bGridRowEven
     defineCustomElement: defineB2bGridRow
 });
 
-type B2bHeadlineEvents = NonNullable<unknown>;
+export type B2bHeadlineEvents = NonNullable<unknown>;
 
 export const B2bHeadline: StencilReactComponent<B2bHeadlineElement, B2bHeadlineEvents> = /*@__PURE__*/ createComponent<B2bHeadlineElement, B2bHeadlineEvents>({
     tagName: 'b2b-headline',
@@ -360,7 +360,7 @@ export const B2bHeadline: StencilReactComponent<B2bHeadlineElement, B2bHeadlineE
     defineCustomElement: defineB2bHeadline
 });
 
-type B2bIconEvents = NonNullable<unknown>;
+export type B2bIconEvents = NonNullable<unknown>;
 
 export const B2bIcon: StencilReactComponent<B2bIconElement, B2bIconEvents> = /*@__PURE__*/ createComponent<B2bIconElement, B2bIconEvents>({
     tagName: 'b2b-icon',
@@ -371,7 +371,7 @@ export const B2bIcon: StencilReactComponent<B2bIconElement, B2bIconEvents> = /*@
     defineCustomElement: defineB2bIcon
 });
 
-type B2bIcon100Events = NonNullable<unknown>;
+export type B2bIcon100Events = NonNullable<unknown>;
 
 export const B2bIcon100: StencilReactComponent<B2bIcon100Element, B2bIcon100Events> = /*@__PURE__*/ createComponent<B2bIcon100Element, B2bIcon100Events>({
     tagName: 'b2b-icon-100',
@@ -382,7 +382,7 @@ export const B2bIcon100: StencilReactComponent<B2bIcon100Element, B2bIcon100Even
     defineCustomElement: defineB2bIcon100
 });
 
-type B2bIcon50Events = NonNullable<unknown>;
+export type B2bIcon50Events = NonNullable<unknown>;
 
 export const B2bIcon50: StencilReactComponent<B2bIcon50Element, B2bIcon50Events> = /*@__PURE__*/ createComponent<B2bIcon50Element, B2bIcon50Events>({
     tagName: 'b2b-icon-50',
@@ -393,7 +393,7 @@ export const B2bIcon50: StencilReactComponent<B2bIcon50Element, B2bIcon50Events>
     defineCustomElement: defineB2bIcon50
 });
 
-type B2bInputEvents = {
+export type B2bInputEvents = {
     onB2bFocus: EventName<B2bInputCustomEvent<FocusEvent>>,
     onB2bBlur: EventName<B2bInputCustomEvent<FocusEvent>>,
     onB2bInput: EventName<B2bInputCustomEvent<InputChangeEvent>>
@@ -412,7 +412,7 @@ export const B2bInput: StencilReactComponent<B2bInputElement, B2bInputEvents> = 
     defineCustomElement: defineB2bInput
 });
 
-type B2bInputGroupEvents = NonNullable<unknown>;
+export type B2bInputGroupEvents = NonNullable<unknown>;
 
 export const B2bInputGroup: StencilReactComponent<B2bInputGroupElement, B2bInputGroupEvents> = /*@__PURE__*/ createComponent<B2bInputGroupElement, B2bInputGroupEvents>({
     tagName: 'b2b-input-group',
@@ -423,7 +423,7 @@ export const B2bInputGroup: StencilReactComponent<B2bInputGroupElement, B2bInput
     defineCustomElement: defineB2bInputGroup
 });
 
-type B2bInputLabelEvents = NonNullable<unknown>;
+export type B2bInputLabelEvents = NonNullable<unknown>;
 
 export const B2bInputLabel: StencilReactComponent<B2bInputLabelElement, B2bInputLabelEvents> = /*@__PURE__*/ createComponent<B2bInputLabelElement, B2bInputLabelEvents>({
     tagName: 'b2b-input-label',
@@ -434,7 +434,7 @@ export const B2bInputLabel: StencilReactComponent<B2bInputLabelElement, B2bInput
     defineCustomElement: defineB2bInputLabel
 });
 
-type B2bInputListEvents = { onB2bClear: EventName<B2bInputListCustomEvent<InputClear>> };
+export type B2bInputListEvents = { onB2bClear: EventName<B2bInputListCustomEvent<InputClear>> };
 
 export const B2bInputList: StencilReactComponent<B2bInputListElement, B2bInputListEvents> = /*@__PURE__*/ createComponent<B2bInputListElement, B2bInputListEvents>({
     tagName: 'b2b-input-list',
@@ -445,7 +445,7 @@ export const B2bInputList: StencilReactComponent<B2bInputListElement, B2bInputLi
     defineCustomElement: defineB2bInputList
 });
 
-type B2bInputListOptionEvents = { onB2bOptionSelected: EventName<B2bInputListOptionCustomEvent<OptionSelectedEventDetail>> };
+export type B2bInputListOptionEvents = { onB2bOptionSelected: EventName<B2bInputListOptionCustomEvent<OptionSelectedEventDetail>> };
 
 export const B2bInputListOption: StencilReactComponent<B2bInputListOptionElement, B2bInputListOptionEvents> = /*@__PURE__*/ createComponent<B2bInputListOptionElement, B2bInputListOptionEvents>({
     tagName: 'b2b-input-list-option',
@@ -456,7 +456,7 @@ export const B2bInputListOption: StencilReactComponent<B2bInputListOptionElement
     defineCustomElement: defineB2bInputListOption
 });
 
-type B2bLabelEvents = NonNullable<unknown>;
+export type B2bLabelEvents = NonNullable<unknown>;
 
 export const B2bLabel: StencilReactComponent<B2bLabelElement, B2bLabelEvents> = /*@__PURE__*/ createComponent<B2bLabelElement, B2bLabelEvents>({
     tagName: 'b2b-label',
@@ -467,7 +467,7 @@ export const B2bLabel: StencilReactComponent<B2bLabelElement, B2bLabelEvents> = 
     defineCustomElement: defineB2bLabel
 });
 
-type B2bModalEvents = {
+export type B2bModalEvents = {
     onB2bClose: EventName<CustomEvent<void>>,
     onB2bBeforeClose: EventName<B2bModalCustomEvent<BeforeCloseEventDetail>>
 };
@@ -484,7 +484,7 @@ export const B2bModal: StencilReactComponent<B2bModalElement, B2bModalEvents> = 
     defineCustomElement: defineB2bModal
 });
 
-type B2bMultiselectDropdownEvents = { onB2bSelected: EventName<CustomEvent<string[]>> };
+export type B2bMultiselectDropdownEvents = { onB2bSelected: EventName<CustomEvent<string[]>> };
 
 export const B2bMultiselectDropdown: StencilReactComponent<B2bMultiselectDropdownElement, B2bMultiselectDropdownEvents> = /*@__PURE__*/ createComponent<B2bMultiselectDropdownElement, B2bMultiselectDropdownEvents>({
     tagName: 'b2b-multiselect-dropdown',
@@ -495,7 +495,7 @@ export const B2bMultiselectDropdown: StencilReactComponent<B2bMultiselectDropdow
     defineCustomElement: defineB2bMultiselectDropdown
 });
 
-type B2bMultiselectOptionEvents = { onB2bOptionSelected: EventName<B2bMultiselectOptionCustomEvent<MultiSelectOptionEventDetail>> };
+export type B2bMultiselectOptionEvents = { onB2bOptionSelected: EventName<B2bMultiselectOptionCustomEvent<MultiSelectOptionEventDetail>> };
 
 export const B2bMultiselectOption: StencilReactComponent<B2bMultiselectOptionElement, B2bMultiselectOptionEvents> = /*@__PURE__*/ createComponent<B2bMultiselectOptionElement, B2bMultiselectOptionEvents>({
     tagName: 'b2b-multiselect-option',
@@ -506,7 +506,7 @@ export const B2bMultiselectOption: StencilReactComponent<B2bMultiselectOptionEle
     defineCustomElement: defineB2bMultiselectOption
 });
 
-type B2bPaginationEvents = { onB2bPageChange: EventName<B2bPaginationCustomEvent<PageChangeEventDetail>> };
+export type B2bPaginationEvents = { onB2bPageChange: EventName<B2bPaginationCustomEvent<PageChangeEventDetail>> };
 
 export const B2bPagination: StencilReactComponent<B2bPaginationElement, B2bPaginationEvents> = /*@__PURE__*/ createComponent<B2bPaginationElement, B2bPaginationEvents>({
     tagName: 'b2b-pagination',
@@ -517,7 +517,7 @@ export const B2bPagination: StencilReactComponent<B2bPaginationElement, B2bPagin
     defineCustomElement: defineB2bPagination
 });
 
-type B2bParagraphEvents = NonNullable<unknown>;
+export type B2bParagraphEvents = NonNullable<unknown>;
 
 export const B2bParagraph: StencilReactComponent<B2bParagraphElement, B2bParagraphEvents> = /*@__PURE__*/ createComponent<B2bParagraphElement, B2bParagraphEvents>({
     tagName: 'b2b-paragraph',
@@ -528,7 +528,7 @@ export const B2bParagraph: StencilReactComponent<B2bParagraphElement, B2bParagra
     defineCustomElement: defineB2bParagraph
 });
 
-type B2bProgressBarEvents = NonNullable<unknown>;
+export type B2bProgressBarEvents = NonNullable<unknown>;
 
 export const B2bProgressBar: StencilReactComponent<B2bProgressBarElement, B2bProgressBarEvents> = /*@__PURE__*/ createComponent<B2bProgressBarElement, B2bProgressBarEvents>({
     tagName: 'b2b-progress-bar',
@@ -539,7 +539,7 @@ export const B2bProgressBar: StencilReactComponent<B2bProgressBarElement, B2bPro
     defineCustomElement: defineB2bProgressBar
 });
 
-type B2bRadioButtonEvents = {
+export type B2bRadioButtonEvents = {
     onB2bFocus: EventName<B2bRadioButtonCustomEvent<FocusEvent>>,
     onB2bBlur: EventName<B2bRadioButtonCustomEvent<FocusEvent>>,
     onB2bChange: EventName<B2bRadioButtonCustomEvent<RadioEventDetail>>
@@ -558,7 +558,7 @@ export const B2bRadioButton: StencilReactComponent<B2bRadioButtonElement, B2bRad
     defineCustomElement: defineB2bRadioButton
 });
 
-type B2bRadioGroupEvents = { onB2bGroupChange: EventName<B2bRadioGroupCustomEvent<RadioEventDetail>> };
+export type B2bRadioGroupEvents = { onB2bGroupChange: EventName<B2bRadioGroupCustomEvent<RadioEventDetail>> };
 
 export const B2bRadioGroup: StencilReactComponent<B2bRadioGroupElement, B2bRadioGroupEvents> = /*@__PURE__*/ createComponent<B2bRadioGroupElement, B2bRadioGroupEvents>({
     tagName: 'b2b-radio-group',
@@ -569,7 +569,7 @@ export const B2bRadioGroup: StencilReactComponent<B2bRadioGroupElement, B2bRadio
     defineCustomElement: defineB2bRadioGroup
 });
 
-type B2bRequiredSeparatorEvents = NonNullable<unknown>;
+export type B2bRequiredSeparatorEvents = NonNullable<unknown>;
 
 export const B2bRequiredSeparator: StencilReactComponent<B2bRequiredSeparatorElement, B2bRequiredSeparatorEvents> = /*@__PURE__*/ createComponent<B2bRequiredSeparatorElement, B2bRequiredSeparatorEvents>({
     tagName: 'b2b-required-separator',
@@ -580,7 +580,7 @@ export const B2bRequiredSeparator: StencilReactComponent<B2bRequiredSeparatorEle
     defineCustomElement: defineB2bRequiredSeparator
 });
 
-type B2bRoundedIconEvents = NonNullable<unknown>;
+export type B2bRoundedIconEvents = NonNullable<unknown>;
 
 export const B2bRoundedIcon: StencilReactComponent<B2bRoundedIconElement, B2bRoundedIconEvents> = /*@__PURE__*/ createComponent<B2bRoundedIconElement, B2bRoundedIconEvents>({
     tagName: 'b2b-rounded-icon',
@@ -591,7 +591,7 @@ export const B2bRoundedIcon: StencilReactComponent<B2bRoundedIconElement, B2bRou
     defineCustomElement: defineB2bRoundedIcon
 });
 
-type B2bScrollableContainerEvents = NonNullable<unknown>;
+export type B2bScrollableContainerEvents = NonNullable<unknown>;
 
 export const B2bScrollableContainer: StencilReactComponent<B2bScrollableContainerElement, B2bScrollableContainerEvents> = /*@__PURE__*/ createComponent<B2bScrollableContainerElement, B2bScrollableContainerEvents>({
     tagName: 'b2b-scrollable-container',
@@ -602,7 +602,7 @@ export const B2bScrollableContainer: StencilReactComponent<B2bScrollableContaine
     defineCustomElement: defineB2bScrollableContainer
 });
 
-type B2bSearchEvents = { onB2bSearch: EventName<B2bSearchCustomEvent<SearchClickEventDetail>> };
+export type B2bSearchEvents = { onB2bSearch: EventName<B2bSearchCustomEvent<SearchClickEventDetail>> };
 
 export const B2bSearch: StencilReactComponent<B2bSearchElement, B2bSearchEvents> = /*@__PURE__*/ createComponent<B2bSearchElement, B2bSearchEvents>({
     tagName: 'b2b-search',
@@ -613,7 +613,7 @@ export const B2bSearch: StencilReactComponent<B2bSearchElement, B2bSearchEvents>
     defineCustomElement: defineB2bSearch
 });
 
-type B2bSeparatorEvents = NonNullable<unknown>;
+export type B2bSeparatorEvents = NonNullable<unknown>;
 
 export const B2bSeparator: StencilReactComponent<B2bSeparatorElement, B2bSeparatorEvents> = /*@__PURE__*/ createComponent<B2bSeparatorElement, B2bSeparatorEvents>({
     tagName: 'b2b-separator',
@@ -624,7 +624,7 @@ export const B2bSeparator: StencilReactComponent<B2bSeparatorElement, B2bSeparat
     defineCustomElement: defineB2bSeparator
 });
 
-type B2bShimmerEvents = NonNullable<unknown>;
+export type B2bShimmerEvents = NonNullable<unknown>;
 
 export const B2bShimmer: StencilReactComponent<B2bShimmerElement, B2bShimmerEvents> = /*@__PURE__*/ createComponent<B2bShimmerElement, B2bShimmerEvents>({
     tagName: 'b2b-shimmer',
@@ -635,7 +635,7 @@ export const B2bShimmer: StencilReactComponent<B2bShimmerElement, B2bShimmerEven
     defineCustomElement: defineB2bShimmer
 });
 
-type B2bSnackbarEvents = {
+export type B2bSnackbarEvents = {
     onB2bClose: EventName<CustomEvent<void>>,
     onB2bActionClick: EventName<CustomEvent<void>>
 };
@@ -652,7 +652,7 @@ export const B2bSnackbar: StencilReactComponent<B2bSnackbarElement, B2bSnackbarE
     defineCustomElement: defineB2bSnackbar
 });
 
-type B2bSpinnerEvents = NonNullable<unknown>;
+export type B2bSpinnerEvents = NonNullable<unknown>;
 
 export const B2bSpinner: StencilReactComponent<B2bSpinnerElement, B2bSpinnerEvents> = /*@__PURE__*/ createComponent<B2bSpinnerElement, B2bSpinnerEvents>({
     tagName: 'b2b-spinner',
@@ -663,7 +663,7 @@ export const B2bSpinner: StencilReactComponent<B2bSpinnerElement, B2bSpinnerEven
     defineCustomElement: defineB2bSpinner
 });
 
-type B2bTabEvents = { onB2bChange: EventName<CustomEvent<boolean>> };
+export type B2bTabEvents = { onB2bChange: EventName<CustomEvent<boolean>> };
 
 export const B2bTab: StencilReactComponent<B2bTabElement, B2bTabEvents> = /*@__PURE__*/ createComponent<B2bTabElement, B2bTabEvents>({
     tagName: 'b2b-tab',
@@ -674,7 +674,7 @@ export const B2bTab: StencilReactComponent<B2bTabElement, B2bTabEvents> = /*@__P
     defineCustomElement: defineB2bTab
 });
 
-type B2bTabGroupEvents = { onB2bSelected: EventName<B2bTabGroupCustomEvent<TabChangeEventDetail>> };
+export type B2bTabGroupEvents = { onB2bSelected: EventName<B2bTabGroupCustomEvent<TabChangeEventDetail>> };
 
 export const B2bTabGroup: StencilReactComponent<B2bTabGroupElement, B2bTabGroupEvents> = /*@__PURE__*/ createComponent<B2bTabGroupElement, B2bTabGroupEvents>({
     tagName: 'b2b-tab-group',
@@ -685,7 +685,7 @@ export const B2bTabGroup: StencilReactComponent<B2bTabGroupElement, B2bTabGroupE
     defineCustomElement: defineB2bTabGroup
 });
 
-type B2bTabPanelEvents = NonNullable<unknown>;
+export type B2bTabPanelEvents = NonNullable<unknown>;
 
 export const B2bTabPanel: StencilReactComponent<B2bTabPanelElement, B2bTabPanelEvents> = /*@__PURE__*/ createComponent<B2bTabPanelElement, B2bTabPanelEvents>({
     tagName: 'b2b-tab-panel',
@@ -696,7 +696,7 @@ export const B2bTabPanel: StencilReactComponent<B2bTabPanelElement, B2bTabPanelE
     defineCustomElement: defineB2bTabPanel
 });
 
-type B2bTableEvents = { onB2bSortChange: EventName<B2bTableCustomEvent<ColumnSortChangeEventDetail>> };
+export type B2bTableEvents = { onB2bSortChange: EventName<B2bTableCustomEvent<ColumnSortChangeEventDetail>> };
 
 export const B2bTable: StencilReactComponent<B2bTableElement, B2bTableEvents> = /*@__PURE__*/ createComponent<B2bTableElement, B2bTableEvents>({
     tagName: 'b2b-table',
@@ -707,7 +707,7 @@ export const B2bTable: StencilReactComponent<B2bTableElement, B2bTableEvents> = 
     defineCustomElement: defineB2bTable
 });
 
-type B2bTableCellEvents = NonNullable<unknown>;
+export type B2bTableCellEvents = NonNullable<unknown>;
 
 export const B2bTableCell: StencilReactComponent<B2bTableCellElement, B2bTableCellEvents> = /*@__PURE__*/ createComponent<B2bTableCellElement, B2bTableCellEvents>({
     tagName: 'b2b-table-cell',
@@ -718,7 +718,7 @@ export const B2bTableCell: StencilReactComponent<B2bTableCellElement, B2bTableCe
     defineCustomElement: defineB2bTableCell
 });
 
-type B2bTableHeaderEvents = { onB2bChange: EventName<B2bTableHeaderCustomEvent<TableSortDirections>> };
+export type B2bTableHeaderEvents = { onB2bChange: EventName<B2bTableHeaderCustomEvent<TableSortDirections>> };
 
 export const B2bTableHeader: StencilReactComponent<B2bTableHeaderElement, B2bTableHeaderEvents> = /*@__PURE__*/ createComponent<B2bTableHeaderElement, B2bTableHeaderEvents>({
     tagName: 'b2b-table-header',
@@ -729,7 +729,7 @@ export const B2bTableHeader: StencilReactComponent<B2bTableHeaderElement, B2bTab
     defineCustomElement: defineB2bTableHeader
 });
 
-type B2bTableRowEvents = {
+export type B2bTableRowEvents = {
     onB2bOpen: EventName<CustomEvent<boolean>>,
     onB2bRowSelected: EventName<B2bTableRowCustomEvent<CheckboxEventDetail>>
 };
@@ -746,7 +746,7 @@ export const B2bTableRow: StencilReactComponent<B2bTableRowElement, B2bTableRowE
     defineCustomElement: defineB2bTableRow
 });
 
-type B2bTableRowgroupEvents = { onB2bGroupSelected: EventName<B2bTableRowgroupCustomEvent<TableAccordionSelectedEventDetail>> };
+export type B2bTableRowgroupEvents = { onB2bGroupSelected: EventName<B2bTableRowgroupCustomEvent<TableAccordionSelectedEventDetail>> };
 
 export const B2bTableRowgroup: StencilReactComponent<B2bTableRowgroupElement, B2bTableRowgroupEvents> = /*@__PURE__*/ createComponent<B2bTableRowgroupElement, B2bTableRowgroupEvents>({
     tagName: 'b2b-table-rowgroup',
@@ -757,7 +757,7 @@ export const B2bTableRowgroup: StencilReactComponent<B2bTableRowgroupElement, B2
     defineCustomElement: defineB2bTableRowgroup
 });
 
-type B2bTextareaEvents = {
+export type B2bTextareaEvents = {
     onB2bFocus: EventName<B2bTextareaCustomEvent<FocusEvent>>,
     onB2bBlur: EventName<B2bTextareaCustomEvent<FocusEvent>>,
     onB2bInput: EventName<B2bTextareaCustomEvent<InputChangeEvent>>
@@ -776,7 +776,7 @@ export const B2bTextarea: StencilReactComponent<B2bTextareaElement, B2bTextareaE
     defineCustomElement: defineB2bTextarea
 });
 
-type B2bToggleButtonEvents = { onB2bChange: EventName<B2bToggleButtonCustomEvent<ToggleButtonEventDetail>> };
+export type B2bToggleButtonEvents = { onB2bChange: EventName<B2bToggleButtonCustomEvent<ToggleButtonEventDetail>> };
 
 export const B2bToggleButton: StencilReactComponent<B2bToggleButtonElement, B2bToggleButtonEvents> = /*@__PURE__*/ createComponent<B2bToggleButtonElement, B2bToggleButtonEvents>({
     tagName: 'b2b-toggle-button',
@@ -787,7 +787,7 @@ export const B2bToggleButton: StencilReactComponent<B2bToggleButtonElement, B2bT
     defineCustomElement: defineB2bToggleButton
 });
 
-type B2bToggleChipEvents = { onB2bSelected: EventName<B2bToggleChipCustomEvent<ToggleChipEventDetail>> };
+export type B2bToggleChipEvents = { onB2bSelected: EventName<B2bToggleChipCustomEvent<ToggleChipEventDetail>> };
 
 export const B2bToggleChip: StencilReactComponent<B2bToggleChipElement, B2bToggleChipEvents> = /*@__PURE__*/ createComponent<B2bToggleChipElement, B2bToggleChipEvents>({
     tagName: 'b2b-toggle-chip',
@@ -798,7 +798,7 @@ export const B2bToggleChip: StencilReactComponent<B2bToggleChipElement, B2bToggl
     defineCustomElement: defineB2bToggleChip
 });
 
-type B2bToggleGroupEvents = { onB2bGroupChange: EventName<B2bToggleGroupCustomEvent<ToggleButtonEventDetail>> };
+export type B2bToggleGroupEvents = { onB2bGroupChange: EventName<B2bToggleGroupCustomEvent<ToggleButtonEventDetail>> };
 
 export const B2bToggleGroup: StencilReactComponent<B2bToggleGroupElement, B2bToggleGroupEvents> = /*@__PURE__*/ createComponent<B2bToggleGroupElement, B2bToggleGroupEvents>({
     tagName: 'b2b-toggle-group',
@@ -809,7 +809,7 @@ export const B2bToggleGroup: StencilReactComponent<B2bToggleGroupElement, B2bTog
     defineCustomElement: defineB2bToggleGroup
 });
 
-type B2bToggleSwitchEvents = { onB2bChange: EventName<B2bToggleSwitchCustomEvent<ToggleSwitchEventDetail>> };
+export type B2bToggleSwitchEvents = { onB2bChange: EventName<B2bToggleSwitchCustomEvent<ToggleSwitchEventDetail>> };
 
 export const B2bToggleSwitch: StencilReactComponent<B2bToggleSwitchElement, B2bToggleSwitchEvents> = /*@__PURE__*/ createComponent<B2bToggleSwitchElement, B2bToggleSwitchEvents>({
     tagName: 'b2b-toggle-switch',
@@ -820,7 +820,7 @@ export const B2bToggleSwitch: StencilReactComponent<B2bToggleSwitchElement, B2bT
     defineCustomElement: defineB2bToggleSwitch
 });
 
-type B2bTooltipEvents = NonNullable<unknown>;
+export type B2bTooltipEvents = NonNullable<unknown>;
 
 export const B2bTooltip: StencilReactComponent<B2bTooltipElement, B2bTooltipEvents> = /*@__PURE__*/ createComponent<B2bTooltipElement, B2bTooltipEvents>({
     tagName: 'b2b-tooltip',
@@ -831,7 +831,7 @@ export const B2bTooltip: StencilReactComponent<B2bTooltipElement, B2bTooltipEven
     defineCustomElement: defineB2bTooltip
 });
 
-type B2bWizardEvents = NonNullable<unknown>;
+export type B2bWizardEvents = NonNullable<unknown>;
 
 export const B2bWizard: StencilReactComponent<B2bWizardElement, B2bWizardEvents> = /*@__PURE__*/ createComponent<B2bWizardElement, B2bWizardEvents>({
     tagName: 'b2b-wizard',
@@ -842,7 +842,7 @@ export const B2bWizard: StencilReactComponent<B2bWizardElement, B2bWizardEvents>
     defineCustomElement: defineB2bWizard
 });
 
-type B2bWizardIconEvents = NonNullable<unknown>;
+export type B2bWizardIconEvents = NonNullable<unknown>;
 
 export const B2bWizardIcon: StencilReactComponent<B2bWizardIconElement, B2bWizardIconEvents> = /*@__PURE__*/ createComponent<B2bWizardIconElement, B2bWizardIconEvents>({
     tagName: 'b2b-wizard-icon',
@@ -853,7 +853,7 @@ export const B2bWizardIcon: StencilReactComponent<B2bWizardIconElement, B2bWizar
     defineCustomElement: defineB2bWizardIcon
 });
 
-type B2bWizardStepEvents = NonNullable<unknown>;
+export type B2bWizardStepEvents = NonNullable<unknown>;
 
 export const B2bWizardStep: StencilReactComponent<B2bWizardStepElement, B2bWizardStepEvents> = /*@__PURE__*/ createComponent<B2bWizardStepElement, B2bWizardStepEvents>({
     tagName: 'b2b-wizard-step',
