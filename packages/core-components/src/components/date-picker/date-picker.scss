@@ -36,7 +36,9 @@
   border-radius: var(--b2b-size-7);
   padding: var(--b2b-size-15) var(--b2b-size-20);
   background-color: var(--b2b-color-white-100);
-  transition: outline 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition:
+    outline 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
 
   &--focused {
     outline: 2px solid -webkit-focus-ring-color;

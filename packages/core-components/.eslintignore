@@ -1,5 +1,0 @@
-build/*.js
-config/*.js
-src/components/icon/types.d.ts
-src/components/table/types.ts
-stencil.config.ts

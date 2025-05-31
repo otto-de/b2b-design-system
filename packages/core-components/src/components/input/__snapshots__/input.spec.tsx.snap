@@ -2,7 +2,7 @@
 
 exports[`should apply an error style to the host element if invalid is set to true 1`] = `
 <b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       <slot name="label">
         test
@@ -16,13 +16,13 @@ exports[`should apply an error style to the host element if invalid is set to tr
     <span>
       This is a test error
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-input>
 `;
 
 exports[`should render a hint if invalid and disabled are true at the same time 1`] = `
 <b2b-input class="b2b-input" disabled="" invalid="" type="text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       <slot name="label">
         test
@@ -38,13 +38,13 @@ exports[`should render a hint if invalid and disabled are true at the same time 
         This is a test hint
       </slot>
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-input>
 `;
 
 exports[`should render a hint message if a hint string is specified 1`] = `
 <b2b-input class="b2b-input" type="text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       <slot name="label">
         test
@@ -60,13 +60,13 @@ exports[`should render a hint message if a hint string is specified 1`] = `
         This is a test hint
       </slot>
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-input>
 `;
 
 exports[`should render an error message if an error is specified and the input is set to invalid 1`] = `
 <b2b-input class="b2b-input b2b-input--error" invalid="" type="text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       <slot name="label">
         test
@@ -80,13 +80,13 @@ exports[`should render an error message if an error is specified and the input i
     <span>
       This is a test error
     </span>
-  </mock:shadow-root>
+  </template>
 </b2b-input>
 `;
 
 exports[`should render the input 1`] = `
 <b2b-input class="b2b-input" type="text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       <slot name="label">
         test
@@ -97,13 +97,13 @@ exports[`should render the input 1`] = `
       <input class="b2b-input__native-input b2b-input__native-input--align-left" type="text">
       <slot name="end"></slot>
     </div>
-  </mock:shadow-root>
+  </template>
 </b2b-input>
 `;
 
 exports[`should render with a placeholder 1`] = `
 <b2b-input class="b2b-input" placeholder="test placeholder" type="text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <b2b-input-label>
       <slot name="label">
         test
@@ -114,6 +114,6 @@ exports[`should render with a placeholder 1`] = `
       <input class="b2b-input__native-input b2b-input__native-input--align-left" placeholder="test placeholder" type="text">
       <slot name="end"></slot>
     </div>
-  </mock:shadow-root>
+  </template>
 </b2b-input>
 `;
