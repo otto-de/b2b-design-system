@@ -93,6 +93,8 @@ export class DropdownComponent {
   }
 
   private refreshOptions() {
+    const host = this.hostElement;
+    if (!host) return;
     const optionElements = Array.from(
       this.hostElement.querySelectorAll('option'),
     );
