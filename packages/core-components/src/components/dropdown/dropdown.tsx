@@ -92,29 +92,14 @@ export class DropdownComponent {
     this.selectedText = '';
   }
 
-  private refreshOptions() {
-    const host = this.hostElement;
-    if (!host) return;
-    const optionElements = Array.from(
-      this.hostElement.querySelectorAll('option'),
-    );
-    this.options = optionElements.map(option => ({
-      value: option.getAttribute('value') || '',
-      label: option.textContent?.trim() || '',
-      selected: option.hasAttribute('selected'),
-      disabled: option.hasAttribute('disabled'),
-    }));
-  }
-
   componentDidLoad() {
     this.initializeOptions();
     this.updateTruncatedText();
     document.addEventListener('click', this.onClickOutside);
     window.addEventListener('resize', this.updateTruncatedText);
-    this.refreshOptions();
     if (typeof MutationObserver !== 'undefined') {
       this.mutationObserver = new MutationObserver(() => {
-        this.refreshOptions();
+        this.initializeOptions();
       });
       this.mutationObserver.observe(this.hostElement, {
         childList: true,
@@ -143,8 +128,8 @@ export class DropdownComponent {
     this.options = nativeOptions.map(opt => ({
       value: opt.value,
       label: opt.textContent?.trim() || '',
-      selected: opt.hasAttribute('selected'),
-      disabled: opt.hasAttribute('disabled'),
+      selected: opt.selected || opt.hasAttribute('selected'),
+      disabled: opt.disabled || opt.hasAttribute('disabled'),
     }));
 
     const selected = this.options.find(o => o.selected);
@@ -152,6 +137,8 @@ export class DropdownComponent {
       this.selectedValue = selected.value;
       this.selectedText = selected.label;
     }
+
+    this.updateTruncatedText();
   }
 
   private onClickOutside = (ev: MouseEvent) => {
