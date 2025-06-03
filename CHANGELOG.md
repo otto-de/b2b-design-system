@@ -1,3 +1,10 @@
+## [1.29.2](https://github.com/otto-de/b2b-design-system/compare/v1.29.1...v1.29.2) (2025-06-03)
+
+
+### Bug Fixes
+
+* **dropdown:** [BLA-1401] Adding selected,disabled for vue ([#579](https://github.com/otto-de/b2b-design-system/issues/579)) ([9bb2283](https://github.com/otto-de/b2b-design-system/commit/9bb2283f049b48d7da45b5583e6e8ff52418ba0b))
+
 ## [1.29.1](https://github.com/otto-de/b2b-design-system/compare/v1.29.0...v1.29.1) (2025-06-02)
 
 
