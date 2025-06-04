@@ -2,7 +2,7 @@
 
 exports[`should apply an error style if it is marked as invalid. 1`] = `
 <b2b-radio-button name="radio-test">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio b2b-radio--error">
       <div class="b2b-radio-items">
         <input aria-labelledby="radio-test" class="b2b-radio-input" name="radio-test" type="radio">
@@ -16,13 +16,13 @@ exports[`should apply an error style if it is marked as invalid. 1`] = `
         this is an error
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-button>
 `;
 
 exports[`should disable the radio button 1`] = `
 <b2b-radio-button disabled="" name="radio-test">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio b2b-radio--disabled">
       <div class="b2b-radio-items">
         <input aria-labelledby="radio-test" class="b2b-radio-input" disabled="" name="radio-test" type="radio">
@@ -33,13 +33,13 @@ exports[`should disable the radio button 1`] = `
         </b2b-input-label>
       </div>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-button>
 `;
 
 exports[`should render a hint message if a hint string is specified 1`] = `
 <b2b-radio-button name="radio-test">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio">
       <div class="b2b-radio-items">
         <input aria-labelledby="radio-test" class="b2b-radio-input" name="radio-test" type="radio">
@@ -53,13 +53,13 @@ exports[`should render a hint message if a hint string is specified 1`] = `
         this is a hint
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-button>
 `;
 
 exports[`should render an error message if an error is specified and it is marked as invalid 1`] = `
 <b2b-radio-button name="radio-test">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio b2b-radio--error">
       <div class="b2b-radio-items">
         <input aria-labelledby="radio-test" class="b2b-radio-input" name="radio-test" type="radio">
@@ -73,13 +73,13 @@ exports[`should render an error message if an error is specified and it is marke
         this is an error
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-button>
 `;
 
 exports[`should render the radio button 1`] = `
 <b2b-radio-button name="radio-test">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio">
       <div class="b2b-radio-items">
         <input aria-labelledby="radio-test" class="b2b-radio-input" name="radio-test" type="radio">
@@ -90,6 +90,6 @@ exports[`should render the radio button 1`] = `
         </b2b-input-label>
       </div>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-button>
 `;

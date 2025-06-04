@@ -2,14 +2,14 @@
 
 exports[`should gracefully fail if icon name is not found by not rendering icon and emitting a warning 1`] = `
 <b2b-icon>
-  <template shadowrootmode="open"></template>
+  <mock:shadow-root></mock:shadow-root>
 </b2b-icon>
 `;
 
 exports[`should render the icon with default values 1`] = `
 <b2b-icon>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-icon b2b-icon--100 b2b-icon--inherit"></div>
-  </template>
+  </mock:shadow-root>
 </b2b-icon>
 `;
