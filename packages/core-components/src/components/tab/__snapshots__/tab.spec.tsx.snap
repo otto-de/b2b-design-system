@@ -2,11 +2,11 @@
 
 exports[`should match the snapshot 1`] = `
 <b2b-tab aria-role="tab" id="b2b-tab-0" role="tab" tabindex="-1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <span class="b2b-tab">
       <slot></slot>
     </span>
-  </mock:shadow-root>
+  </template>
   Tab 1
 </b2b-tab>
 `;

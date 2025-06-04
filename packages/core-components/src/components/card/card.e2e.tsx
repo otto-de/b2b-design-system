@@ -32,7 +32,7 @@ describe('B2B-Card', () => {
     const element = await page.find('b2b-card');
     await element.hover();
     await page.waitForChanges();
-    await page.waitForTimeout(400);
+    await new Promise(resolve => setTimeout(resolve, 400));
     const style = await element.getComputedStyle();
     expect(style.boxShadow).toBe('rgba(0, 0, 0, 0.15) 5px 5px 6px 0px');
   });
@@ -41,9 +41,9 @@ describe('B2B-Card', () => {
     page = await newE2EPage();
     await page.setContent(`<b2b-card>Hello World</b2b-card>`);
     const element = await page.find('b2b-card');
-    await element.focus();
+    await element.click();
     await page.waitForChanges();
-    await page.waitForTimeout(400);
+    await new Promise(resolve => setTimeout(resolve, 400));
     const style = await element.getComputedStyle();
     expect(style.boxShadow).toBe('rgba(0, 0, 0, 0.15) 5px 5px 6px 0px');
   });
