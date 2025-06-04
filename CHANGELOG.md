@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/otto-de/b2b-design-system/compare/v1.30.0...v1.31.0) (2025-06-04)
+
+
+### Features
+
+* **stencil:** [BLA-1409] Reverting back to older version of stencil and typescript ([#583](https://github.com/otto-de/b2b-design-system/issues/583)) ([d86c57a](https://github.com/otto-de/b2b-design-system/commit/d86c57a3ad7dcbd21d14870959879ce150383c9f))
+
 # [1.30.0](https://github.com/otto-de/b2b-design-system/compare/v1.29.2...v1.30.0) (2025-06-04)
 
 
