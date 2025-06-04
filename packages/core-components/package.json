@@ -44,10 +44,8 @@
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
     "@otto-de/b2b-tokens": "1.30.0",
-    "@stencil/core": "4.33.1",
-    "globals": "^16.0.0",
-    "lit": "^3.3.0",
-    "lit-html": "^3.3.0"
+    "@stencil/core": "4.13.0",
+    "globals": "^16.0.0"
   },
   "devDependencies": {
     "@asamuzakjp/css-color": "^3.1.1",
@@ -56,10 +54,9 @@
     "@babel/preset-typescript": "^7.26.0",
     "@chromatic-com/storybook": "^3.2.4",
     "@fullhuman/postcss-purgecss": "^7.0.2",
-    "@lit/react": "^1.0.7",
     "@stencil-community/eslint-plugin": "^0.10.0",
     "@stencil-community/postcss": "^2.2.0",
-    "@stencil/react-output-target": "^1.0.3",
+    "@stencil/react-output-target": "^0.5.3",
     "@stencil/sass": "^3.1.7",
     "@storybook/addon-actions": "^8.6.0",
     "@storybook/addon-docs": "^8.6.0",
@@ -94,8 +91,8 @@
     "lint-staged": "^15.2.2",
     "postcss-import": "^16.1.0",
     "prettier": "^3.5.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "remark-gfm": "^4.0.1",
     "sass": "^1.71.0",
     "sass-loader": "^16.0.5",
@@ -107,6 +104,6 @@
     "ts-dedent": "^2.2.0",
     "ts-jest": "^29.1.1",
     "tsutils": "^3.21.0",
-    "typescript": "^5.8.2"
+    "typescript": "^4.9.4"
   }
 }

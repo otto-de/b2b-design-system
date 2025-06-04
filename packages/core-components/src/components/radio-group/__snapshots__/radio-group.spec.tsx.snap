@@ -2,7 +2,7 @@
 
 exports[`should render a group error if a hint string and an error are specified and the group is set to invalid 1`] = `
 <b2b-radio-group invalid="">
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio-group b2b-radio-group--error b2b-radio-group--vertical">
       <b2b-input-label id="radio-test">
         <slot name="label">
@@ -18,13 +18,13 @@ exports[`should render a group error if a hint string and an error are specified
         this is a test error
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-group>
 `;
 
 exports[`should render a group hint if a hint string is specified 1`] = `
 <b2b-radio-group>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio-group b2b-radio-group--vertical">
       <b2b-input-label id="radio-test">
         <slot name="label">
@@ -40,13 +40,13 @@ exports[`should render a group hint if a hint string is specified 1`] = `
         this is a test hint
       </span>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-group>
 `;
 
 exports[`should render the checkbox group and not show a hint or an error unless specified 1`] = `
 <b2b-radio-group>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio-group b2b-radio-group--vertical">
       <b2b-input-label id="radio-test">
         <slot name="label">
@@ -59,13 +59,13 @@ exports[`should render the checkbox group and not show a hint or an error unless
         </div>
       </fieldset>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-group>
 `;
 
 exports[`should switch to horizontal alignment if specified 1`] = `
 <b2b-radio-group>
-  <template shadowrootmode="open">
+  <mock:shadow-root>
     <div class="b2b-radio-group b2b-radio-group--horizontal">
       <b2b-input-label id="radio-test">
         <slot name="label">
@@ -78,6 +78,6 @@ exports[`should switch to horizontal alignment if specified 1`] = `
         </div>
       </fieldset>
     </div>
-  </template>
+  </mock:shadow-root>
 </b2b-radio-group>
 `;
