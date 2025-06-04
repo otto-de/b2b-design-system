@@ -44,7 +44,7 @@
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
     "@otto-de/b2b-tokens": "1.29.2",
-    "@stencil/core": "4.27.1",
+    "@stencil/core": "4.33.1",
     "globals": "^16.0.0",
     "lit": "^3.3.0",
     "lit-html": "^3.3.0"
