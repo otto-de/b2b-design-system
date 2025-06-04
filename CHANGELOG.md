@@ -1,3 +1,15 @@
+# [1.30.0](https://github.com/otto-de/b2b-design-system/compare/v1.29.2...v1.30.0) (2025-06-04)
+
+
+### Bug Fixes
+
+* **Breadcrumb:** [BLA-SPOC] Remove the margin from the navigation bar ([67f16f6](https://github.com/otto-de/b2b-design-system/commit/67f16f6292427bb0c687c6cf260c0958a344a9c3))
+
+
+### Features
+
+* **stencil:** [BLA-1409] Upgrading stencil and dependencies ([#581](https://github.com/otto-de/b2b-design-system/issues/581)) ([3dd090a](https://github.com/otto-de/b2b-design-system/commit/3dd090a6a7c0d4cc23c378f35bf1f934734019fc))
+
 ## [1.29.2](https://github.com/otto-de/b2b-design-system/compare/v1.29.1...v1.29.2) (2025-06-03)
 
 
