@@ -7,14 +7,14 @@ jobs:
     name: Install Dependencies
     uses: ./.github/workflows/install.yml
     with:
-      node_version: 16
+      node_version: 20
 
   validations:
     name: Validations
     needs: [ install ]
     uses: ./.github/workflows/validations.yml
     with:
-      node_version: 18
+      node_version: 20
 
   publish_packages:
     name: Publish Packages
@@ -22,6 +22,6 @@ jobs:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
     uses: ./.github/workflows/publish.yml
     with:
-      node_version: 18
+      node_version: 20
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
