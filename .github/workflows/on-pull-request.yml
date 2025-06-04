@@ -11,14 +11,14 @@ jobs:
     name: Install Dependencies
     uses: ./.github/workflows/install.yml
     with:
-      node_version: 18
+      node_version: 20
 
   validations:
     name: Validations
     needs: [ install ]
     uses: ./.github/workflows/validations.yml
     with:
-      node_version: 18
+      node_version: 20
 
   visual_tests:
     name: Visual Regression Tests
@@ -26,7 +26,7 @@ jobs:
     if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
     uses: ./.github/workflows/visual-test.yml
     with:
-      node_version: 18
+      node_version: 20
 
   dependabot-automerge:
     name: Dependabot Automerge
