@@ -18,12 +18,13 @@ describe('B2B-Checkbox-Group', () => {
   });
 
   it('should have all checkboxes unchecked by default and check a checkbox', async () => {
-    const element = await page.find('b2b-checkbox >>> .b2b-checkbox');
+    let element = await page.find('b2b-checkbox >>> .b2b-checkbox');
 
     await element.click();
 
     await page.waitForChanges();
 
+    element = await page.find('b2b-checkbox >>> .b2b-checkbox');
     expect(element).toHaveClass('b2b-checkbox--checked');
   });
 
@@ -44,11 +45,10 @@ describe('B2B-Checkbox-Group', () => {
   });
 
   it('should emit a custom event when a checkbox is checked', async () => {
-    const element = await page.find('b2b-checkbox >>> .b2b-checkbox');
+    let element = await page.find('b2b-checkbox >>> .b2b-checkbox');
     const b2bGroupChange = await page.spyOnEvent('b2b-group-change');
 
-    element.click();
-
+    await element.click();
     await page.waitForChanges();
 
     // currently a limitation of Puppeteer - no event details on custom events inside the shadow dom
@@ -56,8 +56,8 @@ describe('B2B-Checkbox-Group', () => {
   });
 
   it('should disable all checkboxes when the property is specified', async () => {
-    const parentElement = await page.find('b2b-checkbox-group');
-    const element = await page.find('b2b-checkbox >>> .b2b-checkbox');
+    let parentElement = await page.find('b2b-checkbox-group');
+    let element = await page.find('b2b-checkbox >>> .b2b-checkbox');
 
     expect(element).not.toHaveClass('b2b-checkbox--disabled');
 
@@ -65,18 +65,24 @@ describe('B2B-Checkbox-Group', () => {
 
     await page.waitForChanges();
 
+    parentElement = await page.find('b2b-checkbox-group');
+    element = await page.find('b2b-checkbox >>> .b2b-checkbox');
+
     expect(element).toHaveClass('b2b-checkbox--disabled');
   });
 
   it('should set all checkboxes to invalid when the property is specified', async () => {
-    const parentElement = await page.find('b2b-checkbox-group');
-    const element = await page.find('b2b-checkbox >>> .b2b-checkbox');
+    let parentElement = await page.find('b2b-checkbox-group');
+    let element = await page.find('b2b-checkbox >>> .b2b-checkbox');
 
     expect(element).not.toHaveClass('b2b-checkbox--error');
 
     parentElement.setProperty('invalid', true);
 
     await page.waitForChanges();
+
+    parentElement = await page.find('b2b-checkbox-group');
+    element = await page.find('b2b-checkbox >>> .b2b-checkbox');
 
     expect(element).toHaveClass('b2b-checkbox--error');
   });

@@ -11,11 +11,12 @@ describe('B2B-Input', () => {
   });
 
   it('should register input text when enabled', async () => {
-    const inputElement = await page.find('b2b-input');
+    let inputElement = await page.find('b2b-input');
 
     const nativeInput = await page.find('b2b-input >>> input');
     await nativeInput.type('a value');
 
+    inputElement = await page.find('b2b-input');
     let inputValue = inputElement.getAttribute('value');
     expect(inputValue).toBe('a value');
   });
@@ -34,17 +35,19 @@ describe('B2B-Input', () => {
   });
 
   it('should clear input when cleared called', async () => {
-    const inputElement = await page.find('b2b-input');
+    let inputElement = await page.find('b2b-input');
 
     const nativeInput = await page.find('b2b-input >>> input');
     await nativeInput.type('a value');
 
+    inputElement = await page.find('b2b-input');
     let inputValue = inputElement.getAttribute('value');
     expect(inputValue).toBe('a value');
 
     await inputElement.callMethod('clearInput');
     await page.waitForChanges();
 
+    inputElement = await page.find('b2b-input');
     inputValue = inputElement.getAttribute('value');
     expect(inputValue).toBe('');
   });

@@ -152,7 +152,7 @@ describe('B2B-Table', () => {
   });
 
   it('should emit the sort direction when a column header is clicked', async () => {
-    const headerCol = await page.find({ text: 'Title 1' });
+    let headerCol = await page.find({ text: 'Title 1' });
     const b2bChange = await page.spyOnEvent('b2b-change');
     const sortArrow = await page.find('b2b-table-header >>> svg');
 
@@ -163,6 +163,9 @@ describe('B2B-Table', () => {
     expect(ariaState).toEqualText('other');
 
     await headerCol.click();
+    await page.waitForChanges();
+
+    headerCol = await page.find({ text: 'Title 1' });
     ariaState = await headerCol.getAttribute('aria-sort');
 
     expect(ariaState).toEqualText('ascending');
@@ -170,7 +173,7 @@ describe('B2B-Table', () => {
   });
 
   it('should emit the sort direction when a column header is focused and enter is pressed', async () => {
-    const headerCol = await page.find({ text: 'Title 1' });
+    let headerCol = await page.find({ text: 'Title 1' });
     const b2bChange = await page.spyOnEvent('b2b-change');
     let ariaState = await headerCol.getAttribute('aria-sort');
     expect(ariaState).toEqualText('other');
@@ -180,13 +183,15 @@ describe('B2B-Table', () => {
 
     await page.waitForChanges();
 
+    headerCol = await page.find({ text: 'Title 1' });
     ariaState = await headerCol.getAttribute('aria-sort');
+
     expect(ariaState).toEqualText('ascending');
     expect(b2bChange).toHaveReceivedEvent();
   });
 
   it('should un-sort siblings when sorting any column', async () => {
-    const headerCol = await page.find({ text: 'Title 3' });
+    let headerCol = await page.find({ text: 'Title 3' });
     let ariaState = await headerCol.getAttribute('aria-sort');
     expect(ariaState).toEqualText('descending');
 
@@ -195,6 +200,7 @@ describe('B2B-Table', () => {
 
     await page.waitForChanges();
 
+    headerCol = await page.find({ text: 'Title 3' });
     ariaState = await headerCol.getAttribute('aria-sort');
     expect(ariaState).toEqualText('other');
   });

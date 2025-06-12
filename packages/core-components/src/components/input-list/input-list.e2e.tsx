@@ -27,11 +27,12 @@ describe('B2B-InputList', () => {
   });
 
   it('should register input text when enabled', async () => {
-    const inputList = await page.find('b2b-input-list');
-
     await typeInput('8');
 
+    const inputList = await page.find('b2b-input-list');
+
     let inputValue = inputList.getAttribute('value');
+
     expect(inputValue).toBe('8');
   });
 
@@ -299,13 +300,15 @@ describe('B2B-InputList', () => {
 
     let input = await page.find('b2b-input-list >>> b2b-input');
     let inputValue = await input.getAttribute('value');
+
     expect(inputValue).toBe('8');
 
     const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
 
-    closeIcon.click();
+    await closeIcon.click();
     await page.waitForChanges();
 
+    input = await page.find('b2b-input-list >>> b2b-input');
     inputValue = await input.getAttribute('value');
     expect(inputValue).toBe('');
   });
@@ -315,7 +318,8 @@ describe('B2B-InputList', () => {
     await typeInput();
 
     const closeIcon = await page.find('b2b-input-list >>> b2b-icon-100');
-    closeIcon.click();
+
+    await closeIcon.click();
     await page.waitForChanges();
 
     expect(onInputEventSpy).toHaveReceivedEvent();

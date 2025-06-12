@@ -26,13 +26,14 @@ describe('B2B Input Group', () => {
   });
 
   it('should disable the input group component', async () => {
-    const element = await page.find('b2b-input-group');
+    let element = await page.find('b2b-input-group');
     expect(element).not.toHaveAttribute('disabled');
 
     element.setAttribute('disabled', true);
 
     await page.waitForChanges();
 
+    element = await page.find('b2b-input-group');
     expect(element).toHaveAttribute('disabled');
   });
 
@@ -61,10 +62,12 @@ describe('B2B Input Group', () => {
 
   it('should render a group error if one is specified and the group is set to invalid', async () => {
     const element = await page.find('b2b-input-group');
-    const error = await page.find('b2b-input-group >>> span');
     element.setAttribute('invalid', true);
 
     await page.waitForChanges();
+
+    const error = await page.find('b2b-input-group >>> span');
+
     expect(error).toEqualText('A group error');
   });
 

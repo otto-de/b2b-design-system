@@ -18,13 +18,14 @@ describe('B2B-Radio-Group', () => {
   });
 
   it('should have all radio buttons unchecked by default and check a radio button', async () => {
-    const element = await page.find('b2b-radio-button');
+    let element = await page.find('b2b-radio-button');
     expect(element).not.toHaveAttribute('checked');
 
     element.setAttribute('checked', true);
 
     await page.waitForChanges();
 
+    element = await page.find('b2b-radio-button');
     expect(element).toHaveAttribute('checked');
   });
 
@@ -67,7 +68,7 @@ describe('B2B-Radio-Group', () => {
 
   it('should disable all radio when the property is specified', async () => {
     const parentElement = await page.find('b2b-radio-group');
-    const element = await page.find('b2b-radio-button >>> .b2b-radio');
+    let element = await page.find('b2b-radio-button >>> .b2b-radio');
 
     expect(element).not.toHaveClass('b2b-radio--disabled');
 
@@ -75,12 +76,13 @@ describe('B2B-Radio-Group', () => {
 
     await page.waitForChanges();
 
+    element = await page.find('b2b-radio-button >>> .b2b-radio');
     expect(element).toHaveClass('b2b-radio--disabled');
   });
 
   it('should set all radio buttons to invalid when the property is specified', async () => {
     const parentElement = await page.find('b2b-radio-group');
-    const element = await page.find('b2b-radio-button >>> .b2b-radio');
+    let element = await page.find('b2b-radio-button >>> .b2b-radio');
 
     expect(element).not.toHaveClass('b2b-radio--error');
 
@@ -88,6 +90,7 @@ describe('B2B-Radio-Group', () => {
 
     await page.waitForChanges();
 
+    element = await page.find('b2b-radio-button >>> .b2b-radio');
     expect(element).toHaveClass('b2b-radio--error');
   });
 
