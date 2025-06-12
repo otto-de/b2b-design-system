@@ -27,10 +27,11 @@ describe('B2B-Search', () => {
   });
 
   it('should register input text when enabled', async () => {
-    const search = await page.find('b2b-search');
+    let search = await page.find('b2b-search');
 
     await typeInput('8');
 
+    search = await page.find('b2b-search');
     let inputValue = search.getAttribute('value');
     expect(inputValue).toBe('8');
   });

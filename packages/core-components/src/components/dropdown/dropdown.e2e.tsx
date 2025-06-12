@@ -40,7 +40,7 @@ describe('B2B-Dropdown', () => {
   // });
 
   it('should disable the select when the property is specified', async () => {
-    const element = await page.find('b2b-dropdown');
+    let element = await page.find('b2b-dropdown');
 
     expect(element).not.toHaveClass('b2b-dropdown--disabled');
 
@@ -48,11 +48,12 @@ describe('B2B-Dropdown', () => {
 
     await page.waitForChanges();
 
+    element = await page.find('b2b-dropdown');
     expect(element).toHaveClass('b2b-dropdown--disabled');
   });
 
   it('should set the select to invalid when the property is specified', async () => {
-    const element = await page.find('b2b-dropdown');
+    let element = await page.find('b2b-dropdown');
 
     expect(element).not.toHaveClass('b2b-dropdown--error');
 
@@ -60,13 +61,17 @@ describe('B2B-Dropdown', () => {
 
     await page.waitForChanges();
 
+    element = await page.find('b2b-dropdown');
     expect(element).toHaveClass('b2b-dropdown--error');
   });
 
   it('should clear the selection and reset to placeholder', async () => {
-    const dropdown = await page.find('b2b-dropdown');
+    let dropdown = await page.find('b2b-dropdown');
+
     await dropdown.callMethod('clearSelection');
     await page.waitForChanges();
+
+    dropdown = await page.find('b2b-dropdown');
     const selectedTextElementAfter = await dropdown.shadowRoot.querySelector(
       '.b2b-dropdown__select',
     );
