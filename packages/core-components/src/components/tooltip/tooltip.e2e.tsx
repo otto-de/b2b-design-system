@@ -36,7 +36,8 @@ describe('B2B Tooltip', () => {
     await page.waitForChanges();
 
     const tooltipDiv = await page.find('b2b-tooltip >>> div');
-    expect(await tooltipDiv.isVisible()).toBe(true);
+
+    expect(tooltipDiv.className).toContain('b2b-tooltip--visible');
   });
 
   it('appears on focus when a focusable element is slotted and the trigger is set to focus', async () => {

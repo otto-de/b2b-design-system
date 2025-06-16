@@ -105,7 +105,7 @@ performance in the tests.
 
 [Storybook test runner](https://github.com/storybookjs/test-runner)
 
-[Jest image snapshot]([https://github.com/americanexpress/jest-image-snapshot])
+[Jest image snapshot](https://github.com/americanexpress/jest-image-snapshot)
 
 [Why implement Visual regression tests](https://sparkbox.com/foundry/design_system_visual_regression_testing)
 

@@ -315,12 +315,13 @@ describe('B2B-Pagination', () => {
     );
     await page.waitForChanges();
 
-    const element = await page.find('b2b-pagination');
+    let element = await page.find('b2b-pagination');
     expect(element.getAttribute('active-page')).toBe('10');
 
     await element.setAttribute('total-pages', 5);
     await page.waitForChanges();
 
+    element = await page.find('b2b-pagination');
     expect(element.getAttribute('active-page')).toBe('5');
   });
 
@@ -355,12 +356,13 @@ describe('B2B-Pagination', () => {
     );
     await page.waitForChanges();
 
-    const element = await page.find('b2b-pagination');
+    let element = await page.find('b2b-pagination');
     expect(element.getAttribute('active-page')).toBe('2');
 
     await element.setAttribute('active-page', 20);
     await page.waitForChanges();
 
+    element = await page.find('b2b-pagination');
     expect(element.getAttribute('active-page')).toBe('5');
   });
 });
