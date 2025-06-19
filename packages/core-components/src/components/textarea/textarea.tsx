@@ -62,7 +62,7 @@ export class B2BTextareaComponent {
   @Prop({ reflect: true }) maxLength?: number;
 
   /** The height of the text area */
-  @Prop() height?: string;
+  @Prop() height?: string = '';
 
   /** Emits whenever the textarea receives focus. */
   @Event({ eventName: 'b2b-focus' })
