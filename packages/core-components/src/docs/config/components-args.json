@@ -4304,7 +4304,9 @@
         "type": {
           "summary": "string"
         },
-        "defaultValue": {}
+        "defaultValue": {
+          "summary": "''"
+        }
       },
       "description": "The height of the text area"
     },

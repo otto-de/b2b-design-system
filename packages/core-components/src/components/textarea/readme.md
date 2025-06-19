@@ -17,7 +17,7 @@ Initial story: https://otto-eg.atlassian.net/browse/B2BDS-96
 | `disabled`    | `disabled`      | Whether or not the textarea is disabled. Per default it is false.                                      | `boolean`                                         | `false`     |
 | `error`       | `error`         | An optional error message that is displayed when the textarea is invalid. Per default it is undefined. | `string`                                          | `undefined` |
 | `focusOnLoad` | `focus-on-load` | Whether or not the textarea should be automatically focused on page load. Per default it is false.     | `boolean`                                         | `false`     |
-| `height`      | `height`        | The height of the text area                                                                            | `string`                                          | `undefined` |
+| `height`      | `height`        | The height of the text area                                                                            | `string`                                          | `''`        |
 | `hint`        | `hint`          | An optional hint for the textarea. Per default it is undefined.                                        | `string`                                          | `undefined` |
 | `invalid`     | `invalid`       | Whether or not the textarea should be displayed with error styles. Per default it is false.            | `boolean`                                         | `false`     |
 | `label`       | `label`         | The textarea label. This is optional.                                                                  | `string`                                          | `undefined` |
