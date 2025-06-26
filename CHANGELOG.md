@@ -1,3 +1,10 @@
+## [1.31.1](https://github.com/otto-de/b2b-design-system/compare/v1.31.0...v1.31.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* **textarea:** fix textarea resize on input change ([4435433](https://github.com/otto-de/b2b-design-system/commit/4435433a5e564ab2b9ab59044331abffbcb58c04))
+
 # [1.31.0](https://github.com/otto-de/b2b-design-system/compare/v1.30.0...v1.31.0) (2025-06-04)
 
 
