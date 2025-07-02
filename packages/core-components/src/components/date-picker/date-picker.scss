@@ -71,6 +71,12 @@
   }
 }
 
+b2b-input-label {
+  display: block;
+  margin-bottom: var(--b2b-size-5);
+  color: var(--b2b-color-black-100);
+}
+
 .b2b-date-picker-selected-date {
   flex: 1;
   align-self: center;
