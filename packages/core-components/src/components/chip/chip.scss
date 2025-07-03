@@ -51,16 +51,8 @@
       text-overflow: ellipsis;
       overflow: hidden;
 
-      &--bold {
-        font-weight: bold;
-      }
-
       &--italic {
         font-style: italic;
-      }
-
-      &--underline {
-        text-decoration: underline;
       }
 
       &--strikethrough {
@@ -95,6 +87,7 @@
       pointer-events: none;
       background: var(--b2b-color-grey-25);
       color: var(--b2b-color-grey-400);
+      border: var(--b2b-size-border-width-50) solid var(--b2b-color-white-100);
 
       &__clearIcon {
         fill: var(--b2b-color-grey-400);

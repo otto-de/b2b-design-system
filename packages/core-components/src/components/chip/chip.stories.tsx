@@ -111,30 +111,12 @@ export const story053ErrorChip: Story = {
   },
 };
 
-export const story060BoldLabel: Story = {
-  name: 'Bold Label',
-  args: {
-    ...meta.args,
-    labelStyle: 'bold',
-    label: 'Chip with bold style',
-  },
-};
-
 export const story061ItalicLabel: Story = {
   name: 'Italic Label',
   args: {
     ...meta.args,
     labelStyle: 'italic',
     label: 'Chip with italic style',
-  },
-};
-
-export const story062UnderlinedLabel: Story = {
-  name: 'Underlined Label',
-  args: {
-    ...meta.args,
-    labelStyle: 'underline',
-    label: 'Chip with underline style',
   },
 };
 
