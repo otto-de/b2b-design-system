@@ -33,7 +33,7 @@
       },
       "expand": {
         "default": { "value": "{color.grey.25}" },
-        "hover": { "value": "#E6F4FF" }
+        "hover": { "value": "#DBE7FA" }
       }
     }
   }
