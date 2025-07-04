@@ -25,6 +25,13 @@
       "200": { "value": "#BB0004" },
       "250": { "value": "#850012" }
     },
+    "blue": {
+      "10": { "value": "#F2F7FF" },
+      "25": { "value": "#DBE7FA" },
+      "50": { "value": "#87B1F0" },
+      "100": { "value": "#0F63E1" },
+      "200": { "value": "#093E90" }
+    },
     "primary": { "value": "#D4021D" },
     "error": {
       "50": { "value": "{color.red.50}" },
@@ -43,7 +50,7 @@
       "100": { "value": "#003264" }
     },
     "hover": {
-      "default": { "value": "#E6F4FF" },
+      "default": { "value": "#DBE7FA" },
       "black": { "value": "#3B3B3B" }
     }
   }
