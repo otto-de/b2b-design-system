@@ -1,3 +1,10 @@
+## [1.31.2](https://github.com/otto-de/b2b-design-system/compare/v1.31.1...v1.31.2) (2025-07-10)
+
+
+### Bug Fixes
+
+* **wizard:** [CCOP-114] Center numbers in wizard step ([#589](https://github.com/otto-de/b2b-design-system/issues/589)) ([abfb9b6](https://github.com/otto-de/b2b-design-system/commit/abfb9b6466b16deb120e54109e812e45418cf6eb))
+
 ## [1.31.1](https://github.com/otto-de/b2b-design-system/compare/v1.31.0...v1.31.1) (2025-06-26)
 
 
