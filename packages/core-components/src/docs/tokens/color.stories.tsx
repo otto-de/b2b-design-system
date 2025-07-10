@@ -49,7 +49,7 @@ const semanticBottomTokensList = [
   'info',
   'hover',
 ];
-const basicTokensList = ['black', 'white', 'grey', 'red'];
+const basicTokensList = ['black', 'white', 'grey', 'red', 'blue'];
 
 const ColorTokens: StoryFn = ({}) => {
   return html`

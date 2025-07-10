@@ -13,6 +13,7 @@ When adding new tokens try to follow the patterns already present:
 
 ### base file
 This file contains raw values and can be extended if there are new values that need to be added
+Update the docs here if new colors are added, packages/core-components/src/docs/tokens/color.stories.tsx
 
 ### .default files
 This files will output the default tokens for a normal theme*.
