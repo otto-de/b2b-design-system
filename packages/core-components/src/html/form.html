@@ -474,6 +474,41 @@
         value="single"
         name="singular"
         disabled></b2b-radio-button>
+
+      <b2b-radio-group
+        hint="This group has a disabled radio button"
+        error="This is an error"
+        alignment="horizontal"
+        name="group5"
+        label="This should be ignored"
+        required>
+        <span slot="label"
+          >Radio group is enabled, but individual radio button's disabled
+          attribute is respected</span
+        >
+        <b2b-radio-button
+          id="sample1"
+          value="one"
+          name="group5"
+          label="This should be ignored">
+          <span slot="label">This radio button is enabled</span>
+        </b2b-radio-button>
+        <b2b-radio-button
+          id="sample2"
+          value="two"
+          name="group5"
+          label="This should be ignored"
+          disabled="true">
+          <span slot="label">This radio button is disabled</span>
+        </b2b-radio-button>
+        <b2b-radio-button
+          id="sample3"
+          value="three"
+          name="group5"
+          label="This should be ignored">
+          <span slot="label">This radio button is enabled</span>
+        </b2b-radio-button>
+      </b2b-radio-group>
     </div>
 
     <div class="content-container" width="300px">

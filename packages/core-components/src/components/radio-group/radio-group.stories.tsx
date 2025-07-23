@@ -90,6 +90,31 @@ export const story070LabelSlot: StoryObj = {
 };
 story070LabelSlot.storyName = 'Label slot';
 
+export const story080IndividualDisabled: StoryObj = {
+  args: {
+    ...defaultArgs,
+  },
+  render: ({}) =>
+    html`<b2b-radio-group
+      name="individual-disabled-group"
+      label="Group Enabled with Individual Disabled Radio">
+      <b2b-radio-button
+        label="Option 1 (Enabled)"
+        name="individual-disabled-group"
+        value="one"></b2b-radio-button>
+      <b2b-radio-button
+        label="Option 2 (Disabled)"
+        name="individual-disabled-group"
+        value="two"
+        disabled="true"></b2b-radio-button>
+      <b2b-radio-button
+        label="Option 3 (Enabled)"
+        name="individual-disabled-group"
+        value="three"></b2b-radio-button>
+    </b2b-radio-group>`,
+};
+story080IndividualDisabled.storyName = 'Individual Radio Disabled';
+
 const controls = {};
 const radioGroupArgs = getArgTypes('b2b-radio-group', controls);
 
