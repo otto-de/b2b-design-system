@@ -117,4 +117,52 @@ describe('B2B-Radio-Group', () => {
 
     expect(element).toEqualText('Custom label');
   });
+
+  it('should allow individual radio buttons to be disabled when group is enabled', async () => {
+    const individualDisabledPage = await newE2EPage();
+    await individualDisabledPage.setContent(`
+      <b2b-radio-group name="individual-test-group" label="Test Group">
+          <b2b-radio-button label="Option 1" value="one" name="individual-test-group" id="option1"></b2b-radio-button>
+          <b2b-radio-button label="Option 2" value="two" name="individual-test-group" id="option2" disabled="true"></b2b-radio-button>
+          <b2b-radio-button label="Option 3" value="three" name="individual-test-group" id="option3"></b2b-radio-button>
+      </b2b-radio-group>
+    `);
+
+    const radioGroup = await individualDisabledPage.find('b2b-radio-group');
+    expect(radioGroup).not.toHaveAttribute('disabled');
+
+    const firstRadio = await individualDisabledPage.find(
+      'b2b-radio-button[id="option1"] >>> .b2b-radio',
+    );
+    expect(firstRadio).not.toHaveClass('b2b-radio--disabled');
+
+    const secondRadio = await individualDisabledPage.find(
+      'b2b-radio-button[id="option2"] >>> .b2b-radio',
+    );
+    expect(secondRadio).toHaveClass('b2b-radio--disabled');
+
+    const thirdRadio = await individualDisabledPage.find(
+      'b2b-radio-button[id="option3"] >>> .b2b-radio',
+    );
+    expect(thirdRadio).not.toHaveClass('b2b-radio--disabled');
+
+    const b2bChange = await individualDisabledPage.spyOnEvent('b2b-change');
+    const disabledRadioInput = await individualDisabledPage.find(
+      'b2b-radio-button[id="option2"] >>> input',
+    );
+
+    await disabledRadioInput.click();
+    await individualDisabledPage.waitForChanges();
+
+    expect(b2bChange).not.toHaveReceivedEvent();
+
+    const enabledRadioInput = await individualDisabledPage.find(
+      'b2b-radio-button[id="option1"] >>> input',
+    );
+
+    await enabledRadioInput.click();
+    await individualDisabledPage.waitForChanges();
+
+    expect(b2bChange).toHaveReceivedEvent();
+  });
 });

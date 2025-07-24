@@ -200,9 +200,10 @@ If you are able to use [Docker Desktop](https://docs.docker.com/desktop/) you ca
 
 Once you have one of this two runtime envs, you can follow these steps:
 
-1. Run `docker-compose up` or `docker-compose up --build` if you have created the services before. This creates a storybook service
+1. Run `docker-compose up` or `docker-compose up --build --abort-on-container-exit` if you have created the services before. This creates a storybook service
   and a service that runs the tests against storybook. If any test failed, you will find a new folder inside `__snapshots__` called `__diff_output__`.
 2. If the differences were expected (because you made visual changes to an existing component), run `docker-compose run run-tests npx test-storybook --verbose --url http://storybook:6006 -u`
+3. Once the testing is completed, run `docker-compose down` to stop the container.
 
 
 #### Making changes to the docker image
@@ -224,7 +225,7 @@ Copy the distribution to the storybook build folder:
 cp -r dist docs-build/design-system
 ```
 
-Afterwards, you can rebuild the docker image with your changes by running:
+Afterwards, navigate back to the project root folder in the terminal and you can rebuild the docker image with your changes by running:
 ```shell
 docker build -f Dockerfile -t b2bds-docs .
 ```

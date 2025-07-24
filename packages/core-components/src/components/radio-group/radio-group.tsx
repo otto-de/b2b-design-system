@@ -74,15 +74,13 @@ export class RadioButtonGroupComponent {
   private toggleAllDisabled = () => {
     let nodes = this.getChildNodes();
 
-    if (this.disabled) {
-      nodes.forEach(node => {
+    nodes.forEach(node => {
+      if (this.disabled) {
         node.disabled = true;
-      });
-    } else {
-      nodes.forEach(node => {
-        node.disabled = false;
-      });
-    }
+      } else {
+        node.disabled = node.disabled || false;
+      }
+    });
   };
 
   private toggleAllError = () => {
