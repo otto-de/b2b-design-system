@@ -54,6 +54,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@chromatic-com/storybook": "^3.2.4",
     "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@isaacs/brace-expansion": "^5.0.0",
     "@stencil-community/eslint-plugin": "^0.10.0",
     "@stencil-community/postcss": "^2.2.0",
     "@stencil/react-output-target": "^0.5.3",
