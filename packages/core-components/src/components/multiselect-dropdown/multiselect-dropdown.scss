@@ -93,7 +93,7 @@
       border-bottom: var(--b2b-size-1) solid var(--b2b-color-black-100);
       border-top: 2px none -webkit-focus-ring-color;
       box-sizing: border-box;
-      z-index: 10;
+      z-index: 1001;
     }
 
     &__option {
