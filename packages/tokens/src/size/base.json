@@ -4,6 +4,7 @@
     "5": { "value": "0.125rem", "comment": "2px" },
     "7": { "value": "0.1875rem", "comment": "3px" },
     "10": { "value": "0.25rem", "comment": "4px" },
+    "13": { "value": "0.3125rem", "comment": "5px" },
     "15": { "value": "0.375rem", "comment": "6px" },
     "20": { "value": "0.5rem", "comment": "8px" },
     "25": { "value": "0.625rem", "comment": "10px" },
