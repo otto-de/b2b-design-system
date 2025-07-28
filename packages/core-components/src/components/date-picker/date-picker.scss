@@ -34,7 +34,7 @@
   border: var(--b2b-size-1) solid var(--b2b-color-grey-200);
   justify-content: flex-start; /* Aligns the input to the left */
   border-radius: var(--b2b-size-7);
-  padding: var(--b2b-size-15) var(--b2b-size-20);
+  padding: var(--b2b-size-13) var(--b2b-size-25) var(--b2b-size-13);
   background-color: var(--b2b-color-white-100);
   transition:
     outline 0.2s ease-in-out,
@@ -114,7 +114,7 @@ b2b-input-label {
   padding-bottom: var(--b2b-size-40);
   outline: none;
   background-color: var(--b2b-color-white-100);
-  z-index: 400;
+  z-index: 1001;
 
   &--hidden {
     display: none;
