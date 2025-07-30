@@ -1,3 +1,14 @@
+## [1.31.3](https://github.com/otto-de/b2b-design-system/compare/v1.31.2...v1.31.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* **multiselect-dropdown | input|flyout-menu | datepicker | docs | tokens:** [BLA-1513] Adding several fixes and documentation updates ([d648c1d](https://github.com/otto-de/b2b-design-system/commit/d648c1da99b0dd64b815ec371bcf694906ab0949))
+* **radio-group:** [BLA-1538] Add @fullhuman/postcss-purgecss to resolve regression ([82eb296](https://github.com/otto-de/b2b-design-system/commit/82eb29600edde0915793661e6bbe9e3684c66814))
+* **radio-group:** [BLA-1538] Add dependency to fix visual test failure ([b8028bb](https://github.com/otto-de/b2b-design-system/commit/b8028bb3892c442bc803d53b6c833171f7ae081b))
+* **radio-group:** [BLA-1538] Allow disabling individual radio button inside radio group ([5dd7d05](https://github.com/otto-de/b2b-design-system/commit/5dd7d0527e9266991d555666dfd308dd8a721293))
+* **radio-group:** [BLA-1538] Allow disabling individual radio button inside radio group ([8a7b563](https://github.com/otto-de/b2b-design-system/commit/8a7b563589caa3506e2473d3010401544c4c3c24))
+
 ## [1.31.2](https://github.com/otto-de/b2b-design-system/compare/v1.31.1...v1.31.2) (2025-07-10)
 
 
