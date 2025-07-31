@@ -1,0 +1,9 @@
+@use '../../global/b2b-styles';
+
+:host {
+  width: 100%;
+}
+
+.b2b-custom-dropdown {
+  padding: var(--b2b-size-30);
+}

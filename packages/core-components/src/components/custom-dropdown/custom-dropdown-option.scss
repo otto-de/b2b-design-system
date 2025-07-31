@@ -1,0 +1,46 @@
+@use '../../global/b2b-styles';
+
+:host {
+  display: block;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  background-color: var(--b2b-color-white-100);
+  font-size: var(--b2b-size-copy-100);
+  color: var(--b2b-color-black-100);
+  margin-top: 0;
+  border-top: none;
+  width: 100%;
+  box-sizing: border-box;
+  height: 48px;
+  padding-top: 14px;
+  padding-bottom: 13px;
+  padding-left: 16px;
+}
+
+:host(.b2b-custom-dropdown__option:hover),
+:host(.b2b-custom-dropdown__option:focus) {
+  background-color: var(--b2b-color-hover-default);
+  outline: none;
+}
+
+:host(.b2b-custom-dropdown__option--disabled):hover,
+:host(.b2b-custom-dropdown__option--disabled:focus) {
+  background-color: transparent; // Reset background to avoid highlighting
+  color: var(
+      --b2b-color-grey-200
+  ); // Optional: maintain the disabled text color
+}
+
+:host(.b2b-custom-dropdown__option--disabled) {
+  pointer-events: none;
+  color: var(--b2b-color-grey-200);
+}
+
+:host(.b2b-custom-dropdown__option--separator) {
+  border-bottom: 1px solid var(--b2b-color-grey-200);
+}
+
+:host(.b2b-custom-dropdown__option--selected) {
+  background-color: var(--b2b-color-blue-10);
+  border-left: 3px solid var(--b2b-color-blue-100);
+}

@@ -37,6 +37,12 @@
           required
           selected-values="Hydromelon, Skyshroom"></b2b-multiselect-dropdown>
       </div>
+      <div class="form-element-width">
+        <b2b-custom-dropdown
+          id="custom-dropdown"
+          placeholder="search for partner name"
+          agency="Name of Agency"></b2b-custom-dropdown>
+      </div>
     </div>
     <script>
       const multiselect = document.getElementById('multiselect');
@@ -50,6 +56,12 @@
         'Mighty Banana',
         'Endura Carrot',
         'Golden Apple',
+      ];
+      document.getElementById('custom-dropdown').optionsList = [
+        'Partner1',
+        'Partner2',
+        'Partner3',
+        'Partner4',
       ];
     </script>
 

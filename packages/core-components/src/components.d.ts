@@ -292,6 +292,38 @@ export namespace Components {
          */
         "value"?: any;
     }
+    interface B2bCustomDropdown {
+        /**
+          * Name of the agency
+         */
+        "agency": string;
+        /**
+          * The options for the dropdown.
+         */
+        "optionsList": string[];
+        /**
+          * The placeholder shown in the input field.
+         */
+        "placeholder": string;
+    }
+    interface B2bCustomDropdownOption {
+        /**
+          * Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected.
+         */
+        "disabled": boolean;
+        /**
+          * The option name.
+         */
+        "option": string;
+        /**
+          * Whether the option is currently selected.
+         */
+        "selected": boolean;
+        /**
+          * Whether the option has a separator at the bottom. Per default it is false.
+         */
+        "separator": boolean;
+    }
     interface B2bDatePicker {
         /**
           * The dates that are part of this array are disabled. By default, this is an empty array.
@@ -1466,6 +1498,10 @@ export interface B2bChipComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bChipComponentElement;
 }
+export interface B2bCustomDropdownOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bCustomDropdownOptionElement;
+}
 export interface B2bDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bDatePickerElement;
@@ -1721,6 +1757,29 @@ declare global {
     var HTMLB2bChipComponentElement: {
         prototype: HTMLB2bChipComponentElement;
         new (): HTMLB2bChipComponentElement;
+    };
+    interface HTMLB2bCustomDropdownElement extends Components.B2bCustomDropdown, HTMLStencilElement {
+    }
+    var HTMLB2bCustomDropdownElement: {
+        prototype: HTMLB2bCustomDropdownElement;
+        new (): HTMLB2bCustomDropdownElement;
+    };
+    interface HTMLB2bCustomDropdownOptionElementEventMap {
+        "b2b-custom-dropdown-option-selected": OptionSelectedEventDetail;
+    }
+    interface HTMLB2bCustomDropdownOptionElement extends Components.B2bCustomDropdownOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bCustomDropdownOptionElementEventMap>(type: K, listener: (this: HTMLB2bCustomDropdownOptionElement, ev: B2bCustomDropdownOptionCustomEvent<HTMLB2bCustomDropdownOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bCustomDropdownOptionElementEventMap>(type: K, listener: (this: HTMLB2bCustomDropdownOptionElement, ev: B2bCustomDropdownOptionCustomEvent<HTMLB2bCustomDropdownOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bCustomDropdownOptionElement: {
+        prototype: HTMLB2bCustomDropdownOptionElement;
+        new (): HTMLB2bCustomDropdownOptionElement;
     };
     interface HTMLB2bDatePickerElementEventMap {
         "b2b-selected": DatePickerEventDetail;
@@ -2425,6 +2484,8 @@ declare global {
         "b2b-checkbox": HTMLB2bCheckboxElement;
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
         "b2b-chip-component": HTMLB2bChipComponentElement;
+        "b2b-custom-dropdown": HTMLB2bCustomDropdownElement;
+        "b2b-custom-dropdown-option": HTMLB2bCustomDropdownOptionElement;
         "b2b-date-picker": HTMLB2bDatePickerElement;
         "b2b-date-picker-days": HTMLB2bDatePickerDaysElement;
         "b2b-date-picker-days-header": HTMLB2bDatePickerDaysHeaderElement;
@@ -2777,6 +2838,42 @@ declare namespace LocalJSX {
           * It is only used when the chip component participates in a group
          */
         "value"?: any;
+    }
+    interface B2bCustomDropdown {
+        /**
+          * Name of the agency
+         */
+        "agency"?: string;
+        /**
+          * The options for the dropdown.
+         */
+        "optionsList"?: string[];
+        /**
+          * The placeholder shown in the input field.
+         */
+        "placeholder"?: string;
+    }
+    interface B2bCustomDropdownOption {
+        /**
+          * Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected.
+         */
+        "disabled"?: boolean;
+        /**
+          * Emits the option as a string whenever an option is selected.
+         */
+        "onB2b-custom-dropdown-option-selected"?: (event: B2bCustomDropdownOptionCustomEvent<OptionSelectedEventDetail>) => void;
+        /**
+          * The option name.
+         */
+        "option": string;
+        /**
+          * Whether the option is currently selected.
+         */
+        "selected"?: boolean;
+        /**
+          * Whether the option has a separator at the bottom. Per default it is false.
+         */
+        "separator"?: boolean;
     }
     interface B2bDatePicker {
         /**
@@ -4094,6 +4191,8 @@ declare namespace LocalJSX {
         "b2b-checkbox": B2bCheckbox;
         "b2b-checkbox-group": B2bCheckboxGroup;
         "b2b-chip-component": B2bChipComponent;
+        "b2b-custom-dropdown": B2bCustomDropdown;
+        "b2b-custom-dropdown-option": B2bCustomDropdownOption;
         "b2b-date-picker": B2bDatePicker;
         "b2b-date-picker-days": B2bDatePickerDays;
         "b2b-date-picker-days-header": B2bDatePickerDaysHeader;
@@ -4165,6 +4264,8 @@ declare module "@stencil/core" {
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
             "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
+            "b2b-custom-dropdown": LocalJSX.B2bCustomDropdown & JSXBase.HTMLAttributes<HTMLB2bCustomDropdownElement>;
+            "b2b-custom-dropdown-option": LocalJSX.B2bCustomDropdownOption & JSXBase.HTMLAttributes<HTMLB2bCustomDropdownOptionElement>;
             "b2b-date-picker": LocalJSX.B2bDatePicker & JSXBase.HTMLAttributes<HTMLB2bDatePickerElement>;
             "b2b-date-picker-days": LocalJSX.B2bDatePickerDays & JSXBase.HTMLAttributes<HTMLB2bDatePickerDaysElement>;
             "b2b-date-picker-days-header": LocalJSX.B2bDatePickerDaysHeader & JSXBase.HTMLAttributes<HTMLB2bDatePickerDaysHeaderElement>;
