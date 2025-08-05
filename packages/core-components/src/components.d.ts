@@ -298,6 +298,15 @@ export namespace Components {
          */
         "agency": string;
         /**
+          * Whether search should be automatically disabled for small lists.
+         */
+        "autoDisableSearch": boolean;
+        /**
+          * Whether or not the field is disabled. Default is false.
+         */
+        "disabled": boolean;
+        "opened": boolean;
+        /**
           * The options for the dropdown.
          */
         "optionsList": string[];
@@ -2844,6 +2853,15 @@ declare namespace LocalJSX {
           * Name of the agency
          */
         "agency"?: string;
+        /**
+          * Whether search should be automatically disabled for small lists.
+         */
+        "autoDisableSearch"?: boolean;
+        /**
+          * Whether or not the field is disabled. Default is false.
+         */
+        "disabled"?: boolean;
+        "opened"?: boolean;
         /**
           * The options for the dropdown.
          */

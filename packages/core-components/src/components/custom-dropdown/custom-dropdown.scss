@@ -4,6 +4,34 @@
   width: 100%;
 }
 
+.b2b-custom-dropdown__trigger {
+  position: relative;
+  display: inline !important;
+  cursor: pointer;
+}
+
 .b2b-custom-dropdown {
+  display: none;
+
+  &--on {
+    display: block;
+  }
+}
+
+.b2b-custom-dropdown-search {
   padding: var(--b2b-size-30);
+}
+
+.b2b-custom-dropdown__options-scroll-container {
+  position: relative;
+  display: block;
+  max-height: calc(6 * 48px);
+  overflow-y: auto;
+  margin: 0;
+}
+
+.b2b-custom-dropdown__options-container {
+  position: relative;
+  display: block;
+  margin: 0;
 }

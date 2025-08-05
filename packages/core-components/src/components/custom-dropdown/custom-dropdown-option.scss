@@ -27,7 +27,7 @@
 :host(.b2b-custom-dropdown__option--disabled:focus) {
   background-color: transparent; // Reset background to avoid highlighting
   color: var(
-      --b2b-color-grey-200
+    --b2b-color-grey-200
   ); // Optional: maintain the disabled text color
 }
 
