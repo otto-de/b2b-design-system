@@ -22,46 +22,67 @@ export class B2bCustomDropdownComponent {
   /** Name of the agency */
   @Prop() agency: string;
 
-  /** The options for the dropdown. */
-  @Prop() optionsList: string[] = [];
-
-  /** Whether or not the field is disabled. Default is false. */
+  /** Whether the field is disabled. Default is false. */
   @Prop({ reflect: true }) disabled: boolean = false;
 
   /** Whether search should be automatically disabled for small lists. */
   @Prop() autoDisableSearch: boolean = true;
+
   /** The currently selected option */
-  @State() selectedOption: string = null;
+  @State() selectedOption: string | null = null;
 
   @State() value = '';
 
-  @State() currentList = this.optionsList;
+  @State() allOptions: HTMLB2bCustomDropdownOptionElement[] = [];
 
   @Prop({ mutable: true }) opened: boolean = false;
 
   @Listen('b2b-custom-dropdown-option-selected')
   handleOptionSelected(event: CustomEvent<OptionSelectedEventDetail>) {
     event.stopPropagation();
-    this.selectedOption = event.detail.selectedOption;
-    console.log('Selected option in parent:', this.selectedOption);
+    const selectedValue = event.detail.selectedOption;
+    this.selectedOption = selectedValue;
+
+    // Manually update the 'selected' attribute on all slotted children
+    this.allOptions.forEach(option => {
+      if (option.option === selectedValue) {
+        option.selected = true;
+      } else {
+        option.selected = false;
+      }
+    });
+
+    // Handle the agency option separately if needed
+    const agencyOption = this.hostElement.querySelector(
+      'b2b-custom-dropdown-option[option="' + this.agency + '"]',
+    );
+    if (agencyOption) {
+      (agencyOption as HTMLB2bCustomDropdownOptionElement).selected =
+        this.agency === selectedValue;
+    }
   }
 
-  @Element() hostElement: HTMLB2bFlyoutMenuElement;
+  @Element() hostElement: HTMLB2bCustomDropdownElement;
 
   private triggerEl: HTMLElement;
 
   connectedCallback() {
-    // Check if there are any HTML elements slotted.
-    // and stop registration if there are none
+    this.initializeSlottedOptions();
+
     const children = Array.from(this.hostElement.children).filter(
       x => !x.hasAttribute('option'),
     );
     if (children.length === 0) {
       return;
     }
-    // Manual event handler registration for focus events
     this.triggerEl = children[0] as HTMLElement;
     this.triggerEl.addEventListener('click', this.toggleMenu, true);
+  }
+
+  private initializeSlottedOptions() {
+    this.allOptions = Array.from(
+      this.hostElement.querySelectorAll('[slot="option"]'),
+    );
   }
 
   private toggleMenu = () => {
@@ -79,19 +100,22 @@ export class B2bCustomDropdownComponent {
     this.opened = false;
   };
 
-  private handleInput = event => {
+  private handleInput = (event: CustomEvent) => {
     if (this.disabled) {
       return;
     }
-    this.value = event.target.value.toLowerCase();
-    if (this.value !== '') {
-      const filteredList = (this.optionsList as string[]).filter(
-        option => option.toLowerCase().indexOf(this.value) > -1,
-      );
-      this.currentList = filteredList;
-    } else if (this.value === '') {
-      this.currentList = this.optionsList;
-    }
+    this.value = (event.target as HTMLInputElement).value.toLowerCase();
+
+    this.allOptions.forEach(option => {
+      const optionValue =
+        (option as HTMLB2bCustomDropdownOptionElement).option?.toLowerCase() ||
+        '';
+      if (optionValue.includes(this.value)) {
+        option.style.display = 'block';
+      } else {
+        option.style.display = 'none';
+      }
+    });
   };
 
   render() {
@@ -114,34 +138,26 @@ export class B2bCustomDropdownComponent {
               <b2b-input
                 placeholder={this.placeholder}
                 onB2b-input={this.handleInput}
-                disabled={this.optionsList.length < 6}>
+                disabled={this.allOptions.length < 6}>
                 <b2b-icon-100 icon="b2b_icon-search" slot="end"></b2b-icon-100>
               </b2b-input>
             </div>
           </b2b-background-box>
           <div
             class={
-              this.optionsList.length >= 6
+              this.allOptions.length >= 6
                 ? 'b2b-custom-dropdown__options-scroll-container'
                 : 'b2b-custom-dropdown__options-container'
             }>
             <div>
-              <div>
-                <b2b-custom-dropdown-option
-                  option={this.agency}
-                  separator={true}></b2b-custom-dropdown-option>
-              </div>
-              {this.currentList.map(option => (
-                <div>
-                  <b2b-custom-dropdown-option
-                    option={option}
-                    separator={false}
-                    selected={
-                      option === this.selectedOption
-                    }></b2b-custom-dropdown-option>
-                </div>
-              ))}
+              <b2b-custom-dropdown-option
+                option={this.agency}
+                separator={true}
+                selected={
+                  this.selectedOption === this.agency
+                }></b2b-custom-dropdown-option>
             </div>
+            <slot name="option"></slot>
           </div>
         </div>
       </Host>

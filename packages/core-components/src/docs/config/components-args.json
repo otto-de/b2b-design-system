@@ -857,14 +857,47 @@
       },
       "description": "Name of the agency"
     },
-    "optionsList": {
+    "autoDisableSearch": {
+      "control": {
+        "type": "boolean"
+      },
       "table": {
         "type": {
-          "summary": "string[]"
+          "summary": "boolean"
         },
-        "defaultValue": {}
+        "defaultValue": {
+          "summary": "true"
+        }
       },
-      "description": "The options for the dropdown."
+      "description": "Whether search should be automatically disabled for small lists."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the field is disabled. Default is false."
+    },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": ""
     },
     "placeholder": {
       "table": {

@@ -302,14 +302,10 @@ export namespace Components {
          */
         "autoDisableSearch": boolean;
         /**
-          * Whether or not the field is disabled. Default is false.
+          * Whether the field is disabled. Default is false.
          */
         "disabled": boolean;
         "opened": boolean;
-        /**
-          * The options for the dropdown.
-         */
-        "optionsList": string[];
         /**
           * The placeholder shown in the input field.
          */
@@ -2858,14 +2854,10 @@ declare namespace LocalJSX {
          */
         "autoDisableSearch"?: boolean;
         /**
-          * Whether or not the field is disabled. Default is false.
+          * Whether the field is disabled. Default is false.
          */
         "disabled"?: boolean;
         "opened"?: boolean;
-        /**
-          * The options for the dropdown.
-         */
-        "optionsList"?: string[];
         /**
           * The placeholder shown in the input field.
          */

@@ -25,7 +25,7 @@ export class CustomDropdownOptionComponent {
   @Prop() separator: boolean = false;
 
   /** Whether the option is currently selected. */
-  @Prop({ reflect: true }) selected: boolean = false; // Add this new prop
+  @Prop({ reflect: true }) selected: boolean = false;
 
   /** Emits the option as a string whenever an option is selected. */
   @Event({ eventName: 'b2b-custom-dropdown-option-selected' })
@@ -37,6 +37,7 @@ export class CustomDropdownOptionComponent {
       this.b2bOptionSelected.emit({ selectedOption: this.option });
     }
   }
+
   private handleClick = () => {
     if (!this.disabled) {
       this.b2bOptionSelected.emit({ selectedOption: this.option });
