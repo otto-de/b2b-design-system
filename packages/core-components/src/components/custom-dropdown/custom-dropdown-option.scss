@@ -41,9 +41,7 @@
 :host(.b2b-custom-dropdown__option--disabled):hover,
 :host(.b2b-custom-dropdown__option--disabled:focus) {
   background-color: transparent;
-  color: var(
-    --b2b-color-grey-200
-  );
+  color: var(--b2b-color-grey-200);
 }
 
 :host(.b2b-custom-dropdown__option--disabled) {
