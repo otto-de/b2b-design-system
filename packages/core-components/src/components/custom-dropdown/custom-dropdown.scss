@@ -42,3 +42,11 @@
   display: block;
   margin: 0;
 }
+
+.b2b-custom-dropdown__option--hidden {
+  display: none;
+}
+
+::slotted(b2b-custom-dropdown-option.b2b-custom-dropdown__option--hidden) {
+  display: none;
+}

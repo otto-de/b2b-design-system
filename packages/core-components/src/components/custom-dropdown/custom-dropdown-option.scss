@@ -15,14 +15,20 @@
   height: auto;
   min-height: 48px;
   max-height: 69px;
-  padding-top: 14px;
-  padding-bottom: 13px;
+  padding-top: 13.5px;
+  padding-bottom: 13.5px;
   padding-left: 16px;
+  line-height: 1.313rem;
 }
 
 .b2b-custom-dropdown__text-content {
   flex-grow: 1;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-x: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.313rem;
 }
 
 .b2b-custom-dropdown__icon-container {

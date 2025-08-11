@@ -98,9 +98,9 @@ export class B2bCustomDropdownComponent {
         (option as HTMLB2bCustomDropdownOptionElement).option?.toLowerCase() ||
         '';
       if (optionValue.includes(this.value)) {
-        option.style.display = 'block';
+        option.classList.remove('b2b-custom-dropdown__option--hidden');
       } else {
-        option.style.display = 'none';
+        option.classList.add('b2b-custom-dropdown__option--hidden');
       }
     });
   };
