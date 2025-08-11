@@ -294,10 +294,6 @@ export namespace Components {
     }
     interface B2bCustomDropdown {
         /**
-          * Name of the agency
-         */
-        "agency": string;
-        /**
           * Whether search should be automatically disabled for small lists.
          */
         "autoDisableSearch": boolean;
@@ -2845,10 +2841,6 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface B2bCustomDropdown {
-        /**
-          * Name of the agency
-         */
-        "agency"?: string;
         /**
           * Whether search should be automatically disabled for small lists.
          */

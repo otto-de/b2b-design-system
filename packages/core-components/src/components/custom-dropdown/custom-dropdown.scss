@@ -21,12 +21,18 @@
 
 .b2b-custom-dropdown-search {
   padding: var(--b2b-size-30);
+  display: none;
+
+&--enabled {
+    display: block;
+  }
 }
 
 .b2b-custom-dropdown__options-scroll-container {
   position: relative;
   display: block;
-  max-height: calc(6 * 48px);
+  min-height: calc(6 * 48px);
+  max-height: calc(6 * 69px);;
   overflow-y: auto;
   margin: 0;
 }

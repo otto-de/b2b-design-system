@@ -1,7 +1,8 @@
 @use '../../global/b2b-styles';
 
 :host {
-  display: block;
+  //display: block;
+  display: flex;
   border-bottom: 1px solid transparent;
   cursor: pointer;
   background-color: var(--b2b-color-white-100);
@@ -11,10 +12,24 @@
   border-top: none;
   width: 100%;
   box-sizing: border-box;
-  height: 48px;
+  height: auto;
+  min-height: 48px;
+  max-height: 69px;
   padding-top: 14px;
   padding-bottom: 13px;
   padding-left: 16px;
+}
+
+.b2b-custom-dropdown__text-content {
+  flex-grow: 1;
+  white-space: nowrap;
+}
+
+.b2b-custom-dropdown__icon-container {
+  flex-shrink: 0;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
 }
 
 :host(.b2b-custom-dropdown__option:hover),
@@ -25,10 +40,10 @@
 
 :host(.b2b-custom-dropdown__option--disabled):hover,
 :host(.b2b-custom-dropdown__option--disabled:focus) {
-  background-color: transparent; // Reset background to avoid highlighting
+  background-color: transparent;
   color: var(
     --b2b-color-grey-200
-  ); // Optional: maintain the disabled text color
+  );
 }
 
 :host(.b2b-custom-dropdown__option--disabled) {

@@ -19,9 +19,6 @@ export class B2bCustomDropdownComponent {
   /** The placeholder shown in the input field. */
   @Prop({ reflect: true }) placeholder: string;
 
-  /** Name of the agency */
-  @Prop() agency: string;
-
   /** Whether the field is disabled. Default is false. */
   @Prop({ reflect: true }) disabled: boolean = false;
 
@@ -43,7 +40,6 @@ export class B2bCustomDropdownComponent {
     const selectedValue = event.detail.selectedOption;
     this.selectedOption = selectedValue;
 
-    // Manually update the 'selected' attribute on all slotted children
     this.allOptions.forEach(option => {
       if (option.option === selectedValue) {
         option.selected = true;
@@ -51,15 +47,6 @@ export class B2bCustomDropdownComponent {
         option.selected = false;
       }
     });
-
-    // Handle the agency option separately if needed
-    const agencyOption = this.hostElement.querySelector(
-      'b2b-custom-dropdown-option[option="' + this.agency + '"]',
-    );
-    if (agencyOption) {
-      (agencyOption as HTMLB2bCustomDropdownOptionElement).selected =
-        this.agency === selectedValue;
-    }
   }
 
   @Element() hostElement: HTMLB2bCustomDropdownElement;
@@ -134,7 +121,12 @@ export class B2bCustomDropdownComponent {
             borderTop="none"
             borderRight="none"
             borderLeft="none">
-            <div class="b2b-custom-dropdown-search">
+            <div
+              class={{
+                'b2b-custom-dropdown-search': true,
+                'b2b-custom-dropdown-search--enabled':
+                  this.allOptions.length >= 6,
+              }}>
               <b2b-input
                 placeholder={this.placeholder}
                 onB2b-input={this.handleInput}
@@ -149,14 +141,6 @@ export class B2bCustomDropdownComponent {
                 ? 'b2b-custom-dropdown__options-scroll-container'
                 : 'b2b-custom-dropdown__options-container'
             }>
-            <div>
-              <b2b-custom-dropdown-option
-                option={this.agency}
-                separator={true}
-                selected={
-                  this.selectedOption === this.agency
-                }></b2b-custom-dropdown-option>
-            </div>
             <slot name="option"></slot>
           </div>
         </div>

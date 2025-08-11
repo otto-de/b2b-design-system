@@ -6,6 +6,7 @@ import {
   Prop,
   Host,
   Listen,
+  State,
 } from '@stencil/core';
 import { OptionSelectedEventDetail } from '../../utils/interfaces/form.interface';
 
@@ -27,6 +28,9 @@ export class CustomDropdownOptionComponent {
   /** Whether the option is currently selected. */
   @Prop({ reflect: true }) selected: boolean = false;
 
+  /** Local state to track hover status for icon display. */
+  @State() isHovered: boolean = false;
+
   /** Emits the option as a string whenever an option is selected. */
   @Event({ eventName: 'b2b-custom-dropdown-option-selected' })
   b2bOptionSelected: EventEmitter<OptionSelectedEventDetail>;
@@ -36,6 +40,16 @@ export class CustomDropdownOptionComponent {
     if (event.key === 'Enter' && !this.disabled) {
       this.b2bOptionSelected.emit({ selectedOption: this.option });
     }
+  }
+
+  @Listen('mouseenter')
+  handleMouseEnter() {
+    this.isHovered = true;
+  }
+
+  @Listen('mouseleave')
+  handleMouseLeave() {
+    this.isHovered = false;
   }
 
   private handleClick = () => {
@@ -58,7 +72,18 @@ export class CustomDropdownOptionComponent {
         aria-disabled={this.disabled}
         role="option"
         aria-selected={this.selected.toString()}>
-        {this.option}
+        <div class="b2b-custom-dropdown__text-content">{this.option}</div>
+        <div class="b2b-custom-dropdown__icon-container">
+          {this.isHovered ? (
+            <b2b-icon-100
+              icon="b2b_icon-arrow-long-right"
+              style={{ color: 'var(--b2b-color-grey-400)' }}></b2b-icon-100>
+          ) : this.selected ? (
+            <b2b-icon-100
+              icon="b2b_icon-success"
+              style={{ color: 'var(--b2b-color-success-100)' }}></b2b-icon-100>
+          ) : null}
+        </div>
       </Host>
     );
   }

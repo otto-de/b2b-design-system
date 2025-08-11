@@ -40,13 +40,17 @@
       <div style="width: 300px">
         <b2b-custom-dropdown
           id="custom-dropdown"
-          placeholder="search for partner name"
-          agency="Name of Agency">
+          placeholder="search for partner name">
           <b2b-icon-100
             icon="b2b_icon-ellipsis"
             slot="trigger"
             focusable
             clickable></b2b-icon-100>
+          <b2b-custom-dropdown-option
+            option="Name of the Agency"
+            separator="true"
+            slot="option">
+          </b2b-custom-dropdown-option>
           <b2b-custom-dropdown-option
             option="Partner1"
             separator="false"
@@ -74,6 +78,11 @@
           </b2b-custom-dropdown-option>
           <b2b-custom-dropdown-option
             option="Partner6"
+            separator="false"
+            slot="option">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            option="Partner7"
             separator="false"
             slot="option">
           </b2b-custom-dropdown-option>
