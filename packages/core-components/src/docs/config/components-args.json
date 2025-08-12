@@ -848,15 +848,6 @@
     }
   },
   "b2b-custom-dropdown": {
-    "agency": {
-      "table": {
-        "type": {
-          "summary": "string"
-        },
-        "defaultValue": {}
-      },
-      "description": "Name of the agency"
-    },
     "autoDisableSearch": {
       "control": {
         "type": "boolean"
@@ -883,7 +874,7 @@
           "summary": "false"
         }
       },
-      "description": "Whether the field is disabled. Default is false."
+      "description": "Whether the dropdown is disabled. Default is false."
     },
     "opened": {
       "control": {
@@ -897,7 +888,7 @@
           "summary": "false"
         }
       },
-      "description": ""
+      "description": "Internal: if the dropdown is opened"
     },
     "placeholder": {
       "table": {

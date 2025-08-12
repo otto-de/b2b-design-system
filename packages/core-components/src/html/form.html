@@ -37,15 +37,33 @@
           required
           selected-values="Hydromelon, Skyshroom"></b2b-multiselect-dropdown>
       </div>
+    </div>
+    <script>
+      const multiselect = document.getElementById('multiselect');
+      multiselect.optionsList = [
+        'Swift Carrot',
+        'Hydromelon',
+        'Skyshroom',
+        'Fortified Pumpkin',
+        'Hyrule Herb',
+        'Hylian Shroom',
+        'Mighty Banana',
+        'Endura Carrot',
+        'Golden Apple',
+      ];
+    </script>
+
+    <div class="content-container">
+      <b2b-headline size="200">Custom Dropdown</b2b-headline>
       <div style="width: 300px">
-        <b2b-custom-dropdown
-          id="custom-dropdown"
-          placeholder="search for partner name">
-          <b2b-icon-100
-            icon="b2b_icon-ellipsis"
-            slot="trigger"
-            focusable
-            clickable></b2b-icon-100>
+        <b2b-custom-dropdown placeholder="search for partner name">
+          <b2b-paragraph slot="trigger"
+            >This is a custom dropdown
+            <b2b-icon-100
+              icon="b2b_icon-arrow-down"
+              focusable
+              clickable></b2b-icon-100>
+          </b2b-paragraph>
           <b2b-custom-dropdown-option
             option="Name of the Agency"
             separator="true"
@@ -82,11 +100,6 @@
             slot="option">
           </b2b-custom-dropdown-option>
           <b2b-custom-dropdown-option
-            option="Partner7"
-            separator="false"
-            slot="option">
-          </b2b-custom-dropdown-option>
-          <b2b-custom-dropdown-option
             option="A very long partner name that should be truncated"
             separator="false"
             slot="option">
@@ -94,32 +107,6 @@
         </b2b-custom-dropdown>
       </div>
     </div>
-    <script>
-      const multiselect = document.getElementById('multiselect');
-      multiselect.optionsList = [
-        'Swift Carrot',
-        'Hydromelon',
-        'Skyshroom',
-        'Fortified Pumpkin',
-        'Hyrule Herb',
-        'Hylian Shroom',
-        'Mighty Banana',
-        'Endura Carrot',
-        'Golden Apple',
-      ];
-      document.getElementById('custom-dropdown').optionsList = [
-        'Partner1',
-        'Partner2',
-        'Partner3',
-        'Partner4',
-        'Partner5',
-        'Partner6',
-        'Partner7',
-        'Partner8',
-        'Partner9',
-        'Partner10',
-      ];
-    </script>
 
     <div class="content-container">
       <b2b-headline size="200">Input list</b2b-headline>

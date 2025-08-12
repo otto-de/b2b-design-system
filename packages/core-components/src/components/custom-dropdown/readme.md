@@ -24,14 +24,14 @@
 
 ## Dependencies
 
-### Used by
+### Depends on
 
- - [b2b-custom-dropdown](.)
+- [b2b-icon-100](../icon-100)
 
 ### Graph
 ```mermaid
 graph TD;
-  b2b-custom-dropdown --> b2b-custom-dropdown-option
+  b2b-custom-dropdown-option --> b2b-icon-100
   style b2b-custom-dropdown-option fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -19,11 +19,14 @@ export class B2bCustomDropdownComponent {
   /** The placeholder shown in the input field. */
   @Prop({ reflect: true }) placeholder: string;
 
-  /** Whether the field is disabled. Default is false. */
+  /** Whether the dropdown is disabled. Default is false. */
   @Prop({ reflect: true }) disabled: boolean = false;
 
   /** Whether search should be automatically disabled for small lists. */
   @Prop() autoDisableSearch: boolean = true;
+
+  /** Internal: if the dropdown is opened */
+  @Prop({ mutable: true }) opened: boolean = false;
 
   /** The currently selected option */
   @State() selectedOption: string | null = null;
@@ -31,8 +34,6 @@ export class B2bCustomDropdownComponent {
   @State() value = '';
 
   @State() allOptions: HTMLB2bCustomDropdownOptionElement[] = [];
-
-  @Prop({ mutable: true }) opened: boolean = false;
 
   @Listen('b2b-custom-dropdown-option-selected')
   handleOptionSelected(event: CustomEvent<OptionSelectedEventDetail>) {
@@ -114,7 +115,7 @@ export class B2bCustomDropdownComponent {
         <div
           class={{
             'b2b-custom-dropdown': true,
-            'b2b-custom-dropdown--on': this.opened,
+            'b2b-custom-dropdown--on': this.opened && !this.disabled,
           }}>
           <b2b-background-box
             noPadding={true}
@@ -125,12 +126,11 @@ export class B2bCustomDropdownComponent {
               class={{
                 'b2b-custom-dropdown-search': true,
                 'b2b-custom-dropdown-search--enabled':
-                  this.allOptions.length >= 6,
+                  this.allOptions.length >= 6 && !this.disabled,
               }}>
               <b2b-input
                 placeholder={this.placeholder}
-                onB2b-input={this.handleInput}
-                disabled={this.allOptions.length < 6}>
+                onB2b-input={this.handleInput}>
                 <b2b-icon-100 icon="b2b_icon-search" slot="end"></b2b-icon-100>
               </b2b-input>
             </div>

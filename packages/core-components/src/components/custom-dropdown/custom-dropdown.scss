@@ -31,8 +31,7 @@
 .b2b-custom-dropdown__options-scroll-container {
   position: relative;
   display: block;
-  min-height: calc(6 * 48px);
-  max-height: calc(6 * 69px);
+  max-height: calc(6 * 48px);
   overflow-y: auto;
   margin: 0;
 }
@@ -41,6 +40,10 @@
   position: relative;
   display: block;
   margin: 0;
+
+  &--disabled {
+    display: none;
+  }
 }
 
 .b2b-custom-dropdown__option--hidden {
