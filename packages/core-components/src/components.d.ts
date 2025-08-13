@@ -298,9 +298,17 @@ export namespace Components {
          */
         "autoDisableSearch": boolean;
         /**
+          * Whether the dropdown should have a border. Default is false.
+         */
+        "border": boolean;
+        /**
           * Whether the dropdown is disabled. Default is false.
          */
         "disabled": boolean;
+        /**
+          * Whether the dropdown should have a drop shadow. Default is false.
+         */
+        "dropshadow": boolean;
         /**
           * Internal: if the dropdown is opened
          */
@@ -2849,9 +2857,17 @@ declare namespace LocalJSX {
          */
         "autoDisableSearch"?: boolean;
         /**
+          * Whether the dropdown should have a border. Default is false.
+         */
+        "border"?: boolean;
+        /**
           * Whether the dropdown is disabled. Default is false.
          */
         "disabled"?: boolean;
+        /**
+          * Whether the dropdown should have a drop shadow. Default is false.
+         */
+        "dropshadow"?: boolean;
         /**
           * Internal: if the dropdown is opened
          */

@@ -862,6 +862,20 @@
       },
       "description": "Whether search should be automatically disabled for small lists."
     },
+    "border": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the dropdown should have a border. Default is false."
+    },
     "disabled": {
       "control": {
         "type": "boolean"
@@ -875,6 +889,20 @@
         }
       },
       "description": "Whether the dropdown is disabled. Default is false."
+    },
+    "dropshadow": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the dropdown should have a drop shadow. Default is false."
     },
     "opened": {
       "control": {

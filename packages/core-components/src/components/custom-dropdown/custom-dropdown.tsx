@@ -22,6 +22,12 @@ export class B2bCustomDropdownComponent {
   /** Whether the dropdown is disabled. Default is false. */
   @Prop({ reflect: true }) disabled: boolean = false;
 
+  /** Whether the dropdown should have a drop shadow. Default is false. */
+  @Prop({ reflect: true }) dropshadow: boolean = false;
+
+  /** Whether the dropdown should have a border. Default is false. */
+  @Prop({ reflect: true }) border: boolean = false;
+
   /** Whether search should be automatically disabled for small lists. */
   @Prop() autoDisableSearch: boolean = true;
 
@@ -116,6 +122,8 @@ export class B2bCustomDropdownComponent {
           class={{
             'b2b-custom-dropdown': true,
             'b2b-custom-dropdown--on': this.opened && !this.disabled,
+            'b2b-custom-dropdown--drop-shadow': this.dropshadow,
+            'b2b-custom-dropdown--border': this.border,
           }}>
           <b2b-background-box
             noPadding={true}

@@ -10,10 +10,13 @@ const meta: Meta = {
     placeholder: 'Test Placeholder',
     separator: true,
     disabled: false,
+    dropshadow: true,
   },
   render: ({ ...args }) =>
-    html`<div style="margin-left: 16px;width: 500px">
-      <b2b-custom-dropdown placeholder="${args.placeholder}">
+    html`<div style="margin-left: 16px;width: 300px">
+      <b2b-custom-dropdown
+        placeholder="${args.placeholder}"
+        dropshadow="${args.dropshadow}">
         <b2b-paragraph slot="trigger">
           This is a custom dropdown
           <b2b-icon-100
@@ -69,7 +72,7 @@ export const Default: Story = {
   args: { ...meta.args },
 };
 
-export const Disabled: Story = {
+export const CustomDropdownOptionsDisabled: Story = {
   args: { ...meta.args, disabled: true },
 };
 
@@ -77,7 +80,9 @@ export const SearchAndScrollDisabled: Story = {
   args: { ...meta.args },
   render: ({ ...args }) =>
     html`<div style="margin-left: 16px;width: 300px">
-      <b2b-custom-dropdown placeholder="${args.placeholder}">
+      <b2b-custom-dropdown
+        placeholder="${args.placeholder}"
+        dropshadow="${args.dropshadow}">
         <b2b-paragraph slot="trigger">
           This is a custom dropdown
           <b2b-icon-100
