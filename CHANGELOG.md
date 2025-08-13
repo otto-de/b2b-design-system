@@ -1,3 +1,10 @@
+## [1.31.4](https://github.com/otto-de/b2b-design-system/compare/v1.31.3...v1.31.4) (2025-08-13)
+
+
+### Bug Fixes
+
+* **input-group:** [BLA-1581] Update logic to resize dropdown ([63637cf](https://github.com/otto-de/b2b-design-system/commit/63637cf57dc44664a1fe368415bc99dce9624ca6))
+
 ## [1.31.3](https://github.com/otto-de/b2b-design-system/compare/v1.31.2...v1.31.3) (2025-07-30)
 
 
