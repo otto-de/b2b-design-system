@@ -324,6 +324,14 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * The icon to display when the option is hovered and not selected. Defaults to null (no icon).
+         */
+        "hoverIcon": any | null;
+        /**
+          * The color of the icon when the option is hovered. Defaults to 'b2b-color-grey-400'.
+         */
+        "hoverIconColor": string;
+        /**
           * The option name.
          */
         "option": string;
@@ -331,6 +339,14 @@ export namespace Components {
           * Whether the option is currently selected.
          */
         "selected": boolean;
+        /**
+          * The icon to display when the option is selected. Defaults to null (no icon).
+         */
+        "selectedIcon": any | null;
+        /**
+          * The color of the icon when the option is selected. Defaults to 'b2b-color-grey-400'.
+         */
+        "selectedIconColor": string;
         /**
           * Whether the option has a separator at the bottom. Per default it is false.
          */
@@ -2883,6 +2899,14 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * The icon to display when the option is hovered and not selected. Defaults to null (no icon).
+         */
+        "hoverIcon"?: any | null;
+        /**
+          * The color of the icon when the option is hovered. Defaults to 'b2b-color-grey-400'.
+         */
+        "hoverIconColor"?: string;
+        /**
           * Emits the option as a string whenever an option is selected.
          */
         "onB2b-custom-dropdown-option-selected"?: (event: B2bCustomDropdownOptionCustomEvent<OptionSelectedEventDetail>) => void;
@@ -2894,6 +2918,14 @@ declare namespace LocalJSX {
           * Whether the option is currently selected.
          */
         "selected"?: boolean;
+        /**
+          * The icon to display when the option is selected. Defaults to null (no icon).
+         */
+        "selectedIcon"?: any | null;
+        /**
+          * The color of the icon when the option is selected. Defaults to 'b2b-color-grey-400'.
+         */
+        "selectedIconColor"?: string;
         /**
           * Whether the option has a separator at the bottom. Per default it is false.
          */

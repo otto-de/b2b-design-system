@@ -128,6 +128,7 @@ export class B2bCustomDropdownComponent {
           <b2b-background-box
             noPadding={true}
             borderTop="none"
+            borderBottom="none"
             borderRight="none"
             borderLeft="none">
             <div

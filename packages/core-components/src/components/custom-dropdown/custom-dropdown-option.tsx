@@ -28,6 +28,18 @@ export class CustomDropdownOptionComponent {
   /** Whether the option is currently selected. */
   @Prop({ reflect: true }) selected: boolean = false;
 
+  /** The icon to display when the option is hovered and not selected. Defaults to null (no icon). */
+  @Prop({ reflect: true }) hoverIcon: any | null = null;
+
+  /** The color of the icon when the option is hovered. Defaults to 'b2b-color-grey-400'. */
+  @Prop({ reflect: true }) hoverIconColor: string = 'b2b-color-grey-400';
+
+  /** The icon to display when the option is selected. Defaults to null (no icon). */
+  @Prop({ reflect: true }) selectedIcon: any | null = null;
+
+  /** The color of the icon when the option is selected. Defaults to 'b2b-color-grey-400'. */
+  @Prop({ reflect: true }) selectedIconColor: string = 'b2b-color-grey-400';
+
   /** Local state to track hover status for icon display. */
   @State() isHovered: boolean = false;
 
@@ -58,11 +70,19 @@ export class CustomDropdownOptionComponent {
     }
   };
 
+  private formatColorVariable(color: string): string {
+    if (color.startsWith('var(--b2b-color-') && color.endsWith(')')) {
+      return color;
+    }
+    return `var(--${color})`;
+  }
+
   render() {
     return (
       <Host
         class={{
           'b2b-custom-dropdown__option': true,
+          'b2b-custom-dropdown__option-hover': this.isHovered && !this.selected,
           'b2b-custom-dropdown__option--disabled': this.disabled,
           'b2b-custom-dropdown__option--separator': this.separator,
           'b2b-custom-dropdown__option--selected': this.selected,
@@ -72,17 +92,23 @@ export class CustomDropdownOptionComponent {
         aria-disabled={this.disabled}
         role="option"
         aria-selected={this.selected.toString()}>
-        <div class="b2b-custom-dropdown__text-content">{this.option}</div>
-        <div class="b2b-custom-dropdown__icon-container">
-          {this.isHovered ? (
-            <b2b-icon-100
-              icon="b2b_icon-arrow-long-right"
-              style={{ color: 'var(--b2b-color-grey-400)' }}></b2b-icon-100>
-          ) : this.selected ? (
-            <b2b-icon-100
-              icon="b2b_icon-success"
-              style={{ color: 'var(--b2b-color-success-100)' }}></b2b-icon-100>
-          ) : null}
+        <div class="b2b-option-container">
+          <div class="b2b-custom-dropdown__text-content">{this.option}</div>
+          <div class="b2b-custom-dropdown__icon-container">
+            {this.isHovered && !this.selected && this.hoverIcon ? (
+              <b2b-icon-100
+                icon={this.hoverIcon}
+                style={{
+                  color: this.formatColorVariable(this.hoverIconColor),
+                }}></b2b-icon-100>
+            ) : this.selected && this.selectedIcon ? (
+              <b2b-icon-100
+                icon={this.selectedIcon}
+                style={{
+                  color: this.formatColorVariable(this.selectedIconColor),
+                }}></b2b-icon-100>
+            ) : null}
+          </div>
         </div>
       </Host>
     );

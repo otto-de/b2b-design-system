@@ -1,7 +1,6 @@
 @use '../../global/b2b-styles';
 
 :host {
-  //display: block;
   display: flex;
   border-bottom: 1px solid transparent;
   cursor: pointer;
@@ -15,27 +14,31 @@
   height: auto;
   min-height: 48px;
   max-height: 69px;
-  padding-top: 13.5px;
-  padding-bottom: 13.5px;
-  padding-left: 16px;
-  line-height: 1.313rem;
+}
+
+.b2b-option-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 13.5px 8px 13.5px 16px;
 }
 
 .b2b-custom-dropdown__text-content {
   flex-grow: 1;
   white-space: normal;
-  overflow-x: auto;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   line-height: 1.313rem;
+  overflow: hidden;
 }
 
 .b2b-custom-dropdown__icon-container {
   flex-shrink: 0;
-  margin-right: 8px;
   display: flex;
   align-items: center;
+  height: 1.313rem;
 }
 
 :host(.b2b-custom-dropdown__option:hover),
@@ -60,6 +63,11 @@
 }
 
 :host(.b2b-custom-dropdown__option--selected) {
+  background-color: var(--b2b-color-blue-10);
+  border-left: 3px solid var(--b2b-color-blue-100);
+}
+
+:host(.b2b-custom-dropdown__option--selected:hover) {
   background-color: var(--b2b-color-blue-10);
   border-left: 3px solid var(--b2b-color-blue-100);
 }

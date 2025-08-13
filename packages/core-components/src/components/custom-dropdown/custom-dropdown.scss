@@ -32,6 +32,7 @@
 
   &--enabled {
     display: block;
+    border-bottom: var(--b2b-size-1) solid var(--b2b-color-border-100);
   }
 }
 
