@@ -8,13 +8,13 @@ describe('b2b-custom-dropdown', () => {
     await page.setContent(`
       <b2b-custom-dropdown placeholder="Select an option">
         <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
-        <b2b-custom-dropdown-option slot='option' option='Name of the agency' separator="true">
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot='option' option='option1' separator="false">
+        <b2b-custom-dropdown-option slot='option' option='option1' separator="true">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option slot='option' option='option2' separator="false">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option slot='option' option='option3' separator="false">
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot='option' option='option4' separator="false">
         </b2b-custom-dropdown-option>
       </b2b-custom-dropdown>
     `);
@@ -82,11 +82,6 @@ describe('b2b-custom-dropdown', () => {
     const optionTexts = await Promise.all(
       dropdownOptions.map(option => option.getProperty('option')),
     );
-    expect(optionTexts).toEqual([
-      'Name of the agency',
-      'option1',
-      'option2',
-      'option3',
-    ]);
+    expect(optionTexts).toEqual(['option1', 'option2', 'option3', 'option4']);
   });
 });

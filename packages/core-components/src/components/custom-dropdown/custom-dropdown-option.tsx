@@ -47,13 +47,6 @@ export class CustomDropdownOptionComponent {
   @Event({ eventName: 'b2b-custom-dropdown-option-selected' })
   b2bOptionSelected: EventEmitter<OptionSelectedEventDetail>;
 
-  @Listen('keydown')
-  handleKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter' && !this.disabled) {
-      this.b2bOptionSelected.emit({ selectedOption: this.option });
-    }
-  }
-
   @Listen('mouseenter')
   handleMouseEnter() {
     this.isHovered = true;
