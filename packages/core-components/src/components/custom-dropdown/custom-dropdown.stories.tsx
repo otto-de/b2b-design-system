@@ -16,13 +16,16 @@ const meta: Meta = {
     hoverIconColor: null,
     selectedIcon: null,
     selectedIconColor: null,
+    opened: false,
+    selected: false,
   },
   render: ({ ...args }) =>
     html`<div style="margin-left: 16px;width: 300px">
       <b2b-custom-dropdown
         placeholder="${args.placeholder}"
         dropshadow="${args.dropshadow}"
-        border="${args.border}">
+        border="${args.border}"
+        opened="${args.opened}">
         <b2b-paragraph slot="trigger">
           This is a custom dropdown
           <b2b-icon-100
@@ -38,6 +41,7 @@ const meta: Meta = {
           selected-icon="${args.selectedIcon}"
           hover-icon-color="${args.hoverIconColor}"
           selected-icon-color="${args.selectedIconColor}"
+          selected="${args.selected}"
           disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option
@@ -112,20 +116,22 @@ export const Default: Story = {
 };
 
 export const WithDropShadow: Story = {
-  args: { ...meta.args },
+  args: { ...meta.args, opened: true },
 };
 
 export const WithBorder: Story = {
-  args: { ...meta.args, dropshadow: false, border: true },
+  args: { ...meta.args, dropshadow: false, border: true, opened: true },
 };
 
 export const WithSeparator: Story = {
-  args: { ...meta.args, separator: true },
+  args: { ...meta.args, separator: true, opened: true },
 };
 
 export const WithIcon: Story = {
   args: {
     ...meta.args,
+    opened: true,
+    selected: true,
     hoverIcon: 'b2b_icon-arrow-long-right',
     hoverIconColor: 'b2b-color-grey-400',
     selectedIcon: 'b2b_icon-success',
@@ -134,16 +140,17 @@ export const WithIcon: Story = {
 };
 
 export const CustomDropdownOptionsDisabled: Story = {
-  args: { ...meta.args, disabled: true },
+  args: { ...meta.args, disabled: true, opened: true },
 };
 
 export const SearchAndScrollDisabled: Story = {
-  args: { ...meta.args },
+  args: { ...meta.args, opened: true },
   render: ({ ...args }) =>
     html`<div style="margin-left: 16px;width: 300px">
       <b2b-custom-dropdown
         placeholder="${args.placeholder}"
-        dropshadow="${args.dropshadow}">
+        dropshadow="${args.dropshadow}"
+        opened="${args.opened}">
         <b2b-paragraph slot="trigger">
           This is a custom dropdown
           <b2b-icon-100
@@ -165,12 +172,13 @@ export const SearchAndScrollDisabled: Story = {
 };
 
 export const CustomDropdownDisabled: Story = {
-  args: { ...meta.args, disabled: true },
+  args: { ...meta.args, disabled: true, opened: true },
   render: ({ ...args }) =>
     html`<div style="margin-left: 16px;width: 300px">
       <b2b-custom-dropdown
         placeholder="${args.placeholder}"
-        disabled="${args.disabled}">
+        disabled="${args.disabled}"
+        opened="${args.opened}">
         <b2b-paragraph slot="trigger">
           This is a custom dropdown
           <b2b-icon-100
@@ -186,39 +194,6 @@ export const CustomDropdownDisabled: Story = {
         <b2b-custom-dropdown-option slot="option" option="Option 3">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option slot="option" option="Option 4">
-        </b2b-custom-dropdown-option>
-      </b2b-custom-dropdown>
-    </div>`,
-};
-
-export const AllStates: Story = {
-  args: { ...meta.args },
-  render: ({ ...args }) =>
-    html`<div style="margin-left: 16px;width: 300px">
-      <b2b-custom-dropdown
-        placeholder="${args.placeholder}"
-        opened="true">
-        <b2b-paragraph slot="trigger">
-          This is a custom dropdown
-          <b2b-icon-100
-            icon="b2b_icon-arrow-down"
-            focusable
-            clickable></b2b-icon-100>
-        </b2b-paragraph>
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot="option" option="Option 1" separator="true">
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot="option" option="Option 2" disabled="true">
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot="option" option="Option 3"selected="true" selected-icon="b2b_icon-success" selected-icon-color="b2b-color-success-100">
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot="option" option="Option 4">
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot="option" option="Option 5">
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot="option" option="Option 6">
-        </b2b-custom-dropdown-option>
-        <b2b-custom-dropdown-option slot="option" option="Option 7">
         </b2b-custom-dropdown-option>
       </b2b-custom-dropdown>
     </div>`,
