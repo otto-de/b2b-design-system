@@ -20,6 +20,13 @@ const ignoredStories = [
   'components-form-date-picker--disable-past-dates',
   'components-form-date-picker--disable-future-dates',
   'components-status-feedback-shimmer--story-010-default',
+  'components-form-custom-dropdown--custom-dropdown-disabled.png',
+  'components-form-custom-dropdown--custom-dropdown-options-disabled.png',
+  'components-form-custom-dropdown--search-and-scroll-disabled.png',
+  'components-form-custom-dropdown--with-border.png',
+  'components-form-custom-dropdown--with-drop-shadow.png',
+  'components-form-custom-dropdown--with-icon.png',
+  'components-form-custom-dropdown--with-separator.png',
 ];
 
 module.exports = {

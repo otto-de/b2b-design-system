@@ -190,3 +190,36 @@ export const CustomDropdownDisabled: Story = {
       </b2b-custom-dropdown>
     </div>`,
 };
+
+export const AllStates: Story = {
+  args: { ...meta.args },
+  render: ({ ...args }) =>
+    html`<div style="margin-left: 16px;width: 300px">
+      <b2b-custom-dropdown
+        placeholder="${args.placeholder}"
+        opened="true">
+        <b2b-paragraph slot="trigger">
+          This is a custom dropdown
+          <b2b-icon-100
+            icon="b2b_icon-arrow-down"
+            focusable
+            clickable></b2b-icon-100>
+        </b2b-paragraph>
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot="option" option="Option 1" separator="true">
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot="option" option="Option 2" disabled="true">
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot="option" option="Option 3"selected="true" selected-icon="b2b_icon-success" selected-icon-color="b2b-color-success-100">
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot="option" option="Option 4">
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot="option" option="Option 5">
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot="option" option="Option 6">
+        </b2b-custom-dropdown-option>
+        <b2b-custom-dropdown-option slot="option" option="Option 7">
+        </b2b-custom-dropdown-option>
+      </b2b-custom-dropdown>
+    </div>`,
+};
