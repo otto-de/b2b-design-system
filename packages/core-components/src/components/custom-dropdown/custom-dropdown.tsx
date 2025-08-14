@@ -28,7 +28,7 @@ export class B2bCustomDropdownComponent {
   /** Whether the dropdown should have a border. Default is false. */
   @Prop({ reflect: true }) border: boolean = false;
 
-  /** Whether search should be automatically disabled for small lists. */
+  /** Search is automatically disabled for lists with fewer than six options. */
   @Prop() autoDisableSearch: boolean = true;
 
   /** Internal: if the dropdown is opened */

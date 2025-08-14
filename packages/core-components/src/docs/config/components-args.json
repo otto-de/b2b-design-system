@@ -860,7 +860,7 @@
           "summary": "true"
         }
       },
-      "description": "Whether search should be automatically disabled for small lists."
+      "description": "Search is automatically disabled for lists with fewer than six options."
     },
     "border": {
       "control": {
@@ -943,6 +943,28 @@
       },
       "description": "Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected."
     },
+    "hoverIcon": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The icon to display when the option is hovered and not selected. Defaults to null (no icon)."
+    },
+    "hoverIconColor": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'b2b-color-black-100'"
+        }
+      },
+      "description": "The color of the icon when the option is hovered. Defaults to 'b2b-color-black-100'."
+    },
     "option": {
       "table": {
         "type": {
@@ -965,6 +987,28 @@
         }
       },
       "description": "Whether the option is currently selected."
+    },
+    "selectedIcon": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The icon to display when the option is selected. Defaults to null (no icon)."
+    },
+    "selectedIconColor": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'b2b-color-black-100'"
+        }
+      },
+      "description": "The color of the icon when the option is selected. Defaults to 'b2b-color-black-100'."
     },
     "separator": {
       "control": {

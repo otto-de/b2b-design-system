@@ -294,7 +294,7 @@ export namespace Components {
     }
     interface B2bCustomDropdown {
         /**
-          * Whether search should be automatically disabled for small lists.
+          * Search is automatically disabled for lists with fewer than six options.
          */
         "autoDisableSearch": boolean;
         /**
@@ -328,7 +328,7 @@ export namespace Components {
          */
         "hoverIcon": any | null;
         /**
-          * The color of the icon when the option is hovered. Defaults to 'b2b-color-grey-400'.
+          * The color of the icon when the option is hovered. Defaults to 'b2b-color-black-100'.
          */
         "hoverIconColor": string;
         /**
@@ -344,7 +344,7 @@ export namespace Components {
          */
         "selectedIcon": any | null;
         /**
-          * The color of the icon when the option is selected. Defaults to 'b2b-color-grey-400'.
+          * The color of the icon when the option is selected. Defaults to 'b2b-color-black-100'.
          */
         "selectedIconColor": string;
         /**
@@ -2869,7 +2869,7 @@ declare namespace LocalJSX {
     }
     interface B2bCustomDropdown {
         /**
-          * Whether search should be automatically disabled for small lists.
+          * Search is automatically disabled for lists with fewer than six options.
          */
         "autoDisableSearch"?: boolean;
         /**
@@ -2903,7 +2903,7 @@ declare namespace LocalJSX {
          */
         "hoverIcon"?: any | null;
         /**
-          * The color of the icon when the option is hovered. Defaults to 'b2b-color-grey-400'.
+          * The color of the icon when the option is hovered. Defaults to 'b2b-color-black-100'.
          */
         "hoverIconColor"?: string;
         /**
@@ -2923,7 +2923,7 @@ declare namespace LocalJSX {
          */
         "selectedIcon"?: any | null;
         /**
-          * The color of the icon when the option is selected. Defaults to 'b2b-color-grey-400'.
+          * The color of the icon when the option is selected. Defaults to 'b2b-color-black-100'.
          */
         "selectedIconColor"?: string;
         /**

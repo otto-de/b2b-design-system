@@ -31,14 +31,14 @@ export class CustomDropdownOptionComponent {
   /** The icon to display when the option is hovered and not selected. Defaults to null (no icon). */
   @Prop({ reflect: true }) hoverIcon: any | null = null;
 
-  /** The color of the icon when the option is hovered. Defaults to 'b2b-color-grey-400'. */
-  @Prop({ reflect: true }) hoverIconColor: string = 'b2b-color-grey-400';
+  /** The color of the icon when the option is hovered. Defaults to 'b2b-color-black-100'. */
+  @Prop({ reflect: true }) hoverIconColor: string = 'b2b-color-black-100';
 
   /** The icon to display when the option is selected. Defaults to null (no icon). */
   @Prop({ reflect: true }) selectedIcon: any | null = null;
 
-  /** The color of the icon when the option is selected. Defaults to 'b2b-color-grey-400'. */
-  @Prop({ reflect: true }) selectedIconColor: string = 'b2b-color-grey-400';
+  /** The color of the icon when the option is selected. Defaults to 'b2b-color-black-100'. */
+  @Prop({ reflect: true }) selectedIconColor: string = 'b2b-color-black-100';
 
   /** Local state to track hover status for icon display. */
   @State() isHovered: boolean = false;
