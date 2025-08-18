@@ -197,8 +197,18 @@ export class DropdownComponent {
     if (!ctx) return;
 
     ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+
+    let baseWidth = this.selectEl.clientWidth;
+    const parentContainer = this.selectEl.parentElement;
+
+    if (parentContainer && parentContainer.clientWidth > baseWidth) {
+      baseWidth = parentContainer.clientWidth;
+    }
+
+    baseWidth = Math.max(baseWidth, 200);
+
     const availableWidth =
-      this.selectEl.clientWidth - parseFloat(style.paddingRight || '0') - 24;
+      baseWidth - parseFloat(style.paddingRight || '0') - 24;
 
     if (ctx.measureText(rawText).width <= availableWidth) {
       this.truncatedText = rawText;
