@@ -1,0 +1,80 @@
+import { ArgTypes, Primary, Source, Canvas, Meta } from '@storybook/blocks';
+import * as CustomDropdownStories from './custom-dropdown.stories';
+
+<Meta of={CustomDropdownStories} />
+
+# Custom Dropdown Component
+
+<Canvas of={CustomDropdownStories.Default} />
+
+The B2B custom dropdown component is interactive and lists down the multiple options. You can hook into an event
+that fires whenever the user selects an option from the custom dropdown component.
+
+A trigger component is added to display the B2B custom dropdown component. When the trigger is clicked, the dropdown is
+displayed with the options listed below it. Any component can be used as a trigger when it has the `slot='trigger'` attribute.
+
+The options can be selected by clicking on them. Then options need to have the `slot='option'` attribute as mentioned in the above example.
+
+<br />
+
+## Properties
+
+### Placeholder
+
+The placeholder displayed when no option is selected. Must be a string.
+
+### Border
+
+The custom dropdown component can display a border when this option is set to true. The default value is false.
+
+### Dropshadow
+
+The custom dropdown component can display a dropshadow when this option is set to true. The default value is false.
+
+### Separator
+
+The options of custom dropdown component can have a separator on enabling it as true which separates the options. The default value is false.
+
+### Icons
+
+Icons can be added to the options of the custom dropdown component and they are displayed on the right side of the option text, when the option is hovered or selected. The icon must be a valid B2B icon name.
+You can add an icon to an option by using the `hoveredIcon` and `selectedIcon` attributes to set icons for an option’s hovered and selected states respectively. When no icon is set, the option will not display any icon.
+The colors of the icons can be determined by the `hoveredIconColor` and `selectedIconColor` attributes. The default color for both icons is `b2b-color-black-100`.
+
+### Disabled
+
+The custom dropdown can be disabled, and it would render opaque and unclickable.
+
+<Canvas of={CustomDropdownStories.CustomDropdownDisabled} />
+
+NOTE: The options in custom dropdown can also be disabled. Disabled and separator are optional. The component can simply be used like this without specifying any properties aside from the label:
+
+<Source
+  code={`<b2b-custom-dropdown placeholder="search for partner name"><b2b-icon-100 icon="b2b_icon-ellipsis" clickable focusable slot='trigger'></b2b-icon-100><b2b-custom-dropdown-option slot='option' option='Partner1' ></b2b-custom-dropdown-option></b2b-custom-dropdown>`}
+/>
+
+<br />
+
+## Search and Scroll
+
+The custom dropdown component supports search and scroll functionality. The functionality is enabled by default if the options list has more than 6 items and disabled otherwise.
+
+### Disabled search and scroll
+
+<Canvas of={CustomDropdownStories.SearchAndScrollDisabled} />
+
+<br />
+
+## Events
+
+### b2b-onClick
+
+This event emits whenever the user selects an option by clicking on it or pressing enter while it has focus. You can
+listen to this.
+
+## Attributes
+
+<ArgTypes of={CustomDropdownStories} />
+Changes made to the attributes in the above table will reflect in the example
+below:
+<Primary />

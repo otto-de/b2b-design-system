@@ -21,6 +21,8 @@
 ### Used by
 
  - [b2b-alert](../alert)
+ - [b2b-custom-dropdown](../custom-dropdown)
+ - [b2b-custom-dropdown-option](../custom-dropdown)
  - [b2b-date-picker](../date-picker)
  - [b2b-date-picker-header](../date-picker)
  - [b2b-input-list](../input-list)
@@ -35,6 +37,8 @@
 ```mermaid
 graph TD;
   b2b-alert --> b2b-icon-100
+  b2b-custom-dropdown --> b2b-icon-100
+  b2b-custom-dropdown-option --> b2b-icon-100
   b2b-date-picker --> b2b-icon-100
   b2b-date-picker-header --> b2b-icon-100
   b2b-input-list --> b2b-icon-100

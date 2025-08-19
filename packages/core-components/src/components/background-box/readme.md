@@ -18,6 +18,19 @@
 | `noPadding`    | `no-padding`    | Whether the box should have a padding. Per default, padding is enabled          | `boolean`             | `false`     |
 
 
+## Dependencies
+
+### Used by
+
+ - [b2b-custom-dropdown](../custom-dropdown)
+
+### Graph
+```mermaid
+graph TD;
+  b2b-custom-dropdown --> b2b-background-box
+  style b2b-background-box fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

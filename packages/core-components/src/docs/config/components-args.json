@@ -847,6 +847,184 @@
       "description": "It is only used when the chip component participates in a group"
     }
   },
+  "b2b-custom-dropdown": {
+    "autoDisableSearch": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "true"
+        }
+      },
+      "description": "Search is automatically disabled for lists with fewer than six options."
+    },
+    "border": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the dropdown should have a border. Default is false."
+    },
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the dropdown is disabled. Default is false."
+    },
+    "dropshadow": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the dropdown should have a drop shadow. Default is false."
+    },
+    "opened": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Internal: if the dropdown is opened"
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The placeholder shown in the input field."
+    }
+  },
+  "b2b-custom-dropdown-option": {
+    "disabled": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option is disabled. Per default it is false. If disabled is true, the option cannot be selected."
+    },
+    "hoverIcon": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The icon to display when the option is hovered and not selected. Defaults to null (no icon)."
+    },
+    "hoverIconColor": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'b2b-color-black-100'"
+        }
+      },
+      "description": "The color of the icon when the option is hovered. Defaults to 'b2b-color-black-100'."
+    },
+    "option": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The option name."
+    },
+    "selected": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option is currently selected."
+    },
+    "selectedIcon": {
+      "table": {
+        "type": {
+          "summary": "any"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The icon to display when the option is selected. Defaults to null (no icon)."
+    },
+    "selectedIconColor": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'b2b-color-black-100'"
+        }
+      },
+      "description": "The color of the icon when the option is selected. Defaults to 'b2b-color-black-100'."
+    },
+    "separator": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the option has a separator at the bottom. Per default it is false."
+    }
+  },
   "b2b-date-picker": {
     "disableDates": {
       "options": [

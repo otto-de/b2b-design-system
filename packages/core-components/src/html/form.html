@@ -54,6 +54,95 @@
     </script>
 
     <div class="content-container">
+      <b2b-headline size="200">Custom Dropdown</b2b-headline>
+      <div style="width: 300px">
+        <b2b-custom-dropdown
+          placeholder="search for partner name"
+          dropshadow="true">
+          <b2b-paragraph slot="trigger"
+            >This is a custom dropdown
+            <b2b-icon-100
+              icon="b2b_icon-arrow-down"
+              focusable
+              clickable></b2b-icon-100>
+          </b2b-paragraph>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="Name of the Agency"
+            separator="true"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="Partner1"
+            separator="false"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="Partner2"
+            separator="false"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="Partner3"
+            separator="false"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="Partner4"
+            separator="false"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="Partner5"
+            separator="false"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="Partner6"
+            separator="false"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            slot="option"
+            option="A very long partner name that should be truncated"
+            separator="false"
+            hover-icon="b2b_icon-arrow-long-right"
+            selected-icon="b2b_icon-success"
+            hover-icon-color="b2b-color-grey-400"
+            selected-icon-color="b2b-color-success-100">
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown>
+      </div>
+    </div>
+
+    <div class="content-container">
       <b2b-headline size="200">Input list</b2b-headline>
       <div style="width: 40%">
         <b2b-input-list id="i-list" placeholder="search here"></b2b-input-list>
