@@ -67,6 +67,10 @@
   border-left: 3px solid var(--b2b-color-blue-100);
 }
 
+:host(.b2b-custom-dropdown__option--selected) .b2b-option-container {
+  padding-left: 13px;
+}
+
 :host(.b2b-custom-dropdown__option--selected:hover) {
   background-color: var(--b2b-color-blue-10);
   border-left: 3px solid var(--b2b-color-blue-100);
