@@ -1,3 +1,11 @@
+# [1.32.0](https://github.com/otto-de/b2b-design-system/compare/v1.31.4...v1.32.0) (2025-08-21)
+
+
+### Features
+
+* **Custom-dropdown:** [NEPTUNE-4831] fix padding left for selected option ([#598](https://github.com/otto-de/b2b-design-system/issues/598)) ([28519c1](https://github.com/otto-de/b2b-design-system/commit/28519c1dd919aed49e8526a37e39ee1e12940399))
+* **Custom-dropdown:** [NEPTUNE-4831] fix snapshots ([#599](https://github.com/otto-de/b2b-design-system/issues/599)) ([43bfbeb](https://github.com/otto-de/b2b-design-system/commit/43bfbeb637dd08463bae26cc5de54c48bbe73f79))
+
 ## [1.31.4](https://github.com/otto-de/b2b-design-system/compare/v1.31.3...v1.31.4) (2025-08-13)
 
 
