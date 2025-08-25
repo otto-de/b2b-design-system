@@ -28,7 +28,7 @@ export class B2bMultiSelectDropdown {
   @Prop() selectedValues: string | string[] = [];
 
   /** The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. */
-  @Prop() optionsList: string | string[] = [];
+  @Prop({ attribute: 'options-list' }) optionsList: string | string[] = [];
 
   /** The placeholder shown in the search bar. */
   @Prop() searchPlaceholder: string;
@@ -68,14 +68,17 @@ export class B2bMultiSelectDropdown {
   private parsePropToArray(value: string | string[]): string[] {
     if (Array.isArray(value)) return value;
 
-    try {
-      return JSON.parse(value);
-    } catch {
-      return value
-        .split(',')
-        .map(v => v.trim())
-        .filter(Boolean);
+    if (typeof value === 'string') {
+      try {
+        return JSON.parse(value);
+      } catch {
+        return value
+          .split(',')
+          .map(v => v.trim())
+          .filter(Boolean);
+      }
     }
+    return [];
   }
 
   componentWillLoad() {
