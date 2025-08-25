@@ -6,8 +6,11 @@ import { MultiSelectOptionEventDetail } from '../../../utils/interfaces/form.int
   styleUrl: 'multiselect-option.scss',
 })
 export class B2bMultiSelectOption {
-  /** The label of the option. */
+  /** The label and value of the option. */
   @Prop() option!: string;
+
+  /** Will provide the label instead of option if set */
+  @Prop() label?: string;
 
   /** Emits the option as a string whenever an option is selected. */
   @Event({ eventName: 'b2b-option-selected' })
@@ -37,7 +40,7 @@ export class B2bMultiSelectOption {
         <b2b-checkbox
           checked={this.selected}
           onB2b-change={this.handleCheckboxChange}
-          label={this.option}
+          label={this.label ?? this.option}
           indeterminate={this.indeterminate}
           value={this.option}></b2b-checkbox>
       </Host>
