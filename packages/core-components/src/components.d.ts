@@ -883,7 +883,7 @@ export namespace Components {
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
-        "optionsList": string | string[];
+        "optionsList": string | string[] | Option[];
         /**
           * The placeholder shown in the input field.
          */
@@ -903,12 +903,16 @@ export namespace Components {
         /**
           * The initial values to be selected in the dropdown.
          */
-        "selectedValues": string | string[];
+        "selectedValues": string | string[] | Option[];
     }
     interface B2bMultiselectOption {
         "indeterminate"?: boolean;
         /**
-          * The label of the option.
+          * Will provide the label instead of option if set
+         */
+        "label"?: string;
+        /**
+          * The label and value of the option.
          */
         "option": string;
         /**
@@ -3534,7 +3538,7 @@ declare namespace LocalJSX {
         /**
           * The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire.
          */
-        "optionsList"?: string | string[];
+        "optionsList"?: string | string[] | Option[];
         /**
           * The placeholder shown in the input field.
          */
@@ -3554,16 +3558,20 @@ declare namespace LocalJSX {
         /**
           * The initial values to be selected in the dropdown.
          */
-        "selectedValues"?: string | string[];
+        "selectedValues"?: string | string[] | Option[];
     }
     interface B2bMultiselectOption {
         "indeterminate"?: boolean;
+        /**
+          * Will provide the label instead of option if set
+         */
+        "label"?: string;
         /**
           * Emits the option as a string whenever an option is selected.
          */
         "onB2b-option-selected"?: (event: B2bMultiselectOptionCustomEvent<MultiSelectOptionEventDetail>) => void;
         /**
-          * The label of the option.
+          * The label and value of the option.
          */
         "option": string;
         /**
