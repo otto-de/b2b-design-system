@@ -19,6 +19,7 @@ import {
 } from '../../utils/interfaces/form.interface';
 import { DatePickerView } from './date-picker.types';
 import { DateUtils } from '../../utils/datepicker/date-picker-util';
+import { parsePropToArray } from '../../utils/json-property-binding-util';
 
 @Component({
   tag: 'b2b-date-picker',
@@ -124,30 +125,13 @@ export class B2bDatePicker {
     return this.width >= 300 && this.width <= 600;
   }
 
-  private normalizeArrayInput(value: string | string[]): string[] {
-    if (Array.isArray(value)) {
-      return value;
-    }
-    if (typeof value === 'string') {
-      try {
-        return JSON.parse(value);
-      } catch {
-        return value
-          .split(',')
-          .map(v => v.trim())
-          .filter(Boolean);
-      }
-    }
-    return [];
-  }
-
   private normalizeDisableDatesUntilAndFrom(givenDate: string): Date {
     const [day, month, year] = givenDate.split('.').map(Number);
     return new Date(year, month - 1, day);
   }
 
   componentWillLoad() {
-    const disableDatesArray = this.normalizeArrayInput(this.disableDates);
+    const disableDatesArray = parsePropToArray(this.disableDates);
     if (disableDatesArray.length > 0) {
       this.datesToBeDisabled = disableDatesArray.map(date => {
         const [day, month, year] = date.split('.').map(Number);
@@ -155,7 +139,7 @@ export class B2bDatePicker {
       });
     }
 
-    const disableDaysArray = this.normalizeArrayInput(this.disableDays);
+    const disableDaysArray = parsePropToArray(this.disableDays);
     if (disableDaysArray.length > 0) {
       this.normalizedDisableEvery = disableDaysArray;
     }
@@ -214,7 +198,7 @@ export class B2bDatePicker {
 
   @Watch('disableDates')
   handleDisableDatesChanged(newVal: string | string[]) {
-    const parsed = this.normalizeArrayInput(newVal);
+    const parsed = parsePropToArray(newVal);
     this.datesToBeDisabled = parsed.map(date => {
       const [day, month, year] = date.split('.').map(Number);
       return new Date(year, month - 1, day);
@@ -223,7 +207,7 @@ export class B2bDatePicker {
 
   @Watch('disableDays')
   handleDisableDaysChanged(newVal: string | string[]) {
-    this.normalizedDisableEvery = this.normalizeArrayInput(newVal);
+    this.normalizedDisableEvery = parsePropToArray(newVal);
   }
 
   @Watch('disableDatesUntil')
