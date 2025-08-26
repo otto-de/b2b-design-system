@@ -28,7 +28,7 @@ export class B2bMultiSelectDropdown {
   @Prop() selectedValues: string | string[] = [];
 
   /** The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. */
-  @Prop({ attribute: 'options-list' }) optionsList: string | string[] = [];
+  @Prop() optionsList: string | string[] = [];
 
   /** The placeholder shown in the search bar. */
   @Prop() searchPlaceholder: string;
