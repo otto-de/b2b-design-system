@@ -55,7 +55,7 @@ describe('b2b-multiselect-dropdown', () => {
     expect(values).toContain('Cool Tomato');
   });
 
-  it('should emits b2b-selected event on option select and render the chips', async () => {
+  it('should emit b2b-selected event on option select and render the chips', async () => {
     const page = await newE2EPage({
       html: `<b2b-multiselect-dropdown options-list="Alpha, Beta"></b2b-multiselect-dropdown>`,
     });
@@ -63,6 +63,7 @@ describe('b2b-multiselect-dropdown', () => {
     const trigger = await page.find(
       'b2b-multiselect-dropdown >>> .b2b-multiselect-dropdown',
     );
+
     await page.waitForChanges();
     await trigger.click();
     await page.waitForChanges();
@@ -104,7 +105,6 @@ describe('b2b-multiselect-dropdown', () => {
       'b2b-multiselect-dropdown >>> b2b-multiselect-option',
     );
     const checkbox = await allOptions[0].find('b2b-checkbox');
-
     await checkbox.click();
     await page.waitForChanges();
 
@@ -114,5 +114,44 @@ describe('b2b-multiselect-dropdown', () => {
       'b2b-multiselect-dropdown >>> b2b-chip-component',
     );
     expect(chips.length).toBe(2);
+  });
+
+  it('should not increase in size when options are selected', async () => {
+    const page = await newE2EPage({
+      html: `<b2b-multiselect-dropdown options-list="Alpha, Beta"></b2b-multiselect-dropdown>`,
+    });
+
+    const trigger = await page.find(
+      'b2b-multiselect-dropdown >>> .b2b-multiselect-dropdown',
+    );
+
+    await page.waitForChanges();
+
+    const heightWithoutSelection = await page.evaluate(async () => {
+      return window.getComputedStyle(
+        document
+          .querySelector('b2b-multiselect-dropdown')
+          .shadowRoot.querySelector('.b2b-multiselect-dropdown'),
+      ).height;
+    });
+
+    await trigger.click();
+    await page.waitForChanges();
+    const allOptions = await page.findAll(
+      'b2b-multiselect-dropdown >>> b2b-multiselect-option',
+    );
+    const checkbox = await allOptions[0].find('b2b-checkbox');
+    await checkbox.click();
+    await page.waitForChanges();
+
+    const heightWithSelection = await page.evaluate(() => {
+      return window.getComputedStyle(
+        document
+          .querySelector('b2b-multiselect-dropdown')
+          .shadowRoot.querySelector('.b2b-multiselect-dropdown'),
+      ).height;
+    });
+
+    expect(heightWithoutSelection).toBe(heightWithSelection);
   });
 });
