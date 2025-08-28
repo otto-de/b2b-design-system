@@ -1,3 +1,10 @@
+## [1.32.1](https://github.com/otto-de/b2b-design-system/compare/v1.32.0...v1.32.1) (2025-08-28)
+
+
+### Bug Fixes
+
+* **MultiselectDropdown:** [BLA-1602] Fix the svelte multi select loading issue ([#601](https://github.com/otto-de/b2b-design-system/issues/601)) ([14c7801](https://github.com/otto-de/b2b-design-system/commit/14c7801eaf6f1360bcf3ba33e307a5998b212bbd))
+
 # [1.32.0](https://github.com/otto-de/b2b-design-system/compare/v1.31.4...v1.32.0) (2025-08-21)
 
 
