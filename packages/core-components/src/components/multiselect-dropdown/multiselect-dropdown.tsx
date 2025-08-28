@@ -9,6 +9,7 @@ import {
   Watch,
   Element,
 } from '@stencil/core';
+import { parsePropToArray } from '../../utils/json-property-binding-util';
 
 @Component({
   tag: 'b2b-multiselect-dropdown',
@@ -65,22 +66,9 @@ export class B2bMultiSelectDropdown {
   @State() isOpen = false;
   @State() hasOptionList = this.optionsList.length > 0;
 
-  private parsePropToArray(value: string | string[]): string[] {
-    if (Array.isArray(value)) return value;
-
-    try {
-      return JSON.parse(value);
-    } catch {
-      return value
-        .split(',')
-        .map(v => v.trim())
-        .filter(Boolean);
-    }
-  }
-
   componentWillLoad() {
-    this.selectedValues = this.parsePropToArray(this.selectedValues);
-    this.optionsList = this.parsePropToArray(this.optionsList);
+    this.selectedValues = parsePropToArray(this.selectedValues);
+    this.optionsList = parsePropToArray(this.optionsList);
     this.currentList = this.optionsList;
     this.currentSelectedValues = (this.selectedValues as string[]).filter(
       value => this.optionsList.includes(value),
@@ -90,7 +78,7 @@ export class B2bMultiSelectDropdown {
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
   watchPropHandler(newList: string[] | string) {
-    this.optionsList = this.parsePropToArray(newList);
+    this.optionsList = parsePropToArray(newList);
     this.hasOptionList = this.optionsList.length > 0;
     if (this.hasOptionList) {
       this.currentList = this.optionsList;
@@ -103,7 +91,7 @@ export class B2bMultiSelectDropdown {
   /** Needed to trigger a re-render for async data */
   @Watch('selectedValues')
   handleSelectedValuesChangeFromOutside(newVal: string | string[]) {
-    this.selectedValues = this.parsePropToArray(newVal);
+    this.selectedValues = parsePropToArray(newVal);
     this.currentSelectedValues = this.selectedValues.filter(val =>
       (this.optionsList as string[]).includes(val),
     );
