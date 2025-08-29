@@ -65,6 +65,8 @@ export class B2bMultiSelectDropdown {
   @State() value = '';
   @State() isElementFocused = false;
   @State() isOpen = false;
+  @State() normalizedOptions: Option[] = [];
+  @State() normalizedSelected: Option[] = [];
   @State() hasOptionList = this.optionsList.length > 0;
 
   private parsePropToArray(value: string | string[] | Option[]): Option[] {
@@ -99,32 +101,34 @@ export class B2bMultiSelectDropdown {
   }
 
   componentWillLoad() {
-    this.selectedValues = this.parsePropToArray(this.selectedValues);
-    this.optionsList = this.parsePropToArray(this.optionsList);
-    this.currentList = this.optionsList as Option[];
-    this.hasOptionList = (this.optionsList as Option[]).length > 0;
+    this.normalizedSelected = this.parsePropToArray(this.selectedValues);
+
+    this.normalizedOptions = this.parsePropToArray(this.optionsList);
+
+    this.currentList = this.normalizedOptions as Option[];
+    this.hasOptionList = (this.normalizedOptions as Option[]).length > 0;
 
     const selectedSet = new Set(
-      (this.selectedValues as Option[]).map(o => o.value),
+      (this.normalizedSelected as Option[]).map(o => o.value),
     );
-    this.currentSelectedValues = (this.optionsList as Option[]).filter(opt =>
-      selectedSet.has(opt.value),
+    this.currentSelectedValues = (this.normalizedOptions as Option[]).filter(
+      opt => selectedSet.has(opt.value),
     );
   }
 
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
   watchPropHandler(newList: string[] | string | Option[]) {
-    this.optionsList = this.parsePropToArray(newList);
-    this.hasOptionList = this.optionsList.length > 0;
+    this.normalizedOptions = this.parsePropToArray(newList);
+    this.hasOptionList = this.normalizedOptions.length > 0;
 
     if (this.hasOptionList) {
-      this.currentList = this.optionsList as Option[];
+      this.currentList = this.normalizedOptions as Option[];
       const selectedSet = new Set(
-        (this.selectedValues as Option[]).map(o => o.value),
+        (this.normalizedSelected as Option[]).map(o => o.value),
       );
-      this.currentSelectedValues = (this.optionsList as Option[]).filter(opt =>
-        selectedSet.has(opt.value),
+      this.currentSelectedValues = (this.normalizedOptions as Option[]).filter(
+        opt => selectedSet.has(opt.value),
       );
     }
   }
@@ -132,12 +136,12 @@ export class B2bMultiSelectDropdown {
   /** Needed to trigger a re-render for async data */
   @Watch('selectedValues')
   handleSelectedValuesChangeFromOutside(newVal: string | string[] | Option[]) {
-    this.selectedValues = this.parsePropToArray(newVal);
+    this.normalizedSelected = this.parsePropToArray(newVal);
     const selectedSet = new Set(
-      (this.selectedValues as Option[]).map(o => o.value),
+      (this.normalizedSelected as Option[]).map(o => o.value),
     );
-    this.currentSelectedValues = (this.optionsList as Option[]).filter(o =>
-      selectedSet.has(o.value),
+    this.currentSelectedValues = (this.normalizedOptions as Option[]).filter(
+      o => selectedSet.has(o.value),
     );
   }
 
@@ -157,7 +161,7 @@ export class B2bMultiSelectDropdown {
     const term = (event.target as HTMLInputElement).value.toLowerCase();
     this.value = term;
 
-    const list = this.optionsList as Option[];
+    const list = this.normalizedOptions as Option[];
     this.currentList =
       term === ''
         ? list
@@ -207,8 +211,10 @@ export class B2bMultiSelectDropdown {
     event: CustomEvent<{ selected: boolean; selectedOption: string }>,
   ) => {
     const value = event.detail.selectedOption;
-    const opt = (this.optionsList as Option[]).find(o => o.value === value);
-    if (!opt) return;
+    const opt = (this.normalizedOptions as Option[]).find(
+      o => o.value === value,
+    );
+    if (opt === undefined) return;
 
     if (event.detail.selected) {
       if (!this.currentSelectedValues.some(o => o.value === value)) {
@@ -251,9 +257,12 @@ export class B2bMultiSelectDropdown {
   };
 
   private setElementOnBlur = (event?: FocusEvent) => {
-    const nextFocusedElement = event?.relatedTarget as Node | null;
+    const nextFocusedElement = event?.relatedTarget;
 
-    if (!nextFocusedElement || !this.hostElement.contains(nextFocusedElement)) {
+    if (
+      !(nextFocusedElement instanceof Node) ||
+      !this.hostElement.contains(nextFocusedElement)
+    ) {
       this.isOpen = false;
     } else {
       this.isOpen = true;
@@ -306,7 +315,7 @@ export class B2bMultiSelectDropdown {
     options.forEach(el => (el.selected = newVal));
 
     if (newVal) {
-      const toAdd = (this.optionsList as Option[]).filter(o =>
+      const toAdd = (this.normalizedOptions as Option[]).filter(o =>
         values.includes(o.value),
       );
       const set = new Set(this.currentSelectedValues.map(o => o.value));
