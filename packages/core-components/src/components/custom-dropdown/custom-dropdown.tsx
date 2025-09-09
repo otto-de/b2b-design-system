@@ -135,7 +135,7 @@ export class B2bCustomDropdownComponent {
               class={{
                 'b2b-custom-dropdown-search': true,
                 'b2b-custom-dropdown-search--enabled':
-                  this.allOptions.length >= 6 && !this.disabled,
+                  this.allOptions.length > 6 && !this.disabled,
               }}>
               <b2b-input
                 placeholder={this.placeholder}
@@ -146,7 +146,7 @@ export class B2bCustomDropdownComponent {
           </b2b-background-box>
           <div
             class={
-              this.allOptions.length >= 6
+              this.allOptions.length > 6
                 ? 'b2b-custom-dropdown__options-scroll-container'
                 : 'b2b-custom-dropdown__options-container'
             }>
