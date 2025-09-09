@@ -1,7 +1,9 @@
 @use '../../global/b2b-styles';
 
 :host {
-  width: 100%;
+  display: inline-block;
+  position: relative;
+  width: auto;
 }
 
 .b2b-custom-dropdown__trigger {
@@ -11,6 +13,11 @@
 }
 
 .b2b-custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  inline-size: var(--b2b-dropdown-width, 300px);
   display: none;
 
   &--on {
@@ -45,9 +52,12 @@
 }
 
 .b2b-custom-dropdown__options-container {
-  position: relative;
+  position: absolute;
   display: block;
   margin: 0;
+  top: 100%;
+  left: 0;
+  z-index: 10000;
 
   &--disabled {
     display: none;
