@@ -52,12 +52,9 @@
 }
 
 .b2b-custom-dropdown__options-container {
-  position: absolute;
+  position: relative;
   display: block;
   margin: 0;
-  top: 100%;
-  left: 0;
-  z-index: 10000;
 
   &--disabled {
     display: none;
