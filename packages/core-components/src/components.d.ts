@@ -517,6 +517,7 @@ export namespace Components {
           * An optional error message for the dropdown. This will only appear if invalid is set to true.
          */
         "error"?: string;
+        "groupDisabled": boolean;
         /**
           * An optional hint text for the dropdown.
          */
@@ -3128,6 +3129,7 @@ declare namespace LocalJSX {
           * An optional error message for the dropdown. This will only appear if invalid is set to true.
          */
         "error"?: string;
+        "groupDisabled"?: boolean;
         /**
           * An optional hint text for the dropdown.
          */
