@@ -10,6 +10,7 @@ import {
   Element,
 } from '@stencil/core';
 
+import { parsePropToArray } from '../../utils/json-property-binding-util';
 type Option = { label: string; value: string };
 
 @Component({
@@ -69,41 +70,20 @@ export class B2bMultiSelectDropdown {
   @State() normalizedSelected: Option[] = [];
   @State() hasOptionList = this.optionsList.length > 0;
 
-  private parsePropToArray(value: string | string[] | Option[]): Option[] {
-    // Arrays
-    if (Array.isArray(value)) {
-      if (value.length === 0) return [];
-      if (typeof value[0] === 'string') {
-        return (value as string[]).map(v => ({ label: v, value: v }));
-      }
+  private parsePropToOptArray(value: string | string[] | Option[]): Option[] {
+    if (Array.isArray(value) && typeof value[0] === 'object') {
       return value as Option[];
     }
-
-    // JSON or singular string
-    try {
-      const parsed = JSON.parse(value);
-      if (Array.isArray(parsed)) {
-        if (parsed.length === 0) return [];
-        if (typeof parsed[0] === 'string') {
-          return parsed.map((v: string) => ({ label: v, value: v }));
-        }
-        return parsed as Option[];
-      }
-    } catch {
-      return value
-        .split(',')
-        .map(v => v.trim())
-        .filter(Boolean)
-        .map(v => ({ label: v, value: v }));
-    }
-
-    return [];
+    return parsePropToArray(value as string | string[]).map(v => ({
+      label: v,
+      value: v,
+    }));
   }
 
   componentWillLoad() {
-    this.normalizedSelected = this.parsePropToArray(this.selectedValues);
+    this.normalizedSelected = this.parsePropToOptArray(this.selectedValues);
 
-    this.normalizedOptions = this.parsePropToArray(this.optionsList);
+    this.normalizedOptions = this.parsePropToOptArray(this.optionsList);
 
     this.currentList = this.normalizedOptions as Option[];
     this.hasOptionList = (this.normalizedOptions as Option[]).length > 0;
@@ -119,7 +99,7 @@ export class B2bMultiSelectDropdown {
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
   watchPropHandler(newList: string[] | string | Option[]) {
-    this.normalizedOptions = this.parsePropToArray(newList);
+    this.normalizedOptions = this.parsePropToOptArray(newList);
     this.hasOptionList = this.normalizedOptions.length > 0;
 
     if (this.hasOptionList) {
@@ -136,7 +116,7 @@ export class B2bMultiSelectDropdown {
   /** Needed to trigger a re-render for async data */
   @Watch('selectedValues')
   handleSelectedValuesChangeFromOutside(newVal: string | string[] | Option[]) {
-    this.normalizedSelected = this.parsePropToArray(newVal);
+    this.normalizedSelected = this.parsePropToOptArray(newVal);
     const selectedSet = new Set(
       (this.normalizedSelected as Option[]).map(o => o.value),
     );
