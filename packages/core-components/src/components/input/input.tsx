@@ -136,9 +136,7 @@ export class InputComponent {
 
   private onInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
-    if (input !== (undefined || null)) {
-      this.value = input.value || '';
-    }
+    this.value = input?.value || '';
     this.b2bInput.emit(input);
   };
 
