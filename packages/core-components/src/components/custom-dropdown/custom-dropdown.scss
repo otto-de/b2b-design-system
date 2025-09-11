@@ -68,3 +68,10 @@
 ::slotted(b2b-custom-dropdown-option.b2b-custom-dropdown__option--hidden) {
   display: none;
 }
+
+.b2b-custom-dropdown__empty {
+  padding: var(--b2b-size-30);
+  color: var(--b2b-color-grey-400);
+  font-size: var(--b2b-size-copy-100);
+  background-color: var(--b2b-color-white-100)
+}
