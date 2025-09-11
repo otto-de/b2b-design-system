@@ -9,7 +9,9 @@ import {
   Watch,
   Element,
 } from '@stencil/core';
+
 import { parsePropToArray } from '../../utils/json-property-binding-util';
+type Option = { label: string; value: string };
 
 @Component({
   tag: 'b2b-multiselect-dropdown',
@@ -26,10 +28,10 @@ export class B2bMultiSelectDropdown {
   @Prop({ reflect: true }) placeholder: string;
 
   /** The initial values to be selected in the dropdown. */
-  @Prop() selectedValues: string | string[] = [];
+  @Prop() selectedValues: string | string[] | Option[] = [];
 
   /** The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. */
-  @Prop() optionsList: string | string[] = [];
+  @Prop() optionsList: string | string[] | Option[] = [];
 
   /** The placeholder shown in the search bar. */
   @Prop() searchPlaceholder: string;
@@ -59,47 +61,73 @@ export class B2bMultiSelectDropdown {
   @Event({ eventName: 'b2b-selected' })
   b2bChange: EventEmitter<string[]>;
 
-  @State() currentSelectedValues = [];
-  @State() currentList = this.optionsList;
+  @State() currentSelectedValues: Option[] = [];
+  @State() currentList: Option[] = [];
   @State() value = '';
   @State() isElementFocused = false;
   @State() isOpen = false;
+  @State() normalizedOptions: Option[] = [];
+  @State() normalizedSelected: Option[] = [];
   @State() hasOptionList = this.optionsList.length > 0;
 
+  private parsePropToOptArray(value: string | string[] | Option[]): Option[] {
+    if (Array.isArray(value) && typeof value[0] === 'object') {
+      return value as Option[];
+    }
+    return parsePropToArray(value as string | string[]).map(v => ({
+      label: v,
+      value: v,
+    }));
+  }
+
   componentWillLoad() {
-    this.selectedValues = parsePropToArray(this.selectedValues);
-    this.optionsList = parsePropToArray(this.optionsList);
-    this.currentList = this.optionsList;
-    this.currentSelectedValues = (this.selectedValues as string[]).filter(
-      value => this.optionsList.includes(value),
+    this.normalizedSelected = this.parsePropToOptArray(this.selectedValues);
+
+    this.normalizedOptions = this.parsePropToOptArray(this.optionsList);
+
+    this.currentList = this.normalizedOptions as Option[];
+    this.hasOptionList = (this.normalizedOptions as Option[]).length > 0;
+
+    const selectedSet = new Set(
+      (this.normalizedSelected as Option[]).map(o => o.value),
+    );
+    this.currentSelectedValues = (this.normalizedOptions as Option[]).filter(
+      opt => selectedSet.has(opt.value),
     );
   }
 
   /** Needed to trigger a re-render for async data */
   @Watch('optionsList')
-  watchPropHandler(newList: string[] | string) {
-    this.optionsList = parsePropToArray(newList);
-    this.hasOptionList = this.optionsList.length > 0;
+  watchPropHandler(newList: string[] | string | Option[]) {
+    this.normalizedOptions = this.parsePropToOptArray(newList);
+    this.hasOptionList = this.normalizedOptions.length > 0;
+
     if (this.hasOptionList) {
-      this.currentList = this.optionsList;
-      this.currentSelectedValues = (this.selectedValues as string[]).filter(
-        value => this.optionsList.includes(value),
+      this.currentList = this.normalizedOptions as Option[];
+      const selectedSet = new Set(
+        (this.normalizedSelected as Option[]).map(o => o.value),
+      );
+      this.currentSelectedValues = (this.normalizedOptions as Option[]).filter(
+        opt => selectedSet.has(opt.value),
       );
     }
   }
 
   /** Needed to trigger a re-render for async data */
   @Watch('selectedValues')
-  handleSelectedValuesChangeFromOutside(newVal: string | string[]) {
-    this.selectedValues = parsePropToArray(newVal);
-    this.currentSelectedValues = this.selectedValues.filter(val =>
-      (this.optionsList as string[]).includes(val),
+  handleSelectedValuesChangeFromOutside(newVal: string | string[] | Option[]) {
+    this.normalizedSelected = this.parsePropToOptArray(newVal);
+    const selectedSet = new Set(
+      (this.normalizedSelected as Option[]).map(o => o.value),
+    );
+    this.currentSelectedValues = (this.normalizedOptions as Option[]).filter(
+      o => selectedSet.has(o.value),
     );
   }
 
   @Watch('currentSelectedValues')
-  handleSelectedValuesChange(newValues: string[]) {
-    this.b2bChange.emit(newValues);
+  handleSelectedValuesChange(newValues: Option[]) {
+    this.b2bChange.emit(newValues.map(o => o.value));
   }
 
   componentDidUpdate() {
@@ -108,19 +136,20 @@ export class B2bMultiSelectDropdown {
     this.updateSelectAll(options);
   }
 
-  private handleInput = event => {
-    if (this.disabled) {
-      return;
-    }
-    this.value = event.target.value.toLowerCase();
-    if (this.value !== '') {
-      const filteredList = (this.optionsList as string[]).filter(
-        option => option.toLowerCase().indexOf(this.value) > -1,
-      );
-      this.currentList = filteredList;
-    } else if (this.value === '') {
-      this.currentList = this.optionsList;
-    }
+  private handleInput = (event: InputEvent) => {
+    if (this.disabled) return;
+    const term = (event.target as HTMLInputElement).value.toLowerCase();
+    this.value = term;
+
+    const list = this.normalizedOptions as Option[];
+    this.currentList =
+      term === ''
+        ? list
+        : list.filter(
+            o =>
+              o.label.toLowerCase().includes(term) ||
+              o.value.toLowerCase().includes(term),
+          );
   };
 
   private getOptions = () => {
@@ -134,8 +163,8 @@ export class B2bMultiSelectDropdown {
       if (index < this.maxOptionsVisible) {
         return (
           <b2b-chip-component
-            label={option}
-            value={option}
+            label={option.label}
+            value={option.value}
             onB2b-close={this.handleChipClose}></b2b-chip-component>
         );
       } else if (index === this.maxOptionsVisible) {
@@ -158,22 +187,32 @@ export class B2bMultiSelectDropdown {
     }
   };
 
-  private handleSelectedChange = event => {
-    const newOption = event.detail.selectedOption;
+  private handleSelectedChange = (
+    event: CustomEvent<{ selected: boolean; selectedOption: string }>,
+  ) => {
+    const value = event.detail.selectedOption;
+    const opt = (this.normalizedOptions as Option[]).find(
+      o => o.value === value,
+    );
+    if (opt === undefined) return;
+
     if (event.detail.selected) {
-      this.currentSelectedValues = [...this.currentSelectedValues, newOption];
+      if (!this.currentSelectedValues.some(o => o.value === value)) {
+        this.currentSelectedValues = [...this.currentSelectedValues, opt];
+      }
     } else {
       this.currentSelectedValues = this.currentSelectedValues.filter(
-        el => el !== newOption,
+        o => o.value !== value,
       );
     }
   };
 
-  private handleChipClose = event => {
+  private handleChipClose = (event: CustomEvent<{ value: string }>) => {
+    const value = event.detail.value;
     this.currentSelectedValues = this.currentSelectedValues.filter(
-      el => el !== event.detail.value,
+      o => o.value !== value,
     );
-    this.updateOption(event.detail.value);
+    this.updateOption(value);
     this.isOpen = true;
     this.resetFocus();
   };
@@ -184,11 +223,11 @@ export class B2bMultiSelectDropdown {
     optionToUpdate.selected = false;
   };
 
-  private updateAllOptions = options => {
-    // Deselect all to avoid caching issues in Vue
+  private updateAllOptions = (options: HTMLB2bMultiselectOptionElement[]) => {
     options.forEach(option => (option.selected = false));
+    const selectedSet = new Set(this.currentSelectedValues.map(o => o.value));
     options
-      .filter(option => this.currentSelectedValues.includes(option.option))
+      .filter(option => selectedSet.has(option.option))
       .forEach(option => (option.selected = true));
   };
 
@@ -198,9 +237,12 @@ export class B2bMultiSelectDropdown {
   };
 
   private setElementOnBlur = (event?: FocusEvent) => {
-    const nextFocusedElement = event?.relatedTarget as Node | null;
+    const nextFocusedElement = event?.relatedTarget;
 
-    if (!nextFocusedElement || !this.hostElement.contains(nextFocusedElement)) {
+    if (
+      !(nextFocusedElement instanceof Node) ||
+      !this.hostElement.contains(nextFocusedElement)
+    ) {
       this.isOpen = false;
     } else {
       this.isOpen = true;
@@ -245,23 +287,25 @@ export class B2bMultiSelectDropdown {
     }
   };
 
-  private handleSelectAll = event => {
+  private handleSelectAll = (event: CustomEvent<{ selected: boolean }>) => {
     const newVal = event.detail.selected;
     const options = this.getOptions();
-    const newVals = options.map(el => el.option);
+    const values = options.map(el => el.option);
 
-    for (let i = 0, n = options.length; i < n; i++) {
-      options[i].selected = newVal;
-    }
+    options.forEach(el => (el.selected = newVal));
 
     if (newVal) {
-      // filter out duplicates
-      this.currentSelectedValues = Array.from(
-        new Set([...this.currentSelectedValues, ...newVals]),
+      const toAdd = (this.normalizedOptions as Option[]).filter(o =>
+        values.includes(o.value),
       );
+      const set = new Set(this.currentSelectedValues.map(o => o.value));
+      this.currentSelectedValues = [
+        ...this.currentSelectedValues,
+        ...toAdd.filter(o => !set.has(o.value)),
+      ];
     } else {
       this.currentSelectedValues = this.currentSelectedValues.filter(
-        option => !newVals.includes(option),
+        o => !values.includes(o.value),
       );
     }
   };
@@ -333,10 +377,11 @@ export class B2bMultiSelectDropdown {
                 this.handleSelectAll
               }></b2b-multiselect-option>
             {this.hasOptionList &&
-              (this.currentList as string[]).map(option => (
+              (this.currentList as Option[]).map(option => (
                 <b2b-multiselect-option
                   onB2b-option-selected={this.handleSelectedChange}
-                  option={option}></b2b-multiselect-option>
+                  option={option.value}
+                  label={option.label}></b2b-multiselect-option>
               ))}
           </div>
         </div>
