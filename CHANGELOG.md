@@ -1,3 +1,10 @@
+## [1.32.3](https://github.com/otto-de/b2b-design-system/compare/v1.32.2...v1.32.3) (2025-09-11)
+
+
+### Bug Fixes
+
+* **Custom Dropdown:** [NEPTUNE-4374] add text for empty search results ([#606](https://github.com/otto-de/b2b-design-system/issues/606)) ([7a68416](https://github.com/otto-de/b2b-design-system/commit/7a68416050d696265a33a78805872143aa3b2649))
+
 ## [1.32.2](https://github.com/otto-de/b2b-design-system/compare/v1.32.1...v1.32.2) (2025-09-11)
 
 
