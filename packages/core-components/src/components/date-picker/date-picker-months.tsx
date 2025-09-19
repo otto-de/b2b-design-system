@@ -7,9 +7,13 @@ import {
   Event,
   EventEmitter,
   Listen,
+  ComponentInterface,
 } from '@stencil/core';
 import { MonthsGerman, MonthsEnglish } from './date-picker.types';
-import { MonthSelectedEventDetail } from '../../utils/interfaces/form.interface';
+import {
+  EscapePressed,
+  MonthSelectedEventDetail,
+} from '../../utils/interfaces/form.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -17,6 +21,7 @@ const keys = {
   ARROW_RIGHT: 'ArrowRight',
   ARROW_LEFT: 'ArrowLeft',
   ENTER: 'Enter',
+  ESC: 'Escape',
 };
 
 @Component({
@@ -24,7 +29,7 @@ const keys = {
   styleUrl: 'date-picker-months.scss',
   shadow: true,
 })
-export class B2bDatePickerMonths {
+export class B2bDatePickerMonths implements ComponentInterface {
   @Element() host: HTMLB2bDatePickerMonthsElement;
   /** Internal selected month */
   @Prop() selectedMonth: number;
@@ -36,31 +41,37 @@ export class B2bDatePickerMonths {
   @Event({ eventName: 'b2b-date-picker-month-selected' })
   b2bDatePickerMonthSelected: EventEmitter<MonthSelectedEventDetail>;
 
+  /** Event emitted on escape press**/
+  @Event({ eventName: 'b2b-date-picker-escape' })
+  b2bDatePickerEscape: EventEmitter<EscapePressed>;
+
   @Listen('keydown')
   handleKeyDown(event: KeyboardEvent) {
     event.preventDefault();
-    let index = this.selectedMonth;
     const months = this.getAllMonths();
     let currentMonth = this.getCurrentMonth();
+    let index = months.indexOf(currentMonth);
     switch (event.key) {
       case keys.ARROW_LEFT:
-        index = months.indexOf(currentMonth) - 1;
+        index -= 1;
         break;
       case keys.ARROW_RIGHT:
-        index = months.indexOf(currentMonth) + 1;
+        index += 1;
         break;
       case keys.ARROW_UP:
-        index = months.indexOf(currentMonth) - 3;
+        index -= 3;
         break;
       case keys.ARROW_DOWN:
-        index = months.indexOf(currentMonth) + 3;
+        index += 3;
         break;
       case keys.ENTER:
-        index = months.indexOf(currentMonth);
         this.b2bDatePickerMonthSelected.emit({
           value: index,
         });
-        break;
+        return;
+      case keys.ESC:
+        this.b2bDatePickerEscape.emit();
+        return;
       default:
         return;
     }
@@ -114,6 +125,10 @@ export class B2bDatePickerMonths {
     }
     return months;
   };
+
+  componentDidRender(): void {
+    this.getCurrentMonth()?.focus();
+  }
 
   render() {
     return (

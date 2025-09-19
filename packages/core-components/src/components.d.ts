@@ -1873,6 +1873,7 @@ declare global {
     };
     interface HTMLB2bDatePickerMonthsElementEventMap {
         "b2b-date-picker-month-selected": MonthSelectedEventDetail;
+        "b2b-date-picker-escape": EscapePressed;
     }
     interface HTMLB2bDatePickerMonthsElement extends Components.B2bDatePickerMonths, HTMLStencilElement {
         addEventListener<K extends keyof HTMLB2bDatePickerMonthsElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerMonthsElement, ev: B2bDatePickerMonthsCustomEvent<HTMLB2bDatePickerMonthsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1890,6 +1891,7 @@ declare global {
     };
     interface HTMLB2bDatePickerYearsElementEventMap {
         "b2b-date-picker-year-selected": YearSelectedEventDetail;
+        "b2b-date-picker-escape": EscapePressed;
     }
     interface HTMLB2bDatePickerYearsElement extends Components.B2bDatePickerYears, HTMLStencilElement {
         addEventListener<K extends keyof HTMLB2bDatePickerYearsElementEventMap>(type: K, listener: (this: HTMLB2bDatePickerYearsElement, ev: B2bDatePickerYearsCustomEvent<HTMLB2bDatePickerYearsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3103,6 +3105,10 @@ declare namespace LocalJSX {
          */
         "language"?: 'de' | 'en';
         /**
+          * Event emitted on escape press*
+         */
+        "onB2b-date-picker-escape"?: (event: B2bDatePickerMonthsCustomEvent<EscapePressed>) => void;
+        /**
           * Event emitted on selecting month*
          */
         "onB2b-date-picker-month-selected"?: (event: B2bDatePickerMonthsCustomEvent<MonthSelectedEventDetail>) => void;
@@ -3112,6 +3118,10 @@ declare namespace LocalJSX {
         "selectedMonth"?: number;
     }
     interface B2bDatePickerYears {
+        /**
+          * Event emitted on escape press*
+         */
+        "onB2b-date-picker-escape"?: (event: B2bDatePickerYearsCustomEvent<EscapePressed>) => void;
         /**
           * Event emitted on selecting year*
          */
