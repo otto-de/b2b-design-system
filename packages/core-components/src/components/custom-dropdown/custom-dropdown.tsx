@@ -41,6 +41,10 @@ export class B2bCustomDropdownComponent {
 
   @State() allOptions: HTMLB2bCustomDropdownOptionElement[] = [];
 
+  @State() hasVisibleOptions = true;
+  @Prop() noResultsText: string =
+    'Keine Ergebnisse gefunden, überprüfen Sie die Eingabe.';
+
   @Listen('b2b-custom-dropdown-option-selected')
   handleOptionSelected(event: CustomEvent<OptionSelectedEventDetail>) {
     event.stopPropagation();
@@ -100,16 +104,16 @@ export class B2bCustomDropdownComponent {
     }
     this.value = (event.target as HTMLInputElement).value.toLowerCase();
 
+    let visibleCount = 0;
     this.allOptions.forEach(option => {
       const optionValue =
         (option as HTMLB2bCustomDropdownOptionElement).option?.toLowerCase() ||
         '';
-      if (optionValue.includes(this.value)) {
-        option.classList.remove('b2b-custom-dropdown__option--hidden');
-      } else {
-        option.classList.add('b2b-custom-dropdown__option--hidden');
-      }
+      const match = optionValue.includes(this.value);
+      option.classList.toggle('b2b-custom-dropdown__option--hidden', !match);
+      if (match) visibleCount++;
     });
+    this.hasVisibleOptions = visibleCount > 0;
   };
 
   render() {
@@ -152,6 +156,11 @@ export class B2bCustomDropdownComponent {
             }>
             <slot name="option"></slot>
           </div>
+          {this.value && !this.hasVisibleOptions && (
+            <div class="b2b-custom-dropdown__empty" role="status">
+              <slot name="empty">{this.noResultsText}</slot>
+            </div>
+          )}
         </div>
       </Host>
     );
