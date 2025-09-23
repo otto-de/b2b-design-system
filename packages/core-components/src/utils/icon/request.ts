@@ -8,7 +8,7 @@ export const fetchIcon = (icon: string) => {
   // see if we already have a request for this url
   let req = requests.get(icon);
 
-  if (req === undefined || null) {
+  if (req == null) {
     if (typeof fetch !== 'undefined' && typeof document !== 'undefined') {
       // we don't already have a request
       req = fetch(icon).then(rsp => {
