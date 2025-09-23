@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 import fruits from './stories.data.json';
+import fruitOptions from './stories.data2.json';
 
 type Story = StoryObj;
 
@@ -111,4 +112,29 @@ export const InvalidWithErrorMessage: Story = {
     invalid: true,
     errorMessage: 'error has occurred',
   },
+};
+
+export const WithOptionsArray: Story = {
+  args: {
+    ...meta.args,
+    optionsList: [...fruitOptions],
+    selectedValues: ['1', '5'],
+  },
+  render: ({ ...args }) =>
+    html`<div style="width: 400px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
+      </b2b-multiselect-dropdown>
+    </div>`,
 };

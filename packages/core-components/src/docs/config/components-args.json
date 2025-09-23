@@ -904,6 +904,17 @@
       },
       "description": "Whether the dropdown should have a drop shadow. Default is false."
     },
+    "noResultsText": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Keine Ergebnisse gefunden, überprüfen Sie die Eingabe.'"
+        }
+      },
+      "description": ""
+    },
     "opened": {
       "control": {
         "type": "boolean"
