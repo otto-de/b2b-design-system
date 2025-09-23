@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property              | Attribute  | Description                               | Type      | Default     |
-| --------------------- | ---------- | ----------------------------------------- | --------- | ----------- |
-| `option` _(required)_ | `option`   | The label of the option.                  | `string`  | `undefined` |
-| `selected`            | `selected` | Whether the option is currently selected. | `boolean` | `false`     |
+| Property              | Attribute  | Description                                     | Type      | Default     |
+| --------------------- | ---------- | ----------------------------------------------- | --------- | ----------- |
+| `label`               | `label`    | Will provide the label instead of option if set | `string`  | `undefined` |
+| `option` _(required)_ | `option`   | The label and value of the option.              | `string`  | `undefined` |
+| `selected`            | `selected` | Whether the option is currently selected.       | `boolean` | `false`     |
 
 
 ## Events
