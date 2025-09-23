@@ -100,7 +100,7 @@ describe('B2B-Dropdown', () => {
 
     const count = await page.evaluate(async () => {
       const dropdown = document.querySelector('b2b-dropdown');
-      if (!dropdown) return -1;
+      if (dropdown == null) return -1;
 
       await new Promise(resolve => setTimeout(resolve, 2000));
 
