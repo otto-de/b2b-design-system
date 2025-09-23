@@ -85,14 +85,10 @@ describe('B2B-FlyoutMenu', () => {
     const flyoutMenuOption = await page.find(
       'b2b-flyout-menu-option[option="option3"]',
     );
+    await flyoutMenuOption.click();
+    await page.waitForChanges();
 
     expect(flyoutMenuOption).not.toBeNull();
-    try {
-      await flyoutMenuOption.click();
-      await page.waitForChanges();
-    } catch {
-      // expected - not clickable
-    }
     expect(optionSelectedEventSpy).not.toHaveReceivedEvent();
   });
 
