@@ -1,8 +1,8 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
   Component,
   Element,
   Event,
-  EventEmitter,
   h,
   Host,
   Listen,
@@ -10,7 +10,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import {
+import type {
   DateClear,
   DatePickerEventDetail,
   DatePickerViewChangedEventDetail,
@@ -26,7 +26,7 @@ import { parsePropToArray } from '../../utils/json-property-binding-util';
   styleUrl: 'date-picker.scss',
   shadow: true,
 })
-export class B2bDatePicker {
+export class B2bDatePicker implements ComponentInterface {
   @Element() host: HTMLB2bDatePickerElement;
 
   /** Whether the previous dates from the current date are disabled. By default, this is true. */
@@ -156,7 +156,7 @@ export class B2bDatePicker {
       );
     }
 
-    if (this.preSelectedDate) {
+    if (this.preSelectedDate && this.preSelectedDate !== '') {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
       this.selectedMonth = month - 1;
@@ -643,7 +643,7 @@ export class B2bDatePicker {
             class="b2b-date-picker__backdrop"
             onClick={this.handleBackdropDismiss}></div>
         )}
-        {!this.showDatePicker && (
+        {
           <span
             class={{
               'b2b-date-picker-hint': true,
@@ -651,7 +651,7 @@ export class B2bDatePicker {
             }}>
             {this.invalid ? this.errorMessage : this.showHint && this.hint}
           </span>
-        )}
+        }
       </Host>
     );
   }
