@@ -77,5 +77,11 @@ export const config: Config = {
   testing: {
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
     browserHeadless: 'new',
+    testPathIgnorePatterns: [
+      '/node_modules/',
+      '/docs-build/',
+      '/dist/',
+      '/www/',
+    ],
   },
 };
