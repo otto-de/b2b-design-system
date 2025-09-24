@@ -1,0 +1,13 @@
+[
+  { "value": "1", "label": "Red Apple" },
+  { "value": "2", "label": "Green Apple" },
+  { "value": "3", "label": "Pomelo" },
+  { "value": "4", "label": "Banana" },
+  { "value": "5", "label": "Fig" },
+  { "value": "6", "label": "Date" },
+  { "value": "7", "label": "Watermelon" },
+  { "value": "8", "label": "Cherry" },
+  { "value": "9", "label": "Pineapple" },
+  { "value": "10", "label": "Tangerine" },
+  { "value": "11", "label": "Dragonfruit" }
+]
