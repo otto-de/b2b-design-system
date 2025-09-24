@@ -1,19 +1,18 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
   Component,
+  Element,
+  Event,
   h,
   Host,
-  Element,
-  Prop,
-  Event,
-  EventEmitter,
   Listen,
-  ComponentInterface,
+  Prop,
 } from '@stencil/core';
-import { MonthsGerman, MonthsEnglish } from './date-picker.types';
-import {
+import type {
   EscapePressed,
   MonthSelectedEventDetail,
 } from '../../utils/interfaces/form.interface';
+import { MonthsEnglish, MonthsGerman } from './date-picker.types';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -37,11 +36,11 @@ export class B2bDatePickerMonths implements ComponentInterface {
   /** Internal The language for month and the weekdays will be decided based on the given input. By default, this will be de which is german */
   @Prop() language: 'de' | 'en' = 'de';
 
-  /** Event emitted on selecting month**/
+  /** Event emitted on selecting month */
   @Event({ eventName: 'b2b-date-picker-month-selected' })
   b2bDatePickerMonthSelected: EventEmitter<MonthSelectedEventDetail>;
 
-  /** Event emitted on escape press**/
+  /** Event emitted on escape press */
   @Event({ eventName: 'b2b-date-picker-escape' })
   b2bDatePickerEscape: EventEmitter<EscapePressed>;
 

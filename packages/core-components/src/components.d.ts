@@ -3109,11 +3109,11 @@ declare namespace LocalJSX {
          */
         "language"?: 'de' | 'en';
         /**
-          * Event emitted on escape press*
+          * Event emitted on escape press
          */
         "onB2b-date-picker-escape"?: (event: B2bDatePickerMonthsCustomEvent<EscapePressed>) => void;
         /**
-          * Event emitted on selecting month*
+          * Event emitted on selecting month
          */
         "onB2b-date-picker-month-selected"?: (event: B2bDatePickerMonthsCustomEvent<MonthSelectedEventDetail>) => void;
         /**
@@ -3123,11 +3123,11 @@ declare namespace LocalJSX {
     }
     interface B2bDatePickerYears {
         /**
-          * Event emitted on escape press*
+          * Event emitted on escape press
          */
         "onB2b-date-picker-escape"?: (event: B2bDatePickerYearsCustomEvent<EscapePressed>) => void;
         /**
-          * Event emitted on selecting year*
+          * Event emitted on selecting year
          */
         "onB2b-date-picker-year-selected"?: (event: B2bDatePickerYearsCustomEvent<YearSelectedEventDetail>) => void;
         /**

@@ -1,16 +1,15 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
   Component,
-  ComponentInterface,
   Element,
   Event,
-  EventEmitter,
   h,
   Host,
   Listen,
   Prop,
   State,
 } from '@stencil/core';
-import {
+import type {
   EscapePressed,
   YearSelectedEventDetail,
 } from '../../utils/interfaces/form.interface';
@@ -36,11 +35,11 @@ export class B2bDatePickerYears implements ComponentInterface {
 
   @State() private yearsRange = Array.from({ length: 201 }, (_, i) => i + 1900); // 1900 - 2100
 
-  /** Event emitted on selecting year**/
+  /** Event emitted on selecting year */
   @Event({ eventName: 'b2b-date-picker-year-selected' })
   b2bDatePickerYearSelected: EventEmitter<YearSelectedEventDetail>;
 
-  /** Event emitted on escape press**/
+  /** Event emitted on escape press */
   @Event({ eventName: 'b2b-date-picker-escape' })
   b2bDatePickerEscape: EventEmitter<EscapePressed>;
 
