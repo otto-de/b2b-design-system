@@ -220,7 +220,7 @@ Once you have one of this two runtime envs, you can follow these steps:
 
 1. Run `docker-compose up` or `docker-compose up --build --abort-on-container-exit` if you have created the services before. This creates a storybook service
    and a service that runs the tests against storybook. If any test failed, you will find a new folder inside `__snapshots__` called `__diff_output__`.
-2. If the differences were expected (because you made visual changes to an existing component), run `docker-compose run run-tests npx test-storybook --verbose --url http://storybook:6006 -u`
+2. If the differences were expected (because you made visual changes to an existing component), run `docker-compose run run-tests npx test-storybook --verbose --url http://storybook.local:6006 -u`
 3. Once the testing is completed, run `docker-compose down` to stop the container.
 
 
