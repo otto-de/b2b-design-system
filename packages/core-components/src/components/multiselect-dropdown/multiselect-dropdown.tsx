@@ -1,16 +1,16 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
-  h,
   Component,
+  Element,
+  Event,
+  h,
+  Host,
   Prop,
   State,
-  Host,
-  Event,
-  EventEmitter,
   Watch,
-  Element,
 } from '@stencil/core';
-
 import { parsePropToArray } from '../../utils/json-property-binding-util';
+
 type Option = { label: string; value: string };
 
 @Component({
@@ -18,7 +18,7 @@ type Option = { label: string; value: string };
   styleUrl: 'multiselect-dropdown.scss',
   shadow: true,
 })
-export class B2bMultiSelectDropdown {
+export class B2bMultiSelectDropdown implements ComponentInterface {
   @Element() hostElement: HTMLB2bMultiselectDropdownElement;
 
   /** The input label. */
