@@ -1,31 +1,46 @@
 # Development Guidelines
 
 - [Contributions Overview](#contributions-overview)
+- [Maintainers](#maintainers)
+- [License](#license)
+- [Project lifecycle state](#project-lifecycle-state)
 - [Technical Overview](#technical-overview)
 - [Installation](#installation)
+  - [New dependencies](#new-dependencies)
 - [Committing code](#committing-code)
+    - [Examples](#examples)
+    - [Types of changes](#types-of-changes)
 - [Creating new components](#creating-new-components)
   - [Local development](#local-development)
   - [Documentation](#documentation)
-  - [Testing and visual regression tests](#testing)
-- [Modifying or creating new design tokens](#modifying-or-creating-new-tokens)
+  - [Testing](#testing)
+    - [Visual Regression tests](#visual-regression-tests)
+    - [Making changes to the docker image](#making-changes-to-the-docker-image)
+- [Modifying or creating new tokens](#modifying-or-creating-new-tokens)
+  - [Tokens documentation](#tokens-documentation)
 - [ADRs](#adrs)
+- [Contribution Checklist](#contribution-checklist)
 
 ## Contributions Overview
+
 If you are part of an Otto team, feel free to make a PR from a fork of this repo and post the PR in BlaBlaFish teams channel.
 
 If you are an external contributor, please first create an issue in GitHub to find a great task you can contribute to. If is a simple change, feel free to make a PR from a fork of this repo.
 
 ## Maintainers
+
 This project is maintained by [MAINTAINERS](https://github.com/otto-de/b2b-design-system/blob/main/MAINTAINERS)
 
 ## License
+
 This project is licensed under the [LICENSE](https://github.com/otto-de/b2b-design-system/blob/main/LICENSE)
 
 ## Project lifecycle state
+
 This project lifestyle state here [OSSMETADATA](https://github.com/otto-de/b2b-design-system/blob/main/OSSMETADATA)
 
 ## Technical Overview
+
 This project is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) that makes use
 of [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces#using-workspaces) containing the source code of the 3 packages we distribute:
 
@@ -41,6 +56,7 @@ For our Design Tokens we use [Style Dictionary](https://amzn.github.io/style-dic
 for theming and will support mobile outputs if that is needed in the future.
 
 ## Installation
+
 In the root directory run:
 
 ```
@@ -94,11 +110,13 @@ is changing `feat(Button): add click event emmiter`
 We are also able to use a JIRA ticket id so that the commit is linked in the Jira ticket if one exist.
 
 #### Examples
+
 ```sh
 feat(core): [TICKET-ID] add button component
 feat(tokens): [TICKET-ID] add size tokens
 fix(button): [TICKET-ID] some bug fix
 ```
+
 #### Types of changes
 
 - feat: A new feature (trigger a release)
@@ -201,8 +219,8 @@ If you are able to use [Docker Desktop](https://docs.docker.com/desktop/) you ca
 Once you have one of this two runtime envs, you can follow these steps:
 
 1. Run `docker-compose up` or `docker-compose up --build --abort-on-container-exit` if you have created the services before. This creates a storybook service
-  and a service that runs the tests against storybook. If any test failed, you will find a new folder inside `__snapshots__` called `__diff_output__`.
-2. If the differences were expected (because you made visual changes to an existing component), run `docker-compose run run-tests npx test-storybook --verbose --url http://storybook:6006 -u`
+   and a service that runs the tests against storybook. If any test failed, you will find a new folder inside `__snapshots__` called `__diff_output__`.
+2. If the differences were expected (because you made visual changes to an existing component), run `docker-compose run run-tests npx test-storybook --verbose --url http://storybook.local:6006 -u`
 3. Once the testing is completed, run `docker-compose down` to stop the container.
 
 
