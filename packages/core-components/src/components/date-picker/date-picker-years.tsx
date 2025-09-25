@@ -1,15 +1,18 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
   Component,
   Element,
   Event,
-  EventEmitter,
   h,
   Host,
   Listen,
   Prop,
   State,
 } from '@stencil/core';
-import { YearSelectedEventDetail } from '../../utils/interfaces/form.interface';
+import type {
+  EscapePressed,
+  YearSelectedEventDetail,
+} from '../../utils/interfaces/form.interface';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -17,6 +20,7 @@ const keys = {
   ARROW_RIGHT: 'ArrowRight',
   ARROW_LEFT: 'ArrowLeft',
   ENTER: 'Enter',
+  ESC: 'Escape',
 };
 
 @Component({
@@ -24,42 +28,48 @@ const keys = {
   styleUrl: 'date-picker-years.scss',
   shadow: true,
 })
-export class B2bDatePickerYears {
+export class B2bDatePickerYears implements ComponentInterface {
   @Element() host: HTMLB2bDatePickerYearsElement;
   /** Internal selected year */
   @Prop() selectedYear: number;
 
-  @State() private yearsRange: number[] = [];
+  @State() private yearsRange = Array.from({ length: 201 }, (_, i) => i + 1900); // 1900 - 2100
 
-  /** Event emitted on selecting year**/
+  /** Event emitted on selecting year */
   @Event({ eventName: 'b2b-date-picker-year-selected' })
   b2bDatePickerYearSelected: EventEmitter<YearSelectedEventDetail>;
+
+  /** Event emitted on escape press */
+  @Event({ eventName: 'b2b-date-picker-escape' })
+  b2bDatePickerEscape: EventEmitter<EscapePressed>;
 
   @Listen('keydown')
   handleKeyDown(event: KeyboardEvent) {
     event.preventDefault();
-    let index = this.yearsRange.indexOf(this.selectedYear);
     const years = this.getAllYears();
     let currentYear = this.getCurrentYear();
+    let index = years.indexOf(currentYear);
     switch (event.key) {
       case keys.ARROW_LEFT:
-        index = years.indexOf(currentYear) - 1;
+        index -= 1;
         break;
       case keys.ARROW_RIGHT:
-        index = years.indexOf(currentYear) + 1;
+        index += 1;
         break;
       case keys.ARROW_UP:
-        index = years.indexOf(currentYear) - 3;
+        index -= 3;
         break;
       case keys.ARROW_DOWN:
-        index = years.indexOf(currentYear) + 3;
+        index += 3;
         break;
       case keys.ENTER:
-        index = years.indexOf(currentYear);
         this.b2bDatePickerYearSelected.emit({
           value: this.yearsRange[index],
         });
-        break;
+        return;
+      case keys.ESC:
+        this.b2bDatePickerEscape.emit();
+        return;
       default:
         return;
     }
@@ -75,15 +85,10 @@ export class B2bDatePickerYears {
     this.focusCurrentYear(years[index]);
   }
 
-  componentWillLoad() {
-    for (let i = 1900; i <= 2100; i++) {
-      this.yearsRange.push(i);
-    }
-  }
-
   componentDidLoad() {
     if (this.selectedYear > 0) {
       this.scrollToYear(this.selectedYear);
+      this.getCurrentYear().focus();
     }
   }
 
