@@ -215,7 +215,8 @@ export class InputComponent {
             class={{
               'b2b-input__native-input': true,
               ['b2b-input__native-input--align-' + this.inputTextAlign]: true,
-              'b2b-input__native-input--disabled': this.disabled,
+              'b2b-input__native-input--disabled':
+                this.disabled || this.groupDisabled,
             }}
             aria-labelledby={this.name}
             type={this.type}
@@ -233,7 +234,7 @@ export class InputComponent {
           <slot name="end"></slot>
         </div>
         {(this.hint !== undefined || this.hintSlot) &&
-        (!this.invalid || this.disabled) ? (
+        (!this.invalid || this.disabled || this.groupDisabled) ? (
           <span>
             <slot name="hint">{this.hint}</slot>
           </span>
