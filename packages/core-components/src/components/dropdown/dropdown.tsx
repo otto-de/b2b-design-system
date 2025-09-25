@@ -46,6 +46,9 @@ export class DropdownComponent {
   /** An optional error message for the dropdown. This will only appear if invalid is set to true. */
   @Prop() error?: string;
 
+  /** @internal Whether the parent input group is disabled. Per default, it is false. */
+  @Prop() groupDisabled = false;
+
   /** Emits the option whenever a new option is chosen. */
   @Event({ eventName: 'b2b-change' })
   b2bChange: EventEmitter<string>;
@@ -146,7 +149,7 @@ export class DropdownComponent {
   };
 
   private toggleDropdown = () => {
-    if (!this.disabled) this.isOpen = !this.isOpen;
+    if (!this.disabled && !this.groupDisabled) this.isOpen = !this.isOpen;
   };
 
   private onFocus = (ev: FocusEvent) => {
@@ -226,8 +229,8 @@ export class DropdownComponent {
   };
 
   render() {
-    const hasError = this.invalid && !this.disabled;
-    const showHint = this.hint && (!this.invalid || this.disabled);
+    const hasError = this.invalid && !this.disabled && !this.groupDisabled;
+    const showHint = this.hint && !hasError;
     const showError = this.error && hasError;
 
     return (
@@ -235,7 +238,7 @@ export class DropdownComponent {
         class={{
           'b2b-dropdown': true,
           'b2b-dropdown--error': hasError,
-          'b2b-dropdown--disabled': this.disabled,
+          'b2b-dropdown--disabled': this.disabled || this.groupDisabled,
         }}>
         {this.label && (
           <b2b-input-label id={this.name} required={this.required}>

@@ -65,15 +65,9 @@ export class B2BInputGroup {
   private toggleAllDisabled = () => {
     let nodes = this.getChildNodes();
 
-    if (this.disabled) {
-      nodes.forEach(node => {
-        node.disabled = true;
-      });
-    } else {
-      nodes.forEach(node => {
-        node.groupDisabled = this.disabled;
-      });
-    }
+    nodes.forEach(node => {
+      node.groupDisabled = this.disabled;
+    });
   };
 
   private getChildNodes = () => {

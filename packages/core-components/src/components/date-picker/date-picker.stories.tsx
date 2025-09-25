@@ -80,10 +80,22 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      const wrapper = datePicker.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
-      );
-      await userEvent.click(b2bDatePickerInputWrapper);
+      ) as HTMLElement;
+      const days = datePicker.shadowRoot?.querySelector(
+        'b2b-date-picker-days',
+      ) as HTMLElement;
+      const day = days.shadowRoot?.querySelector(
+        '.b2b-date-picker-day--selected',
+      ) as HTMLElement;
+
+      await userEvent.click(wrapper);
+
+      setTimeout(async () => {
+        day.focus();
+        await userEvent.keyboard('{arrowright}{arrowright}');
+      }, 500);
     }, 500);
   },
 };

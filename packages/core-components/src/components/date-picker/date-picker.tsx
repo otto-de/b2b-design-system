@@ -173,7 +173,12 @@ export class B2bDatePicker implements ComponentInterface {
   }
 
   @Listen('b2b-date-picker-escape')
-  handleEscapePress() {
+  handleEscapePress(event: CustomEvent): void {
+    if (this.datePickerView !== DatePickerView.Days) {
+      this.datePickerView = DatePickerView.Days;
+      event.preventDefault();
+      return;
+    }
     this.showDatePicker = false;
   }
 
