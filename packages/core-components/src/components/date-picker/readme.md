@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event                           | Description                      | Type                                           |
-| ------------------------------- | -------------------------------- | ---------------------------------------------- |
-| `b2b-date-picker-year-selected` | Event emitted on selecting year* | `CustomEvent<YearSelectedEventDetail<number>>` |
+| Event                           | Description                     | Type                                           |
+| ------------------------------- | ------------------------------- | ---------------------------------------------- |
+| `b2b-date-picker-escape`        | Event emitted on escape press   | `CustomEvent<EscapePressed<any>>`              |
+| `b2b-date-picker-year-selected` | Event emitted on selecting year | `CustomEvent<YearSelectedEventDetail<number>>` |
 
 
 ## Dependencies
