@@ -1,19 +1,20 @@
+import { userEvent } from '@storybook/test';
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: StoryFn = ({
-  label,
+  label = 'Favorite Fruit',
   required,
   name,
   disabled,
   invalid,
   hint,
   error,
+  selected = false,
 }) => {
-  const defaultLabel = label ? label : 'Favorite Fruit';
   return html`<b2b-dropdown
-    label="${defaultLabel}"
+    label="${label}"
     name="${name}"
     error="${error}"
     hint="${hint}"
@@ -23,7 +24,9 @@ const Template: StoryFn = ({
     <option value="strawberry">Strawberry</option>
     <option value="orange">Orange</option>
     <option value="banana">Banana</option>
-    <option value="pineapple">Pineapple</option>
+    ${selected
+      ? html`<option value="pineapple" selected="true">Pineapple</option>`
+      : html`<option value="pineapple">Pineapple</option>`}
     <option value="grapes">Grapes</option>
     <option value="watermelon">Watermelon</option>
     <option value="papaya">Papaya</option>
@@ -59,6 +62,17 @@ story030Error.storyName = 'Error';
 export const story040Required = Template.bind({});
 story040Required.args = { ...defaultArgs, required: true };
 story040Required.storyName = 'Required';
+
+export const story050Selected = Template.bind({});
+story050Selected.args = { ...defaultArgs, selected: true };
+story050Selected.storyName = 'Selected';
+story050Selected.play = async ({ canvasElement }) => {
+  setTimeout(async () => {
+    const dropdown = canvasElement.querySelector('b2b-dropdown');
+    const wrapper = dropdown.shadowRoot?.querySelector('.b2b-dropdown__select');
+    await userEvent.click(wrapper);
+  }, 500);
+};
 
 const dropdownArgs = getArgTypes('b2b-dropdown');
 
