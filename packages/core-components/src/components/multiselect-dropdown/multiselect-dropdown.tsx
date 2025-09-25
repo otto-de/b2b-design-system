@@ -168,6 +168,7 @@ export class B2bMultiSelectDropdown implements ComponentInterface {
           <b2b-chip-component
             label={option.label}
             value={option.value}
+            disabled={this.disabled || this.groupDisabled}
             onB2b-close={this.handleChipClose}></b2b-chip-component>
         );
       } else if (index === this.maxOptionsVisible) {
@@ -175,7 +176,7 @@ export class B2bMultiSelectDropdown implements ComponentInterface {
           <b2b-chip-component
             label="..."
             class="b2b-multiselect-dropdown__option--show-more-button"
-            hasCloseButton
+            disabled={this.disabled || this.groupDisabled}
             onClick={this.handleOverflowOptionsClick}></b2b-chip-component>
         );
       } else {
