@@ -138,12 +138,16 @@ export class CheckboxComponent {
   };
 
   render() {
+    const hasError = this.invalid && !this.disabled && !this.groupDisabled;
+    const showHint = this.hint && !hasError;
+    const showError = this.error && hasError;
+
     return (
       <Host onClick={this.onClick}>
         <div
           class={{
             'b2b-checkbox': true,
-            'b2b-checkbox--error': this.invalid && !this.disabled,
+            'b2b-checkbox--error': hasError,
             'b2b-checkbox--disabled': this.disabled || this.groupDisabled,
             'b2b-checkbox--checked': this.checked,
             'b2b-checkbox--standalone': this.standalone,
@@ -167,22 +171,14 @@ export class CheckboxComponent {
               <b2b-input-label
                 id={this.name}
                 required={this.required}
-                disabled={this.disabled}>
+                disabled={this.disabled || this.groupDisabled}>
                 <slot name="label">{this.label}</slot>
               </b2b-input-label>
             )}
           </div>
-          {(this.hint !== undefined && !this.invalid) ||
-          (this.hint !== undefined && this.disabled) ? (
-            <span>{this.hint}</span>
-          ) : (
-            ''
-          )}
-          {this.error !== undefined && this.invalid && !this.disabled ? (
-            <span>{this.error}</span>
-          ) : (
-            ''
-          )}
+
+          {showHint && <span>{this.hint}</span>}
+          {showError && <span>{this.error}</span>}
         </div>
       </Host>
     );

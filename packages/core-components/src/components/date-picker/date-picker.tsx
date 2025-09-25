@@ -1,8 +1,8 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
   Component,
   Element,
   Event,
-  EventEmitter,
   h,
   Host,
   Listen,
@@ -10,7 +10,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import {
+import type {
   DateClear,
   DatePickerEventDetail,
   DatePickerViewChangedEventDetail,
@@ -26,7 +26,7 @@ import { parsePropToArray } from '../../utils/json-property-binding-util';
   styleUrl: 'date-picker.scss',
   shadow: true,
 })
-export class B2bDatePicker {
+export class B2bDatePicker implements ComponentInterface {
   @Element() host: HTMLB2bDatePickerElement;
 
   /** Whether the previous dates from the current date are disabled. By default, this is true. */
@@ -173,7 +173,12 @@ export class B2bDatePicker {
   }
 
   @Listen('b2b-date-picker-escape')
-  handleEscapePress() {
+  handleEscapePress(event: CustomEvent): void {
+    if (this.datePickerView !== DatePickerView.Days) {
+      this.datePickerView = DatePickerView.Days;
+      event.preventDefault();
+      return;
+    }
     this.showDatePicker = false;
   }
 
