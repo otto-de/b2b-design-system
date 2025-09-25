@@ -45,3 +45,9 @@ jobs:
           name: visual-regression-differences
           path: ./packages/core-components/__snapshots__/__diff_output__
           retention-days: 10
+
+      - name: Fail on new files
+        run: |
+          git add .
+          git diff --cached --name-only | sed -E 's/^(.*)$/::error file=\1,title=Diff detected::Please update the screenshots and commit the changes./'
+          git diff --cached --name-only --exit-code
