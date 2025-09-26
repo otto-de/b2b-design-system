@@ -1,3 +1,4 @@
+import type { ComponentInterface } from '@stencil/core';
 import {
   Component,
   Element,
@@ -7,7 +8,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { OptionSelectedEventDetail } from '../../utils/interfaces/form.interface';
+import type { OptionSelectedEventDetail } from '../../utils/interfaces/form.interface';
 import { isClickOutside } from '../../utils/utils';
 
 @Component({
@@ -15,7 +16,7 @@ import { isClickOutside } from '../../utils/utils';
   styleUrl: 'custom-dropdown.scss',
   shadow: true,
 })
-export class B2bCustomDropdownComponent {
+export class B2bCustomDropdownComponent implements ComponentInterface {
   /** The placeholder shown in the input field. */
   @Prop({ reflect: true }) placeholder: string;
 
@@ -34,6 +35,10 @@ export class B2bCustomDropdownComponent {
   /** Internal: if the dropdown is opened */
   @Prop({ mutable: true }) opened: boolean = false;
 
+  /** The text to show, when no results have been found. */
+  @Prop() noResultsText: string =
+    'Keine Ergebnisse gefunden, überprüfen Sie die Eingabe.';
+
   /** The currently selected option */
   @State() selectedOption: string | null = null;
 
@@ -42,8 +47,6 @@ export class B2bCustomDropdownComponent {
   @State() allOptions: HTMLB2bCustomDropdownOptionElement[] = [];
 
   @State() hasVisibleOptions = true;
-  @Prop() noResultsText: string =
-    'Keine Ergebnisse gefunden, überprüfen Sie die Eingabe.';
 
   @Listen('b2b-custom-dropdown-option-selected')
   handleOptionSelected(event: CustomEvent<OptionSelectedEventDetail>) {

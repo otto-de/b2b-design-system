@@ -913,7 +913,7 @@
           "summary": "'Keine Ergebnisse gefunden, überprüfen Sie die Eingabe.'"
         }
       },
-      "description": ""
+      "description": "The text to show, when no results have been found."
     },
     "opened": {
       "control": {

@@ -309,6 +309,9 @@ export namespace Components {
           * Whether the dropdown should have a drop shadow. Default is false.
          */
         "dropshadow": boolean;
+        /**
+          * The text to show, when no results have been found.
+         */
         "noResultsText": string;
         /**
           * Internal: if the dropdown is opened
@@ -2893,6 +2896,9 @@ declare namespace LocalJSX {
           * Whether the dropdown should have a drop shadow. Default is false.
          */
         "dropshadow"?: boolean;
+        /**
+          * The text to show, when no results have been found.
+         */
         "noResultsText"?: string;
         /**
           * Internal: if the dropdown is opened
