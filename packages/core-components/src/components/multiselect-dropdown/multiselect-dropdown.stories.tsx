@@ -1,14 +1,12 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 import fruits from './stories.data.json';
 import fruitOptions from './stories.data2.json';
 
-type Story = StoryObj;
-
 const multiselectArgs = getArgTypes('b2b-multiselect-dropdown');
 
-const meta: Meta = {
+export default {
   title: 'Components/Form/Multiselect Dropdown',
   component: 'b2b-multiselect-dropdown',
   args: {
@@ -46,19 +44,11 @@ const meta: Meta = {
         error-message=${args.errorMessage}>
       </b2b-multiselect-dropdown>
     </div>`,
-};
-export default meta;
+} satisfies Meta;
 
-export const Default: Story = {
-  args: {
-    ...meta.args,
-  },
-};
+export const Default: Story = {};
 
 export const InitialSelectedValues: Story = {
-  args: {
-    ...meta.args,
-  },
   render: ({ ...args }) =>
     html`<div style="width: 400px">
       <b2b-multiselect-dropdown
@@ -80,35 +70,30 @@ export const InitialSelectedValues: Story = {
 
 export const Required: Story = {
   args: {
-    ...meta.args,
     required: true,
   },
 };
 
 export const Hint: Story = {
   args: {
-    ...meta.args,
     hint: 'please select a value',
   },
 };
 
 export const Disabled: Story = {
   args: {
-    ...meta.args,
     disabled: true,
   },
 };
 
 export const Invalid: Story = {
   args: {
-    ...meta.args,
     invalid: true,
   },
 };
 
 export const InvalidWithErrorMessage: Story = {
   args: {
-    ...meta.args,
     invalid: true,
     errorMessage: 'error has occurred',
   },
@@ -116,7 +101,6 @@ export const InvalidWithErrorMessage: Story = {
 
 export const WithOptionsArray: Story = {
   args: {
-    ...meta.args,
     optionsList: [...fruitOptions],
     selectedValues: ['1', '5'],
   },

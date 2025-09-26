@@ -25,6 +25,26 @@ describe('b2b-multiselect-dropdown', () => {
     expect(text).toBe('Choose wisely!');
   });
 
+  it('should be completely disabled when disabled', async () => {
+    const page = await newE2EPage({
+      html: `<b2b-multiselect-dropdown
+        options-list="Swift Carrot, Happy Onion, Cool Tomato"
+        selected-values="Happy Onion, Cool Tomato"
+        disabled="true"
+        max-options-visible="1">
+        </b2b-multiselect-dropdown>`,
+    });
+
+    const chips = await page.findAll(
+      'b2b-multiselect-dropdown >>> b2b-chip-component',
+    );
+
+    expect(chips).toHaveLength(2);
+    for (const chip of chips) {
+      expect(chip.getProperty('disabled')).toBeDefined();
+    }
+  });
+
   it('should open dropdown on click and displays options', async () => {
     const page = await newE2EPage({
       html: `<b2b-multiselect-dropdown placeholder="Choose" options-list="Swift Carrot, Happy Onion, Cool Tomato"></b2b-multiselect-dropdown>`,

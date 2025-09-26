@@ -866,6 +866,7 @@ export namespace Components {
           * The error message that is shown if the multi select dropdown is invalid.
          */
         "errorMessage"?: string;
+        "groupDisabled": boolean;
         /**
           * The hint text that appears underneath the multi select dropdown field.
          */
@@ -3529,6 +3530,7 @@ declare namespace LocalJSX {
           * The error message that is shown if the multi select dropdown is invalid.
          */
         "errorMessage"?: string;
+        "groupDisabled"?: boolean;
         /**
           * The hint text that appears underneath the multi select dropdown field.
          */

@@ -1,16 +1,16 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
-  h,
   Component,
+  Element,
+  Event,
+  h,
+  Host,
   Prop,
   State,
-  Host,
-  Event,
-  EventEmitter,
   Watch,
-  Element,
 } from '@stencil/core';
-
 import { parsePropToArray } from '../../utils/json-property-binding-util';
+
 type Option = { label: string; value: string };
 
 @Component({
@@ -18,7 +18,7 @@ type Option = { label: string; value: string };
   styleUrl: 'multiselect-dropdown.scss',
   shadow: true,
 })
-export class B2bMultiSelectDropdown {
+export class B2bMultiSelectDropdown implements ComponentInterface {
   @Element() hostElement: HTMLB2bMultiselectDropdownElement;
 
   /** The input label. */
@@ -56,6 +56,9 @@ export class B2bMultiSelectDropdown {
 
   /** Whether or not the field is disabled. Default is false. */
   @Prop({ reflect: true }) disabled: boolean = false;
+
+  /** @internal Whether the parent input group is disabled. Per default, it is false. */
+  @Prop() groupDisabled = false;
 
   /** Emits when there is a change to the currently selected values. */
   @Event({ eventName: 'b2b-selected' })
@@ -137,7 +140,7 @@ export class B2bMultiSelectDropdown {
   }
 
   private handleInput = (event: InputEvent) => {
-    if (this.disabled) return;
+    if (this.disabled || this.groupDisabled) return;
     const term = (event.target as HTMLInputElement).value.toLowerCase();
     this.value = term;
 
@@ -165,6 +168,7 @@ export class B2bMultiSelectDropdown {
           <b2b-chip-component
             label={option.label}
             value={option.value}
+            disabled={this.disabled || this.groupDisabled}
             onB2b-close={this.handleChipClose}></b2b-chip-component>
         );
       } else if (index === this.maxOptionsVisible) {
@@ -172,7 +176,7 @@ export class B2bMultiSelectDropdown {
           <b2b-chip-component
             label="..."
             class="b2b-multiselect-dropdown__option--show-more-button"
-            hasCloseButton
+            disabled={this.disabled || this.groupDisabled}
             onClick={this.handleOverflowOptionsClick}></b2b-chip-component>
         );
       } else {
@@ -232,7 +236,7 @@ export class B2bMultiSelectDropdown {
   };
 
   private setElementOnFocus = () => {
-    if (this.disabled) return;
+    if (this.disabled || this.groupDisabled) return;
     this.isElementFocused = true;
   };
 
@@ -252,7 +256,7 @@ export class B2bMultiSelectDropdown {
   };
 
   private resetFocus = () => {
-    if (this.disabled) return;
+    if (this.disabled || this.groupDisabled) return;
     const el = this.hostElement.shadowRoot.querySelector(
       '.b2b-multiselect-dropdown',
     ) as HTMLElement;
@@ -261,7 +265,7 @@ export class B2bMultiSelectDropdown {
 
   private handleMouseDown = (event: MouseEvent) => {
     /** Keep dropdown open if a tag is removed */
-    if (this.disabled) {
+    if (this.disabled || this.groupDisabled) {
       event.preventDefault();
       return;
     }
@@ -274,7 +278,7 @@ export class B2bMultiSelectDropdown {
   };
 
   private handleKeyDown = (event: KeyboardEvent) => {
-    if (this.disabled) return;
+    if (this.disabled || this.groupDisabled) return;
 
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -321,6 +325,11 @@ export class B2bMultiSelectDropdown {
   };
 
   render() {
+    const disabled = this.disabled || this.groupDisabled;
+    const hasError = this.invalid && !disabled;
+    const showHint = this.hint && !hasError;
+    const showError = this.errorMessage && hasError;
+
     return (
       <Host
         onFocus={this.setElementOnFocus}
@@ -332,14 +341,14 @@ export class B2bMultiSelectDropdown {
           class={{
             'b2b-multiselect-dropdown': true,
             'b2b-multiselect-dropdown--open': this.isOpen,
-            'b2b-multiselect-dropdown--error': this.invalid && !this.disabled,
-            'b2b-multiselect-dropdown--disabled': this.disabled,
+            'b2b-multiselect-dropdown--error': hasError,
+            'b2b-multiselect-dropdown--disabled': disabled,
             'b2b-multiselect-dropdown--focused':
               this.invalid && this.isElementFocused,
           }}
           tabindex={0}
           role="combobox"
-          onClick={() => (this.isOpen = !this.isOpen)}
+          onClick={() => (this.isOpen = !this.isOpen && !disabled)}
           aria-expanded={this.isElementFocused}>
           <div class="b2b-multiselect-dropdown__chip-container">
             {this.currentSelectedValues.length === 0 ? (
@@ -385,18 +394,14 @@ export class B2bMultiSelectDropdown {
               ))}
           </div>
         </div>
-        {(this.hint !== undefined && !this.invalid) ||
-        (this.hint !== undefined && this.disabled) ? (
+
+        {showHint && (
           <span class="b2b-multiselect-dropdown__hint">{this.hint}</span>
-        ) : (
-          ''
         )}
-        {this.errorMessage !== undefined && this.invalid && !this.disabled ? (
+        {showError && (
           <span class="b2b-multiselect-dropdown__error-message">
             {this.errorMessage}
           </span>
-        ) : (
-          ''
         )}
       </Host>
     );
