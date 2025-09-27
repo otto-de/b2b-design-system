@@ -601,7 +601,7 @@
     </div>
 
     <div class="content-container" width="300px">
-      <b2b-headline size="200">Date picker</b2b-headline>
+      <b2b-headline id="DatePicker" size="200">Date picker</b2b-headline>
       <b2b-date-picker
         hint="Hi this is the hint message for date picker"
         width="500"></b2b-date-picker>
@@ -613,24 +613,21 @@
       <b2b-date-picker placeholder="this is a placeholder"></b2b-date-picker>
       <b2b-headline size="200">Datepicker in English</b2b-headline>
       <b2b-date-picker language="en"></b2b-date-picker>
-    </div>
 
-    <div class="content-container" width="300px">
-      <b2b-headline size="200"
-        >Date picker disabling specific days</b2b-headline
-      >
-      <b2b-date-picker id="date-picker"></b2b-date-picker>
-    </div>
-    <script>
-      const datepickerEl = document.getElementById('date-picker');
-      datepickerEl.disableEvery = ['Mo', 'Di'];
-    </script>
+      <b2b-headline size="200">
+        Date picker disabling specific days
+      </b2b-headline>
+      <b2b-date-picker id="date-picker-disable-day-of-week"></b2b-date-picker>
 
-    <div class="content-container" width="300px">
       <b2b-headline size="200">Date picker Disable dates</b2b-headline>
       <b2b-date-picker id="date-picker-disable-days"></b2b-date-picker>
     </div>
     <script>
+      const datepickerEl = document.getElementById(
+        'date-picker-disable-day-of-week',
+      );
+      datepickerEl.disableEvery = ['Mo', 'Di'];
+
       const datepickerEl1 = document.getElementById('date-picker-disable-days');
       datepickerEl1.disableDates = ['21.01.2025', '10.01.2025'];
     </script>

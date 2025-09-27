@@ -6,7 +6,6 @@
 
 .b2b-date-picker {
   position: relative;
-  z-index: 300;
 
   &__backdrop {
     position: fixed;
@@ -14,7 +13,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 100;
   }
 }
 
@@ -114,7 +113,7 @@ b2b-input-label {
   padding-bottom: var(--b2b-size-40);
   outline: none;
   background-color: var(--b2b-color-white-100);
-  z-index: 1001;
+  z-index: 101;
 
   &--hidden {
     display: none;
