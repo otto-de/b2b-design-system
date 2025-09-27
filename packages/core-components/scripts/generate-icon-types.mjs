@@ -7,8 +7,16 @@ type to be used in the icon component. Whenever a new icon is added and the pack
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-const sourceDirs = ['src/components/icon/icons', 'src/components/icon-100/icons-100', 'src/components/icon-50/icons-50'];
-const goalDirs = ['src/components/icon/types.ts', 'src/components/icon-100/types.ts', 'src/components/icon-50/types.ts'];
+const sourceDirs = [
+  'src/components/icon/icons',
+  'src/components/icon-100/icons-100',
+  'src/components/icon-50/icons-50',
+];
+const goalDirs = [
+  'src/components/icon/types.ts',
+  'src/components/icon-100/types.ts',
+  'src/components/icon-50/types.ts',
+];
 
 function generateIconTypes() {
   console.log('Generating icon types');
@@ -23,9 +31,12 @@ function generateIconTypes() {
         let fileName = path.parse(file).name;
         iconNames.push(fileName);
       });
-      const data = `/* eslint-disable prettier/prettier */
-export const iconTypes = ${JSON.stringify(iconNames, null, ' ')} as const
-export type IconName = typeof iconTypes[number];`;
+      const iconTypesContent = JSON.stringify(iconNames, null, 2)
+        .replaceAll('"', "'") // Use single-quotes
+        .replace("'\n]", "',\n]"); // Add `,` after last element
+      const data = `export const iconTypes = ${iconTypesContent} as const;
+export type IconName = (typeof iconTypes)[number];
+`;
       fs.writeFileSync(goalDirs[index], data, err => {
         if (err) {
           console.error(`Error writing to file ${goalDirs[index]}: ${err}`);
