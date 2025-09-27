@@ -26,7 +26,7 @@ export interface DateSelectedEventDetail {
   selectedDate: Date;
 }
 
-export interface DateClear<T = any> {}
+export interface DateClear {}
 
 export interface MultiSelectOptionEventDetail {
   selected: boolean;
@@ -49,8 +49,12 @@ export interface ToggleButtonEventDetail<T = any> {
 export interface ChipComponentEventDetail<T = any> {
   value: T;
 }
-export interface DatePickerEventDetail<T = any> {
+export interface DatePickerEventDetail {
   selectedDate: Date;
+}
+
+export interface DateRangePickerEventDetail {
+  selected: readonly [Date, Date];
 }
 
 export interface EscapePressed<T = any> {}

@@ -1438,6 +1438,201 @@
       "description": "Internal selected year"
     }
   },
+  "b2b-date-range-picker": {
+    "dateRange": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "readonly [Dateish, Dateish]"
+        },
+        "defaultValue": {}
+      },
+      "description": "The start and the end date of the selected date range.\nFormat: `TT.MM.YYYY`"
+    },
+    "disableDates": {
+      "table": {
+        "type": {
+          "summary": "(date: Date) => boolean"
+        },
+        "defaultValue": {
+          "summary": "() => false"
+        }
+      },
+      "description": "Function used to determine, whether a date should be disabled e.g. because it is in the past.\nThis is only used for the start and end dates, it is valid to have a disabled date in the range of start and end date."
+    },
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The error message that is shown if the input is invalid."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The hint text that appears underneath the input field."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the input is currently invalid. If true, the input is rendered with error styles."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'Zeitraum auswählen'"
+        }
+      },
+      "description": "Label for the date range picker component."
+    },
+    "language": {
+      "options": [
+        "de",
+        "en"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'de'"
+        }
+      },
+      "description": "The language for month and the weekdays will be decided based on the given input.\nOne of `'de'` (German) or `'English'`."
+    },
+    "presets": {
+      "table": {
+        "type": {
+          "summary": "{ [x: string]: DateRange; }"
+        },
+        "defaultValue": {
+          "summary": "{}"
+        }
+      },
+      "description": "A list of presets, that the user can click on to simplify time range selection."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    }
+  },
+  "b2b-date-range-picker-days": {
+    "disableDates": {
+      "table": {
+        "type": {
+          "summary": "(day: number) => boolean"
+        },
+        "defaultValue": {
+          "summary": "() => false"
+        }
+      },
+      "description": "Function used to determine, whether a day should be disabled e.g. because it is in the past.\nThis is only used for the start and end dates, it is valid to have a disabled day in the range of start and end date."
+    },
+    "firstDate": {
+      "options": [
+        null,
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "Date"
+        },
+        "defaultValue": {}
+      },
+      "description": "The first date of the selection.\nThis may be absent if no dates have been selected yet.\nThis is always smaller/earlier than the second date."
+    },
+    "preview": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the shown values are a preview and not the actual values (force-hover state)."
+    },
+    "secondDate": {
+      "options": [
+        null,
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "Date"
+        },
+        "defaultValue": {}
+      },
+      "description": "The second date of the selection.\nThis may be absent if none or only one date has been selected yet.\nThis is always bigger/later than the first date."
+    },
+    "viewedDate": {
+      "options": [
+        null,
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "Date"
+        },
+        "defaultValue": {
+          "summary": "new Date()"
+        }
+      },
+      "description": "The currently shown date (year+month)."
+    }
+  },
   "b2b-dropdown": {
     "disabled": {
       "control": {

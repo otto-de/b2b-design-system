@@ -25,6 +25,7 @@
  - [b2b-custom-dropdown-option](../custom-dropdown)
  - [b2b-date-picker](../date-picker)
  - [b2b-date-picker-header](../date-picker)
+ - [b2b-date-range-picker](../date-range-picker)
  - [b2b-input-list](../input-list)
  - [b2b-modal](../modal)
  - [b2b-multiselect-dropdown](../multiselect-dropdown)
@@ -41,6 +42,7 @@ graph TD;
   b2b-custom-dropdown-option --> b2b-icon-100
   b2b-date-picker --> b2b-icon-100
   b2b-date-picker-header --> b2b-icon-100
+  b2b-date-range-picker --> b2b-icon-100
   b2b-input-list --> b2b-icon-100
   b2b-modal --> b2b-icon-100
   b2b-multiselect-dropdown --> b2b-icon-100

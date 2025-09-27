@@ -6,7 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-import { CheckboxEventDetail, ChipComponentEventDetail, DateClear, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
+import { CheckboxEventDetail, ChipComponentEventDetail, DateClear, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateRangePickerEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
+import { Dateish, DateRange, DatishRange } from "./components/date-range-picker/date-range-picker-utils";
 import { IconName } from "./components/icon/types";
 import { IconName as IconName1 } from "./components/icon-100/types";
 import { IconName as IconName2 } from "./components/icon-50/types";
@@ -16,7 +17,8 @@ import { CheckboxEventDetail as CheckboxEventDetail1 } from "./components";
 import { TableAccordionSelectedEventDetail } from "./utils/interfaces/content.interface";
 import { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export { BreadCrumbChangeEventDetail, ColumnSortChangeEventDetail, PageChangeEventDetail, TabChangeEventDetail, ToggleChipEventDetail, ToggleSwitchEventDetail } from "./utils/interfaces/interaction.interface";
-export { CheckboxEventDetail, ChipComponentEventDetail, DateClear, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
+export { CheckboxEventDetail, ChipComponentEventDetail, DateClear, DatePickerEventDetail, DatePickerViewChangedEventDetail, DateRangePickerEventDetail, DateSelectedEventDetail, EscapePressed, InputChangeEvent, InputClear, MonthSelectedEventDetail, MultiSelectOptionEventDetail, NextMonth, OptionSelectedEventDetail, PreviousMonth, RadioEventDetail, SearchClickEventDetail, ToggleButtonEventDetail, YearSelectedEventDetail } from "./utils/interfaces/form.interface";
+export { Dateish, DateRange, DatishRange } from "./components/date-range-picker/date-range-picker-utils";
 export { IconName } from "./components/icon/types";
 export { IconName as IconName1 } from "./components/icon-100/types";
 export { IconName as IconName2 } from "./components/icon-50/types";
@@ -507,6 +509,78 @@ export namespace Components {
           * Internal selected year
          */
         "selectedYear": number;
+    }
+    interface B2bDateRangePicker {
+        /**
+          * The start and the end date of the selected date range. Format: `TT.MM.YYYY`
+         */
+        "dateRange"?: string | DatishRange;
+        /**
+          * Function used to determine, whether a date should be disabled e.g. because it is in the past. This is only used for the start and end dates, it is valid to have a disabled date in the range of start and end date.
+          * @param date The date to check. Format: `TT.MM.YYYY`
+          * @returns True, if the date should be disabled. False otherwise.
+          * @default (date) => false
+         */
+        "disableDates": (date: Date) => boolean;
+        /**
+          * The error message that is shown if the input is invalid.
+         */
+        "error"?: string;
+        /**
+          * The hint text that appears underneath the input field.
+         */
+        "hint"?: string;
+        /**
+          * Whether the input is currently invalid. If true, the input is rendered with error styles.
+          * @default false
+         */
+        "invalid": boolean;
+        /**
+          * Label for the date range picker component.
+          * @default 'Zeitraum auswählen'
+         */
+        "label": string;
+        /**
+          * The language for month and the weekdays will be decided based on the given input. One of `'de'` (German) or `'English'`.
+          * @default 'de'
+         */
+        "language": 'de' | 'en';
+        /**
+          * A list of presets, that the user can click on to simplify time range selection.
+          * @default {}
+         */
+        "presets": Record<string, DateRange>;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+          * @default false
+         */
+        "required": boolean;
+    }
+    interface B2bDateRangePickerDays {
+        /**
+          * Function used to determine, whether a day should be disabled e.g. because it is in the past. This is only used for the start and end dates, it is valid to have a disabled day in the range of start and end date.
+          * @param day The day of the month to check (1-indexed).
+          * @returns True, if the day should be disabled. False otherwise.
+          * @default (day) => false
+         */
+        "disableDates": (day: number) => boolean;
+        /**
+          * The first date of the selection. This may be absent if no dates have been selected yet. This is always smaller/earlier than the second date.
+         */
+        "firstDate"?: Dateish;
+        /**
+          * Whether the shown values are a preview and not the actual values (force-hover state).
+          * @default false
+         */
+        "preview": boolean;
+        /**
+          * The second date of the selection. This may be absent if none or only one date has been selected yet. This is always bigger/later than the first date.
+         */
+        "secondDate"?: Dateish;
+        /**
+          * The currently shown date (year+month).
+         */
+        "viewedDate": Dateish;
     }
     interface B2bDropdown {
         /**
@@ -1560,6 +1634,14 @@ export interface B2bDatePickerYearsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bDatePickerYearsElement;
 }
+export interface B2bDateRangePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDateRangePickerElement;
+}
+export interface B2bDateRangePickerDaysCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bDateRangePickerDaysElement;
+}
 export interface B2bDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bDropdownElement;
@@ -1915,6 +1997,42 @@ declare global {
     var HTMLB2bDatePickerYearsElement: {
         prototype: HTMLB2bDatePickerYearsElement;
         new (): HTMLB2bDatePickerYearsElement;
+    };
+    interface HTMLB2bDateRangePickerElementEventMap {
+        "b2b-selected": DateRangePickerEventDetail;
+        "b2b-clear": DateClear;
+    }
+    interface HTMLB2bDateRangePickerElement extends Components.B2bDateRangePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDateRangePickerElementEventMap>(type: K, listener: (this: HTMLB2bDateRangePickerElement, ev: B2bDateRangePickerCustomEvent<HTMLB2bDateRangePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDateRangePickerElementEventMap>(type: K, listener: (this: HTMLB2bDateRangePickerElement, ev: B2bDateRangePickerCustomEvent<HTMLB2bDateRangePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDateRangePickerElement: {
+        prototype: HTMLB2bDateRangePickerElement;
+        new (): HTMLB2bDateRangePickerElement;
+    };
+    interface HTMLB2bDateRangePickerDaysElementEventMap {
+        "b2b-date-picker-escape": EscapePressed;
+        "b2b-date-selected": DateSelectedEventDetail;
+    }
+    interface HTMLB2bDateRangePickerDaysElement extends Components.B2bDateRangePickerDays, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bDateRangePickerDaysElementEventMap>(type: K, listener: (this: HTMLB2bDateRangePickerDaysElement, ev: B2bDateRangePickerDaysCustomEvent<HTMLB2bDateRangePickerDaysElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bDateRangePickerDaysElementEventMap>(type: K, listener: (this: HTMLB2bDateRangePickerDaysElement, ev: B2bDateRangePickerDaysCustomEvent<HTMLB2bDateRangePickerDaysElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bDateRangePickerDaysElement: {
+        prototype: HTMLB2bDateRangePickerDaysElement;
+        new (): HTMLB2bDateRangePickerDaysElement;
     };
     interface HTMLB2bDropdownElementEventMap {
         "b2b-change": string;
@@ -2532,6 +2650,8 @@ declare global {
         "b2b-date-picker-header": HTMLB2bDatePickerHeaderElement;
         "b2b-date-picker-months": HTMLB2bDatePickerMonthsElement;
         "b2b-date-picker-years": HTMLB2bDatePickerYearsElement;
+        "b2b-date-range-picker": HTMLB2bDateRangePickerElement;
+        "b2b-date-range-picker-days": HTMLB2bDateRangePickerDaysElement;
         "b2b-dropdown": HTMLB2bDropdownElement;
         "b2b-flyout-menu": HTMLB2bFlyoutMenuElement;
         "b2b-flyout-menu-option": HTMLB2bFlyoutMenuOptionElement;
@@ -3142,6 +3262,94 @@ declare namespace LocalJSX {
           * Internal selected year
          */
         "selectedYear"?: number;
+    }
+    interface B2bDateRangePicker {
+        /**
+          * The start and the end date of the selected date range. Format: `TT.MM.YYYY`
+         */
+        "dateRange"?: string | DatishRange;
+        /**
+          * Function used to determine, whether a date should be disabled e.g. because it is in the past. This is only used for the start and end dates, it is valid to have a disabled date in the range of start and end date.
+          * @param date The date to check. Format: `TT.MM.YYYY`
+          * @returns True, if the date should be disabled. False otherwise.
+          * @default (date) => false
+         */
+        "disableDates"?: (date: Date) => boolean;
+        /**
+          * The error message that is shown if the input is invalid.
+         */
+        "error"?: string;
+        /**
+          * The hint text that appears underneath the input field.
+         */
+        "hint"?: string;
+        /**
+          * Whether the input is currently invalid. If true, the input is rendered with error styles.
+          * @default false
+         */
+        "invalid"?: boolean;
+        /**
+          * Label for the date range picker component.
+          * @default 'Zeitraum auswählen'
+         */
+        "label"?: string;
+        /**
+          * The language for month and the weekdays will be decided based on the given input. One of `'de'` (German) or `'English'`.
+          * @default 'de'
+         */
+        "language"?: 'de' | 'en';
+        /**
+          * Emits when the user clicks the clear button.
+         */
+        "onB2b-clear"?: (event: B2bDateRangePickerCustomEvent<DateClear>) => void;
+        /**
+          * Emits the selected date range as tuple type.
+         */
+        "onB2b-selected"?: (event: B2bDateRangePickerCustomEvent<DateRangePickerEventDetail>) => void;
+        /**
+          * A list of presets, that the user can click on to simplify time range selection.
+          * @default {}
+         */
+        "presets"?: Record<string, DateRange>;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+          * @default false
+         */
+        "required"?: boolean;
+    }
+    interface B2bDateRangePickerDays {
+        /**
+          * Function used to determine, whether a day should be disabled e.g. because it is in the past. This is only used for the start and end dates, it is valid to have a disabled day in the range of start and end date.
+          * @param day The day of the month to check (1-indexed).
+          * @returns True, if the day should be disabled. False otherwise.
+          * @default (day) => false
+         */
+        "disableDates"?: (day: number) => boolean;
+        /**
+          * The first date of the selection. This may be absent if no dates have been selected yet. This is always smaller/earlier than the second date.
+         */
+        "firstDate"?: Dateish;
+        /**
+          * Event emitted on escape press.
+         */
+        "onB2b-date-picker-escape"?: (event: B2bDateRangePickerDaysCustomEvent<EscapePressed>) => void;
+        /**
+          * Event emitted on selecting date.
+         */
+        "onB2b-date-selected"?: (event: B2bDateRangePickerDaysCustomEvent<DateSelectedEventDetail>) => void;
+        /**
+          * Whether the shown values are a preview and not the actual values (force-hover state).
+          * @default false
+         */
+        "preview"?: boolean;
+        /**
+          * The second date of the selection. This may be absent if none or only one date has been selected yet. This is always bigger/later than the first date.
+         */
+        "secondDate"?: Dateish;
+        /**
+          * The currently shown date (year+month).
+         */
+        "viewedDate"?: Dateish;
     }
     interface B2bDropdown {
         /**
@@ -4285,6 +4493,8 @@ declare namespace LocalJSX {
         "b2b-date-picker-header": B2bDatePickerHeader;
         "b2b-date-picker-months": B2bDatePickerMonths;
         "b2b-date-picker-years": B2bDatePickerYears;
+        "b2b-date-range-picker": B2bDateRangePicker;
+        "b2b-date-range-picker-days": B2bDateRangePickerDays;
         "b2b-dropdown": B2bDropdown;
         "b2b-flyout-menu": B2bFlyoutMenu;
         "b2b-flyout-menu-option": B2bFlyoutMenuOption;
@@ -4358,6 +4568,8 @@ declare module "@stencil/core" {
             "b2b-date-picker-header": LocalJSX.B2bDatePickerHeader & JSXBase.HTMLAttributes<HTMLB2bDatePickerHeaderElement>;
             "b2b-date-picker-months": LocalJSX.B2bDatePickerMonths & JSXBase.HTMLAttributes<HTMLB2bDatePickerMonthsElement>;
             "b2b-date-picker-years": LocalJSX.B2bDatePickerYears & JSXBase.HTMLAttributes<HTMLB2bDatePickerYearsElement>;
+            "b2b-date-range-picker": LocalJSX.B2bDateRangePicker & JSXBase.HTMLAttributes<HTMLB2bDateRangePickerElement>;
+            "b2b-date-range-picker-days": LocalJSX.B2bDateRangePickerDays & JSXBase.HTMLAttributes<HTMLB2bDateRangePickerDaysElement>;
             "b2b-dropdown": LocalJSX.B2bDropdown & JSXBase.HTMLAttributes<HTMLB2bDropdownElement>;
             "b2b-flyout-menu": LocalJSX.B2bFlyoutMenu & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuElement>;
             "b2b-flyout-menu-option": LocalJSX.B2bFlyoutMenuOption & JSXBase.HTMLAttributes<HTMLB2bFlyoutMenuOptionElement>;
