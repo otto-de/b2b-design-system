@@ -15,6 +15,8 @@ RESET_LOCAL_CHANGES=false
 UPDATE_SNAPSHOTS=false
 RUN_STORYBOOK=false
 SKIP_TESTS=false
+SKIP_SNAPSHOT_TESTS=false
+SKIP_DOCKER=false
 VERBOSE=false
 
 # Function to print colored output
@@ -33,12 +35,14 @@ Helper script to build and test the project locally. If everything goes well, th
 Usage: ./local_build_script.sh [options]
 
 Options:
-    --reset-local-changes    Reset local changes (git reset HEAD --hard)
-    --run-storybook         Start Storybook development server after build
-    --update-snapshots      Update existing test snapshots
-    --skip-tests           Skip running tests (faster build)
-    --verbose              Enable verbose output
-    --help                 Show this help message
+    --reset-local-changes        Reset local changes (git reset HEAD --hard)
+    --run-storybook              Start Storybook development server after build
+    --update-snapshots           Update existing test snapshots
+    --skip-tests                 Skip running tests (faster build)
+    --skip-snapshot-tests        Skip running snapshot tests
+    --skip-docker                Skip Docker image build
+    --verbose                    Enable verbose output
+    --help                       Show this help message
 
 Examples:
     ./local_build_script.sh                    # Standard build
@@ -65,6 +69,14 @@ parse_arguments() {
                 ;;
             --skip-tests)
                 SKIP_TESTS=true
+                shift
+                ;;
+            --skip-snapshot-tests)
+                SKIP_SNAPSHOT_TESTS=true
+                shift
+                ;;
+            --skip-docker)
+                SKIP_DOCKER=true
                 shift
                 ;;
             --verbose)
@@ -130,11 +142,13 @@ main() {
     
     # Display configuration state
     print_info "Configuration Summary:"
-    echo "  Reset local changes:    $(if [[ "$RESET_LOCAL_CHANGES" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
-    echo "  Update snapshots:       $(if [[ "$UPDATE_SNAPSHOTS" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
-    echo "  Run Storybook:          $(if [[ "$RUN_STORYBOOK" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
-    echo "  Skip tests:             $(if [[ "$SKIP_TESTS" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
-    echo "  Verbose output:         $(if [[ "$VERBOSE" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
+    echo "  Reset local changes:        $(if [[ "$RESET_LOCAL_CHANGES" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
+    echo "  Update snapshots:           $(if [[ "$UPDATE_SNAPSHOTS" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
+    echo "  Run Storybook:              $(if [[ "$RUN_STORYBOOK" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
+    echo "  Skip tests:                 $(if [[ "$SKIP_TESTS" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
+    echo "  Skip snapshot tests:        $(if [[ "$SKIP_SNAPSHOT_TESTS" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
+    echo "  Skip Docker Build:          $(if [[ "$SKIP_DOCKER" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
+    echo "  Verbose output:             $(if [[ "$VERBOSE" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
     echo ""
     
     if [[ ! -f "$PROJECT_ROOT/package.json" ]]; then
@@ -174,7 +188,7 @@ main() {
     else
         print_warning "Skipping tests (--skip-tests flag used)"
     fi
-    
+
     # Build Storybook
     print_info "Building Storybook..."
     if [[ ! -d "$CORE_COMPONENTS_DIR" ]]; then
@@ -199,27 +213,37 @@ main() {
     cp -r dist docs-build/design-system
     print_success "Storybook built and copied to docs-build"
     
-    # Build Docker image
-    print_info "Building Docker image..."
-    cd "$PROJECT_ROOT"
-    if [[ ! -f "Dockerfile" ]]; then
-        print_error "Dockerfile not found in $PROJECT_ROOT"
-        exit 1
-    fi
+
     
-    if [[ "$VERBOSE" == true ]]; then
-        docker build -f Dockerfile -t b2bds-docs .
+    # Build Docker image if flags allow
+    if [[ "$SKIP_DOCKER" == true ]]; then
+        print_warning "Skipping Docker build (--skip-docker flag used)"
     else
-        docker build -f Dockerfile -t b2bds-docs . > /dev/null 2>&1 || { print_error "Docker build failed"; exit 1; }
+        print_info "Building Docker image..."
+        cd "$PROJECT_ROOT"
+        if [[ ! -f "Dockerfile" ]]; then
+            print_error "Dockerfile not found in $PROJECT_ROOT"
+            exit 1
+        fi
+        
+        if [[ "$VERBOSE" == true ]]; then
+            docker build -f Dockerfile -t b2bds-docs .
+        else
+            docker build -f Dockerfile -t b2bds-docs . > /dev/null 2>&1 || { print_error "Docker build failed"; exit 1; }
+        fi
     fi
-    
+
     # Run snapshot tests
-    if [[ "$UPDATE_SNAPSHOTS" == true ]]; then
-        print_info "Regenerating test snapshots..."
-        docker-compose run run-tests npx test-storybook --verbose --url http://storybook.local:6006 -u
+    if [[ "$SKIP_SNAPSHOT_TESTS" == true ]]; then
+        print_warning "Skipping snapshot tests (--skip-snapshot-tests flag used)"
     else
-        print_info "Running snapshot tests..."
-        docker-compose up --build --abort-on-container-exit
+        if [[ "$UPDATE_SNAPSHOTS" == true ]]; then
+            print_info "Regenerating test snapshots..."
+            docker-compose run run-tests npx test-storybook --verbose --url http://storybook.local:6006 -u
+        else
+            print_info "Running snapshot tests..."
+            docker-compose up --build --abort-on-container-exit
+        fi
     fi
     
     # Start development server
