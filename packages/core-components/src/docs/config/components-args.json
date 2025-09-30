@@ -3240,6 +3240,7 @@
     "optionsList": {
       "options": [
         null,
+        null,
         null
       ],
       "control": {
@@ -3247,7 +3248,7 @@
       },
       "table": {
         "type": {
-          "summary": "string"
+          "summary": "Option[]"
         },
         "defaultValue": {
           "summary": "[]"
@@ -3299,6 +3300,7 @@
     "selectedValues": {
       "options": [
         null,
+        null,
         null
       ],
       "control": {
@@ -3306,7 +3308,7 @@
       },
       "table": {
         "type": {
-          "summary": "string"
+          "summary": "Option[]"
         },
         "defaultValue": {
           "summary": "[]"
@@ -3316,6 +3318,15 @@
     }
   },
   "b2b-multiselect-option": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Will provide the label instead of option if set"
+    },
     "option": {
       "table": {
         "type": {
@@ -3323,7 +3334,7 @@
         },
         "defaultValue": {}
       },
-      "description": "The label of the option."
+      "description": "The label and value of the option."
     },
     "selected": {
       "control": {

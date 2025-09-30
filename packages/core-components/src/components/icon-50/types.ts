@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export const iconTypes = [
   'b2b_icon-arrow-down',
   'b2b_icon-arrow-left',

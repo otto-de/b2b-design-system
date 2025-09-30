@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export const iconTypes = [
   'b2b_icon-360-degree',
   'b2b_icon-advice',
