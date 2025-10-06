@@ -37,8 +37,13 @@
     border-color: var(--b2b-color-error-100);
   }
 
+  &--open {
+    border-radius: var(--b2b-size-7) var(--b2b-size-7) 0 0;
+  }
+
   b2b-paragraph {
     width: 100%;
+    align-content: center;
   }
 
   .b2b-icons {
@@ -64,10 +69,6 @@
   position: absolute;
   display: flex;
   flex-direction: row;
-  outline-offset: -1px;
-  box-sizing: border-box;
-  margin-top: 1px;
-  outline: none;
   background-color: var(--b2b-color-white-100);
   z-index: 101;
 
@@ -81,12 +82,14 @@
     border-bottom: var(--b2b-size-1) solid var(--b2b-color-black-100);
     padding-bottom: var(--b2b-size-40);
     width: 300px;
+    box-sizing: border-box;
   }
 
   &--presets {
-    padding: var(--b2b-size-30) var(--b2b-size-40) var(--b2b-size-40)
-      var(--b2b-size-40);
-    border: var(--b2b-size-1) solid var(--b2b-color-grey-25);
+    padding: var(--b2b-size-40);
+    border: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    margin-top: -1px;
+    border-left: none;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -95,7 +98,7 @@
       cursor: pointer;
       width: max-content;
       border-radius: var(--b2b-size-7);
-      padding: var(--b2b-size-7) var(--b2b-size-13);
+      padding: var(--b2b-size-5) var(--b2b-size-padding-50);
 
       &:hover {
         background-color: var(--b2b-color-hover-default);

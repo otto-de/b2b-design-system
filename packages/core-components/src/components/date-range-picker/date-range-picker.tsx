@@ -253,6 +253,7 @@ export class B2bDateRangePicker implements ComponentInterface {
             class={{
               'b2b-date-range-picker-input-wrapper': true,
               'b2b-date-range-picker-input-wrapper--error': this.invalid,
+              'b2b-date-range-picker-input-wrapper--open': this.open,
             }}
             onClick={() => this.toggleOpen()}>
             <b2b-paragraph margin={false}>

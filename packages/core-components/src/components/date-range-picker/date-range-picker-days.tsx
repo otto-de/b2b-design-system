@@ -198,6 +198,12 @@ export class B2bDatePickerDays implements ComponentInterface {
             'b2b-date-range-picker-day--today': givenDateNumber === todayNumber,
             'b2b-date-range-picker-day--selected':
               givenDateNumber === startNumber || givenDateNumber === endNumber,
+            'b2b-date-range-picker-day--start':
+              givenDateNumber === startNumber &&
+              endNumber != null &&
+              startNumber !== endNumber,
+            'b2b-date-range-picker-day--end':
+              givenDateNumber === endNumber && startNumber !== endNumber,
             'b2b-date-range-picker-day--preview':
               endNumber == null || this.preview,
             'b2b-date-range-picker-day--range':

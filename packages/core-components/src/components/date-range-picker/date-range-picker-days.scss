@@ -18,10 +18,6 @@
     font-size: var(--b2b-size-35);
     cursor: pointer;
 
-    &:hover {
-      z-index: 102;
-    }
-
     &--disabled {
       color: var(--b2b-color-grey-200);
       pointer-events: none;
@@ -35,11 +31,24 @@
     &--selected {
       background-color: var(--b2b-color-black-100);
       color: var(--b2b-color-white-100);
+      width: 38px;
+      margin-left: -1px;
+    }
+
+    &--start {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &--end {
+      border-radius: 0 5px 5px 0;
     }
 
     &--range {
       background-color: var(--b2b-color-grey-200);
       color: var(--b2b-color-black-100);
+      width: 38px;
+      border-radius: 0;
+      margin-left: -1px;
     }
 
     &--preview.b2b-date-range-picker-day--range,
@@ -47,6 +56,7 @@
     &:focus {
       background-color: var(--b2b-color-hover-default);
       color: var(--b2b-color-black-100);
+      z-index: 102;
     }
   }
 }
