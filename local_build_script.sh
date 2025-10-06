@@ -44,10 +44,23 @@ Options:
     --verbose                    Enable verbose output
     --help                       Show this help message
 
+Incompatible Option Combinations (script will exit early if detected):
+    ❌ --update-snapshots + --skip-snapshot-tests
+       → Cannot update snapshots if snapshot tests are skipped
+    
+    ❌ --update-snapshots + --skip-docker  
+       → Cannot update snapshots without Docker (snapshot tests run in Docker)
+    
+    ℹ️  Auto-adjustments:
+    • --skip-docker automatically enables --skip-snapshot-tests
+      (since snapshot tests require Docker to run)
+
 Examples:
-    ./local_build_script.sh                    # Standard build
+    ./local_build_script.sh                              # Standard build
     ./local_build_script.sh --reset-local-changes --skip-tests
     ./local_build_script.sh --update-snapshots --verbose
+    ./local_build_script.sh --skip-docker --skip-tests   # Fast local development
+    ./local_build_script.sh --run-storybook --verbose    # Full build with Storybook
 EOF
 }
 
@@ -128,10 +141,57 @@ validate_environment() {
 
 parse_arguments "$@"
 
+# Validate argument combinations
+validate_arguments() {
+    local has_conflicts=false
+    
+    print_info "Validating argument combinations..."
+    
+    # Check for conflicting combinations
+    if [[ "$UPDATE_SNAPSHOTS" == true && "$SKIP_SNAPSHOT_TESTS" == true ]]; then
+        print_error "❌ Conflicting options detected:"
+        print_error "   --update-snapshots requires snapshot tests to run"
+        print_error "   --skip-snapshot-tests prevents snapshot tests from running"
+        print_error "   These options cannot be used together."
+        has_conflicts=true
+    fi
+    
+    if [[ "$UPDATE_SNAPSHOTS" == true && "$SKIP_DOCKER" == true ]]; then
+        print_error "❌ Problematic combination detected:"
+        print_error "   --update-snapshots requires Docker to run snapshot tests"
+        print_error "   --skip-docker prevents Docker from running"
+        print_error "   Consider removing --skip-docker if you need to update snapshots"
+        has_conflicts=true
+    fi
+    
+    # Auto-enable skip snapshot tests if Docker is skipped (only if no conflicts)
+    if [[ "$SKIP_DOCKER" == true && "$SKIP_SNAPSHOT_TESTS" == false && "$has_conflicts" == false ]]; then
+        print_info "🔧 Auto-adjustment: Enabling --skip-snapshot-tests since --skip-docker was specified"
+        print_info "   (Snapshot tests require Docker to run)"
+        SKIP_SNAPSHOT_TESTS=true
+    fi
+    
+    if [[ "$has_conflicts" == true ]]; then
+        echo ""
+        print_error "Cannot proceed with conflicting options. Please fix the above issues and try again."
+        echo ""
+        print_info "💡 Suggested fixes:"
+        echo "   • Remove conflicting flags"
+        echo "   • Use ./local_build_script.sh --help to see compatible combinations"
+        echo "   • For fast development: --skip-docker --skip-tests"
+        echo "   • For snapshot updates: --update-snapshots (without --skip-docker)"
+        echo ""
+        exit 1
+    fi
+    
+    print_success "✅ Argument validation passed"
+}
+
 # Main execution
 main() {
     local start_time=$(date +%s)
     
+    validate_arguments
     validate_environment
     
     # Get and validate project root directory
