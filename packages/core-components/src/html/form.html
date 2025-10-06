@@ -631,5 +631,66 @@
       const datepickerEl1 = document.getElementById('date-picker-disable-days');
       datepickerEl1.disableDates = ['21.01.2025', '10.01.2025'];
     </script>
+
+    <div class="content-container" style="margin-bottom: 400px">
+      <b2b-headline id="DateRangePicker" size="200">
+        Date Range Picker
+      </b2b-headline>
+      <b2b-date-range-picker
+        id="date-range-picker1"
+        hint="Hi this is the hint message for date picker"
+        style="width: 300px"></b2b-date-range-picker>
+
+      <b2b-date-range-picker
+        id="date-range-picker2"
+        hint="No sundays"
+        style="width: 300px"></b2b-date-range-picker>
+
+      <b2b-date-range-picker
+        id="date-range-picker3"
+        hint="Custom Options"
+        style="width: 300px"></b2b-date-range-picker>
+    </div>
+    <script>
+      const dateRangePickerEl2 = document.getElementById('date-range-picker2');
+      dateRangePickerEl2.disableDates = date => date.getDay() === 0; // No sundays
+
+      const dateRangePickerEl3 = document.getElementById('date-range-picker3');
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+      dateRangePickerEl3.disableDates = date =>
+        date.valueOf() < today.valueOf(); // Not in the past
+
+      const normalizedDayOfWeek = (today.getDay() + 6) % 7;
+      const nextSaturday = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 5 - normalizedDayOfWeek,
+      );
+      const nextSunday = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 6 - normalizedDayOfWeek,
+      );
+      const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+      const nextMonday = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 7 - normalizedDayOfWeek,
+      );
+      const nextSundayAfterMonday = new Date(
+        nextMonday.getFullYear(),
+        nextMonday.getMonth(),
+        nextMonday.getDate() + 6,
+      );
+      dateRangePickerEl3.presets = {
+        'Today': [today, today],
+        'This Week': [today, nextSunday],
+        'This Month': [today, endOfMonth],
+        'This Weekend': [nextSaturday, nextSunday],
+        'Next Week': [nextMonday, nextSundayAfterMonday],
+      };
+    </script>
   </body>
 </html>

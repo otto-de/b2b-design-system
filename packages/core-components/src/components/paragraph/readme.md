@@ -22,6 +22,19 @@ Initial story: https://otto-eg.atlassian.net/browse/B2BDS-45
 | `weight`  | `weight`  | The weight of the text.                                                               | `"bold" \| "normal"`                    | `'normal'`    |
 
 
+## Dependencies
+
+### Used by
+
+ - [b2b-date-range-picker](../date-range-picker)
+
+### Graph
+```mermaid
+graph TD;
+  b2b-date-range-picker --> b2b-paragraph
+  style b2b-paragraph fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
