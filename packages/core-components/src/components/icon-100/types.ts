@@ -72,7 +72,6 @@ export const iconTypes = [
   'b2b_icon-cookie',
   'b2b_icon-copy',
   'b2b_icon-cosmetics',
-  'b2b_icon-cosmetics',
   'b2b_icon-cow',
   'b2b_icon-crab',
   'b2b_icon-critique',
