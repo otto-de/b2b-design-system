@@ -156,7 +156,7 @@ export class B2bDatePicker implements ComponentInterface {
       );
     }
 
-    if (this.preSelectedDate) {
+    if (this.preSelectedDate && this.preSelectedDate !== '') {
       const [day, month, year] = this.preSelectedDate.split('.').map(Number);
       this.selectedDay = day;
       this.selectedMonth = month - 1;
@@ -648,7 +648,7 @@ export class B2bDatePicker implements ComponentInterface {
             class="b2b-date-picker__backdrop"
             onClick={this.handleBackdropDismiss}></div>
         )}
-        {!this.showDatePicker && (
+        {
           <span
             class={{
               'b2b-date-picker-hint': true,
@@ -656,7 +656,7 @@ export class B2bDatePicker implements ComponentInterface {
             }}>
             {this.invalid ? this.errorMessage : this.showHint && this.hint}
           </span>
-        )}
+        }
       </Host>
     );
   }

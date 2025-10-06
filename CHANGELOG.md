@@ -1,3 +1,22 @@
+# [1.33.0](https://github.com/otto-de/b2b-design-system/compare/v1.32.3...v1.33.0) (2025-10-06)
+
+
+### Bug Fixes
+
+* **date-picker:** [CCOP-140] nested interactivity ([d4b2e2c](https://github.com/otto-de/b2b-design-system/commit/d4b2e2c048c5efa268bb75ed81cae2f18413f5c2))
+* **date-picker:** broken layout/overlays ([#612](https://github.com/otto-de/b2b-design-system/issues/612)) ([2402c23](https://github.com/otto-de/b2b-design-system/commit/2402c2323e3dbc9e33859be110693601b13bb586))
+* **image:** broken nullish check ([141107f](https://github.com/otto-de/b2b-design-system/commit/141107fcbd81b4d2236fc7228feadb1022740e47))
+* **input-group:** [CCOP-136] improper disable propagation ([368c85c](https://github.com/otto-de/b2b-design-system/commit/368c85cbcd3bfff1b6da39ed5caa9639fa728c40))
+* **input:** fix broken nullish check ([#605](https://github.com/otto-de/b2b-design-system/issues/605)) ([4729e34](https://github.com/otto-de/b2b-design-system/commit/4729e3460aad1f42de81fba128243f72fc22fdf2))
+* **multiselect-dropdown:** [CCOP-137] handle groupDisabled ([37206b2](https://github.com/otto-de/b2b-design-system/commit/37206b299c4c32deb687089a5cf4905f64a32a16))
+
+
+### Features
+
+* **ci:** validate no uncommited changes ([#610](https://github.com/otto-de/b2b-design-system/issues/610)) ([ee5cec6](https://github.com/otto-de/b2b-design-system/commit/ee5cec63bf20a480539e500cda4a8eb3bf23012e))
+* **dropdown:** highlight currently selected ([706fc51](https://github.com/otto-de/b2b-design-system/commit/706fc51bc1d410c993f1f6fd1c7a386643450480))
+* **icon50|icon100:** [BLA-1706] Add new icons and local build script ([edb552d](https://github.com/otto-de/b2b-design-system/commit/edb552d087d45a47867017d5700cf5ddd0d60791))
+
 ## [1.32.3](https://github.com/otto-de/b2b-design-system/compare/v1.32.2...v1.32.3) (2025-09-11)
 
 
