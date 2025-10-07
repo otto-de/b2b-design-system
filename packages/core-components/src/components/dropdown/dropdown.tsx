@@ -97,12 +97,12 @@ export class DropdownComponent implements ComponentInterface {
       this.mutationObserver = new MutationObserver(() => {
         this.initializeOptions();
       });
-    }
 
-    this.mutationObserver?.observe(this.hostElement, {
-      childList: true,
-      subtree: true,
-    });
+      this.mutationObserver.observe(this.hostElement, {
+        childList: true,
+        subtree: true,
+      });
+    }
   }
 
   componentDidLoad(): void {
