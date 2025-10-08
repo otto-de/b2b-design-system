@@ -1,0 +1,157 @@
+@use '../../global/b2b-styles';
+
+:host(.b2b-time-picker) {
+  --b2b-border-radius: var(--b2b-size-border-radius-100);
+  --b2b-border-right: 1px solid var(--b2b-color-grey-200);
+  max-width: 600px;
+  min-width: 130px;
+  display: block;
+
+  .b2b-time-picker__options-container {
+    display: none;
+    position: relative;
+    z-index: 1001; //here or in options??
+
+    &--visible {
+      display: block;
+    }
+  }
+
+  .b2b-time-picker__options {
+    position: absolute;
+    background-color: var(--b2b-color-white-100);
+    box-sizing: border-box;
+    height: 272px;
+    width: 80px;
+    overflow-y: auto;
+    border: var(--b2b-size-1) solid var(--b2b-color-black-100);
+    border-top: none;
+
+    //NOTE: scrollbar styling???
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 29px;
+      background: transparent;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #7F7F7F;
+      border-radius: 3px;
+      border: none;
+    }
+    //For Firefox
+    scrollbar-color: #7F7F7F transparent;
+    scrollbar-width: thin;
+  }
+
+  .b2b-time-picker__option {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px var(--b2b-size-space-75) var(--b2b-size-15);
+    cursor: pointer;
+    font-family: var(--b2b-font-family-default);
+    font-size: var(--b2b-size-copy-100);
+    line-height: var(--b2b-size-copy-line-height-100);
+
+    &:hover,
+    &--selected {
+      background-color: var(--b2b-color-blue-25);
+    }
+  }
+
+  .b2b-time-picker__wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--b2b-color-white-100);
+    color: var(--b2b-color-black-100);
+    position: relative;
+    padding: var(--b2b-size-15) var(--b2b-size-25);
+    border: 1px solid var(--b2b-color-grey-200);
+    border-right: var(--b2b-border-right);
+    border-radius: var(--b2b-border-radius);
+
+    &--focused {
+      color: var(--b2b-color-black-100);
+      border-radius: var(--b2b-border-radius);
+      border: 1px solid var(--b2b-color-black-100);
+      z-index: 9999;
+    }
+
+    &--filled {
+      color: var(--b2b-color-black-100);
+      border: 1px solid var(--b2b-color-black-100);
+    }
+
+    &--error {
+      background-color: var(--b2b-color-error-50);
+      border: 1px solid var(--b2b-color-error-100);
+      color: var(--b2b-color-black-100);
+
+      .b2b-time-picker__native-input {
+        background-color: var(--b2b-color-error-50);
+      }
+    }
+
+    .b2b-time-picker__native-input {
+      font-family: var(--b2b-font-family-default);
+      font-size: var(--b2b-size-copy-100);
+      line-height: var(--b2b-size-copy-line-height-100);
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      appearance: none;
+      height: auto;
+      flex: 1 1 auto;
+      width: 0;
+
+      &::placeholder {
+        color: var(--b2b-color-grey-300);
+      }
+    }
+  }
+
+  .b2b-time-picker-label {
+    display: block;
+    margin-bottom: var(--b2b-size-5);
+    color: var(--b2b-color-black-100);
+    font-size: var(b2b-size-copy-100);
+  }
+}
+
+.b2b-time-picker {
+  height: 36px; //note
+  &--filled {
+    .b2b-time-picker__wrapper {
+      background-color: var(--b2b-color-grey-25);
+    }
+  }
+}
+
+.b2b-time-picker__hint {
+  font-size: var(--b2b-size-copy-50);
+  line-height: var(--b2b-size-copy-line-height-75);
+  display: block;
+  margin-top: var(--b2b-size-7);
+  color: var(--b2b-color-grey-300);
+
+  &--error {
+    color: var(--b2b-color-error-100);
+  }
+}
+
+.b2b-icons {
+  display: flex;
+  align-items: center;
+}
+
+.b2b-close-icon {
+  display: block;
+}
+
+.b2b-duration-icon {
+  color: var(--b2b-color-black-100);
+}
+
+
