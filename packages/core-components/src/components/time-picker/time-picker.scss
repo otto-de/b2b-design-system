@@ -10,7 +10,7 @@
   .b2b-time-picker__options-container {
     display: none;
     position: relative;
-    z-index: 1001; //here or in options??
+    z-index: 1001;
 
     &--visible {
       display: block;
@@ -22,28 +22,27 @@
     background-color: var(--b2b-color-white-100);
     box-sizing: border-box;
     height: 272px;
-    width: 80px;
-    overflow-y: auto;
+    width: var(--b2b-size-200);
+    overflow-y: scroll;
     border: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-top: none;
 
-    //NOTE: scrollbar styling???
     &::-webkit-scrollbar {
       width: 8px;
-      height: 29px;
       background: transparent;
     }
     &::-webkit-scrollbar-track {
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background: #7F7F7F;
+      background: #7f7f7f;
       border-radius: 3px;
       border: none;
+      min-height: 50px;
     }
-    //For Firefox
-    scrollbar-color: #7F7F7F transparent;
-    scrollbar-width: thin;
+    //For Firefox ???
+    scrollbar-color: #7f7f7f transparent;
+    scrollbar-gutter: stable;
   }
 
   .b2b-time-picker__option {
@@ -81,7 +80,6 @@
 
     &--filled {
       color: var(--b2b-color-black-100);
-      border: 1px solid var(--b2b-color-black-100);
     }
 
     &--error {
@@ -153,5 +151,3 @@
 .b2b-duration-icon {
   color: var(--b2b-color-black-100);
 }
-
-

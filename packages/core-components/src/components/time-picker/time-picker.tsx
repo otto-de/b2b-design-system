@@ -35,7 +35,10 @@ export class TimePickerComponent implements ComponentInterface {
   @Prop() interval?: number = 15;
 
   /** The error message that is shown if the input is invalid. */
-  @Prop() errorMessage?: string;
+  @Prop() error?: string;
+
+  /** The value of the time picker. It has to be in the format "hh:mm". */
+  @Prop({ mutable: true, reflect: true }) value: string = '';
 
   /** Emits whenever the time picker receives focus. */
   @Event({ eventName: 'b2b-focus' })
@@ -54,13 +57,15 @@ export class TimePickerComponent implements ComponentInterface {
 
   @State() hasFocus = false;
   @State() isOpen = false;
-  @State() selectedTime: string = '';
   @State() availableTimes: string[] = [];
-  // @State() errorMessage: string = '';
-  // @State() invalid: boolean = false;
+  @State() internalErrorMessage: string = '';
+  @State() internalInvalid: boolean = false;
 
   componentWillLoad() {
     this.availableTimes = this.getAvailableTimes();
+    if (this.value) {
+      this.validateInput(this.value);
+    }
   }
 
   private onFocus = (ev: FocusEvent) => {
@@ -79,22 +84,18 @@ export class TimePickerComponent implements ComponentInterface {
 
   private onInput = (ev: Event) => {
     this.isOpen = false;
-
     const input = ev.target as HTMLInputElement | null;
     let value = input.value.replace(/\D/g, '');
 
-    if (value.length > 4) {
-      value = value.slice(0, 4);
-    }
+    if (value.length > 2) value = value.slice(0, 2) + ':' + value.slice(2, 4);
+    if (input) input.value = value;
 
-    if (value.length > 2) {
-      value = value.slice(0, 2) + ':' + value.slice(2, 4);
-    }
+    this.value = value;
+    this.validateInput(value);
+    this.b2bInput.emit({ value });
+  };
 
-    if (input) {
-      input.value = value;
-    }
-
+  private validateInput = (value: string) => {
     const match = value.match(/^(\d{2}):(\d{2})$/);
     let isValid = false;
     if (match) {
@@ -102,18 +103,22 @@ export class TimePickerComponent implements ComponentInterface {
       const minute = parseInt(match[2], 10);
       isValid = hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
     }
-
-    this.selectedTime = value;
     if (!isValid && value.length > 0) {
-      this.errorMessage = 'Invalid format';
-      this.invalid = true;
+      this.internalErrorMessage = 'Invalid format';
+      this.internalInvalid = true;
     } else {
-      this.invalid = false;
-      this.errorMessage = '';
+      this.internalErrorMessage = '';
+      this.internalInvalid = false;
     }
-
-    this.b2bInput.emit(input);
   };
+
+  get isInvalid() {
+    return this.invalid || this.internalInvalid;
+  }
+
+  get currentErrorMessage() {
+    return this.error || this.internalErrorMessage;
+  }
 
   private getAvailableTimes() {
     const times = [];
@@ -130,20 +135,23 @@ export class TimePickerComponent implements ComponentInterface {
 
   private onSelect = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
-    const value = target.getAttribute('data-value');
-    if (value) {
-      this.selectedTime = value;
-      this.b2bChange.emit(value);
+    const selectedValue = target.getAttribute('data-value');
+    if (selectedValue) {
+      this.value = selectedValue;
+      this.b2bChange.emit(selectedValue);
       this.isOpen = false;
-      this.invalid = false;
+      this.internalInvalid = false;
+      this.internalErrorMessage = '';
       this.hasFocus = false;
     }
   };
 
   private onClear = () => {
-    this.selectedTime = '';
+    this.value = '';
     this.invalid = false;
-    this.errorMessage = '';
+    this.internalInvalid = false;
+    this.internalErrorMessage = '';
+    this.error = '';
     this.b2bChange.emit('');
     this.hasFocus = false;
   };
@@ -153,7 +161,7 @@ export class TimePickerComponent implements ComponentInterface {
       <Host
         class={{
           'b2b-time-picker': true,
-          'b2b-time-picker--error': this.invalid,
+          'b2b-time-picker--error': this.isInvalid,
         }}>
         {this.label && (
           <b2b-input-label id={this.label} required={this.required}>
@@ -165,8 +173,8 @@ export class TimePickerComponent implements ComponentInterface {
             'b2b-time-picker__wrapper': true,
             'b2b-time-picker__wrapper--focused': this.hasFocus,
             'b2b-time-picker__wrapper--filled':
-              !this.hasFocus && !this.invalid && this.selectedTime !== '',
-            'b2b-time-picker__wrapper--error': this.invalid,
+              !this.hasFocus && !this.invalid && this.value !== '',
+            'b2b-time-picker__wrapper--error': this.isInvalid,
           }}>
           <input
             class={{
@@ -174,13 +182,13 @@ export class TimePickerComponent implements ComponentInterface {
             }}
             type="text"
             placeholder={this.placeholder}
-            value={this.selectedTime}
+            value={this.value}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             onInput={this.onInput}
           />
           <div class="b2b-icons">
-            {this.selectedTime && (
+            {this.value && (
               <div class="b2b-close-icon" onClick={this.onClear}>
                 <b2b-icon-100
                   icon="b2b_icon-close"
@@ -213,13 +221,12 @@ export class TimePickerComponent implements ComponentInterface {
                 key={time}
                 class={{
                   'b2b-time-picker__option': true,
-                  'b2b-time-picker__option--selected':
-                    time === this.selectedTime,
+                  'b2b-time-picker__option--selected': time === this.value,
                 }}
                 data-value={time}
                 onClick={this.onSelect}
                 role="option"
-                aria-selected={time === this.selectedTime ? 'true' : 'false'}>
+                aria-selected={time === this.value ? 'true' : 'false'}>
                 {time}
               </div>
             ))}
@@ -229,9 +236,9 @@ export class TimePickerComponent implements ComponentInterface {
           <span
             class={{
               'b2b-time-picker__hint': true,
-              'b2b-time-picker__hint--error': this.invalid,
+              'b2b-time-picker__hint--error': this.isInvalid,
             }}>
-            {this.invalid ? this.errorMessage : this.hint}
+            {this.isInvalid ? this.currentErrorMessage : this.hint}
           </span>
         }
       </Host>
