@@ -56,7 +56,7 @@ export const Inverse: Story = {
 };
 
 export const SizeGreaterThan24: Story = {
-  args: { ...meta.args, size: '32px' },
+  args: { ...meta.args, size: 32 },
 };
 
 export const Inherit: Story = {
