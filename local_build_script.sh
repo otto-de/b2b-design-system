@@ -231,9 +231,15 @@ main() {
     cd "$PROJECT_ROOT"
     
     if [[ "$VERBOSE" == true ]]; then
+        cd "$CORE_COMPONENTS_DIR"
+        npm run lint:fix
+        cd "$PROJECT_ROOT"
         npm run lint
         npm run build
     else
+        cd "$CORE_COMPONENTS_DIR"
+        npm run lint:fix > /dev/null 2>&1 || { print_error "Linting fixing failed"; exit 1; }
+        cd "$PROJECT_ROOT"
         npm run lint > /dev/null 2>&1 || { print_error "Linting failed"; exit 1; }
         npm run build > /dev/null 2>&1 || { print_error "Build failed"; exit 1; }
     fi
