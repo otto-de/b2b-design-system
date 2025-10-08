@@ -101,6 +101,8 @@ export class DropdownComponent implements ComponentInterface {
       this.mutationObserver.observe(this.hostElement, {
         childList: true,
         subtree: true,
+        attributes: true,
+        attributeFilter: ['value', 'selected', 'disabled'],
       });
     }
   }
