@@ -8,7 +8,10 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { InputChangeEvent } from '../../utils/interfaces/form.interface';
+import {
+  type DateClear,
+  InputChangeEvent,
+} from '../../utils/interfaces/form.interface';
 
 @Component({
   tag: 'b2b-time-picker',
@@ -52,8 +55,13 @@ export class TimePickerComponent implements ComponentInterface {
   @Event({ eventName: 'b2b-input' })
   b2bInput: EventEmitter<InputChangeEvent>;
 
+  /** Emits whenever a time is selected from the dropdown. */
   @Event({ eventName: 'b2b-selected' })
   b2bChange: EventEmitter<string>;
+
+  /** Emits when the user clicks the clear button. */
+  @Event({ eventName: 'b2b-clear' })
+  b2bClear: EventEmitter<DateClear>;
 
   @State() hasFocus = false;
   @State() isOpen = false;
@@ -148,12 +156,10 @@ export class TimePickerComponent implements ComponentInterface {
 
   private onClear = () => {
     this.value = '';
-    this.invalid = false;
     this.internalInvalid = false;
     this.internalErrorMessage = '';
-    this.error = '';
-    this.b2bChange.emit('');
     this.hasFocus = false;
+    this.b2bClear.emit();
   };
 
   render() {

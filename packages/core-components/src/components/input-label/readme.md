@@ -26,6 +26,7 @@
  - [b2b-radio-button](../radio)
  - [b2b-radio-group](../radio-group)
  - [b2b-textarea](../textarea)
+ - [b2b-time-picker](../time-picker)
 
 ### Graph
 ```mermaid
@@ -39,6 +40,7 @@ graph TD;
   b2b-radio-button --> b2b-input-label
   b2b-radio-group --> b2b-input-label
   b2b-textarea --> b2b-input-label
+  b2b-time-picker --> b2b-input-label
   style b2b-input-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

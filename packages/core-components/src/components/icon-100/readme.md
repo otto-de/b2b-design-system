@@ -31,6 +31,7 @@
  - [b2b-search](../search)
  - [b2b-snackbar](../snackbar)
  - [b2b-table-row](../table/table-row)
+ - [b2b-time-picker](../time-picker)
  - [b2b-wizard-icon](../wizard-icon)
 
 ### Graph
@@ -47,6 +48,7 @@ graph TD;
   b2b-search --> b2b-icon-100
   b2b-snackbar --> b2b-icon-100
   b2b-table-row --> b2b-icon-100
+  b2b-time-picker --> b2b-icon-100
   b2b-wizard-icon --> b2b-icon-100
   style b2b-icon-100 fill:#f9f,stroke:#333,stroke-width:4px
 ```

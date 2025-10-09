@@ -93,16 +93,19 @@
     }
 
     .b2b-time-picker__native-input {
-      font-family: var(--b2b-font-family-default);
-      font-size: var(--b2b-size-copy-100);
-      line-height: var(--b2b-size-copy-line-height-100);
-      box-sizing: border-box;
-      outline: none;
       border: none;
-      appearance: none;
-      height: auto;
       flex: 1 1 auto;
-      width: 0;
+      outline: none;
+      box-shadow: none;
+      box-sizing: border-box;
+      margin-left: 0;
+      padding-left: 0;
+      height: 100%;//
+      color: var(--b2b-color-black-100);
+      font-size: var(--b2b-size-35);
+      line-height: var(--b2b-size-copy-line-height-100);
+      font-weight: var(--b2b-font-weight-normal);
+      font-family: var(--b2b-font-family-default);
 
       &::placeholder {
         color: var(--b2b-color-grey-300);
