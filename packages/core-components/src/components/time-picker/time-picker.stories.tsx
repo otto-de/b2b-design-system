@@ -2,6 +2,9 @@ import { Meta, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 import { userEvent } from '@storybook/test';
+getArgTypes('b2b-time-picker');
+
+type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Components/Form/Time Picker',
@@ -36,8 +39,6 @@ const meta: Meta = {
 };
 
 export default meta;
-
-type Story = StoryObj;
 
 export const Default: Story = {
   args: { ...meta.args, required: true },
