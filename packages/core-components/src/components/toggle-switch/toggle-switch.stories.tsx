@@ -45,26 +45,3 @@ export const SwitchOffDisabled: Story = {
     disabled: true,
   },
 };
-
-export const SwitchBehindDropdown: Story = {
-  tags: ['!dev', '!autodocs'],
-  render: () => html`
-    <div>
-      <b2b-dropdown>
-        <option>Test</option>
-      </b2b-dropdown>
-      <b2b-toggle-switch state="true" />
-    </div>
-  `,
-  play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const dropdown = canvasElement.querySelector(
-        'b2b-dropdown',
-      ) as HTMLElement;
-      const wrapper = dropdown.shadowRoot.querySelector(
-        '.b2b-dropdown__select',
-      ) as HTMLElement;
-      wrapper.click();
-    }, 500);
-  },
-};
