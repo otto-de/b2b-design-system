@@ -1,14 +1,14 @@
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
 import {
   Component,
-  h,
-  Prop,
-  Host,
-  EventEmitter,
-  Event,
   Element,
+  Event,
+  h,
+  Host,
+  Method,
+  Prop,
   State,
   Watch,
-  Method,
 } from '@stencil/core';
 
 @Component({
@@ -16,7 +16,7 @@ import {
   styleUrl: 'dropdown.scss',
   shadow: true,
 })
-export class DropdownComponent {
+export class DropdownComponent implements ComponentInterface {
   @Element() hostElement: HTMLB2bDropdownElement;
 
   /** The dropdown label. */
@@ -65,9 +65,9 @@ export class DropdownComponent {
 
   /** Method to programmatically clear selection of the dropdown. */
   @Method()
-  async clearSelection() {
-    this.selectedValue = this.placeholderValue || '';
-    this.selectedText = this.placeholder || 'Select an option...';
+  async clearSelection(): Promise<void> {
+    this.selectedValue = this.placeholderValue;
+    this.selectedText = '';
     this.options = this.options.map(opt => ({
       ...opt,
       selected: false,
@@ -87,23 +87,17 @@ export class DropdownComponent {
     disabled: boolean;
   }[] = [];
 
-  private selectEl!: HTMLDivElement;
-  private truncatedText = '';
+  private selectEl: HTMLDivElement;
+  @State() private truncatedText: string = '';
 
-  componentWillLoad() {
-    this.selectedValue = this.placeholderValue || '';
-    this.selectedText = '';
-  }
-
-  componentDidLoad() {
+  componentWillLoad(): void {
     this.initializeOptions();
-    this.updateTruncatedText();
-    document.addEventListener('click', this.onClickOutside);
-    window.addEventListener('resize', this.updateTruncatedText);
+
     if (typeof MutationObserver !== 'undefined') {
       this.mutationObserver = new MutationObserver(() => {
         this.initializeOptions();
       });
+
       this.mutationObserver.observe(this.hostElement, {
         childList: true,
         subtree: true,
@@ -111,16 +105,21 @@ export class DropdownComponent {
     }
   }
 
-  disconnectedCallback() {
+  componentDidLoad(): void {
+    this.updateTruncatedText(); // `componentWillLoad()` is unable to truncate it to the proper size
+
+    document.addEventListener('click', this.onClickOutside);
+    window.addEventListener('resize', this.updateTruncatedText);
+  }
+
+  disconnectedCallback(): void {
     document.removeEventListener('click', this.onClickOutside);
     window.removeEventListener('resize', this.updateTruncatedText);
-    if (this.mutationObserver) {
-      this.mutationObserver.disconnect();
-    }
+    this.mutationObserver?.disconnect();
   }
 
   @Watch('isOpen')
-  watchDropdownState() {
+  watchDropdownState(): void {
     if (this.isOpen) this.closeOtherDropdowns();
   }
 
@@ -136,10 +135,9 @@ export class DropdownComponent {
     }));
 
     const selected = this.options.find(o => o.selected);
-    if (selected) {
-      this.selectedValue = selected.value;
-      this.selectedText = selected.label;
-    }
+
+    this.selectedValue = selected?.value ?? this.placeholderValue;
+    this.selectedText = selected?.label ?? '';
 
     this.updateTruncatedText();
   }
@@ -174,7 +172,7 @@ export class DropdownComponent {
     const value = target.getAttribute('data-value');
     const label = target.textContent?.trim();
 
-    if (value) {
+    if (value != null) {
       this.selectedValue = value;
       this.selectedText = label || '';
       this.b2bChange.emit(value);
@@ -190,18 +188,24 @@ export class DropdownComponent {
   };
 
   private updateTruncatedText = () => {
-    if (!this.selectEl) return;
-
     const rawText = this.selectedText || this.placeholder;
+    if (this.selectEl == null) {
+      this.truncatedText = rawText;
+      return;
+    }
     const style = window.getComputedStyle(this.selectEl);
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (ctx == null) return;
 
     ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
 
     let baseWidth = this.selectEl.clientWidth;
+    if (baseWidth == null) {
+      this.truncatedText = rawText;
+      return;
+    }
     const parentContainer = this.selectEl.parentElement;
 
     if (parentContainer && parentContainer.clientWidth > baseWidth) {
@@ -261,7 +265,7 @@ export class DropdownComponent {
             role="combobox"
             aria-expanded={`${this.isOpen}`}
             aria-labelledby={this.name}>
-            {this.selectedText ? this.truncatedText : this.placeholder}
+            {this.truncatedText}
           </div>
 
           {this.isOpen && (

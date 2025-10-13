@@ -42,6 +42,7 @@
   &--focused {
     outline: 2px solid -webkit-focus-ring-color;
     outline-offset: -1px;
+    border-radius: var(--b2b-size-7) var(--b2b-size-7) 0 0;
   }
 
   &--error {
@@ -109,7 +110,6 @@ b2b-input-label {
   outline-offset: -1px;
   width: 300px;
   box-sizing: border-box;
-  margin-top: 1px;
   padding-bottom: var(--b2b-size-40);
   outline: none;
   background-color: var(--b2b-color-white-100);
