@@ -394,7 +394,7 @@
     </div>
 
     <div class="content-container">
-      <b2b-headline size="200">Dropdown</b2b-headline>
+      <b2b-headline id="Dropdown" size="200">Dropdown</b2b-headline>
       <b2b-dropdown
         label="Classic Select"
         hint="I am a hint"
@@ -429,7 +429,26 @@
         <option selected>Option 1</option>
         <option disabled>Option 2</option>
       </b2b-dropdown>
+
+      <b2b-toggle-switch
+        id="hideable-select-toggle"
+        label="Hideable Select"></b2b-toggle-switch>
     </div>
+    <script>
+      const toggle = document.querySelector('#hideable-select-toggle');
+      toggle.addEventListener('b2b-change', event => {
+        const show = event.detail.value;
+        if (show) {
+          const element = document.createElement('b2b-dropdown');
+          element.innerHTML = `<b2b-dropdown><option selected>Option 1</option></b2b-dropdown>`;
+          element.id = 'hideable-select';
+          toggle.after(element);
+        } else {
+          const element = document.querySelector('#hideable-select');
+          element.remove();
+        }
+      });
+    </script>
 
     <div class="content-container">
       <b2b-headline size="200">Checkbox</b2b-headline>
