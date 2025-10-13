@@ -1,0 +1,107 @@
+import { ArgTypes, Primary, Source, Canvas, Meta } from '@storybook/blocks';
+import * as DateRangePickerStories from './date-range-picker.stories';
+
+<Meta of={DateRangePickerStories} />
+
+# DateRangePicker Component
+
+<Canvas of={DateRangePickerStories.Default} />
+
+The B2B date range picker component is interactive and provides option to select a particular date, by selecting a day, a month and a year.
+You can hook into an event that fires whenever the user selects a date from the date range picker.
+
+<Source code={`<b2b-date-range-picker></b2b-date-range-picker>`} />
+
+## Properties
+
+### label
+
+The label to show above the the input field.
+
+Defaults to `'Zeitraum auswählen'`
+
+### required
+
+Whether the field should be marked as required.
+
+Defaults to `false`.
+
+### dateRange
+
+The optional pre-selected date range to use for the input. Must be a `[Date, Date]` tuple.
+The year, month and date information are extracted using the local timezone.
+Changes to this property are reflected by the component (e.g. shown text, highlighted time ranges).
+The time of day may be lost, when the date range is selected.
+
+Defaults to `undefined`.
+
+### disableDates
+
+A function that can be used to disable certain dates in the date range picker.
+The date range picker uses the local timezone for creating the date object.
+
+Format: (date: Date) => boolean
+
+Defaults to `() => false` (all dates enabled).
+
+### presets
+
+The presets to show on the side of the date range picker. This can be used to define common ranges such as "This Month".
+The key defines the displayed text, the value represents the value that is selected, when the preset is selected.
+
+Format: `Record<string, readonly [Date, Date]>`
+
+Default: `{}`
+
+### invalid
+
+Whether the date range picker should be marked as invalid (e.g. red tint + error message).
+
+Defaults to `false`.
+
+### hint
+
+The hint text to display below the input.
+
+Defaults to `undefined`.
+
+### error
+
+The error text to display below the input, if the value is currently invalid.
+
+Defaults to `undefined`.
+
+### language
+
+The language used to display the weekdays in the date range picker overlay.
+
+Either of: `'de'`, `'en'`
+
+Defaults to `'de'`.
+
+## Events
+
+### b2b-selected
+
+This event emits whenever the user selects a date range by clicking on it or pressing enter while it has focus. You can
+listen to this.
+The tuple is always sorted to be in chronological order, regardless of whether the end-date was selected before the start date.
+
+Example:
+
+```js
+event.detail.selected: [new Date(), new Date()]
+```
+
+### b2b-clear
+
+This event emits whenever the user clicks on the cross icon to clear the selected date.
+
+<br />
+
+## Attributes
+
+<ArgTypes of={DateRangePickerStories} />
+Changes made to the attributes in the above table will reflect in the example
+below:
+<Primary />

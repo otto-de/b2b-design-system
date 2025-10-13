@@ -25,11 +25,13 @@
 ### Used by
 
  - [b2b-date-picker](.)
+ - [b2b-date-range-picker](../date-range-picker)
 
 ### Graph
 ```mermaid
 graph TD;
   b2b-date-picker --> b2b-date-picker-years
+  b2b-date-range-picker --> b2b-date-picker-years
   style b2b-date-picker-years fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
