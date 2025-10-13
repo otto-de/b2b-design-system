@@ -74,17 +74,6 @@ story050Selected.play = async ({ canvasElement }) => {
   }, 500);
 };
 
-export const story060ProgrammaticSelected = Template.bind({});
-story060ProgrammaticSelected.args = { ...defaultArgs };
-story060ProgrammaticSelected.storyName = 'Programmatic Selected';
-story060ProgrammaticSelected.play = async ({ canvasElement }) => {
-  setTimeout(async () => {
-    const dropdown = canvasElement.querySelector('b2b-dropdown');
-    const option = dropdown.querySelectorAll('option')[4];
-    option.setAttribute('selected', '');
-  }, 500);
-};
-
 const dropdownArgs = getArgTypes('b2b-dropdown');
 
 export default {
