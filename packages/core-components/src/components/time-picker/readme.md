@@ -24,7 +24,7 @@
 | Event          | Description                                          | Type                            |
 | -------------- | ---------------------------------------------------- | ------------------------------- |
 | `b2b-blur`     | Emits whenever the time picker loses focus.          | `CustomEvent<FocusEvent>`       |
-| `b2b-clear`    | Emits when the user clicks the clear button.         | `CustomEvent<DateClear<any>>`   |
+| `b2b-clear`    | Emits when the user clicks the clear button.         | `CustomEvent<DateClear>`        |
 | `b2b-focus`    | Emits whenever the time picker receives focus.       | `CustomEvent<FocusEvent>`       |
 | `b2b-input`    | Emits whenever the input value changes.              | `CustomEvent<InputChangeEvent>` |
 | `b2b-selected` | Emits whenever a time is selected from the dropdown. | `CustomEvent<string>`           |
