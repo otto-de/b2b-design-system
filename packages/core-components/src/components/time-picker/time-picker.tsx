@@ -7,6 +7,7 @@ import {
   Host,
   Prop,
   State,
+  Watch,
 } from '@stencil/core';
 import {
   type DateClear,
@@ -41,7 +42,7 @@ export class TimePickerComponent implements ComponentInterface {
   @Prop() error?: string;
 
   /** The value of the time picker. It has to be in the format "hh:mm". */
-  @Prop({ mutable: true, reflect: true }) value: string = '';
+  @Prop({ mutable: true, reflect: true }) value: string = null;
 
   /** Emits whenever the time picker receives focus. */
   @Event({ eventName: 'b2b-focus' })
@@ -69,6 +70,8 @@ export class TimePickerComponent implements ComponentInterface {
   @State() internalErrorMessage: string = '';
   @State() internalInvalid: boolean = false;
 
+  private inputRef?: HTMLInputElement;
+
   componentWillLoad() {
     this.availableTimes = this.getAvailableTimes();
     if (this.value) {
@@ -84,24 +87,28 @@ export class TimePickerComponent implements ComponentInterface {
 
   private onBlur = (ev: FocusEvent) => {
     this.hasFocus = false;
-    setTimeout(() => {
-      this.isOpen = false;
-    }, 100);
+    this.isOpen = false;
     this.b2bBlur.emit(ev);
   };
 
   private onInput = (ev: Event) => {
     this.isOpen = false;
     const input = ev.target as HTMLInputElement | null;
-    let value = input.value.replace(/\D/g, '');
-
-    if (value.length > 2) value = value.slice(0, 2) + ':' + value.slice(2, 4);
-    if (input) input.value = value;
-
-    this.value = value;
-    this.validateInput(value);
-    this.b2bInput.emit({ value });
+    this.value = input.value;
+    console.log('onInput isOpen: ' + this.isOpen);
+    this.b2bInput.emit({ value: this.value });
   };
+
+  @Watch('interval')
+  handleIntervalChange() {
+    this.availableTimes = this.getAvailableTimes();
+  }
+
+  @Watch('value')
+  validateValue(newValue: string) {
+    this.value = newValue;
+    this.validateInput(newValue);
+  }
 
   private validateInput = (value: string) => {
     const match = value.match(/^(\d{2}):(\d{2})$/);
@@ -120,18 +127,19 @@ export class TimePickerComponent implements ComponentInterface {
     }
   };
 
-  get isInvalid() {
+  private get isInvalid() {
     return this.invalid || this.internalInvalid;
   }
 
-  get currentErrorMessage() {
+  private get currentErrorMessage() {
     return this.error || this.internalErrorMessage;
   }
 
   private getAvailableTimes() {
     const times = [];
+    const step = this.interval || 15;
     for (let hour = 0; hour < 24; hour++) {
-      for (let minute = 0; minute < 60; minute += this.interval) {
+      for (let minute = 0; minute < 60; minute += step) {
         const time = `${hour.toString().padStart(2, '0')}:${minute
           .toString()
           .padStart(2, '0')}`;
@@ -144,13 +152,14 @@ export class TimePickerComponent implements ComponentInterface {
   private onSelect = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
     const selectedValue = target.getAttribute('data-value');
-    if (selectedValue) {
+    if (selectedValue !== null) {
       this.value = selectedValue;
       this.b2bChange.emit(selectedValue);
-      this.isOpen = false;
       this.internalInvalid = false;
       this.internalErrorMessage = '';
       this.hasFocus = false;
+      this.isOpen = false;
+      this.inputRef?.blur();
     }
   };
 
@@ -160,6 +169,14 @@ export class TimePickerComponent implements ComponentInterface {
     this.internalErrorMessage = '';
     this.hasFocus = false;
     this.b2bClear.emit();
+  };
+
+  private toggleDropdown = () => {
+    this.isOpen = !this.isOpen;
+    console.log('toggleDropdown isOpen: ' + this.isOpen);
+    if (this.isOpen) {
+      this.inputRef?.focus();
+    }
   };
 
   render() {
@@ -183,6 +200,7 @@ export class TimePickerComponent implements ComponentInterface {
             'b2b-time-picker__wrapper--error': this.isInvalid,
           }}>
           <input
+            ref={el => (this.inputRef = el as HTMLInputElement)}
             class={{
               'b2b-time-picker__native-input': true,
             }}
@@ -204,7 +222,10 @@ export class TimePickerComponent implements ComponentInterface {
             )}
             <div
               class="b2b-duration-icon"
-              onClick={() => (this.isOpen = !this.isOpen)}>
+              onMouseDown={e => {
+                e.preventDefault();
+                this.toggleDropdown();
+              }}>
               <b2b-icon-100
                 icon="b2b_icon-duration"
                 clickable={true}></b2b-icon-100>
@@ -214,7 +235,8 @@ export class TimePickerComponent implements ComponentInterface {
         <div
           class={{
             'b2b-time-picker__options-container': true,
-            'b2b-time-picker__options-container--visible': this.isOpen,
+            'b2b-time-picker__options-container--visible':
+              this.isOpen && this.hasFocus,
           }}
           onMouseDown={e => e.preventDefault()}>
           <div

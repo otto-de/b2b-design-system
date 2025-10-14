@@ -16,7 +16,7 @@
 | `label`       | `label`       | The time picker label.                                                                                                          | `string`  | `undefined` |
 | `placeholder` | `placeholder` | The placeholder for the time picker input field.                                                                                | `string`  | `'hh:mm'`   |
 | `required`    | `required`    | Adds an asterisk at the end of the label to signify that the field is required.                                                 | `boolean` | `false`     |
-| `value`       | `value`       | The value of the time picker. It has to be in the format "hh:mm".                                                               | `string`  | `''`        |
+| `value`       | `value`       | The value of the time picker. It has to be in the format "hh:mm".                                                               | `string`  | `null`      |
 
 
 ## Events

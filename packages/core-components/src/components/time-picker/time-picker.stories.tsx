@@ -21,6 +21,7 @@ const meta: Meta = {
   },
   argTypes: {
     ...getArgTypes('b2b-time-picker'),
+    value: { control: false },
     interval: { control: { type: 'range', min: 15, max: 60, step: 5 } },
   },
   render: ({ ...args }) => {
@@ -49,16 +50,18 @@ export const Focused: Story = {
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
       const timePicker = canvasElement.querySelector('b2b-time-picker');
-      const b2bTimePickerWrapper = timePicker.shadowRoot?.querySelector(
-        '.b2b-time-picker__wrapper',
-      );
+      const b2bTimePickerWrapper =
+        timePicker.shadowRoot?.querySelector('input');
       await userEvent.click(b2bTimePickerWrapper);
     }, 500);
   },
 };
 
 export const Filled: Story = {
-  args: { ...meta.args, value: '10:30' },
+  args: {
+    ...meta.args,
+    value: '10:30',
+  },
 };
 
 export const Error: Story = {

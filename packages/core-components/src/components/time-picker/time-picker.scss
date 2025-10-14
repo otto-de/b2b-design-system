@@ -3,6 +3,7 @@
 :host(.b2b-time-picker) {
   --b2b-border-radius: var(--b2b-size-border-radius-100);
   --b2b-border-right: 1px solid var(--b2b-color-grey-200);
+
   max-width: 600px;
   min-width: 130px;
   display: block;
@@ -26,7 +27,6 @@
     overflow-y: scroll;
     border: var(--b2b-size-1) solid var(--b2b-color-black-100);
     border-top: none;
-
     scrollbar-color: #7f7f7f transparent;
     scrollbar-gutter: stable;
   }

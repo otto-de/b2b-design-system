@@ -4925,7 +4925,7 @@
           "summary": "string"
         },
         "defaultValue": {
-          "summary": "''"
+          "summary": "null"
         }
       },
       "description": "The value of the time picker. It has to be in the format \"hh:mm\"."
