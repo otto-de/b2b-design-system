@@ -1,13 +1,14 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
+import type { B2bToggleSwitchComponent } from './toggle-switch';
 
-const meta: Meta = {
+export default {
   title: 'Components/Interaction/Toggle Switch',
   component: 'b2b-toggle-switch',
   args: {
     label: 'Label',
-    disabled: 'false',
+    disabled: false,
     labelPosition: 'left',
     state: true,
   },
@@ -18,21 +19,14 @@ const meta: Meta = {
       disabled="${args.disabled}"
       label-position="${args.labelPosition}"
       state="${args.state}" />`,
-};
+} satisfies Meta<B2bToggleSwitchComponent>;
 
-export default meta;
+type Story = StoryObj<B2bToggleSwitchComponent>;
 
-type Story = StoryObj;
-
-export const SwitchOn: Story = {
-  args: {
-    ...meta.args,
-  },
-};
+export const SwitchOn: Story = {};
 
 export const SwitchOff: Story = {
   args: {
-    ...meta.args,
     disabled: false,
     state: false,
   },
@@ -40,7 +34,6 @@ export const SwitchOff: Story = {
 
 export const SwitchOnDisabled: Story = {
   args: {
-    ...meta.args,
     state: true,
     disabled: true,
   },
@@ -48,7 +41,6 @@ export const SwitchOnDisabled: Story = {
 
 export const SwitchOffDisabled: Story = {
   args: {
-    ...meta.args,
     state: false,
     disabled: true,
   },

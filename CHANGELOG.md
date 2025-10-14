@@ -1,3 +1,18 @@
+# [1.34.0](https://github.com/otto-de/b2b-design-system/compare/v1.33.0...v1.34.0) (2025-10-13)
+
+
+### Bug Fixes
+
+* **dropdown:** fix flicker on load ([#624](https://github.com/otto-de/b2b-design-system/issues/624)) ([dca65e7](https://github.com/otto-de/b2b-design-system/commit/dca65e793ab9cccc6679dc0df190ca3f381c8c75))
+* **dropdown:** mutation observer ignores changes to attributes ([#629](https://github.com/otto-de/b2b-design-system/issues/629)) ([a3389a9](https://github.com/otto-de/b2b-design-system/commit/a3389a98ed130e49600541924df50e60a0f80d8d))
+* **icon100|local-build-script:** [BLA-1683] | Fix UI crash in storybook and local build script logic ([92a3675](https://github.com/otto-de/b2b-design-system/commit/92a3675e8bfcc95609008f65de292188cf5ae202))
+* **toggle-switch:** [CCOP-155] checkmark peak through ([#619](https://github.com/otto-de/b2b-design-system/issues/619)) ([c415dc1](https://github.com/otto-de/b2b-design-system/commit/c415dc13c8a1df5a808a9abca365011d421f1deb))
+
+
+### Features
+
+* **date-range-picker:** [CCOP-140] Add date-range-picker ([#609](https://github.com/otto-de/b2b-design-system/issues/609)) ([b2f7f82](https://github.com/otto-de/b2b-design-system/commit/b2f7f827a13f4036850b5b4c446c9f72cf0b7a72))
+
 # [1.33.0](https://github.com/otto-de/b2b-design-system/compare/v1.32.3...v1.33.0) (2025-10-06)
 
 

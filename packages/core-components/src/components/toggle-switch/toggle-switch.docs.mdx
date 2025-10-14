@@ -19,6 +19,18 @@ The label of the toggle button. This is required
 
 This property controls whether the label should be rendered on the right or left side of the toggle switch. Its value should be either `left` or `right`. It is optional and defaults to `left`.
 
+## Events
+
+### b2b-change
+
+This event is emitted with the new value whenever the toggle switch is changed.
+
+```typescript
+export interface ToggleSwitchEventDetail<T = boolean> {
+  value: T;
+}
+```
+
 ## Attributes
 
 <ArgTypes of={ToggleSwitchStories} />

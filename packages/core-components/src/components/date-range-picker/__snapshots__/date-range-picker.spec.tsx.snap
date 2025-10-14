@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display custom properties 1`] = `
+<b2b-date-range-picker>
+  <mock:shadow-root>
+    <div class="b2b-date-range-picker">
+      <b2b-input-label>
+        Test
+      </b2b-input-label>
+      <div class="b2b-date-range-picker-input-wrapper">
+        <b2b-paragraph>
+          <mock:shadow-root>
+            <p class="b2b-paragraph b2b-paragraph--align-left b2b-paragraph--no-margin b2b-paragraph--size-100 b2b-paragraph--variant-black-100 b2b-paragraph--weight-normal" style="display: block;">
+              <slot></slot>
+            </p>
+          </mock:shadow-root>
+        </b2b-paragraph>
+        <div class="b2b-icons">
+          <div class="b2b-event-icon" tabindex="0">
+            <b2b-icon-100 aria-label="open date picker" clickable="" icon="b2b_icon-event"></b2b-icon-100>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="b2b-date-range-picker-body b2b-date-range-picker-body--hidden">
+      <div class="b2b-date-range-picker-body--calendar">
+        <div>
+          <b2b-date-picker-header language="de" selectedmonth="9" selectedyear="2025"></b2b-date-picker-header>
+          <b2b-date-picker-days-header language="de"></b2b-date-picker-days-header>
+          <b2b-date-range-picker-days></b2b-date-range-picker-days>
+        </div>
+      </div>
+    </div>
+    <span class="b2b-date-range-picker-hint">
+      Test
+    </span>
+  </mock:shadow-root>
+</b2b-date-range-picker>
+`;
+
+exports[`should render the date-range-picker 1`] = `
+<b2b-date-range-picker>
+  <mock:shadow-root>
+    <div class="b2b-date-range-picker">
+      <b2b-input-label>
+        Zeitraum auswählen
+      </b2b-input-label>
+      <div class="b2b-date-range-picker-input-wrapper">
+        <b2b-paragraph></b2b-paragraph>
+        <div class="b2b-icons">
+          <div class="b2b-event-icon" tabindex="0">
+            <b2b-icon-100 aria-label="open date picker" clickable="" icon="b2b_icon-event"></b2b-icon-100>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="b2b-date-range-picker-body b2b-date-range-picker-body--hidden">
+      <div class="b2b-date-range-picker-body--calendar">
+        <div>
+          <b2b-date-picker-header language="de" selectedmonth="9" selectedyear="2025"></b2b-date-picker-header>
+          <b2b-date-picker-days-header language="de"></b2b-date-picker-days-header>
+          <b2b-date-range-picker-days></b2b-date-range-picker-days>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</b2b-date-range-picker>
+`;

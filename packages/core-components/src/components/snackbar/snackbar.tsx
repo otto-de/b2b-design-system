@@ -1,19 +1,12 @@
-import {
-  Component,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-  Watch,
-} from '@stencil/core';
+import type { ComponentInterface, EventEmitter } from '@stencil/core';
+import { Component, Event, h, Host, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'b2b-snackbar',
   styleUrl: 'snackbar.scss',
   shadow: true,
 })
-export class SnackbarComponent {
+export class SnackbarComponent implements ComponentInterface {
   /** Text on the snackbar. */
   @Prop() description: string;
 
@@ -51,24 +44,24 @@ export class SnackbarComponent {
   private remainingTime: number;
 
   @Watch('opened')
-  onVisibleChange(newValue: boolean) {
+  onVisibleChange(newValue: boolean): void {
     if (newValue) {
       this.open();
     }
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.onVisibleChange(this.opened);
   }
 
-  private open() {
+  private open(): void {
     if (this.timed && this.type !== 'error') {
       this.remainingTime = this.duration;
       this.startTimer();
     }
   }
 
-  private startTimer() {
+  private startTimer(): void {
     this.clearTimer();
     if (this.timed && this.type !== 'error') {
       this.startTime = Date.now();
@@ -78,7 +71,7 @@ export class SnackbarComponent {
     }
   }
 
-  private clearTimer() {
+  private clearTimer(): void {
     if (this.timeoutId !== null) {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
@@ -97,7 +90,7 @@ export class SnackbarComponent {
     this.startTimer();
   };
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     clearTimeout(this.timeoutId);
   }
 
@@ -149,7 +142,7 @@ export class SnackbarComponent {
             [`b2b-snackbar--${this.type}`]: true,
             'b2b-snackbar--opened': this.opened,
           }}
-          style={this.width ? { width: this.width } : { width: 'auto' }}>
+          style={{ width: this.width || 'auto' }}>
           <div class="b2b-snackbar__content">
             <span class={{ [`b2b-snackbar--${this.type}__icon`]: true }}>
               {this.chooseIcon()}
