@@ -95,7 +95,6 @@ export class TimePickerComponent implements ComponentInterface {
     this.isOpen = false;
     const input = ev.target as HTMLInputElement | null;
     this.value = input.value;
-    console.log('onInput isOpen: ' + this.isOpen);
     this.b2bInput.emit({ value: this.value });
   };
 
@@ -173,7 +172,6 @@ export class TimePickerComponent implements ComponentInterface {
 
   private toggleDropdown = () => {
     this.isOpen = !this.isOpen;
-    console.log('toggleDropdown isOpen: ' + this.isOpen);
     if (this.isOpen) {
       this.inputRef?.focus();
     }
