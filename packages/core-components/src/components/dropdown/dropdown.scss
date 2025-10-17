@@ -20,6 +20,13 @@
     flex: 1;
   }
 
+  .b2b-dropdown__clear-icon {
+    margin-left: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
   .b2b-dropdown__select {
     font-family: var(--b2b-font-family-default);
     font-size: var(--b2b-size-copy-100);

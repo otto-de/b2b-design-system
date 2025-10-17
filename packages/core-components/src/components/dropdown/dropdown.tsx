@@ -162,6 +162,14 @@ export class DropdownComponent implements ComponentInterface {
     this.b2bBlur.emit(ev);
   };
 
+  private clearSelectedValue = (event: any) => {
+    event.stopPropagation();
+
+    this.clearSelection();
+
+    this.b2bChange.emit(this.placeholderValue);
+  };
+
   private closeOtherDropdowns() {
     const others = document.querySelectorAll('b2b-dropdown');
     others.forEach(el => {
@@ -268,6 +276,13 @@ export class DropdownComponent implements ComponentInterface {
             aria-expanded={`${this.isOpen}`}
             aria-labelledby={this.name}>
             {this.truncatedText}
+            {this.selectedText && !this.disabled && !this.groupDisabled && (
+              <b2b-icon-100
+                class="b2b-dropdown__clear-icon"
+                onClick={this.clearSelectedValue}
+                icon={'b2b_icon-close'}
+              />
+            )}
           </div>
 
           {this.isOpen && (

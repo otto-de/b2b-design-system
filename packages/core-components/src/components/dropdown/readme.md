@@ -47,11 +47,13 @@ Type: `Promise<void>`
 ### Depends on
 
 - [b2b-input-label](../input-label)
+- [b2b-icon-100](../icon-100)
 
 ### Graph
 ```mermaid
 graph TD;
   b2b-dropdown --> b2b-input-label
+  b2b-dropdown --> b2b-icon-100
   style b2b-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
