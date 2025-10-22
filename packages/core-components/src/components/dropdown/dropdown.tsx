@@ -132,7 +132,7 @@ export class DropdownComponent implements ComponentInterface {
     this.options = nativeOptions.map(opt => ({
       value: opt.value,
       label: opt.textContent?.trim() || '',
-      selected: opt.selected || opt.hasAttribute('selected'),
+      selected: opt.value === this.selectedValue,
       disabled: opt.disabled || opt.hasAttribute('disabled'),
     }));
 
