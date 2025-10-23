@@ -711,5 +711,27 @@
         'Next Week': [nextMonday, nextSundayAfterMonday],
       };
     </script>
+
+    <div class="content-container">
+      <b2b-headline size="200">Time Picker</b2b-headline>
+      <b2b-time-picker
+        label="Time Picker Mandatory"
+        hint="I am a hint"
+        required></b2b-time-picker>
+      <b2b-time-picker
+        label="Time Picker Error"
+        invalid="true"
+        hint="hello"
+        error="I have an error :C"></b2b-time-picker>
+      <b2b-time-picker
+        id="time-picker-filled"
+        label="Time Picker Filled"
+        value="13:45"
+        hint="I have a value :)"></b2b-time-picker>
+      <b2b-time-picker
+        label="Time Picker Pre-Filled with the incorrect time"
+        value="13:45ss"
+        error="I have an incorrect value :x"></b2b-time-picker>
+    </div>
   </body>
 </html>

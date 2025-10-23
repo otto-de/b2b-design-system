@@ -1441,6 +1441,40 @@ export namespace Components {
          */
         "value": string;
     }
+    interface B2bTimePicker {
+        /**
+          * The error message that is shown if the input is invalid.
+         */
+        "error"?: string;
+        /**
+          * The hint text that appears underneath the time picker field.
+         */
+        "hint"?: string;
+        /**
+          * The interval in minutes for the time options. Default is 15 minutes.
+         */
+        "interval"?: number;
+        /**
+          * Whether the time picker is currently invalid. If true, the time picker is rendered with error styles. Per default, it is false.
+         */
+        "invalid": boolean;
+        /**
+          * The time picker label.
+         */
+        "label"?: string;
+        /**
+          * The placeholder for the time picker input field.
+         */
+        "placeholder": string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required": boolean;
+        /**
+          * The value of the time picker. It has to be in the format "hh:mm".
+         */
+        "value": string;
+    }
     interface B2bToggleButton {
         /**
           * Whether or not the toggle button is currently checked. Per default it is false.
@@ -1721,6 +1755,10 @@ export interface B2bTableRowgroupCustomEvent<T> extends CustomEvent<T> {
 export interface B2bTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bTextareaElement;
+}
+export interface B2bTimePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bTimePickerElement;
 }
 export interface B2bToggleButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2535,6 +2573,27 @@ declare global {
         prototype: HTMLB2bTextareaElement;
         new (): HTMLB2bTextareaElement;
     };
+    interface HTMLB2bTimePickerElementEventMap {
+        "b2b-focus": FocusEvent;
+        "b2b-blur": FocusEvent;
+        "b2b-input": InputChangeEvent;
+        "b2b-selected": string;
+        "b2b-clear": DateClear;
+    }
+    interface HTMLB2bTimePickerElement extends Components.B2bTimePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bTimePickerElementEventMap>(type: K, listener: (this: HTMLB2bTimePickerElement, ev: B2bTimePickerCustomEvent<HTMLB2bTimePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bTimePickerElementEventMap>(type: K, listener: (this: HTMLB2bTimePickerElement, ev: B2bTimePickerCustomEvent<HTMLB2bTimePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bTimePickerElement: {
+        prototype: HTMLB2bTimePickerElement;
+        new (): HTMLB2bTimePickerElement;
+    };
     interface HTMLB2bToggleButtonElementEventMap {
         "b2b-change": ToggleButtonEventDetail;
     }
@@ -2693,6 +2752,7 @@ declare global {
         "b2b-table-row": HTMLB2bTableRowElement;
         "b2b-table-rowgroup": HTMLB2bTableRowgroupElement;
         "b2b-textarea": HTMLB2bTextareaElement;
+        "b2b-time-picker": HTMLB2bTimePickerElement;
         "b2b-toggle-button": HTMLB2bToggleButtonElement;
         "b2b-toggle-chip": HTMLB2bToggleChipElement;
         "b2b-toggle-group": HTMLB2bToggleGroupElement;
@@ -4318,6 +4378,60 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface B2bTimePicker {
+        /**
+          * The error message that is shown if the input is invalid.
+         */
+        "error"?: string;
+        /**
+          * The hint text that appears underneath the time picker field.
+         */
+        "hint"?: string;
+        /**
+          * The interval in minutes for the time options. Default is 15 minutes.
+         */
+        "interval"?: number;
+        /**
+          * Whether the time picker is currently invalid. If true, the time picker is rendered with error styles. Per default, it is false.
+         */
+        "invalid"?: boolean;
+        /**
+          * The time picker label.
+         */
+        "label"?: string;
+        /**
+          * Emits whenever the time picker loses focus.
+         */
+        "onB2b-blur"?: (event: B2bTimePickerCustomEvent<FocusEvent>) => void;
+        /**
+          * Emits when the user clicks the clear button.
+         */
+        "onB2b-clear"?: (event: B2bTimePickerCustomEvent<DateClear>) => void;
+        /**
+          * Emits whenever the time picker receives focus.
+         */
+        "onB2b-focus"?: (event: B2bTimePickerCustomEvent<FocusEvent>) => void;
+        /**
+          * Emits whenever the input value changes.
+         */
+        "onB2b-input"?: (event: B2bTimePickerCustomEvent<InputChangeEvent>) => void;
+        /**
+          * Emits whenever a time is selected from the dropdown.
+         */
+        "onB2b-selected"?: (event: B2bTimePickerCustomEvent<string>) => void;
+        /**
+          * The placeholder for the time picker input field.
+         */
+        "placeholder"?: string;
+        /**
+          * Adds an asterisk at the end of the label to signify that the field is required.
+         */
+        "required"?: boolean;
+        /**
+          * The value of the time picker. It has to be in the format "hh:mm".
+         */
+        "value"?: string;
+    }
     interface B2bToggleButton {
         /**
           * Whether or not the toggle button is currently checked. Per default it is false.
@@ -4536,6 +4650,7 @@ declare namespace LocalJSX {
         "b2b-table-row": B2bTableRow;
         "b2b-table-rowgroup": B2bTableRowgroup;
         "b2b-textarea": B2bTextarea;
+        "b2b-time-picker": B2bTimePicker;
         "b2b-toggle-button": B2bToggleButton;
         "b2b-toggle-chip": B2bToggleChip;
         "b2b-toggle-group": B2bToggleGroup;
@@ -4635,6 +4750,7 @@ declare module "@stencil/core" {
              * Initial story: https://otto-eg.atlassian.net/browse/B2BDS-96
              */
             "b2b-textarea": LocalJSX.B2bTextarea & JSXBase.HTMLAttributes<HTMLB2bTextareaElement>;
+            "b2b-time-picker": LocalJSX.B2bTimePicker & JSXBase.HTMLAttributes<HTMLB2bTimePickerElement>;
             "b2b-toggle-button": LocalJSX.B2bToggleButton & JSXBase.HTMLAttributes<HTMLB2bToggleButtonElement>;
             "b2b-toggle-chip": LocalJSX.B2bToggleChip & JSXBase.HTMLAttributes<HTMLB2bToggleChipElement>;
             "b2b-toggle-group": LocalJSX.B2bToggleGroup & JSXBase.HTMLAttributes<HTMLB2bToggleGroupElement>;
