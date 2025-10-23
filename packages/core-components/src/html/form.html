@@ -221,7 +221,7 @@
             <option value="one">
               Some longer text to check if the truncated acts as expected
             </option>
-            <option value="one">$</option>
+            <option value="two">$</option>
           </b2b-dropdown>
           <b2b-button variant="primary" disabled="true">
             <b2b-icon-100 icon="b2b_icon-search" clickable></b2b-icon-100>
@@ -266,12 +266,12 @@
         <b2b-input slot="start" label="Search Term"></b2b-input>
         <b2b-dropdown label="Data Set" invalid error="an error">
           <option value="one">Some longer text</option>
-          <option value="one">$</option>
+          <option value="two">$</option>
         </b2b-dropdown>
         <b2b-input label="Another input" invalid error="an error"></b2b-input>
         <b2b-dropdown>
           <option value="one">€</option>
-          <option value="one">$</option>
+          <option value="two">$</option>
         </b2b-dropdown>
         <b2b-button slot="end" variant="primary">
           <b2b-icon-100 icon="b2b_icon-search" clickable></b2b-icon-100>
@@ -651,7 +651,7 @@
       datepickerEl1.disableDates = ['21.01.2025', '10.01.2025'];
     </script>
 
-    <div class="content-container" style="margin-bottom: 400px">
+    <div class="content-container">
       <b2b-headline id="DateRangePicker" size="200">
         Date Range Picker
       </b2b-headline>
