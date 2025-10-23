@@ -76,3 +76,18 @@ export const FilledWithIncorrectTime: Story = {
     value: '25:61',
   },
 };
+
+export const CustomIntervalSet: Story = {
+  args: {
+    ...meta.args,
+    interval: 60,
+  },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const timePicker = canvasElement.querySelector('b2b-time-picker');
+      const b2bTimePickerWrapper =
+        timePicker.shadowRoot?.querySelector('input');
+      await userEvent.click(b2bTimePickerWrapper);
+    }, 500);
+  },
+};
