@@ -21,8 +21,14 @@ const meta: Meta = {
   },
   argTypes: {
     ...getArgTypes('b2b-time-picker'),
-    value: { control: false },
-    interval: { control: { type: 'range', min: 15, max: 60, step: 5 } },
+    value: {
+      ...getArgTypes('b2b-time-picker').value,
+      control: false,
+    },
+    interval: {
+      ...getArgTypes('b2b-time-picker').interval,
+      control: { type: 'range', min: 15, max: 60, step: 5 },
+    },
   },
   render: ({ ...args }) => {
     return html` <div style="margin-left: 2px">
