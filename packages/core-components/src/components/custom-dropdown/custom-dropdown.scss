@@ -15,7 +15,6 @@
 .b2b-custom-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
   z-index: 1000;
   inline-size: var(--b2b-dropdown-width, 300px);
   display: none;
@@ -30,6 +29,22 @@
 
   &--border {
     border: 1px solid var(--b2b-color-grey-200);
+  }
+
+  &--align-left {
+    left: 0;
+    right: auto;
+  }
+
+  &--align-center {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  &--align-right {
+    left: auto;
+    right: 0;
   }
 }
 
