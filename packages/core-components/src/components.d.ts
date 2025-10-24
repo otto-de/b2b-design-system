@@ -296,6 +296,10 @@ export namespace Components {
     }
     interface B2bCustomDropdown {
         /**
+          * The horizontal alignment of the dropdown. Can be 'left', 'center', or 'right'. Default is 'left'.
+         */
+        "alignment": 'left' | 'center' | 'right';
+        /**
           * Search is automatically disabled for lists with fewer than six options.
          */
         "autoDisableSearch": boolean;
@@ -3060,6 +3064,10 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface B2bCustomDropdown {
+        /**
+          * The horizontal alignment of the dropdown. Can be 'left', 'center', or 'right'. Default is 'left'.
+         */
+        "alignment"?: 'left' | 'center' | 'right';
         /**
           * Search is automatically disabled for lists with fewer than six options.
          */

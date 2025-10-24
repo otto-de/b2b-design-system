@@ -84,4 +84,102 @@ describe('b2b-custom-dropdown', () => {
     );
     expect(optionTexts).toEqual(['option1', 'option2', 'option3', 'option4']);
   });
+
+  it('should default to left alignment', async () => {
+    const dropdown = await page.find('b2b-custom-dropdown');
+    const alignment = await dropdown.getProperty('alignment');
+    expect(alignment).toEqual('left');
+  });
+
+  it('should update alignment class when alignment prop changes', async () => {
+    const dropdown = await page.find('b2b-custom-dropdown');
+    const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+
+    dropdown.setProperty('alignment', 'left');
+    await trigger.click();
+    await page.waitForChanges();
+
+    let dropdownContainer = await page.find(
+      'b2b-custom-dropdown >>> .b2b-custom-dropdown',
+    );
+    expect(dropdownContainer).toHaveClass('b2b-custom-dropdown--align-left');
+
+    dropdown.setProperty('alignment', 'center');
+    await page.waitForChanges();
+
+    dropdownContainer = await page.find(
+      'b2b-custom-dropdown >>> .b2b-custom-dropdown',
+    );
+    expect(dropdownContainer).toHaveClass('b2b-custom-dropdown--align-center');
+
+    dropdown.setProperty('alignment', 'right');
+    await page.waitForChanges();
+
+    dropdownContainer = await page.find(
+      'b2b-custom-dropdown >>> .b2b-custom-dropdown',
+    );
+    expect(dropdownContainer).toHaveClass('b2b-custom-dropdown--align-right');
+  });
+});
+
+describe('b2b-custom-dropdown - Alignment Tests', () => {
+  it('should apply left alignment class when alignment is set to left', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <b2b-custom-dropdown placeholder="Select an option" alignment="left">
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
+        <b2b-custom-dropdown-option slot='option' option='option1'>
+        </b2b-custom-dropdown-option>
+      </b2b-custom-dropdown>
+    `);
+
+    const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+    await trigger.click();
+    await page.waitForChanges();
+
+    const dropdownContainer = await page.find(
+      'b2b-custom-dropdown >>> .b2b-custom-dropdown',
+    );
+    expect(dropdownContainer).toHaveClass('b2b-custom-dropdown--align-left');
+  });
+
+  it('should apply center alignment class when alignment is set to center', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <b2b-custom-dropdown placeholder="Select an option" alignment="center">
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
+        <b2b-custom-dropdown-option slot='option' option='option1'>
+        </b2b-custom-dropdown-option>
+      </b2b-custom-dropdown>
+    `);
+
+    const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+    await trigger.click();
+    await page.waitForChanges();
+
+    const dropdownContainer = await page.find(
+      'b2b-custom-dropdown >>> .b2b-custom-dropdown',
+    );
+    expect(dropdownContainer).toHaveClass('b2b-custom-dropdown--align-center');
+  });
+
+  it('should apply right alignment class when alignment is set to right', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <b2b-custom-dropdown placeholder="Select an option" alignment="right">
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
+        <b2b-custom-dropdown-option slot='option' option='option1'>
+        </b2b-custom-dropdown-option>
+      </b2b-custom-dropdown>
+    `);
+
+    const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+    await trigger.click();
+    await page.waitForChanges();
+
+    const dropdownContainer = await page.find(
+      'b2b-custom-dropdown >>> .b2b-custom-dropdown',
+    );
+    expect(dropdownContainer).toHaveClass('b2b-custom-dropdown--align-right');
+  });
 });
