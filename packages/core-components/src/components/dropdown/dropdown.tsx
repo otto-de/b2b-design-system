@@ -62,6 +62,7 @@ export class DropdownComponent implements ComponentInterface {
   b2bBlur: EventEmitter<FocusEvent>;
 
   private mutationObserver?: MutationObserver;
+  private selectEl: HTMLDivElement;
 
   /** Method to programmatically clear selection of the dropdown. */
   @Method()
@@ -87,7 +88,7 @@ export class DropdownComponent implements ComponentInterface {
     disabled: boolean;
   }[] = [];
 
-  private selectEl: HTMLDivElement;
+  @State() searchValue: string = '';
   @State() private truncatedText: string = '';
 
   componentWillLoad(): void {
@@ -167,6 +168,7 @@ export class DropdownComponent implements ComponentInterface {
 
     this.clearSelection();
 
+    this.searchValue = '';
     this.b2bChange.emit(this.placeholderValue);
   };
 
@@ -198,7 +200,7 @@ export class DropdownComponent implements ComponentInterface {
   };
 
   private updateTruncatedText = () => {
-    const rawText = this.selectedText || this.placeholder;
+    const rawText = this.selectedText;
     if (this.selectEl == null) {
       this.truncatedText = rawText;
       return;
@@ -242,10 +244,32 @@ export class DropdownComponent implements ComponentInterface {
     this.truncatedText = truncated + '…';
   };
 
+  private handleSearchInput = (event: CustomEvent) => {
+    if (
+      this.selectedText &&
+      (event.target as HTMLInputElement).value !== this.selectedText
+    ) {
+      this.selectedText = '';
+      this.selectedValue = this.placeholderValue;
+      this.options = this.options.map(opt => ({
+        ...opt,
+        selected: false,
+      }));
+    }
+
+    this.searchValue = (event.target as HTMLInputElement).value;
+
+    this.isOpen = true;
+  };
+
   render() {
     const hasError = this.invalid && !this.disabled && !this.groupDisabled;
     const showHint = this.hint && !hasError;
     const showError = this.error && hasError;
+
+    const filteredOptions = this.options.filter(opt =>
+      opt.label.toLowerCase().includes(this.searchValue.toLowerCase()),
+    );
 
     return (
       <Host
@@ -253,6 +277,7 @@ export class DropdownComponent implements ComponentInterface {
           'b2b-dropdown': true,
           'b2b-dropdown--error': hasError,
           'b2b-dropdown--disabled': this.disabled || this.groupDisabled,
+          'b2b-dropdown--focused': this.focused,
         }}>
         {this.label && (
           <b2b-input-label id={this.name} required={this.required}>
@@ -264,45 +289,52 @@ export class DropdownComponent implements ComponentInterface {
           class="b2b-dropdown__wrapper"
           onFocus={this.onFocus}
           onBlur={this.onBlur}>
-          <div
-            class={{
-              'b2b-dropdown__select': true,
-              'b2b-dropdown__select--open': this.isOpen,
-              'b2b-dropdown__select--focused': this.focused,
+          <b2b-input
+            placeholder={this.placeholder}
+            invalid={hasError}
+            value={this.truncatedText || this.searchValue}
+            disabled={this.disabled || this.groupDisabled}
+            onB2b-focus={() => {
+              this.isOpen = true;
+              this.focused = true;
             }}
-            ref={el => (this.selectEl = el as HTMLDivElement)}
-            onClick={this.toggleDropdown}
-            role="combobox"
-            aria-expanded={`${this.isOpen}`}
-            aria-labelledby={this.name}>
-            {this.truncatedText}
-            {this.selectedText && !this.disabled && !this.groupDisabled && (
+            onB2b-input={this.handleSearchInput}>
+            <div class="b2b-dropdown__icons-container" slot="end">
+              {(this.selectedText || this.searchValue) &&
+                !this.disabled &&
+                !this.groupDisabled && (
+                  <b2b-icon-100
+                    class="b2b-dropdown__clear-icon"
+                    icon={'b2b_icon-close'}
+                    onClick={this.clearSelectedValue}></b2b-icon-100>
+                )}
               <b2b-icon-100
-                class="b2b-dropdown__clear-icon"
-                onClick={this.clearSelectedValue}
-                icon={'b2b_icon-close'}
-              />
-            )}
-          </div>
+                class="b2b-dropdown__arrow-icon"
+                icon={'b2b_icon-arrow-down'}
+                onClick={this.toggleDropdown}></b2b-icon-100>
+            </div>
+          </b2b-input>
 
           {this.isOpen && (
-            <div class="b2b-dropdown__options" role="listbox">
-              {this.options.map(option => (
-                <div
-                  key={option.value}
-                  class={{
-                    'b2b-dropdown__option': true,
-                    'b2b-dropdown__option--selected': option.selected,
-                    'b2b-dropdown__option--disabled': option.disabled,
-                  }}
-                  data-value={option.value}
-                  onClick={!option.disabled ? this.onSelect : undefined}
-                  role="option"
-                  aria-selected={option.selected ? 'true' : 'false'}
-                  aria-disabled={option.disabled ? 'true' : 'false'}>
-                  {option.label}
-                </div>
-              ))}
+            <div class="b2b-dropdown__content">
+              <div class="b2b-dropdown__options" role="listbox">
+                {filteredOptions.map(option => (
+                  <div
+                    key={option.value}
+                    class={{
+                      'b2b-dropdown__option': true,
+                      'b2b-dropdown__option--selected': option.selected,
+                      'b2b-dropdown__option--disabled': option.disabled,
+                    }}
+                    data-value={option.value}
+                    onClick={!option.disabled ? this.onSelect : undefined}
+                    role="option"
+                    aria-selected={option.selected ? 'true' : 'false'}
+                    aria-disabled={option.disabled ? 'true' : 'false'}>
+                    {option.label}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
