@@ -848,6 +848,25 @@
     }
   },
   "b2b-custom-dropdown": {
+    "alignment": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The horizontal alignment of the dropdown. Can be 'left', 'center', or 'right'. Default is 'left'."
+    },
     "autoDisableSearch": {
       "control": {
         "type": "boolean"

@@ -18,6 +18,7 @@ const meta: Meta = {
     selectedIconColor: null,
     opened: false,
     selected: false,
+    alignment: 'left',
   },
   render: ({ ...args }) =>
     html`<div style="margin-left: 16px;width: 300px">
@@ -25,6 +26,7 @@ const meta: Meta = {
         placeholder="${args.placeholder}"
         dropshadow="${args.dropshadow}"
         border="${args.border}"
+        alignment="${args.alignment}"
         opened="${args.opened}">
         <b2b-paragraph slot="trigger">
           This is a custom dropdown
@@ -197,4 +199,16 @@ export const CustomDropdownDisabled: Story = {
         </b2b-custom-dropdown-option>
       </b2b-custom-dropdown>
     </div>`,
+};
+
+export const AlignmentLeft: Story = {
+  args: { ...meta.args, alignment: 'left', opened: true },
+};
+
+export const AlignmentCenter: Story = {
+  args: { ...meta.args, alignment: 'center', opened: true },
+};
+
+export const AlignmentRight: Story = {
+  args: { ...meta.args, alignment: 'right', opened: true },
 };
