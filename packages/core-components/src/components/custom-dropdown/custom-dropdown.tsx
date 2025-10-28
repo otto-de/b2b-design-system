@@ -29,6 +29,9 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
   /** Whether the dropdown should have a border. Default is false. */
   @Prop({ reflect: true }) border: boolean = false;
 
+  /** The horizontal alignment of the dropdown. Can be 'left', 'center', or 'right'. Default is 'left'. */
+  @Prop({ reflect: true }) alignment: 'left' | 'center' | 'right' = 'left';
+
   /** Search is automatically disabled for lists with fewer than six options. */
   @Prop() autoDisableSearch: boolean = true;
 
@@ -131,6 +134,9 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
             'b2b-custom-dropdown--on': this.opened && !this.disabled,
             'b2b-custom-dropdown--drop-shadow': this.dropshadow,
             'b2b-custom-dropdown--border': this.border,
+            'b2b-custom-dropdown--align-left': this.alignment === 'left',
+            'b2b-custom-dropdown--align-center': this.alignment === 'center',
+            'b2b-custom-dropdown--align-right': this.alignment === 'right',
           }}>
           <b2b-background-box
             noPadding={true}
@@ -147,7 +153,9 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
               <b2b-input
                 placeholder={this.placeholder}
                 onB2b-input={this.handleInput}>
-                <b2b-icon-100 icon="b2b_icon-search" slot="end"></b2b-icon-100>
+                <b2b-icon-100
+                  icon="b2b_icon-search"
+                  slot="start"></b2b-icon-100>
               </b2b-input>
             </div>
           </b2b-background-box>

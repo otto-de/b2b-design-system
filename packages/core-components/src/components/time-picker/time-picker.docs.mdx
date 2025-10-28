@@ -1,0 +1,79 @@
+import * as TimePickerStories from './time-picker.stories';
+import { ArgTypes, Meta, Primary } from '@storybook/blocks';
+import { Canvas } from '@storybook/addon-docs';
+
+<Meta of={TimePickerStories} />
+
+# TimePicker Component
+
+The time picker allows the user to select a time, either by typing it in or by selecting it from a list of options.
+If user types in a time, it has to be in the format "hh:mm". The time picker will perform validation on the input.
+
+It is possible to set the interval of the options in minutes. The default is 15 minutes.
+
+<Canvas of={TimePickerStories.Default} />
+
+## Properties
+
+### Label
+
+The label for the time picker input field.
+
+### Placeholder
+
+The placeholder for the time picker input field. Default is 'hh:mm'.
+
+### Required
+
+Adds an asterisk at the end of the label to signify that the field is required. This would not perform any
+validation and is just a style addition.
+
+### Hint
+
+A hint that can contain additional information for the user. It is optional.
+
+### Invalid
+
+Whether the time picker is invalid. Setting this to true will render the dropdown with error styles and
+show an error message if it is specified.
+
+### Error
+
+The error message that is shown instead of the hint if the input is invalid.
+
+### Value
+
+The value of the time picker. It has to be in the format "hh:mm". If the value is passed, the validation will be performed once the component is loaded.
+
+### Interval
+
+The interval in minutes for the time options. Default is 15 minutes.
+
+## Events
+
+### b2b-input
+
+This event emits whenever the input value changes.
+
+### b2b-focus
+
+This event emits whenever the time picker receives focus.
+
+### b2b-blur
+
+This event emits whenever the time picker loses focus.
+
+### b2b-selected
+
+This event emits whenever the user selects a time option from the dropdown.
+
+### b2b-clear
+
+This event emits whenever the user clicks on the cross icon to clear the selected time.
+
+## Attributes
+
+<ArgTypes of={TimePickerStories} />
+Changes made to the attributes in the above table will reflect in the example
+below:
+<Primary />

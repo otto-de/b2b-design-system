@@ -1,3 +1,16 @@
+# [1.35.0](https://github.com/otto-de/b2b-design-system/compare/v1.34.0...v1.35.0) (2025-10-27)
+
+
+### Bug Fixes
+
+* **custom-dropdown:** [BLA-1712] Add alignment options ([#633](https://github.com/otto-de/b2b-design-system/issues/633)) ([6fd4712](https://github.com/otto-de/b2b-design-system/commit/6fd47129f4278e61d12e87d8fb3c32a1e360fc89))
+* **dropdown:** [BLA-1772] Sync DOM state with dropdown selection to prevent reset and update example ([022c31f](https://github.com/otto-de/b2b-design-system/commit/022c31f01d4ea01fb12080a3937deb350dfd63c7))
+
+
+### Features
+
+* **core:** [NEPTUNE-4945] Implementation of a Timepicker Component in DESY ([8f06a1a](https://github.com/otto-de/b2b-design-system/commit/8f06a1a2a88ead7444aa370bde7b8e493d298bd5))
+
 # [1.34.0](https://github.com/otto-de/b2b-design-system/compare/v1.33.0...v1.34.0) (2025-10-13)
 
 

@@ -65,19 +65,31 @@ export class DropdownComponent implements ComponentInterface {
   b2bBlur: EventEmitter<FocusEvent>;
 
   private mutationObserver?: MutationObserver;
+  private ignoreNextMutation = false;
   private selectEl: HTMLDivElement;
 
   /** Method to programmatically clear selection of the dropdown. */
   @Method()
   async clearSelection(): Promise<void> {
+    this.ignoreNextMutation = true;
+
     this.selectedValue = this.placeholderValue;
     this.selectedText = '';
     this.options = this.options.map(opt => ({
       ...opt,
       selected: false,
     }));
+
+    const nativeOptions = this.hostElement.querySelectorAll('option');
+    nativeOptions.forEach(opt => {
+      opt.removeAttribute('selected');
+      opt.selected = false;
+    });
+
     this.isOpen = false;
     this.updateTruncatedText();
+
+    this.ignoreNextMutation = false;
   }
 
   @State() isOpen: boolean = false;
@@ -99,7 +111,9 @@ export class DropdownComponent implements ComponentInterface {
 
     if (typeof MutationObserver !== 'undefined') {
       this.mutationObserver = new MutationObserver(() => {
-        this.initializeOptions();
+        if (!this.ignoreNextMutation) {
+          this.initializeOptions();
+        }
       });
 
       this.mutationObserver.observe(this.hostElement, {
@@ -188,17 +202,32 @@ export class DropdownComponent implements ComponentInterface {
     const label = target.textContent?.trim();
 
     if (value != null) {
+      this.ignoreNextMutation = true;
+
       this.selectedValue = value;
       this.selectedText = label || '';
-      this.b2bChange.emit(value);
 
       this.options = this.options.map(opt => ({
         ...opt,
         selected: opt.value === value,
       }));
 
+      const nativeOptions = this.hostElement.querySelectorAll('option');
+      nativeOptions.forEach(opt => {
+        if (opt.value === value) {
+          opt.setAttribute('selected', '');
+          opt.selected = true;
+        } else {
+          opt.removeAttribute('selected');
+          opt.selected = false;
+        }
+      });
+
       this.isOpen = false;
+      this.b2bChange.emit(value);
       this.updateTruncatedText();
+
+      this.ignoreNextMutation = false;
     }
   };
 

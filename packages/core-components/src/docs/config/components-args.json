@@ -848,6 +848,25 @@
     }
   },
   "b2b-custom-dropdown": {
+    "alignment": {
+      "options": [
+        "center",
+        "left",
+        "right"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The horizontal alignment of the dropdown. Can be 'left', 'center', or 'right'. Default is 'left'."
+    },
     "autoDisableSearch": {
       "control": {
         "type": "boolean"
@@ -4839,6 +4858,96 @@
         }
       },
       "description": "The value of the textarea. Per default it is null."
+    }
+  },
+  "b2b-time-picker": {
+    "error": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The error message that is shown if the input is invalid."
+    },
+    "hint": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The hint text that appears underneath the time picker field."
+    },
+    "interval": {
+      "table": {
+        "type": {
+          "summary": "number"
+        },
+        "defaultValue": {
+          "summary": "15"
+        }
+      },
+      "description": "The interval in minutes for the time options. Default is 15 minutes."
+    },
+    "invalid": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Whether the time picker is currently invalid. If true, the time picker is rendered with error styles. Per default, it is false."
+    },
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "The time picker label."
+    },
+    "placeholder": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'hh:mm'"
+        }
+      },
+      "description": "The placeholder for the time picker input field."
+    },
+    "required": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "value": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "null"
+        }
+      },
+      "description": "The value of the time picker. It has to be in the format \"hh:mm\"."
     }
   },
   "b2b-toggle-button": {

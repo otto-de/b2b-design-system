@@ -221,7 +221,7 @@
             <option value="one">
               Some longer text to check if the truncated acts as expected
             </option>
-            <option value="one">$</option>
+            <option value="two">$</option>
           </b2b-dropdown>
           <b2b-button variant="primary" disabled="true">
             <b2b-icon-100 icon="b2b_icon-search" clickable></b2b-icon-100>
@@ -266,12 +266,12 @@
         <b2b-input slot="start" label="Search Term"></b2b-input>
         <b2b-dropdown label="Data Set" invalid error="an error">
           <option value="one">Some longer text</option>
-          <option value="one">$</option>
+          <option value="two">$</option>
         </b2b-dropdown>
         <b2b-input label="Another input" invalid error="an error"></b2b-input>
         <b2b-dropdown>
           <option value="one">€</option>
-          <option value="one">$</option>
+          <option value="two">$</option>
         </b2b-dropdown>
         <b2b-button slot="end" variant="primary">
           <b2b-icon-100 icon="b2b_icon-search" clickable></b2b-icon-100>
@@ -671,7 +671,7 @@
       datepickerEl1.disableDates = ['21.01.2025', '10.01.2025'];
     </script>
 
-    <div class="content-container" style="margin-bottom: 400px">
+    <div class="content-container">
       <b2b-headline id="DateRangePicker" size="200">
         Date Range Picker
       </b2b-headline>
@@ -731,5 +731,27 @@
         'Next Week': [nextMonday, nextSundayAfterMonday],
       };
     </script>
+
+    <div class="content-container">
+      <b2b-headline size="200">Time Picker</b2b-headline>
+      <b2b-time-picker
+        label="Time Picker Mandatory"
+        hint="I am a hint"
+        required></b2b-time-picker>
+      <b2b-time-picker
+        label="Time Picker Error"
+        invalid="true"
+        hint="hello"
+        error="I have an error :C"></b2b-time-picker>
+      <b2b-time-picker
+        id="time-picker-filled"
+        label="Time Picker Filled"
+        value="13:45"
+        hint="I have a value :)"></b2b-time-picker>
+      <b2b-time-picker
+        label="Time Picker Pre-Filled with the incorrect time"
+        value="13:45ss"
+        error="I have an incorrect value :x"></b2b-time-picker>
+    </div>
   </body>
 </html>
