@@ -65,6 +65,50 @@ describe('B2B-Dropdown', () => {
     expect(element).toHaveClass('b2b-dropdown--error');
   });
 
+  it('ensure clear icon is visible', async () => {
+    let dropdown = await page.find('b2b-dropdown');
+
+    const clearIcon = await dropdown.shadowRoot.querySelector(
+      '.b2b-dropdown__clear-icon',
+    );
+    expect(clearIcon).not.toBeNull();
+  });
+
+  it('ensure text is cleared when clear icon is clicked', async () => {
+    const clearIcon = await page.find(
+      'b2b-dropdown >>> b2b-icon-100.b2b-dropdown__clear-icon',
+    );
+
+    expect(clearIcon).not.toBeNull();
+
+    await clearIcon.click();
+    await page.waitForChanges();
+
+    const selectDisplay = await page.find(
+      'b2b-dropdown >>> .b2b-dropdown__select',
+    );
+    expect(await selectDisplay.textContent).not.toContain('Option 1');
+    expect(await selectDisplay.textContent).toContain('Select an option...');
+  });
+
+  it('ensure text is cleared when clear icon is clicked when search is enabled', async () => {
+    let dropdown = await page.find('b2b-dropdown');
+    dropdown.setProperty('search', true);
+
+    const clearIcon = await page.find(
+      'b2b-dropdown >>> b2b-icon-100.b2b-dropdown__clear-icon',
+    );
+
+    expect(clearIcon).not.toBeNull();
+
+    await clearIcon.click();
+    await page.waitForChanges();
+
+    const selectDisplay = await page.find('b2b-dropdown >>> .b2b-input');
+    expect(await selectDisplay.textContent).not.toContain('Option 1');
+    expect(await selectDisplay.textContent).toContain('');
+  });
+
   it('should clear the selection and reset to placeholder', async () => {
     let dropdown = await page.find('b2b-dropdown');
 
@@ -119,5 +163,50 @@ describe('B2B-Dropdown', () => {
 
     expect(texts).toContain('Apple');
     expect(texts).toContain('Banana');
+  });
+
+  it('should filter options when search is enabled and user types in search input', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+    <b2b-dropdown label="Search Fruits" search="true">
+      <option value="apple" id="apple">Apple</option>
+      <option value="banana" id="banana">Banana</option>
+      <option value="cherry" id="cherry">Cherry</option>
+      <option value="grape" id="grape">Grape</option>
+      <option value="orange" id="orange">Orange</option>
+    </b2b-dropdown>
+  `);
+
+    const dropdown = await page.find('b2b-dropdown');
+
+    await dropdown.click();
+    await page.waitForChanges();
+
+    const searchInput = await page.find('b2b-dropdown >>> .b2b-input');
+    expect(searchInput).not.toBeNull();
+
+    await searchInput.focus();
+    await searchInput.type('a');
+    await page.waitForChanges();
+
+    const visibleOptions = await page.findAll(
+      'b2b-dropdown >>> .b2b-dropdown__option',
+    );
+    expect(visibleOptions.length).toBe(4);
+
+    await searchInput.type('p');
+    await page.waitForChanges();
+
+    const filteredOptions = await page.findAll(
+      'b2b-dropdown >>> .b2b-dropdown__option',
+    );
+    expect(filteredOptions.length).toBe(2);
+
+    const optionTexts = await Promise.all(
+      filteredOptions.map(async opt => await opt.getProperty('textContent')),
+    );
+
+    expect(optionTexts).toContain('Apple');
+    expect(optionTexts).toContain('Grape');
   });
 });
