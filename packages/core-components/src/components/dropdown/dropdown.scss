@@ -21,9 +21,13 @@
   }
 
   .b2b-dropdown__clear-icon {
-    margin-left: 8px;
+    position: absolute;
+    right: 3rem;
+    top: 40%;
+    transform: translateY(-60%);
+    width: 1rem;
+    height: 1rem;
     cursor: pointer;
-    flex-shrink: 0;
     z-index: 2;
   }
 

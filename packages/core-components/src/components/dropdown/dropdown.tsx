@@ -22,6 +22,9 @@ export class DropdownComponent implements ComponentInterface {
   /** The dropdown label. */
   @Prop() label: string;
 
+  /** Enables the search functionality when set to true within the dropdown. By default search is disabled. */
+  @Prop({ reflect: true }) search: boolean = false;
+
   /** Adds an asterisk at the end of the label to signify that the field is required. */
   @Prop({ reflect: true }) required: boolean = false;
 
@@ -200,7 +203,8 @@ export class DropdownComponent implements ComponentInterface {
   };
 
   private updateTruncatedText = () => {
-    const rawText = this.selectedText;
+    const placeHolder = this.search ? '' : this.placeholder;
+    const rawText = this.selectedText || placeHolder;
     if (this.selectEl == null) {
       this.truncatedText = rawText;
       return;
@@ -289,32 +293,54 @@ export class DropdownComponent implements ComponentInterface {
           class="b2b-dropdown__wrapper"
           onFocus={this.onFocus}
           onBlur={this.onBlur}>
-          <b2b-input
-            placeholder={this.placeholder}
-            invalid={hasError}
-            value={this.truncatedText || this.searchValue}
-            disabled={this.disabled || this.groupDisabled}
-            onB2b-focus={() => {
-              this.isOpen = true;
-              this.focused = true;
-            }}
-            onB2b-input={this.handleSearchInput}>
-            <div class="b2b-dropdown__icons-container" slot="end">
-              {(this.selectedText || this.searchValue) &&
-                !this.disabled &&
-                !this.groupDisabled && (
-                  <b2b-icon-100
-                    class="b2b-dropdown__clear-icon"
-                    icon={'b2b_icon-close'}
-                    onClick={this.clearSelectedValue}></b2b-icon-100>
-                )}
-              <b2b-icon-100
-                class="b2b-dropdown__arrow-icon"
-                icon={'b2b_icon-arrow-down'}
-                onClick={this.toggleDropdown}></b2b-icon-100>
+          {this.search ? (
+            <b2b-input
+              placeholder={this.placeholder}
+              invalid={hasError}
+              value={this.truncatedText || this.searchValue}
+              disabled={this.disabled || this.groupDisabled}
+              onB2b-focus={() => {
+                this.isOpen = true;
+                this.focused = true;
+              }}
+              onB2b-input={this.handleSearchInput}>
+              <div class="b2b-dropdown__icons-container" slot="end">
+                {(this.selectedText || this.searchValue) &&
+                  !this.disabled &&
+                  !this.groupDisabled && (
+                    <b2b-icon-100
+                      class="b2b-dropdown__clear-icon"
+                      icon={'b2b_icon-close'}
+                      onClick={this.clearSelectedValue}></b2b-icon-100>
+                  )}
+                <b2b-icon-100
+                  class="b2b-dropdown__arrow-icon"
+                  icon={'b2b_icon-arrow-down'}
+                  onClick={this.toggleDropdown}></b2b-icon-100>
+              </div>
+            </b2b-input>
+          ) : (
+            <div
+              class={{
+                'b2b-dropdown__select': true,
+                'b2b-dropdown__select--open': this.isOpen,
+                'b2b-dropdown__select--focused': this.focused,
+              }}
+              ref={el => (this.selectEl = el as HTMLDivElement)}
+              onClick={this.toggleDropdown}
+              role="combobox"
+              aria-expanded={`${this.isOpen}`}
+              aria-labelledby={this.name}>
+              {this.truncatedText}
+              {this.selectedText && !this.disabled && !this.groupDisabled && (
+                <b2b-icon-100
+                  class="b2b-dropdown__clear-icon"
+                  onClick={this.clearSelectedValue}
+                  icon={'b2b_icon-close'}
+                />
+              )}
             </div>
-          </b2b-input>
-
+          )}
           {this.isOpen && (
             <div class="b2b-dropdown__content">
               <div class="b2b-dropdown__options" role="listbox">
