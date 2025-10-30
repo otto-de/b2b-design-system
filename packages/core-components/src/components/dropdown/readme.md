@@ -18,6 +18,7 @@
 | `placeholder`      | `placeholder`       | Placeholder text for the dropdown.                                                                                      | `string`  | `'Select an option...'` |
 | `placeholderValue` | `placeholder-value` | Value for the placeholder. Defaults to an empty string but can be customized.                                           | `string`  | `''`                    |
 | `required`         | `required`          | Adds an asterisk at the end of the label to signify that the field is required.                                         | `boolean` | `false`                 |
+| `search`           | `search`            | Enables the search functionality when set to true within the dropdown. By default search is disabled.                   | `boolean` | `false`                 |
 
 
 ## Events
@@ -47,13 +48,16 @@ Type: `Promise<void>`
 ### Depends on
 
 - [b2b-input-label](../input-label)
+- [b2b-input](../input)
 - [b2b-icon-100](../icon-100)
 
 ### Graph
 ```mermaid
 graph TD;
   b2b-dropdown --> b2b-input-label
+  b2b-dropdown --> b2b-input
   b2b-dropdown --> b2b-icon-100
+  b2b-input --> b2b-input-label
   style b2b-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

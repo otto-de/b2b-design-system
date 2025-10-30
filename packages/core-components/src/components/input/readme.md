@@ -65,6 +65,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [b2b-custom-dropdown](../custom-dropdown)
+ - [b2b-dropdown](../dropdown)
  - [b2b-input-list](../input-list)
 
 ### Depends on
@@ -76,6 +77,7 @@ Type: `Promise<void>`
 graph TD;
   b2b-input --> b2b-input-label
   b2b-custom-dropdown --> b2b-input
+  b2b-dropdown --> b2b-input
   b2b-input-list --> b2b-input
   style b2b-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

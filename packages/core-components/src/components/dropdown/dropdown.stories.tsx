@@ -11,6 +11,7 @@ const Template: StoryFn = ({
   invalid,
   hint,
   error,
+  search,
   selected = false,
 }) => {
   return html`<b2b-dropdown
@@ -20,7 +21,8 @@ const Template: StoryFn = ({
     hint="${hint}"
     disabled="${disabled}"
     invalid="${invalid}"
-    required="${required}">
+    required="${required}"
+    search="${search}">
     <option value="strawberry">Strawberry</option>
     <option value="orange">Orange</option>
     <option value="banana">Banana</option>
@@ -45,6 +47,7 @@ const defaultArgs = {
   invalid: false,
   hint: 'Pick one',
   error: 'Not that one!',
+  search: false,
 };
 
 export const story010Default = Template.bind({});
@@ -73,6 +76,10 @@ story050Selected.play = async ({ canvasElement }) => {
     await userEvent.click(wrapper);
   }, 500);
 };
+
+export const story060Search = Template.bind({});
+story060Search.args = { ...defaultArgs, search: true };
+story060Search.storyName = 'Search';
 
 const dropdownArgs = getArgTypes('b2b-dropdown');
 

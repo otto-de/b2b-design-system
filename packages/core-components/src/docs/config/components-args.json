@@ -1752,6 +1752,20 @@
         }
       },
       "description": "Adds an asterisk at the end of the label to signify that the field is required."
+    },
+    "search": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Enables the search functionality when set to true within the dropdown. By default search is disabled."
     }
   },
   "b2b-flyout-menu": {},
