@@ -196,6 +196,27 @@ export class DropdownComponent implements ComponentInterface {
     });
   }
 
+  private dropdownWithSearch = (event: any) => {
+    event.stopPropagation();
+    if (!this.disabled && !this.groupDisabled) {
+      this.isOpen = !this.isOpen;
+      if (this.isOpen) {
+        this.focusSearchInput();
+      }
+    }
+  };
+
+  private focusSearchInput = () => {
+    const inputComponent =
+      this.hostElement.shadowRoot?.querySelector('b2b-input');
+    if (inputComponent != null) {
+      const inputElement = inputComponent.shadowRoot?.querySelector('input');
+      if (inputElement != null) {
+        inputElement.focus();
+      }
+    }
+  };
+
   private onSelect = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
     const value = target.getAttribute('data-value');
@@ -333,19 +354,20 @@ export class DropdownComponent implements ComponentInterface {
                 this.focused = true;
               }}
               onB2b-input={this.handleSearchInput}>
-              <div class="b2b-dropdown__icons-container" slot="end">
+              <div slot="end">
                 {(this.selectedText || this.searchValue) &&
                   !this.disabled &&
                   !this.groupDisabled && (
                     <b2b-icon-100
                       class="b2b-dropdown__clear-icon"
                       icon={'b2b_icon-close'}
+                      clickable={true}
                       onClick={this.clearSelectedValue}></b2b-icon-100>
                   )}
                 <b2b-icon-100
                   class="b2b-dropdown__arrow-icon"
                   icon={'b2b_icon-arrow-down'}
-                  onClick={this.toggleDropdown}></b2b-icon-100>
+                  onClick={this.dropdownWithSearch}></b2b-icon-100>
               </div>
             </b2b-input>
           ) : (
@@ -365,6 +387,7 @@ export class DropdownComponent implements ComponentInterface {
                 <b2b-icon-100
                   class="b2b-dropdown__clear-icon"
                   onClick={this.clearSelectedValue}
+                  clickable={true}
                   icon={'b2b_icon-close'}
                 />
               )}
