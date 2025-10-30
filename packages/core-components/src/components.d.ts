@@ -628,6 +628,10 @@ export namespace Components {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required": boolean;
+        /**
+          * Enables the search functionality when set to true within the dropdown. By default search is disabled.
+         */
+        "search": boolean;
     }
     interface B2bFlyoutMenu {
         "opened": boolean;
@@ -3469,6 +3473,10 @@ declare namespace LocalJSX {
           * Adds an asterisk at the end of the label to signify that the field is required.
          */
         "required"?: boolean;
+        /**
+          * Enables the search functionality when set to true within the dropdown. By default search is disabled.
+         */
+        "search"?: boolean;
     }
     interface B2bFlyoutMenu {
         "opened"?: boolean;
