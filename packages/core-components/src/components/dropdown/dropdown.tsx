@@ -196,27 +196,6 @@ export class DropdownComponent implements ComponentInterface {
     });
   }
 
-  private dropdownWithSearch = (event: any) => {
-    event.stopPropagation();
-    if (!this.disabled && !this.groupDisabled) {
-      this.isOpen = !this.isOpen;
-      if (this.isOpen) {
-        this.focusSearchInput();
-      }
-    }
-  };
-
-  private focusSearchInput = () => {
-    const inputComponent =
-      this.hostElement.shadowRoot?.querySelector('b2b-input');
-    if (inputComponent != null) {
-      const inputElement = inputComponent.shadowRoot?.querySelector('input');
-      if (inputElement != null) {
-        inputElement.focus();
-      }
-    }
-  };
-
   private onSelect = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
     const value = target.getAttribute('data-value');
@@ -253,8 +232,8 @@ export class DropdownComponent implements ComponentInterface {
   };
 
   private updateTruncatedText = () => {
-    const placeHolder = this.search ? '' : this.placeholder;
-    const rawText = this.selectedText || placeHolder;
+    const inputValue = this.search ? '' : this.placeholder;
+    const rawText = this.selectedText || inputValue;
     if (this.selectEl == null) {
       this.truncatedText = rawText;
       return;
@@ -316,6 +295,25 @@ export class DropdownComponent implements ComponentInterface {
     this.isOpen = true;
   };
 
+  private toggleDropdownWithSearch = (event: any) => {
+    event.stopPropagation();
+    this.toggleDropdown();
+    if (this.isOpen) {
+      this.focusSearchInput();
+    }
+  };
+
+  private focusSearchInput = () => {
+    const inputComponent =
+      this.hostElement.shadowRoot?.querySelector('b2b-input');
+    if (inputComponent != null) {
+      const inputElement = inputComponent.shadowRoot?.querySelector('input');
+      if (inputElement != null) {
+        inputElement.focus();
+      }
+    }
+  };
+
   render() {
     const hasError = this.invalid && !this.disabled && !this.groupDisabled;
     const showHint = this.hint && !hasError;
@@ -331,7 +329,6 @@ export class DropdownComponent implements ComponentInterface {
           'b2b-dropdown': true,
           'b2b-dropdown--error': hasError,
           'b2b-dropdown--disabled': this.disabled || this.groupDisabled,
-          'b2b-dropdown--focused': this.focused,
         }}>
         {this.label && (
           <b2b-input-label id={this.name} required={this.required}>
@@ -367,7 +364,7 @@ export class DropdownComponent implements ComponentInterface {
                 <b2b-icon-100
                   class="b2b-dropdown__arrow-icon"
                   icon={'b2b_icon-arrow-down'}
-                  onClick={this.dropdownWithSearch}></b2b-icon-100>
+                  onClick={this.toggleDropdownWithSearch}></b2b-icon-100>
               </div>
             </b2b-input>
           ) : (
@@ -394,25 +391,23 @@ export class DropdownComponent implements ComponentInterface {
             </div>
           )}
           {this.isOpen && (
-            <div class="b2b-dropdown__content">
-              <div class="b2b-dropdown__options" role="listbox">
-                {filteredOptions.map(option => (
-                  <div
-                    key={option.value}
-                    class={{
-                      'b2b-dropdown__option': true,
-                      'b2b-dropdown__option--selected': option.selected,
-                      'b2b-dropdown__option--disabled': option.disabled,
-                    }}
-                    data-value={option.value}
-                    onClick={!option.disabled ? this.onSelect : undefined}
-                    role="option"
-                    aria-selected={option.selected ? 'true' : 'false'}
-                    aria-disabled={option.disabled ? 'true' : 'false'}>
-                    {option.label}
-                  </div>
-                ))}
-              </div>
+            <div class="b2b-dropdown__options" role="listbox">
+              {filteredOptions.map(option => (
+                <div
+                  key={option.value}
+                  class={{
+                    'b2b-dropdown__option': true,
+                    'b2b-dropdown__option--selected': option.selected,
+                    'b2b-dropdown__option--disabled': option.disabled,
+                  }}
+                  data-value={option.value}
+                  onClick={!option.disabled ? this.onSelect : undefined}
+                  role="option"
+                  aria-selected={option.selected ? 'true' : 'false'}
+                  aria-disabled={option.disabled ? 'true' : 'false'}>
+                  {option.label}
+                </div>
+              ))}
             </div>
           )}
         </div>
