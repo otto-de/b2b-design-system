@@ -25,7 +25,7 @@ exports[`should display custom properties 1`] = `
     <div class="b2b-date-range-picker-body b2b-date-range-picker-body--hidden">
       <div class="b2b-date-range-picker-body--calendar">
         <div>
-          <b2b-date-picker-header language="de" selectedmonth="9" selectedyear="2025"></b2b-date-picker-header>
+          <b2b-date-picker-header language="de" selectedmonth="10" selectedyear="2025"></b2b-date-picker-header>
           <b2b-date-picker-days-header language="de"></b2b-date-picker-days-header>
           <b2b-date-range-picker-days></b2b-date-range-picker-days>
         </div>
@@ -57,7 +57,7 @@ exports[`should render the date-range-picker 1`] = `
     <div class="b2b-date-range-picker-body b2b-date-range-picker-body--hidden">
       <div class="b2b-date-range-picker-body--calendar">
         <div>
-          <b2b-date-picker-header language="de" selectedmonth="9" selectedyear="2025"></b2b-date-picker-header>
+          <b2b-date-picker-header language="de" selectedmonth="10" selectedyear="2025"></b2b-date-picker-header>
           <b2b-date-picker-days-header language="de"></b2b-date-picker-days-header>
           <b2b-date-range-picker-days></b2b-date-range-picker-days>
         </div>
