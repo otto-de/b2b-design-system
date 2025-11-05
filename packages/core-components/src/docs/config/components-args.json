@@ -3281,9 +3281,16 @@
       "description": "The input label."
     },
     "optionsList": {
+      "options": [
+        null,
+        null
+      ],
+      "control": {
+        "type": "radio"
+      },
       "table": {
         "type": {
-          "summary": "string[]"
+          "summary": "string"
         },
         "defaultValue": {
           "summary": "[]"

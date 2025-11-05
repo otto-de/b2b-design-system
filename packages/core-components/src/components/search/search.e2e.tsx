@@ -115,7 +115,7 @@ describe('B2B-Search', () => {
     const input = await page.find('b2b-search >>> b2b-input-list');
     // focus on input element, focus method did not work
     await input.click();
-    await input.press('8');
+    await input.press('1');
     await page.waitForChanges();
 
     // Click first option on the list

@@ -11,6 +11,7 @@ import {
   EventEmitter,
 } from '@stencil/core';
 import { InputClear } from '../../utils/interfaces/form.interface';
+import { parsePropToArray } from '../../utils/json-property-binding-util';
 
 const keys = {
   ARROW_UP: 'ArrowUp',
@@ -38,7 +39,7 @@ export class InputListComponent {
   @Prop({ reflect: true }) placeholder: string;
 
   /** The list of options passed into the search dropdown. Can be static or dynamic, i.e. updated when the b2b-search or b2b-input emitters fire. */
-  @Prop() optionsList: string[] = [];
+  @Prop() optionsList: string | string[] = [];
 
   /** The default value of the input field. If defined, it will prefill the input. */
   @Prop({ mutable: true, reflect: true }) value: string = null;
@@ -55,7 +56,14 @@ export class InputListComponent {
 
   // @State() value: string = '';
   @State() hasOptionList = this.optionsList.length > 0;
+  @State() currentList: string[] = [];
   @State() isElementFocused = false;
+  @State() searchValue = '';
+
+  componentWillLoad() {
+    this.currentList = parsePropToArray(this.optionsList);
+    this.hasOptionList = this.optionsList.length > 0;
+  }
 
   private onOptionSelected = event => {
     this.setElementOnBlur();
@@ -72,6 +80,18 @@ export class InputListComponent {
   // needed to trigger re-render
   private handleInput = event => {
     this.value = event.detail.value;
+    const term = (event.target as HTMLB2bInputElement).value.toLowerCase();
+
+    const list = parsePropToArray(this.optionsList);
+    this.currentList =
+      term === ''
+        ? list
+        : list.filter(
+            o =>
+              o.toLowerCase().includes(term) || o.toLowerCase().includes(term),
+          );
+
+    this.searchValue = term;
     if (this.value === '' || null || undefined) {
       this.setElementOnBlur();
     }
@@ -132,6 +152,7 @@ export class InputListComponent {
   @Watch('optionsList')
   watchPropHandler(newList: string[]) {
     this.hasOptionList = newList.length > 0;
+    this.currentList = [...newList];
   }
 
   private setElementOnFocus = () => {
@@ -234,7 +255,7 @@ export class InputListComponent {
             <div class="b2b-input-list__options-container">
               {this.hasOptionList ? (
                 <div class="b2b-input-list__options" role="listbox">
-                  {this.optionsList.map(option => (
+                  {this.currentList.map(option => (
                     <b2b-input-list-option
                       option={option}
                       tabIndex={-1}

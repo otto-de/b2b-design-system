@@ -11,7 +11,7 @@ describe('B2B-InputList', () => {
     await page.waitForChanges();
   };
 
-  const typeInput = async (key: string = '8') => {
+  const typeInput = async (key: string = 'o') => {
     let input = await page.find('b2b-input-list >>> b2b-input');
     // focus on input element, focus method did not work
     await input.click();
@@ -84,12 +84,12 @@ describe('B2B-InputList', () => {
     await setOptionsList();
 
     const input = await page.find('b2b-input-list');
-    // focus on input element, focus method did not work
     await input.click();
-    await input.press('8');
+    await input.press('1');
     await page.waitForChanges();
 
     let searchListResults = await page.find({ text: optionsList[0] });
+    expect(searchListResults).not.toBeNull();
     expect(await searchListResults.isVisible()).toBe(true);
 
     await input.click();
@@ -141,12 +141,12 @@ describe('B2B-InputList', () => {
 
   it('should fill up input value with option selected', async () => {
     await setOptionsList();
-    await typeInput('8');
+    await typeInput('1');
 
     const input = await page.find('b2b-input-list >>> b2b-input');
 
     let inputValue = await input.getProperty('value');
-    expect(inputValue).toBe('8');
+    expect(inputValue).toBe('1');
 
     // Click first option on the list
     const option = await page.find({ text: optionsList[0] });
