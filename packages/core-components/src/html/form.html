@@ -145,13 +145,17 @@
     <div class="content-container">
       <b2b-headline size="200">Input list</b2b-headline>
       <div style="width: 40%">
-        <b2b-input-list id="i-list" placeholder="search here"></b2b-input-list>
+        <b2b-input-list
+          id="i-list"
+          placeholder="search here"
+          options-list=""></b2b-input-list>
         <script>
           const inputListEl = document.getElementById('i-list');
           inputListEl.optionsList = [
-            'result1',
-            'result2',
-            'result3',
+            'aresult1',
+            'abcresult2',
+            'abcdresult3',
+            'abcdresult4',
             'result4',
             'result4',
             'result4',
