@@ -84,12 +84,7 @@ export class InputListComponent {
 
     const list = parsePropToArray(this.optionsList);
     this.currentList =
-      term === ''
-        ? list
-        : list.filter(
-            o =>
-              o.toLowerCase().includes(term) || o.toLowerCase().includes(term),
-          );
+      term === '' ? list : list.filter(o => o.toLowerCase().includes(term));
 
     this.searchValue = term;
     if (this.value === '' || null || undefined) {
