@@ -25,7 +25,7 @@ const meta: Meta = {
       <b2b-paragraph>
         The BackgroundBox component adjusts its width and padding based on two
         properties: maxWidth and noPadding. When maxWidth is true, it fills the
-        available width until 1212px. The noPadding property controls internal
+        available width until 1440px. The noPadding property controls internal
         spacing—if true, no padding is applied; if false, a default padding of
         24px (1.5rem) is added. The height of the box depends on its internal
         content.

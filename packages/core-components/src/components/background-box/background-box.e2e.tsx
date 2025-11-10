@@ -47,7 +47,7 @@ describe('B2B-Background-Box', () => {
 
     expect(element).toEqualText('Background box component');
     const style = await element.getComputedStyle();
-    expect(style.maxWidth).toBe('1212px');
+    expect(style.maxWidth).toBe('1440px');
   });
   it('should remove specific borders when set to none', async () => {
     page = await newE2EPage();
