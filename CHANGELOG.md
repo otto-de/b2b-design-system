@@ -1,3 +1,11 @@
+# [1.36.0](https://github.com/otto-de/b2b-design-system/compare/v1.35.0...v1.36.0) (2025-11-11)
+
+
+### Features
+
+* **dropdown:** [NEPTUNE-4925] fix css for clear icon ([#637](https://github.com/otto-de/b2b-design-system/issues/637)) ([196ae23](https://github.com/otto-de/b2b-design-system/commit/196ae236c39de1e3311bed528448b596f3fa1ae9))
+* **InputList:** [BLA-1794] Add partial search functionality for input list ([#636](https://github.com/otto-de/b2b-design-system/issues/636)) ([8111568](https://github.com/otto-de/b2b-design-system/commit/8111568a4bf4f03e522861831ceb95d0edcf6694))
+
 # [1.35.0](https://github.com/otto-de/b2b-design-system/compare/v1.34.0...v1.35.0) (2025-10-27)
 
 
