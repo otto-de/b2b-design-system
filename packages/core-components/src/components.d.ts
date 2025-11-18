@@ -30,6 +30,10 @@ export { WizardStatus, WizardSteps } from "./utils/types/wizard.types";
 export namespace Components {
     interface B2bAlert {
         /**
+          * The alignment of the content.
+         */
+        "align": 'left' | 'center';
+        /**
           * Whether or not you want to use a custom icon. Per default, it is false.
          */
         "customIcon": boolean;
@@ -2773,6 +2777,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface B2bAlert {
+        /**
+          * The alignment of the content.
+         */
+        "align"?: 'left' | 'center';
         /**
           * Whether or not you want to use a custom icon. Per default, it is false.
          */

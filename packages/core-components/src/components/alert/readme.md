@@ -9,6 +9,7 @@
 
 | Property         | Attribute          | Description                                                                                                              | Type                                          | Default   |
 | ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | --------- |
+| `align`          | `align`            | The alignment of the content.                                                                                            | `"center" \| "left"`                          | `'left'`  |
 | `customIcon`     | `custom-icon`      | Whether or not you want to use a custom icon. Per default, it is false.                                                  | `boolean`                                     | `false`   |
 | `hasCloseButton` | `has-close-button` | Whether or not the alert has a close button. Per default it is true. Note that errors and small alerts cannot be closed. | `boolean`                                     | `true`    |
 | `opened`         | `opened`           | Whether the alert is currently open. Set to true to display the alert.                                                   | `boolean`                                     | `false`   |

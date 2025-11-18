@@ -8,16 +8,24 @@ const Template: StoryFn = ({
   type,
   opened,
   size,
+  align,
   hasCloseButton,
   customIcon,
 }) => {
   const [_, updateArgs] = useArgs();
   const openAlert = () => {
-    updateArgs({ opened: true, type, size, hasCloseButton, customIcon });
+    updateArgs({ opened: true, type, size, align, hasCloseButton, customIcon });
   };
 
   const closeAlert = () => {
-    updateArgs({ opened: false, type, size, hasCloseButton, customIcon });
+    updateArgs({
+      opened: false,
+      type,
+      size,
+      align,
+      hasCloseButton,
+      customIcon,
+    });
   };
 
   return html`
@@ -30,6 +38,7 @@ const Template: StoryFn = ({
       opened="${opened}"
       type="${type}"
       size="${size}"
+      align="${align}"
       has-close-button="${hasCloseButton}"
       custom-icon="${customIcon}">
       <strong>${type}</strong> This is an alert.
@@ -41,6 +50,7 @@ const defaultArgs = {
   type: 'info',
   opened: false,
   size: 'large',
+  align: 'left',
   hasCloseButton: true,
   customIcon: false,
 };

@@ -72,4 +72,23 @@
     width: inherit;
     justify-content: space-between;
   }
+
+  &--align-center {
+    &.b2b-alert--large {
+      .b2b-alert__content {
+        flex: 1;
+        justify-content: center;
+        align-items: flex-start;
+
+        span {
+          flex-shrink: 0;
+        }
+
+        p {
+          text-align: center;
+          width: auto;
+        }
+      }
+    }
+  }
 }

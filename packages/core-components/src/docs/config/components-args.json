@@ -1,5 +1,23 @@
 {
   "b2b-alert": {
+    "align": {
+      "options": [
+        "center",
+        "left"
+      ],
+      "control": {
+        "type": "radio"
+      },
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "'left'"
+        }
+      },
+      "description": "The alignment of the content."
+    },
     "customIcon": {
       "control": {
         "type": "boolean"
