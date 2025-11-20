@@ -9,7 +9,7 @@ export class ShimmerComponent {
   /** Whether the shimmer effect is shown or not. */
   @Prop() loading: boolean;
 
-  /** The width of the shimmer effect im px. */
+  /** The width of the shimmer effect in px. */
   @Prop() width: number;
 
   /** The height of the shimmer effect in px. */

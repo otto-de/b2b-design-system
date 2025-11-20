@@ -1202,7 +1202,7 @@ export namespace Components {
          */
         "loading": boolean;
         /**
-          * The width of the shimmer effect im px.
+          * The width of the shimmer effect in px.
          */
         "width": number;
     }
@@ -4103,7 +4103,7 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
-          * The width of the shimmer effect im px.
+          * The width of the shimmer effect in px.
          */
         "width"?: number;
     }
