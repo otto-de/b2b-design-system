@@ -20,7 +20,7 @@ const meta: Meta = {
       loading="${args.loading}"
       width="${args.width}"
       height="${args.height}">
-      This is the mean content which takes a while to load.
+      This is the main content, which takes a while to load.
     </b2b-shimmer>`,
 };
 
