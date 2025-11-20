@@ -29,7 +29,9 @@ const Template: StoryFn = ({
     <option value="orange">Orange</option>
     <option value="banana">Banana</option>
     ${selected
-      ? html`<option value="pineapple" selected="true">Pineapple</option>`
+      ? html`<option value="pineapple" selected="true" clear="true">
+          Pineapple
+        </option>`
       : html`<option value="pineapple">Pineapple</option>`}
     <option value="grapes">Grapes</option>
     <option value="watermelon">Watermelon</option>
@@ -85,7 +87,7 @@ story060Search.args = { ...defaultArgs, search: true };
 story060Search.storyName = 'Search';
 
 export const story070Clear = Template.bind({});
-story070Clear.args = { ...defaultArgs, clear: true };
+story070Clear.args = { ...defaultArgs, selected: true, clear: true };
 story070Clear.storyName = 'Clear';
 
 const dropdownArgs = getArgTypes('b2b-dropdown');
