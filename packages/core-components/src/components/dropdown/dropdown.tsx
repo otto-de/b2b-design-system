@@ -25,6 +25,9 @@ export class DropdownComponent implements ComponentInterface {
   /** Enables the search functionality when set to true within the dropdown. By default search is disabled. */
   @Prop({ reflect: true }) search: boolean = false;
 
+  /** Adds a clear button to the select to clear the current selection. */
+  @Prop({ reflect: true }) clear: boolean = false;
+
   /** Adds an asterisk at the end of the label to signify that the field is required. */
   @Prop({ reflect: true }) required: boolean = false;
 
@@ -354,7 +357,8 @@ export class DropdownComponent implements ComponentInterface {
               <div slot="end">
                 {(this.selectedText || this.searchValue) &&
                   !this.disabled &&
-                  !this.groupDisabled && (
+                  !this.groupDisabled &&
+                  this.clear && (
                     <b2b-icon-100
                       class="b2b-dropdown__clear-icon"
                       icon={'b2b_icon-close'}
@@ -380,14 +384,17 @@ export class DropdownComponent implements ComponentInterface {
               aria-expanded={`${this.isOpen}`}
               aria-labelledby={this.name}>
               {this.truncatedText}
-              {this.selectedText && !this.disabled && !this.groupDisabled && (
-                <b2b-icon-100
-                  class="b2b-dropdown__clear-icon"
-                  onClick={this.clearSelectedValue}
-                  clickable={true}
-                  icon={'b2b_icon-close'}
-                />
-              )}
+              {this.selectedText &&
+                !this.disabled &&
+                !this.groupDisabled &&
+                this.clear && (
+                  <b2b-icon-100
+                    class="b2b-dropdown__clear-icon"
+                    onClick={this.clearSelectedValue}
+                    clickable={true}
+                    icon={'b2b_icon-close'}
+                  />
+                )}
             </div>
           )}
           {this.isOpen && (

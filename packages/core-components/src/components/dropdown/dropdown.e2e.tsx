@@ -65,22 +65,42 @@ describe('B2B-Dropdown', () => {
     expect(element).toHaveClass('b2b-dropdown--error');
   });
 
-  it('ensure clear icon is visible', async () => {
-    let dropdown = await page.find('b2b-dropdown');
+  it('ensure clear icon is visible when the clear is enabled', async () => {
+    const dropdown = await page.find('b2b-dropdown');
+    dropdown.setProperty('clear', true);
+    dropdown.setProperty('selectedText', 'Option 1');
+    await page.waitForChanges();
 
-    const clearIcon = await dropdown.shadowRoot.querySelector(
-      '.b2b-dropdown__clear-icon',
-    );
-    expect(clearIcon).not.toBeNull();
-  });
-
-  it('ensure text is cleared when clear icon is clicked', async () => {
     const clearIcon = await page.find(
       'b2b-dropdown >>> b2b-icon-100.b2b-dropdown__clear-icon',
     );
 
     expect(clearIcon).not.toBeNull();
+  });
 
+  it('ensure clear icon is not visible when the clear is disabled', async () => {
+    const dropdown = await page.find('b2b-dropdown');
+    dropdown.setProperty('clear', false);
+    dropdown.setProperty('selectedText', 'Option 1');
+    await page.waitForChanges();
+
+    const clearIcon = await page.find(
+      'b2b-dropdown >>> b2b-icon-100.b2b-dropdown__clear-icon',
+    );
+
+    expect(clearIcon).toBeNull();
+  });
+
+  it('ensure text is cleared when clear icon is clicked', async () => {
+    const dropdown = await page.find('b2b-dropdown');
+    dropdown.setProperty('clear', true);
+    dropdown.setProperty('selectedText', 'Option 1');
+    await page.waitForChanges();
+
+    const clearIcon = await page.find(
+      'b2b-dropdown >>> b2b-icon-100.b2b-dropdown__clear-icon',
+    );
+    expect(clearIcon).not.toBeNull();
     await clearIcon.click();
     await page.waitForChanges();
 
@@ -94,7 +114,9 @@ describe('B2B-Dropdown', () => {
   it('ensure text is cleared when clear icon is clicked when search is enabled', async () => {
     let dropdown = await page.find('b2b-dropdown');
     dropdown.setProperty('search', true);
-
+    dropdown.setProperty('clear', true);
+    dropdown.setProperty('selectedText', 'Option 1');
+    await page.waitForChanges();
     const clearIcon = await page.find(
       'b2b-dropdown >>> b2b-icon-100.b2b-dropdown__clear-icon',
     );
@@ -111,7 +133,7 @@ describe('B2B-Dropdown', () => {
 
   it('should clear the selection and reset to placeholder', async () => {
     let dropdown = await page.find('b2b-dropdown');
-
+    dropdown.setProperty('clear', true);
     await dropdown.callMethod('clearSelection');
     await page.waitForChanges();
 

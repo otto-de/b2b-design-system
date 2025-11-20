@@ -588,6 +588,10 @@ export namespace Components {
     }
     interface B2bDropdown {
         /**
+          * Adds a clear button to the select to clear the current selection.
+         */
+        "clear": boolean;
+        /**
           * Method to programmatically clear selection of the dropdown.
          */
         "clearSelection": () => Promise<void>;
@@ -3424,6 +3428,10 @@ declare namespace LocalJSX {
         "viewedDate"?: Dateish;
     }
     interface B2bDropdown {
+        /**
+          * Adds a clear button to the select to clear the current selection.
+         */
+        "clear"?: boolean;
         /**
           * Whether the select as a whole is disabled. Per default it is false.
          */
