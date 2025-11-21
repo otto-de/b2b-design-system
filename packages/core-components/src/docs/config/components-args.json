@@ -1653,6 +1653,20 @@
     }
   },
   "b2b-dropdown": {
+    "clear": {
+      "control": {
+        "type": "boolean"
+      },
+      "table": {
+        "type": {
+          "summary": "boolean"
+        },
+        "defaultValue": {
+          "summary": "false"
+        }
+      },
+      "description": "Adds a clear button to the select to clear the current selection."
+    },
     "disabled": {
       "control": {
         "type": "boolean"
