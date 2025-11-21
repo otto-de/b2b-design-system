@@ -9,6 +9,7 @@
 
 | Property           | Attribute           | Description                                                                                                             | Type      | Default                 |
 | ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------- |
+| `clear`            | `clear`             | Adds a clear button to the select to clear the current selection.                                                       | `boolean` | `false`                 |
 | `disabled`         | `disabled`          | Whether the select as a whole is disabled. Per default it is false.                                                     | `boolean` | `false`                 |
 | `error`            | `error`             | An optional error message for the dropdown. This will only appear if invalid is set to true.                            | `string`  | `undefined`             |
 | `hint`             | `hint`              | An optional hint text for the dropdown.                                                                                 | `string`  | `undefined`             |
