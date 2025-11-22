@@ -37,6 +37,14 @@ used sparingly.
 The Alert Component comes in two sizes. The default is `small`, which renders only an icon and no text. Any slotted text will not be displayed. The close icon will also not be shown on the small alert.
 The large Alert Component comes with customizable text and an optional close icon. Please note that the first word or sentence of the alert is normally bold, but can be customized as well.
 
+### Align
+
+By default, the content inside the large alert is left-aligned. You can change this by setting the `align` attribute to `center`
+
+#### Center aligned
+
+<b2b-alert opened size="large" align="center" type="warning">An alert with centered content.</b2b-alert>
+
 ### Close Button
 
 Per default, all large alerts except the error alert have a close button. By setting `hasCloseButton` to false, you can remove it.

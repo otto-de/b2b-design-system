@@ -21,6 +21,9 @@ export class AlertComponent {
   /** The size of the alert. Per default it is large. If set to small, the alert will only have an icon. */
   @Prop() size: 'large' | 'small' = 'large';
 
+  /** The alignment of the content. */
+  @Prop() align: 'left' | 'center' = 'left';
+
   /** Whether the alert is currently open. Set to true to display the alert. */
   @Prop({ mutable: true }) opened: boolean = false;
 
@@ -68,6 +71,7 @@ export class AlertComponent {
             [`b2b-alert--${this.type}`]: true,
             [`b2b-alert--${this.size}`]: true,
             'b2b-alert--open': this.opened,
+            'b2b-alert--align-center': this.align === 'center',
           }}>
           <div class="b2b-alert__content">
             <span class={{ [`b2b-alert--${this.type}__icon`]: true }}>

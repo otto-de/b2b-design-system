@@ -1,6 +1,6 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('B2B-Alert', () => {
+describe.only('B2B-Alert', () => {
   it('should render the alert component', async () => {
     const page = await newE2EPage();
     await page.setContent(`<b2b-alert></alert>`);
@@ -102,5 +102,19 @@ describe('B2B-Alert', () => {
     const element = await page.find('b2b-icon-100');
 
     expect(element).not.toBeNull();
+  });
+
+  it('should render a large alert with centered content', async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<b2b-alert opened size={large} align="center">test</b2b-alert>`,
+    );
+
+    const element = await page.find({ text: 'test' });
+
+    expect(element).not.toBeNull();
+
+    const alert = await page.find('b2b-alert >>> div.b2b-alert');
+    expect(alert).toHaveClass('b2b-alert--align-center');
   });
 });
