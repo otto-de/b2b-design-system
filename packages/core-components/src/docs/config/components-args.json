@@ -4187,7 +4187,7 @@
         },
         "defaultValue": {}
       },
-      "description": "The width of the shimmer effect im px."
+      "description": "The width of the shimmer effect in px."
     }
   },
   "b2b-snackbar": {
