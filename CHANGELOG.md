@@ -1,3 +1,10 @@
+# [1.37.0](https://github.com/otto-de/b2b-design-system/compare/v1.36.0...v1.37.0) (2025-11-25)
+
+
+### Features
+
+* **dropdown:** [NEPTUNE-4552] Add customisible clear button ([#641](https://github.com/otto-de/b2b-design-system/issues/641)) ([0b7439b](https://github.com/otto-de/b2b-design-system/commit/0b7439b7956a6e01abf6590798767baf2a422942))
+
 # [1.36.0](https://github.com/otto-de/b2b-design-system/compare/v1.35.0...v1.36.0) (2025-11-11)
 
 
