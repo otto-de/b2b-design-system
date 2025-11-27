@@ -14,10 +14,10 @@ const meta: Meta = {
   argTypes: getArgTypes('b2b-progress-bar'),
   render: ({ ...args }) =>
     html`<b2b-progress-bar
-      progress="${args.progress}"
-      label="${args.label}"
-      label-type="${args.labelType}"
-      label-position="${args.labelPosition}" />`,
+      progress=${args.progress}
+      label=${args.label}
+      label-type=${args.labelType}
+      label-position=${args.labelPosition} />`,
 };
 
 export default meta;

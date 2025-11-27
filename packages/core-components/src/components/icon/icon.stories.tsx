@@ -5,10 +5,7 @@ import { iconTypes } from './types';
 import './../../global/icon.stories.scss';
 
 const Template: StoryFn = ({ icon, color, variant }) => {
-  return html`<b2b-icon
-    icon="${icon}"
-    color="${color}"
-    variant="${variant}" />`;
+  return html`<b2b-icon icon=${icon} color=${color} variant=${variant} />`;
 };
 
 const defaultArgs = {
@@ -36,7 +33,7 @@ story030Inverse.parameters = {
 
 export const story035Inherit: StoryFn = ({ icon, color, variant }) => {
   return html` <div style="color: red;">
-    <b2b-icon icon="${icon}" color="${color}" variant="${variant}" />
+    <b2b-icon icon=${icon} color=${color} variant=${variant} />
   </div>`;
 };
 story035Inherit.args = { ...defaultArgs, color: 'inherit' };
@@ -60,9 +57,9 @@ export const story070AllIcons: StoryFn = ({ color, variant }) => {
     return html`
       <div class="icon-container">
         <b2b-icon
-          icon="${icon}"
-          color="${color || defaultArgs.color}"
-          variant="${variant || 100}"></b2b-icon>
+          icon=${icon}
+          color=${color || defaultArgs.color}
+          variant=${variant || 100}></b2b-icon>
         <p>${icon}</p>
       </div>
     `;

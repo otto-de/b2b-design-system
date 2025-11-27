@@ -18,10 +18,10 @@ const meta: Meta = {
     html`<div style="height: 130px; width: 300px">
       <b2b-input-list
         data-testid="element"
-        label="${args.label}"
-        required="${args.required}"
-        placeholder="${args.placeholder}"
-        disabled="${args.disabled}"
+        label=${args.label}
+        required=${args.required}
+        placeholder=${args.placeholder}
+        disabled=${args.disabled}
         .optionsList=${args.optionsList}></b2b-input-list>
     </div>`,
 };
@@ -57,10 +57,10 @@ export const CustomList: Story = {
     html`<div style="height: 130px; width: 300px">
       <b2b-input-list
         data-testid="element"
-        label="${args.label}"
-        required="${args.required}"
-        placeholder="${args.placeholder}"
-        disabled="${args.disabled}"
+        label=${args.label}
+        required=${args.required}
+        placeholder=${args.placeholder}
+        disabled=${args.disabled}
         .optionsList=${args.optionsList}
         ><ul>
           <li>Option 1</li>
@@ -93,11 +93,11 @@ export const disabledWithSelectedOption: Story = {
     html`<div style="height: 130px; width: 300px">
       <b2b-input-list
         data-testid="element"
-        label="${args.label}"
-        value="${args.optionsList[0]}"
-        required="${args.required}"
-        placeholder="${args.placeholder}"
-        disabled="${args.disabled}"
+        label=${args.label}
+        value=${args.optionsList[0]}
+        required=${args.required}
+        placeholder=${args.placeholder}
+        disabled=${args.disabled}
         .optionsList=${args.optionsList}
         ><ul>
           <li>Option 1</li>

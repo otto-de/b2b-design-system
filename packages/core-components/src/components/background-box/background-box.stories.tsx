@@ -16,12 +16,12 @@ const meta: Meta = {
   argTypes: getArgTypes('b2b-background-box'),
   render: ({ ...args }) =>
     html` <b2b-background-box
-      max-width="${args.maxWidth}"
-      no-padding="${args.noPadding}"
-      border-top="${args.borderTop}"
-      border-right="${args.borderRight}"
-      border-bottom="${args.borderBottom}"
-      border-left="${args.borderLeft}">
+      max-width=${args.maxWidth}
+      no-padding=${args.noPadding}
+      border-top=${args.borderTop}
+      border-right=${args.borderRight}
+      border-bottom=${args.borderBottom}
+      border-left=${args.borderLeft}>
       <b2b-paragraph>
         The BackgroundBox component adjusts its width and padding based on two
         properties: maxWidth and noPadding. When maxWidth is true, it fills the

@@ -39,10 +39,10 @@ const meta: Meta = {
       <b2b-paragraph>
         I am some text with a tooltip
         <b2b-tooltip
-          position="${args.position}"
-          trigger="${args.trigger}"
-          content="${args.content}"
-          opened="${args.opened}"
+          position=${args.position}
+          trigger=${args.trigger}
+          content=${args.content}
+          opened=${args.opened}
           data-testid="trigger"
           >${markup}
         </b2b-tooltip>
@@ -65,10 +65,10 @@ export const FocusTooltip: Story = {
       <b2b-paragraph>
         I am some text with a tooltip
         <b2b-tooltip
-          position="${args.position}"
-          trigger="${args.trigger}"
-          content="${args.content}"
-          opened="${args.opened}"
+          position=${args.position}
+          trigger=${args.trigger}
+          content=${args.content}
+          opened=${args.opened}
           data-testid="trigger">
           ${focusTriggerMarkup}
         </b2b-tooltip>

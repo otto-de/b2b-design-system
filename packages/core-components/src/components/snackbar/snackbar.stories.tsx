@@ -38,14 +38,14 @@ const meta: Meta = {
       <hr />
       <b2b-snackbar
         @b2b-close=${hideSnackbar}
-        description="${args.description}"
-        type="${args.type}"
-        opened="${args.opened}"
-        timed="${args.timed}"
-        duration="${args.duration}"
-        has-action="${args.hasAction}"
-        action-label="${args.actionLabel}"
-        width="${args.width}"></b2b-snackbar>`;
+        description=${args.description}
+        type=${args.type}
+        opened=${args.opened}
+        timed=${args.timed}
+        duration=${args.duration}
+        has-action=${args.hasAction}
+        action-label=${args.actionLabel}
+        width=${args.width}></b2b-snackbar>`;
   },
 };
 

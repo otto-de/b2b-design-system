@@ -74,7 +74,7 @@ const meta: Meta = {
         args.data.rows,
         (row, index) => html`
           <b2b-table-row
-            highlight="${args.highlight}"
+            highlight=${args.highlight}
             color=${index === 0 ? args.color : 'default'}>
             ${repeat(
               // @ts-ignore
@@ -82,8 +82,8 @@ const meta: Meta = {
               (cell, index) =>
                 html`<b2b-table-cell
                   ?divider=${args.withDividers && index === 0}
-                  align="${args.align}"
-                  text-wrap="${args.textWrap}"
+                  align=${args.align}
+                  text-wrap=${args.textWrap}
                   >${cell}</b2b-table-cell
                 >`,
             )}<b2b-table-cell
@@ -183,7 +183,7 @@ export const ScrollableTable: Story = {
   render: ({ ...args }) =>
     html`<b2b-scrollable-container
       style="width: ${args.parentWidth}; height: ${args.parentHeight};">
-      <b2b-table size="${args.size}">
+      <b2b-table size=${args.size}>
         <b2b-table-rowgroup type="header">
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
@@ -199,14 +199,14 @@ export const ScrollableTable: Story = {
         <b2b-table-rowgroup type="body">
           ${args.data.rows.map((row, index) => {
             return html`<b2b-table-row
-              highlight="${args.highlight}"
+              highlight=${args.highlight}
               color=${index === 0 ? args.color : 'default'}>
               ${row.map(
                 (data, index) =>
                   html`<b2b-table-cell
                     ?divider=${args.withDividers && index === 0}
-                    align="${args.align}"
-                    text-wrap="${args.textWrap}"
+                    align=${args.align}
+                    text-wrap=${args.textWrap}
                     >${data}</b2b-table-cell
                   >`,
               )}
@@ -221,14 +221,14 @@ const RenderSortableTable = ({ ...args }) => html`
       <b2b-table-rowgroup type="body">
         ${args.data.rows.map((row, index) => {
           return html`<b2b-table-row
-            highlight="${args.highlight}"
+            highlight=${args.highlight}
             color=${index === 0 ? args.color : 'default'}>
             ${row.map(
               data =>
                 html`<b2b-table-cell
                   ?divider=${args.withDividers}
-                  align="${args.align}"
-                  text-wrap="${args.textWrap}"
+                  align=${args.align}
+                  text-wrap=${args.textWrap}
                   >${data}</b2b-table-cell
                 >`,
             )}
@@ -320,7 +320,7 @@ export const AccordionTable: Story = {
   },
   render: ({ ...args }) =>
     html`<div>
-      <b2b-table size="${args.size}">
+      <b2b-table size=${args.size}>
         <b2b-table-rowgroup type="header" accordion>
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
@@ -336,14 +336,14 @@ export const AccordionTable: Story = {
         <b2b-table-rowgroup type="body" accordion>
           ${args.data.rows.map((row, index) => {
             return html`<b2b-table-row
-              highlight="${args.highlight}"
+              highlight=${args.highlight}
               color=${index === 0 ? args.color : 'default'}>
               ${row.map(
                 data =>
                   html`<b2b-table-cell
                     ?divider=${args.withDividers}
-                    align="${args.align}"
-                    text-wrap="${args.textWrap}"
+                    align=${args.align}
+                    text-wrap=${args.textWrap}
                     >${data}</b2b-table-cell
                   >`,
               )}
@@ -356,14 +356,14 @@ export const AccordionTable: Story = {
         <b2b-table-rowgroup type="body" accordion opened>
           ${args.data.rows.map((row, index) => {
             return html`<b2b-table-row
-              highlight="${args.highlight}"
+              highlight=${args.highlight}
               color=${index === 0 ? args.color : 'default'}>
               ${row.map(
                 data =>
                   html`<b2b-table-cell
                     ?divider=${args.withDividers}
-                    align="${args.align}"
-                    text-wrap="${args.textWrap}"
+                    align=${args.align}
+                    text-wrap=${args.textWrap}
                     >${data}</b2b-table-cell
                   >`,
               )}
@@ -383,7 +383,7 @@ export const SelectableTable: Story = {
   },
   render: ({ ...args }) =>
     html`<div>
-      <b2b-table size="${args.size}">
+      <b2b-table size=${args.size}>
         <b2b-table-rowgroup type="header" accordion selectable>
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
@@ -399,14 +399,14 @@ export const SelectableTable: Story = {
         <b2b-table-rowgroup type="body" accordion selectable>
           ${args.data.rows.map((row, index) => {
             return html`<b2b-table-row
-              highlight="${args.highlight}"
+              highlight=${args.highlight}
               color=${index === 0 ? args.color : 'default'}>
               ${row.map(
                 data =>
                   html`<b2b-table-cell
                     ?divider=${args.withDividers}
-                    align="${args.align}"
-                    text-wrap="${args.textWrap}"
+                    align=${args.align}
+                    text-wrap=${args.textWrap}
                     >${data}</b2b-table-cell
                   >`,
               )}
@@ -419,14 +419,14 @@ export const SelectableTable: Story = {
         <b2b-table-rowgroup type="body" accordion opened selectable>
           ${args.data.rows.map((row, index) => {
             return html`<b2b-table-row
-              highlight="${args.highlight}"
+              highlight=${args.highlight}
               color=${index === 0 ? args.color : 'default'}>
               ${row.map(
                 data =>
                   html`<b2b-table-cell
                     ?divider=${args.withDividers}
-                    align="${args.align}"
-                    text-wrap="${args.textWrap}"
+                    align=${args.align}
+                    text-wrap=${args.textWrap}
                     >${data}</b2b-table-cell
                   >`,
               )}
@@ -449,42 +449,42 @@ export const ColspanTable: Story = {
   },
   render: ({ ...args }) =>
     html`<div style="width: 500px">
-      <b2b-table size="${args.size}">
-        <b2b-table-rowgroup type="header" selectable="${args.selectable}">
+      <b2b-table size=${args.size}>
+        <b2b-table-rowgroup type="header" selectable=${args.selectable}>
           <b2b-table-row>
-            <b2b-table-header divider="${args.withDividers}" colspan="2"
+            <b2b-table-header divider=${args.withDividers} colspan="2"
               >2 Columns</b2b-table-header
             >
-            <b2b-table-header divider="${args.withDividers}"
+            <b2b-table-header divider=${args.withDividers}
               >1 Column</b2b-table-header
             >
             <b2b-table-header>1 Column</b2b-table-header>
           </b2b-table-row>
         </b2b-table-rowgroup>
-        <b2b-table-rowgroup type="body" selectable="${args.selectable}">
+        <b2b-table-rowgroup type="body" selectable=${args.selectable}>
           <b2b-table-row>
-            <b2b-table-cell divider="${args.withDividers}"
+            <b2b-table-cell divider=${args.withDividers}
               >1 Column</b2b-table-cell
             >
             <b2b-table-cell colspan="3">3 Columns</b2b-table-cell>
           </b2b-table-row>
           <b2b-table-row>
-            <b2b-table-cell divider="${args.withDividers}"
+            <b2b-table-cell divider=${args.withDividers}
               >1 Column</b2b-table-cell
             >
-            <b2b-table-cell divider="${args.withDividers}"
+            <b2b-table-cell divider=${args.withDividers}
               >1 Column</b2b-table-cell
             >
-            <b2b-table-cell divider="${args.withDividers}"
+            <b2b-table-cell divider=${args.withDividers}
               >1 Column</b2b-table-cell
             >
             <b2b-table-cell>1 Column</b2b-table-cell>
           </b2b-table-row>
           <b2b-table-row>
-            <b2b-table-cell divider="${args.withDividers}" colspan="2"
+            <b2b-table-cell divider=${args.withDividers} colspan="2"
               >2 Columns</b2b-table-cell
             >
-            <b2b-table-cell divider="${args.withDividers}"
+            <b2b-table-cell divider=${args.withDividers}
               >1 Column</b2b-table-cell
             >
             <b2b-table-cell>1 Column</b2b-table-cell>

@@ -4,12 +4,10 @@ import { getArgTypes } from '../../docs/config/utils';
 
 const Template: StoryFn = ({ href, active, paddingTop, paddingBottom }) => {
   return html`
-    <b2b-breadcrumb
-      padding-top="${paddingTop}"
-      padding-bottom="${paddingBottom}">
-      <b2b-breadcrumb-item href="${href}">Start</b2b-breadcrumb-item>
+    <b2b-breadcrumb padding-top=${paddingTop} padding-bottom=${paddingBottom}>
+      <b2b-breadcrumb-item href=${href}>Start</b2b-breadcrumb-item>
       <b2b-breadcrumb-item>Weiter</b2b-breadcrumb-item>
-      <b2b-breadcrumb-item active="${active}">Ende</b2b-breadcrumb-item>
+      <b2b-breadcrumb-item active=${active}>Ende</b2b-breadcrumb-item>
     </b2b-breadcrumb>
   `;
 };

@@ -14,15 +14,15 @@ const Template: StoryFn = ({
   error,
 }) => {
   return html` <b2b-radio-button
-    label="${label}"
-    required="${required}"
-    name="${name}"
-    checked="${checked}"
-    value="${value}"
-    invalid="${invalid}"
-    disabled="${disabled}"
-    hint="${hint}"
-    error="${error}"></b2b-radio-button>`;
+    label=${label}
+    required=${required}
+    name=${name}
+    checked=${checked}
+    value=${value}
+    invalid=${invalid}
+    disabled=${disabled}
+    hint=${hint}
+    error=${error}></b2b-radio-button>`;
 };
 
 const defaultArgs = {

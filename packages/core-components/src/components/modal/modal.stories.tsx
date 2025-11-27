@@ -31,11 +31,11 @@ const Template: StoryFn = ({
     <b2b-modal
       @b2b-close=${closeModal}
       id="modal"
-      opened="${opened}"
-      variant="${variant}"
-      heading="${heading}"
-      backdrop-dismiss="${backdropDismiss}"
-      esc-dismiss="${escDismiss}">
+      opened=${opened}
+      variant=${variant}
+      heading=${heading}
+      backdrop-dismiss=${backdropDismiss}
+      esc-dismiss=${escDismiss}>
       <b2b-icon-100 slot="header-icon" icon="b2b_icon-info"></b2b-icon-100>
       <div>${content}</div>
       <b2b-paragraph slot="footer-left">* Left Slot</b2b-paragraph>
