@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: StoryFn = ({ activeStep, checkIcon }) => {
-  return html`<b2b-wizard active-step=${activeStep} check-icon=${checkIcon}>
+  return html`<b2b-wizard active-step="${activeStep}" check-icon="${checkIcon}">
     <b2b-wizard-step>Step 1</b2b-wizard-step>
     <b2b-wizard-step>Step 2</b2b-wizard-step>
     <b2b-wizard-step>Step 3</b2b-wizard-step>
@@ -17,15 +17,15 @@ story010Wizard.storyName = 'Default';
 
 const StatesTemplate: StoryFn = ({ step }) => {
   return html`
-    <b2b-wizard-step step=${step} state="default">Default</b2b-wizard-step>
-    <b2b-wizard-step step=${step} state="completed"
+    <b2b-wizard-step step="${step}" state="default">Default</b2b-wizard-step>
+    <b2b-wizard-step step="${step}" state="completed"
       >Completed with icon</b2b-wizard-step
     >
-    <b2b-wizard-step step=${step} state="completed" check-icon="false"
+    <b2b-wizard-step step="${step}" state="completed" check-icon="false"
       >Completed with number</b2b-wizard-step
     >
-    <b2b-wizard-step step=${step} state="pending">Pending</b2b-wizard-step>
-    <b2b-wizard-step step=${step} state="disabled">Disabled</b2b-wizard-step>
+    <b2b-wizard-step step="${step}" state="pending">Pending</b2b-wizard-step>
+    <b2b-wizard-step step="${step}" state="disabled">Disabled</b2b-wizard-step>
   `;
 };
 

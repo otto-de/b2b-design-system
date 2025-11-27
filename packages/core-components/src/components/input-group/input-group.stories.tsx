@@ -12,10 +12,10 @@ const Template: StoryFn = ({
   return additionalSlot
     ? html` <div style="width: 380px">
         <b2b-input-group
-          invalid=${invalid}
-          disabled=${disabled}
-          error=${error}
-          hint=${hint}>
+          invalid="${invalid}"
+          disabled="${disabled}"
+          error="${error}"
+          hint="${hint}">
           <b2b-input slot="start" label="Search Term"></b2b-input>
           <b2b-dropdown style="width: 90px;">
             <option value="one">€</option>

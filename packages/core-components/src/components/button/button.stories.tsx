@@ -19,11 +19,11 @@ const button: Meta = {
   argTypes: getArgTypes('b2b-button'),
   render: ({ ...args }) =>
     html`<b2b-button
-      variant=${args.variant}
-      size=${args.size}
-      disabled=${args.disabled}
-      loading=${args.loading}
-      type=${args.type}>
+      variant="${args.variant}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}">
       ${args.label}
     </b2b-button>`,
 };
@@ -61,11 +61,11 @@ export const IconStart: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-button
-      variant=${args.variant}
-      size=${args.size}
-      disabled=${args.disabled}
-      loading=${args.loading}
-      type=${args.type}>
+      variant="${args.variant}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}">
       <b2b-icon-100 slot="start" icon="b2b_icon-check"></b2b-icon-100>
       ${args.label}
     </b2b-button>`,
@@ -78,11 +78,11 @@ export const IconEnd: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-button
-      variant=${args.variant}
-      size=${args.size}
-      disabled=${args.disabled}
-      loading=${args.loading}
-      type=${args.type}>
+      variant="${args.variant}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}">
       ${args.label}
       <b2b-icon-100 slot="end" icon="b2b_icon-check"></b2b-icon-100>
     </b2b-button>`,
@@ -95,11 +95,11 @@ export const PaliIcon: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-button
-      variant=${args.variant}
-      size=${args.size}
-      disabled=${args.disabled}
-      loading=${args.loading}
-      type=${args.type}>
+      variant="${args.variant}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}">
       <i slot="start" class="obc_icon-info"></i>
       ${args.label}
     </b2b-button>`,
@@ -111,11 +111,11 @@ export const IconOnly: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-button
-      variant=${args.variant}
-      size=${args.size}
-      disabled=${args.disabled}
-      loading=${args.loading}
-      type=${args.type}>
+      variant="${args.variant}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}">
       <b2b-icon-100 slot="end" icon="b2b_icon-search"></b2b-icon-100>
     </b2b-button>`,
 };
@@ -134,13 +134,13 @@ export const Anchor: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-button
-      variant=${args.variant}
-      size=${args.size}
-      disabled=${args.disabled}
-      loading=${args.loading}
+      variant="${args.variant}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
       href="www.otto.de"
       target="blank"
-      type=${args.type}>
+      type="${args.type}">
       Go to otto.de
     </b2b-button>`,
 };
@@ -152,13 +152,13 @@ export const DisabledAnchor: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-button
-      variant=${args.variant}
-      size=${args.size}
-      disabled=${args.disabled}
-      loading=${args.loading}
+      variant="${args.variant}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
       href="www.otto.de"
       target="blank"
-      type=${args.type}>
+      type="${args.type}">
       Go to otto.de
     </b2b-button>`,
 };
@@ -172,12 +172,12 @@ export const CustomWidth: Story = {
     html` <b2b-button
       class="docs-button-obc-overwrite"
       style="width: 300px"
-      variant=${args.variant}
-      size=${args.size}
-      width=${args.width}
-      disabled=${args.disabled}
-      loading=${args.loading}
-      type=${args.type}>
+      variant="${args.variant}"
+      size="${args.size}"
+      width="${args.width}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}">
       300px custom width
     </b2b-button>`,
 };

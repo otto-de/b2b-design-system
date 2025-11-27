@@ -27,13 +27,13 @@ export const story010Grid: Story = {
     textAlign: 'left',
   },
   render: ({ ...args }) =>
-    html` <b2b-grid margin=${args.margin}>
+    html` <b2b-grid margin="${args.margin}">
       <b2b-grid-row
-        justify=${args.justify}
-        row-gap=${args.rowGap}
-        column-gap=${args.columnGap}>
-        <b2b-grid-col span="6" text-align=${args.textAlign}
-          ><div style=${gridBoxStyles}>
+        justify="${args.justify}"
+        row-gap="${args.rowGap}"
+        column-gap="${args.columnGap}">
+        <b2b-grid-col span="6" text-align="${args.textAlign}"
+          ><div style="${gridBoxStyles}">
             <h4>Column 1-6 of 12</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -47,25 +47,25 @@ export const story010Grid: Story = {
           </div></b2b-grid-col
         >
         <b2b-grid-col
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 7 of 12</h4>
             <p>I grow to fill up all available space</p>
           </div></b2b-grid-col
         >
         <b2b-grid-col
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 8 of 12</h4>
             <p>I grow to fill up all available space</p>
           </div></b2b-grid-col
         >
         <b2b-grid-col
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 9 of 12</h4>
             <p>I grow to fill up all available space</p>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="3"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 10-12 of 12</h4>
             <p>Resize me by changing the span attribute in the args table.</p>
           </div></b2b-grid-col
@@ -87,37 +87,37 @@ export const story020AlignItems: Story = {
   render: ({ ...args }) =>
     html`<b2b-grid
       ><b2b-grid-row
-        align-items=${args.alignItems}
-        justify=${args.justify}
-        row-gap=${args.rowGap}
-        column-gap=${args.columnGap}>
+        align-items="${args.alignItems}"
+        justify="${args.justify}"
+        row-gap="${args.rowGap}"
+        column-gap="${args.columnGap}">
         <b2b-grid-col span="2"
-          ><div style=${gridBoxSmallStyles}>
+          ><div style="${gridBoxSmallStyles}">
             <h4>Column 1-2 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 3-4 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxSmallStyles}>
+          ><div style="${gridBoxSmallStyles}">
             <h4>Column 5-6 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 7-8 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxSmallStyles}>
+          ><div style="${gridBoxSmallStyles}">
             <h4>Column 9-10 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 11-12 of 12</h4>
           </div></b2b-grid-col
         >
@@ -136,13 +136,13 @@ export const story030TextAlign: Story = {
     textAlign: 'left',
   },
   render: ({ ...args }) =>
-    html`<b2b-grid margin=${args.margin}>
+    html`<b2b-grid margin="${args.margin}">
       <b2b-grid-row
-        justify=${args.justify}
-        row-gap=${args.rowGap}
-        column-gap=${args.columnGap}>
-        <b2b-grid-col span="6" text-align=${args.textAlign}
-          ><div style=${gridBoxStyles}>
+        justify="${args.justify}"
+        row-gap="${args.rowGap}"
+        column-gap="${args.columnGap}">
+        <b2b-grid-col span="6" text-align="${args.textAlign}"
+          ><div style="${gridBoxStyles}">
             <h4>Column 1-6 of 12</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -156,17 +156,17 @@ export const story030TextAlign: Story = {
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 7-8 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 9-10 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 11-12 of 12</h4>
           </div></b2b-grid-col
         ></b2b-grid-row
@@ -185,13 +185,13 @@ export const story040Justify: Story = {
     textAlign: 'center',
   },
   render: ({ ...args }) =>
-    html`<b2b-grid margin=${args.margin}>
+    html`<b2b-grid margin="${args.margin}">
       <b2b-grid-row
-        justify=${args.justify}
-        row-gap=${args.rowGap}
-        column-gap=${args.columnGap}>
-        <b2b-grid-col span="6" text-align=${args.textAlign}
-          ><div style=${gridBoxStyles}>
+        justify="${args.justify}"
+        row-gap="${args.rowGap}"
+        column-gap="${args.columnGap}">
+        <b2b-grid-col span="6" text-align="${args.textAlign}"
+          ><div style="${gridBoxStyles}">
             <h4>Column 1-6 of 12</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -205,17 +205,17 @@ export const story040Justify: Story = {
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 7-8 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 9-10 of 12</h4>
           </div></b2b-grid-col
         >
         <b2b-grid-col span="2"
-          ><div style=${gridBoxStyles}>
+          ><div style="${gridBoxStyles}">
             <h4>Column 11-12 of 12</h4>
           </div></b2b-grid-col
         ></b2b-grid-row

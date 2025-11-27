@@ -22,12 +22,12 @@ const meta: Meta = {
   },
   render: ({ ...args }) =>
     html`<b2b-paragraph
-      weight=${args.weight}
-      size=${args.size}
-      align=${args.align}
-      margin=${args.margin}
-      variant=${args.variant}
-      display=${args.display}>
+      weight="${args.weight}"
+      size="${args.size}"
+      align="${args.align}"
+      margin="${args.margin}"
+      variant="${args.variant}"
+      display="${args.display}">
       Far far away, behind the word mountains, far from the countries Vokalia
       and Consonantia, there live the blind texts. Separated they live in
       Bookmarksgrove right at the coast of the Semantics, a large language
@@ -98,12 +98,12 @@ export const DisplayInline: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-paragraph
-        weight=${args.weight}
-        size=${args.size}
-        align=${args.align}
-        margin=${args.margin}
-        variant=${args.variant}
-        display=${args.display}>
+        weight="${args.weight}"
+        size="${args.size}"
+        align="${args.align}"
+        margin="${args.margin}"
+        variant="${args.variant}"
+        display="${args.display}">
         Far far away, behind the word mountains, far from the countries Vokalia
         and Consonantia, there live the blind texts. Separated they live in
         Bookmarksgrove right at the coast of the Semantics, a large language
@@ -139,12 +139,12 @@ export const DisplayInlineBlock: Story = {
   },
   render: ({ ...args }) =>
     html`<b2b-paragraph
-        weight=${args.weight}
-        size=${args.size}
-        align=${args.align}
-        margin=${args.margin}
-        variant=${args.variant}
-        display=${args.display}>
+        weight="${args.weight}"
+        size="${args.size}"
+        align="${args.align}"
+        margin="${args.margin}"
+        variant="${args.variant}"
+        display="${args.display}">
         Far far away, behind the word mountains, far from the countries Vokalia
         and Consonantia, there live the blind texts. Separated they live in
         Bookmarksgrove right at the coast of the Semantics, a large language

@@ -5,7 +5,7 @@ import { html } from 'lit-html';
 const Template: StoryFn = ({ label }) => {
   return html`<div style="width: 400px">
     <b2b-input required="true" label="Name"></b2b-input
-    ><br /><b2b-required-separator label=${label}></b2b-required-separator>
+    ><br /><b2b-required-separator label="${label}"></b2b-required-separator>
   </div>`;
 };
 

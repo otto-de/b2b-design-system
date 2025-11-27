@@ -25,10 +25,10 @@ const meta: Meta = {
   },
   render: ({ ...args }) =>
     html`<b2b-icon-50
-      icon=${args.icon}
-      color=${args.color}
-      clickable=${args.clickable}
-      focusable=${args.focusable}></b2b-icon-50>`,
+      icon="${args.icon}"
+      color="${args.color}"
+      clickable="${args.clickable}"
+      focusable="${args.focusable}"></b2b-icon-50>`,
 };
 
 export default meta;
@@ -56,10 +56,10 @@ export const Inherit: Story = {
   render: ({ icon, color, clickable, focusable }) => {
     return html` <div style="color: red;">
       <b2b-icon-50
-        icon=${icon}
-        color=${color}
-        clickable=${clickable}
-        focusable=${focusable}>
+        icon="${icon}"
+        color="${color}"
+        clickable="${clickable}"
+        focusable="${focusable}">
       </b2b-icon-50>
     </div>`;
   },
@@ -69,7 +69,7 @@ export const Inherit: Story = {
 const renderAllIcons = () => {
   const icons = iconTypes.map(icon => {
     return html` <div class="icon-container">
-      <b2b-icon-50 icon=${icon}></b2b-icon-50>
+      <b2b-icon-50 icon="${icon}"></b2b-icon-50>
       <p>${icon}</p>
     </div>`;
   });

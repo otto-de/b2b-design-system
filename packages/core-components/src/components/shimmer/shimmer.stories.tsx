@@ -17,9 +17,9 @@ const meta: Meta = {
   },
   render: ({ ...args }) =>
     html`<b2b-shimmer
-      loading=${args.loading}
-      width=${args.width}
-      height=${args.height}>
+      loading="${args.loading}"
+      width="${args.width}"
+      height="${args.height}">
       This is the main content, which takes a while to load.
     </b2b-shimmer>`,
 };

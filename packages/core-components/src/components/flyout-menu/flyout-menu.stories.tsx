@@ -18,12 +18,12 @@ const meta: Meta = {
         <b2b-flyout-menu-option
           slot="option"
           option="Delete"
-          disabled=${args.disabled}>
+          disabled="${args.disabled}">
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option
           slot="option"
           option="Pause"
-          separator=${args.separator}>
+          separator="${args.separator}">
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option slot="option" option="Copy">
         </b2b-flyout-menu-option>
@@ -66,12 +66,12 @@ export const AllStates: Story = {
         <b2b-flyout-menu-option
           slot="option"
           option="Delete"
-          disabled=${args.disabled}>
+          disabled="${args.disabled}">
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option
           slot="option"
           option="Pause"
-          separator=${args.separator}>
+          separator="${args.separator}">
         </b2b-flyout-menu-option>
         <b2b-flyout-menu-option slot="option" option="Copy">
         </b2b-flyout-menu-option>

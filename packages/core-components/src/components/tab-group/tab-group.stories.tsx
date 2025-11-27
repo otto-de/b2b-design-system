@@ -3,7 +3,7 @@ import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
 const Template: StoryFn = ({ useRouter }) => {
-  return html` <b2b-tab-group use-router=${useRouter}>
+  return html` <b2b-tab-group use-router="${useRouter}">
     <b2b-tab slot="tab">First Tab</b2b-tab>
     <b2b-tab-panel slot="panel"
       ><div>

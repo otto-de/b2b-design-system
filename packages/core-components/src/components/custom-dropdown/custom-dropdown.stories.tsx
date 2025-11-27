@@ -23,11 +23,11 @@ const meta: Meta = {
   render: ({ ...args }) =>
     html`<div style="margin-left: 16px;width: 300px">
       <b2b-custom-dropdown
-        placeholder=${args.placeholder}
-        dropshadow=${args.dropshadow}
-        border=${args.border}
-        alignment=${args.alignment}
-        opened=${args.opened}>
+        placeholder="${args.placeholder}"
+        dropshadow="${args.dropshadow}"
+        border="${args.border}"
+        alignment="${args.alignment}"
+        opened="${args.opened}">
         <b2b-paragraph slot="trigger">
           This is a custom dropdown
           <b2b-icon-100
@@ -38,72 +38,72 @@ const meta: Meta = {
         <b2b-custom-dropdown-option
           slot="option"
           option="Option 1"
-          separator=${args.separator}
-          hover-icon=${args.hoverIcon}
-          selected-icon=${args.selectedIcon}
-          hover-icon-color=${args.hoverIconColor}
-          selected-icon-color=${args.selectedIconColor}
-          selected=${args.selected}
-          disabled=${args.disabled}>
+          separator="${args.separator}"
+          hover-icon="${args.hoverIcon}"
+          selected-icon="${args.selectedIcon}"
+          hover-icon-color="${args.hoverIconColor}"
+          selected-icon-color="${args.selectedIconColor}"
+          selected="${args.selected}"
+          disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option
           slot="option"
           option="Option 2"
-          separator=${args.separator}
-          hover-icon=${args.hoverIcon}
-          selected-icon=${args.selectedIcon}
-          hover-icon-color=${args.hoverIconColor}
-          selected-icon-color=${args.selectedIconColor}
-          disabled=${args.disabled}>
+          separator="${args.separator}"
+          hover-icon="${args.hoverIcon}"
+          selected-icon="${args.selectedIcon}"
+          hover-icon-color="${args.hoverIconColor}"
+          selected-icon-color="${args.selectedIconColor}"
+          disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option
           slot="option"
           option="Option 3"
-          separator=${args.separator}
-          hover-icon=${args.hoverIcon}
-          selected-icon=${args.selectedIcon}
-          hover-icon-color=${args.hoverIconColor}
-          selected-icon-color=${args.selectedIconColor}
-          disabled=${args.disabled}>
+          separator="${args.separator}"
+          hover-icon="${args.hoverIcon}"
+          selected-icon="${args.selectedIcon}"
+          hover-icon-color="${args.hoverIconColor}"
+          selected-icon-color="${args.selectedIconColor}"
+          disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option
           slot="option"
           option="Option 4"
-          separator=${args.separator}
-          hover-icon=${args.hoverIcon}
-          selected-icon=${args.selectedIcon}
-          hover-icon-color=${args.hoverIconColor}
-          selected-icon-color=${args.selectedIconColor}
-          disabled=${args.disabled}>
+          separator="${args.separator}"
+          hover-icon="${args.hoverIcon}"
+          selected-icon="${args.selectedIcon}"
+          hover-icon-color="${args.hoverIconColor}"
+          selected-icon-color="${args.selectedIconColor}"
+          disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option
           slot="option"
           option="Option 5"
-          separator=${args.separator}
-          hover-icon=${args.hoverIcon}
-          selected-icon=${args.selectedIcon}
-          hover-icon-color=${args.hoverIconColor}
-          selected-icon-color=${args.selectedIconColor}
-          disabled=${args.disabled}>
+          separator="${args.separator}"
+          hover-icon="${args.hoverIcon}"
+          selected-icon="${args.selectedIcon}"
+          hover-icon-color="${args.hoverIconColor}"
+          selected-icon-color="${args.selectedIconColor}"
+          disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option
           slot="option"
           option="Option 6"
-          separator=${args.separator}
-          hover-icon=${args.hoverIcon}
-          selected-icon=${args.selectedIcon}
-          hover-icon-color=${args.hoverIconColor}
-          selected-icon-color=${args.selectedIconColor}
-          disabled=${args.disabled}>
+          separator="${args.separator}"
+          hover-icon="${args.hoverIcon}"
+          selected-icon="${args.selectedIcon}"
+          hover-icon-color="${args.hoverIconColor}"
+          selected-icon-color="${args.selectedIconColor}"
+          disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
         <b2b-custom-dropdown-option
           slot="option"
           option="Option 7"
-          hover-icon=${args.hoverIcon}
-          selected-icon=${args.selectedIcon}
-          hover-icon-color=${args.hoverIconColor}
-          selected-icon-color=${args.selectedIconColor}
-          disabled=${args.disabled}>
+          hover-icon="${args.hoverIcon}"
+          selected-icon="${args.selectedIcon}"
+          hover-icon-color="${args.hoverIconColor}"
+          selected-icon-color="${args.selectedIconColor}"
+          disabled="${args.disabled}">
         </b2b-custom-dropdown-option>
       </b2b-custom-dropdown>
     </div>`,

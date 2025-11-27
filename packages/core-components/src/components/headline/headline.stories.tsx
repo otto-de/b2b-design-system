@@ -3,7 +3,10 @@ import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
 const template: StoryFn = ({ size, align, slot, noMargin }) => {
-  return html`<b2b-headline size=${size} align=${align} no-margin=${noMargin}>
+  return html`<b2b-headline
+    size="${size}"
+    align="${align}"
+    no-margin="${noMargin}">
     ${slot}
   </b2b-headline>`;
 };

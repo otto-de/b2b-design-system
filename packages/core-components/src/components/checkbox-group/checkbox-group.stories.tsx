@@ -14,15 +14,15 @@ const Template: StoryFn = ({
   const firstLabel = 'One';
   const secondLabel = 'Two';
   return html`<b2b-checkbox-group
-    label=${label}
-    required=${required}
-    disabled=${disabled}
-    invalid=${invalid}
-    hint=${hint}
-    error=${error}
-    alignment=${alignment}>
-    <b2b-checkbox label=${firstLabel}></b2b-checkbox>
-    <b2b-checkbox label=${secondLabel}></b2b-checkbox>
+    label="${label}"
+    required="${required}"
+    disabled="${disabled}"
+    invalid="${invalid}"
+    hint="${hint}"
+    error="${error}"
+    alignment="${alignment}">
+    <b2b-checkbox label="${firstLabel}"></b2b-checkbox>
+    <b2b-checkbox label="${secondLabel}"></b2b-checkbox>
   </b2b-checkbox-group>`;
 };
 

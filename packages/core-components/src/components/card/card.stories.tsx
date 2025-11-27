@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: StoryFn = ({ disabled, href, target }) => {
-  return html`<b2b-card disabled=${disabled} href=${href} target=${target}>
+  return html`<b2b-card disabled="${disabled}" href=${href} target="${target}">
     <b2b-headline size="100">An Interactive Card</b2b-headline>
     <b2b-paragraph
       >You can hover over me or press tab on your keyboard to see me pop out. I

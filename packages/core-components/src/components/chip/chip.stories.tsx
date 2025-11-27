@@ -19,13 +19,13 @@ const meta: Meta = {
   argTypes: getArgTypes('b2b-chip-component'),
   render: ({ ...args }) =>
     html`<b2b-chip-component
-      custom-margin=${args.customMargin}
-      label=${args.label}
-      type=${args.type}
-      label-style=${args.labelStyle}
-      disabled=${args.disabled}
-      value=${args.value}
-      has-close-button=${args.hasCloseButton} />`,
+      custom-margin="${args.customMargin}"
+      label="${args.label}"
+      type="${args.type}"
+      label-style="${args.labelStyle}"
+      disabled="${args.disabled}"
+      value="${args.value}"
+      has-close-button="${args.hasCloseButton}" />`,
 };
 
 export default meta;
@@ -66,12 +66,12 @@ export const story040WithTruncatedText: Story = {
     html`<div
       style="width: 170px; border: 1px solid grey; border-radius: 3px; padding: 6px;">
       <b2b-chip-component
-        label=${args.label}
-        type=${args.type}
-        label-style=${args.labelStyle}
-        disabled=${args.disabled}
-        value=${args.value}
-        has-close-button=${args.hasCloseButton} />
+        label="${args.label}"
+        type="${args.type}"
+        label-style="${args.labelStyle}"
+        disabled="${args.disabled}"
+        value="${args.value}"
+        has-close-button="${args.hasCloseButton}" />
     </div>`,
 };
 

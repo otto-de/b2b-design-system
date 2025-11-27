@@ -22,17 +22,17 @@ const meta: Meta = {
   render: ({ ...args }) =>
     html`<div style="width: 400px;">
       <b2b-input
-        label=${args.label}
-        required=${args.required}
-        type=${args.defaultType}
-        disabled=${args.disabled}
-        placeholder=${args.placeholder}
-        value=${args.value}
-        hint=${args.hint}
-        error=${args.error}
-        autofocus=${args.autofocus}
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.defaultType}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
         invalid=${args.invalid}
-        input-text-align=${args.inputTextAlign}></b2b-input>
+        input-text-align="${args.inputTextAlign}"></b2b-input>
     </div>`,
 };
 export default meta;
@@ -95,15 +95,15 @@ export const Prefix: Story = {
   render: ({ ...args }) =>
     html`<div style="width: 400px;">
       <b2b-input
-        label=${args.label}
-        required=${args.required}
-        type=${args.type}
-        disabled=${args.disabled}
-        placeholder=${args.placeholder}
-        value=${args.value}
-        hint=${args.hint}
-        error=${args.error}
-        autofocus=${args.autofocus}
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
         invalid=${args.invalid}
         ><span slot="start">Registration Number</span></b2b-input
       >
@@ -140,15 +140,15 @@ export const PrefixAndSuffix: Story = {
   render: ({ ...args }) =>
     html`<div style="width: 400px;">
       <b2b-input
-        label=${args.label}
-        required=${args.required}
-        type=${args.type}
-        disabled=${args.disabled}
-        placeholder=${args.placeholder}
-        value=${args.value}
-        hint=${args.hint}
-        error=${args.error}
-        autofocus=${args.autofocus}
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
         invalid=${args.invalid}>
         <b2b-icon-100 icon="b2b_icon-search" slot="start"></b2b-icon-100
         ><span slot="end">Registration Number</span></b2b-input
@@ -163,14 +163,14 @@ export const Label: Story = {
   render: ({ ...args }) =>
     html`<div style="width: 400px;">
       <b2b-input
-        required=${args.required}
-        type=${args.type}
-        disabled=${args.disabled}
-        placeholder=${args.placeholder}
-        value=${args.value}
-        hint=${args.hint}
-        error=${args.error}
-        autofocus=${args.autofocus}
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        hint="${args.hint}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
         invalid=${args.invalid}
         ><span slot="label">Custom label</span></b2b-input
       >
@@ -184,14 +184,14 @@ export const HintSlot: Story = {
   render: ({ ...args }) =>
     html`<div style="width: 400px;">
       <b2b-input
-        label=${args.label}
-        required=${args.required}
-        type=${args.type}
-        disabled=${args.disabled}
-        placeholder=${args.placeholder}
-        value=${args.value}
-        error=${args.error}
-        autofocus=${args.autofocus}
+        label="${args.label}"
+        required="${args.required}"
+        type="${args.type}"
+        disabled="${args.disabled}"
+        placeholder="${args.placeholder}"
+        value="${args.value}"
+        error="${args.error}"
+        autofocus="${args.autofocus}"
         invalid=${args.invalid}
         ><span slot="hint">Custom hint</span></b2b-input
       >
