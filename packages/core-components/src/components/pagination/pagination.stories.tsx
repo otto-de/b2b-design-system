@@ -4,8 +4,8 @@ import { html } from 'lit-html';
 
 const Template: StoryFn = ({ totalPages, activePage }) => {
   return html`<b2b-pagination
-    total-pages="${totalPages}"
-    active-page="${activePage}"></b2b-pagination>`;
+    total-pages=${totalPages}
+    active-page=${activePage}></b2b-pagination>`;
 };
 
 const defaultArgs = {

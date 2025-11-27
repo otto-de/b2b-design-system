@@ -4,23 +4,23 @@ import { html } from 'lit-html';
 
 const Template: StoryFn = ({ name, disabled, singleDisabled }) => {
   return html`
-    <b2b-toggle-group name="${name}" disabled="${disabled}">
+    <b2b-toggle-group name=${name} disabled=${disabled}>
       <b2b-toggle-button
-        name="${name}"
+        name=${name}
         value="abcd"
         label="ABCD"></b2b-toggle-button>
       <b2b-toggle-button
-        name="${name}"
+        name=${name}
         value="efgh"
         label="EFGH"></b2b-toggle-button>
       <b2b-toggle-button
-        name="${name}"
+        name=${name}
         value="ijkl"
         label="IJKL"></b2b-toggle-button>
       <b2b-toggle-button
-        name="${name}"
+        name=${name}
         value="mnop"
-        disabled="${singleDisabled}"
+        disabled=${singleDisabled}
         label="MNOP"></b2b-toggle-button>
     </b2b-toggle-group>
   `;

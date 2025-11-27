@@ -14,15 +14,15 @@ const Template: StoryFn = ({
   invalid,
 }) => {
   return html`<b2b-checkbox
-    label="${label}"
-    required="${required}"
-    checked="${checked}"
-    disabled="${disabled}"
-    hint="${hint}"
-    error="${error}"
-    name="${name}"
-    value="${value}"
-    invalid="${invalid}"></b2b-checkbox>`;
+    label=${label}
+    required=${required}
+    checked=${checked}
+    disabled=${disabled}
+    hint=${hint}
+    error=${error}
+    name=${name}
+    value=${value}
+    invalid=${invalid}></b2b-checkbox>`;
 };
 
 const defaultArgs = {

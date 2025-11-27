@@ -27,11 +27,11 @@ const Template: StoryFn = ({
 
     <b2b-alert
       @b2b-close=${closeAlert}
-      opened="${opened}"
-      type="${type}"
-      size="${size}"
-      has-close-button="${hasCloseButton}"
-      custom-icon="${customIcon}">
+      opened=${opened}
+      type=${type}
+      size=${size}
+      has-close-button=${hasCloseButton}
+      custom-icon=${customIcon}>
       <strong>${type}</strong> This is an alert.
     </b2b-alert>
   `;

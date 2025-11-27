@@ -17,18 +17,18 @@ const Template: StoryFn = ({
   height,
 }) => {
   return html`<b2b-textarea
-    label="${label}"
-    required="${required}"
-    placeholder="${placeholder}"
-    disabled="${disabled}"
-    value="${value}"
-    invalid="${invalid}"
-    hint="${hint}"
-    error="${error}"
-    autofocus="${autofocus}"
-    name="${name}"
-    height="${height}"
-    resize="${resize}"></b2b-textarea>`;
+    label=${label}
+    required=${required}
+    placeholder=${placeholder}
+    disabled=${disabled}
+    value=${value}
+    invalid=${invalid}
+    hint=${hint}
+    error=${error}
+    autofocus=${autofocus}
+    name=${name}
+    height=${height}
+    resize=${resize}></b2b-textarea>`;
 };
 
 const defaultArgs = {
