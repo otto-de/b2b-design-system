@@ -1,3 +1,11 @@
+## [1.37.1](https://github.com/otto-de/b2b-design-system/compare/v1.37.0...v1.37.1) (2025-11-28)
+
+
+### Bug Fixes
+
+* **Security:** [BLA-1881] Disabling dependabot to prevent auto update of dependencies to avoid installing Sha1-Hulud 2.0 malware ([#646](https://github.com/otto-de/b2b-design-system/issues/646)) ([5a20d66](https://github.com/otto-de/b2b-design-system/commit/5a20d66afe890c338243a566c42bad4fcec1ff44))
+* **Security:** [BLA-1881] update versions of packages affected by Sha1-Hulud 2.0 ([161aedb](https://github.com/otto-de/b2b-design-system/commit/161aedb0a624f8241cd1e7d7ef9badca7c230874))
+
 # [1.37.0](https://github.com/otto-de/b2b-design-system/compare/v1.36.0...v1.37.0) (2025-11-25)
 
 
