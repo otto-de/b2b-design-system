@@ -32,18 +32,18 @@ updates:
       - dependency-name: "ts-jest"
         versions: [ "28.x", "29.x" ]
 
-  - package-ecosystem: "npm"
-    directory: "/packages/react-components"
-    labels:
-      - "dependencies"
-    schedule:
-      interval: "daily"
-    versioning-strategy: increase
-    commit-message:
-      prefix: "chore: "
-    ignore:
-      - dependency-name: "@types/node"
-        update-types: ["version-update:semver-major"]
+  # - package-ecosystem: "npm"
+  #   directory: "/packages/react-components"
+  #   labels:
+  #     - "dependencies"
+  #   schedule:
+  #     interval: "daily"
+  #   versioning-strategy: increase
+  #   commit-message:
+  #     prefix: "chore: "
+  #   ignore:
+  #     - dependency-name: "@types/node"
+  #       update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "npm"
     directory: "/packages/tokens"
