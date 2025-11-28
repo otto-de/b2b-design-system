@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
 
 const Template: StoryFn = ({ type }) => {
-  return html`<b2b-label type="${type}">Label</b2b-label>`;
+  return html`<b2b-label type=${type}>Label</b2b-label>`;
 };
 
 const defaultArgs = {

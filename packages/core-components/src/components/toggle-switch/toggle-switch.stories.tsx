@@ -15,10 +15,10 @@ export default {
   argTypes: getArgTypes('b2b-toggle-switch'),
   render: ({ ...args }) =>
     html`<b2b-toggle-switch
-      label="${args.label}"
-      disabled="${args.disabled}"
-      label-position="${args.labelPosition}"
-      state="${args.state}" />`,
+      label=${args.label}
+      disabled=${args.disabled}
+      label-position=${args.labelPosition}
+      state=${args.state} />`,
 } satisfies Meta<B2bToggleSwitchComponent>;
 
 type Story = StoryObj<B2bToggleSwitchComponent>;

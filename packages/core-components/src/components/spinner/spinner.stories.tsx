@@ -3,7 +3,7 @@ import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
 const Template: StoryFn = ({ size, color }) => {
-  return html` <b2b-spinner size="${size}" color="${color}"></b2b-spinner>`;
+  return html` <b2b-spinner size=${size} color=${color}></b2b-spinner>`;
 };
 
 const defaultArgs = {

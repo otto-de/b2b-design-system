@@ -11,12 +11,12 @@ const Template: StoryFn = ({
   underlineText,
 }) => {
   return html` <b2b-anchor
-    href="${href}"
-    download="${download}"
-    size="${size}"
-    hover-color="${hoverColor}"
-    target="${target}"
-    underline-text="${underlineText}">
+    href=${href}
+    download=${download}
+    size=${size}
+    hover-color=${hoverColor}
+    target=${target}
+    underline-text=${underlineText}>
     Click me!
   </b2b-anchor>`;
 };

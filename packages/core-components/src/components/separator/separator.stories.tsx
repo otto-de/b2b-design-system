@@ -16,9 +16,9 @@ const Template: StoryFn = ({ alignment }) => {
           margin: `margin: 10px 0;`,
           width: null,
         };
-  return html`<div style="${styles.display}">
+  return html`<div style=${styles.display}>
     <p style="${styles.margin} ${styles.width}">${content}</p>
-    <b2b-separator alignment="${alignment}"></b2b-separator>
+    <b2b-separator alignment=${alignment}></b2b-separator>
     <p style="${styles.margin} ${styles.width}">${content}</p>
   </div>`;
 };

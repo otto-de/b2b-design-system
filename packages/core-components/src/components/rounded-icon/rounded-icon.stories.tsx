@@ -4,8 +4,8 @@ import { html } from 'lit-html';
 
 const TemplateIcon: StoryFn = ({ color, contentColor, iconName }) => {
   return html`<div>
-    <b2b-rounded-icon color="${color}" content-color="${contentColor}">
-      <b2b-icon-100 slot="icon" icon="${iconName}"></b2b-icon-100>
+    <b2b-rounded-icon color=${color} content-color=${contentColor}>
+      <b2b-icon-100 slot="icon" icon=${iconName}></b2b-icon-100>
     </b2b-rounded-icon>
   </div>`;
 };
@@ -20,7 +20,7 @@ story010Icon.storyName = 'Icon Content';
 
 const TemplateText: StoryFn = ({ color, contentColor, textContent }) => {
   return html`<div>
-    <b2b-rounded-icon color="${color}" content-color="${contentColor}">
+    <b2b-rounded-icon color=${color} content-color=${contentColor}>
       <span slot="text">${textContent}</span>
     </b2b-rounded-icon>
   </div>`;

@@ -28,7 +28,7 @@ const Template: StoryFn = ({ placeholder, optionsList, disabled }) => {
       contenteditable
       data-testid="search-element"
       disabled=${disabled}
-      placeholder="${placeholder}"
+      placeholder=${placeholder}
       .optionsList=${optionsList}
       @b2b-input=${onInput}></b2b-search>
   </div>`;
@@ -70,7 +70,7 @@ const CustomSearchTemplate: StoryFn = ({ placeholder, optionsList }) => {
     <b2b-input-group>
       <b2b-input-list
         slot="start"
-        placeholder="${placeholder}"
+        placeholder=${placeholder}
         .optionsList=${optionsList}></b2b-input-list>
       <b2b-dropdown style="width: 50%" invalid error="an error">
         <option value="one">Option 1</option>

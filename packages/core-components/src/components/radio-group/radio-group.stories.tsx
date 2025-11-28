@@ -13,21 +13,21 @@ const Template: StoryFn = ({
   error,
 }) => {
   return html` <b2b-radio-group
-    label="${label}"
-    required="${required}"
-    name="${name}"
-    disabled="${disabled}"
-    invalid="${invalid}"
-    alignment="${alignment}"
-    hint="${hint}"
-    error="${error}">
+    label=${label}
+    required=${required}
+    name=${name}
+    disabled=${disabled}
+    invalid=${invalid}
+    alignment=${alignment}
+    hint=${hint}
+    error=${error}>
     <b2b-radio-button
       label="Option 1"
-      name="${name}"
+      name=${name}
       value="one"></b2b-radio-button>
     <b2b-radio-button
       label="Option 2"
-      name="${name}"
+      name=${name}
       value="two"></b2b-radio-button>
   </b2b-radio-group>`;
 };
