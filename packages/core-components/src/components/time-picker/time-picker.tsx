@@ -258,7 +258,7 @@ export class TimePickerComponent implements ComponentInterface {
             ))}
           </div>
         </div>
-        {
+        {(this.hint || this.currentErrorMessage) && (
           <span
             class={{
               'b2b-time-picker__hint': true,
@@ -266,7 +266,7 @@ export class TimePickerComponent implements ComponentInterface {
             }}>
             {this.isInvalid ? this.currentErrorMessage : this.hint}
           </span>
-        }
+        )}
       </Host>
     );
   }
