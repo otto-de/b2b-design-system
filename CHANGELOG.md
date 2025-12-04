@@ -1,3 +1,10 @@
+## [1.37.2](https://github.com/otto-de/b2b-design-system/compare/v1.37.1...v1.37.2) (2025-12-04)
+
+
+### Bug Fixes
+
+* **timePicker:** [NEPTUNE-5057] Show Hint span only when hint is defined or error is present ([#656](https://github.com/otto-de/b2b-design-system/issues/656)) ([f7f34ff](https://github.com/otto-de/b2b-design-system/commit/f7f34ff32acabdd9518c744b0e8a1ba99231b735))
+
 ## [1.37.1](https://github.com/otto-de/b2b-design-system/compare/v1.37.0...v1.37.1) (2025-11-28)
 
 
