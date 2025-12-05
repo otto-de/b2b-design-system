@@ -87,7 +87,6 @@ jobs:
           severity: 'CRITICAL,HIGH'
           vuln-type: 'library,os'
           scan-ref: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
-        
 
       # Existing step: only runs if Trivy passed
       - name: Push Docker image
