@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Shai-Hulud Scanner
+        uses: otto-ec/otto_github-actions/actions/security/shai-hulud-scanner@shai-hulud-scanner-v1
       - name: Setup node
         uses: actions/setup-node@v4
         with:
