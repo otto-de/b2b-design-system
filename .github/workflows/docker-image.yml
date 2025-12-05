@@ -87,9 +87,6 @@ jobs:
           severity: 'CRITICAL,HIGH'
           vuln-type: 'library,os'
           scan-ref: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
-        env:
-          TRIVY_SKIP_DB_UPDATE: true
-          TRIVY_SKIP_JAVA_DB_UPDATE: true
 
       # Existing step: only runs if Trivy passed
       - name: Push Docker image
