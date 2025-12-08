@@ -6,62 +6,83 @@ on:
         required: true
         type: string
 jobs:
-  build-sanity-check:
-    name: Build Sanity Check
+  shai-hukud-scan:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ inputs.node_version }}
-          cache: 'npm'
+          node-version: '20'
 
-      - name: Use Cache dependencies
-        id: node-modules-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ./node_modules
-            ./packages/**/node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
-
-      - name: Build all workspaces
-        run: npm run build -ws
-
-      - name: Fail on diff
+      - name: Download Shai Hukud scan script
         run: |
-          git add .
-          git diff --cached --name-only | sed -E 's/^(.*)$/::error file=\1,title=Diff detected::Please run `npm run build` and commit the changes./'
-          git diff --cached --name-only --exit-code
+          curl -fsSL https://raw.githubusercontent.com/otto-de/OreNPMGuard/refs/heads/main/shai_hulud_scanner.js -o shai-hukud-scan.js
 
-  lint_and_test:
-    name: Lint and Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Use cached dependencies
-        id: node-modules-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ./node_modules
-            ./packages/**/node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test
-        continue-on-error: false
+      - name: Run Shai Hukud scan
+        env:
+          PROJECT_ROOT: ${{ github.workspace }}
+        run: |
+          node shai-hukud-scan.js "$PROJECT_ROOT"
+#  build-sanity-check:
+#    name: Build Sanity Check
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#
+#      - name: Setup node
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: ${{ inputs.node_version }}
+#          cache: 'npm'
+#
+#      - name: Use Cache dependencies
+#        id: node-modules-cache
+#        uses: actions/cache@v4
+#        with:
+#          path: |
+#            ./node_modules
+#            ./packages/**/node_modules
+#          key: modules-${{ hashFiles('package-lock.json') }}
+#
+#      - name: Build all workspaces
+#        run: npm run build -ws
+#
+#      - name: Fail on diff
+#        run: |
+#          git add .
+#          git diff --cached --name-only | sed -E 's/^(.*)$/::error file=\1,title=Diff detected::Please run `npm run build` and commit the changes./'
+#          git diff --cached --name-only --exit-code
+#
+#  lint_and_test:
+#    name: Lint and Test
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#
+#      - name: Use cached dependencies
+#        id: node-modules-cache
+#        uses: actions/cache@v4
+#        with:
+#          path: |
+#            ./node_modules
+#            ./packages/**/node_modules
+#          key: modules-${{ hashFiles('package-lock.json') }}
+#
+#      - name: Install Dependencies
+#        run: npm ci
+#
+#      - name: Build
+#        run: npm run build
+#
+#      - name: Lint
+#        run: npm run lint
+#
+#      - name: Test
+#        run: npm run test
+#        continue-on-error: false

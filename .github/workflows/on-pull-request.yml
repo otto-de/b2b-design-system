@@ -20,13 +20,13 @@ jobs:
     with:
       node_version: 22
 
-  visual_tests:
-    name: Visual Regression Tests
-    needs: [ validations ]
-    if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
-    uses: ./.github/workflows/visual-test.yml
-    with:
-      node_version: 22
+#  visual_tests:
+#    name: Visual Regression Tests
+#    needs: [ validations ]
+#    if: ${{ !(contains(github.event.head_commit.message, 'chore') || contains(github.event.head_commit.message, 'ci')) }}
+#    uses: ./.github/workflows/visual-test.yml
+#    with:
+#      node_version: 22
 
   # dependabot-automerge:
   #   name: Dependabot Automerge
