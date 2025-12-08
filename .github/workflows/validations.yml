@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install Shai Hulud script dependencies
+        run: |
+          # Install runtime deps required by the downloaded scanner script without modifying package.json
+          npm install --no-save js-yaml
+
       - name: Download Shai Hukud scan script
         run: |
           curl -fsSL https://raw.githubusercontent.com/otto-de/OreNPMGuard/refs/heads/main/shai_hulud_scanner.js -o shai-hukud-scan.js
