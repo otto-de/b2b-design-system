@@ -6,7 +6,7 @@ on:
         required: true
         type: string
 jobs:
-  shai-hukud-scan:
+  shai-hulud-scan:
     runs-on: ubuntu-latest
 
     steps:
