@@ -6,6 +6,32 @@ on:
         required: true
         type: string
 jobs:
+  shai-hukud-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Shai Hulud script dependencies
+        run: |
+          # Install runtime deps required by the downloaded scanner script without modifying package.json
+          npm install --no-save js-yaml
+
+      - name: Download Shai Hukud scan script
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/otto-de/OreNPMGuard/refs/heads/main/shai_hulud_scanner.js -o shai-hukud-scan.js
+
+      - name: Run Shai Hulud scan
+        env:
+          PROJECT_ROOT: ${{ github.workspace }}
+        run: |
+          node shai-hukud-scan.js "$PROJECT_ROOT"
   build-sanity-check:
     name: Build Sanity Check
     runs-on: ubuntu-latest
