@@ -27,7 +27,7 @@ jobs:
         run: |
           curl -fsSL https://raw.githubusercontent.com/otto-de/OreNPMGuard/refs/heads/main/shai_hulud_scanner.js -o shai-hukud-scan.js
 
-      - name: Run Shai Hukud scan
+      - name: Run Shai Hulud scan
         env:
           PROJECT_ROOT: ${{ github.workspace }}
         run: |
