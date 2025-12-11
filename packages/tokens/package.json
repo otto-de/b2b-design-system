@@ -23,7 +23,7 @@
     "style-dictionary": "^4.3.3",
     "@bundled-es-modules/glob": "^10.4.2",
     "@bundled-es-modules/deepmerge": "^4.3.1",
-    "@bundled-es-modules/memfs": "^4.9.4",
+    "@bundled-es-modules/memfs": "^4.17.0",
     "change-case": "^5.4.4",
     "tinycolor2": "^1.6.0",
     "@zip.js/zip.js": "^2.7.57"
