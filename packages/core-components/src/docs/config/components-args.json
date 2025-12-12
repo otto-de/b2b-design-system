@@ -2995,6 +2995,7 @@
         "b2b_icon-info",
         "b2b_icon-inplace-zoom",
         "b2b_icon-leaving-page",
+        "b2b_icon-like",
         "b2b_icon-minus",
         "b2b_icon-notification",
         "b2b_icon-pending",
@@ -3034,8 +3035,7 @@
         "b2b_icon-info-hint",
         "b2b_icon-lock-closed",
         "b2b_icon-sparkles",
-        "b2b_icon-success-hint",
-        "b2b_icone-like"
+        "b2b_icon-success-hint"
       ],
       "control": {
         "type": "radio"
