@@ -25,10 +25,9 @@ const ignoredStories = [
 module.exports = {
   async setup() {
     expect.extend({ toMatchImageSnapshot });
-    // retry on failures as this can be caused by delay in loading assets or rendering
     jest.retryTimes(5);
   },
-  async postRender(page, context) {
+  async postVisit(page: any, context: any) {
     if (ignoredStories.includes(context.id)) {
       console.log('Skipped: ', context.id);
       return;
