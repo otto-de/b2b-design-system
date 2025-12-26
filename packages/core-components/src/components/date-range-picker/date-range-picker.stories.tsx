@@ -90,7 +90,7 @@ export const AllProperties: Story = {
       datePicker.dateRange = [new Date(2025, 0, 1), new Date(2025, 1, 0)];
       datePicker.disableDates = date => date.getDay() == 1;
       datePicker.presets = {
-        'Today': [new Date(), new Date()],
+        'Today': [new Date(2025, 8, 1), new Date(2025, 8, 1)],
         'Feature Added': [new Date(2025, 8, 1), new Date(2025, 8, 23)],
       };
 
@@ -128,7 +128,7 @@ export const PresetSelected: Story = {
       const datePicker = findDatePicker(canvasElement);
       datePicker.dateRange = [new Date(2025, 8, 1), new Date(2025, 8, 23)];
       datePicker.presets = {
-        'Today': [new Date(), new Date()],
+        'Today': [new Date(2025, 8, 1), new Date(2025, 8, 1)],
         'Feature Added': [new Date(2025, 8, 1), new Date(2025, 8, 23)],
       };
 
