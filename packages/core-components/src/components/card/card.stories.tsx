@@ -7,7 +7,7 @@ const Template: StoryFn = ({ disabled, href, target }) => {
     <b2b-headline size="100">An Interactive Card</b2b-headline>
     <b2b-paragraph
       >You can hover over me or press tab on your keyboard to see me pop out. I
-      fill up to 100% of my parent element, so you can use me in a
+      fill up to 100% of my parent element, so that you can use me in a
       grid.</b2b-paragraph
     >
   </b2b-card>`;
