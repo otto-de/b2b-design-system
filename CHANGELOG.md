@@ -1,3 +1,11 @@
+## [1.37.3](https://github.com/otto-de/b2b-design-system/compare/v1.37.2...v1.37.3) (2025-12-30)
+
+
+### Bug Fixes
+
+* [BLA-1948] Fix the security vulnerabilities ([b8a295f](https://github.com/otto-de/b2b-design-system/commit/b8a295f29a0f2f73f5ff6458fb185b1c9a42e046))
+* **Security:** [BLA-1948] Fix for CVE-2025-68429 ([6ae8972](https://github.com/otto-de/b2b-design-system/commit/6ae897206f6d5564bff73d9b183facb22729c136))
+
 ## [1.37.2](https://github.com/otto-de/b2b-design-system/compare/v1.37.1...v1.37.2) (2025-12-04)
 
 
