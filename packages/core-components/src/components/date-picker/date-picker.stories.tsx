@@ -176,8 +176,8 @@ export const DisableDays: Story = {
 export const DisableDatesUntil: Story = {
   args: {
     ...meta.args,
-    preSelectedDate: '26.01.2025',
-    disableDatesUntil: '20.01.2025',
+    preSelectedDate: '15.02.2025',
+    disableDatesUntil: '10.02.2025',
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
