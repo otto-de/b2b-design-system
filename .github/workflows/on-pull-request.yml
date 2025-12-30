@@ -27,8 +27,8 @@ jobs:
     uses: ./.github/workflows/visual-test.yml
     with:
       node_version: 22
-
-  # dependabot-automerge:
-  #   name: Dependabot Automerge
-  #   needs: [ install, validations ]
-  #   uses: ./.github/workflows/dependabot-auto-merge.yml
+#
+#  dependabot-automerge:
+#    name: Dependabot Automerge
+#    needs: [ install, validations ]
+#    uses: ./.github/workflows/dependabot-auto-merge.yml
