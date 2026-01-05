@@ -1,3 +1,10 @@
+## [1.37.4](https://github.com/otto-de/b2b-design-system/compare/v1.37.3...v1.37.4) (2026-01-05)
+
+
+### Bug Fixes
+
+* **ci:** configure npm authentication for package publishing ([c62a97b](https://github.com/otto-de/b2b-design-system/commit/c62a97b77baecaabf776baee2225db0ed5a717b8))
+
 ## [1.37.3](https://github.com/otto-de/b2b-design-system/compare/v1.37.2...v1.37.3) (2025-12-30)
 
 
