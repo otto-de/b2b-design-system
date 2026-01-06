@@ -26,6 +26,6 @@
     "@bundled-es-modules/memfs": "^4.9.4",
     "change-case": "^5.4.4",
     "tinycolor2": "^1.6.0",
-    "@zip.js/zip.js": "^2.7.57"
+    "@zip.js/zip.js": "^2.8.13"
   }
 }
