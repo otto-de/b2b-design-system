@@ -9,4 +9,4 @@ then
 fi
 
 echo publishing on tag ${tag}
-npm publish --workspace packages/ --tag=$tag
+npm publish --provenance --workspace packages/ --tag=$tag

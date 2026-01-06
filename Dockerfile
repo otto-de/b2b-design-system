@@ -1,4 +1,4 @@
-FROM node:18-alpine3.18
+FROM node:24.12.0-alpine3.23
 COPY packages/core-components/docs-build /tmp
 RUN echo "Ok" > /tmp/design-system/health.html
 
