@@ -1,3 +1,13 @@
+## [1.37.3](https://github.com/otto-de/b2b-design-system/compare/v1.37.2...v1.37.3) (2026-01-06)
+
+
+### Bug Fixes
+
+* [BLA-1948] Fix the security vulnerabilities ([b8a295f](https://github.com/otto-de/b2b-design-system/commit/b8a295f29a0f2f73f5ff6458fb185b1c9a42e046))
+* **ci:** [BLA-1950] Update node version in pipeline to use OIDC authentication for publishing builds ([bb89c99](https://github.com/otto-de/b2b-design-system/commit/bb89c995cf298dbf4350838e0e6e8f75aeef4395))
+* **deployment:** [BLA-1950] Set NPM_AUTH_TOKEN to empty manually ([03c96d3](https://github.com/otto-de/b2b-design-system/commit/03c96d30b80991990d83ea043d33e65617911b83))
+* **Security:** [BLA-1948] Fix for CVE-2025-68429 ([6ae8972](https://github.com/otto-de/b2b-design-system/commit/6ae897206f6d5564bff73d9b183facb22729c136))
+
 ## [1.37.2](https://github.com/otto-de/b2b-design-system/compare/v1.37.1...v1.37.2) (2025-12-04)
 
 
