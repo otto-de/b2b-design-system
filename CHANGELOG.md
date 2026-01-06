@@ -1,3 +1,10 @@
+## [1.37.4](https://github.com/otto-de/b2b-design-system/compare/v1.37.3...v1.37.4) (2026-01-06)
+
+
+### Bug Fixes
+
+* **deployment:** [BLA-1950] Add back registry url and scope ([73411a2](https://github.com/otto-de/b2b-design-system/commit/73411a2ccd3247f11e3ce08e5eb3fb7f7456d764))
+
 ## [1.37.2](https://github.com/otto-de/b2b-design-system/compare/v1.37.1...v1.37.2) (2025-12-04)
 
 
