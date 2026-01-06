@@ -20,11 +20,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # this step sets up .npmrc that uses env.NODE_AUTH_TOKEN
       - name: Setup node
         uses: actions/setup-node@v6
         with:
           node-version: ${{ inputs.node_version }}
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@otto-de'
           cache: 'npm'
 
       - name: Use Cache dependencies
