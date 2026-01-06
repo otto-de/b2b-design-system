@@ -25,7 +25,6 @@ jobs:
         with:
           node-version: ${{ inputs.node_version }}
           registry-url: 'https://registry.npmjs.org'
-          scope: '@otto-de'
           cache: 'npm'
 
       - name: Use Cache dependencies
