@@ -9,4 +9,4 @@ then
 fi
 
 echo publishing on tag ${tag}
-NPM_AUTH_TOKEN="" npm publish --provenance --workspace packages/ --tag=$tag
+npm publish --provenance --workspace packages/ --tag=$tag --access public
