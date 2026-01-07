@@ -1,3 +1,10 @@
+## [1.37.3-alpha.5](https://github.com/otto-de/b2b-design-system/compare/v1.37.3-alpha.4...v1.37.3-alpha.5) (2026-01-07)
+
+
+### Bug Fixes
+
+* **deployment:** [BLA-1950] remove changes that are no longer required ([c6b0d2a](https://github.com/otto-de/b2b-design-system/commit/c6b0d2a03a8cad4c6f1dcdb271029e87415723c6))
+
 ## [1.37.3-alpha.4](https://github.com/otto-de/b2b-design-system/compare/v1.37.3-alpha.3...v1.37.3-alpha.4) (2026-01-07)
 
 
