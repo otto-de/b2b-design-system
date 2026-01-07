@@ -19,11 +19,11 @@ module.exports = {
       }
     ],
     [
-      '@semantic-release/exec',
+      '@semantic-release/npm',
       {
-        "publishCmd": "./scripts/publish.sh ${branch.name}",
+        "npmPublish": false
       }
-    ],
+    ]
     [
       '@semantic-release/git',
       {
