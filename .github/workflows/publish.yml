@@ -10,6 +10,12 @@ jobs:
   publish_artifacts:
     name: Release and publish
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,10 +39,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Bump Version
-        run: npm run bump-version
+      - name: Publish Core Components
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Publish Release
-        run: ./scripts/publish.sh ${{ github.ref_name }}
