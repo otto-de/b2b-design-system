@@ -17,12 +17,6 @@ module.exports = {
         // Updates package.json files to next version
         "prepareCmd": "node ./scripts/update-packages-version.mjs ${nextRelease.version}",
       }
-    ],
-    [
-      '@semantic-release/npm',
-      {
-        "npmPublish": false
-      }
     ]
     [
       '@semantic-release/git',
