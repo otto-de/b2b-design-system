@@ -21,5 +21,11 @@ jobs:
     needs: [ validations ]
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
     uses: ./.github/workflows/publish.yml
+    permissions:
+      packages: write
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     with:
       node_version: 24

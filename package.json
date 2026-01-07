@@ -4,7 +4,7 @@
   "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/otto-de/b2b-design-system"
+    "url": "git+https://github.com/otto-de/b2b-design-system"
   },
   "author": "Otto GmbH",
   "license": "Apache-2.0",
