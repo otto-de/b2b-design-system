@@ -1,3 +1,10 @@
+## [1.37.3-alpha.6](https://github.com/otto-de/b2b-design-system/compare/v1.37.3-alpha.5...v1.37.3-alpha.6) (2026-01-07)
+
+
+### Bug Fixes
+
+* **deployment:** [BLA-1950] testing changes to run from semantic-release ([86fcf01](https://github.com/otto-de/b2b-design-system/commit/86fcf013651a84debe25620fa136589d418a4853))
+
 ## [1.37.3-alpha.5](https://github.com/otto-de/b2b-design-system/compare/v1.37.3-alpha.4...v1.37.3-alpha.5) (2026-01-07)
 
 
