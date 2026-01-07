@@ -1,3 +1,16 @@
+## [1.37.3-alpha.2](https://github.com/otto-de/b2b-design-system/compare/v1.37.3-alpha.1...v1.37.3-alpha.2) (2026-01-07)
+
+
+### Bug Fixes
+
+* **deployment:** [BLA-1950] avoid on push actions for alpha branch and fix release config syntax ([2da9a94](https://github.com/otto-de/b2b-design-system/commit/2da9a94b995b714d6fc6f92e64922c3996b3fe64))
+* **deployment:** [BLA-1950] Avoid publishing builds with semantic-release ([c04c32b](https://github.com/otto-de/b2b-design-system/commit/c04c32bde88a21139ec677ad554237c11fb7efac))
+
+
+### Reverts
+
+* Revert "fix(deployment): [BLA-1950] Backup .npmrc before publishing using semantic release" ([1478025](https://github.com/otto-de/b2b-design-system/commit/14780257a0f33f1cf2f7128b4fac636da3989d98))
+
 ## [1.37.3-alpha.1](https://github.com/otto-de/b2b-design-system/compare/v1.37.2...v1.37.3-alpha.1) (2026-01-07)
 
 
