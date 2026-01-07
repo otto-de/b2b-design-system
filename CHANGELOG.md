@@ -1,3 +1,10 @@
+## [1.37.3-alpha.4](https://github.com/otto-de/b2b-design-system/compare/v1.37.3-alpha.3...v1.37.3-alpha.4) (2026-01-07)
+
+
+### Bug Fixes
+
+* **deployment:** [BLA-1950] revert - merge release.yml and publish.yml ([ba2d616](https://github.com/otto-de/b2b-design-system/commit/ba2d616785e6e1dcf91fb83343b8cccbcf3bf173))
+
 ## [1.37.3-alpha.3](https://github.com/otto-de/b2b-design-system/compare/v1.37.3-alpha.2...v1.37.3-alpha.3) (2026-01-07)
 
 
