@@ -19,6 +19,12 @@ module.exports = {
       }
     ],
     [
+      '@semantic-release/exec',
+      {
+        "publishCmd": "./scripts/publish.sh ${branch.name}",
+      }
+    ],
+    [
       '@semantic-release/git',
       {
         assets: ['CHANGELOG.md', ['./**/package.json','!**/node_modules/**']]

@@ -33,10 +33,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Bump Version
-        run: npm run bump-version
+      - name: Release Package
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Publish Release
-        run: ./scripts/publish.sh ${{ github.ref_name }}
