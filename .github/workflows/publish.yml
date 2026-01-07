@@ -1,32 +1,15 @@
-name: Publish
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      node_version:
+        description: 'Node Version'
+        required: true
+        type: string
 
 jobs:
-  install:
-    name: Install Dependencies
-    uses: ./.github/workflows/install.yml
-    with:
-      node_version: 24
-
-  validations:
-    name: Validations
-    needs: [ install ]
-    uses: ./.github/workflows/validations.yml
-    with:
-      node_version: 24
-
-  publish_packages:
-    name: Publish Packages
-    needs: [ validations ]
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/alpha'
+  publish_artifacts:
+    name: Release and publish
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -34,7 +17,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: ${{ inputs.node_version }}
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
