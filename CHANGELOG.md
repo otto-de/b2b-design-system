@@ -1,3 +1,18 @@
+## [1.37.3](https://github.com/otto-de/b2b-design-system/compare/v1.37.2...v1.37.3) (2026-01-07)
+
+
+### Bug Fixes
+
+* [BLA-1948] Fix the security vulnerabilities ([b8a295f](https://github.com/otto-de/b2b-design-system/commit/b8a295f29a0f2f73f5ff6458fb185b1c9a42e046))
+* **ci:** [BLA-1950] Update node version in pipeline to use OIDC authentication for publishing builds ([bb89c99](https://github.com/otto-de/b2b-design-system/commit/bb89c995cf298dbf4350838e0e6e8f75aeef4395))
+* **deployment:** [BLA-1950] Add back registry url and scope ([73411a2](https://github.com/otto-de/b2b-design-system/commit/73411a2ccd3247f11e3ce08e5eb3fb7f7456d764))
+* **deployment:** [BLA-1950] Make package release public for unscoped releases ([459915a](https://github.com/otto-de/b2b-design-system/commit/459915a778e635ef9c48ee34a57585dcf3e99f5c))
+* **deployment:** [BLA-1950] Move permissions to publish.yml ([3cdc0dd](https://github.com/otto-de/b2b-design-system/commit/3cdc0dd1cfdf38afc3cb87cfa2f06c2336bc06e6))
+* **deployment:** [BLA-1950] Set NPM_AUTH_TOKEN to empty manually ([03c96d3](https://github.com/otto-de/b2b-design-system/commit/03c96d30b80991990d83ea043d33e65617911b83))
+* **deployment:** [BLA-1950] Update git URL and remove scope ([18fffe3](https://github.com/otto-de/b2b-design-system/commit/18fffe3721f432f147e94eac6200950b292f4de1))
+* **misc:** [BLA-1950] update pipeline and audit fixes ([50171d6](https://github.com/otto-de/b2b-design-system/commit/50171d6bd089aedeb7f2f461eacf0f901d8f92eb))
+* **Security:** [BLA-1948] Fix for CVE-2025-68429 ([6ae8972](https://github.com/otto-de/b2b-design-system/commit/6ae897206f6d5564bff73d9b183facb22729c136))
+
 ## [1.37.2](https://github.com/otto-de/b2b-design-system/compare/v1.37.1...v1.37.2) (2025-12-04)
 
 
