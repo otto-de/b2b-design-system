@@ -19,7 +19,7 @@ jobs:
   publish_packages:
     name: Publish Packages
     needs: [ validations ]
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/alpha'
     uses: ./.github/workflows/publish.yml
     permissions:
       packages: write
