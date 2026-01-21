@@ -579,16 +579,10 @@ export class B2bDatePicker implements ComponentInterface {
               <div
                 tabindex={0}
                 onClick={() => {
-                  if (this.invalid) {
-                    this.invalid = false;
-                  }
                   this.showHideDatePicker();
                 }}
                 onKeyDown={event => {
                   if (event.key === 'Enter') {
-                    if (this.invalid) {
-                      this.invalid = false;
-                    }
                     this.showHideDatePicker();
                   }
                 }}
@@ -654,7 +648,9 @@ export class B2bDatePicker implements ComponentInterface {
               'b2b-date-picker-hint': true,
               'b2b-date-picker-hint--error': this.invalid,
             }}>
-            {this.invalid ? this.errorMessage : this.showHint && this.hint}
+            {!this.showDatePicker && this.invalid
+              ? this.errorMessage
+              : this.showHint && this.hint}
           </span>
         }
       </Host>
