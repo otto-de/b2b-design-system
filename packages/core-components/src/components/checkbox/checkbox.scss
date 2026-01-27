@@ -23,11 +23,12 @@
     position: absolute;
     fill: var(--b2b-color-white-100);
     display: none;
-    margin-top: var(--b2b-size-7);
+    margin-top: 0;
     margin-left: var(--b2b-size-1);
     width: var(--b2b-size-35);
     height: var(--b2b-size-35);
     z-index: 1000;
+    margin-bottom: var(--b2b-size-1);
   }
 
   &__input {
