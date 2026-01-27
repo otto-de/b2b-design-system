@@ -113,11 +113,10 @@ export class TableRowgroupComponent {
     list: HTMLB2bTableRowElement[],
     event: B2bCheckboxCustomEvent<CheckboxEventDetail>,
   ) => {
-    list.forEach(
-      child => (
-        (child.checked = event.detail.checked), (child.indeterminate = false)
-      ),
-    );
+    list.forEach(child => {
+      child.checked = event.detail.checked;
+      child.indeterminate = false;
+    });
   };
 
   private makeHeaderRowNotSelectable() {
