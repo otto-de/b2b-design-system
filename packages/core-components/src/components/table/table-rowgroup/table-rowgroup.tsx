@@ -115,8 +115,7 @@ export class TableRowgroupComponent {
   ) => {
     list.forEach(
       child => (
-        (child.checked = event.detail.checked),
-        (child.indeterminate = false)
+        (child.checked = event.detail.checked), (child.indeterminate = false)
       ),
     );
   };
