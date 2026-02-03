@@ -193,4 +193,28 @@ describe('B2B-Date-Picker', () => {
       expect(clearedInputValue).toBe('');
     });
   });
+
+  it('should not open the date picker and input must be disabled when `disabled` prop is set', async () => {
+    page = await newE2EPage();
+    await page.setContent(`<b2b-date-picker disabled=true></b2b-date-picker>`);
+
+    const inputField = await page.find(
+      'b2b-date-picker >>> input.b2b-date-picker-input',
+    );
+    expect(inputField).not.toBeNull();
+
+    const isDisabled = await inputField.getProperty('disabled');
+    expect(isDisabled).toBe(true);
+
+    const clickableInputComponent = await page.find(
+      'b2b-date-picker >>> div.b2b-date-picker-input-wrapper',
+    );
+    await clickableInputComponent.click();
+    await page.waitForChanges();
+
+    const datePickerComponent = await page.find(
+      'b2b-date-picker >>> .b2b-date-picker-body',
+    );
+    expect(datePickerComponent).toBeNull();
+  });
 });
