@@ -215,6 +215,8 @@ describe('B2B-Date-Picker', () => {
     const datePickerComponent = await page.find(
       'b2b-date-picker >>> .b2b-date-picker-body',
     );
-    expect(datePickerComponent).toBeNull();
+    expect(await datePickerComponent.getAttribute('class')).toContain(
+      'b2b-date-picker-body--hidden',
+    );
   });
 });
