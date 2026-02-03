@@ -291,6 +291,16 @@ export class DropdownComponent implements ComponentInterface {
         ...opt,
         selected: false,
       }));
+
+      this.ignoreNextMutation = true;
+      const nativeOptions = this.hostElement.querySelectorAll('option');
+      nativeOptions.forEach(opt => {
+        opt.removeAttribute('selected');
+        opt.selected = false;
+      });
+      this.ignoreNextMutation = false;
+
+      this.b2bChange.emit(this.placeholderValue);
     }
 
     this.searchValue = (event.target as HTMLInputElement).value;
