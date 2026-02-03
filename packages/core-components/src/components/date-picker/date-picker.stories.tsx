@@ -8,6 +8,7 @@ const meta: Meta = {
   component: 'b2b-date-picker',
   args: {
     required: false,
+    disabled: false,
     disablePastDates: false,
     disableFutureDates: false,
     disableWeekends: false,
@@ -34,6 +35,7 @@ const meta: Meta = {
         <b2b-date-picker
           label=${args.label}
           required=${args.required}
+          disabled=${args.disabled}
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
@@ -53,6 +55,7 @@ const meta: Meta = {
         <b2b-date-picker
           label=${args.label}
           required=${args.required}
+          disabled=${args.disabled}
           disable-past-dates=${args.disablePastDates}
           disable-future-dates=${args.disableFutureDates}
           disable-weekends=${args.disableWeekends}
@@ -96,6 +99,19 @@ export const Default: Story = {
         day.focus();
         await userEvent.keyboard('{arrowright}{arrowright}');
       }, 500);
+    }, 500);
+  },
+};
+
+export const Disabled: Story = {
+  args: { ...meta.args, disabled: true },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-focus-wrapper',
+      );
+      await userEvent.click(b2bDatePickerInputWrapper);
     }, 500);
   },
 };

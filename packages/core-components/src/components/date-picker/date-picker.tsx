@@ -29,6 +29,8 @@ import { parsePropToArray } from '../../utils/json-property-binding-util';
 export class B2bDatePicker implements ComponentInterface {
   @Element() host: HTMLB2bDatePickerElement;
 
+  @Prop() disabled: boolean = false;
+
   /** Whether the previous dates from the current date are disabled. By default, this is true. */
   @Prop() disablePastDates: boolean;
 
@@ -198,6 +200,15 @@ export class B2bDatePicker implements ComponentInterface {
       this.setCurrentYear(this.selectedYear - 1);
     } else {
       this.setCurrentMonth(this.selectedMonth - 1);
+    }
+  }
+
+  @Watch('disabled')
+  handleDisabledChanged(newVal: boolean) {
+    if (newVal) {
+      this.showDatePicker = false;
+      this.focused = false;
+      this.invalid = false;
     }
   }
 
@@ -497,6 +508,7 @@ export class B2bDatePicker implements ComponentInterface {
   };
 
   private moveFocusToInputComponent() {
+    if (this.disabled) return;
     const inputElement = this.host.shadowRoot.querySelector(
       'input.b2b-date-picker-input',
     ) as HTMLInputElement;
@@ -528,34 +540,43 @@ export class B2bDatePicker implements ComponentInterface {
             class={{
               'b2b-date-picker-input-wrapper': true,
               'b2b-date-picker-input-wrapper--focused':
-                this.focused || this.showDatePicker,
+                !this.disabled && (this.focused || this.showDatePicker),
               'b2b-date-picker-input-wrapper--error': this.invalid,
+              'b2b-date-picker-input-wrapper--disabled': this.disabled,
             }}>
             <div
               class="b2b-date-picker-input-focus-wrapper"
-              onClick={() => {
-                this.moveFocusToInputComponent();
-              }}>
+              onClick={
+                this.disabled
+                  ? undefined
+                  : () => {
+                      this.moveFocusToInputComponent();
+                    }
+              }>
               <input
                 type="text"
-                tabindex={0}
+                tabIndex={this.disabled ? -1 : 0}
                 class={{
                   'b2b-date-picker-input': true,
                   'b2b-date-picker-input--error': this.invalid,
+                  'b2b-date-picker-input--disabled': this.disabled,
                 }}
                 value={this.userInputDate}
-                onInput={this.handleInputChange}
-                onKeyDown={this.handleKeyDown}
-                onFocus={this.handleInputFocus}
+                disabled={this.disabled}
+                onInput={this.disabled ? undefined : this.handleInputChange}
+                onKeyDown={this.disabled ? undefined : this.handleKeyDown}
+                onFocus={this.disabled ? undefined : this.handleInputFocus}
                 onBlur={() => {
-                  this.focused = false;
-                  this.handleFocusOut();
+                  if (!this.disabled) {
+                    this.focused = false;
+                    this.handleFocusOut();
+                  }
                 }}
                 placeholder={this.placeholder}
               />
             </div>
             <div class="b2b-icons">
-              {this.userInputDate && (
+              {this.userInputDate && !this.disabled && (
                 <div
                   tabIndex={0}
                   onClick={() => {
@@ -577,16 +598,21 @@ export class B2bDatePicker implements ComponentInterface {
               )}
 
               <div
-                tabindex={0}
-                onClick={() => {
-                  this.showHideDatePicker();
-                }}
+                tabIndex={this.disabled ? -1 : 0}
+                onClick={
+                  this.disabled
+                    ? undefined
+                    : () => {
+                        this.showHideDatePicker();
+                      }
+                }
                 onKeyDown={event => {
-                  if (event.key === 'Enter') {
+                  if (!this.disabled && event.key === 'Enter') {
                     this.showHideDatePicker();
                   }
                 }}
-                class="b2b-event-icon">
+                class={{ 'b2b-event-icon': true }}
+                aria-disabled={this.disabled ? 'true' : 'false'}>
                 <b2b-icon-100
                   aria-label={
                     this.showDatePicker
@@ -594,7 +620,7 @@ export class B2bDatePicker implements ComponentInterface {
                       : 'open date picker'
                   }
                   icon="b2b_icon-event"
-                  clickable={true}></b2b-icon-100>
+                  clickable={!this.disabled}></b2b-icon-100>
               </div>
             </div>
           </div>
