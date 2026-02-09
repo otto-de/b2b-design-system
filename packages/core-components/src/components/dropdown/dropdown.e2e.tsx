@@ -231,4 +231,55 @@ describe('B2B-Dropdown', () => {
     expect(optionTexts).toContain('Apple');
     expect(optionTexts).toContain('Grape');
   });
+
+  it('should allow reselecting the same option after manually clearing the search input', async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <b2b-dropdown label="Search Fruits" search="true">
+        <option value="apple" id="apple">Apple</option>
+        <option value="banana" id="banana">Banana</option>
+        <option value="cherry" id="cherry">Cherry</option>
+      </b2b-dropdown>
+    `);
+
+    const dropdown = await page.find('b2b-dropdown');
+    const b2bChange = await page.spyOnEvent('b2b-change');
+
+    await dropdown.click();
+    await page.waitForChanges();
+
+    const appleOption = await page.find(
+      'b2b-dropdown >>> .b2b-dropdown__option[data-value="apple"]',
+    );
+    await appleOption.click();
+    await page.waitForChanges();
+
+    expect(b2bChange).toHaveReceivedEventDetail('apple');
+
+    const searchInput = await page.find('b2b-dropdown >>> b2b-input');
+    expect(await searchInput.getProperty('value')).toContain('Apple');
+
+    await dropdown.click();
+    await page.waitForChanges();
+
+    const inputElement = await page.find('b2b-dropdown >>> .b2b-input');
+    await inputElement.focus();
+
+    await inputElement.click({ clickCount: 3 });
+    await page.keyboard.press('Backspace');
+    await page.waitForChanges();
+
+    expect(b2bChange).toHaveReceivedEventDetail('');
+
+    const appleOptionAgain = await page.find(
+      'b2b-dropdown >>> .b2b-dropdown__option[data-value="apple"]',
+    );
+    await appleOptionAgain.click();
+    await page.waitForChanges();
+
+    expect(b2bChange).toHaveReceivedEventDetail('apple');
+
+    const searchInputAfter = await page.find('b2b-dropdown >>> b2b-input');
+    expect(await searchInputAfter.getProperty('value')).toContain('Apple');
+  });
 });
