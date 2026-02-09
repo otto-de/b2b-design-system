@@ -17,8 +17,6 @@ const ignoredStories = [
   'design-tokens-color--story-010-color-tokens',
   'design-tokens-font--story-010-font-tokens',
   'design-tokens-size--story-010-size-tokens',
-  'components-form-date-picker--default',
-  'components-form-date-picker--with-label',
   'components-status-feedback-shimmer--story-010-default',
 ];
 

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getArgTypes } from '../../docs/config/utils';
-import { userEvent } from '@storybook/test';
+import { userEvent, waitFor } from '@storybook/test';
 
 const meta: Meta = {
   title: 'Components/Form/Date Picker',
@@ -78,64 +78,102 @@ type Story = StoryObj;
 export const Default: Story = {
   args: { ...meta.args, preSelectedDate: '01.01.2025' },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const wrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
-      ) as HTMLElement;
-      const days = datePicker.shadowRoot?.querySelector(
+      );
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const wrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    ) as HTMLElement;
+
+    await userEvent.click(wrapper);
+
+    await waitFor(() => {
+      const days = datePicker?.shadowRoot?.querySelector(
         'b2b-date-picker-days',
       ) as HTMLElement;
-      const day = days.shadowRoot?.querySelector(
+      const day = days?.shadowRoot?.querySelector(
         '.b2b-date-picker-day--selected',
       ) as HTMLElement;
+      if (!day) throw new Error('Selected day not found');
+      return day;
+    });
 
-      await userEvent.click(wrapper);
+    const days = datePicker.shadowRoot?.querySelector(
+      'b2b-date-picker-days',
+    ) as HTMLElement;
+    const day = days.shadowRoot?.querySelector(
+      '.b2b-date-picker-day--selected',
+    ) as HTMLElement;
 
-      setTimeout(async () => {
-        day.focus();
-        await userEvent.keyboard('{arrowright}{arrowright}');
-      }, 500);
-    }, 500);
+    day.focus();
+    await userEvent.keyboard('{arrowright}{arrowright}');
   },
 };
 
 export const DisablePastDates: Story = {
   args: { ...meta.args, disablePastDates: true },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
 export const DisableFutureDates: Story = {
   args: { ...meta.args, disableFutureDates: true },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
 export const DisableWeekends: Story = {
   args: { ...meta.args, disableWeekends: true, preSelectedDate: '01.01.2025' },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
@@ -146,13 +184,20 @@ export const DisableDates: Story = {
     disableDates: '["10.01.2025", "21.01.2025"]',
   },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
@@ -163,13 +208,20 @@ export const DisableDays: Story = {
     disableDays: '["Mo", "Tu"]',
   },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
@@ -180,13 +232,20 @@ export const DisableDatesUntil: Story = {
     disableDatesUntil: '10.02.2025',
   },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
@@ -197,13 +256,20 @@ export const DisableDatesFrom: Story = {
     disableDatesFrom: '10.01.2025',
   },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
@@ -230,13 +296,20 @@ export const WithWidth: Story = {
     preSelectedDate: '01.01.2025',
   },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
@@ -247,13 +320,20 @@ export const EnglishDatepicker: Story = {
     preSelectedDate: '01.01.2025',
   },
   play: async ({ canvasElement }) => {
-    setTimeout(async () => {
-      const datePicker = canvasElement.querySelector('b2b-date-picker');
-      const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+    const datePicker = canvasElement.querySelector('b2b-date-picker');
+
+    await waitFor(() => {
+      const wrapper = datePicker?.shadowRoot?.querySelector(
         '.b2b-date-picker-input-focus-wrapper',
       );
-      await userEvent.click(b2bDatePickerInputWrapper);
-    }, 500);
+      if (!wrapper) throw new Error('Wrapper not found');
+      return wrapper;
+    });
+
+    const b2bDatePickerInputWrapper = datePicker.shadowRoot?.querySelector(
+      '.b2b-date-picker-input-focus-wrapper',
+    );
+    await userEvent.click(b2bDatePickerInputWrapper);
   },
 };
 
