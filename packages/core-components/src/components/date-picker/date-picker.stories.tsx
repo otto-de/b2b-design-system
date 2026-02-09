@@ -280,3 +280,25 @@ export const preSelectedDate: Story = {
 export const WithoutHintMessage: Story = {
   args: { ...meta.args, showHint: false },
 };
+
+export const Error: Story = {
+  args: { ...meta.args, disablePastDates: true, preSelectedDate: '' },
+  play: async ({ canvasElement }) => {
+    setTimeout(async () => {
+      const datePicker = canvasElement.querySelector('b2b-date-picker');
+      const wrapper = datePicker.shadowRoot?.querySelector(
+        '.b2b-date-picker-input-focus-wrapper',
+      ) as HTMLElement;
+      await userEvent.click(wrapper);
+
+      const input = datePicker.shadowRoot?.querySelector(
+        'input.b2b-date-picker-input',
+      ) as HTMLInputElement;
+
+      if (input) {
+        await userEvent.type(input, '01.01.2020');
+        await userEvent.keyboard('{Enter}');
+      }
+    }, 500);
+  },
+};
