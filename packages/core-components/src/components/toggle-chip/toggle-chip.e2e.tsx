@@ -24,7 +24,10 @@ describe('b2b-toggle-chip', () => {
     await page.waitForChanges();
 
     expect(await element.getProperty('active')).toBe(true);
-    expect(selectedSpy).toHaveReceivedEventDetail({ value: 'chip-1' });
+    expect(selectedSpy).toHaveReceivedEventDetail({
+      value: 'chip-1',
+      isActive: true,
+    });
   });
 
   it('emits the assigned value when navigated with a keyboard', async () => {
@@ -36,9 +39,12 @@ describe('b2b-toggle-chip', () => {
     await page.waitForChanges();
 
     expect(await element.getProperty('active')).toBe(true);
-    expect(selectedSpy).toHaveReceivedEventDetail({ value: 'chip-1' });
+    expect(selectedSpy).toHaveReceivedEventDetail({
+      value: 'chip-1',
+      isActive: true,
+    });
   });
-  it('does not emit if it is already active', async () => {
+  it('emits event with is active false if it is already active', async () => {
     const element = await page.find('b2b-toggle-chip');
     const selectedSpy = await page.spyOnEvent('b2b-selected');
 
@@ -47,7 +53,10 @@ describe('b2b-toggle-chip', () => {
     await element.click();
     await page.waitForChanges();
 
-    expect(selectedSpy).not.toHaveReceivedEvent();
+    expect(selectedSpy).toHaveReceivedEventDetail({
+      value: 'chip-1',
+      isActive: false,
+    });
   });
   it('does not emit if it is disabled', async () => {
     const element = await page.find('b2b-toggle-chip');
