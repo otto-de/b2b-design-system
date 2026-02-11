@@ -30,14 +30,12 @@ export class B2BToggleChipComponent {
     if (this.disabled) {
       return;
     }
-
     this.active = !this.active;
 
-    if (this.active) {
-      this.b2bSelected.emit({
-        value: this.value,
-      });
-    }
+    this.b2bSelected.emit({
+      value: this.value,
+      isActive: this.active,
+    });
   };
 
   private onKeyDown = (ev: KeyboardEvent) => {
@@ -47,11 +45,10 @@ export class B2BToggleChipComponent {
     if (ev.key === 'Enter') {
       this.active = !this.active;
 
-      if (this.active) {
-        this.b2bSelected.emit({
-          value: this.value,
-        });
-      }
+      this.b2bSelected.emit({
+        value: this.value,
+        isActive: this.active,
+      });
     }
   };
 
