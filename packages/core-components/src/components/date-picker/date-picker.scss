@@ -51,6 +51,18 @@
     border-color: var(--b2b-color-error-100);
   }
 
+  &--disabled {
+    background-color: var(--b2b-bg-disabled, #f5f5f5);
+    border-color: var(--b2b-color-grey-200);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .b2b-icons {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+
   .b2b-date-picker-input {
     border: none;
     outline: none;
@@ -67,6 +79,12 @@
 
     &--error {
       background-color: var(--b2b-color-error-50);
+    }
+
+    &--disabled {
+      background-color: transparent;
+      color: var(--b2b-color-grey-300);
+      cursor: not-allowed;
     }
   }
 }

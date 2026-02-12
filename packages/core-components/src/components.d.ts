@@ -403,6 +403,7 @@ export namespace Components {
           * Whether the dates that fall on the weekend are disabled. By default, this is false.
          */
         "disableWeekends": boolean;
+        "disabled": boolean;
         /**
           * Hint text that should be displayed when showHint is true
          */
@@ -3184,6 +3185,7 @@ declare namespace LocalJSX {
           * Whether the dates that fall on the weekend are disabled. By default, this is false.
          */
         "disableWeekends"?: boolean;
+        "disabled"?: boolean;
         /**
           * Hint text that should be displayed when showHint is true
          */
