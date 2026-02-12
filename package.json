@@ -69,6 +69,6 @@
   "optionalDependencies": {
     "sass-embedded-darwin-x64": "^1.85.1",
     "sass-embedded-linux-x64": "^1.85.1",
-    "sass-embedded-win32-x64": "^1.85.1"
+    "sass-embedded-win32-x64": "^1.97.3"
   }
 }
