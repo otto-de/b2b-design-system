@@ -6,7 +6,7 @@ on:
         required: true
         type: string
 jobs:
-  shai-hukud-scan:
+  shai-hulud-scan:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,15 +23,15 @@ jobs:
           # Install runtime deps required by the downloaded scanner script without modifying package.json
           npm install --no-save js-yaml
 
-      - name: Download Shai Hukud scan script
+      - name: Download Shai Hulud scan script
         run: |
-          curl -fsSL https://raw.githubusercontent.com/otto-de/OreNPMGuard/refs/heads/main/shai_hulud_scanner.js -o shai-hukud-scan.js
+          curl -fsSL https://raw.githubusercontent.com/otto-de/OreNPMGuard/refs/heads/main/shai_hulud_scanner.js -o shai-hulud-scan.js
 
       - name: Run Shai Hulud scan
         env:
           PROJECT_ROOT: ${{ github.workspace }}
         run: |
-          node shai-hukud-scan.js "$PROJECT_ROOT"
+          node shai-hulud-scan.js "$PROJECT_ROOT"
   build-sanity-check:
     name: Build Sanity Check
     runs-on: ubuntu-latest
