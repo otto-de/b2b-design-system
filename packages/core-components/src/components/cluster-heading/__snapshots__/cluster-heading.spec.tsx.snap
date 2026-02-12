@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`b2b-cluster-heading basic rendering should render with label 1`] = `
+<b2b-cluster-heading class="b2b-cluster-heading b2b-cluster-heading--full-width">
+  <mock:shadow-root>
+    <div class="b2b-cluster-heading__header" id="cluster-heading-gf3b17yif">
+      <span class="b2b-cluster-heading__label">
+        Test Label
+      </span>
+    </div>
+    <slot></slot>
+  </mock:shadow-root>
+</b2b-cluster-heading>
+`;

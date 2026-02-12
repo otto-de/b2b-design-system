@@ -500,5 +500,93 @@
         state="true"
         label-position="right"></b2b-toggle-switch>
     </div>
+
+    <div class="content-container">
+      <b2b-headline size="200">Cluster Heading Component</b2b-headline>
+
+      <b2b-headline size="100" no-margin="true"
+        >Default (Non-collapsible)</b2b-headline
+      >
+      <b2b-cluster-heading label="Section Heading"></b2b-cluster-heading>
+
+      <b2b-headline size="100" no-margin="true"
+        >Collapsible (Open by default)</b2b-headline
+      >
+      <b2b-cluster-heading label="Collapsible Section" collapsible="true">
+        <div style="padding: 16px; background-color: #f5f5f5">
+          <b2b-paragraph
+            >Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts. Separated they
+            live in Bookmarksgrove right at the coast of the Semantics, a large
+            language ocean.</b2b-paragraph
+          >
+          <b2b-input label="Input Field"></b2b-input>
+        </div>
+      </b2b-cluster-heading>
+
+      <b2b-headline size="100" no-margin="true"
+        >Collapsible (Closed by default)</b2b-headline
+      >
+      <b2b-cluster-heading
+        label="Hidden Content Section"
+        collapsible="true"
+        open="false">
+        <div style="padding: 16px; background-color: #f5f5f5">
+          <b2b-paragraph>This content is hidden by default.</b2b-paragraph>
+          <b2b-button variant="primary">Action Button</b2b-button>
+        </div>
+      </b2b-cluster-heading>
+
+      <b2b-headline size="100" no-margin="true"
+        >Error State (Collapsible)</b2b-headline
+      >
+      <b2b-cluster-heading
+        label="Validation Errors"
+        collapsible="true"
+        error="true">
+        <div style="padding: 16px; background-color: #f5f5f5">
+          <b2b-input
+            label="Email"
+            invalid="true"
+            error="Invalid email format"></b2b-input>
+          <b2b-input
+            label="Phone"
+            invalid="true"
+            error="Required field"></b2b-input>
+        </div>
+      </b2b-cluster-heading>
+
+      <b2b-headline size="100" no-margin="true"
+        >Custom Width (Not Full Width)</b2b-headline
+      >
+      <b2b-cluster-heading
+        label="Narrow Heading"
+        full-width="false"></b2b-cluster-heading>
+
+      <b2b-headline size="100" no-margin="true">With Rich Content</b2b-headline>
+      <b2b-cluster-heading label="Product Details" collapsible="true">
+        <div style="padding: 16px">
+          <b2b-grid>
+            <b2b-grid-row>
+              <b2b-grid-col span="6">
+                <b2b-input label="Product Name"></b2b-input>
+              </b2b-grid-col>
+              <b2b-grid-col span="6">
+                <b2b-input label="SKU"></b2b-input>
+              </b2b-grid-col>
+            </b2b-grid-row>
+            <b2b-grid-row>
+              <b2b-grid-col span="12">
+                <b2b-dropdown label="Category">
+                  <option value="electronics">Electronics</option>
+                  <option value="clothing">Clothing</option>
+                  <option value="books">Books</option>
+                </b2b-dropdown>
+              </b2b-grid-col>
+            </b2b-grid-row>
+          </b2b-grid>
+        </div>
+      </b2b-cluster-heading>
+    </div>
   </body>
 </html>

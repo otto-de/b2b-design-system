@@ -294,6 +294,32 @@ export namespace Components {
          */
         "value"?: any;
     }
+    /**
+     * Cluster Heading component for content separation and optional accordion functionality.
+     * Provides a standardized way to create section headings with collapsible content.
+     */
+    interface B2bClusterHeading {
+        /**
+          * Whether the heading has accordion functionality. Per default, it is false.
+         */
+        "collapsible": boolean;
+        /**
+          * Whether the heading is in error state. Shows label in error color. Per default, it is false.
+         */
+        "error": boolean;
+        /**
+          * Whether the heading should take full width. Per default, it is true.
+         */
+        "fullWidth": boolean;
+        /**
+          * The label text displayed in the heading.
+         */
+        "label": string;
+        /**
+          * The default state of the accordion (open or closed). Only applies when collapsible is true. Per default, it is true (open).
+         */
+        "open": boolean;
+    }
     interface B2bCustomDropdown {
         /**
           * The horizontal alignment of the dropdown. Can be 'left', 'center', or 'right'. Default is 'left'.
@@ -1656,6 +1682,10 @@ export interface B2bChipComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bChipComponentElement;
 }
+export interface B2bClusterHeadingCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLB2bClusterHeadingElement;
+}
 export interface B2bCustomDropdownOptionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLB2bCustomDropdownOptionElement;
@@ -1927,6 +1957,27 @@ declare global {
     var HTMLB2bChipComponentElement: {
         prototype: HTMLB2bChipComponentElement;
         new (): HTMLB2bChipComponentElement;
+    };
+    interface HTMLB2bClusterHeadingElementEventMap {
+        "b2b-toggle": boolean;
+    }
+    /**
+     * Cluster Heading component for content separation and optional accordion functionality.
+     * Provides a standardized way to create section headings with collapsible content.
+     */
+    interface HTMLB2bClusterHeadingElement extends Components.B2bClusterHeading, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLB2bClusterHeadingElementEventMap>(type: K, listener: (this: HTMLB2bClusterHeadingElement, ev: B2bClusterHeadingCustomEvent<HTMLB2bClusterHeadingElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLB2bClusterHeadingElementEventMap>(type: K, listener: (this: HTMLB2bClusterHeadingElement, ev: B2bClusterHeadingCustomEvent<HTMLB2bClusterHeadingElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLB2bClusterHeadingElement: {
+        prototype: HTMLB2bClusterHeadingElement;
+        new (): HTMLB2bClusterHeadingElement;
     };
     interface HTMLB2bCustomDropdownElement extends Components.B2bCustomDropdown, HTMLStencilElement {
     }
@@ -2713,6 +2764,7 @@ declare global {
         "b2b-checkbox": HTMLB2bCheckboxElement;
         "b2b-checkbox-group": HTMLB2bCheckboxGroupElement;
         "b2b-chip-component": HTMLB2bChipComponentElement;
+        "b2b-cluster-heading": HTMLB2bClusterHeadingElement;
         "b2b-custom-dropdown": HTMLB2bCustomDropdownElement;
         "b2b-custom-dropdown-option": HTMLB2bCustomDropdownOptionElement;
         "b2b-date-picker": HTMLB2bDatePickerElement;
@@ -3070,6 +3122,36 @@ declare namespace LocalJSX {
           * It is only used when the chip component participates in a group
          */
         "value"?: any;
+    }
+    /**
+     * Cluster Heading component for content separation and optional accordion functionality.
+     * Provides a standardized way to create section headings with collapsible content.
+     */
+    interface B2bClusterHeading {
+        /**
+          * Whether the heading has accordion functionality. Per default, it is false.
+         */
+        "collapsible"?: boolean;
+        /**
+          * Whether the heading is in error state. Shows label in error color. Per default, it is false.
+         */
+        "error"?: boolean;
+        /**
+          * Whether the heading should take full width. Per default, it is true.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The label text displayed in the heading.
+         */
+        "label": string;
+        /**
+          * Emits when the accordion state changes. Emits the new open state (true/false).
+         */
+        "onB2b-toggle"?: (event: B2bClusterHeadingCustomEvent<boolean>) => void;
+        /**
+          * The default state of the accordion (open or closed). Only applies when collapsible is true. Per default, it is true (open).
+         */
+        "open"?: boolean;
     }
     interface B2bCustomDropdown {
         /**
@@ -4623,6 +4705,7 @@ declare namespace LocalJSX {
         "b2b-checkbox": B2bCheckbox;
         "b2b-checkbox-group": B2bCheckboxGroup;
         "b2b-chip-component": B2bChipComponent;
+        "b2b-cluster-heading": B2bClusterHeading;
         "b2b-custom-dropdown": B2bCustomDropdown;
         "b2b-custom-dropdown-option": B2bCustomDropdownOption;
         "b2b-date-picker": B2bDatePicker;
@@ -4699,6 +4782,11 @@ declare module "@stencil/core" {
             "b2b-checkbox": LocalJSX.B2bCheckbox & JSXBase.HTMLAttributes<HTMLB2bCheckboxElement>;
             "b2b-checkbox-group": LocalJSX.B2bCheckboxGroup & JSXBase.HTMLAttributes<HTMLB2bCheckboxGroupElement>;
             "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
+            /**
+             * Cluster Heading component for content separation and optional accordion functionality.
+             * Provides a standardized way to create section headings with collapsible content.
+             */
+            "b2b-cluster-heading": LocalJSX.B2bClusterHeading & JSXBase.HTMLAttributes<HTMLB2bClusterHeadingElement>;
             "b2b-custom-dropdown": LocalJSX.B2bCustomDropdown & JSXBase.HTMLAttributes<HTMLB2bCustomDropdownElement>;
             "b2b-custom-dropdown-option": LocalJSX.B2bCustomDropdownOption & JSXBase.HTMLAttributes<HTMLB2bCustomDropdownOptionElement>;
             "b2b-date-picker": LocalJSX.B2bDatePicker & JSXBase.HTMLAttributes<HTMLB2bDatePickerElement>;
