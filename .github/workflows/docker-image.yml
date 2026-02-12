@@ -66,7 +66,33 @@ jobs:
             org.opencontainers.image.title=b2bds-docs
             org.opencontainers.image.vendor=ottoopensource
 
-      - name: Build and push Docker image
+      # NEW: Build image locally (no push) for Trivy scan
+      - name: Build Docker image for scan (no push)
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          load: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # NEW: Scan docker image via Trivy before push
+      - name: Scan docker image via Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'image'
+          ignore-unfixed: false
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+          vuln-type: 'library,os'
+          scan-ref: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+        env:
+          TRIVY_SKIP_DB_UPDATE: true
+          TRIVY_SKIP_JAVA_DB_UPDATE: true
+
+      # Existing step: only runs if Trivy passed
+      - name: Push Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
