@@ -1,1 +1,29 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running npm security audit..."
+
+
+npm audit --audit-level=high
+
+AUDIT_EXIT_CODE=$?
+
+if [ $AUDIT_EXIT_CODE -ne 0 ]; then
+  echo ""
+  echo "❌ COMMIT BLOCKED: npm audit found HIGH or CRITICAL vulnerabilities"
+  echo ""
+  echo "Please fix the vulnerabilities before committing:"
+  echo "  1. Review the audit report above"
+  echo "  2. Run 'npm audit fix' to auto-fix (if available)"
+  echo "  3. For manual fixes, update package versions in package.json"
+  echo "  4. Re-run 'npm audit' to verify fixes"
+  echo ""
+  echo "Note: MODERATE vulnerabilities are allowed but should be reviewed."
+  echo ""
+  exit 1
+fi
+
+echo "✅ Security audit passed - no HIGH or CRITICAL vulnerabilities found"
+echo ""
+
 npx lint-staged
