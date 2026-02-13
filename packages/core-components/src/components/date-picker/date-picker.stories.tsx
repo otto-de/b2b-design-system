@@ -361,7 +361,7 @@ export const WithoutHintMessage: Story = {
   args: { ...meta.args, showHint: false },
 };
 
-export const Error: Story = {
+export const WithErrorMessage: Story = {
   args: { ...meta.args, disablePastDates: true, preSelectedDate: '' },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
