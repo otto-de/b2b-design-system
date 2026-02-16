@@ -22,6 +22,7 @@ export const iconTypes = [
   'b2b_icon-info',
   'b2b_icon-inplace-zoom',
   'b2b_icon-leaving-page',
+  'b2b_icon-like',
   'b2b_icon-lock-closed',
   'b2b_icon-lock-open',
   'b2b_icon-minus',
@@ -56,6 +57,5 @@ export const iconTypes = [
   'b2b_icon-warning-hint',
   'b2b_icon-wishlist-active',
   'b2b_icon-wishlist',
-  'b2b_icone-like',
 ] as const;
 export type IconName = (typeof iconTypes)[number];
