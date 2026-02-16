@@ -29,6 +29,7 @@ import { parsePropToArray } from '../../utils/json-property-binding-util';
 export class B2bDatePicker implements ComponentInterface {
   @Element() host: HTMLB2bDatePickerElement;
 
+  /** Whether the date picker is disabled. By default, this is false. */
   @Prop() disabled: boolean = false;
 
   /** Whether the previous dates from the current date are disabled. By default, this is true. */
