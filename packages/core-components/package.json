@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/b2b-core-components",
-  "version": "1.37.3",
+  "version": "1.38.0",
   "description": "Core components defined with Stencil",
   "author": "Otto GmbH",
   "license": "Apache-2.0",
@@ -43,7 +43,7 @@
   "dependencies": {
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
-    "@otto-de/b2b-tokens": "1.37.3",
+    "@otto-de/b2b-tokens": "1.38.0",
     "@stencil/core": "4.13.0",
     "globals": "^16.0.0"
   },

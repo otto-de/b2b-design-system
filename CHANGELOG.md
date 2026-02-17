@@ -1,3 +1,18 @@
+# [1.38.0](https://github.com/otto-de/b2b-design-system/compare/v1.37.3...v1.38.0) (2026-02-17)
+
+
+### Bug Fixes
+
+* **date-picker:** [BLA-1889] fix datepicker and align items center in radio items container ([1fdf11a](https://github.com/otto-de/b2b-design-system/commit/1fdf11ae8ca22dc5fe37c0deb44eec8f395f1aad))
+* **dropdown:** [B2BDS-274] | Allow re-selection after manual clear ([1fab878](https://github.com/otto-de/b2b-design-system/commit/1fab878c657573bbabb7a94105425239079d8bd7))
+* **misc:** [BLA-SCOUT] | Fix build issue and vulnerabilities ([#693](https://github.com/otto-de/b2b-design-system/issues/693)) ([1fc1ee8](https://github.com/otto-de/b2b-design-system/commit/1fc1ee8d3e6d8eb65b684437c4b76d68def07099))
+* **Togglechip:** [B2BDS-265] Emit the isActive status along with the value and emit event always ([#689](https://github.com/otto-de/b2b-design-system/issues/689)) ([ad94a71](https://github.com/otto-de/b2b-design-system/commit/ad94a717a85edcf0109bd20afb7cabe5bb959628))
+
+
+### Features
+
+* **date-picker:** [B2BDS-263] add disabled prop to date picker component ([a2e7b28](https://github.com/otto-de/b2b-design-system/commit/a2e7b283837a8e8d4e988d3a279de2f3569721ec))
+
 ## [1.37.3](https://github.com/otto-de/b2b-design-system/compare/v1.37.2...v1.37.3) (2026-01-07)
 
 
