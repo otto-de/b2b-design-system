@@ -135,4 +135,72 @@ describe('b2b-multiselect-dropdown', () => {
     );
     expect(chips.length).toBe(2);
   });
+
+  it('should toggle option when clicking on row padding area', async () => {
+    const page = await newE2EPage({
+      html: `<b2b-multiselect-dropdown options-list="Alpha, Beta, Gamma"></b2b-multiselect-dropdown>`,
+    });
+
+    const trigger = await page.find(
+      'b2b-multiselect-dropdown >>> .b2b-multiselect-dropdown',
+    );
+    await trigger.click();
+    await page.waitForChanges();
+
+    const spy = await page.spyOnEvent('b2b-selected');
+    const allOptions = await page.findAll(
+      'b2b-multiselect-dropdown >>> b2b-multiselect-option',
+    );
+
+    const firstOption = allOptions[1];
+    await firstOption.click();
+    await page.waitForChanges();
+
+    expect(spy).toHaveReceivedEvent();
+
+    const checkbox = await firstOption.find('b2b-checkbox');
+    const isChecked = await checkbox.getProperty('checked');
+    expect(isChecked).toBe(true);
+
+    const chip = await page.find(
+      'b2b-multiselect-dropdown >>> b2b-chip-component',
+    );
+    expect(chip).not.toBeNull();
+  });
+
+  it('should not toggle when clicking disabled option row', async () => {
+    const page = await newE2EPage({
+      html: `<b2b-multiselect-dropdown options-list="Alpha, Beta"></b2b-multiselect-dropdown>`,
+    });
+
+    const trigger = await page.find(
+      'b2b-multiselect-dropdown >>> .b2b-multiselect-dropdown',
+    );
+    await trigger.click();
+    await page.waitForChanges();
+
+    const allOptions = await page.findAll(
+      'b2b-multiselect-dropdown >>> b2b-multiselect-option',
+    );
+    const firstOption = allOptions[1]; // Skip select-all
+
+    const checkbox = await firstOption.find('b2b-checkbox');
+    await page.$eval('b2b-multiselect-dropdown', (el: any) => {
+      const option = el.shadowRoot.querySelectorAll(
+        'b2b-multiselect-option',
+      )[1];
+      const cb = option.querySelector('b2b-checkbox');
+      cb.setAttribute('disabled', 'true');
+    });
+    await page.waitForChanges();
+
+    const spy = await page.spyOnEvent('b2b-selected');
+
+    await firstOption.click();
+    await page.waitForChanges();
+
+    expect(spy).not.toHaveReceivedEvent();
+    const isChecked = await checkbox.getProperty('checked');
+    expect(isChecked).toBe(false);
+  });
 });
