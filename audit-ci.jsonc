@@ -1,0 +1,27 @@
+{
+  // audit-ci configuration — equivalent to .trivyignore for npm audits
+  // Docs: https://github.com/IBM/audit-ci
+  //
+  // Fail pipeline on: critical severity only (no unignored criticals exist currently)
+  // Allowlisted: high severity advisories that are blocked upstream with no available fix
+  //
+  // To update this list: run `npm audit --json` and extract advisory IDs from `.vulnerabilities[*].via[].source`
+  "high": true,
+  "critical": true,
+  "allowlist": [
+    // GHSA-3ppc-4f35-3m26 | minimatch ReDoS via repeated wildcards
+    // Affected packages: eslint, jest, nyc, copyfiles, fork-ts-checker-webpack-plugin
+    //   and all their transitive dependents (38 total vulns cascade from this one advisory)
+    // Status: NO upstream fix available for eslint/jest chains as of 2026-02-24
+    //   - eslint@9: @eslint/eslintrc + @eslint/config-array pin minimatch@3 internally
+    //   - jest@29: blocked by jest-image-snapshot peerDep (>=20 <=29), no jest@30 release
+    //   - @storybook/test-runner@0.22: pins nyc@15 which pins glob@7
+    //   - fork-ts-checker-webpack-plugin@8: no updated release
+    // Exploitability: NEGLIGIBLE — all consumers use hardcoded glob patterns from
+    //   config files (jest.config.js, eslint.config.mjs). No user-controlled input
+    //   reaches any minimatch call. All affected packages are dev dependencies only —
+    //   nothing is shipped in the published package.
+    // Ticket: BLA-2056 | Review date: 2026-05-24
+    "GHSA-3ppc-4f35-3m26"
+  ]
+}
