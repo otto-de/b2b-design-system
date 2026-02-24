@@ -83,7 +83,7 @@ jobs:
         run: npm ci
 
       - name: Security Audit
-        run: npm audit --audit-level=high -ws
+        run: npm run audit
         continue-on-error: false
 
       - name: Build
