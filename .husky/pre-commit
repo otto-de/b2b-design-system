@@ -16,7 +16,7 @@ if [ $AUDIT_EXIT_CODE -ne 0 ]; then
   echo "  1. Review the audit report above"
   echo "  2. Run 'npm audit fix' to auto-fix (if available)"
   echo "  3. For manual fixes, update package versions in package.json"
-  echo "  4. Known allowlisted advisories are defined in audit-ci.jsonc (BLA-2056)"
+  echo "  4. Re-run 'npm audit' to verify fixes"
   echo ""
   echo "Note: MODERATE vulnerabilities are allowed but should be reviewed."
   echo ""
