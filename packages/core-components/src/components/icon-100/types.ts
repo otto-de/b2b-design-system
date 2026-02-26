@@ -1,5 +1,4 @@
 export const iconTypes = [
-  '.DS_Store',
   'b2b_icon-360-degree',
   'b2b_icon-advice',
   'b2b_icon-allergen-sulfur-dioxide-sulfite',
