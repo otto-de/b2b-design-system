@@ -19,7 +19,7 @@
     "build": "node ./build.mjs"
   },
   "devDependencies": {
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "style-dictionary": "^4.3.3",
     "@bundled-es-modules/glob": "^10.4.2",
     "@bundled-es-modules/deepmerge": "^4.3.1",
