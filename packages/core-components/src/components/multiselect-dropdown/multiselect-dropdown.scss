@@ -28,7 +28,7 @@
     overflow: hidden;
     border: 1px solid var(--b2b-color-grey-200);
     border-radius: var(--b2b-size-border-radius-100);
-    padding: 5px var(--b2b-size-20);
+    padding: var(--b2b-size-7) var(--b2b-size-20);
     max-height: 104px;
     background-color: var(--b2b-color-white-100);
 
@@ -55,7 +55,7 @@
       align-items: center;
       gap: 4px 0;
       width: calc(100% - 24px);
-      padding: var(--b2b-size-1) 0;
+      padding: 0;
     }
 
     &__placeholder {

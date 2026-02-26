@@ -1,4 +1,12 @@
-import { Component, h, Host, Prop, Event, EventEmitter } from '@stencil/core';
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Prop,
+  Event,
+  EventEmitter,
+} from '@stencil/core';
 import { MultiSelectOptionEventDetail } from '../../../utils/interfaces/form.interface';
 
 @Component({
@@ -6,6 +14,8 @@ import { MultiSelectOptionEventDetail } from '../../../utils/interfaces/form.int
   styleUrl: 'multiselect-option.scss',
 })
 export class B2bMultiSelectOption {
+  @Element() hostElement: HTMLB2bMultiselectOptionElement;
+
   /** The label and value of the option. */
   @Prop() option!: string;
 
@@ -30,10 +40,25 @@ export class B2bMultiSelectOption {
     });
   };
 
+  private handleRowClick = (event: MouseEvent) => {
+    const checkbox = this.hostElement.querySelector('b2b-checkbox');
+    if (!checkbox) return;
+
+    if (checkbox.hasAttribute('disabled')) return;
+
+    const target = event.target as HTMLElement;
+    if (target.tagName.toLowerCase() === 'b2b-checkbox') {
+      return;
+    }
+
+    checkbox.click();
+  };
+
   render() {
     return (
       <Host
         role="option"
+        onClick={this.handleRowClick}
         class={{
           'b2b-multiselect-dropdown__option': true,
         }}>

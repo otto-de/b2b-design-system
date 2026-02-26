@@ -4,6 +4,7 @@
   gap: var(--b2b-size-15);
   padding: var(--b2b-size-20) var(--b2b-size-20) var(--b2b-size-25);
   align-items: center;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--b2b-color-hover-default);
