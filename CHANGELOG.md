@@ -1,3 +1,10 @@
+## [1.38.1](https://github.com/otto-de/b2b-design-system/compare/v1.38.0...v1.38.1) (2026-02-26)
+
+
+### Bug Fixes
+
+* **multiselect-dropdown:** [B2BDS-271] Expand clickable area for options and adjust padding ([#701](https://github.com/otto-de/b2b-design-system/issues/701)) ([e5f7197](https://github.com/otto-de/b2b-design-system/commit/e5f71978eef334739a89a9d9e76059b7136527ec))
+
 # [1.38.0](https://github.com/otto-de/b2b-design-system/compare/v1.37.3...v1.38.0) (2026-02-17)
 
 
