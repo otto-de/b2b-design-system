@@ -41,12 +41,12 @@ After setup, your repository will have this layout:
 your-repo/
 ├── .github/
 │   ├── copilot-instructions.md         ← Main AI workflow instructions
-│   ├── summary_template.md             ← Template for per-story summaries
+│   ├── summary-template.md             ← Template for per-story summaries
 │   └── sdd/
 │       ├── CONSTITUTION.md             ← Governance rules
 │       ├── code-to-spec.md             ← First-time context generator
 │       ├── update-context.md           ← Context sync guide
-│       ├── session_temp_file_protocol.md
+│       ├── session-tmp-file-protocol.md
 │       └── context/
 │           ├── index.md                ← Global module map (always read first)
 │           └── modules/
@@ -78,11 +78,11 @@ Copy the following files into your repository at these **exact paths** (don't re
 
 ```
 .github/copilot-instructions.md
-.github/summary_template.md
+.github/sdd/summary-template.md
 .github/sdd/CONSTITUTION.md
 .github/sdd/code-to-spec.md
 .github/sdd/update-context.md
-.github/sdd/session_temp_file_protocol.md
+.github/sdd/session-tmp-file-protocol.md
 ```
 
 ### 2. Make sure you're on `main` with a clean working tree
@@ -273,11 +273,11 @@ Use this when setting up SDD on a new repository:
 
 **Framework files**
 - [ ] `copilot-instructions.md` copied to `.github/`
-- [ ] `summary_template.md` copied to `.github/`
+- [ ] `summary-template.md` copied to `.github/sdd/`
 - [ ] `CONSTITUTION.md` copied to `.github/sdd/`
 - [ ] `code-to-spec.md` copied to `.github/sdd/`
 - [ ] `update-context.md` copied to `.github/sdd/`
-- [ ] `session_temp_file_protocol.md` copied to `.github/sdd/`
+- [ ] `session-tmp-file-protocol.md` copied to `.github/sdd/`
 
 **Context generation**
 - [ ] On `main` branch with a clean working tree before running code-to-spec

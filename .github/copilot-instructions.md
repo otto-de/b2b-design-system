@@ -36,10 +36,10 @@ You may use the following commands to execute only specific phases of the SDD wo
 
 ### Step 0: Session-Resilient Temporary File Protocol
 
-**Follow the protocol described in `.github/sdd/session_temp_file_protocol.md` before and after each phase.**
+**Follow the protocol described in `.github/sdd/session-tmp-file-protocol.md` before and after each phase.**
 
 **Note:**
-- The protocol file also details the @continue command for session restoration. See `.github/sdd/session_temp_file_protocol.md` for requirements and error handling.
+- The protocol file also details the @continue command for session restoration. See `.github/sdd/session-tmp-file-protocol.md` for requirements and error handling.
 
 ---
 
@@ -372,7 +372,7 @@ At the end of Phase 5, remind the user:
 ### 5D. Final Documentation (Summary File)
 -   **ACTION:** Update internal docs (OpenAPI, etc.) only if mandated.
 -   **SUMMARY GENERATION:** Generate a `.md` file named after the title of the user story in the **project root directory**.
--   **TEMPLATE RULE:** You must strictly follow the structure defined in the file **`.github/sdd/summary_template.md`**.
+-   **TEMPLATE RULE:** You must strictly follow the structure defined in the file **`.github/sdd/summary-template.md`**.
 
 ### 5E. Git Commit & Final Output (Chat Space)
 -   **ACTION:** Generate a brief, clear **Git commit message** following standard best practices (feat/fix/chore).
