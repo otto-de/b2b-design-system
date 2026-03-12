@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: space-between;
     min-width: 20rem;
-    min-height: 36px;
+    min-height: var(--b2b-size-90);
     overflow: hidden;
     border: 1px solid var(--b2b-color-grey-200);
     border-radius: var(--b2b-size-border-radius-100);
