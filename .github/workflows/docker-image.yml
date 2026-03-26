@@ -98,7 +98,7 @@ jobs:
 
       # NEW: Scan docker image via Trivy before push
       - name: Scan docker image via Trivy ${{ env.TRIVY_ACTION_VERSION }}
-        uses: aquasecurity/trivy-action@${{ env.TRIVY_ACTION_VERSION }}
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           scan-type: 'image'
           ignore-unfixed: false
