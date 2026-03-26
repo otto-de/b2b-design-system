@@ -60,7 +60,8 @@
     "sass-graph": "4.0.1"
   },
   "overrides": {
-    "error-ex": "1.3.4"
+    "error-ex": "1.3.4",
+    "picomatch": "4.0.4"
   },
   "engines": {
     "npm": "^10.0.0",

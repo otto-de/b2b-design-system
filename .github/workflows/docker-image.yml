@@ -15,6 +15,8 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   SERVICE_NAME: b2bds-docs
+  TRIVY_ACTION_VERSION: v0.35.0
+  EXPECTED_SHA: 57a97c7e7821a5776cebc9bb87c984fa69cba8f1
 
 jobs:
   build_and_publish_image:
@@ -76,9 +78,27 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Verify Trivy action SHA
+        run: |
+          ACTUAL_SHA=$(curl -sf \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/aquasecurity/trivy-action/git/ref/tags/${{ env.TRIVY_ACTION_VERSION }}" \
+            | jq -r '.object.sha')
+
+          echo "Expected SHA : ${EXPECTED_SHA}"
+          echo "Actual SHA   : ${ACTUAL_SHA}"
+
+          if [ "${ACTUAL_SHA}" != "${EXPECTED_SHA}" ]; then
+            echo "❌ SHA mismatch for aquasecurity/trivy-action@${{ env.TRIVY_ACTION_VERSION }} – aborting pipeline."
+            exit 1
+          fi
+
+          echo "✅ SHA verified – aquasecurity/trivy-action@${{ env.TRIVY_ACTION_VERSION }} matches pinned SHA."
+
+
       # NEW: Scan docker image via Trivy before push
-      - name: Scan docker image via Trivy
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
+      - name: Scan docker image via Trivy ${{ env.TRIVY_ACTION_VERSION }}
+        uses: aquasecurity/trivy-action@${{ env.TRIVY_ACTION_VERSION }}
         with:
           scan-type: 'image'
           ignore-unfixed: false
