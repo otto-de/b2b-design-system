@@ -1,3 +1,11 @@
+## [1.38.2](https://github.com/otto-de/b2b-design-system/compare/v1.38.1...v1.38.2) (2026-04-02)
+
+
+### Bug Fixes
+
+* **deps:** [BLA-2181] | Fix vulnerabilities and update packages ([8c7fd10](https://github.com/otto-de/b2b-design-system/commit/8c7fd10baf9413e25aa8789f1b3ab8beadf6c511))
+* **deps:** [BLA-2181] | Pin axios version due to RAT vulnerability ([e7f23e7](https://github.com/otto-de/b2b-design-system/commit/e7f23e703183078c0601d30872dc1e578ac596dc))
+
 ## [1.38.1](https://github.com/otto-de/b2b-design-system/compare/v1.38.0...v1.38.1) (2026-02-26)
 
 
