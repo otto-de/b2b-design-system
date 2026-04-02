@@ -1,5 +1,7 @@
 FROM node:24-alpine3.23
 
+RUN apk add --upgrade zlib
+
 # Remove npm binary and its vulnerable dependencies since we only need npx
 RUN rm -rf /usr/local/lib/node_modules/npm
 
