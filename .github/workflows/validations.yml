@@ -36,10 +36,23 @@ jobs:
     name: Build Sanity Check
     runs-on: ubuntu-latest
     steps:
-      - name: install
-        uses: ./.github/workflows/install.yml
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v6
         with:
-          node_version: ${{ inputs.node_version }}
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+
+      - name: Use Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./node_modules
+            ./packages/**/node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Build all workspaces
         run: npm run build -ws
@@ -54,10 +67,20 @@ jobs:
     name: Security Audit, Lint and Test
     runs-on: ubuntu-latest
     steps:
-      - name: install
-        uses: ./.github/workflows/install.yml
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use cached dependencies
+        id: node-modules-cache
+        uses: actions/cache@v4
         with:
-          node_version: ${{ inputs.node_version }}
+          path: |
+            ./node_modules
+            ./packages/**/node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Security Audit
         run: npm audit --audit-level=high -ws
@@ -77,10 +100,26 @@ jobs:
     name: Build Docker Image and Scan
     runs-on: ubuntu-latest
     steps:
-      - name: install
-        uses: ./.github/workflows/install.yml
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node_version: ${{ inputs.node_version }}
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+
+      - name: Use cached dependencies
+        id: node-modules-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./node_modules
+            ./packages/**/node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Build Components and Storybook Docs
         run: |
@@ -111,5 +150,5 @@ jobs:
 
       - name: Scan results
         run: |
-          echo " Docker image scan passed - no critical/high vulnerabilities found"
+          echo "✅ Docker image scan passed - no critical/high vulnerabilities found"
           echo "Image: b2b-design-system-pr:${{ github.sha }}"
