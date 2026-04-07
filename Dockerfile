@@ -1,12 +1,13 @@
 FROM node:24-alpine3.23
 
-# Fix CVEs in npm-bundled packages (minimatch, picomatch, tar)
-RUN cd /usr/local/lib/node_modules/npm \
-  && npm install \
-    minimatch@10.2.3 \
-    picomatch@4.0.4 \
-    tar@7.5.11 \
-  && npm cache clean --force
+# Upgrade npm to version and patch picomatch
+RUN npm install -g npm@latest \
+  && npm install -g picomatch@4.0.4 \
+  && npm cache clean --force \
+  && find /usr/local/lib/node_modules/npm -path "*/tinyglobby/node_modules/picomatch" -type d -exec rm -rf {} + 2>/dev/null || true \
+  && mkdir -p /usr/local/lib/node_modules/npm/node_modules/tinyglobby/node_modules/picomatch \
+  && cp -r /usr/local/lib/node_modules/picomatch/* /usr/local/lib/node_modules/npm/node_modules/tinyglobby/node_modules/picomatch/ 2>/dev/null || true \
+  && npm uninstall -g picomatch 
 
 RUN apk add --upgrade zlib
 
