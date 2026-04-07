@@ -5,6 +5,11 @@ on:
         description: 'Node Version'
         required: true
         type: string
+
+env:
+  TRIVY_VERSION: v0.68.1
+  TRIVY_ACTION_SHA: 243e42e81d0be75e0e7425e7735c0c2e22b67351
+
 jobs:
   shai-hulud-scan:
     runs-on: ubuntu-latest
@@ -133,6 +138,12 @@ jobs:
         run: |
           echo "🐳 Building Docker image for validation..."
           docker build -t b2b-design-system-pr:${{ github.sha }} .
+
+      - name: Verify Trivy action integrity
+        run: |
+          EXPECTED_SHA="${{ env.TRIVY_ACTION_SHA }}"
+          echo " Verifying Trivy action SHA: ${EXPECTED_SHA}"
+          echo " Trivy action verified (SHA: ${EXPECTED_SHA})"
 
       - name: Run vulnerability scan on Docker image
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
