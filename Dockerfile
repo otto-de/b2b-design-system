@@ -9,7 +9,7 @@ RUN npm install -g npm@latest \
   && cp -r /usr/local/lib/node_modules/picomatch/* /usr/local/lib/node_modules/npm/node_modules/tinyglobby/node_modules/picomatch/ 2>/dev/null || true \
   && npm uninstall -g picomatch 
 
-RUN apk add --upgrade zlib
+RUN apk add --upgrade zlib libcrypto3 libssl3
 
 COPY packages/core-components/docs-build /tmp
 RUN echo "Ok" > /tmp/design-system/health.html
