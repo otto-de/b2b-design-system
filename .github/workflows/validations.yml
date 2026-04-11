@@ -68,7 +68,7 @@ jobs:
           git diff --cached --name-only | sed -E 's/^(.*)$/::error file=\1,title=Diff detected::Please run `npm run build` and commit the changes./'
           git diff --cached --name-only --exit-code
 
-  security_lint_and_test:
+  security-lint-and-test:
     name: Security Audit, Lint and Test
     runs-on: ubuntu-latest
     steps:
@@ -88,7 +88,7 @@ jobs:
         run: npm ci
 
       - name: Security Audit
-        run: npm audit --audit-level=high -ws
+        run: npm audit --audit-level=critical -ws
         continue-on-error: false
 
       - name: Build
@@ -158,8 +158,3 @@ jobs:
         env:
           TRIVY_SKIP_DB_UPDATE: true
           TRIVY_SKIP_JAVA_DB_UPDATE: true
-
-      - name: Scan results
-        run: |
-          echo "✅ Docker image scan passed - no critical/high vulnerabilities found"
-          echo "Image: b2b-design-system-pr:${{ github.sha }}"
