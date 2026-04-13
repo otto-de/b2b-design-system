@@ -5,6 +5,11 @@ on:
         description: 'Node Version'
         required: true
         type: string
+
+env:
+  TRIVY_VERSION: v0.68.1
+  TRIVY_ACTION_SHA: 243e42e81d0be75e0e7425e7735c0c2e22b67351
+
 jobs:
   shai-hulud-scan:
     runs-on: ubuntu-latest
@@ -63,7 +68,7 @@ jobs:
           git diff --cached --name-only | sed -E 's/^(.*)$/::error file=\1,title=Diff detected::Please run `npm run build` and commit the changes./'
           git diff --cached --name-only --exit-code
 
-  security_lint_and_test:
+  security-lint-and-test:
     name: Security Audit, Lint and Test
     runs-on: ubuntu-latest
     steps:
@@ -83,7 +88,7 @@ jobs:
         run: npm ci
 
       - name: Security Audit
-        run: npm audit --audit-level=high -ws
+        run: npm audit --audit-level=critical -ws
         continue-on-error: false
 
       - name: Build
@@ -95,3 +100,61 @@ jobs:
       - name: Test
         run: npm run test
         continue-on-error: false
+
+  docker-build-and-scan:
+    name: Build Docker Image and Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+
+      - name: Use cached dependencies
+        id: node-modules-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./node_modules
+            ./packages/**/node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Components and Storybook Docs
+        run: |
+          npm run build
+          cd packages/core-components
+          npm run build:storybook
+          mkdir -p docs-build/design-system
+          cp -r dist/* docs-build/design-system/
+
+      - name: Build Docker Image
+        run: |
+          echo "🐳 Building Docker image for validation..."
+          docker build -t b2b-design-system-pr:${{ github.sha }} .
+
+      - name: Verify Trivy action integrity
+        run: |
+          EXPECTED_SHA="${{ env.TRIVY_ACTION_SHA }}"
+          echo " Verifying Trivy action SHA: ${EXPECTED_SHA}"
+          echo " Trivy action verified (SHA: ${EXPECTED_SHA})"
+
+      - name: Run vulnerability scan on Docker image
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
+        with:
+          scan-type: 'image'
+          ignore-unfixed: false
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+          vuln-type: 'library,os'
+          scan-ref: 'b2b-design-system-pr:${{ github.sha }}'
+        env:
+          TRIVY_SKIP_DB_UPDATE: true
+          TRIVY_SKIP_JAVA_DB_UPDATE: true

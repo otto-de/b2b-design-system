@@ -1,9 +1,15 @@
 FROM node:24-alpine3.23
 
-RUN apk add --upgrade zlib
+# Upgrade npm to version and patch picomatch
+RUN npm install -g npm@latest \
+  && npm install -g picomatch@4.0.4 \
+  && npm cache clean --force \
+  && find /usr/local/lib/node_modules/npm -path "*/tinyglobby/node_modules/picomatch" -type d -exec rm -rf {} + 2>/dev/null || true \
+  && mkdir -p /usr/local/lib/node_modules/npm/node_modules/tinyglobby/node_modules/picomatch \
+  && cp -r /usr/local/lib/node_modules/picomatch/* /usr/local/lib/node_modules/npm/node_modules/tinyglobby/node_modules/picomatch/ 2>/dev/null || true \
+  && npm uninstall -g picomatch 
 
-# Remove npm binary and its vulnerable dependencies since we only need npx
-RUN rm -rf /usr/local/lib/node_modules/npm
+RUN apk add --upgrade zlib libcrypto3 libssl3
 
 COPY packages/core-components/docs-build /tmp
 RUN echo "Ok" > /tmp/design-system/health.html
