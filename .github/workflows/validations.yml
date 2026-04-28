@@ -140,10 +140,7 @@ jobs:
           docker build -t b2b-design-system-pr:${{ github.sha }} .
 
       - name: Verify Trivy action integrity
-        run: |
-          EXPECTED_SHA="${{ env.TRIVY_ACTION_SHA }}"
-          echo " Verifying Trivy action SHA: ${EXPECTED_SHA}"
-          echo " Trivy action verified (SHA: ${EXPECTED_SHA})"
+        run: ./ci/init.sh _verify_trivy_action_sha
 
       - name: Run vulnerability scan on Docker image
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
