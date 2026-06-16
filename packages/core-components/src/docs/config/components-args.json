@@ -1055,6 +1055,19 @@
       "description": "Whether the option has a separator at the bottom. Per default it is false."
     }
   },
+  "b2b-custom-dropdown-option-category": {
+    "label": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {
+          "summary": "''"
+        }
+      },
+      "description": ""
+    }
+  },
   "b2b-date-picker": {
     "disableDates": {
       "options": [

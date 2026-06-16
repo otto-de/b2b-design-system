@@ -362,6 +362,9 @@ export namespace Components {
          */
         "separator": boolean;
     }
+    interface B2bCustomDropdownOptionCategory {
+        "label": string;
+    }
     interface B2bDatePicker {
         /**
           * The dates that are part of this array are disabled. By default, this is an empty array.
@@ -1955,6 +1958,12 @@ declare global {
         prototype: HTMLB2bCustomDropdownOptionElement;
         new (): HTMLB2bCustomDropdownOptionElement;
     };
+    interface HTMLB2bCustomDropdownOptionCategoryElement extends Components.B2bCustomDropdownOptionCategory, HTMLStencilElement {
+    }
+    var HTMLB2bCustomDropdownOptionCategoryElement: {
+        prototype: HTMLB2bCustomDropdownOptionCategoryElement;
+        new (): HTMLB2bCustomDropdownOptionCategoryElement;
+    };
     interface HTMLB2bDatePickerElementEventMap {
         "b2b-selected": DatePickerEventDetail;
         "b2b-clear": DateClear;
@@ -2719,6 +2728,7 @@ declare global {
         "b2b-chip-component": HTMLB2bChipComponentElement;
         "b2b-custom-dropdown": HTMLB2bCustomDropdownElement;
         "b2b-custom-dropdown-option": HTMLB2bCustomDropdownOptionElement;
+        "b2b-custom-dropdown-option-category": HTMLB2bCustomDropdownOptionCategoryElement;
         "b2b-date-picker": HTMLB2bDatePickerElement;
         "b2b-date-picker-days": HTMLB2bDatePickerDaysElement;
         "b2b-date-picker-days-header": HTMLB2bDatePickerDaysHeaderElement;
@@ -3146,6 +3156,9 @@ declare namespace LocalJSX {
           * Whether the option has a separator at the bottom. Per default it is false.
          */
         "separator"?: boolean;
+    }
+    interface B2bCustomDropdownOptionCategory {
+        "label"?: string;
     }
     interface B2bDatePicker {
         /**
@@ -4633,6 +4646,7 @@ declare namespace LocalJSX {
         "b2b-chip-component": B2bChipComponent;
         "b2b-custom-dropdown": B2bCustomDropdown;
         "b2b-custom-dropdown-option": B2bCustomDropdownOption;
+        "b2b-custom-dropdown-option-category": B2bCustomDropdownOptionCategory;
         "b2b-date-picker": B2bDatePicker;
         "b2b-date-picker-days": B2bDatePickerDays;
         "b2b-date-picker-days-header": B2bDatePickerDaysHeader;
@@ -4709,6 +4723,7 @@ declare module "@stencil/core" {
             "b2b-chip-component": LocalJSX.B2bChipComponent & JSXBase.HTMLAttributes<HTMLB2bChipComponentElement>;
             "b2b-custom-dropdown": LocalJSX.B2bCustomDropdown & JSXBase.HTMLAttributes<HTMLB2bCustomDropdownElement>;
             "b2b-custom-dropdown-option": LocalJSX.B2bCustomDropdownOption & JSXBase.HTMLAttributes<HTMLB2bCustomDropdownOptionElement>;
+            "b2b-custom-dropdown-option-category": LocalJSX.B2bCustomDropdownOptionCategory & JSXBase.HTMLAttributes<HTMLB2bCustomDropdownOptionCategoryElement>;
             "b2b-date-picker": LocalJSX.B2bDatePicker & JSXBase.HTMLAttributes<HTMLB2bDatePickerElement>;
             "b2b-date-picker-days": LocalJSX.B2bDatePickerDays & JSXBase.HTMLAttributes<HTMLB2bDatePickerDaysElement>;
             "b2b-date-picker-days-header": LocalJSX.B2bDatePickerDaysHeader & JSXBase.HTMLAttributes<HTMLB2bDatePickerDaysHeaderElement>;

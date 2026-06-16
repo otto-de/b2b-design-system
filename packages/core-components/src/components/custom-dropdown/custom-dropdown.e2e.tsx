@@ -182,4 +182,116 @@ describe('b2b-custom-dropdown - Alignment Tests', () => {
     );
     expect(dropdownContainer).toHaveClass('b2b-custom-dropdown--align-right');
   });
+  describe('b2b-custom-dropdown-option-category', () => {
+    it('should render category label when provided', async () => {
+      const page = await newE2EPage();
+      await page.setContent(`
+      <b2b-custom-dropdown placeholder="Select an option">
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
+        <b2b-custom-dropdown-option-category label="Category 1">
+          <b2b-custom-dropdown-option option='option1'>
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown-option-category>
+      </b2b-custom-dropdown>
+    `);
+
+      const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+      await trigger.click();
+      await page.waitForChanges();
+
+      const categoryLabel = await page.find(
+        'b2b-custom-dropdown-option-category >>> .b2b-custom-dropdown__option-category-label',
+      );
+      expect(categoryLabel).not.toBeNull();
+      expect(categoryLabel.textContent).toEqual('Category 1');
+    });
+
+    it('should render category without label', async () => {
+      const page = await newE2EPage();
+      await page.setContent(`
+      <b2b-custom-dropdown placeholder="Select an option">
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
+        <b2b-custom-dropdown-option-category>
+          <b2b-custom-dropdown-option option='option1'>
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown-option-category>
+      </b2b-custom-dropdown>
+    `);
+
+      const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+      await trigger.click();
+      await page.waitForChanges();
+
+      const category = await page.find('b2b-custom-dropdown-option-category');
+      expect(category).not.toBeNull();
+
+      const categoryLabel = await page.find(
+        'b2b-custom-dropdown-option-category >>> .b2b-custom-dropdown__option-category-label',
+      );
+      expect(categoryLabel).toBeNull();
+    });
+
+    it('should contain multiple options within category', async () => {
+      const page = await newE2EPage();
+      await page.setContent(`
+      <b2b-custom-dropdown placeholder="Select an option">
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
+        <b2b-custom-dropdown-option-category label="Category 1">
+          <b2b-custom-dropdown-option option='option1'>
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option option='option2'>
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option option='option3'>
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown-option-category>
+      </b2b-custom-dropdown>
+    `);
+
+      const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+      await trigger.click();
+      await page.waitForChanges();
+
+      const optionsInCategory = await page.findAll(
+        'b2b-custom-dropdown-option-category b2b-custom-dropdown-option',
+      );
+      expect(optionsInCategory.length).toEqual(3);
+    });
+
+    it('should support multiple categories', async () => {
+      const page = await newE2EPage();
+      await page.setContent(`
+      <b2b-custom-dropdown placeholder="Select an option">
+        <b2b-icon-100 icon="b2b_icon-ellipsis" slot='trigger' clickable focusable></b2b-icon-100>
+        <b2b-custom-dropdown-option-category label="Category 1">
+          <b2b-custom-dropdown-option option='option1'>
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option option='option2'>
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown-option-category>
+        <b2b-custom-dropdown-option-category label="Category 2">
+          <b2b-custom-dropdown-option option='option3'>
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option option='option4'>
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown-option-category>
+      </b2b-custom-dropdown>
+    `);
+
+      const trigger = await page.find('b2b-custom-dropdown [slot="trigger"]');
+      await trigger.click();
+      await page.waitForChanges();
+
+      const categories = await page.findAll(
+        'b2b-custom-dropdown-option-category',
+      );
+      expect(categories.length).toEqual(2);
+
+      const categoryLabels = await page.findAll(
+        'b2b-custom-dropdown-option-category >>> .b2b-custom-dropdown__option-category-label',
+      );
+      expect(categoryLabels.length).toEqual(2);
+      expect(categoryLabels[0].textContent).toEqual('Category 1');
+      expect(categoryLabels[1].textContent).toEqual('Category 2');
+    });
+  });
 });
