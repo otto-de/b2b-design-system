@@ -165,7 +165,7 @@ export const WithOptionCategory: Story = {
             focusable
             clickable></b2b-icon-100>
         </b2b-paragraph>
-        <b2b-custom-dropdown-option-category label="Group 1">
+        <b2b-custom-dropdown-option-category label="Option Category 1">
           <b2b-custom-dropdown-option
             option="Option 1"
             hover-icon=${args.hoverIcon}
@@ -192,7 +192,7 @@ export const WithOptionCategory: Story = {
             disabled=${args.disabled}>
           </b2b-custom-dropdown-option>
         </b2b-custom-dropdown-option-category>
-        <b2b-custom-dropdown-option-category label="Group 2">
+        <b2b-custom-dropdown-option-category label="Option Category 2">
           <b2b-custom-dropdown-option
             option="Option 4"
             hover-icon=${args.hoverIcon}
