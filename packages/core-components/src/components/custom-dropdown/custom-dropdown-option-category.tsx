@@ -23,6 +23,3 @@ export class CustomDropdownWithOptionHeadingComponent implements ComponentInterf
     );
   }
 }
-
-
-
