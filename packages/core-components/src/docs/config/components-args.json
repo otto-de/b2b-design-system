@@ -1066,6 +1066,7 @@
         }
       },
       "description": "The label/heading text for the option category."
+      "description": ""
     }
   },
   "b2b-date-picker": {
