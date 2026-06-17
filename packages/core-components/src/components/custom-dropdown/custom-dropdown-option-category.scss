@@ -13,6 +13,8 @@
   display: block;
   min-height: 22px;
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   padding: 4px 16px;
   box-sizing: border-box;
   font-family: var(--b2b-font-family-default), sans-serif;
