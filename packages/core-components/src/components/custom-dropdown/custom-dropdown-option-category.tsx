@@ -7,6 +7,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class CustomDropdownWithOptionHeadingComponent implements ComponentInterface {
+  /** The label/heading text for the option category. */
   @Prop() label: string = '';
 
   render() {
@@ -22,6 +23,3 @@ export class CustomDropdownWithOptionHeadingComponent implements ComponentInterf
     );
   }
 }
-
-
-

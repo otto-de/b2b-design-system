@@ -47,9 +47,11 @@ export default [
     },
 
     rules: {
-      '@stencil-community/ban-default-true': 'off', // many properties use true as default
-      // "@stencil-community/strict-boolean-conditions": "off",
-      '@stencil-community/decorators-style': [
+       '@stencil-community/ban-default-true': 'off', // many properties use true as default
+       '@stencil-community/own-props-must-be-private': 'off', // Stencil @Prop properties are intentionally public
+       '@stencil-community/own-methods-must-be-private': 'off', // Stencil methods can be public when needed
+       // "@stencil-community/strict-boolean-conditions": "off",
+       '@stencil-community/decorators-style': [
         'error',
         {
           prop: 'inline',

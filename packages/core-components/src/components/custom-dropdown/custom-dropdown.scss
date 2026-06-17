@@ -83,11 +83,13 @@
 ::slotted(b2b-custom-dropdown-option.b2b-custom-dropdown__option--hidden) {
   display: none;
 }
+
 ::slotted(
   b2b-custom-dropdown-option-category.b2b-custom-dropdown__option-category--hidden
 ) {
   display: none;
 }
+
 .b2b-custom-dropdown__empty {
   padding: var(--b2b-size-30);
   color: var(--b2b-color-grey-400);

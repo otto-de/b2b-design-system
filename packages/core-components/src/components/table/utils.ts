@@ -57,7 +57,6 @@ export function getFirstRow(
 }
 
 export function isFirstRow(el: HTMLElement) {
-  // attr is nullable so
-  // eslint-disable-next-line @stencil-community/strict-boolean-conditions
+  // attr is nullable so we need to check with ternary
   return el.previousElementSibling ? false : true;
 }

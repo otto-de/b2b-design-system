@@ -363,6 +363,9 @@ export namespace Components {
         "separator": boolean;
     }
     interface B2bCustomDropdownOptionCategory {
+        /**
+          * The label/heading text for the option category.
+         */
         "label": string;
     }
     interface B2bDatePicker {
@@ -3158,6 +3161,9 @@ declare namespace LocalJSX {
         "separator"?: boolean;
     }
     interface B2bCustomDropdownOptionCategory {
+        /**
+          * The label/heading text for the option category.
+         */
         "label"?: string;
     }
     interface B2bDatePicker {
