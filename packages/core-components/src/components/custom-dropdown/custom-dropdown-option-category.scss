@@ -1,0 +1,30 @@
+@use '../../global/b2b-styles';
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 1px solid var(--b2b-color-grey-200);
+}
+
+.b2b-custom-dropdown__option-category-label {
+  display: block;
+  min-height: 22px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 4px 16px;
+  box-sizing: border-box;
+  font-family: var(--b2b-font-family-default), sans-serif;
+  font-size: var(--b2b-size-copy-50);
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--b2b-color-grey-400);
+  background-color: var(--b2b-color-white-100);
+}
+
+
+

@@ -49,6 +49,9 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
 
   @State() allOptions: HTMLB2bCustomDropdownOptionElement[] = [];
 
+  private allOptionCategories: HTMLB2bCustomDropdownOptionCategoryElement[] =
+    [];
+
   @State() hasVisibleOptions = true;
 
   @Listen('b2b-custom-dropdown-option-selected')
@@ -73,6 +76,13 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
   connectedCallback() {
     this.initializeSlottedOptions();
 
+    const trigger = this.hostElement.querySelector('[slot="trigger"]');
+    if (trigger) {
+      this.triggerEl = trigger as HTMLElement;
+      this.triggerEl.addEventListener('click', this.toggleMenu, true);
+      return;
+    }
+
     const children = Array.from(this.hostElement.children).filter(
       x => !x.hasAttribute('option'),
     );
@@ -83,9 +93,19 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
     this.triggerEl.addEventListener('click', this.toggleMenu, true);
   }
 
+  disconnectedCallback() {
+    this.triggerEl?.removeEventListener('click', this.toggleMenu, true);
+  }
+
   private initializeSlottedOptions() {
+    // Find all option categories
+    this.allOptionCategories = Array.from(
+      this.hostElement.querySelectorAll('b2b-custom-dropdown-option-category'),
+    );
+
+    // Find all options, including those inside option categories
     this.allOptions = Array.from(
-      this.hostElement.querySelectorAll('[slot="option"]'),
+      this.hostElement.querySelectorAll('b2b-custom-dropdown-option'),
     );
   }
 
@@ -119,6 +139,21 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
       option.classList.toggle('b2b-custom-dropdown__option--hidden', !match);
       if (match) visibleCount++;
     });
+
+    // Update option category visibility based on its visible options
+    this.allOptionCategories.forEach(optionCategory => {
+      const visibleOptionsInCategory = Array.from(
+        optionCategory.querySelectorAll('b2b-custom-dropdown-option'),
+      ).filter(
+        opt => !opt.classList.contains('b2b-custom-dropdown__option--hidden'),
+      ).length;
+
+      optionCategory.classList.toggle(
+        'b2b-custom-dropdown__option-category--hidden',
+        visibleOptionsInCategory === 0,
+      );
+    });
+
     this.hasVisibleOptions = visibleCount > 0;
   };
 
@@ -166,6 +201,7 @@ export class B2bCustomDropdownComponent implements ComponentInterface {
                 : 'b2b-custom-dropdown__options-container'
             }>
             <slot name="option"></slot>
+            <slot></slot>
           </div>
           {this.value && !this.hasVisibleOptions && (
             <div class="b2b-custom-dropdown__empty" role="status">

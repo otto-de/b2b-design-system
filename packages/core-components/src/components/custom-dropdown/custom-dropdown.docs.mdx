@@ -46,6 +46,12 @@ Icons can be added to the options of the custom dropdown component and they are 
 You can add an icon to an option by using the `hoveredIcon` and `selectedIcon` attributes to set icons for an option’s hovered and selected states respectively. When no icon is set, the option will not display any icon.
 The colors of the icons can be determined by the `hoveredIconColor` and `selectedIconColor` attributes. The default color for both icons is `b2b-color-black-100`.
 
+### Option Category
+
+Options can be organized into categories for better readability and user experience. Use the `b2b-custom-dropdown-option-category` component to group related options together. Each category has a label that identifies the group. This is useful when you have a large number of options that can be logically grouped.
+
+<Canvas of={CustomDropdownStories.WithOptionCategory} />
+
 ### Disabled
 
 The custom dropdown can be disabled, and it would render opaque and unclickable.

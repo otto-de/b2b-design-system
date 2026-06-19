@@ -20,6 +20,7 @@ export const B2bCheckboxGroup = /*@__PURE__*/createReactComponent<JSX.B2bCheckbo
 export const B2bChipComponent = /*@__PURE__*/createReactComponent<JSX.B2bChipComponent, HTMLB2bChipComponentElement>('b2b-chip-component');
 export const B2bCustomDropdown = /*@__PURE__*/createReactComponent<JSX.B2bCustomDropdown, HTMLB2bCustomDropdownElement>('b2b-custom-dropdown');
 export const B2bCustomDropdownOption = /*@__PURE__*/createReactComponent<JSX.B2bCustomDropdownOption, HTMLB2bCustomDropdownOptionElement>('b2b-custom-dropdown-option');
+export const B2bCustomDropdownOptionCategory = /*@__PURE__*/createReactComponent<JSX.B2bCustomDropdownOptionCategory, HTMLB2bCustomDropdownOptionCategoryElement>('b2b-custom-dropdown-option-category');
 export const B2bDatePicker = /*@__PURE__*/createReactComponent<JSX.B2bDatePicker, HTMLB2bDatePickerElement>('b2b-date-picker');
 export const B2bDatePickerDays = /*@__PURE__*/createReactComponent<JSX.B2bDatePickerDays, HTMLB2bDatePickerDaysElement>('b2b-date-picker-days');
 export const B2bDatePickerDaysHeader = /*@__PURE__*/createReactComponent<JSX.B2bDatePickerDaysHeader, HTMLB2bDatePickerDaysHeaderElement>('b2b-date-picker-days-header');

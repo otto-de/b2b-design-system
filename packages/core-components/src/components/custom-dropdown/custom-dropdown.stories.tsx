@@ -140,6 +140,79 @@ export const WithIcon: Story = {
     selectedIconColor: 'b2b-color-success-100',
   },
 };
+export const WithOptionCategory: Story = {
+  args: {
+    ...meta.args,
+    opened: true,
+    selected: true,
+    hoverIcon: 'b2b_icon-arrow-long-right',
+    hoverIconColor: 'b2b-color-grey-400',
+    selectedIcon: 'b2b_icon-success',
+    selectedIconColor: 'b2b-color-success-100',
+  },
+  render: ({ ...args }) =>
+    html`<div style="margin-left: 16px;width: 300px">
+      <b2b-custom-dropdown
+        placeholder=${args.placeholder}
+        dropshadow=${args.dropshadow}
+        border=${args.border}
+        alignment=${args.alignment}
+        opened=${args.opened}>
+        <b2b-paragraph slot="trigger">
+          This is a custom dropdown
+          <b2b-icon-100
+            icon="b2b_icon-arrow-down"
+            focusable
+            clickable></b2b-icon-100>
+        </b2b-paragraph>
+        <b2b-custom-dropdown-option-category label="Option Category 1">
+          <b2b-custom-dropdown-option
+            option="Option 1"
+            hover-icon=${args.hoverIcon}
+            selected-icon=${args.selectedIcon}
+            hover-icon-color=${args.hoverIconColor}
+            selected-icon-color=${args.selectedIconColor}
+            selected=${args.selected}
+            disabled=${args.disabled}>
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            option="Option 2"
+            hover-icon=${args.hoverIcon}
+            selected-icon=${args.selectedIcon}
+            hover-icon-color=${args.hoverIconColor}
+            selected-icon-color=${args.selectedIconColor}
+            disabled=${args.disabled}>
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            option="Option 3"
+            hover-icon=${args.hoverIcon}
+            selected-icon=${args.selectedIcon}
+            hover-icon-color=${args.hoverIconColor}
+            selected-icon-color=${args.selectedIconColor}
+            disabled=${args.disabled}>
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown-option-category>
+        <b2b-custom-dropdown-option-category label="Option Category 2">
+          <b2b-custom-dropdown-option
+            option="Option 4"
+            hover-icon=${args.hoverIcon}
+            selected-icon=${args.selectedIcon}
+            hover-icon-color=${args.hoverIconColor}
+            selected-icon-color=${args.selectedIconColor}
+            disabled=${args.disabled}>
+          </b2b-custom-dropdown-option>
+          <b2b-custom-dropdown-option
+            option="Option 5"
+            hover-icon=${args.hoverIcon}
+            selected-icon=${args.selectedIcon}
+            hover-icon-color=${args.hoverIconColor}
+            selected-icon-color=${args.selectedIconColor}
+            disabled=${args.disabled}>
+          </b2b-custom-dropdown-option>
+        </b2b-custom-dropdown-option-category>
+      </b2b-custom-dropdown>
+    </div>`,
+};
 
 export const CustomDropdownOptionsDisabled: Story = {
   args: { ...meta.args, disabled: true, opened: true },
