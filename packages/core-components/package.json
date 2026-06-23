@@ -94,7 +94,7 @@
     "prettier": "^3.5.3",
     "puppeteer": "^24.39.0",
     "remark-gfm": "^4.0.1",
-    "sass": "^1.71.0",
+    "sass": "^1.101.0",
     "sass-loader": "^16.0.5",
     "storybook": "^8.6.15",
     "style-loader": "^4.0.0",
