@@ -9,6 +9,11 @@ RUN npm install -g npm@latest \
   && cp -r /usr/local/lib/node_modules/picomatch/* /usr/local/lib/node_modules/npm/node_modules/tinyglobby/node_modules/picomatch/ 2>/dev/null || true \
   && npm uninstall -g picomatch 
 
+# Upgrade undici to fix CVE-2026-12151 (undici DoS vulnerability)
+RUN npm install -g undici@8.5.0 \
+  && rm -rf /usr/local/lib/node_modules/npm/node_modules/undici \
+  && cp -r /usr/local/lib/node_modules/undici /usr/local/lib/node_modules/npm/node_modules/undici
+
 RUN apk add --upgrade zlib libcrypto3 libssl3
 
 COPY packages/core-components/docs-build /tmp
