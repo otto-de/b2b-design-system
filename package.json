@@ -70,9 +70,6 @@
     "uuid": "^14.0.1",
     "@storybook/test-runner": {
       "axios": "1.16.1"
-    },
-    "@semantic-release/npm": {
-      "undici": "6.27.0"
     }
   },
   "engines": {
