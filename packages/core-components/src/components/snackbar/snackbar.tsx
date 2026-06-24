@@ -110,7 +110,7 @@ export class SnackbarComponent implements ComponentInterface {
     let iconName;
     switch (this.type) {
       case 'success':
-        iconName = 'b2b_icon-check';
+        iconName = 'b2b_icon-success';
         break;
       case 'info':
         iconName = 'b2b_icon-info';

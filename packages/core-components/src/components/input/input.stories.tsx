@@ -127,7 +127,7 @@ export const Suffix: Story = {
       error="${args.error}"
       autofocus="${args.autofocus}"
       invalid=${args.invalid}
-      ><b2b-icon-100 icon="b2b_icon-search" slot="end"></b2b-icon-100
+      ><b2b-icon-100 icon="b2b_icon-smiley-positive" slot="end"></b2b-icon-100
     >
   </div>`,
 };
@@ -150,7 +150,9 @@ export const PrefixAndSuffix: Story = {
         error=${args.error}
         autofocus=${args.autofocus}
         invalid=${args.invalid}>
-        <b2b-icon-100 icon="b2b_icon-search" slot="start"></b2b-icon-100
+        <b2b-icon-100
+          icon="b2b_icon-smiley-positive"
+          slot="start"></b2b-icon-100
         ><span slot="end">Registration Number</span></b2b-input
       >
     </div>`,
