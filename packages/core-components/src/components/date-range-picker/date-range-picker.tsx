@@ -263,9 +263,13 @@ export class B2bDateRangePicker implements ComponentInterface {
               {this.internalDateRange && (
                 <div
                   tabIndex={0}
-                  onClick={() => this.setDate(undefined)}
+                  onClick={(event: MouseEvent) => {
+                    event.stopPropagation();
+                    this.setDate(undefined);
+                  }}
                   onKeyDown={(event: KeyboardEvent) => {
                     if (event.key === 'Enter') {
+                      event.stopPropagation();
                       this.setDate(undefined);
                     }
                   }}>
@@ -279,9 +283,13 @@ export class B2bDateRangePicker implements ComponentInterface {
 
               <div
                 tabindex={0}
-                onClick={() => this.toggleOpen()}
+                onClick={(event: MouseEvent) => {
+                  event.stopPropagation();
+                  this.toggleOpen();
+                }}
                 onKeyDown={event => {
                   if (event.key === 'Enter') {
+                    event.stopPropagation();
                     this.toggleOpen();
                   }
                 }}
