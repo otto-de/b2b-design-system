@@ -52,28 +52,31 @@
     "react-dom": "18.3.1",
     "sass-embedded": "^1.85.1",
     "semantic-release": "^25.0.2",
-    "undici-types": "^7.5.0"
+    "undici-types": "^7.5.0",
+    "@storybook/csf": "^0.1.13"
   },
   "resolutions": {
     "trim": "0.0.3",
     "trim-newlines": "3.0.1",
     "sass-graph": "4.0.1",
-    "axios": "1.15.0",
-    "uuid": "^14.0.1"
+    "uuid": "^14.0.1",
+    "@storybook/test-runner/**/axios": "1.18.1"
   },
   "overrides": {
     "error-ex": "1.3.4",
     "picomatch": "4.0.4",
-    "axios": "1.15.0",
-    "uuid": "^14.0.1"
+    "uuid": "^14.0.1",
+    "@storybook/test-runner": {
+      "axios": "1.18.1"
+    }
   },
   "engines": {
     "npm": "^10.0.0",
     "node": "^22.11.0"
   },
   "optionalDependencies": {
-    "sass-embedded-darwin-x64": "^1.85.1",
-    "sass-embedded-linux-x64": "^1.85.1",
-    "sass-embedded-win32-x64": "^1.85.1"
+    "sass-embedded-darwin-x64": "^1.101.0",
+    "sass-embedded-linux-x64": "^1.101.0",
+    "sass-embedded-win32-x64": "^1.101.0"
   }
 }
