@@ -72,7 +72,7 @@
     "@storybook/test": "^8.6.15",
     "@storybook/test-runner": "^0.22.0",
     "@storybook/theming": "^8.6.18",
-    "@storybook/web-components": "^8.6.18",
+    "@storybook/web-components": "^10.4.6",
     "@storybook/web-components-webpack5": "^8.6.15",
     "@types/jest": "^29.5.14",
     "@types/mdx": "^2.0.13",
