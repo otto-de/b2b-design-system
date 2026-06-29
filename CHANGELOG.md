@@ -1,3 +1,12 @@
+## [1.38.4](https://github.com/otto-de/b2b-design-system/compare/v1.38.3...v1.38.4) (2026-06-29)
+
+
+### Bug Fixes
+
+* **date-range-picker:** [KRAKEN] [KR-3068] Bugfix Date range picker not opening by clicking icon ([ff0e95b](https://github.com/otto-de/b2b-design-system/commit/ff0e95b2522c785ed897ef24cb69c6fa6ffbefa8))
+* **dependabot|vulnerabilities:** [BLA-2415] | Resolve vulnerabilities ([e498101](https://github.com/otto-de/b2b-design-system/commit/e498101ef1ae9e853b05d5e38b200e96c1b6cb25))
+* **vulnerabilities:** [BLA-2407] | Fix some vulnerabilities and also ignore the dev dependencies ([83720f5](https://github.com/otto-de/b2b-design-system/commit/83720f5f7ce9b974441801f529e4f02104622ff4))
+
 ## [1.38.3](https://github.com/otto-de/b2b-design-system/compare/v1.38.2...v1.38.3) (2026-06-19)
 
 
