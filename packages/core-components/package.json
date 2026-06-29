@@ -41,14 +41,13 @@
     "build:storybook": "npm run copy-md-files && storybook build -o docs-build/design-system"
   },
   "dependencies": {
-    "@eslint/eslintrc": "^3.3.0",
-    "@eslint/js": "^9.22.0",
     "@otto-de/b2b-tokens": "1.38.3",
-    "@stencil/core": "4.13.0",
-    "globals": "^16.0.0"
+    "@stencil/core": "4.13.0"
   },
   "devDependencies": {
     "@asamuzakjp/css-color": "^3.1.1",
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.22.0",
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.26.0",
@@ -85,6 +84,7 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.5",
     "eslint-utils": "^3.0.0",
+    "globals": "^16.0.0",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "jest-image-snapshot": "^6.1.0",
