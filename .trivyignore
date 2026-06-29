@@ -1,2 +1,1 @@
-# Ignoring undici vulnerabilities as they are part of dev dependencies and there is no fix available yet.
-CVE-2026-12151
+
