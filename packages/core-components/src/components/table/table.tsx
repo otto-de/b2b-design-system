@@ -46,8 +46,7 @@ export class TableComponent {
     row: HTMLB2bTableRowElement,
   ): HTMLB2bTableCellElement[] | HTMLB2bTableHeaderElement[] => {
     return Array.from(row.children) as
-      | HTMLB2bTableCellElement[]
-      | HTMLB2bTableHeaderElement[];
+      HTMLB2bTableCellElement[] | HTMLB2bTableHeaderElement[];
   };
 
   private setCellSize() {

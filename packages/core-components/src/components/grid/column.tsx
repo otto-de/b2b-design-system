@@ -9,18 +9,7 @@ export class B2bGridColumnComponent {
 
   /** How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. We recommend explicitly defining the span in scenarios where the distribution of 12 spans across columns is clear. Up to single 12 columns fit in one row. */
   @Prop({ reflect: true }) span:
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12;
+    1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
   /** The alignment of text placed inside a column. Note that this will apply to all children. */
   @Prop() textAlign: 'left' | 'center' | 'right' = 'left';
