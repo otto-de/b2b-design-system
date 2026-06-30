@@ -62,8 +62,9 @@ const meta: Meta = {
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
               return html`<b2b-table-header
-                ?divider=${args.withDividers &&
-                index !== args.data.columns.length - 1}
+                ?divider=${
+                  args.withDividers && index !== args.data.columns.length - 1
+                }
                 style=${index === 0 ? `width: ${args.firstColumnWidth}` : ''}
                 >${columnName}</b2b-table-header
               >`;
@@ -188,8 +189,9 @@ export const ScrollableTable: Story = {
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
               return html` <b2b-table-header
-                ?divider=${args.withDividers &&
-                index !== args.data.columns.length - 1}
+                ?divider=${
+                  args.withDividers && index !== args.data.columns.length - 1
+                }
                 style=${`min-width: ${args.columnsWidth}`}
                 >${columnName}</b2b-table-header
               >`;
@@ -325,8 +327,9 @@ export const AccordionTable: Story = {
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
               return html` <b2b-table-header
-                ?divider=${args.withDividers &&
-                index !== args.data.columns.length - 1}
+                ?divider=${
+                  args.withDividers && index !== args.data.columns.length - 1
+                }
                 style=${index === 0 ? `width: ${args.firstColumnWidth}` : ''}
                 >${columnName}</b2b-table-header
               >`;
@@ -388,8 +391,9 @@ export const SelectableTable: Story = {
           <b2b-table-row>
             ${args.data.columns.map((columnName, index) => {
               return html` <b2b-table-header
-                ?divider=${args.withDividers &&
-                index !== args.data.columns.length - 1}
+                ?divider=${
+                  args.withDividers && index !== args.data.columns.length - 1
+                }
                 style=${index === 0 ? `width: ${args.firstColumnWidth}` : ''}
                 >${columnName}</b2b-table-header
               >`;

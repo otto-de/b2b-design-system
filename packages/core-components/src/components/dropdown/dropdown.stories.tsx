@@ -28,11 +28,13 @@ const Template: StoryFn = ({
     <option value="strawberry">Strawberry</option>
     <option value="orange">Orange</option>
     <option value="banana">Banana</option>
-    ${selected
-      ? html`<option value="pineapple" selected="true" clear="true">
-          Pineapple
-        </option>`
-      : html`<option value="pineapple">Pineapple</option>`}
+    ${
+      selected
+        ? html`<option value="pineapple" selected="true" clear="true">
+            Pineapple
+          </option>`
+        : html`<option value="pineapple">Pineapple</option>`
+    }
     <option value="grapes">Grapes</option>
     <option value="watermelon">Watermelon</option>
     <option value="papaya">Papaya</option>

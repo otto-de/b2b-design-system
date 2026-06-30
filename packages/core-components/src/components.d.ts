@@ -674,18 +674,7 @@ export namespace Components {
         /**
           * How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. We recommend explicitly defining the span in scenarios where the distribution of 12 spans across columns is clear. Up to single 12 columns fit in one row.
          */
-        "span": | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12;
+        "span": 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
         /**
           * The alignment of text placed inside a column. Note that this will apply to all children.
          */
@@ -851,13 +840,7 @@ export namespace Components {
         /**
           * The type of the input. All native HTML types except date or month are supported. Default is text.
          */
-        "type": | 'text'
-    | 'email'
-    | 'number'
-    | 'password'
-    | 'search'
-    | 'tel'
-    | 'url';
+        "type": 'text' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'url';
         /**
           * The default value of the input field. If defined, it will prefill the input.
          */
@@ -1454,10 +1437,7 @@ export namespace Components {
         /**
           * If and how the textarea is resizable. Per default it is resizable in both directions.
          */
-        "resize"?: | 'unset'
-    | 'none'
-    | 'vertical'
-    | 'horizontal';
+        "resize"?: 'unset' | 'none' | 'vertical' | 'horizontal';
         /**
           * The value of the textarea. Per default it is null.
          */
@@ -3544,18 +3524,7 @@ declare namespace LocalJSX {
         /**
           * How many columns the width of the col element should be. If not specified, the col will take up all available space in one row. We recommend explicitly defining the span in scenarios where the distribution of 12 spans across columns is clear. Up to single 12 columns fit in one row.
          */
-        "span"?: | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12;
+        "span"?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
         /**
           * The alignment of text placed inside a column. Note that this will apply to all children.
          */
@@ -3725,13 +3694,7 @@ declare namespace LocalJSX {
         /**
           * The type of the input. All native HTML types except date or month are supported. Default is text.
          */
-        "type"?: | 'text'
-    | 'email'
-    | 'number'
-    | 'password'
-    | 'search'
-    | 'tel'
-    | 'url';
+        "type"?: 'text' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'url';
         /**
           * The default value of the input field. If defined, it will prefill the input.
          */
@@ -4420,10 +4383,7 @@ declare namespace LocalJSX {
         /**
           * If and how the textarea is resizable. Per default it is resizable in both directions.
          */
-        "resize"?: | 'unset'
-    | 'none'
-    | 'vertical'
-    | 'horizontal';
+        "resize"?: 'unset' | 'none' | 'vertical' | 'horizontal';
         /**
           * The value of the textarea. Per default it is null.
          */
