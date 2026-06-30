@@ -115,8 +115,7 @@ export class TableRowComponent {
 
   private setTotalCols = () => {
     let cells = Array.from(this.hostElement.children) as
-      | HTMLB2bTableCellElement[]
-      | HTMLB2bTableHeaderElement[];
+      HTMLB2bTableCellElement[] | HTMLB2bTableHeaderElement[];
     let cols = 0;
     cells.forEach(cell => {
       cols += cell.colspan ? cell.colspan : 1;

@@ -31,13 +31,8 @@ export class InputComponent {
 
   /** The type of the input. All native HTML types except date or month are supported. Default is text. */
   @Prop({ reflect: true }) type:
-    | 'text'
-    | 'email'
-    | 'number'
-    | 'password'
-    | 'search'
-    | 'tel'
-    | 'url' = 'text';
+    'text' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'url' =
+    'text';
 
   /** Whether or not the input is disabled. Default is false. */
   @Prop({ reflect: true }) disabled: boolean = false;

@@ -41,10 +41,7 @@ export class B2BTextareaComponent {
 
   /** If and how the textarea is resizable. Per default it is resizable in both directions. */
   @Prop({ reflect: true }) resize?:
-    | 'unset'
-    | 'none'
-    | 'vertical'
-    | 'horizontal';
+    'unset' | 'none' | 'vertical' | 'horizontal';
 
   /** An optional hint for the textarea. Per default it is undefined. */
   @Prop() hint?: string;
