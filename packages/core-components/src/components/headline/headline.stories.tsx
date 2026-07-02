@@ -20,11 +20,11 @@ story010Default.args = defaultArgs;
 story010Default.storyName = 'Default Headline 400';
 
 export const story030Size200 = template.bind({});
-story030Size200.args = { ...defaultArgs, size: 200, slot: 'Headline 200' };
+story030Size200.args = { ...defaultArgs, size: '200', slot: 'Headline 200' };
 story030Size200.storyName = 'Headline 200';
 
 export const story040Size100 = template.bind({});
-story040Size100.args = { ...defaultArgs, size: 100, slot: 'Headline 100' };
+story040Size100.args = { ...defaultArgs, size: '100', slot: 'Headline 100' };
 story040Size100.storyName = 'Headline 100';
 
 export const story050Center = template.bind({});
