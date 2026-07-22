@@ -61,7 +61,7 @@
     "@storybook/addon-actions": "^8.6.15",
     "@storybook/addon-docs": "^8.6.15",
     "@storybook/addon-essentials": "^8.6.15",
-    "@storybook/addon-interactions": "^8.6.15",
+    "@storybook/addon-interactions": "^8.6.18",
     "@storybook/addon-links": "^8.6.15",
     "@storybook/addon-mdx-gfm": "^8.6.15",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.5",
