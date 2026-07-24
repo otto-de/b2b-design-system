@@ -39,6 +39,7 @@
   .b2b-modal__dialog {
     z-index: 1;
     position: relative;
+    width: 100%;
     min-width: var(--b2b-component-modal-default-min-width);
     max-width: var(--b2b-component-modal-default-max-width);
     padding: calc(var(--b2b-size-space-75) * 1.5)
