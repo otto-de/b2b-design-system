@@ -1,3 +1,12 @@
+## [1.38.5](https://github.com/otto-de/b2b-design-system/compare/v1.38.4...v1.38.5) (2026-07-24)
+
+
+### Bug Fixes
+
+* **default headline size:** [BLA-270] | Headline Default Size is selected for 200 and 100 examples ([b1703dc](https://github.com/otto-de/b2b-design-system/commit/b1703dc83b8c9477a57ca2652ec94b3c9dec0bc8))
+* **default modal size:** [B2BDS-277] Align b2b-modal sizes ([#756](https://github.com/otto-de/b2b-design-system/issues/756)) ([cb25dc9](https://github.com/otto-de/b2b-design-system/commit/cb25dc983d4ccebcbc0d74b90e4ccc9bc8366774))
+* **dependabot:** [BLA-2496] | Update dependencies from dependabot PRs ([4fd8a86](https://github.com/otto-de/b2b-design-system/commit/4fd8a863c13782f726c460fd4ba2666a61137b0b))
+
 ## [1.38.4](https://github.com/otto-de/b2b-design-system/compare/v1.38.3...v1.38.4) (2026-06-29)
 
 
