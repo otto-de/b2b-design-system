@@ -49,7 +49,7 @@
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.26.0",
-    "@chromatic-com/storybook": "^3.2.7",
+    "@chromatic-com/storybook": "^5.2.1",
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@isaacs/brace-expansion": "^5.0.0",
     "@stencil-community/eslint-plugin": "^0.10.0",
