@@ -29,7 +29,7 @@ export default {
     selectedValues: { table: { disable: true } },
   },
   render: ({ ...args }) =>
-    html`<div style="width: 400px">
+    html`<div style="width: 400px; height: 350px">
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
@@ -50,7 +50,7 @@ export const Default: Story = {};
 
 export const InitialSelectedValues: Story = {
   render: ({ ...args }) =>
-    html`<div style="width: 400px">
+    html`<div style="width: 400px; height: 350px">
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
@@ -105,7 +105,7 @@ export const WithOptionsArray: Story = {
     selectedValues: ['1', '5'],
   },
   render: ({ ...args }) =>
-    html`<div style="width: 400px">
+    html`<div style="width: 400px; height: 350px">
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}

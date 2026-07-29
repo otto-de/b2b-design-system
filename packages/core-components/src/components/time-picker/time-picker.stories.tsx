@@ -31,7 +31,7 @@ const meta: Meta = {
     },
   },
   render: ({ ...args }) => {
-    return html` <div style="margin-left: 2px">
+    return html` <div style="margin-left: 2px; height: 350px">
       <b2b-time-picker
         label=${args.label}
         required=${args.required}

@@ -23,7 +23,7 @@ const Template: StoryFn = ({ placeholder, optionsList, disabled }) => {
   };
   // contenteditable is needed so that storybook won't interpret the key inputs as shortcuts
   // it also works when the component has the word 'input' in its name
-  return html`<div style="width: 300px; display: block">
+  return html`<div style="width: 300px; display: block; height: 250px">
     <b2b-search
       contenteditable
       data-testid="search-element"

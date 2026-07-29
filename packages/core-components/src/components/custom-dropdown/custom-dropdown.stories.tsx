@@ -21,7 +21,7 @@ const meta: Meta = {
     alignment: 'left',
   },
   render: ({ ...args }) =>
-    html`<div style="margin-left: 16px;width: 300px">
+    html`<div style="margin-left: 16px; width: 300px; height: 350px">
       <b2b-custom-dropdown
         placeholder=${args.placeholder}
         dropshadow=${args.dropshadow}
@@ -151,7 +151,7 @@ export const WithOptionCategory: Story = {
     selectedIconColor: 'b2b-color-success-100',
   },
   render: ({ ...args }) =>
-    html`<div style="margin-left: 16px;width: 300px">
+    html`<div style="margin-left: 16px; width: 300px; height: 350px">
       <b2b-custom-dropdown
         placeholder=${args.placeholder}
         dropshadow=${args.dropshadow}
@@ -221,7 +221,7 @@ export const CustomDropdownOptionsDisabled: Story = {
 export const SearchAndScrollDisabled: Story = {
   args: { ...meta.args, opened: true },
   render: ({ ...args }) =>
-    html`<div style="margin-left: 16px;width: 300px">
+    html`<div style="margin-left: 16px; width: 300px; height: 350px">
       <b2b-custom-dropdown
         placeholder="${args.placeholder}"
         dropshadow="${args.dropshadow}"
@@ -249,7 +249,7 @@ export const SearchAndScrollDisabled: Story = {
 export const CustomDropdownDisabled: Story = {
   args: { ...meta.args, disabled: true, opened: true },
   render: ({ ...args }) =>
-    html`<div style="margin-left: 16px;width: 300px">
+    html`<div style="margin-left: 16px; width: 300px; height: 350px">
       <b2b-custom-dropdown
         placeholder="${args.placeholder}"
         disabled="${args.disabled}"

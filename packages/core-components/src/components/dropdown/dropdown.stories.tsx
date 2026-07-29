@@ -15,34 +15,36 @@ const Template: StoryFn = ({
   clear,
   selected = false,
 }) => {
-  return html`<b2b-dropdown
-    label=${label}
-    name=${name}
-    error=${error}
-    hint=${hint}
-    disabled=${disabled}
-    invalid=${invalid}
-    required=${required}
-    search=${search}
-    clear=${clear}>
-    <option value="strawberry">Strawberry</option>
-    <option value="orange">Orange</option>
-    <option value="banana">Banana</option>
-    ${
-      selected
-        ? html`<option value="pineapple" selected="true" clear="true">
-            Pineapple
-          </option>`
-        : html`<option value="pineapple">Pineapple</option>`
-    }
-    <option value="grapes">Grapes</option>
-    <option value="watermelon">Watermelon</option>
-    <option value="papaya">Papaya</option>
-    <option value="blueberry">Blueberry</option>
-    <option value="kiwi">Kiwi</option>
-    <option value="pomegranate">Pomegranate</option>
-    <option value="apple" disabled>Apple</option>
-  </b2b-dropdown>`;
+  return html`<div style="height: 350px">
+    <b2b-dropdown
+      label=${label}
+      name=${name}
+      error=${error}
+      hint=${hint}
+      disabled=${disabled}
+      invalid=${invalid}
+      required=${required}
+      search=${search}
+      clear=${clear}>
+      <option value="strawberry">Strawberry</option>
+      <option value="orange">Orange</option>
+      <option value="banana">Banana</option>
+      ${
+        selected
+          ? html`<option value="pineapple" selected="true" clear="true">
+              Pineapple
+            </option>`
+          : html`<option value="pineapple">Pineapple</option>`
+      }
+      <option value="grapes">Grapes</option>
+      <option value="watermelon">Watermelon</option>
+      <option value="papaya">Papaya</option>
+      <option value="blueberry">Blueberry</option>
+      <option value="kiwi">Kiwi</option>
+      <option value="pomegranate">Pomegranate</option>
+      <option value="apple" disabled>Apple</option>
+    </b2b-dropdown>
+  </div>`;
 };
 
 const defaultArgs = {

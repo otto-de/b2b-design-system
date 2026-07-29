@@ -36,7 +36,9 @@ export default {
   argTypes: {
     ...getArgTypes('b2b-date-range-picker', controls),
   },
-  render: ({ ...args }) => `<div style="margin-left: 2px; width: 300px">
+  render: ({
+    ...args
+  }) => `<div style="margin-left: 2px; width: 300px; height: 350px">
       <b2b-date-range-picker
         ${toHtmlAttribute(args, 'label')}
         ${toHtmlAttribute(args, 'required')}

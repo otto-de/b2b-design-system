@@ -10,7 +10,7 @@ const Template: StoryFn = ({
   additionalSlot,
 }) => {
   return additionalSlot
-    ? html` <div style="width: 380px">
+    ? html` <div style="width: 380px; height: 150px">
         <b2b-input-group
           invalid=${invalid}
           disabled=${disabled}
@@ -26,7 +26,7 @@ const Template: StoryFn = ({
           </b2b-button>
         </b2b-input-group>
       </div>`
-    : html`<div style="width: 280px">
+    : html`<div style="width: 280px; height: 150px">
         <b2b-input-group invalid="${invalid}" disabled="${disabled}" error="${error}" hint="${hint}">
           <b2b-input slot="start" label="Search Term"></b2b-input>
           <b2b-dropdown slot="end" style="width: fit-content;">
