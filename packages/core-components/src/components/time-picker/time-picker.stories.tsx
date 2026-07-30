@@ -32,7 +32,7 @@ const meta: Meta = {
   },
   render: ({ ...args }) => {
     return html` <b2b-story-open-wrapper
-      style="margin-left: 2px"
+      style="margin-left: 2px; display: block"
       data-open-class=".b2b-time-picker__options-container--visible"
       data-open-height="300px">
       <b2b-time-picker
