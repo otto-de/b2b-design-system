@@ -7,7 +7,7 @@ import fruits from './stories.data.json';
 
 const Template: StoryFn = ({ placeholder, optionsList, disabled }) => {
   const [_, updateArgs] = useArgs();
-  const onInput = event => {
+  const onInput = (event: CustomEvent) => {
     // Read user input
     const userInput = event.detail.value?.toLowerCase();
     // update result list
@@ -23,7 +23,11 @@ const Template: StoryFn = ({ placeholder, optionsList, disabled }) => {
   };
   // contenteditable is needed so that storybook won't interpret the key inputs as shortcuts
   // it also works when the component has the word 'input' in its name
-  return html`<div style="width: 300px; display: block; height: 250px">
+  return html`<b2b-story-open-wrapper
+    style="width: 300px"
+    data-shadow-child="b2b-input-list"
+    data-open-class=".b2b-input-list__options-on"
+    data-open-height="200px">
     <b2b-search
       contenteditable
       data-testid="search-element"
@@ -31,7 +35,7 @@ const Template: StoryFn = ({ placeholder, optionsList, disabled }) => {
       placeholder=${placeholder}
       .optionsList=${optionsList}
       @b2b-input=${onInput}></b2b-search>
-  </div>`;
+  </b2b-story-open-wrapper>`;
 };
 
 const defaultArgs = {
@@ -66,7 +70,11 @@ story020SearchDisabled.args = {
 };
 
 const CustomSearchTemplate: StoryFn = ({ placeholder, optionsList }) => {
-  return html`<div style="width: 500px; height: 130px;">
+  return html`<b2b-story-open-wrapper
+    style="width: 500px"
+    data-watch-child="b2b-input-list"
+    data-open-class=".b2b-input-list__options-on"
+    data-open-height="200px">
     <b2b-input-group>
       <b2b-input-list
         slot="start"
@@ -80,7 +88,7 @@ const CustomSearchTemplate: StoryFn = ({ placeholder, optionsList }) => {
         <b2b-icon-100 icon="b2b_icon-search"></b2b-icon-100>
       </b2b-button>
     </b2b-input-group>
-  </div>`;
+  </b2b-story-open-wrapper>`;
 };
 export const story030CustomSearch = CustomSearchTemplate.bind({});
 story030CustomSearch.storyName = 'Custom Search';

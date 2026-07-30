@@ -31,7 +31,10 @@ const meta: Meta = {
     },
   },
   render: ({ ...args }) => {
-    return html` <div style="margin-left: 2px; height: 350px">
+    return html` <b2b-story-open-wrapper
+      style="margin-left: 2px"
+      data-open-class=".b2b-time-picker__options-container--visible"
+      data-open-height="300px">
       <b2b-time-picker
         label=${args.label}
         required=${args.required}
@@ -41,7 +44,7 @@ const meta: Meta = {
         interval=${args.interval}
         value=${args.value}
         invalid=${args.invalid}></b2b-time-picker>
-    </div>`;
+    </b2b-story-open-wrapper>`;
   },
 };
 
@@ -55,10 +58,10 @@ export const Focused: Story = {
   args: { ...meta.args },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
-      const timePicker = canvasElement.querySelector('b2b-time-picker');
+      const timePicker = canvasElement.querySelector('b2b-time-picker')!;
       const b2bTimePickerWrapper =
         timePicker.shadowRoot?.querySelector('input');
-      await userEvent.click(b2bTimePickerWrapper);
+      await userEvent.click(b2bTimePickerWrapper!);
     }, 500);
   },
 };
@@ -90,10 +93,10 @@ export const CustomIntervalSet: Story = {
   },
   play: async ({ canvasElement }) => {
     setTimeout(async () => {
-      const timePicker = canvasElement.querySelector('b2b-time-picker');
+      const timePicker = canvasElement.querySelector('b2b-time-picker')!;
       const b2bTimePickerWrapper =
         timePicker.shadowRoot?.querySelector('input');
-      await userEvent.click(b2bTimePickerWrapper);
+      await userEvent.click(b2bTimePickerWrapper!);
     }, 500);
   },
 };

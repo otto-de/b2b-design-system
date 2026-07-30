@@ -15,7 +15,10 @@ const Template: StoryFn = ({
   clear,
   selected = false,
 }) => {
-  return html`<div style="height: 350px">
+  return html`<b2b-story-open-wrapper
+    style="display: block"
+    data-open-class=".b2b-dropdown__select--open"
+    data-open-height="300px">
     <b2b-dropdown
       label=${label}
       name=${name}
@@ -44,7 +47,7 @@ const Template: StoryFn = ({
       <option value="pomegranate">Pomegranate</option>
       <option value="apple" disabled>Apple</option>
     </b2b-dropdown>
-  </div>`;
+  </b2b-story-open-wrapper>`;
 };
 
 const defaultArgs = {
@@ -80,9 +83,9 @@ story050Selected.args = { ...defaultArgs, selected: true };
 story050Selected.storyName = 'Selected';
 story050Selected.play = async ({ canvasElement }) => {
   setTimeout(async () => {
-    const dropdown = canvasElement.querySelector('b2b-dropdown');
+    const dropdown = canvasElement.querySelector('b2b-dropdown')!;
     const wrapper = dropdown.shadowRoot?.querySelector('.b2b-dropdown__select');
-    await userEvent.click(wrapper);
+    await userEvent.click(wrapper!);
   }, 500);
 };
 

@@ -29,7 +29,10 @@ export default {
     selectedValues: { table: { disable: true } },
   },
   render: ({ ...args }) =>
-    html`<div style="width: 400px; height: 350px">
+    html`<b2b-story-open-wrapper
+      style="width: 400px"
+      data-open-class=".b2b-multiselect-dropdown--open"
+      data-open-height="320px">
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
@@ -43,14 +46,17 @@ export default {
         invalid=${args.invalid}
         error-message=${args.errorMessage}>
       </b2b-multiselect-dropdown>
-    </div>`,
+    </b2b-story-open-wrapper>`,
 } satisfies Meta;
 
 export const Default: Story = {};
 
 export const InitialSelectedValues: Story = {
   render: ({ ...args }) =>
-    html`<div style="width: 400px; height: 350px">
+    html`<b2b-story-open-wrapper
+      style="width: 400px"
+      data-open-class=".b2b-multiselect-dropdown--open"
+      data-open-height="320px">
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
@@ -65,7 +71,7 @@ export const InitialSelectedValues: Story = {
         invalid=${args.invalid}
         error-message=${args.errorMessage}>
       </b2b-multiselect-dropdown>
-    </div>`,
+    </b2b-story-open-wrapper>`,
 };
 
 export const Required: Story = {
@@ -105,7 +111,10 @@ export const WithOptionsArray: Story = {
     selectedValues: ['1', '5'],
   },
   render: ({ ...args }) =>
-    html`<div style="width: 400px; height: 350px">
+    html`<b2b-story-open-wrapper
+      style="width: 400px"
+      data-open-class=".b2b-multiselect-dropdown--open"
+      data-open-height="320px">
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
@@ -120,5 +129,5 @@ export const WithOptionsArray: Story = {
         invalid=${args.invalid}
         error-message=${args.errorMessage}>
       </b2b-multiselect-dropdown>
-    </div>`,
+    </b2b-story-open-wrapper>`,
 };
