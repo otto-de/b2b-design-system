@@ -8,7 +8,7 @@ const meta: Meta = {
   args: { disabled: false, separator: false },
   argTypes: getArgTypes('b2b-flyout-menu'),
   render: ({ ...args }) =>
-    html` <div style="margin-left: 100px">
+    html` <b2b-story-open-wrapper style="margin-left: 100px" data-open-class=".b2b-flyout-menu__options__container--on" data-open-height="150px">
       <b2b-flyout-menu>
         <b2b-icon-100
           icon="b2b_icon-ellipsis"
@@ -56,7 +56,7 @@ export const Separator: Story = {
 export const AllStates: Story = {
   args: { ...meta.args, disabled: true, separator: true },
   render: ({ ...args }) =>
-    html` <div style="margin-left: 100px">
+    html` <b2b-story-open-wrapper style="margin-left: 100px" data-open-class=".b2b-flyout-menu__options__container--on" data-open-height="150px">
       <b2b-flyout-menu opened="true">
         <b2b-icon-100
           icon="b2b_icon-ellipsis"

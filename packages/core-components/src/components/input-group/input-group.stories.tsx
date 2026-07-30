@@ -10,7 +10,11 @@ const Template: StoryFn = ({
   additionalSlot,
 }) => {
   return additionalSlot
-    ? html` <div style="width: 380px">
+    ? html` <b2b-story-open-wrapper
+        style="width: 380px"
+        data-watch-child="b2b-dropdown"
+        data-open-class=".b2b-dropdown__select--open"
+        data-open-height="100px">
         <b2b-input-group
           invalid=${invalid}
           disabled=${disabled}
@@ -25,17 +29,24 @@ const Template: StoryFn = ({
             <b2b-icon-100 icon="b2b_icon-search"></b2b-icon-100>
           </b2b-button>
         </b2b-input-group>
-      </div>`
-    : html`<div style="width: 280px">
-        <b2b-input-group invalid="${invalid}" disabled="${disabled}" error="${error}" hint="${hint}">
+      </b2b-story-open-wrapper>`
+    : html`<b2b-story-open-wrapper
+        style="width: 280px"
+        data-watch-child="b2b-dropdown"
+        data-open-class=".b2b-dropdown__select--open"
+        data-open-height="100px">
+        <b2b-input-group
+          invalid="${invalid}"
+          disabled="${disabled}"
+          error="${error}"
+          hint="${hint}">
           <b2b-input slot="start" label="Search Term"></b2b-input>
           <b2b-dropdown slot="end" style="width: fit-content;">
             <option value="one">€</option>
             <option value="two">$</option>
           </b2b-dropdown>
         </b2b-input-group>
-      </div>
-    </div>`;
+      </b2b-story-open-wrapper>`;
 };
 
 const defaultArgs = {

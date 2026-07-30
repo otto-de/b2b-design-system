@@ -2,7 +2,11 @@ import { Meta, StoryFn } from '@storybook/web-components';
 import { getArgTypes } from '../../docs/config/utils';
 import { html } from 'lit-html';
 
-const Template: StoryFn = ({ testWidth, testHeight, testWhiteSpace }) => {
+const HorizontalTemplate: StoryFn = ({
+  testWidth,
+  testHeight,
+  testWhiteSpace,
+}) => {
   return html`
     <b2b-scrollable-container
       style=${`width: ${testWidth}; height: ${testHeight}`}>
@@ -23,6 +27,27 @@ const Template: StoryFn = ({ testWidth, testHeight, testWhiteSpace }) => {
     </b2b-scrollable-container>
   `;
 };
+const VerticalTemplate: StoryFn = ({ testWidth, testHeight }) => {
+  return html`
+    <b2b-scrollable-container
+      style=${`width: ${testWidth}; height: ${testHeight}; --b2b-scrollable-white-space: normal`}>
+      <b2b-paragraph style="display: block">
+        Far far away, behind the word mountains, far from the countries Vokalia
+        and Consonantia, there live the blind texts. Separated they live in
+        Bookmarksgrove right at the coast of the Semantics, a large language
+        ocean. A small river named Duden flows by their place and supplies it
+        with the necessary regelialia. It is a paradisematic country, in which
+        roasted parts of sentences fly into your mouth. Even the all-powerful
+        Pointing has no control about the blind texts it is an almost
+        unorthographic life One day however a small line of blind text by the
+        name of Lorem Ipsum decided to leave for the far World of Grammar. The
+        Big Oxmox advised her not to do so, because there were thousands of bad
+        Commas, wild Question Marks and devious Semikoli, but the Little Blind
+        Text didn't listen.
+      </b2b-paragraph>
+    </b2b-scrollable-container>
+  `;
+};
 
 const defaultArgs = {
   testWidth: '400px',
@@ -30,15 +55,14 @@ const defaultArgs = {
   testWhiteSpace: 'inherit',
 };
 
-export const story010HorizontalScroll = Template.bind({});
+export const story010HorizontalScroll = HorizontalTemplate.bind({});
 story010HorizontalScroll.args = { ...defaultArgs };
 story010HorizontalScroll.storyName = 'Horizontal Scroll';
 
-export const story020VerticalScroll = Template.bind({});
+export const story020VerticalScroll = VerticalTemplate.bind({});
 story020VerticalScroll.args = {
-  ...defaultArgs,
+  testWidth: '400px',
   testHeight: '100px',
-  testWhiteSpace: 'normal',
 };
 story020VerticalScroll.storyName = 'Vertical Scroll';
 

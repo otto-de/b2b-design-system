@@ -36,7 +36,9 @@ export default {
   argTypes: {
     ...getArgTypes('b2b-date-range-picker', controls),
   },
-  render: ({ ...args }) => `<div style="margin-left: 2px; width: 300px">
+  render: ({
+    ...args
+  }) => `<b2b-story-open-wrapper style="margin-left: 2px; width: 300px" data-open-class=".b2b-date-range-picker-input-wrapper--open" data-open-height="300px">
       <b2b-date-range-picker
         ${toHtmlAttribute(args, 'label')}
         ${toHtmlAttribute(args, 'required')}
@@ -48,20 +50,20 @@ export default {
         ${toHtmlAttribute(args, 'error')}
         ${toHtmlAttribute(args, 'language')} >
       </b2b-date-range-picker>
-    </div>`,
+    </b2b-story-open-wrapper>`,
 } satisfies Meta;
 
 function findDatePicker(
   canvasElement: HTMLElement,
 ): HTMLB2bDateRangePickerElement {
-  return canvasElement.querySelector('b2b-date-range-picker');
+  return canvasElement.querySelector('b2b-date-range-picker')!;
 }
 
 async function open(datePicker: HTMLB2bDateRangePickerElement): Promise<void> {
   const wrapper = datePicker.shadowRoot?.querySelector(
     '.b2b-date-range-picker-input-wrapper',
   );
-  await userEvent.click(wrapper);
+  await userEvent.click(wrapper!);
 }
 
 const LOAD_DELAY = 500;

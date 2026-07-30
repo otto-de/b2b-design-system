@@ -3,6 +3,6 @@
 :host {
   overflow: auto;
   display: block;
-  white-space: nowrap;
+  white-space: var(--b2b-scrollable-white-space, nowrap);
   position: relative;
 }

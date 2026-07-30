@@ -1,4 +1,4 @@
-import { Story, Primary, Source, Canvas, Meta } from '@storybook/blocks';
+import { Source, Canvas, Meta } from '@storybook/blocks';
 
 import * as ScrollableContainerStories from './scrollable-container.stories';
 
@@ -9,8 +9,10 @@ import * as ScrollableContainerStories from './scrollable-container.stories';
 This component is a helper container that encapsulates the classes to make the content scrollable both horizontally
 and vertically. The scroll will only appear when the content is bigger than the container.
 
-This container sets the `white-space` property as `nowrap`, so be cautious to overwrite it in any children if you
-require the text wo wrap.
+This container sets the `white-space` property as `nowrap` via its shadow DOM, so direct children will inherit
+this value. To enable vertical scrolling, wrap the content in a native element (e.g. a `<div>`) and set
+`white-space: normal` on that wrapper — this reliably overrides the inherited value regardless of shadow DOM
+cascade rules.
 
 ```html
 <b2b-scrollable-container style="width: 400px; height: 50px">
@@ -20,18 +22,15 @@ require the text wo wrap.
 
 ### Horizontal scroll
 
-In this example the text will inherit the `nowrap` property of the container, therefore is just one long line,
+In this example the text inherits the `nowrap` property of the container, therefore it is just one long line,
 triggering the horizontal scroll on the container.
 
-<Canvas columns={3} withSource="closed" withToolbar={false}>
-  <Story id="components-content-scrollable-container--story-010-horizontal-scroll" />
-</Canvas>
+<Canvas of={ScrollableContainerStories.story010HorizontalScroll} />
 
 ### Vertical scroll
 
-In this example we set the white-space of the text to normal so that it will wrap, also causing it to be vertically
-a long paragraph, triggering the vertical scroll on the container.
+In this example, multiple short block-level paragraphs are stacked inside the container. Each line of text
+fits within the container width so no horizontal overflow occurs, while the combined height of all paragraphs
+exceeds the container height, triggering vertical scroll only.
 
-<Canvas columns={3} withSource="closed" withToolbar={false}>
-  <Story id="components-content-scrollable-container--story-020-vertical-scroll" />
-</Canvas>
+<Canvas of={ScrollableContainerStories.story020VerticalScroll} />

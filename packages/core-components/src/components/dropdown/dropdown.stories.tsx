@@ -15,34 +15,39 @@ const Template: StoryFn = ({
   clear,
   selected = false,
 }) => {
-  return html`<b2b-dropdown
-    label=${label}
-    name=${name}
-    error=${error}
-    hint=${hint}
-    disabled=${disabled}
-    invalid=${invalid}
-    required=${required}
-    search=${search}
-    clear=${clear}>
-    <option value="strawberry">Strawberry</option>
-    <option value="orange">Orange</option>
-    <option value="banana">Banana</option>
-    ${
-      selected
-        ? html`<option value="pineapple" selected="true" clear="true">
-            Pineapple
-          </option>`
-        : html`<option value="pineapple">Pineapple</option>`
-    }
-    <option value="grapes">Grapes</option>
-    <option value="watermelon">Watermelon</option>
-    <option value="papaya">Papaya</option>
-    <option value="blueberry">Blueberry</option>
-    <option value="kiwi">Kiwi</option>
-    <option value="pomegranate">Pomegranate</option>
-    <option value="apple" disabled>Apple</option>
-  </b2b-dropdown>`;
+  return html`<b2b-story-open-wrapper
+    style="display: block"
+    data-open-class=".b2b-dropdown__select--open"
+    data-open-height="300px">
+    <b2b-dropdown
+      label=${label}
+      name=${name}
+      error=${error}
+      hint=${hint}
+      disabled=${disabled}
+      invalid=${invalid}
+      required=${required}
+      search=${search}
+      clear=${clear}>
+      <option value="strawberry">Strawberry</option>
+      <option value="orange">Orange</option>
+      <option value="banana">Banana</option>
+      ${
+        selected
+          ? html`<option value="pineapple" selected="true" clear="true">
+              Pineapple
+            </option>`
+          : html`<option value="pineapple">Pineapple</option>`
+      }
+      <option value="grapes">Grapes</option>
+      <option value="watermelon">Watermelon</option>
+      <option value="papaya">Papaya</option>
+      <option value="blueberry">Blueberry</option>
+      <option value="kiwi">Kiwi</option>
+      <option value="pomegranate">Pomegranate</option>
+      <option value="apple" disabled>Apple</option>
+    </b2b-dropdown>
+  </b2b-story-open-wrapper>`;
 };
 
 const defaultArgs = {
@@ -78,9 +83,9 @@ story050Selected.args = { ...defaultArgs, selected: true };
 story050Selected.storyName = 'Selected';
 story050Selected.play = async ({ canvasElement }) => {
   setTimeout(async () => {
-    const dropdown = canvasElement.querySelector('b2b-dropdown');
+    const dropdown = canvasElement.querySelector('b2b-dropdown')!;
     const wrapper = dropdown.shadowRoot?.querySelector('.b2b-dropdown__select');
-    await userEvent.click(wrapper);
+    await userEvent.click(wrapper!);
   }, 500);
 };
 
