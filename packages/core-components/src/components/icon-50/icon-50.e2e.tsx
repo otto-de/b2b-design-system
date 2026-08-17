@@ -20,7 +20,7 @@ describe('B2B Icon 50', () => {
       `<b2b-icon-50 icon="b2b_icon-not-supported-name"></b2b-icon-50>`,
     );
 
-    expect(console.warn).toBeCalled();
+    expect(console.warn).toHaveBeenCalled();
   });
 
   it('should make the icon clickable', async () => {

@@ -22,7 +22,7 @@ describe('B2B Icon 100', () => {
       `<b2b-icon-100 icon="b2b_icon-not-supported-name"></b2b-icon-100>`,
     );
 
-    expect(console.warn).toBeCalled();
+    expect(console.warn).toHaveBeenCalled();
   });
 
   it('should change size and warn if size is below 24 or above 96 pixels', async () => {
@@ -33,7 +33,7 @@ describe('B2B Icon 100', () => {
       `<b2b-icon-100 icon="b2b_icon-arrow-down" size="12"></b2b-icon-100>`,
     );
 
-    expect(console.warn).toBeCalled();
+    expect(console.warn).toHaveBeenCalled();
   });
 
   it('should make the icon clickable', async () => {
