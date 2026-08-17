@@ -41,6 +41,8 @@
     "@semantic-release/github": "^12.0.8",
     "@semantic-release/npm": "^13.1.2",
     "@semantic-release/release-notes-generator": "^14.0.3",
+    "@storybook/csf": "^0.1.13",
+    "@types/jest": "^29.5.14",
     "@types/react": "18.2.34",
     "@types/react-dom": "18.2.7",
     "husky": "^9.1.7",
@@ -52,8 +54,7 @@
     "react-dom": "18.3.1",
     "sass-embedded": "^1.85.1",
     "semantic-release": "^25.0.2",
-    "undici-types": "^7.5.0",
-    "@storybook/csf": "^0.1.13"
+    "undici-types": "^7.5.0"
   },
   "resolutions": {
     "trim": "0.0.3",
@@ -83,13 +84,6 @@
               "ip-address": "10.3.1"
             }
           }
-        }
-      }
-    },
-    "@commitlint/cli": {
-      "@commitlint/load": {
-        "@commitlint/config-validator": {
-          "fast-uri": "3.1.5"
         }
       }
     },

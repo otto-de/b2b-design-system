@@ -147,7 +147,7 @@ describe('B2B-Wizard', () => {
       </b2b-wizard>`,
     );
 
-    expect(console.warn).toBeCalled();
+    expect(console.warn).toHaveBeenCalled();
   });
 
   it('should be emitting an error if active-step is higher than total steps', async () => {
@@ -163,6 +163,6 @@ describe('B2B-Wizard', () => {
       <b2b-wizard-step>This is the text</b2b-wizard-step>
     </b2b-wizard>`);
 
-    expect(console.error).toBeCalled();
+    expect(console.error).toHaveBeenCalled();
   });
 });

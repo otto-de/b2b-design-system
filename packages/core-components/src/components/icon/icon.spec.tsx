@@ -19,5 +19,5 @@ it('should gracefully fail if icon name is not found by not rendering icon and e
     template: () => <b2b-icon icon="b2b_some-typo"></b2b-icon>,
   });
   expect(page.root).toMatchSnapshot();
-  expect(console.warn).toBeCalled();
+  expect(console.warn).toHaveBeenCalled();
 });
