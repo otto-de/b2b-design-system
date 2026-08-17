@@ -86,13 +86,6 @@
         }
       }
     },
-    "@commitlint/cli": {
-      "@commitlint/load": {
-        "@commitlint/config-validator": {
-          "fast-uri": "3.1.5"
-        }
-      }
-    },
     "@storybook/test-runner": {
       "axios": "1.18.1"
     },
