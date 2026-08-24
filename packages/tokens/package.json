@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "lodash": "^4.18.1",
-    "style-dictionary": "^5.5.1",
+    "style-dictionary": "^5.5.2",
     "@bundled-es-modules/glob": "^13.0.6",
     "@bundled-es-modules/deepmerge": "^4.3.2",
     "@bundled-es-modules/memfs": "^4.17.0",
