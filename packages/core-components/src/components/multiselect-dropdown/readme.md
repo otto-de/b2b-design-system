@@ -9,6 +9,7 @@
 
 | Property             | Attribute             | Description                                                                                                                                 | Type                             | Default     |
 | -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `chipMaxWidth`       | `chip-max-width`      | Sets a maximum width for each selected chip so long labels can truncate.                                                                    | `string`                         | `undefined` |
 | `disabled`           | `disabled`            | Whether or not the field is disabled. Default is false.                                                                                     | `boolean`                        | `false`     |
 | `errorMessage`       | `error-message`       | The error message that is shown if the multi select dropdown is invalid.                                                                    | `string`                         | `undefined` |
 | `hint`               | `hint`                | The hint text that appears underneath the multi select dropdown field.                                                                      | `string`                         | `undefined` |

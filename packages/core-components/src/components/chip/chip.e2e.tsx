@@ -151,6 +151,31 @@ describe('B2B-Chip-Component', () => {
     expect(label).toHaveClass('b2b-chip__label--strikethrough');
   });
 
+  it('should truncate chip text when max width is set', async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<b2b-chip-component
+        label="chip with a very long label that should truncate"
+        max-width="100px"></b2b-chip-component>`,
+    );
+
+    const metrics = await page.$eval('b2b-chip-component', host => {
+      const chip = host.shadowRoot.querySelector('.b2b-chip');
+      const label = host.shadowRoot.querySelector('.b2b-chip__label');
+
+      return {
+        chipMaxWidth: getComputedStyle(chip).maxWidth,
+        labelTextOverflow: getComputedStyle(label).textOverflow,
+        labelClientWidth: label.clientWidth,
+        labelScrollWidth: label.scrollWidth,
+      };
+    });
+
+    expect(metrics.chipMaxWidth).toBe('100px');
+    expect(metrics.labelTextOverflow).toBe('ellipsis');
+    expect(metrics.labelScrollWidth).toBeGreaterThan(metrics.labelClientWidth);
+  });
+
   it('should emit b2b-close event on clear icon click', async () => {
     const page = await newE2EPage();
     await page.setContent(

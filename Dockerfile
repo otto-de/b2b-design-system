@@ -1,5 +1,8 @@
 FROM node:24-alpine3.23
 
+# Pull latest Alpine security fixes for OpenSSL (libcrypto3/libssl3)
+RUN apk upgrade --no-cache libcrypto3 libssl3
+
 # Upgrade undici to fix CVE-2026-13697 (undici DoS vulnerability)
 RUN npm install -g undici@8.9.0 \
   && rm -rf /usr/local/lib/node_modules/npm/node_modules/undici \

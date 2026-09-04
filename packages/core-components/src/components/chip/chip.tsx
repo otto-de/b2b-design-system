@@ -37,6 +37,9 @@ export class B2bChipComponent {
   /** It is used to customise the margin of chip component */
   @Prop() customMargin: string = '8px';
 
+  /** Sets a maximum width for the chip so the label can truncate when space is limited. */
+  @Prop({ reflect: true }) maxWidth?: string;
+
   /** This event will be triggered when the chip element is closed */
   @Event({ eventName: 'b2b-close' })
   b2bClose: EventEmitter<ChipComponentEventDetail>;
@@ -74,7 +77,8 @@ export class B2bChipComponent {
             [`b2b-chip--${this.type}`]:
               !this.disabled && this.type !== undefined,
             'b2b-chip--disabled': this.disabled,
-          }}>
+          }}
+          style={this.maxWidth ? { maxWidth: this.maxWidth } : undefined}>
           <span
             class={{
               'b2b-chip__label': true,

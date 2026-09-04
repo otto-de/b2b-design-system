@@ -286,6 +286,10 @@ export namespace Components {
          */
         "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
         /**
+          * Sets a maximum width for the chip so the label can truncate when space is limited.
+         */
+        "maxWidth"?: string;
+        /**
           * The type of chip to represent states like success, info, warn and error. Uses default style if not set.
          */
         "type"?: 'success' | 'info' | 'warn' | 'error';
@@ -940,6 +944,10 @@ export namespace Components {
         "variant": 'default' | 'large';
     }
     interface B2bMultiselectDropdown {
+        /**
+          * Sets a maximum width for each selected chip so long labels can truncate.
+         */
+        "chipMaxWidth"?: string;
         /**
           * Whether or not the field is disabled. Default is false.
          */
@@ -3056,6 +3064,10 @@ declare namespace LocalJSX {
          */
         "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
         /**
+          * Sets a maximum width for the chip so the label can truncate when space is limited.
+         */
+        "maxWidth"?: string;
+        /**
           * This event will be triggered when the chip element is closed
          */
         "onB2b-close"?: (event: B2bChipComponentCustomEvent<ChipComponentEventDetail>) => void;
@@ -3810,6 +3822,10 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'large';
     }
     interface B2bMultiselectDropdown {
+        /**
+          * Sets a maximum width for each selected chip so long labels can truncate.
+         */
+        "chipMaxWidth"?: string;
         /**
           * Whether or not the field is disabled. Default is false.
          */

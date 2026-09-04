@@ -22,6 +22,7 @@ export default {
     disabled: false,
     invalid: false,
     errorMessage: '',
+    chipMaxWidth: '',
   },
   argTypes: {
     ...multiselectArgs,
@@ -36,6 +37,7 @@ export default {
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
+        chip-max-width=${args.chipMaxWidth}
         select-all-label=${args.selectAllLabel}
         placeholder=${args.placeholder}
         search-placeholder=${args.searchPlaceholder}
@@ -60,6 +62,44 @@ export const InitialSelectedValues: Story = {
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
+        chip-max-width=${args.chipMaxWidth}
+        select-all-label=${args.selectAllLabel}
+        placeholder=${args.placeholder}
+        search-placeholder=${args.searchPlaceholder}
+        .optionsList=${args.optionsList}
+        .selectedValues=${args.selectedValues}
+        required=${args.required}
+        hint=${args.hint}
+        disabled=${args.disabled}
+        invalid=${args.invalid}
+        error-message=${args.errorMessage}>
+      </b2b-multiselect-dropdown>
+    </b2b-story-open-wrapper>`,
+};
+
+export const ChipMaxWidth: Story = {
+  args: {
+    optionsList: [
+      'Very long selected fruit label that should truncate one',
+      'Another very long selected fruit label that should truncate two',
+      'Banana',
+      'Pomelo',
+    ],
+    selectedValues: [
+      'Very long selected fruit label that should truncate one',
+      'Another very long selected fruit label that should truncate two',
+    ],
+    chipMaxWidth: '120px',
+  },
+  render: ({ ...args }) =>
+    html`<b2b-story-open-wrapper
+      style="width: 400px"
+      data-open-class=".b2b-multiselect-dropdown--open"
+      data-open-height="320px">
+      <b2b-multiselect-dropdown
+        label=${args.label}
+        max-options-visible=${args.maxOptionsVisible}
+        chip-max-width=${args.chipMaxWidth}
         select-all-label=${args.selectAllLabel}
         placeholder=${args.placeholder}
         search-placeholder=${args.searchPlaceholder}
@@ -118,6 +158,7 @@ export const WithOptionsArray: Story = {
       <b2b-multiselect-dropdown
         label=${args.label}
         max-options-visible=${args.maxOptionsVisible}
+        chip-max-width=${args.chipMaxWidth}
         select-all-label=${args.selectAllLabel}
         placeholder=${args.placeholder}
         search-placeholder=${args.searchPlaceholder}
