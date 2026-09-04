@@ -38,6 +38,19 @@
           selected-values="skyshroom, hydromelon"></b2b-multiselect-dropdown>
       </div>
     </div>
+    <div class="content-container">
+      <b2b-headline size="200">Multiselect Dropdown - Chip Max Width</b2b-headline>
+      <div class="form-element-width">
+        <b2b-multiselect-dropdown
+          id="multiselect-chip-max-width"
+          placeholder="Please select..."
+          search-placeholder="Search"
+          select-all-label="Select All"
+          label="Hylian fruits and vegetables"
+          chip-max-width="120px"
+          selected-values="long_selected_fruit_one,long_selected_fruit_two"></b2b-multiselect-dropdown>
+      </div>
+    </div>
     <script>
       const multiselect = document.getElementById('multiselect');
       multiselect.optionsList = [
@@ -50,6 +63,22 @@
         { label: 'Mighty Banana', value: 'mighty_banana' },
         { label: 'Endura Carrot', value: 'endura_carrot' },
         { label: 'Golden Apple', value: 'golden_apple' },
+      ];
+
+      const multiselectChipMaxWidth = document.getElementById(
+        'multiselect-chip-max-width',
+      );
+      multiselectChipMaxWidth.optionsList = [
+        {
+          label: 'Very long selected fruit label that should truncate one',
+          value: 'long_selected_fruit_one',
+        },
+        {
+          label: 'Another very long selected fruit label that should truncate two',
+          value: 'long_selected_fruit_two',
+        },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Pomelo', value: 'pomelo' },
       ];
     </script>
 
