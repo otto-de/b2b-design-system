@@ -107,6 +107,38 @@ describe('b2b-multiselect-dropdown', () => {
     expect(valueHandle).toBe('Alpha');
   });
 
+  it('should pass max width to rendered chips', async () => {
+    const page = await newE2EPage({
+      html: `<b2b-multiselect-dropdown
+        label="Fruits"
+        options-list="A very long selected option label"
+        selected-values="A very long selected option label"
+        chip-max-width="120px"></b2b-multiselect-dropdown>`,
+    });
+
+    const chip = await page.find(
+      'b2b-multiselect-dropdown >>> b2b-chip-component',
+    );
+    expect(await chip.getAttribute('max-width')).toBe('120px');
+
+    const metrics = await page.$eval('b2b-multiselect-dropdown', host => {
+      const chipComponent = host.shadowRoot.querySelector('b2b-chip-component');
+      const label = chipComponent.shadowRoot.querySelector('.b2b-chip__label');
+      const wrapper = chipComponent.shadowRoot.querySelector('.b2b-chip');
+
+      return {
+        chipMaxWidth: getComputedStyle(wrapper).maxWidth,
+        labelTextOverflow: getComputedStyle(label).textOverflow,
+        labelClientWidth: label.clientWidth,
+        labelScrollWidth: label.scrollWidth,
+      };
+    });
+
+    expect(metrics.chipMaxWidth).toBe('120px');
+    expect(metrics.labelTextOverflow).toBe('ellipsis');
+    expect(metrics.labelScrollWidth).toBeGreaterThan(metrics.labelClientWidth);
+  });
+
   it('should render two chips when select all is clicked', async () => {
     const page = await newE2EPage({
       html: `<b2b-multiselect-dropdown options-list="Alpha, Beta"></b2b-multiselect-dropdown>`,

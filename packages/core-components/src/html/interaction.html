@@ -394,19 +394,11 @@
         label="Chip component"
         custom-margin="4px"></b2b-chip-component>
       <b2b-headline size="100" no-margin="true"
-        >Truncated Chip Component</b2b-headline
+        >Max Width Chip Component</b2b-headline
       >
-      <div
-        style="
-          display: flex;
-          width: 200px;
-          border: 1px solid black;
-          padding: 6px;
-        ">
-        <b2b-chip-component
-          label="Chip component with long text"
-          value="one"></b2b-chip-component>
-      </div>
+      <b2b-chip-component
+        label="Chip with a long label constrained by max width"
+        max-width="140px"></b2b-chip-component>
 
       <b2b-headline size="100" no-margin="true"
         >Types of Chip Components</b2b-headline
