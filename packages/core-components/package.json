@@ -69,7 +69,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/preview-api": "^8.6.15",
     "@storybook/test": "^8.6.15",
-    "@storybook/test-runner": "^0.22.0",
+    "@storybook/test-runner": "^0.24.4",
     "@storybook/theming": "^8.6.18",
     "@storybook/web-components": "^8.6.18",
     "@storybook/web-components-webpack5": "^8.6.15",
