@@ -9,6 +9,14 @@ import {
 } from '@stencil/core';
 import { ChipComponentEventDetail } from '../../utils/interfaces/form.interface';
 
+const chipLabelStyles = ['italic', 'strikethrough'] as const;
+
+const isChipLabelStyle = (
+  labelStyle?: string,
+): labelStyle is 'italic' | 'strikethrough' =>
+  labelStyle !== undefined &&
+  chipLabelStyles.includes(labelStyle as (typeof chipLabelStyles)[number]);
+
 @Component({
   tag: 'b2b-chip-component',
   styleUrl: 'chip.scss',
@@ -22,8 +30,8 @@ export class B2bChipComponent {
   /** The type of chip to represent states like success, info, warn and error. Uses default style if not set. */
   @Prop() type?: 'success' | 'info' | 'warn' | 'error';
 
-  /** The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set. */
-  @Prop() labelStyle?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+  /** The style of the label which decorates the text in italic or strikethrough style. Uses default style if not set. */
+  @Prop() labelStyle?: 'italic' | 'strikethrough';
 
   /** Whether the chip is disabled. */
   @Prop() disabled: boolean = false;
@@ -69,6 +77,10 @@ export class B2bChipComponent {
   );
 
   render() {
+    const labelStyle = isChipLabelStyle(this.labelStyle)
+      ? this.labelStyle
+      : undefined;
+
     return (
       <Host>
         <div
@@ -82,8 +94,7 @@ export class B2bChipComponent {
           <span
             class={{
               'b2b-chip__label': true,
-              [`b2b-chip__label--${this.labelStyle}`]:
-                this.labelStyle !== undefined,
+              [`b2b-chip__label--${labelStyle}`]: labelStyle !== undefined,
               'b2b-chip__label--close-button': this.hasCloseButton,
             }}>
             {this.label}

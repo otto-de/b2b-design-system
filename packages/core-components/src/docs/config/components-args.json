@@ -803,10 +803,8 @@
     },
     "labelStyle": {
       "options": [
-        "bold",
         "italic",
-        "strikethrough",
-        "underline"
+        "strikethrough"
       ],
       "control": {
         "type": "radio"
@@ -817,7 +815,7 @@
         },
         "defaultValue": {}
       },
-      "description": "The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set."
+      "description": "The style of the label which decorates the text in italic or strikethrough style. Uses default style if not set."
     },
     "maxWidth": {
       "table": {

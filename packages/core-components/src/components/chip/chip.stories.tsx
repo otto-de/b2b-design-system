@@ -1,8 +1,12 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { getArgTypes } from '../../docs/config/utils';
 
 type Story = StoryObj;
+
+const chipArgTypes = getArgTypes('b2b-chip-component');
+const defaultOption = 'Default';
 
 const meta: Meta = {
   title: 'Components/Interaction/Chip',
@@ -17,13 +21,37 @@ const meta: Meta = {
     customMargin: '',
     maxWidth: '',
   },
-  argTypes: getArgTypes('b2b-chip-component'),
+  argTypes: {
+    ...chipArgTypes,
+    type: {
+      ...chipArgTypes.type,
+      control: { type: 'radio' },
+      options: [defaultOption, 'success', 'info', 'warn', 'error'],
+      mapping: {
+        [defaultOption]: undefined,
+        success: 'success',
+        info: 'info',
+        warn: 'warn',
+        error: 'error',
+      },
+    },
+    labelStyle: {
+      ...chipArgTypes.labelStyle,
+      control: { type: 'radio' },
+      options: [defaultOption, 'italic', 'strikethrough'],
+      mapping: {
+        [defaultOption]: undefined,
+        italic: 'italic',
+        strikethrough: 'strikethrough',
+      },
+    },
+  },
   render: ({ ...args }) =>
     html`<b2b-chip-component
       custom-margin=${args.customMargin}
       label=${args.label}
-      type=${args.type}
-      label-style=${args.labelStyle}
+      type=${ifDefined(args.type)}
+      label-style=${ifDefined(args.labelStyle)}
       disabled=${args.disabled}
       value=${args.value}
       max-width=${args.maxWidth}
