@@ -282,9 +282,9 @@ export namespace Components {
          */
         "label": string;
         /**
-          * The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set.
+          * The style of the label which decorates the text in italic or strikethrough style. Uses default style if not set.
          */
-        "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+        "labelStyle"?: 'italic' | 'strikethrough';
         /**
           * Sets a maximum width for the chip so the label can truncate when space is limited.
          */
@@ -3060,9 +3060,9 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set.
+          * The style of the label which decorates the text in italic or strikethrough style. Uses default style if not set.
          */
-        "labelStyle"?: 'bold' | 'italic' | 'underline' | 'strikethrough';
+        "labelStyle"?: 'italic' | 'strikethrough';
         /**
           * Sets a maximum width for the chip so the label can truncate when space is limited.
          */

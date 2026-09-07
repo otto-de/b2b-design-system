@@ -83,7 +83,7 @@ describe('B2B-Chip-Component', () => {
     expect(chipWrapper).toHaveClass('b2b-chip--error');
   });
 
-  it('should render the chip component with bold label', async () => {
+  it('should ignore unsupported label styles', async () => {
     const page = await newE2EPage();
     await page.setContent(
       `<b2b-chip-component label="chip" label-style="bold"></b2b-chip-component>`,
@@ -97,7 +97,7 @@ describe('B2B-Chip-Component', () => {
     expect(clearIcon).not.toBeNull();
 
     const label = await page.find('b2b-chip-component >>> .b2b-chip__label');
-    expect(label).toHaveClass('b2b-chip__label--bold');
+    expect(label).not.toHaveClass('b2b-chip__label--bold');
   });
 
   it('should render the chip component with italic label', async () => {
@@ -115,23 +115,6 @@ describe('B2B-Chip-Component', () => {
 
     const label = await page.find('b2b-chip-component >>> .b2b-chip__label');
     expect(label).toHaveClass('b2b-chip__label--italic');
-  });
-
-  it('should render the chip component with underlined label', async () => {
-    const page = await newE2EPage();
-    await page.setContent(
-      `<b2b-chip-component label="chip" label-style="underline"></b2b-chip-component>`,
-    );
-
-    const chip = await page.find({ text: 'chip' });
-    const clearIcon = await page.find(
-      'b2b-chip-component >>> button.b2b-chip__clearIcon',
-    );
-    expect(chip).not.toBeNull();
-    expect(clearIcon).not.toBeNull();
-
-    const label = await page.find('b2b-chip-component >>> .b2b-chip__label');
-    expect(label).toHaveClass('b2b-chip__label--underline');
   });
 
   it('should render the chip component with strikethrough label', async () => {
