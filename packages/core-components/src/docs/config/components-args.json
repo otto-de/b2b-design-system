@@ -819,6 +819,15 @@
       },
       "description": "The style of the label which decorates the text in bold, italic, underline or strikethrough style. Uses default style if not set."
     },
+    "maxWidth": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Sets a maximum width for the chip so the label can truncate when space is limited."
+    },
     "type": {
       "options": [
         "error",
@@ -3528,6 +3537,15 @@
     }
   },
   "b2b-multiselect-dropdown": {
+    "chipMaxWidth": {
+      "table": {
+        "type": {
+          "summary": "string"
+        },
+        "defaultValue": {}
+      },
+      "description": "Sets a maximum width for each selected chip so long labels can truncate."
+    },
     "disabled": {
       "control": {
         "type": "boolean"

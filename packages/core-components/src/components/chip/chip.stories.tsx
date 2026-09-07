@@ -15,6 +15,7 @@ const meta: Meta = {
     value: '',
     hasCloseButton: true,
     customMargin: '',
+    maxWidth: '',
   },
   argTypes: getArgTypes('b2b-chip-component'),
   render: ({ ...args }) =>
@@ -25,6 +26,7 @@ const meta: Meta = {
       label-style=${args.labelStyle}
       disabled=${args.disabled}
       value=${args.value}
+      max-width=${args.maxWidth}
       has-close-button=${args.hasCloseButton} />`,
 };
 
@@ -56,23 +58,13 @@ export const story030WithoutButton: Story = {
   },
 };
 
-export const story040WithTruncatedText: Story = {
-  name: 'Truncated Label',
+export const story041MaxWidth: Story = {
+  name: 'Max Width',
   args: {
     ...meta.args,
-    label: 'Chip with truncated label',
+    label: 'Chip with a long label constrained by max width',
+    maxWidth: '140px',
   },
-  render: ({ ...args }) =>
-    html`<div
-      style="width: 170px; border: 1px solid grey; border-radius: 3px; padding: 6px;">
-      <b2b-chip-component
-        label=${args.label}
-        type=${args.type}
-        label-style=${args.labelStyle}
-        disabled=${args.disabled}
-        value=${args.value}
-        has-close-button=${args.hasCloseButton} />
-    </div>`,
 };
 
 export const story050SuccessChip: Story = {

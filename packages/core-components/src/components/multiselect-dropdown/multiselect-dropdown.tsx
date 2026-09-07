@@ -42,6 +42,9 @@ export class B2bMultiSelectDropdown implements ComponentInterface {
   /** The maximum amount of chips visible. Adjust this depending on available size of the dropdown. */
   @Prop() maxOptionsVisible: number = 8;
 
+  /** Sets a maximum width for each selected chip so long labels can truncate. */
+  @Prop() chipMaxWidth?: string;
+
   /** Adds an asterisk at the end of the label to signify that the field is required. */
   @Prop({ reflect: true }) required: boolean = false;
 
@@ -169,6 +172,7 @@ export class B2bMultiSelectDropdown implements ComponentInterface {
             label={option.label}
             value={option.value}
             disabled={this.disabled || this.groupDisabled}
+            maxWidth={this.chipMaxWidth}
             onB2b-close={this.handleChipClose}></b2b-chip-component>
         );
       } else if (index === this.maxOptionsVisible) {
