@@ -1,3 +1,10 @@
+## [1.38.8](https://github.com/otto-de/b2b-design-system/compare/v1.38.7...v1.38.8) (2026-09-07)
+
+
+### Bug Fixes
+
+* **chip labelstyles:** [B2BDS-285]  Rename Default to default ([#794](https://github.com/otto-de/b2b-design-system/issues/794)) ([331aad1](https://github.com/otto-de/b2b-design-system/commit/331aad1b5bd07274d72d9c0c4a4b4dc7baca6084))
+
 ## [1.38.7](https://github.com/otto-de/b2b-design-system/compare/v1.38.6...v1.38.7) (2026-09-07)
 
 
