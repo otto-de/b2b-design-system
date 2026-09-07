@@ -52,7 +52,7 @@ describe('B2B-Chip-Component', () => {
   it('should render the chip component with warning type', async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<b2b-chip-component label="chip" type="warn"></b2b-chip-component>`,
+      `<b2b-chip-component label="chip" type="warning"></b2b-chip-component>`,
     );
 
     const chip = await page.find({ text: 'chip' });
@@ -63,7 +63,7 @@ describe('B2B-Chip-Component', () => {
     expect(clearIcon).not.toBeNull();
 
     const chipWrapper = await page.find('b2b-chip-component >>> .b2b-chip');
-    expect(chipWrapper).toHaveClass('b2b-chip--warn');
+    expect(chipWrapper).toHaveClass('b2b-chip--warning');
   });
 
   it('should render the chip component with error type', async () => {

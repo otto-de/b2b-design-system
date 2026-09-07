@@ -290,9 +290,9 @@ export namespace Components {
          */
         "maxWidth"?: string;
         /**
-          * The type of chip to represent states like success, info, warn and error. Uses default style if not set.
+          * The type of chip to represent states like success, info, warning and error. Uses default style if not set.
          */
-        "type"?: 'success' | 'info' | 'warn' | 'error';
+        "type"?: 'success' | 'info' | 'warning' | 'error';
         /**
           * It is only used when the chip component participates in a group
          */
@@ -3072,9 +3072,9 @@ declare namespace LocalJSX {
          */
         "onB2b-close"?: (event: B2bChipComponentCustomEvent<ChipComponentEventDetail>) => void;
         /**
-          * The type of chip to represent states like success, info, warn and error. Uses default style if not set.
+          * The type of chip to represent states like success, info, warning and error. Uses default style if not set.
          */
-        "type"?: 'success' | 'info' | 'warn' | 'error';
+        "type"?: 'success' | 'info' | 'warning' | 'error';
         /**
           * It is only used when the chip component participates in a group
          */

@@ -27,8 +27,8 @@ export class B2bChipComponent {
   /** The text content of the chip. It is required. */
   @Prop() label!: string;
 
-  /** The type of chip to represent states like success, info, warn and error. Uses default style if not set. */
-  @Prop() type?: 'success' | 'info' | 'warn' | 'error';
+  /** The type of chip to represent states like success, info, warning and error. Uses default style if not set. */
+  @Prop() type?: 'success' | 'info' | 'warning' | 'error';
 
   /** The style of the label which decorates the text in italic or strikethrough style. Uses default style if not set. */
   @Prop() labelStyle?: 'italic' | 'strikethrough';
