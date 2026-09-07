@@ -831,7 +831,7 @@
         "error",
         "info",
         "success",
-        "warning"
+        "warn"
       ],
       "control": {
         "type": "radio"
@@ -842,7 +842,7 @@
         },
         "defaultValue": {}
       },
-      "description": "The type of chip to represent states like success, info, warning and error. Uses default style if not set."
+      "description": "The type of chip to represent states like success, info, warn and error. Uses default style if not set."
     },
     "value": {
       "table": {

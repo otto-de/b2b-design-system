@@ -6,7 +6,7 @@ import { getArgTypes } from '../../docs/config/utils';
 type Story = StoryObj;
 
 const chipArgTypes = getArgTypes('b2b-chip-component');
-const defaultOption = 'default';
+const defaultOption = 'Default';
 
 const meta: Meta = {
   title: 'Components/Interaction/Chip',
@@ -26,12 +26,12 @@ const meta: Meta = {
     type: {
       ...chipArgTypes.type,
       control: { type: 'radio' },
-      options: [defaultOption, 'success', 'info', 'warning', 'error'],
+      options: [defaultOption, 'success', 'info', 'warn', 'error'],
       mapping: {
         [defaultOption]: undefined,
         success: 'success',
         info: 'info',
-        warning: 'warning',
+        warn: 'warn',
         error: 'error',
       },
     },
@@ -117,7 +117,7 @@ export const story052WarningChip: Story = {
   name: 'Warning Chip',
   args: {
     ...meta.args,
-    type: 'warning',
+    type: 'warn',
     label: 'Chip with warning type',
   },
 };
