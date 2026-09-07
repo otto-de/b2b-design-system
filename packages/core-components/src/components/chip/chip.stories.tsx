@@ -6,7 +6,7 @@ import { getArgTypes } from '../../docs/config/utils';
 type Story = StoryObj;
 
 const chipArgTypes = getArgTypes('b2b-chip-component');
-const defaultOption = 'Default';
+const defaultOption = 'default';
 
 const meta: Meta = {
   title: 'Components/Interaction/Chip',
