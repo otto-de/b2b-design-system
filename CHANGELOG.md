@@ -1,3 +1,10 @@
+## [1.38.7](https://github.com/otto-de/b2b-design-system/compare/v1.38.6...v1.38.7) (2026-09-07)
+
+
+### Bug Fixes
+
+* **chip labelstyles:** [B2BDS-285] Remove unused bold and underline label styles ([5e0c36f](https://github.com/otto-de/b2b-design-system/commit/5e0c36f4c08750a16c41c5686cc59b7d8db598fd))
+
 ## [1.38.6](https://github.com/otto-de/b2b-design-system/compare/v1.38.5...v1.38.6) (2026-09-07)
 
 
