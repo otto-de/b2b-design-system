@@ -1,3 +1,12 @@
+## [1.38.6](https://github.com/otto-de/b2b-design-system/compare/v1.38.5...v1.38.6) (2026-09-07)
+
+
+### Bug Fixes
+
+* **chip width:** [B2BDS-285] Add prop to set chip width ([#786](https://github.com/otto-de/b2b-design-system/issues/786)) ([ad097ad](https://github.com/otto-de/b2b-design-system/commit/ad097adff221e3a1a547cefac8c867f9fd918dca))
+* **vulnerabilities:** [BLA-2605] | Fix vulnerabilities ([0a4fd2a](https://github.com/otto-de/b2b-design-system/commit/0a4fd2ab7416e5f5a962d08cf66268c47f8cb319))
+* **vulnerabilities:** [BLA-2605] | Merge dependabot PRs ([c22b92a](https://github.com/otto-de/b2b-design-system/commit/c22b92a46fac26e790b2b517c2523c2984be726a))
+
 ## [1.38.5](https://github.com/otto-de/b2b-design-system/compare/v1.38.4...v1.38.5) (2026-07-24)
 
 
