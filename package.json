@@ -54,7 +54,7 @@
     "react-dom": "18.3.1",
     "sass-embedded": "^1.85.1",
     "semantic-release": "^25.0.2",
-    "undici-types": "^7.5.0"
+    "undici-types": "^8.10.2"
   },
   "resolutions": {
     "trim": "0.0.3",
