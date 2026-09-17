@@ -28,7 +28,7 @@
     "@otto-de/b2b-core-components": "1.38.8"
   },
   "devDependencies": {
-    "typescript": "4.9.5",
+    "typescript": "7.0.2",
     "@types/node": "^18.17.1"
   }
 }
