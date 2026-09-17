@@ -265,7 +265,9 @@ describe('B2B-Dropdown', () => {
     const inputElement = await page.find('b2b-dropdown >>> .b2b-input');
     await inputElement.focus();
 
-    await inputElement.click({ clickCount: 3 });
+    await inputElement.click();
+    await inputElement.click();
+    await inputElement.click();
     await page.keyboard.press('Backspace');
     await page.waitForChanges();
 
