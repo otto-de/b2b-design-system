@@ -85,7 +85,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-utils": "^3.0.0",
     "globals": "^17.7.0",
-    "jest": "^29.7.0",
+    "jest": "^30.5.1",
     "jest-cli": "^29.7.0",
     "jest-image-snapshot": "^6.5.2",
     "jsdom": "^26.0.0",
