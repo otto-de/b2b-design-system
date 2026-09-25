@@ -371,6 +371,7 @@ export const iconTypes = [
   'b2b_icon-sphere',
   'b2b_icon-star-circle',
   'b2b_icon-stationary',
+  'b2b_icon-stopwatch',
   'b2b_icon-studies',
   'b2b_icon-success-hint-filled',
   'b2b_icon-success',
