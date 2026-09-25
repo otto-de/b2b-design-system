@@ -27,10 +27,12 @@ function generateIconTypes() {
         console.error(`Error reading directory ${sourceDir}: ${err}`);
         return;
       }
-      files.forEach(file => {
-        let fileName = path.parse(file).name;
-        iconNames.push(fileName);
-      });
+      files
+        .filter(file => path.extname(file).toLowerCase() === '.svg')
+        .forEach(file => {
+          let fileName = path.parse(file).name;
+          iconNames.push(fileName);
+        });
       const iconTypesContent = JSON.stringify(iconNames, null, 2)
         .replaceAll('"', "'") // Use single-quotes
         .replace("'\n]", "',\n]"); // Add `,` after last element
