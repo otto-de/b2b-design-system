@@ -58,7 +58,7 @@
     "@stencil-community/postcss": "^2.2.0",
     "@stencil/react-output-target": "^0.5.3",
     "@stencil/sass": "^3.1.7",
-    "@storybook/addon-actions": "^8.6.15",
+    "@storybook/addon-actions": "^9.0.8",
     "@storybook/addon-docs": "^8.6.15",
     "@storybook/addon-essentials": "^8.6.15",
     "@storybook/addon-interactions": "^8.6.18",
