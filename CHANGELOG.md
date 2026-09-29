@@ -1,3 +1,12 @@
+## [1.38.9](https://github.com/otto-de/b2b-design-system/compare/v1.38.8...v1.38.9) (2026-09-29)
+
+
+### Bug Fixes
+
+* **build:** [B2BDS-287] fix svg, remove height width and fill to accept variable value ([#821](https://github.com/otto-de/b2b-design-system/issues/821)) ([3b000fa](https://github.com/otto-de/b2b-design-system/commit/3b000faab4d87db02fc236edcbfdb722e10f3777))
+* **build:** [B2BDS-287] fixing pipeline([#820](https://github.com/otto-de/b2b-design-system/issues/820)) ([c61b190](https://github.com/otto-de/b2b-design-system/commit/c61b1904165be87479e1858f00c48229ff3c5ef3))
+* **stop-watch-icon:** [B2BDS-287] update b2b_icon-info icon and add new b2b_icon-stopwatch icon ([#819](https://github.com/otto-de/b2b-design-system/issues/819)) ([07f6eb4](https://github.com/otto-de/b2b-design-system/commit/07f6eb415116ad00a8a7717d183ec6b16eae77fc))
+
 ## [1.38.8](https://github.com/otto-de/b2b-design-system/compare/v1.38.7...v1.38.8) (2026-09-07)
 
 
