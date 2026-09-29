@@ -40,6 +40,8 @@ module.exports = {
       customSnapshotsDir,
       customSnapshotIdentifier: context.id,
       threshold: 0.25,
+      failureThreshold: 4,
+      failureThresholdType: 'pixel',
     });
   },
 };
