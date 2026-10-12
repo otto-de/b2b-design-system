@@ -173,6 +173,7 @@ These are the options which are currently supported by the script:
 Options:
     --reset-local-changes        Reset local changes (git reset HEAD --hard)
     --run-storybook              Start Storybook development server after build
+    --skip-run                   Skip static Storybook/docs image builds and final server startup
     --update-snapshots           Update existing test snapshots
     --skip-tests                 Skip running tests (faster build)
     --skip-snapshot-tests        Skip running snapshot tests
@@ -197,7 +198,13 @@ Examples:
     ./local_build_script.sh --update-snapshots --verbose
     ./local_build_script.sh --skip-docker --skip-tests   # Fast local development
     ./local_build_script.sh --run-storybook --verbose    # Full build with Storybook
+    ./local_build_script.sh --skip-run                   # Build and test without Storybook build or server startup
 ```
+
+`--skip-run` skips the static Storybook build, its dependent documentation Docker image, and the
+final Stencil or Storybook development server startup. Linting, package builds, and tests still run;
+visual regression tests remain controlled separately by `--skip-snapshot-tests` or `--skip-docker`.
+Do not combine `--skip-run` with `--run-storybook`.
 
 ### Documentation
 
