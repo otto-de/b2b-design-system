@@ -7,8 +7,8 @@ on:
         type: string
 
 env:
-  TRIVY_VERSION: v0.68.1
-  TRIVY_ACTION_SHA: 243e42e81d0be75e0e7425e7735c0c2e22b67351
+  TRIVY_VERSION: v0.75.0
+  TRIVY_ACTION_SHA: 591e9799316a602e703f0b484f6c6d7b234ec8f3
 
 jobs:
   shai-hulud-scan:
@@ -143,7 +143,7 @@ jobs:
         run: ./ci/init.sh _verify_trivy_action_sha
 
       - name: Run vulnerability scan on Docker image
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           scan-type: 'image'
           ignore-unfixed: false

@@ -152,17 +152,17 @@ validate_environment() {
 }
 
 # ---------------------------------------------------------------------------
-# Trivy configuration — v0.69.3
+# Trivy configuration — v0.75.0
 # ---------------------------------------------------------------------------
-readonly TRIVY_VERSION="0.69.3"
+readonly TRIVY_VERSION="0.75.0"
 readonly TRIVY_BASE_URL="https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}"
 
-# Hard-coded SHA256 checksums (sourced from the official trivy_0.69.3_checksums.txt)
-readonly TRIVY_SHA256_LINUX_AMD64="1816b632dfe529869c740c0913e36bd1629cb7688bd5634f4a858c1d57c88b75"
-readonly TRIVY_SHA256_LINUX_ARM64="7e3924a974e912e57b4a99f65ece7931f8079584dae12eb7845024f97087bdfd"
-readonly TRIVY_SHA256_LINUX_ARM="d76d7c30829af5349aa2461f6703c56b3e392f7de691a231850c9a4e57827c2b"
-readonly TRIVY_SHA256_MACOS_AMD64="fec4a9f7569b624dd9d044fca019e5da69e032700edbb1d7318972c448ec2f4e"
-readonly TRIVY_SHA256_MACOS_ARM64="a2f2179afd4f8bb265ca3c7aefb56a666bc4a9a411663bc0f22c3549fbc643a5"
+# Hard-coded SHA256 checksums (sourced from the official trivy_0.75.0_checksums.txt)
+readonly TRIVY_SHA256_LINUX_AMD64="c6e65abddb348e25f10549df887045629cf28cc72453cd1c63acb717316b3f3f"
+readonly TRIVY_SHA256_LINUX_ARM64="a1ee9f6ffb7d112b64ff726a2a0717c21175c1114361391f4a132956751a13b3"
+readonly TRIVY_SHA256_LINUX_ARM="8cbe2286600ba56267fab0f10cf5696c252993b7b7935c5cef518abab3c84af4"
+readonly TRIVY_SHA256_MACOS_AMD64="291edaa9778acbe4693d067b5ad60ee11570e5ac68296e85595417528ca641e4"
+readonly TRIVY_SHA256_MACOS_ARM64="4a77108cccf8e55c8d6823e1e759939a622277e66cd0daa3c1fc621ed69e4568"
 
 # Outputs "<archive-filename>|<expected-sha256>" for the current OS/arch.
 get_trivy_asset_info() {
