@@ -14,6 +14,7 @@ readonly NC='\033[0m' # No Color
 RESET_LOCAL_CHANGES=false
 UPDATE_SNAPSHOTS=false
 RUN_STORYBOOK=false
+SKIP_RUN=false
 SKIP_TESTS=false
 SKIP_SNAPSHOT_TESTS=false
 SKIP_DOCKER=false
@@ -34,13 +35,15 @@ show_help() {
     cat << EOF
 B2B Design System Local Build Script
 
-Helper script to build and test the project locally. If everything goes well, the UI will be started up.
+Helper script to build and test locally. By default, it starts Stencil at the end; use
+--run-storybook to start Storybook instead, or --skip-run to skip static Storybook and server startup.
 
 Usage: ./local_build_script.sh [options]
 
 Options:
     --reset-local-changes        Reset local changes (git reset HEAD --hard)
     --run-storybook              Start Storybook development server after build
+    --skip-run                   Skip static Storybook/docs image builds and final server startup
     --update-snapshots           Update existing test snapshots
     --skip-tests                 Skip running tests (faster build)
     --skip-snapshot-tests        Skip running snapshot tests
@@ -65,6 +68,7 @@ Examples:
     ./local_build_script.sh --update-snapshots --verbose
     ./local_build_script.sh --skip-docker --skip-tests   # Fast local development
     ./local_build_script.sh --run-storybook --verbose    # Full build with Storybook
+    ./local_build_script.sh --skip-run                   # Build and test without Storybook build or server startup
 EOF
 }
 
@@ -82,6 +86,10 @@ parse_arguments() {
                 ;;
             --run-storybook)
                 RUN_STORYBOOK=true
+                shift
+                ;;
+            --skip-run)
+                SKIP_RUN=true
                 shift
                 ;;
             --skip-tests)
@@ -324,6 +332,11 @@ validate_arguments() {
         has_conflicts=true
     fi
 
+    if [[ "$RUN_STORYBOOK" == true && "$SKIP_RUN" == true ]]; then
+        print_error "Conflicting options detected: --run-storybook cannot be used with --skip-run"
+        has_conflicts=true
+    fi
+
     # Auto-enable skip snapshot tests if Docker is skipped (only if no conflicts)
     if [[ "$SKIP_DOCKER" == true && "$SKIP_SNAPSHOT_TESTS" == false && "$has_conflicts" == false ]]; then
         print_info "Auto-adjustment: Enabling --skip-snapshot-tests since --skip-docker was specified"
@@ -365,6 +378,7 @@ main() {
     echo "  Reset local changes:        $(if [[ "$RESET_LOCAL_CHANGES" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
     echo "  Update snapshots:           $(if [[ "$UPDATE_SNAPSHOTS" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
     echo "  Run Storybook:              $(if [[ "$RUN_STORYBOOK" == true ]]; then echo -e "${GREEN}ENABLED${NC}"; else echo -e "${RED}DISABLED${NC}"; fi)"
+    echo "  Skip Storybook and server:  $(if [[ "$SKIP_RUN" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
     echo "  Skip tests:                 $(if [[ "$SKIP_TESTS" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
     echo "  Skip snapshot tests:        $(if [[ "$SKIP_SNAPSHOT_TESTS" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
     echo "  Skip Docker Build:          $(if [[ "$SKIP_DOCKER" == true ]]; then echo -e "${YELLOW}ENABLED${NC}"; else echo -e "${GREEN}DISABLED${NC}"; fi)"
@@ -415,32 +429,38 @@ main() {
         print_warning "Skipping tests (--skip-tests flag used)"
     fi
 
-    # Build Storybook
-    print_info "Building Storybook..."
-    if [[ ! -d "$CORE_COMPONENTS_DIR" ]]; then
-        print_error "Directory $CORE_COMPONENTS_DIR does not exist"
-        exit 1
-    fi
-
-    cd "$CORE_COMPONENTS_DIR"
-    if [[ "$VERBOSE" == true ]]; then
-        npm run build:storybook
+    # Build Storybook for the static docs image
+    if [[ "$SKIP_RUN" == true ]]; then
+        print_warning "Skipping static Storybook build (--skip-run flag used)"
     else
-        npm run build:storybook > /dev/null 2>&1 || { print_error "Storybook build failed"; exit 1; }
-    fi
+        print_info "Building Storybook..."
+        if [[ ! -d "$CORE_COMPONENTS_DIR" ]]; then
+            print_error "Directory $CORE_COMPONENTS_DIR does not exist"
+            exit 1
+        fi
 
-    # Copy dist to docs-build
-    if [[ ! -d "dist" ]]; then
-        print_error "dist directory not found in $CORE_COMPONENTS_DIR"
-        exit 1
-    fi
+        cd "$CORE_COMPONENTS_DIR"
+        if [[ "$VERBOSE" == true ]]; then
+            npm run build:storybook
+        else
+            npm run build:storybook > /dev/null 2>&1 || { print_error "Storybook build failed"; exit 1; }
+        fi
 
-    mkdir -p docs-build
-    cp -r dist docs-build/design-system
-    print_success "Storybook built and copied to docs-build"
+        # Copy dist to docs-build
+        if [[ ! -d "dist" ]]; then
+            print_error "dist directory not found in $CORE_COMPONENTS_DIR"
+            exit 1
+        fi
+
+        mkdir -p docs-build
+        cp -r dist docs-build/design-system
+        print_success "Storybook built and copied to docs-build"
+    fi
 
     # Build Docker image if flags allow
-    if [[ "$SKIP_DOCKER" == true ]]; then
+    if [[ "$SKIP_RUN" == true ]]; then
+        print_warning "Skipping docs Docker image build (--skip-run flag used)"
+    elif [[ "$SKIP_DOCKER" == true ]]; then
         print_warning "Skipping Docker build (--skip-docker flag used)"
     else
         print_info "Building Docker image..."
@@ -484,10 +504,9 @@ main() {
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
     print_success "Build completed successfully in ${duration}s"
-    print_info "Starting Storybook development server..."
-
-    # This will block and start the dev server
-    if [[ "$RUN_STORYBOOK" == true ]]; then
+    if [[ "$SKIP_RUN" == true ]]; then
+        print_warning "Skipping Stencil/Storybook development server startup (--skip-run flag used)"
+    elif [[ "$RUN_STORYBOOK" == true ]]; then
         print_info "Running Storybook instead of Stencil..."
         cd "$CORE_COMPONENTS_DIR"
         npm run storybook
