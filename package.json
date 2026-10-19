@@ -74,14 +74,12 @@
     "browserslist": "^4.28.7",
     "fast-uri": "^3.1.6",
     "postcss": "8.5.23",
+    "webpack-dev-middleware": "7.4.6",
     "axios": "1.20.0",
     "handlebars": "4.7.10",
     "shell-quote": "1.11.0",
     "source-map-js": "1.2.2",
     "brace-expansion@^5.0.0": "5.0.12",
-    "@storybook/builder-webpack5": {
-      "webpack-dev-middleware": "7.4.6"
-    },
     "npm": {
       "tar": "^7.5.21",
       "make-fetch-happen": {
