@@ -52,7 +52,7 @@
     "@chromatic-com/storybook": "^3.2.7",
     "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^10.0.0",
-    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@isaacs/brace-expansion": "^5.0.1",
     "@stencil-community/eslint-plugin": "^0.10.0",
     "@stencil-community/postcss": "^2.2.0",
