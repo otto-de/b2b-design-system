@@ -4,7 +4,7 @@ FROM node:24-alpine3.23
 RUN apk upgrade --no-cache libcrypto3 libssl3
 
 # Upgrade undici to fix CVE-2026-19534 (undici: undici: Denial of Service via unrequested WebSocket subprotocol)
-RUN npm install -g undici@8.10.2 \
+RUN npm install -g undici@8.12.2 \
   && rm -rf /usr/local/lib/node_modules/npm/node_modules/undici \
   && cp -r /usr/local/lib/node_modules/undici /usr/local/lib/node_modules/npm/node_modules/undici
 
