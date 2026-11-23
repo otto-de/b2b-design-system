@@ -1,7 +1,7 @@
 FROM node:24-alpine3.23
 
-# Pull latest Alpine security fixes for OpenSSL (libcrypto3/libssl3)
-RUN apk upgrade --no-cache libcrypto3 libssl3
+# Pull the latest security fixes for all Alpine packages.
+RUN apk upgrade --no-cache
 
 # Upgrade Undici to 8.12.2 to fix known TLS-validation, redirect-cache, stream, and DoS vulnerabilities.
 RUN npm install -g undici@8.12.2 \

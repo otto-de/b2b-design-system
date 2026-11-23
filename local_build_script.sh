@@ -490,7 +490,8 @@ main() {
     else
         if [[ "$UPDATE_SNAPSHOTS" == true ]]; then
             print_info "Regenerating test snapshots..."
-            docker-compose run run-tests npx test-storybook --verbose --url http://storybook.local:6006 -u
+            docker-compose up -d --build storybook
+            docker-compose run --build --rm run-tests npx test-storybook --verbose --url http://storybook.local:6006 -u
         else
             print_info "Running snapshot tests..."
             docker-compose up --build --abort-on-container-exit
