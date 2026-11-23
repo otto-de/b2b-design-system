@@ -57,6 +57,8 @@ export const iconTypes = [
   'b2b_icon-success-hint',
   'b2b_icon-trend-down',
   'b2b_icon-trend-up',
+  'b2b_icon-thumbs-up',
+  'b2b_icon-thumbs-down',
   'b2b_icon-voucher',
   'b2b_icon-warning-hint',
   'b2b_icon-wishlist-active',
