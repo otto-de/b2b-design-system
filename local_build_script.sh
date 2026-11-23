@@ -491,6 +491,19 @@ main() {
         if [[ "$UPDATE_SNAPSHOTS" == true ]]; then
             print_info "Regenerating test snapshots..."
             docker-compose up -d --build storybook
+            print_info "Waiting for Storybook to become ready..."
+            local storybook_ready=false
+            for _ in {1..60}; do
+                if curl --fail --silent http://localhost:6006 >/dev/null 2>&1; then
+                    storybook_ready=true
+                    break
+                fi
+                sleep 2
+            done
+            if [[ "$storybook_ready" == false ]]; then
+                print_error "Storybook did not become ready within 120 seconds"
+                exit 1
+            fi
             docker-compose run --build --rm run-tests npx test-storybook --verbose --url http://storybook.local:6006 -u
         else
             print_info "Running snapshot tests..."
