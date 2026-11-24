@@ -101,7 +101,7 @@
     "storybook": "^8.6.15",
     "style-loader": "^4.0.0",
     "stylelint": "^17.13.0",
-    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard": "^41.1.0",
     "stylelint-config-standard-scss": "^17.0.0",
     "ts-dedent": "^2.2.0",
     "ts-jest": "^29.1.1",
