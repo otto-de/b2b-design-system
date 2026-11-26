@@ -1,3 +1,16 @@
+## [1.38.10](https://github.com/otto-de/b2b-design-system/compare/v1.38.9...v1.38.10) (2026-11-26)
+
+
+### Bug Fixes
+
+* **icons-50:** [B2BDS-288] fix - color in icon 50 ([#863](https://github.com/otto-de/b2b-design-system/issues/863)) ([7a37010](https://github.com/otto-de/b2b-design-system/commit/7a370100cdf232587637d877aaedde7ad14dc5f2))
+* **misc:** [BLA-2748] | Update trivy version ([4c5ed89](https://github.com/otto-de/b2b-design-system/commit/4c5ed890de8e01f24d4b0100387acca9026f5fa8))
+* **misc:** [BLA-2755] | Sync package versions and update docs ([c67d85f](https://github.com/otto-de/b2b-design-system/commit/c67d85f68f544ab53db19d341e043edb3ced3ffe))
+* **misc:** [BLA-2755] | Update scripts and docs ([d9d25e4](https://github.com/otto-de/b2b-design-system/commit/d9d25e45eba52bdca2fe7fc507a32b5cf0e3d784))
+* **test:** [BLA-2755] | Update snapshots ([1846477](https://github.com/otto-de/b2b-design-system/commit/18464774512f614f5d08203363a421b8f0fc708d))
+* **vulnerabilities:** [BLA-2808] | Fix all recent vulnerabilities ([cfe973b](https://github.com/otto-de/b2b-design-system/commit/cfe973bcbf25bf4e5e2c1de94e95490fc3bf5788))
+* **vulnerabilities|tests:** [BLA-2755] | Fix vulnerabilities ([87e355d](https://github.com/otto-de/b2b-design-system/commit/87e355db6ff56aa57c3b037f7b9125c08457431a))
+
 ## [1.38.9](https://github.com/otto-de/b2b-design-system/compare/v1.38.8...v1.38.9) (2026-09-29)
 
 
